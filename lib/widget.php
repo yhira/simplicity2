@@ -720,14 +720,14 @@ class MobileTextWidgetItem extends WP_Widget {
     <?php //タイトル入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('title_mobile_text'); ?>">
-      <?php _e('タイトル'); ?>
+      タイトル
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('title_mobile_text'); ?>" name="<?php echo $this->get_field_name('title_mobile_text'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
     <?php //テキスト入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('text_mobile_text'); ?>">
-      <?php _e('テキスト'); ?>
+      テキスト
       </label>
       <textarea class="widefat" id="<?php echo $this->get_field_id('text_mobile_text'); ?>" name="<?php echo $this->get_field_name('text_mobile_text'); ?>" cols="20" rows="16"><?php echo $text; ?></textarea>
     </p>
@@ -788,14 +788,14 @@ class PcTextWidgetItem extends WP_Widget {
     <?php //タイトル入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('title_pc_text'); ?>">
-      <?php _e('タイトル'); ?>
+      タイトル
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('title_pc_text'); ?>" name="<?php echo $this->get_field_name('title_pc_text'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
     <?php //テキスト入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('text_pc_text'); ?>">
-      <?php _e('テキスト'); ?>
+      テキスト
       </label>
       <textarea class="widefat" id="<?php echo $this->get_field_id('text_pc_text'); ?>" name="<?php echo $this->get_field_name('text_pc_text'); ?>" cols="20" rows="16"><?php echo $text; ?></textarea>
     </p>
@@ -856,14 +856,14 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
     <?php //タイトル入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('title_facebook_page_like'); ?>">
-      <?php _e('タイトル（未入力で非表示）'); ?>
+      タイトル（未入力で非表示）
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('title_facebook_page_like'); ?>" name="<?php echo $this->get_field_name('title_facebook_page_like'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
     <?php //テキスト入力フォーム ?>
     <p>
-      <label for="<?php echo $this->get_field_id('text_facebook_page_like'); ?>">
-      <?php _e('メッセージ');
+      <label for="<?php echo $this->get_field_id('text_facebook_page_like'); ?>">メッセージ
+      <?php
         if ( !$text ) {
           $text = 'この記事をお届けした<br>'.get_bloginfo('name').'の最新ニュース情報を、<br><span style="color: #F27C8E;font-weight: bold;font-size: 1.1em;">いいね</span>してチェックしよう！';
         }?>
@@ -940,13 +940,13 @@ class MobileAdWidgetItem extends WP_Widget {
 <?php //広告入力フォーム ?>
 <p>
   <label for="<?php echo $this->get_field_id('ad_text'); ?>">
-    <?php _e('広告タグ'); ?>
+    広告タグ
   </label>
   <textarea class="widefat" id="<?php echo $this->get_field_id('ad_text'); ?>" name="<?php echo $this->get_field_name('ad_text'); ?>" cols="20" rows="16"><?php echo $ad; ?></textarea>
 </p>
 <p>
   <label for="<?php echo $this->get_field_id('margin_left_px'); ?>">
-    <?php _e('左マージンのピクセル数（－指定で左に移動）'); ?>
+    左マージンのピクセル数（－指定で左に移動）
   </label>
   <?php if ( !$margin_left_px ){
     $margin_left_px = 0;
@@ -1027,13 +1027,13 @@ class PcAdWidgetItem extends WP_Widget {
 <?php //広告入力フォーム ?>
 <p>
   <label for="<?php echo $this->get_field_id('ad_text'); ?>">
-    <?php _e('広告タグ'); ?>
+    広告タグ
   </label>
   <textarea class="widefat" id="<?php echo $this->get_field_id('ad_text'); ?>" name="<?php echo $this->get_field_name('ad_text'); ?>" cols="20" rows="16"><?php echo $ad; ?></textarea>
 </p>
 <p>
   <label for="<?php echo $this->get_field_id('margin_left_px'); ?>">
-    <?php _e('左マージンのピクセル数（－指定で左に移動）'); ?>
+    左マージンのピクセル数（－指定で左に移動）
   </label>
   <?php if ( empty($margin_left_px) ){
     $margin_left_px = 0;
@@ -1111,14 +1111,14 @@ class PcDoubleAdsWidgetItem extends WP_Widget {
 <?php //広告入力フォーム ?>
 <p>
   <label for="<?php echo $this->get_field_id('ad1_text'); ?>">
-    <?php _e('広告タグ（左）'); ?>
+    広告タグ（左）
   </label>
   <textarea class="widefat" id="<?php echo $this->get_field_id('ad1_text'); ?>" name="<?php echo $this->get_field_name('ad1_text'); ?>" cols="20" rows="16"><?php echo $ad1; ?></textarea>
 </p>
 <?php //広告入力フォーム ?>
 <p>
   <label for="<?php echo $this->get_field_id('ad2_text'); ?>">
-    <?php _e('広告タグ（右）'); ?>
+    広告タグ（右）
   </label>
   <textarea class="widefat" id="<?php echo $this->get_field_id('ad2_text'); ?>" name="<?php echo $this->get_field_name('ad2_text'); ?>" cols="20" rows="16"><?php echo $ad2; ?></textarea>
 </p>

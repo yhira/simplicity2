@@ -6,7 +6,7 @@ if ( !function_exists( 'rename_anonymous_name' ) ):
 function rename_anonymous_name($author = '') {
   //global $comment;
 
-  if ( !$author || $author == __('Anonymous') ) {
+  if ( !$author || $author == 'Anonymous' || $author == '匿名' ) {
     $author = get_theme_text_comment_anonymous_name();//匿名ユーザー名の取得
   //} else {
     // if( empty( $comment->comment_author ) ) {
@@ -35,8 +35,8 @@ function thread_comment($comment, $args, $depth) {
     <div class="comment-listCon">
         <div class="comment-info">
             <?php echo get_avatar( $comment, 48 );//アバター画像 ?>
-            <?php printf(__('<span class="admin">名前:<cite class="fn comment-author">%s</cite></span> '), get_comment_author_link()); //投稿者の設定 ?>
-            <span class="comment-datetime">投稿日：<?php printf(__('%1$s at %2$s'), get_comment_date('Y/m/d(D)'),  get_comment_time('H:i:s')); //投稿日の設定 ?></span>
+            <?php printf('<span class="admin">名前:<cite class="fn comment-author">%s</cite></span> ', get_comment_author_link()); //投稿者の設定 ?>
+            <span class="comment-datetime">投稿日：<?php printf('%1$s at %2$s', get_comment_date('Y/m/d(D)'),  get_comment_time('H:i:s')); //投稿日の設定 ?></span>
             <span class="comment-id">
             ID：<?php //IDっぽい文字列の表示（あくまでIDっぽいものです。）
                 $ip01 = get_comment_author_IP(); //書き込んだユーザーのIPアドレスを取得
@@ -52,10 +52,10 @@ function thread_comment($comment, $args, $depth) {
                 'depth'   =>$depth,
                 'max_depth' =>$args['max_depth']))) ?>
             </span>
-            <span class="comment-edit"><?php edit_comment_link(__('Edit'),'  ',''); //編集リンク ?></span>
+            <span class="comment-edit"><?php edit_comment_link('編集','  ',''); //編集リンク ?></span>
         </div>
         <?php if ($comment->comment_approved == '0') : ?>
-            <em><?php _e('Your comment is awaiting moderation.') ?></em>
+            <em>あなたのコメントは現在承認待ちです。</em>
         <?php endif; ?>
         <div class="comment-text"></div>
         <?php comment_text(); //コメント本文 ?>
