@@ -674,7 +674,7 @@ if ( get_mobile_header_background_image() ): ?>
   background-size: 100% auto;
 }
 
-#h-top{
+#header #h-top{
   background-color: transparent;
 }
 <?php endif; //!is_mobile ?>

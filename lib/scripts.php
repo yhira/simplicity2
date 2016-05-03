@@ -100,6 +100,16 @@ function simplicity_scripts() {
     }
 
     ///////////////////////////////////////////
+    //画面が狭い端末用のnarrow.css
+    ///////////////////////////////////////////
+    wp_enqueue_style( 'narrow-style',  get_template_directory_uri() . '/css/narrow.css', array('simplicity-style') );
+
+    ///////////////////////////////////////////
+    //YouTubeなどiframe関係のmedia.css
+    ///////////////////////////////////////////
+    wp_enqueue_style( 'media-style',  get_template_directory_uri() . '/css/media.css', array('simplicity-style') );
+
+    ///////////////////////////////////////////
     //設定されたスキンがある場合mobile.cssを読み込む
     ///////////////////////////////////////////
     if ( get_skin_file() ) {
