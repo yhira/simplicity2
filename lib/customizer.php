@@ -719,7 +719,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'menu_button_icon_font', array(
     'settings' => 'menu_button_icon_font',
     'label' =>'メニューボタンのアイコン（デフォルト：fa-bars）',
-    'description' => is_tips_visible() ? 'メニュー表示ボタンのアイコンフォントを設定します。（※設定用のコードはFont Awesomeから取得します）<a href="http://wp-simplicity.com/button-icon-font-change/" target="_blank" class="example-setting">設定方法</a>' : '',
+    'description' => is_tips_visible() ? 'メニュー表示ボタンのアイコンフォントを設定します。アコーディオンツリーメニューのアイコンは変更できません。（※設定用のコードはFont Awesomeから取得します）<a href="http://wp-simplicity.com/button-icon-font-change/" target="_blank" class="example-setting">設定方法</a>' : '',
     'section' => 'layout_section',
     'type' => 'text',
     'priority' => 140,

@@ -2909,9 +2909,17 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
   font-size: 14px;
 }
 
-#bbpress-forums .status-closed li,
-#bbpress-forums .status-closed li a {
-    color: #555;
+#main #bbpress-forums .status-closed{
+  color: #000;
+  background-color: #fcfcfc;
+}
+
+#main #bbpress-forums .status-closed a {
+  color: #2098a8;
+}
+
+#main #bbpress-forums .status-closed li.bbp-topic-title a{
+  color: #333;
 }
 
 #bbp-container .entry-content{
