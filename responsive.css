@@ -13,8 +13,14 @@ ul.snsbs li{
 ************************************/
 @media screen and (max-width:740px){
 
-  #header, #header-in, #navi, #navi-in, #body-in, #footer-in{
-    width:100% !important;
+  #container #header,
+  #container #header-in,
+  #container #navi,
+  #container #navi-in,
+  #container #body-in,
+  #container #footer-in{
+    /*important削除*/
+    width:100%;
   }
 
   #main{
@@ -25,9 +31,10 @@ ul.snsbs li{
     padding:10px;
   }
 
-  #main,
-  #sidebar{
-    float:none !important;
+  #container #main,
+  #container #sidebar{
+    /*important削除*/
+    float:none;
   }
 
 
@@ -37,9 +44,10 @@ ul.snsbs li{
     margin-right:0;
   }
 
-  blockquote{
-    margin-left:0 !important;
-    margin-right:0 !important;
+  #main blockquote{
+    /*important削除*/
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .navigation{

@@ -328,7 +328,21 @@ function theme_customize_register($wp_customize) {
     'priority' => 55,
   ));
 
-  //ヘッダー外側背景画像
+  //ヘッダーの高さ
+  $wp_customize->add_setting('header_height_mobile', array(
+    'default' => '0',
+    'sanitize_callback' => 'sanitize_number',
+  ));
+  $wp_customize->add_control( 'header_height_mobile', array(
+    'settings' => 'header_height_mobile',
+    'label' => 'ヘッダーの高さpx（デフォルト：0）',
+    'description' => is_tips_visible() ? 'モバイルでの画面トップからグローバルメニューまでの高さです。（※0にするとデフォルト設定になります）' : '',
+    'section' => 'header_image',
+    'type' => 'text',
+    'priority' => 57,
+  ));
+
+  //モバイルヘッダー背景画像
   $wp_customize->add_setting( 'mobile_header_background_image', array(
     'sanitize_callback' => 'sanitize_file_url',
   ) );
@@ -3014,6 +3028,11 @@ function get_header_logo_url(){
 //ヘッダー外側の背景画像URLの取得
 function get_header_outer_background_image(){
   return get_theme_mod( 'header_outer_background_image', null);
+}
+
+//モバイルヘッダーの高さを取得
+function get_header_height_mobile(){
+  return get_theme_mod( 'header_height_mobile', 0 );
 }
 
 //モバイルヘッダーの背景画像URLの取得

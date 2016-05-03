@@ -45,11 +45,11 @@ endif; ?>
           <div id="header-in">
 
             <?php //カスタムヘッダーがある場合
-            $h_top_style = '';
-            if (get_header_image()){
-              $h_top_style = ' style="background-image:url('.get_header_image().')"';
-            } ?>
-            <div id="h-top"<?php echo $h_top_style; ?>>
+            // $h_top_style = '';
+            // if (get_header_image()){
+            //   $h_top_style = ' style="background-image:url('.get_header_image().')"';
+            // } ?>
+            <div id="h-top"<?php //echo $h_top_style; ?>>
               <?php get_template_part('button-menu'); //モバイルメニューボタンの呼び出し?>
 
               <div class="alignleft top-title-catchphrase">

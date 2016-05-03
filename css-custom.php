@@ -197,7 +197,7 @@ if ( $footer_color != FOOTER_COLOR): ?>
 }
 <?php endif; ?>
 <?php //ヘッダーの高さ
-if ( get_header_height() != 100 && (!is_mobile() || is_responsive_enable()) ): ?>
+if ( get_header_height() != 100 && (!is_mobile() || (!is_mobile() && is_responsive_enable())) ): ?>
 #h-top {
   min-height:<?php echo get_header_height(); ?>px;
 }
@@ -672,6 +672,7 @@ if ( get_mobile_header_background_image() ): ?>
   background-image: url("<?php echo get_mobile_header_background_image(); ?>");
   background-position: 0 0;
   background-size: 100% auto;
+  background-repeat: no-repeat;
 }
 
 #header #h-top{
@@ -934,4 +935,17 @@ body {
   word-wrap: break-word;
 }
 <?php endif;//is_word_wrap_break_word ?>
-
+<?php //モバイルヘッダーの高さ
+$header_height_mobile = get_header_height_mobile();
+if ( $header_height_mobile && is_mobile() ): ?>
+#h-top {
+  min-height:<?php echo $header_height_mobile; ?>px;
+}
+<?php endif; //$header_height_mobile ?>
+<?php //ヘッダーの背景画像
+$header_image = get_header_image();
+if ( $header_image && !is_mobile() ): ?>
+#h-top {
+  background-image:url('<?php echo $header_image; ?>');
+}
+<?php endif; //$header_image ?>
