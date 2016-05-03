@@ -57,6 +57,7 @@ endif;
 //Wordpress4.4未満
 add_filter( 'wp_title', 'simplicity_wp_title');
 
+//Wordpress4.4以上でのタイトルセパレーターの設定
 if ( !function_exists( 'simplicity_title_separator' ) ):
 function simplicity_title_separator( $sep ){
     $sep = ' | ';
@@ -65,6 +66,7 @@ function simplicity_title_separator( $sep ){
 endif;
 add_filter( 'document_title_separator', 'simplicity_title_separator' );
 
+//Wordpress4.4以上でのタイトルカスタマイズ
 if ( !function_exists( 'simplicity_title_parts' ) ):
 function simplicity_title_parts( $title ){
   $site_name = trim( get_bloginfo('name') );

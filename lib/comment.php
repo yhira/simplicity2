@@ -80,6 +80,7 @@ add_action( 'comment_form_before', 'simplicity_comment_form_before' );
 
 if ( !function_exists( 'simplicity_comment_form_after' ) ):
 function simplicity_comment_form_after() {
+if ( !have_comments() ) {//コメントがないとき
     $html = ob_get_clean();
     $html = preg_replace(
         '/<h3 id="reply-title"(.*)>(.*)<\/h3>/',
@@ -88,5 +89,6 @@ function simplicity_comment_form_after() {
     );
     echo $html;
 }
+}
 endif;
-add_action( 'comment_form_after', 'simplicity_comment_form_after' );
+  add_action( 'comment_form_after', 'simplicity_comment_form_after' );

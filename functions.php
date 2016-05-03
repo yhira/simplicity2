@@ -767,3 +767,15 @@ function add_universal_analytics_code(){
 if ( is_analytics_universal() ) {
   add_action('wp_head', 'add_universal_analytics_code', 11);
 }
+
+
+// function get_tweet_count_iconic_font(){
+//   //count.jsoonでシェア数を表示
+//   if ( is_twitter_count_visible() ) {
+//     //ツイート数の表示用のスピナー
+//     return '<span class="fa fa-spinner fa-pulse"></span>';
+//   } else {
+//     //コメントアイコン
+//     return '<span class="fa fa-comments"></span>';
+//   }
+// }

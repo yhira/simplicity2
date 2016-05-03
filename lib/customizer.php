@@ -1651,7 +1651,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'twitter_count_visible', array(
     'settings' => 'twitter_count_visible',
     'label' =>'ツイート数を表示',
-    'description' => is_tips_visible() ? '<a href="http://jsoon.digitiminimi.com/">count.jsoon</a>サービスを利用してツイート数を表示します。（※要登録作業）' : '',
+    'description' => is_tips_visible() ? '<a href="http://jsoon.digitiminimi.com/">count.jsoon</a>サービスを利用してツイート数を表示します。（※<a href="http://wp-simplicity.com/count-jsoon/">要登録作業</a>）' : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 73.5,

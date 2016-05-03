@@ -7,7 +7,13 @@ $viral_class = is_share_button_type_mobile_viral() ? ' sns-group-viral' : ''; ?>
   <?php endif; ?>
   <ul class="snsb clearfix snsbs">
     <?php if ( is_twitter_btn_visible() )://Twitterボタンを表示するか ?>
-  	<li class="twitter-btn-icon"><a href="//twitter.com/share?text=<?php echo urlencode( get_the_title() ); ?>&amp;url=<?php echo urlencode( punycode_encode( get_permalink() ) ) ?><?php echo get_twitter_via_param(); //ツイートにTwitter ID ?>" class="twitter-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-twitter"></span><!-- <span class="social-count twitter-count"><span class="fa fa-spinner fa-pulse"></span></span> --></a></li>
+  	<li class="twitter-btn-icon"><a href="//twitter.com/share?text=<?php echo urlencode( get_the_title() ); ?>&amp;url=<?php echo urlencode( punycode_encode( get_permalink() ) ) ?><?php echo get_twitter_via_param(); //ツイートにTwitter ID ?>" class="twitter-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-twitter"></span><?php
+              //count.jsoonでシェア数を表示
+              if ( is_twitter_count_visible() ) {
+                //ツイート数の表示用の領域とスピナー
+                echo '<span class="social-count twitter-count"><span class="fa fa-spinner fa-pulse"></span></span>';
+              }
+         ?></a></li>
     <?php endif; ?>
     <?php if ( is_facebook_btn_visible() )://Facebookボタンを表示するか ?>
   	<li class="facebook-btn-icon"><a href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>&amp;t=<?php echo urlencode( get_the_title() ); ?>" class="facebook-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-facebook"></span><span class="social-count facebook-count"><span class="fa fa-spinner fa-pulse"></span></span></a></li>

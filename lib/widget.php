@@ -59,7 +59,7 @@ class SimplicityWidgetItem extends WP_Widget {
             ?>
           <?php echo $args['after_title']; ?>
         <?php if ( $is_ranking_visible ) {//ランキングの表示
-          echo get_popular_posts_ranking_style('.widget-new-popular');
+          echo get_popular_posts_ranking_style('.widget_new_popular');
         }  ?>
         <?php if ( is_wpp_enable() ) { //Wordpress Popular Postsを有効にしてあるか?>
           <?php //PV順
@@ -382,7 +382,7 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
     <?php if ( $widget_mode == 'all' || //モードがウィジェットモードが「すべての人気記事表示」の時
                is_single() || is_category() )://投稿ページとカテゴリーページのとき ?>
       <?php if ( $is_ranking_visible ) {//ランキングの表示
-        echo get_popular_posts_ranking_style('.widget-popular-ranking');//問題なければいずれ消す[TODO]
+        echo get_popular_posts_ranking_style('.widget_popular_ranking');//問題なければいずれ消す[TODO]
       }  ?>
       <?php echo $args['before_widget']; ?>
         <?php echo $args['before_title']; ?>
@@ -627,7 +627,7 @@ function get_popular_posts_ranking_style($slelctor){
 //モバイル用テキストウイジェットの追加
 ///////////////////////////////////////////////////
 class MobileTextWidgetItem extends WP_Widget {
-  function MobileTextWidgetItem() {
+  function __construct() {
     parent::__construct(
       'mobile_text',
       '[S] モバイル用テキストウィジェット',
