@@ -39,7 +39,7 @@ a:hover:not(.balloon-btn-link):not(.btn-icon-link),
 .entry a:hover,
 .related-entry-title a:hover,
 .navigation a:hover,
-#footer-widget a:hover,
+#footer a:hover,
 .article-list .entry-title a:hover {
   color:<?php echo $link_hover_color; ?>;
 }

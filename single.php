@@ -1,5 +1,10 @@
 <?php get_header(); ?>
 
+  <?php //パンくずリスト上ウイジェット
+  if ( is_single() && is_active_sidebar( 'widget-over-breadcrumbs' ) ): ?>
+    <?php dynamic_sidebar( 'widget-over-breadcrumbs' ); ?>
+  <?php endif; ?>
+
   <?php get_template_part('breadcrumbs'); //カテゴリパンくずリスト?>
   <?php
   if (have_posts()) : // WordPress ループ

@@ -33,12 +33,11 @@ var sidebarHeight;//サイドバーの高さを格納
 
 //非同期ブログパーツがあっても追従開始位置がずれないように修正（無理やり）
 //スマートな良い方法があれば、ご教授お願いします。
-function getScrollAreaSettings(){
+setInterval(function (){
   wrapperHeight = jQuery('#sidebar-scroll').outerHeight();
   sidebarHeight = jQuery('#sidebar').outerHeight();
   wrapperTop = sidebarHeight - wrapperHeight + 240;
-}
-setInterval('getScrollAreaSettings()',2000);
+}, 2000);
 
 (function(jquery) {
   jquery(document).ready(function() {
@@ -156,7 +155,7 @@ jQuery(document).ready(function() {
       header_menu.slideDown();
     } else{
       header_menu.slideUp();
-    };
+    }
   });
 
 });
@@ -190,7 +189,7 @@ jQuery(function(){
           position: 'absolute',
             top: main_top+70
         });
-      };
+      }
     }else{
       //sharebar.fadeOut('fast');
       sharebar.css({
@@ -218,22 +217,6 @@ function fetch_twitter_count(url, selector) {
     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
   });
 }
-// function fetch_twitter_count(url, selector) {
-//   jQuery.ajax({
-//     url:'//urls.api.twitter.com/1/urls/count.json',
-//     dataType:'jsonp',
-//     timeout: 10000, //10sec
-//     data:{
-//       url:url
-//   },
-//   success:function(res){
-//     jQuery( selector ).text( res.count || 0 );
-//   },
-//   error:function(){
-//     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
-//   }
-//   });
-// }
 
 //Facebookのシェア数を取得
 function fetch_facebook_count(url, selector) {
@@ -248,22 +231,6 @@ function fetch_facebook_count(url, selector) {
       jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
     });
 }
-// function fetch_facebook_count(url, selector) {
-//   jQuery.ajax({
-//     url:'https://graph.facebook.com/',
-//     dataType:'jsonp',
-//     timeout: 10000, //10sec
-//     data:{
-//       id:url
-//     },
-//     success:function(res){
-//       jQuery( selector ).text( res.shares || 0 );
-//     },
-//     error:function(){
-//       jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
-//     }
-//   });
-// }
 
 //Google＋のシェア数を取得
 function fetch_google_plus_count(url, selector) {
@@ -277,36 +244,6 @@ function fetch_google_plus_count(url, selector) {
     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
   });
 }
-
-// function fetch_google_plus_count(url, selector) {
-//   jQuery.ajax({
-//     url: social_count_config.theme_url+'/lib/fetch-google-plus.php?url='+url,
-//     dataType:'text',
-//     timeout: 10000, //10sec
-//     success:function(res){
-//       jQuery( selector ).text( res || 0 );
-//     },
-//     error:function(){
-//       jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
-//     }
-//   });
-//   // jQuery.ajax({
-//   //   type: "get", dataType: "xml",
-//   //   url: "//query.yahooapis.com/v1/public/yql",
-//   //   data: {
-//   //     q: "SELECT content FROM data.headers WHERE url='https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + url + "' and ua='#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36'",
-//   //     format: "xml",
-//   //     env: "http://datatables.org/alltables.env"
-//   //   },
-//   //   success: function (data) {
-//   //     var content = jQuery(data).find("content").text();
-//   //     var match = content.match(/window\.__SSR[\s*]=[\s*]{c:[\s*](\d+)/i);
-//   //     var count = (match != null) ? match[1] : 0;
-
-//   //     jQuery( selector ).text(count);
-//   //   }
-//   // });
-// }
 
 //はてなブックマークではてブ数を取得
 function fetch_hatebu_count(url, selector) {
@@ -324,23 +261,6 @@ function fetch_hatebu_count(url, selector) {
     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
   });
 }
-// //はてなブックマークではてブ数を取得
-// function fetch_hatebu_count(url, selector) {
-//   jQuery.ajax({
-//     url:'//b.hatena.ne.jp/entry.count?callback=?',
-//     dataType:'jsonp',
-//     timeout: 10000, //10sec
-//     data:{
-//       url:url
-//     },
-//     success:function(res){
-//       jQuery( selector ).text( res || 0 );
-//     },
-//     error:function(){
-//       jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
-//     }
-//   });
-// }
 
 //ポケットのストック数を取得
 function fetch_pocket_count(url, selector) {
@@ -354,35 +274,6 @@ function fetch_pocket_count(url, selector) {
     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
   });
 }
-// function fetch_pocket_count(url, selector) {
-//   jQuery.ajax({
-//     url: social_count_config.theme_url+'/lib/fetch-pocket.php?url='+url,
-//     dataType:'text',
-//     timeout: 10000, //10sec
-//     success:function(res){
-//       jQuery( selector ).text( res || 0 );
-//     },
-//     error:function(){
-//       jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
-//     }
-//   });
-//   // jQuery.ajax({
-//   //   type: "get", dataType: "xml",
-//   //   url: "//query.yahooapis.com/v1/public/yql",
-//   //   data: {
-//   //     q: "SELECT content FROM data.headers WHERE url='https://widgets.getpocket.com/v1/button?label=pocket&count=vertical&v=1&url=" + url + "' and ua='#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36'",
-//   //     format: "xml",
-//   //     env: "http://datatables.org/alltables.env"
-//   //   },
-//   //   success: function (data) {
-//   //     var content = jQuery(data).find("content").text();
-//   //     var match = content.match(/<em id="cnt">(\d+)<\/em>/i);
-//   //     var count = (match != null) ? match[1] : 0;
-
-//   //     jQuery( selector ).text(count);
-//   //   }
-//   // });
-// }
 
 //feedlyの購読者数を取得
 function fetch_feedly_count(rss_url, selector) {
@@ -396,20 +287,6 @@ function fetch_feedly_count(rss_url, selector) {
     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
   });
 }
-// function fetch_feedly_count(rss_url, selector) {
-//   jQuery.ajax({
-//     url: social_count_config.theme_url+'/lib/fetch-feedly.php?url='+rss_url,
-//     dataType:'text',
-//     timeout: 10000, //10sec
-//     success:function(res){
-//       //console.log(res);
-//       jQuery( selector ).text( res || 0 );
-//     },
-//     error:function(){
-//       jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
-//     }
-//   });
-// }
 
 function doMasonry() {
   jQuery('#list').masonry({ //<!-- #listは記事一覧を囲んでる部分 -->
@@ -426,25 +303,32 @@ jQuery(function(){
          social_count_config.all_share_count_visible ) {
 
       //Twitterカウントの取得
-      if ( social_count_config.twitter_btn_visible )
+      if ( social_count_config.twitter_btn_visible ){
         fetch_twitter_count(social_count_config.permalink, '.twitter-count');
-      //Facebookカウントの取得
-      if ( social_count_config.facebook_btn_visible )
-        fetch_facebook_count(social_count_config.permalink, '.facebook-count');
-      //Google＋カウントの取得
-      if ( social_count_config.google_plus_btn_visible )
-        fetch_google_plus_count(social_count_config.permalink, '.googleplus-count');
-      //はてブカウントの取得
-      if ( social_count_config.hatena_btn_visible )
-        fetch_hatebu_count(social_count_config.permalink, '.hatebu-count');
-      //Pocketカウントの取得
-      if ( social_count_config.pocket_btn_visible )
-        fetch_pocket_count(social_count_config.permalink, '.pocket-count');
-      //feedlyカウントの取得
-      if ( social_count_config.feedly_btn_visible )
-        fetch_feedly_count(social_count_config.rss2_url, '.feedly-count');
+      }
 
-    };
+      //Facebookカウントの取得
+      if ( social_count_config.facebook_btn_visible ){
+        fetch_facebook_count(social_count_config.permalink, '.facebook-count');
+      }
+      //Google＋カウントの取得
+      if ( social_count_config.google_plus_btn_visible ){
+        fetch_google_plus_count(social_count_config.permalink, '.googleplus-count');
+      }
+      //はてブカウントの取得
+      if ( social_count_config.hatena_btn_visible ){
+        fetch_hatebu_count(social_count_config.permalink, '.hatebu-count');
+      }
+      //Pocketカウントの取得
+      if ( social_count_config.pocket_btn_visible ){
+        fetch_pocket_count(social_count_config.permalink, '.pocket-count');
+      }
+      //feedlyカウントの取得
+      if ( social_count_config.feedly_btn_visible ){
+        fetch_feedly_count(social_count_config.rss2_url, '.feedly-count');
+      }
+
+    }
 
   }
 
@@ -472,7 +356,7 @@ jQuery(function(){
   jQuery(window).resize(function(){
     if ( jQuery(window).width() > 1110 ) {
       jQuery('#navi-in ul').removeAttr('style');
-    };
+    }
   });
 });
 
@@ -482,7 +366,7 @@ jQuery(function(){
 function adjast_article_like_arrow_box() {
   var w = jQuery('#main').width();
   jQuery('#main .article-like-arrow-box').css('width', (w - 114) + 'px');
-  var w = jQuery('#sidebar').width();
+  w = jQuery('#sidebar').width();
   jQuery('#sidebar .article-like-arrow-box').css('width', (w - 114) + 'px');
   //console.log(w);
 }
@@ -524,6 +408,6 @@ jQuery(function(){
          social_count_config.all_share_count_visible &&
          social_count_config.twitter_count_visible ) {
       fetch_twitter_count_from_count_jsoon(social_count_config.permalink, '.twitter-count');
-    };
+    }
   }
 });

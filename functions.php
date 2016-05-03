@@ -49,7 +49,13 @@ add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'menus' );
 
 // カスタムメニューの「場所」を設定
-register_nav_menu( 'header-navi', 'ヘッダーのナビゲーション' );
+//register_nav_menu( 'header-navi', 'ヘッダーナビゲーション' );
+register_nav_menus(
+  array(
+    'header-navi' => 'ヘッダーナビ',
+    'footer-navi' => 'フッターナビ（サブメニュー不可）',
+  )
+);
 
 //固定ページに抜粋を追加
 add_post_type_support( 'page', 'excerpt' );

@@ -4,6 +4,12 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <article class="article<?php if ( !is_single() ) echo ' article-list'; ?>">
   <?php  if ( is_single() ) get_template_part('sns-buttons-sharebar'); //スクロール追従シェアバー ?>
+
+  <?php //投稿本文上ウイジェット
+  if ( is_single() && is_active_sidebar( 'widget-over-articletitle' ) ): ?>
+    <?php dynamic_sidebar( 'widget-over-articletitle' ); ?>
+  <?php endif; ?>
+
   <header>
     <h1 class="entry-title">
       <?php if ( !is_single() ) echo '<a href="'.get_permalink().'">'; //投稿ページ以外ではタイトルにリンクを貼る?>
@@ -39,9 +45,7 @@
 
     <?php //投稿本文上ウイジェット
     if ( is_single() && is_active_sidebar( 'widget-over-article' ) ): ?>
-      <div id="widget-over-article" class="widgets">
       <?php dynamic_sidebar( 'widget-over-article' ); ?>
-      </div>
     <?php endif; ?>
   </header>
 
@@ -70,9 +74,7 @@
     <?php if ( is_single() ) get_template_part('pager-page-links');//ページリンクのページャー?>
     <?php //投稿本文下ウイジェット
     if ( is_single() && is_active_sidebar( 'widget-under-article' ) ): ?>
-      <div id="widget-under-article" class="widgets">
       <?php dynamic_sidebar( 'widget-under-article' ); ?>
-      </div>
     <?php endif; ?>
 
     <?php if ( is_single() ) get_template_part('ad-article-footer');?>
@@ -80,9 +82,7 @@
 
     <?php //投稿SNSボタン上ウイジェット
     if ( is_single() && is_active_sidebar( 'widget-over-sns-buttons' ) ): ?>
-      <div id="widget-over-sns-buttons" class="widgets">
       <?php dynamic_sidebar( 'widget-over-sns-buttons' ); ?>
-      </div>
     <?php endif; ?>
 
     <div id="sns-group" class="sns-group sns-group-bottom">

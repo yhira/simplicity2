@@ -20,7 +20,7 @@ if ( is_pinterest_btn_visible() && is_singular() ): ?>
 ///////////////////////////////////
 if ( is_hatena_btn_visible() && is_singular() ): ?>
 <!-- はてブシェアボタン用スクリプト -->
-<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+<script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 <?php endif; ?>
 <?php
 ///////////////////////////////////

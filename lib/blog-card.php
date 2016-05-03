@@ -18,13 +18,13 @@ function url_to_blog_card_tag($url){
   if ( !$id ) return;//IDを取得できない場合はループを飛ばす
 
   global $post;
-  $post_id = get_post($id);
-  setup_postdata($post_id);
-  $exce = $post_id->post_excerpt;
+  $post_data = get_post($id);
+  setup_postdata($post_data);
+  $exce = $post_data->post_excerpt;
 
-  $title = $post_id->post_title;//タイトルの取得
-  $date = mysql2date('Y-m-d H:i', $post_id->post_date);//投稿日の取得
-  $excerpt = get_content_excerpt($post_id->post_content, get_excerpt_length());//抜粋の取得
+  $title = $post_data->post_title;//タイトルの取得
+  $date = mysql2date('Y-m-d H:i', $post_data->post_date);//投稿日の取得
+  $excerpt = get_content_excerpt($post_data->post_content, get_excerpt_length());//抜粋の取得
   if ( is_wordpress_excerpt() && $exce ) {//Wordpress固有の抜粋のとき
     $excerpt = $exce;
   }
@@ -38,8 +38,8 @@ function url_to_blog_card_tag($url){
   if ( is_favicon_enable() && get_the_favicon_url() ) {//ファビコンが有効か確認
 
     //GoogleファビコンAPIを利用する
-    //http://www.google.com/s2/favicons?domain=nelog.jp
-    $favicon_tag = '<span class="blog-card-favicon"><img src="http://www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
+    ////www.google.com/s2/favicons?domain=nelog.jp
+    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
   }
   $site_logo_tag = is_blog_card_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="'.home_url().'"'.$target.'>'.get_this_site_domain().'</a></div>' : '';
   $date_tag = '';
@@ -119,7 +119,10 @@ function url_to_external_blog_card_tag($url){
 
   //サイトの内部リンクは処理しない場合
   if ( strpos( $url, get_this_site_domain() ) ) {
-   return;
+    $id = url_to_postid( $url );//IDを取得（URLから投稿ID変換
+    if ( $id ) {//IDを取得できる場合はループを飛ばす
+      return;
+    }//IDが取得できない場合は外部リンクとして処理する
   }
 
   $tag = '';

@@ -33,7 +33,17 @@
 
           <div class="clear"></div>
             <div id="copyright" class="wrapper">
-              <?php echo get_site_license(); //サイトのライセンス表記の取得 ?>
+              <?php //フッターメニューの設定
+              if ( has_nav_menu('footer-navi') ): ?>
+              <div id="footer-navi">
+                <div id="footer-navi-in">
+                  <?php wp_nav_menu( array( 'theme_location' => 'footer-navi' ) ); ?>
+                  </div>
+              </div>
+              <?php endif ?>
+              <div class="credit">
+                <?php echo get_site_license(); //サイトのライセンス表記の取得 ?>
+              </div>
 
               <?php if ( is_local_test() && is_responsive_test_visible() ): //ローカルかつ設定で表示になっている場合のみ?>
                 <br /><a href="<?php echo get_template_directory_uri().'/responsive-test/?'.get_this_page_url(); ?>" target="_blank" rel="nofollow">レスポンシブテスト</a>

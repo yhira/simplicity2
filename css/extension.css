@@ -236,11 +236,13 @@
 @media screen and (max-width:440px){
   .information,
   .question{
-    padding: 10px;
+    padding: 10px 10px 10px 48px;
   }
 
   .information::before,
   .question::before{
-    display: none;
+    top: 10px;
+    left: 10px;
+    font-size: 32px;
   }
 }

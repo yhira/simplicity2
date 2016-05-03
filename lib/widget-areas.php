@@ -94,6 +94,27 @@ endif;
 
 register_sidebars(1,
   array(
+  'name'=>'投稿パンくずリスト上',
+  'id' => 'widget-over-breadcrumbs',
+  'description' => '投稿タイトル上に表示されるウイジェット。設定しないと表示されません。',
+  'before_widget' => '<div id="%1$s" class="widget-over-breadcrumbs %2$s">',
+  'after_widget' => '</div>',
+  'before_title' => '<div class="widget-over-breadcrumbs-title main-widget-label">',
+  'after_title' => '</div>',
+));
+register_sidebars(1,
+  array(
+  'name'=>'投稿タイトル上',
+  'id' => 'widget-over-articletitle',
+  'description' => '投稿タイトル上に表示されるウイジェット。設定しないと表示されません。',
+  'before_widget' => '<div id="%1$s" class="widget-over-articletitle %2$s">',
+  'after_widget' => '</div>',
+  'before_title' => '<div class="widget-over-article-title main-widget-label">',
+  'after_title' => '</div>',
+));
+
+register_sidebars(1,
+  array(
   'name'=>'投稿本文上',
   'id' => 'widget-over-article',
   'description' => '投稿本文上に表示されるウイジェット。設定しないと表示されません。',

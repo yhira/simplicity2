@@ -2318,7 +2318,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'blog_card_site_logo_visible', array(
     'settings' => 'blog_card_site_logo_visible',
     'label' =>'サイトロゴを表示',
-    'description' => is_tips_visible() ? 'サイトのファビコンとドメインを表示するか。' : '',
+    'description' => is_tips_visible() ? 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 300,

@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /*!
-Theme Name: Simplicity2.0.7
+Theme Name: Simplicity2.0.8
 Description: Simplicityの意味は、単純、簡単、簡素、質素です。飾り気のないカスタマイズの土台となれるようなテーマを目指して作りました。
 Theme URI: http://wp-simplicity.com/
 Author: yhira
 Author URI: http://nelog.jp/
-Version: 2.0.7 20160205
+Version: 2.0.8 20160214
 Tags: white, two-columns, left-sidebar, right-sidebar, flexible-width
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -155,9 +155,13 @@ a:hover {
 .entry a:hover,
 .related-entry-title a:hover,
 .navigation a:hover,
-#footer-widget a:hover,
+#footer a:hover,
 .article-list .entry-title a:hover{
   color:#c03;
+}
+
+#footer .credit a:hover{
+  color: inherit;
 }
 
 .widget_new_entries a:hover,
@@ -450,7 +454,7 @@ hr.sep {
 }
 
 /************************************
-** メニュー（menu）
+** グローバルナビメニュー（menu）
 ************************************/
 #navi ul{
   position: relative;
@@ -539,6 +543,33 @@ hr.sep {
 #navi ul,
 .clearfix {
   display: block;
+}
+
+/************************************
+** フッターナビメニュー
+************************************/
+
+#footer-navi ul{
+  text-align: center;
+}
+
+#footer-navi ul li {
+  display: inline;
+  list-style: outside none none;
+}
+
+#footer-navi ul li::before {
+    content: "|";
+    padding: 0 0.6em;
+}
+
+#footer-navi ul li:first-child::before{
+  content: "";
+  padding: 0;
+}
+
+#footer-navi ul .sub-menu{
+  display: none;
 }
 
 /************************************
