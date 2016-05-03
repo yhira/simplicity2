@@ -288,7 +288,8 @@
     line-height: 120%;
   }
 
-  .article .blog-card{
+  .article .blog-card,
+  .commets-list .blog-card{
     margin-left: 0;
     margin-right: 0;
   }

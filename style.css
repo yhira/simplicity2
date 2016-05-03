@@ -2189,6 +2189,11 @@ div.fb-like-mobile{
   zoom: 1;
 }
 
+#sidebar .blog-card{
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .internal-blog-card{
   padding:12px 12px 0;
   border:1px solid #ddd;

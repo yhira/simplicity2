@@ -65,7 +65,8 @@ function url_to_blog_card($the_content) {
     //1行にURLのみが期待されている行（URL）を全て$mに取得
 
     /*$res = preg_match_all('/^(<p>)?(<a.+?>)?https?:\/\/'.preg_quote(get_this_site_domain()).'\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+(<\/a>)?(<\/p>)?(<br ? \/>)?$/im', $the_content,$m);*/
-    $res = preg_match_all('{^(<p>)?(<a.+?>)?'.preg_quote(site_url()).'/?[-_.!~*\'()a-zA-Z0-9;/?:\@&=+\$,%#]+(</a>)?(</p>)?(<br ?/?>)?$}im', $the_content,$m);    //マッチしたURL一つ一つをループしてカードを作成
+    $res = preg_match_all('{^(<p>)?(<a.+?>)?'.preg_quote(site_url()).'/?[-_.!~*\'()a-zA-Z0-9;/?:\@&=+\$,%#]+(</a>)?(</p>)?(<br ?/?>)?}im', $the_content,$m);    //マッチしたURL一つ一つをループしてカードを作成
+    //var_dump($res);
     foreach ($m[0] as $match) {
       $url = strip_tags($match);//URL
       $tag = url_to_blog_card_tag($url);
@@ -81,13 +82,15 @@ function url_to_blog_card($the_content) {
 }
 endif;
 if ( is_blog_card_enable() ) {
-  add_filter('the_content','url_to_blog_card',9999999);//本文表示をフック
+  add_filter('the_content', 'url_to_blog_card', 9999999);//本文表示をフック
+  add_filter('widget_text', 'url_to_blog_card', 9999999);//テキストウィジェットをフック
+  //add_filter('comment_text', 'url_to_blog_card', 9999999);//コメントをフック
 }
 
 //本文中のURLショートコードをブログカードタグに変更する
 if ( !function_exists( 'url_shortcode_to_blog_card' ) ):
 function url_shortcode_to_blog_card($the_content) {
-  if ( is_singular() ) {//投稿ページもしくは固定ページのとき
+  if ( true /*is_singular()*/ ) {//投稿ページもしくは固定ページのとき
     //1行にURLのみが期待されている行（URL）を全て$mに取得
     $res = preg_match_all('/\[https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+\]/im', $the_content, $m);
     foreach ($m[0] as $match) {
@@ -111,7 +114,9 @@ function url_shortcode_to_blog_card($the_content) {
   return $the_content;//置換後のコンテンツを返す
 }
 endif;
-add_filter('the_content','url_shortcode_to_blog_card');//本文表示をフック
+add_filter('the_content', 'url_shortcode_to_blog_card' ,9999999);//本文表示をフック
+add_filter('widget_text', 'url_shortcode_to_blog_card' ,9999999);//テキストウィジェットをフック
+//add_filter('comment_text', 'url_shortcode_to_blog_card', 9999999);//コメントをフック
 
 //外部URLからブログをカードタグの取得
 if ( !function_exists( 'url_to_external_blog_card_tag' ) ):
@@ -161,5 +166,7 @@ function url_to_external_blog_card($the_content) {
 }
 endif;
 if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有効のとき
-  add_filter('the_content','url_to_external_blog_card');//本文表示をフック
+  add_filter('the_content','url_to_external_blog_card', 9999999);//本文表示をフック
+  add_filter('widget_text', 'url_to_external_blog_card', 9999999);//テキストウィジェットをフック
+  //add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
 }
