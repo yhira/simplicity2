@@ -3048,12 +3048,17 @@ function get_skin_options(){
   return get_option('skin_options');
 }
 
+function remove_protocol($url){
+  return preg_replace('/https?:/i', '', $url);
+}
+
 //スキンファイルを取得
 //スキンファイルを設定している場合はスタイルシート名（パス/style.css）を返す
 //設定していない場合は偽（空文字）を返す
 function get_skin_file(){
   $file_path = get_theme_mod( 'skin_file', null );
-  $file_path = preg_replace('/https?:/i', '', $file_path);
+  $file_path = remove_protocol($file_path);
+  //$file_path = preg_replace('/https?:/i', '', $file_path);
   return $file_path;
 }
 

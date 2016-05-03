@@ -2518,6 +2518,22 @@ ul.snsp li.push7-page a{
 ul.snsp li a span{
   font-size:40px;
 }
+
+
+ul.snsp li a span{
+  background-repeat: no-repeat;
+  background-position:3px 5px;
+  padding:0;
+  z-index: 10;
+  width:33px;
+  height:33px;
+  display: inline-block;
+  border-radius: 8px;
+  z-index: 1;
+  line-height: 33.5px;
+  background-color: #fff;
+}
+
 /*feedly、LINEアイコンは自作なので少し大きかったので調整*/
 ul.snsp li a span.icon-feedly-square,
 ul.snsp li a span.icon-line-square,
@@ -2593,20 +2609,6 @@ ul.snsp li a span{
   /* 画像をBase64にするためコメントアウト
   background-image: url("../images/white.png"); */
 /*  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAfAQMAAADKou9EAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAB9JREFUCNdjkP///wFD/f//PyDE/////wwUgXAG2FUADfF3INqLhU0AAAAASUVORK5CYII=");*/
-}
-
-ul.snsp li a span{
-  background-repeat: no-repeat;
-  background-position:3px 5px;
-  padding:0;
-  z-index: 10;
-  width:33px;
-  height:33px;
-  display: inline-block;
-  border-radius: 8px;
-  z-index: 1;
-  line-height: 33.5px;
-  background-color: #fff;
 }
 
 #footer ul.snsp li a span{

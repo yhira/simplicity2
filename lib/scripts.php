@@ -21,6 +21,7 @@ function simplicity_scripts() {
     wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/css/responsive-pc.css', array('simplicity-style') );
   }
 
+
   ///////////////////////////////////////////
   //スキンのスタイル
   ///////////////////////////////////////////
@@ -31,6 +32,9 @@ function simplicity_scripts() {
     } else {
       //通常のスキンスタイル
       wp_enqueue_style( 'skin-style',  get_skin_file(), array('simplicity-style') );
+      // echo('<pre>');
+      // var_dump(get_skins_js_local_dir());
+      // echo('</pre>');
       //スキンフォルダ内にjavascript.jsファイルがあれば読み込む
       if ( file_exists( get_skins_js_local_dir() ) ) {
         wp_enqueue_script( 'skins-javascript-js', get_skins_js_uri(), array( 'jquery', 'simplicity-js' ), false, true );

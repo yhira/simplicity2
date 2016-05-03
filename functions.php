@@ -602,12 +602,20 @@ function get_skins_js_uri(){
 function get_skins_js_local_dir(){
   if ( get_skins_js_uri() ) {
     $dir = get_skins_js_uri();
-    if( strpos( $dir , get_stylesheet_directory_uri() ) !== false ){
-      $dir = str_replace( get_stylesheet_directory_uri(), get_stylesheet_directory(), $dir );
+    $stylesheet_directory_uri = remove_protocol(get_stylesheet_directory_uri());
+    $template_directory_uri = remove_protocol(get_template_directory_uri());
+    if( strpos( $dir , $stylesheet_directory_uri ) !== false ){
+      $dir = str_replace( $stylesheet_directory_uri, get_stylesheet_directory(), $dir );
     } else {
-      $dir = str_replace( get_template_directory_uri(), get_template_directory(), $dir );
+      $dir = str_replace( $template_directory_uri, get_template_directory(), $dir );
     }
-    //var_dump($dir);
+    // if( strpos( $dir , get_stylesheet_directory_uri() ) !== false ){
+    //   $dir = str_replace( get_stylesheet_directory_uri(), get_stylesheet_directory(), $dir );
+    // } else {
+    //   $dir = str_replace( get_template_directory_uri(), get_template_directory(), $dir );
+    // }
+    // header('Content-Type: text/plain; charset=utf-8');
+    // var_dump($dir);
     return str_replace( '\\', '/', $dir);
   }
 }

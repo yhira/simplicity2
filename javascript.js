@@ -151,7 +151,7 @@ setInterval(function (){
 (function($){
   $(document).ready(function() {
     $('#mobile-menu-toggle').click(function(){
-      header_menu = $('#navi ul');
+      var header_menu = $('#navi ul');
       if (header_menu.css('display') == 'none') {
         header_menu.slideDown();
       } else{
@@ -439,7 +439,7 @@ jQuery(function(){
     var wgts = $(".widget_archive");//アーカイブウィジェット全てを取得
     //アーカイブウィジェットを1つずつ処理する
     wgts.each(function(i, el) {
-      wgt = $(el);
+      var wgt = $(el);
 
       //日付表示＋投稿数か
       var has_date_count = wgt.text().match(/\d+年\d+月\s\(\d+\)/);
@@ -456,7 +456,7 @@ jQuery(function(){
         clone.attr("class", "archive_clone").addClass('hide');
 
         var
-          acv = wgt; //ウィジェット
+          acv = wgt, //ウィジェット
           acvLi = acv.find("li"); //ウィジェット内のli全て
         //ul.yearsをアーカイブウィジェット直下に追加してそのDOMを取得
         var acv_years =  acv.append('<ul class="years"></ul>').find("ul.years");
