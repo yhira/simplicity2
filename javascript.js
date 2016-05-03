@@ -2,18 +2,27 @@
 //TOPへ戻るボタン
 /////////////////////////////////
 (function($){
-  $(window).scroll(function(){
-    //最上部から現在位置までの距離を取得して、変数[now]に格納
-    var now = $(window).scrollTop();
-    //最上部から現在位置までの距離(now)が600以上
-    if(now > 600){
-      //[#page-top]をゆっくりフェードインする
-      $('#page-top').fadeIn('slow');
-      //それ以外だったらフェードアウトする
-    }else{
-      $('#page-top').fadeOut('slow');
+  var prevScrollTop = -1;
+  var $window = $(window);
+  $window.scroll(function(){
+    //最上部から現在位置までの距離を取得して、変数[scrollTop]に格納
+    var scrollTop = $window.scrollTop();
+    var threashold = 600;
+    var s1 = (prevScrollTop > threashold);
+    var s2 = (scrollTop > threashold);
+
+    // スレッショルドを跨いだ時のみ処理をする
+    if (s1 ^ s2) {
+      if (s2) {
+        //[#page-top]をゆっくりフェードインする
+        $('#page-top').fadeIn('slow');
+      } else {
+        //それ以外だったらフェードアウトする
+        $('#page-top').fadeOut('slow');
+      }
     }
-    //console.log(wrapperTop);
+
+    prevScrollTop = scrollTop;
   });
   //ボタン(id:move-page-top)のクリックイベント
   $('#move-page-top').click(function(){
