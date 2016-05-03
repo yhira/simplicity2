@@ -11,7 +11,16 @@
       <span class="balloon-btn-set">
         <span class="arrow-box">
           <a href="//twitter.com/search?q=<?php echo urlencode( punycode_encode( get_permalink() ) ); ?>" target="blank" class="arrow-box-link twitter-arrow-box-link" rel="nofollow">
-            <span class="social-count twitter-count"><span class="fa fa-comments"></span><!-- <span class="fa fa-spinner fa-pulse"></span> --></span>
+            <span class="social-count twitter-count"><?php
+              //count.jsoonでシェア数を表示
+              if ( is_twitter_count_visible() ) {
+                //ツイート数の表示用のスピナー
+                echo '<span class="fa fa-spinner fa-pulse"></span>';
+              } else {
+                //コメントアイコン
+                echo '<span class="fa fa-comments"></span>';
+              }
+         ?></span>
           </a>
         </span>
         <a href="//twitter.com/share?text=<?php echo urlencode( get_the_title() ); ?>&amp;url=<?php echo urlencode( get_the_permalink() ) ?><?php echo get_twitter_via_param(); //ツイートにTwitter ID ?><?php echo get_twitter_related_param();//ツイート後にフォローを促す ?>" target="blank" class="balloon-btn-link twitter-balloon-btn-link" rel="nofollow">

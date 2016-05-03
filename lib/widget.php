@@ -695,7 +695,7 @@ add_action('widgets_init', create_function('', 'return register_widget("MobileTe
 //パソコン用テキストウイジェットの追加
 ///////////////////////////////////////////////////
 class PcTextWidgetItem extends WP_Widget {
-  function PcTextWidgetItem() {
+  function __construct() {
      parent::__construct(
       'pc_text',
       '[S] パソコン用テキストウィジェット',//ウイジェット名
@@ -762,7 +762,7 @@ add_action('widgets_init', create_function('', 'return register_widget("PcTextWi
 //Facebookページ「いいね！」ウイジェットの追加
 ///////////////////////////////////////////////////
 class FacebookPageLikeWidgetItem extends WP_Widget {
-  function FacebookPageLikeWidgetItem() {
+  function __construct() {
     parent::__construct(
       'facebook_page_like',
       '[S] Facebookページ「いいね！」', //ウイジェット名
@@ -836,7 +836,7 @@ if ( get_facebook_follow_id() ) {//FacebookページのIDがカスタマイザ�
 //モバイル用広告ウイジェットの追加
 ///////////////////////////////////////////////////
 class MobileAdWidgetItem extends WP_Widget {
-  function MobileAdWidgetItem() {
+  function __construct() {
     parent::__construct(
       'mobile_ad',
       '[S] モバイル用広告ウィジェット', //ウイジェット名
@@ -924,7 +924,7 @@ add_action('widgets_init', create_function('', 'return register_widget("MobileAd
 //パソコン用広告ウイジェットの追加
 ///////////////////////////////////////////////////
 class PcAdWidgetItem extends WP_Widget {
-  function PcAdWidgetItem() {
+  function __construct() {
     parent::__construct(
       'pc_ad', //ウイジェット名
       '[S] パソコン用広告ウィジェット',
@@ -1011,7 +1011,7 @@ add_action('widgets_init', create_function('', 'return register_widget("PcAdWidg
 //パソコン用ダブルレクタングル広告ウイジェットの追加
 ///////////////////////////////////////////////////
 class PcDoubleAdsWidgetItem extends WP_Widget {
-  function PcDoubleAdsWidgetItem() {
+  function __construct() {
     parent::__construct(
       'pc_double_ads', //ウイジェット名
       '[S] パソコン用広告ダブルレクタングルウィジェット',

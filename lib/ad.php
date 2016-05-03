@@ -64,9 +64,9 @@ endif;
 //広告を関連記事下に掲載するか
 if ( !function_exists( 'is_ads_under_relations_enable' ) ):
 function is_ads_under_relations_enable(){
-  $o = get_option('ads_options');
-  if ( ($o['ads_position'] == 'under_relations' || $o['ads_position'] == null ||
-     ( $o['ads_position'] == 'content_top' && !is_ads_performance_visible() )  || //関連記事下広告のとき
+  //$o = get_option('ads_options');
+  if ( (is_ads_under_relations() ||
+     ( is_ads_content_top() && !is_ads_performance_visible() )  || //関連記事下広告のとき
       ( is_mobile() && is_ads_in_content() ) || //モバイルの時も広告を表示
       ( is_mobile() && is_ads_content_top() ) || //モバイルの時も広告を表示
       //「本文中広告がオン」でも

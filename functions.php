@@ -23,13 +23,13 @@ define('URL_REG', '/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/');
 // アイキャッチ画像を有効化
 add_theme_support('post-thumbnails');
 //サムネイルサイズ
-add_image_size('thumb100',100,100,true);
-add_image_size('thumb150',150,150,true);
-add_image_size('thumb320',320,180,true);
+add_image_size('thumb100', 100, 100, true);
+add_image_size('thumb150', 150, 150, true);
+add_image_size('thumb320', 320, 180, true);
 
 //画像の縦横比を保存したタイル状リストのとき
 if ( is_list_style_tile_thumb_cards_raw() ) {
-  add_image_size('thumb320_raw',320,0,false);
+  add_image_size('thumb320_raw', 320, 0, false);
 }
 
 //コンテンツの幅の指定
@@ -758,4 +758,12 @@ add_filter('body_class', 'body_class_names');
 //子テーマを利用しているか
 function is_child_theme_enable(){
   return get_template_directory_uri() != get_stylesheet_directory_uri();
+}
+
+//ヘッダーでユニバーサルアナリティクスコードの呼び出し
+function add_universal_analytics_code(){
+  get_template_part('analytics-universal');
+}
+if ( is_analytics_universal() ) {
+  add_action('wp_head', 'add_universal_analytics_code', 11);
 }

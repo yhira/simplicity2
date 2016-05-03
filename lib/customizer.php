@@ -1644,6 +1644,19 @@ function theme_customize_register($wp_customize) {
     'priority' => 73,
   ));
 
+  //ツイート数を表示する
+  $wp_customize->add_setting('twitter_count_visible', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'twitter_count_visible', array(
+    'settings' => 'twitter_count_visible',
+    'label' =>'ツイート数を表示',
+    'description' => is_tips_visible() ? '<a href="http://jsoon.digitiminimi.com/">count.jsoon</a>サービスを利用してツイート数を表示します。（※要登録作業）' : '',
+    'section' => 'sns_section',
+    'type' => 'checkbox',
+    'priority' => 73.5,
+  ));
+
   //ツイートにメンションを含める
   $wp_customize->add_setting('twitter_id_include', array(
     'sanitize_callback' => 'sanitize_check',
@@ -1805,31 +1818,44 @@ function theme_customize_register($wp_customize) {
     'priority' => 116,
   ));
 
-  //YouTubeフォローID
-  $wp_customize->add_setting('youtube_follow_id', array(
+  //YouTubeフォローURLの一部
+  $wp_customize->add_setting('youtube_follow_page_id', array(
     'sanitize_callback' => 'sanitize_text',
   ));
-  $wp_customize->add_control( 'youtube_follow_id', array(
-    'settings' => 'youtube_follow_id',
-    'label' =>'youtube.com/user/XXXXXXX',
-    'description' => is_tips_visible() ? 'YouTubeユーザーページURLのXXXXXXX部分を入力してください。' : '',
+  $wp_customize->add_control( 'youtube_follow_page_id', array(
+    'settings' => 'youtube_follow_page_id',
+    'label' =>'youtube.com/XXXX/XXXXXXX',
+    'description' => is_tips_visible() ? 'YouTubeページURL（youtube.com/<span style="color: red;">XXXX/XXXXXXXXXX</span>）の<span style="color: red;">XXXX/XXXXXXXXXX</span>部分を入力してください。例：user/XXXXXXX、channel/XXXXXXX、c/XXXXXXX。' : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 117,
   ));
 
-  //YouTubeチャンネルID
-  $wp_customize->add_setting('youtube_channel_id', array(
-    'sanitize_callback' => 'sanitize_text',
-  ));
-  $wp_customize->add_control( 'youtube_channel_id', array(
-    'settings' => 'youtube_channel_id',
-    'label' =>'youtube.com/channel/XXXXXXXXXX',
-    'description' => is_tips_visible() ? 'YouTubeチャンネルページURLのXXXXXXX部分を入力してください。（※ユーザーページと同時登録した場合はチャンネルページが優先）' : '',
-    'section' => 'sns_section',
-    'type' => 'text',
-    'priority' => 117.1,
-  ));
+  // //YouTubeフォローID
+  // $wp_customize->add_setting('youtube_follow_id', array(
+  //   'sanitize_callback' => 'sanitize_text',
+  // ));
+  // $wp_customize->add_control( 'youtube_follow_id', array(
+  //   'settings' => 'youtube_follow_id',
+  //   'label' =>'youtube.com/user/XXXXXXX',
+  //   'description' => is_tips_visible() ? 'YouTubeユーザーページURLのXXXXXXX部分を入力してください。' : '',
+  //   'section' => 'sns_section',
+  //   'type' => 'text',
+  //   'priority' => 117,
+  // ));
+
+  // //YouTubeチャンネルID
+  // $wp_customize->add_setting('youtube_channel_id', array(
+  //   'sanitize_callback' => 'sanitize_text',
+  // ));
+  // $wp_customize->add_control( 'youtube_channel_id', array(
+  //   'settings' => 'youtube_channel_id',
+  //   'label' =>'youtube.com/channel/XXXXXXXXXX',
+  //   'description' => is_tips_visible() ? 'YouTubeチャンネルページURLのXXXXXXX部分を入力してください。（※ユーザーページと同時登録した場合はチャンネルページが優先）' : '',
+  //   'section' => 'sns_section',
+  //   'type' => 'text',
+  //   'priority' => 117.1,
+  // ));
 
   //Flickr
   $wp_customize->add_setting('flickr_follow_id', array(
@@ -2158,18 +2184,37 @@ function theme_customize_register($wp_customize) {
     'priority'=> 10,
   ));
 
-  //ユーザー属性とインタレストカテゴリに関するレポートに対応する
-  $wp_customize->add_setting('analytics_interest', array(
-    'sanitize_callback' => 'sanitize_check',
+  //Twitterカードタイプ
+  $wp_customize->add_setting('analytics_tracking_type', array(
+    'default' => 'ga',
+    'sanitize_callback' => 'sanitize_text',
   ));
-  $wp_customize->add_control( 'analytics_interest', array(
-    'settings' => 'analytics_interest',
-    'label' =>'ユーザー属性とインタレストカテゴリレポートに対応',
-    'description' => is_tips_visible() ? 'Googleアナリティクスでユーザーの年齢や興味に関するデータを収集します。（※要Analyticsで設定の有効化）<a href="http://wp-simplicity.com/google-analytics-interest-settings/" target="_blank" class="example-setting">設定方法</a>' : '',
+  $wp_customize->add_control( 'analytics_tracking_type', array(
+    'settings' => 'analytics_tracking_type',
+    'label' =>'Google Analytics トラッキングタイプ',
+    'description' => is_tips_visible() ? 'Google Analyticsのトラッキング方法の設定です。' : '',
     'section' => 'ana_section',
-    'type' => 'checkbox',
-    'priority'=> 20,
+    'type' => 'radio',
+    'choices'    => array(
+      'ga' => 'ga.js（旧タイプ）',
+      'dc' => 'dc.js（ユーザー属性、インタレスト対応）',
+      'analytics' => 'analytics.js（ユニバーサルアナリティクス）',
+    ),
+    'priority' => 20,
   ));
+
+  // //ユーザー属性とインタレストカテゴリに関するレポートに対応する
+  // $wp_customize->add_setting('analytics_interest', array(
+  //   'sanitize_callback' => 'sanitize_check',
+  // ));
+  // $wp_customize->add_control( 'analytics_interest', array(
+  //   'settings' => 'analytics_interest',
+  //   'label' =>'ユーザー属性とインタレストカテゴリレポートに対応',
+  //   'description' => is_tips_visible() ? 'Googleアナリティクスでユーザーの年齢や興味に関するデータを収集します。（※要Analyticsで設定の有効化）<a href="http://wp-simplicity.com/google-analytics-interest-settings/" target="_blank" class="example-setting">設定方法</a>' : '',
+  //   'section' => 'ana_section',
+  //   'type' => 'checkbox',
+  //   'priority'=> 20,
+  // ));
 
   //PtengineのID
   $wp_customize->add_setting('ptengin_tracking_id', array(
@@ -3638,6 +3683,11 @@ function is_pinterest_btn_visible(){
   return get_theme_mod( 'pinterest_btn_visible', false );
 }
 
+//ツイート数を表示するか
+function is_twitter_count_visible(){
+  return get_theme_mod( 'twitter_count_visible', false );
+}
+
 //ツイートにユーザーIDを含めるか
 function is_twitter_id_include(){
   return get_theme_mod( 'twitter_id_include', false );
@@ -3698,6 +3748,11 @@ function get_pinterest_follow_id(){
   return get_theme_mod( 'pinterest_follow_id', null );
 }
 
+//YouTubeフォローページのURLの一部を取得
+function get_youtube_follow_page_id(){
+  return get_theme_mod( 'youtube_follow_page_id', null );
+}
+
 //YouTubeフォローボタンのIDを取得
 function get_youtube_follow_id(){
   return get_theme_mod( 'youtube_follow_id', null );
@@ -3711,13 +3766,18 @@ function get_youtube_channel_id(){
 //YouTubeのフォローURLを取得
 function get_youtube_follow_url(){
   $url = 'https://www.youtube.com/';
-  if ( get_youtube_channel_id() ) {
-    $url = $url . 'channel/' . get_youtube_channel_id();
-  } elseif ( get_youtube_follow_id() ) {
-    $url = $url . 'user/' . get_youtube_follow_id();
+  if ( get_youtube_follow_page_id() ) {
+    $url = $url . get_youtube_follow_page_id();
   } else {
     $url = false;
   }
+  // if ( get_youtube_channel_id() ) {
+  //   $url = $url . 'channel/' . get_youtube_channel_id();
+  // } elseif ( get_youtube_follow_id() ) {
+  //   $url = $url . 'user/' . get_youtube_follow_id();
+  // } else {
+  //   $url = false;
+  // }
 
   return $url;
 }
@@ -3799,10 +3859,10 @@ function is_bottom_share_btns_visible(){
   return get_theme_mod( 'bottom_share_btns_visible', true );
 }
 
-//カスタム広告設定の値を取得
-function get_ads_options(){
-  return get_option('ads_options');
-}
+// //カスタム広告設定の値を取得
+// function get_ads_options(){
+//   return get_option('ads_options');
+// }
 
 //広告表示がオンかどうか
 function is_ads_visible(){
@@ -4109,9 +4169,35 @@ function get_tracking_id(){
   return get_theme_mod( 'tracking_id', null );
 }
 
+//Google Analyticsトラッキングタイプの取得
+function get_analytics_tracking_type(){
+  return get_theme_mod( 'analytics_tracking_type', 'ga' );
+}
+
+//Analyticsトラッキングタイプがga.jsか
+function is_analytics_tracking_type_ga(){
+  return get_analytics_tracking_type() == 'ga';
+}
+
+//Analyticsトラッキングタイプがdc.jsか
+function is_analytics_tracking_type_dc(){
+  return get_analytics_tracking_type() == 'dc';
+}
+
+//Analyticsトラッキングタイプがanalytics.jsか
+function is_analytics_tracking_type_analytics(){
+  return get_analytics_tracking_type() == 'analytics';
+}
+
 //ユーザー属性とインタレストカテゴリに関するレポートに対応しているか
 function is_analytics_interest(){
-  return get_theme_mod( 'analytics_interest', true );
+  return is_analytics_tracking_type_dc();
+  //return get_theme_mod( 'analytics_interest', true );
+}
+
+//ユニバーサルアナリティクスか
+function is_analytics_universal(){
+  return is_analytics_tracking_type_analytics();
 }
 
 //PtengineトラッキングIDの取得

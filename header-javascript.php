@@ -42,6 +42,7 @@ if ( !is_share_button_type_default() || is_mobile() ):
     'all_sns_share_btns_visible' => is_all_sns_share_btns_visible(),
     'all_share_count_visible' => is_all_share_count_visible(),
     'twitter_btn_visible' => false,//is_twitter_btn_visible(),
+    'twitter_count_visible' => is_twitter_count_visible(),
     'facebook_btn_visible' => is_facebook_btn_visible(),
     'google_plus_btn_visible' => is_google_plus_btn_visible(),
     'hatena_btn_visible' => is_hatena_btn_visible(),

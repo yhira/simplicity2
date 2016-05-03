@@ -86,3 +86,16 @@ function fetch_pocket_count($url) {
   }
   return 0;
 }
+
+//count.jsoonからTwitterのツイート数を取得
+function fetch_twitter_count($url){
+  $url = rawurlencode( $url );
+  $subscribers = wp_remote_get( "http://jsoon.digitiminimi.com/twitter/count.json?url=$url" );
+  $res = '0';
+  if (!is_wp_error( $subscribers ) && $subscribers["response"]["code"] === 200) {
+       $body = $subscribers['body'];
+    $json = json_decode( $body );
+    $res = ($json->{"count"} ? $json->{"count"} : '0');
+  }
+  return $res;
+}

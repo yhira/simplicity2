@@ -11,7 +11,7 @@ register_sidebars(1,
   'description' => 'サイドバーのウィジットエリアです。',
   'before_widget' => '<aside id="%1$s" class="widget %2$s">',
   'after_widget' => '</aside>',
-  'before_title'  => '<h3 class="widget_title">',
+  'before_title'  => '<h3 class="widget_title sidebar_widget_title">',
   'after_title'   => '</h3>',
 ));
 
@@ -22,7 +22,7 @@ register_sidebars(1,
   'description' => 'サイドバーで下にスクロールすると追いかけてくるエリアです。※モバイルでは表示されません。（ここにGoogle AdSenseを貼るのはポリシー違反です。）',
   'before_widget' => '<aside id="%1$s" class="widget %2$s">',
   'after_widget' => '</aside>',
-  'before_title' => '<h3 class="widget_title">',
+  'before_title' => '<h3 class="widget_title sidebar_widget_title">',
   'after_title' => '</h3>',
 ));
 
@@ -231,7 +231,7 @@ register_sidebars(1,
   'description' => 'フッター左側のウィジットエリアです。',
   'before_widget' => '<aside id="%1$s" class="widget %2$s">',
   'after_widget' => '</aside>',
-  'before_title' => '<h3>',
+  'before_title' => '<h3 class="footer_widget_title">',
   'after_title' => '</h3>',
 ));
 
@@ -242,7 +242,7 @@ register_sidebars(1,
   'description' => 'フッター中間のウィジットエリアです。',
   'before_widget' => '<aside id="%1$s" class="widget %2$s">',
   'after_widget' => '</aside>',
-  'before_title' => '<h3>',
+  'before_title' => '<h3 class="footer_widget_title">',
   'after_title' => '</h3>',
 ));
 
@@ -253,7 +253,7 @@ register_sidebars(1,
   'description' => 'フッター右側フッター中のウィジットエリアです。',
   'before_widget' => '<aside id="%1$s" class="widget %2$s">',
   'after_widget' => '</aside>',
-  'before_title' => '<h3>',
+  'before_title' => '<h3 class="footer_widget_title">',
   'after_title' => '</h3>',
 ));
 
