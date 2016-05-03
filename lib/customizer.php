@@ -278,6 +278,18 @@ function theme_customize_register($wp_customize) {
     'priority' => 20,
   ));
 
+  //ロゴ画像
+  $wp_customize->add_setting( 'header_logo_url', array(
+    'sanitize_callback' => 'sanitize_file_url',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_logo_url', array(
+    'settings' => 'header_logo_url',
+    'label' =>'ロゴ画像',
+    'description' => is_tips_visible() ? 'タイトルテキストの代わりとなるロゴ設定します。（※表示させるには「ロゴを画像にする」を有効にする必要あり）' : '',
+    'section' => 'header_image',
+    'priority' => 30,
+  ) ) );
+
   //ロゴを画像にする
   $wp_customize->add_setting('header_logo_enable', array(
     'sanitize_callback' => 'sanitize_check',
@@ -288,20 +300,8 @@ function theme_customize_register($wp_customize) {
     'description' => is_tips_visible() ? 'タイトルロゴを画像にするか。' : '',
     'section' => 'header_image',
     'type' => 'checkbox',
-    'priority' => 30,
-  ));
-
-  //ロゴ画像
-  $wp_customize->add_setting( 'header_logo_url', array(
-    'sanitize_callback' => 'sanitize_file_url',
-  ) );
-  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_logo_url', array(
-    'settings' => 'header_logo_url',
-    'label' =>'ロゴ画像',
-    'description' => is_tips_visible() ? 'タイトルテキストの代わりとなるロゴ設定します。' : '',
-    'section' => 'header_image',
     'priority' => 40,
-  ) ) );
+  ));
 
   //ヘッダー外側背景画像
   $wp_customize->add_setting( 'header_outer_background_image', array(
