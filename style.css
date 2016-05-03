@@ -2194,6 +2194,24 @@ div.fb-like-mobile{
   margin-right: 0;
 }
 
+
+#sidebar .blog-card-excerpt,
+#sidebar .blog-card-footer{
+  font-size: 11px;
+  line-height: 120%;
+}
+
+
+#sidebar img.blog-card-thumb-image{
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+#sidebar .blog-card-content {
+  margin-left: 90px;
+}
+
 .internal-blog-card{
   padding:12px 12px 0;
   border:1px solid #ddd;

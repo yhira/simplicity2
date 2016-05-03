@@ -147,7 +147,7 @@ endif;
 //本文中の外部URLをはてなブログカードタグに変更する
 if ( !function_exists( 'url_to_external_blog_card' ) ):
 function url_to_external_blog_card($the_content) {
-  if ( is_singular() ) {//投稿ページもしくは固定ページのとき
+  if ( true /*is_singular()*/ ) {//投稿ページもしくは固定ページのとき
     //1行にURLのみが期待されている行（URL）を全て$mに取得
     $res = preg_match_all('/^(<p>)?(<a.+?>)?https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+(<\/a>)?(<\/p>)?(<br ? \/>)?$/im', $the_content,$m);
     //マッチしたURL一つ一つをループしてカードを作成

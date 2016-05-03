@@ -714,7 +714,26 @@ img.blog-card-thumb-image{
   margin-right: 0px;
 }
 
-@media screen and (max-width:440px){
+#sidebar .blog-card-content {
+  margin-left: 0;
+  margin-right: 90px;
+}
+
+
+@media screen and (max-width: 560px){
+  .blog-card-content {
+    margin-right: 90px;
+  }
+  .blog-card-title {
+    margin-left: 0;
+  }
+  img.blog-card-thumb-image{
+    margin-left: 5px;
+    margin-right: 0px;
+  }
+}
+
+/*@media screen and (max-width:440px){
   .blog-card-content {
     margin-right: 0;
   }
@@ -725,7 +744,7 @@ img.blog-card-thumb-image{
     margin-left: 5px;
     margin-right: 0px;
   }
-}
+}*/
 <?php endif; ?>
 <?php //画像効果はボーダーか
 if ( is_image_effect_border1px() ): ?>

@@ -789,6 +789,7 @@ function simplicity_html5_fix($the_content){
   return $the_content;
 }
 add_filter('the_content', 'simplicity_html5_fix');
+add_filter('widget_text', 'simplicity_html5_fix');
 
 //現在のカテゴリをカンマ区切りテキストで取得する
 function get_category_ids(){
