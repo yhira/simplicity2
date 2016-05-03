@@ -335,8 +335,8 @@
   /* 本文抜粋の調整 */
   .entry-card .entry-snippet,
   .related-entry .related-entry-snippet,
-  .admin-pv,
-  .post-meta {
+  .entry-card .admin-pv,
+  .entry-card .post-meta {
     font-size: 13px ;
     line-height: 130%;
     margin-bottom: 5px;
@@ -383,7 +383,7 @@
   }*/
   /* meta情報の回込み解除 */
   .entry-card .post-meta{
-    margin: 1px auto;
+    margin: 1px auto 5px;
     margin-top: 9px;
     clear: both;
   }
