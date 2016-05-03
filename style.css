@@ -46,7 +46,7 @@ figure{
 .wp-caption,
 .hover-image{
   max-width:100%;
-  height:auto !important;
+  height:auto;
 }
 
 .aligncenter{
