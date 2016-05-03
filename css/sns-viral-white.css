@@ -1,0 +1,101 @@
+/*白抜きバイラルボタン*/
+
+.sns-group-viral ul.snsb li a{
+  background-color: #fff;
+  border: 3px solid #ccc;
+  width: 147px;
+  color: #ccc;
+}
+
+.sns-group-viral ul.snsb li a span.social-icon{
+  font-weight: bold;
+}
+
+.sns-group-viral ul.snsb li a:hover{
+  color: #fff !important;
+  opacity: 1 !important;
+}
+/*
+.sns-group-viral ul.snsbs li a .social-count{
+  color: #333;
+}
+
+.sns-group-viral ul.snsbs li a .social-count:hover{
+  color: #fff;
+}
+*/
+#sharebar .sns-group-viral ul.snsb li a {
+    width: 62px;
+}
+
+.sns-group-viral ul.snsbs li a.twitter-btn-icon-link {
+    color: #55acee;
+    border-color: #55acee;
+}
+.sns-group-viral ul.snsbs li a.twitter-btn-icon-link:hover {
+    background-color: #55acee;
+}
+
+.sns-group-viral ul.snsbs li a.facebook-btn-icon-link {
+    color: #3b5998;
+    border-color: #3b5998;
+}
+.sns-group-viral ul.snsbs li a.facebook-btn-icon-link:hover {
+    background-color: #3b5998;
+}
+
+.sns-group-viral ul.snsbs li a.google-plus-btn-icon-link {
+    color: #dd4b39;
+    border-color: #dd4b39;
+}
+.sns-group-viral ul.snsbs li a.google-plus-btn-icon-link:hover {
+    background-color: #dd4b39;
+}
+
+.sns-group-viral ul.snsbs li a.hatena-btn-icon-link {
+    color: #3c7dd1;
+    border-color: #3c7dd1;
+}
+.sns-group-viral ul.snsbs li a.hatena-btn-icon-link:hover {
+    background-color: #3c7dd1;
+}
+
+.sns-group-viral ul.snsbs li a.pocket-btn-icon-link {
+    color: #ee4257;
+    border-color: #ee4257;
+}
+.sns-group-viral ul.snsbs li a.pocket-btn-icon-link:hover {
+    background-color: #ee4257;
+}
+
+.sns-group-viral ul.snsbs li a.line-btn-icon-link {
+    color: #00c300;
+    border-color: #00c300;
+}
+.sns-group-viral ul.snsbs li a.line-btn-icon-link:hover {
+    background-color: #00c300;
+}
+
+.sns-group-viral ul.snsbs li a.evernote-btn-icon-link {
+    color: #51b125;
+    border-color: #51b125;
+}
+.sns-group-viral ul.snsbs li a.evernote-btn-icon-link:hover {
+    background-color: #51b125;
+}
+
+.sns-group-viral ul.snsbs li a.feedly-btn-icon-link {
+    color: #87bd33;
+    border-color: #87bd33;
+}
+.sns-group-viral ul.snsbs li a.feedly-btn-icon-link:hover {
+    background-color: #87bd33;
+}
+
+.sns-group-viral ul.snsbs li a.comments-btn-icon-link {
+    color: #555;
+    border-color: #555;
+}
+.sns-group-viral ul.snsbs li a.comments-btn-icon-link:hover {
+    background-color: #555;
+}

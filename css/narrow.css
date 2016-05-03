@@ -1,0 +1,394 @@
+/************************************
+** 解像度639px以下のスタイル
+************************************/
+@media screen and (max-width:639px){
+
+  /*モバイルで呼び出されるスタイル*/
+  #list .post{
+    margin-bottom: 10px;
+  }
+
+  .article br{display: none;}
+  /*タイトルをモバイルサイズにする*/
+  #site-title{
+    font-size: 20px;
+    margin-right:30px;
+  }
+  #h-top #site-title a{
+    font-size: 20px;
+  }
+
+  #h-top #site-description{
+    font-size:14px;
+    line-height:140%;
+    margin-bottom:10px;
+  }
+
+  #main .entry{
+    overflow: visible;
+  }
+
+  .entry.masonry-brick .entry-thumb a img{
+    margin: 0;
+  }
+
+  /*img.alginleft, img.alginlright対策*/
+  .article img{
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  img.blog-card-thumb-image{
+    margin-right: 10px !important;
+  }
+
+  .entry .entry-thumb a,
+  .related-entry-thumb a{
+    margin:0;
+    padding:0;
+
+  }
+
+  .related-entry-thumb img{
+    margin-bottom: 0;
+  }
+
+  /*.entry .entry-thumb a img,
+  #related-entries .related-entry-thumb a img{
+    margin:5px;
+  }*/
+
+  .post-meta,
+  .footer-post-meta{
+    text-align:left;
+  }
+
+  #mobile-menu a{
+    font-size:12px;
+    padding: 5px 7px;
+  }
+
+
+  #page-top a#move-page-top{
+    font-size:12px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+
+  /* ページャー＆ページリンク */
+  a.page-numbers,
+  .pager .current,
+  .page-link span,
+  .comment-page-link span,
+  .comment-page-link a{
+    padding: 4px 10px;
+    font-size:16px;
+    line-height:250%;
+  }
+  blockquote {
+    padding:10px;
+  }
+  blockquote:before { left:  0;display:none; }
+  blockquote:after  { right: 0;display:none; }
+
+  .article h1{
+    margin-top:20px;
+  }
+
+  .article h1,
+  .entry h2 a,
+  #archive-title,
+  .article h2,
+  .article h3,
+  .article h4,
+  .article h5
+  .article h6,
+  .article h3,
+  #comment-area h2,
+  #related-entries h2{
+    font-size:20px;
+  }
+
+
+  #sidebar h3{
+    font-size:18px;
+  }
+
+  .article h2{
+    margin:30px 0 !important;
+    padding: 15px;
+  }
+
+  /*ポストページナビ*/
+  #prev-next{text-align:center;}
+
+  #prev-next #prev img,
+  #prev-next #next img{
+    float:none;
+    text-align:center;
+  }
+
+  #prev-next p{
+    margin: 0;
+  }
+
+  /*AndroidHTML対応用の設定*/
+  .bookmarklet.androidhtml > div {
+      margin-left: 0 !important;
+  }
+
+  .bookmarklet.androidhtml > div img.cover-image {
+      margin-left: 0 !important;
+  }
+
+}
+
+@media screen and (max-width:440px){
+  .entry .entry-thumb,
+  .related-entry-thumb{
+    float:none;
+    text-align:center;
+    margin:3px;
+  }
+
+  .entry h2{
+    margin-top:0;
+    line-height: 100%;
+  }
+
+  #main div.entry-large-thumbnail{
+    width: auto;
+  }
+
+  .entry-large-thumbnail{
+    max-width:100%;
+    margin:10px 0 !important;
+  }
+
+  .entry-large-thumbnail .entry-read a{
+    width:auto;
+    margin:auto;
+    padding:5px 0;
+  }
+
+  .entry-large-thumbnail .entry-thumb img{
+    width: 100%;
+    max-width:100%;
+    height:auto !important;
+  }
+
+  .entry .entry-card-content,
+  .related-entry-content{
+    margin:0;
+  }
+
+  .entry .entry-thumb,
+  .related-entry-thumb{
+    margin:0 5px;
+  }
+
+  #comment-area img.avatar{
+    width:30px;
+    height:30px;
+  }
+
+  #header #h-top .alignleft{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #page-top{
+    right: 0;
+    bottom: 0;
+  }
+
+  #navi #navi-in ul li a{
+    padding: 5px 7px;
+  }
+
+  .article ul,
+  .article ol{
+    padding-left: 2em;
+  }
+
+
+  .article ul.snsb,
+  .article ul.snsp{
+    padding-left: 0;
+  }
+
+
+  #navi .sub-menu li,
+  #navi .children li{
+    padding-left:15px;
+  }
+
+  .wpdm_file a{
+    padding: 0;
+  }
+  /*モバイルユーザーエクスペリエンス向け*/
+  .article ol,
+  .article ul,
+  .article dl{
+    line-height: 1.8em !important;
+  }
+
+  /************************************
+  ** ウィジェットのモバイル用調整
+  ************************************/
+  #sidebar .widget_categories li,
+  #sidebar .widget_display_forums li,
+  #sidebar .widget_recent_comments li,
+  #sidebar .widget_display_topics li{
+    line-height: 1.6em;
+  }
+
+  #sidebar .bbp-author-avatar{
+    display: none;
+  }
+
+  #sidebar .widget_categories li ul.children{
+    margin-top: 10px;
+  }
+
+  .blog-card-content{
+    margin-left: 0;
+  }
+
+  .blog-card-title{
+    margin-left: 110px;
+  }
+
+  .blog-card-excerpt{
+    font-size: 0.7em;
+    line-height: 120%;
+  }
+
+  .article .blog-card{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .article th, .article td{
+    padding: 1px 2px;
+    font-size: 85%;
+  }
+
+  blockquote {
+    clear: both;
+  }
+
+}
+
+/***********************************
+ モバイルへのサムネイルカードの一覧性を上げる
+ ダメだったら元に戻しやすいようにあえて
+ max-width:440pxを分けて書く
+ ***********************************/
+@media screen and (max-width:440px){
+  /* 記事タイトルfont調整 */
+  .entry-card h2 a.entry-title,
+  .related-entry h4 a {
+    line-height: 100%;
+    font-size: 17px ;
+  }
+
+  /* サムネイル回り込み */
+  .entry-card .entry-thumb,
+  .related-entry .related-entry-thumb {
+    float: left;
+    margin: 0 6px 0 0;
+    padding: 0;
+  }
+
+  .entry-card .entry-thumb{
+    margin-top: 5px;
+  }
+
+  /* サムネイルサイズ変更 */
+  .entry-card .entry-thumb img{
+    width:100px;
+    height:100px;
+    margin-bottom: 0;
+  }
+  /* meta情報の回込み解除 */
+  .entry-card .post-meta{
+    margin: 1px auto;
+    margin-top: 9px;
+    clear: both;
+  }
+  /* 本文抜粋の調整 */
+  .entry-card .entry-snippet,
+  .related-entry .related-entry-snippet {
+    font-size: 13px ;
+    clear: both;
+    line-height: 130%;
+  }
+  /* 「続きを読む」の調整 */
+  .entry-card .entry-read a,
+  .related-entry .related-entry-read a {
+    font-size: 80%;
+    margin: 0;
+    padding: 3px;
+  }
+  /* 記事間の余白調整 */
+  #main .entry-card,
+  #main .related-entry {
+    margin-bottom: 23px;
+  }
+
+  #related-entries .related-entry-thumbnail{
+    margin: auto;
+    width: 100%;
+    margin-bottom: 1em;
+    height: auto;
+  }
+  #related-entry-thumbnail .related-entry-thumb{
+    margin: auto;
+  }
+
+  /*#header, #header-in, #navi-in, #body-in, #footer-in, #sidebar {
+    width:auto !important;
+  }*/
+}
+
+/************************************
+** Facebookページを「いいね！」するエリアのスタイル
+************************************/
+@media screen and (max-width:639px){
+  .article-like-body{
+    margin-right: 100px;
+    font-size: 1em;
+    line-height: 1.2em;
+  }
+  .article-like-body::after{
+    display: none;
+  }
+}
+
+@media screen and (max-width:440px){
+  .article-like-body{
+    font-size: 0.8em;
+    padding: 5px;
+    line-height: 1.1em;
+    margin-right: 0;
+    height: 70px;
+  }
+  .article-like-arrow-box{
+    height: 100px;
+  }
+  .article-like-button{
+    float: none;
+    width: 100%;
+    height: 30px;
+    display: block;
+    padding-top: 0;
+    line-height: 24px;
+  }
+  div.fb-like-mobile{
+    display: block;
+  }
+  div.fb-like-pc{
+    display: none;
+  }
+}

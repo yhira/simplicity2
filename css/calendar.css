@@ -1,0 +1,39 @@
+/*****************************
+*カレンダーに枠を付ける
+*****************************/
+#wp-calendar {
+    border-collapse: collapse;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-top-color: #999;
+    border-right-color: #999;
+    width: 250px;
+}
+#wp-calendar thead tr th {
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-bottom-color: #999;
+    border-left-color: #999;
+}
+#wp-calendar td {
+    text-align: center;
+    padding: 0px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-bottom-color: #999;
+    border-left-color: #999;
+
+}
+#wp-calendar caption {
+    font-weight: bold;
+    text-align: left;
+}
+#wp-calendar tbody tr #today {
+    background-color: #CCC;
+}

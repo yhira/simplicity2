@@ -1,0 +1,123 @@
+/************************************
+** PC用のレスポンシブデザインスタイル読込
+************************************/
+@media screen and (max-width:1110px){
+  div#header-in, div#navi-in, div#body-in, div#footer-in{
+    width:740px;
+  }
+
+  #site-title{
+    margin-right: 30px;
+  }
+
+  div#sidebar{
+    clear:both;
+    float:none;
+    padding:15px;
+    width:auto;
+    position:static !important;
+  }
+
+  #footer-widget{
+    display:none;
+  }
+
+  #footer-widget .footer-left,
+  #footer-widget .footer-center,
+  #footer-widget .footer-right{
+    clear:both;
+    width:100%;
+  }
+
+  #sidebar-scroll{
+    display:none;
+  }
+  /************************************
+  ** モバイルメニュー
+  ************************************/
+  #mobile-menu{
+    display:block;
+    position:relative;
+  }
+
+  /************************************
+  ** ヘッダー関係
+  ************************************/
+  #header .menu{
+    display:none;
+  }
+
+  #header .alignright{
+    display:none;
+  }
+
+  /************************************
+  ** メインメニュー
+  ************************************/
+  #navi ul{
+    display:none;
+    border:0;
+  }
+
+  #navi ul li{
+    float:none;
+    display:block;
+    height:auto;
+  }
+
+  #navi ul li a:hover{
+    text-decoration:none;
+    background-color:#ddd;
+  }
+
+  #navi ul li a {
+    font-size: medium;
+    padding: 10px;
+    color: #111;
+  }
+
+  #sidebar .ad-space .ad-label{
+    display:block;
+  }
+
+
+  #navi ul.sub-menu,
+  #navi ul.children{
+    position: relative;
+    width:auto;
+    /*background-color:#777;*/
+    border-width:0;
+  }
+
+  #navi ul.sub-menu ul,
+  #navi ul.children ul {
+    left: 0;
+    top: 0;
+  }
+
+  #navi .sub-menu li,
+  #navi .children li{
+    height:auto;
+    padding-left:30px;
+  }
+
+  .slicknav_menu {
+    display: block;
+  }
+
+}
+
+/* 画面幅が1111px以上の時 */
+@media screen and (min-width:1111px){
+  /*#navi ul{display:block}*/
+
+  .ad-sidebar{
+    margin-top:0;
+  }
+
+  #navi ul.sub-menu,
+  #navi ul.children{
+    display:none;
+  }
+
+}

@@ -1,0 +1,31 @@
+/*コメントをシンプルなスレッド表示にしたとき*/
+#comments-thread .comment-id,
+#comments-thread .form-allowed-tags{
+  display:none;
+}
+
+#comments-thread .comment-author{
+  font-weight:bold;
+}
+
+#comments-thread img.avatar {
+  float:right;
+  margin-right:0;
+  margin-left:10px;
+  width: 40px;
+  height: auto;
+}
+
+#commentform label{
+  display:block;;
+}
+
+#commentform input{
+  margin-bottom:0px;
+}
+
+#commentform input,
+#commentform textarea{
+  background-color:#fff;
+  border:1px solid #aaa;
+}

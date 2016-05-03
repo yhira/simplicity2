@@ -1,0 +1,263 @@
+/************************************
+** メニュースタイルの調整
+************************************/
+div#navi {
+  display: none;
+  max-width: 260px;
+}
+
+div#navi ul{
+  display: block !important;
+}
+
+div#navi ul li {
+  float:none;
+  border-top:0px;
+  line-height: 25px !important;
+}
+
+div#navi ul.sub-menu,
+div#navi ul.children {
+  border-width: 0;
+  position: relative;
+  width: auto;
+  display: block !important;
+  margin-left: 1em;
+  left: 0;
+  top: 0;
+}
+
+div#navi ul.sub-menu li,
+div#navi ul.children li{
+  height: auto;
+  padding-left: 0;
+}
+
+/************************************
+** スライトメニューの閉じるボタン
+************************************/
+.slide-close{
+  text-align: center;
+  margin: 5px;
+}
+
+.slide-close a{
+  font-size: 30px;
+}
+
+/************************************
+** メニューサイドバースタイルの調整
+************************************/
+div#sidebar{
+  width: 336px;
+  padding: 5px;
+  float: right;
+  position: fixed !important;
+  display: none;
+}
+
+@media screen and (max-width:639px){
+  div#sidebar{
+    width: 300px;
+  }
+}
+@media screen and (max-width:440px){
+  div#sidebar{
+    width: 260px;
+  }
+}
+
+div#sidebar a:hover{
+  box-shadow: none;
+}
+
+div.sidr {
+  font-family: "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  font-size: 14px;
+}
+
+div.sidr p{
+  font-size: 14px;
+}
+
+div.sidr h1,
+div.sidr h2,
+div.sidr h3,
+div.sidr h4,
+div.sidr h5,
+div.sidr h6{
+  background-image: none;
+  box-shadow: none;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+div.sidr ul li,
+div.sidr ul li:hover {
+  border-bottom: none;
+  border-top: none;
+  display: block;
+  line-height: 130%;
+}
+
+div#sidebar ul.snsp li{
+  display: inline;
+}
+
+div#sidebar ul.snsp li a{
+  padding: 0;
+  margin-right: 5px;
+}
+
+div.sidr ul li a,
+div.sidr ul li span{
+  display: inline;
+}
+
+div.sidr .widget_new_entries a,
+div.sidr .widget_new_popular a,
+div.sidr .widget_popular_ranking a,
+div.sidr .wpp-list a,
+div.sidr .article-list
+div.sidr .entry-title a{
+  display: block;
+}
+
+
+/************************************
+** フッターのモバイルメニュー
+************************************/
+/*スライドインエリアが上下にスクロールできなくなる対策*/
+/*div#navi,
+div#sidebar{
+  height: 100vh;
+}*/
+
+#footer-mobile-buttons{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 45px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #f7f7f7;
+  text-align: center;
+  opacity: 0.95;
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  z-index: 20;
+}
+
+#footer-mobile-buttons a{
+  color: #333;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  float: left;
+  width: 500px;
+  font-family: arial;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+}
+
+/*@media screen and (max-width:440px){
+  #footer-mobile-buttons a{
+    width: 80px;
+  }
+}*/
+
+#footer-mobile-buttons a:hover{
+  background-color: #eee;
+}
+
+#footer-mobile-buttons a .menu-icon{
+  font-size: 1.4em;
+}
+
+#footer-mobile-buttons a .menu-caption{
+  font-size: 0.6em;
+  font-family: "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  position: relative;
+  text-align: center;
+}
+
+.menu-caption-menu::before{
+  content: 'メニュー';
+}
+
+.menu-caption-search::before{
+  content: '検索';
+}
+
+.menu-caption-prev::before{
+  content: '前へ';
+}
+
+.menu-caption-next::before{
+  content: '次へ';
+}
+
+.menu-caption-top::before{
+  content: 'トップへ';
+}
+
+.menu-caption-sidebar::before{
+  content: 'サイドバー';
+}
+
+#footer-mobile-buttons .fa-times{
+  color: #D40000;
+}
+
+/************************************
+** 不要なボタンを削除
+************************************/
+#mobile-menu {
+  display: none !important;
+}
+
+/************************************
+** 不要なボタンを削除
+************************************/
+#mobile-search-box{
+  background-color: #f7f7f7;
+  opacity: 0.95;
+  position: fixed;
+  top: 55px;
+  width: 100%;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: none;
+  z-index: 20;
+}
+
+#mobile-search-box #searchform,
+#mobile-search-box #searchsubmit,
+#mobile-search-box #s{
+  margin: 0;
+}
+
+/*スライドエリアを開いたときに本文部分を覆う要素*/
+.slidein-over-ray{
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  background-color: #111;
+  opacity: 0.3;
+  display: none;
+}

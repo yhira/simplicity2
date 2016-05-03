@@ -1,0 +1,49 @@
+/*
+  Name: シック
+  Priority: 40
+  Author: yhira
+  Author URI: http://nelog.jp/
+*/
+
+#navi,
+#navi ul,
+#navi ul.sub-menu,
+#navi ul.children{
+  background-color:#111;
+  border-color:#111;
+}
+
+#navi .menu{
+  border-radius:5px;
+}
+
+#footer{
+  background-color:#111;
+}
+
+#page-top a{
+  background-color:#333;
+}
+
+#page-top a:hover,
+#mobile-menu a:hover{
+  opacity:0.7;
+}
+
+#navi ul li a{
+  color:#fff;
+}
+
+#navi .menu > li > a{
+  padding:0.5em 0.7em;
+}
+
+#navi ul li a:hover{
+  background-color:#666;
+}
+
+#s {
+  background-color: #FFFFFF;
+  border-color: #AAAAAA;
+  border-radius: 3px;
+}

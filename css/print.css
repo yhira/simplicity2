@@ -1,0 +1,85 @@
+/****************************
+印刷用スタイル
+****************************/
+
+/*非表示設定*/
+#header,
+nav,
+#breadcrumb,
+#sidebar,
+#sharebar,
+.article .post-meta,
+#sns-group-top,
+section#under-entry-body,
+.page-link,
+#sns-group,
+.post-tag,
+.edit,
+.wlw-edit,
+.pager,
+.widget,
+.widget-ad,
+.widget-over-article,
+.widget-under-article,
+.widget-over-sns-buttons,
+.widget-under-sns-buttons,
+#page-top,
+#footer{
+  display: none !important;
+}
+
+/*コンテナの幅の設定*/
+#header, #header-in, #navi, #navi-in, #body-in, #footer-in{
+  width: auto !important;
+}
+
+#main{
+  border-width: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  width: auto;
+  float: none;
+}
+
+/*見出しの余分な部分をリセット*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  background-color: transparent !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  border-width: 0 !important;
+}
+
+/*文字の大きさ*/
+body,
+.article {
+    font-size: 11pt;
+}
+.article h1 {
+  font-size: 21.5pt;
+}
+
+.article h2 {
+  font-size: 18.5pt;
+}
+
+.article h3 {
+  font-size: 16pt;
+}
+
+.article h4,
+.article h5,
+.article h6 {
+  font-size: 14pt;
+}
+
+/*引用のマージン対策*/
+blockquote{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

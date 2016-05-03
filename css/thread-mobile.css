@@ -1,0 +1,9 @@
+
+#comments-thread {
+  margin-left:-10px;
+  margin-right:-10px;
+}
+
+#comments-thread .comment-info{
+  font-size:14px;
+}

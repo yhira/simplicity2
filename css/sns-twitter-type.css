@@ -1,0 +1,40 @@
+/************************************
+** Twitterタイプボタン表示CSS
+************************************/
+a.balloon-btn-link {
+  font-size:16px;
+  font-weight:normal;
+  border:1px solid #bbb;
+  text-decoration:none;
+  background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+  background:-ms-linear-gradient( top, #f9f9f9 5%, #e9e9e9 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f9f9f9), color-stop(100%, #e9e9e9) );
+  background-color:#f9f9f9;
+  color:#666666;
+  display:inline-block;
+  text-shadow:1px 1px 0px #ffffff;
+   -webkit-box-shadow:inset 1px 1px 0px 0px #ffffff;
+   -moz-box-shadow:inset 1px 1px 0px 0px #ffffff;
+   box-shadow:inset 1px 1px 0px 0px #ffffff;
+}
+
+a.twitter-balloon-btn-link{color:#55acee;}
+a.facebook-balloon-btn-link{color:#3c5a99;}
+a.googleplus-balloon-btn-link{color:#dd4b39;}
+a.hatena-balloon-btn-link{color:#3c7dd1;}
+a.pocket-balloon-btn-link{color:#ee4257;}
+a.line-balloon-btn-link{color:#00c300;}
+a.evernote-balloon-btn-link{color:#51b125;}
+a.feedly-balloon-btn-link{color:#87bd33;}
+a.comments-balloon-btn-link{color:#777;}
+
+a.twitter-balloon-btn-link:hover{color:#55acee;}
+a.facebook-balloon-btn-link:hover{color:#3c5a99;}
+a.googleplus-balloon-btn-link:hover{color:#dd4b39;}
+a.hatena-balloon-btn-link:hover{color:#3c7dd1;}
+a.pocket-balloon-btn-link:hover{color:#ee4257;}
+a.line-balloon-btn-link:hover{color:#00c300;}
+a.evernote-balloon-btn-link:hover{color:#51b125;}
+a.feedly-balloon-btn-link:hover{color:#87bd33;}
+a.comments-balloon-btn-link:hover{color:#777;}

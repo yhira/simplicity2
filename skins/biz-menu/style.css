@@ -1,0 +1,49 @@
+/*
+  Name: ビジネスメニュー
+  Priority: 50
+  Author: yhira
+  Author URI: http://nelog.jp/
+*/
+
+#navi,
+#navi ul{
+  background-color:#f7f7f7;
+  border-top: 3px solid #ddd;
+  border-bottom: 3px solid #ddd;
+}
+
+#navi ul{border:0;}
+
+#navi .menu{
+  border-radius:0px;
+}
+
+#navi ul li a{
+  color:#111;
+}
+
+#navi .menu > li > a{
+  padding:1em 1.5em;
+  border-right: 1px solid #ccc;
+}
+#navi .menu > li:first-child{
+  border-left: 1px solid #ccc;
+}
+
+#s {
+  background-color: #FFFFFF;
+  border-color: #AAAAAA;
+  border-radius: 3px;
+}
+
+/************************************
+** レスポンシブデザインスタイル読込
+************************************/
+
+@media screen and (max-width:1110px){
+  #navi,
+  #navi ul{
+    border:0;
+  }
+
+}

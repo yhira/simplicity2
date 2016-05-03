@@ -1,0 +1,155 @@
+/*ビジュアルエディターのスタイル*/
+@import url('extension.css');
+
+body.mceContentBody {
+  font: 16px 'Lucida Grande','Hiragino Kaku Gothic ProN',
+      Meiryo, sans-serif;
+  margin: 20px 30px;
+  line-height: 170%;
+  width: 680px;
+}
+
+.editor-area a {
+  color: #339933;
+  text-decoration: underline;
+}
+
+/************************************
+** 見出し（H1-6）
+************************************/
+h1, h2, h3, h4, h5, h6{
+  line-height:130%;
+  color:#333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  position:relative;
+  margin-top:35px;
+  margin-bottom:20px;
+}
+h1 {
+  margin-top:30px;
+  margin-bottom:20px;
+  font-size: 30px;
+  line-height:117%;
+}
+
+#archive-title{
+  padding-bottom:20px;
+  font-size:26px;
+}
+
+h2 {
+  border-left:1px solid #000;
+  margin: 40px -29px 20px;
+  padding:25px 30px;
+  font-size:26px;
+}
+
+h3{
+  font-size:23px;
+  border-bottom:5px solid #e7e7e7;
+  padding:10px 0;
+}
+
+h4, h5, h6{
+  font-size:20px;
+  padding:8px 0;
+}
+
+h4{
+  border-bottom:5px dashed #eee;
+}
+
+
+
+/************************************
+** 引用（blockquote）
+************************************/
+blockquote {
+  background: none repeat scroll 0 0 rgba(245, 245, 245, 0.8);
+  border: 1px solid #FFFFFF;
+  margin: 1em 0;
+  padding: 20px 55px;
+  position: relative;
+}
+
+
+blockquote:before {
+  color: #C8C8C8;
+  content: "“";
+  font-family: serif;
+  font-size: 600%;
+  left: 0;
+  line-height: 1em;
+  position: absolute;
+  top: 0;
+}
+
+blockquote:after {
+  bottom: 0;
+  color: #C8C8C8;
+  content: "”";
+  font-family: serif;
+  font-size: 600%;
+  line-height: 0;
+  position: absolute;
+  right: 0;
+  bottom: -16px;
+}
+
+/* Internet Explorer11のみに適用したい設定 */
+@media screen and (min-width:0\0) {
+  *::-ms-backdrop, blockquote:before { left:  -55px; }
+  *::-ms-backdrop, blockquote:after  { right: -55px; }
+}
+
+/************************************
+** テーブル（Table）
+************************************/
+table{
+  border-collapse: collapse;
+}
+th{
+  border: solid 1px #ccc;
+  background-color: #eee;
+}
+td{
+  border: solid 1px #ccc;
+}
+th, td{
+  padding: 3px 5px;
+}
+
+ol,
+ul,
+dl{
+  line-height:150%;
+}
+
+ol,
+ul,
+dl{
+  margin:30px 0;
+}
+
+ol ol,
+ul ul,
+dl dl{
+  margin:0;
+}
+
+/************************************
+** その他（Other）
+************************************/
+pre {
+  background-color:#eee;
+  border:1px solid #ccc;
+  padding:7px;
+  overflow: auto;
+}

@@ -1,0 +1,54 @@
+@charset "UTF-8";
+@import url("css/media.css");/*Youtubeなどiframeのスタイル*/
+@import url("css/narrow.css");/*Youtubeなどiframeのスタイル*/
+/*@import url("css/thread-responsive.css");*//*スレッド掲示板風モバイルスタイル*/
+
+
+ul.snsbs li{
+  padding-right:0;
+}
+
+/************************************
+** 解像度740px以下のスタイル
+************************************/
+@media screen and (max-width:740px){
+
+  #header, #header-in, #navi, #navi-in, #body-in, #footer-in{
+    width:100% !important;
+  }
+
+  #main{
+    width:auto;
+    padding-left:0;
+    padding-right:0;
+    border-width:0;
+    padding:10px;
+  }
+
+  #main,
+  #sidebar{
+    float:none !important;
+  }
+
+
+  /*マージンによる幅のズレ修正開始*/
+  .article h2{
+    margin-left:0;
+    margin-right:0;
+  }
+
+  blockquote{
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+
+  .navigation{
+    margin-left:0;
+    margin-right:0;
+  }
+
+  #sidebar{
+    width:auto;
+  }
+
+}

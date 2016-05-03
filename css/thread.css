@@ -1,0 +1,59 @@
+#comments-thread h2#resp,
+#comments-thread h2#reply-title{
+  margin-bottom:30px;
+  padding-top:30px;
+}
+
+#comments-thread h3#resp{
+  margin-left:20px;
+  margin-right:20px;
+}
+
+#comments-thread {
+  background-color:#F7F7F7;
+  padding-bottom:30px;
+  margin-bottom:-20px;
+  margin-left:-29px;
+  margin-right:-29px;
+}
+
+/* AA用の設定 デフォルトでよければ削除してください */
+#comments-thread p{
+  font-size: 12pt;
+  line-height: 18px;
+  font-family: "Mona","IPA MONAPGOTHIC","MS PGothic","ＭＳ Ｐゴシック","MS Pｺﾞｼｯｸ","MS Pゴシック",sans-serif;
+}
+
+#comments-thread ol.commets-list,
+#comments-thread div#respond {
+  padding-left: 0px;
+  margin-left:39px;
+  margin-right:29px;
+
+}
+
+#comments-thread #commentform input,
+#comments-thread #commentform textarea{
+  margin:0;
+  background-color:#FFF;
+  border:1px solid #333;
+}
+
+#comments-thread #commentform label{
+  display:block;
+}
+
+#comments-thread div.comment-info{
+  font-weight: bold;
+}
+
+#comments-thread cite.comment-author{
+  color: #008800;
+}
+
+/* 必要のないものを削除 */
+#comments-thread img.avatar,
+#comments-thread p.comment-notes,
+#comments-thread p.comment-form-url,
+#comments-thread p.form-allowed-tags,
+span.comment-reply{display:none;}

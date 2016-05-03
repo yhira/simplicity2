@@ -1,0 +1,13 @@
+/************************************
+** 解像度740px以下のスタイル
+************************************/
+@media screen and (max-width:740px){
+  #comments-thread {
+    margin-left:-10px;
+    margin-right:-10px;
+  }
+
+  #comments-thread .comment-info{
+    font-size:14px;
+  }
+}

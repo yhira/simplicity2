@@ -1,0 +1,219 @@
+@charset "UTF-8";
+@import url("css/media.css");/*Youtubeなどiframeのスタイル*/
+@import url("css/narrow.css");/*640px以下のおスタイル*/
+/*@import url("css/other-mobile.css");*//*モバイル用外部パーツ微調整*/
+
+/************************************
+** レイアウト
+************************************/
+div#header-in, div#navi-in, div#body-in, div#footer-in {
+  width: 100%;
+}
+
+#main{
+  float:none;
+  width:auto;
+  padding:10px;
+  border:none;
+}
+
+div#sidebar{
+  clear:both;
+  float:none;
+  padding:15px;
+  width:auto;
+}
+
+#h-top{
+  height:auto;
+  min-height:100px;
+}
+
+#site-title a{
+  font-size:24px;
+}
+
+#site-description{
+  font-size:14px;
+}
+
+#main,
+#sidebar {
+  margin: 0 auto;
+  max-width: 720px;
+  box-sizing: border-box;
+  float: none !important;
+}
+
+/************************************
+** #header内
+************************************/
+#h-top{
+  background-image:none !important;
+  /*background-color:#e7e7e7;*/
+}
+
+#header .alignright{
+  display:none;
+}
+
+/************************************
+** メインメニュー
+************************************/
+#navi ul{
+  display:none;
+  border:0 none;
+  background-color:#666;
+}
+
+#navi ul > li {
+  float:none;
+  border-top:0px;
+  border:0;
+  height:auto;
+}
+
+#navi ul  li a{
+  border-bottom:solid 1px #444;
+}
+
+#navi ul li a:hover {
+  text-decoration:none;
+  background-color:#666;
+}
+
+#navi ul li a {
+  font-size: medium;
+  padding: 10px;
+  color: #fff;
+  background:#777;
+  overflow:hidden;
+}
+
+/*#navi ul.sub-menu,
+#navi ul.children{
+  display:none !important;
+}*/
+
+
+#navi ul.sub-menu,
+#navi ul.children{
+  position: relative;
+  width:auto;
+  background-color:#777;
+  border-width:0;
+}
+
+#navi ul.sub-menu ul,
+#navi ul.children ul {
+  left: 0;
+  top: 0;
+}
+
+#navi .sub-menu li,
+#navi .children li{
+  height:auto;
+  padding-left:30px;
+}
+
+
+/************************************
+** #main内
+************************************/
+.entry-read a,
+.related-entry-read a{
+  display:block;
+  width: auto;
+  background-color:#eee;
+  border:1px solid #ddd;
+  border-radius:10px;
+  text-align:center;
+  padding:5px;
+  text-decoration:none;
+  color:#111;
+  margin-top:18px;
+}
+
+.entry-card .entry-thumb {
+  margin-top: 5px;
+}
+
+.entry-read a:hover,
+.related-entry-read a:hover{
+  background-color:#ddd;
+}
+
+.entry h2 a {
+  font-size: 18px;
+}
+
+.navigation{
+  margin: 30px 0;
+}
+
+.article h2{
+  margin:40px 0;
+}
+
+.article ol, .article ul, .article dl{
+  line-height:165%;
+}
+
+.snsb li{
+  padding-right:0;
+}
+
+/************************************
+** 広告
+************************************/
+.ad-top-mobile{
+  margin-left:-10px;
+  margin-right:-10px;
+}
+
+
+/************************************
+** SNS
+************************************/
+/*#sns-group-top .sns-buttons-icon li{
+  width: 40px;
+}*/
+
+/************************************
+** フッター
+************************************/
+#footer-widget{
+  display:none;
+}
+
+#mobile-menu{
+  display: block;
+}
+
+/*以前のモバイルメニュー（mobile.css）
+#mobile-menu a{
+  font-size:12px;
+  padding:5px;
+  width:60px;
+  border-radius:0 0 7px 7px;
+}*/
+
+
+/************************************
+** TOPへ戻るボタン（Go to top）
+************************************/
+#page-top{
+  position:fixed;
+  display:none;
+}
+
+#page-top a{
+  font-size:12px;
+}
+
+/************************************
+** モバイルメニュー
+************************************/
+#mobile-menu{
+  display:block;
+}

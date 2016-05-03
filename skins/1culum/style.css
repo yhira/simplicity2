@@ -1,0 +1,17 @@
+/*
+  Name: 1カラム
+  Priority: 100
+  Author: yhira
+  Author URI: http://nelog.jp/
+*/
+#header-in, #navi-in, #body-in, #footer-in {
+    width: 740px;
+}
+
+#sidebar{
+  clear: both;
+  float: none;
+  padding: 15px;
+  position: static;
+  width: auto;
+}
