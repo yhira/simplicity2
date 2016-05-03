@@ -31,8 +31,12 @@ if (is_home() && !is_paged()) : ?>
 <?php endif ?>
 <?php endif; ?>
 <?php //投稿ページにMETAタグを挿入するとき
-if ( is_singular() && is_meta_description_insert() ):?>
-<meta name="description" content="<?php echo get_the_description(); ?>" />
+if ( is_singular() && is_meta_description_insert() ):
+  $page_str = null;
+  if ( get_multi_page_number() > 1 ) {
+    $page_str = ' - ページ '.get_multi_page_number();
+  }?>
+<meta name="description" content="<?php echo get_the_description().$page_str; ?>" />
 <?php endif; ?>
 <?php //投稿ページにMETAキーワードを挿入するとき
 if ( is_single() && is_meta_keywords_insert() ):

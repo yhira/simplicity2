@@ -273,9 +273,9 @@ endif;
 if ( !function_exists( 'auto_post_slug' ) ):
 function auto_post_slug( $slug, $post_ID, $post_status, $post_type ) {
   $type = utf8_uri_encode( $post_type );
-//  if ( empty( $post_ID ) ){//IDがまだ指定されていないとき
-//    $slug = $type . '-' . strval(get_the_latest_ID() + 1); //最新記事のIDに＋1
-//  } else
+  // if ( empty( $post_ID ) ){//IDがまだ指定されていないとき
+  //   $slug = $type . '-' . strval(get_the_latest_ID() + 1); //最新記事のIDに＋1
+  // } else
   if ( preg_match( '/(%[0-9a-f]{2})+/', $slug ) &&
      ( $post_type == 'post' || $post_type == 'page') ) {//投稿もしくは固定ページのときのみ実行する
     $slug = $type . '-' . $post_ID;
@@ -890,3 +890,15 @@ add_filter('the_content', 'remove_facebook_embed_scripts');
 // }
 // endif;
 // add_filter('the_content', 'wrap_table_elements');
+
+//ページが分割ページか
+function is_page_multi(){
+  global $numpages;
+  return $numpages != 1;
+}
+
+//分割ページの何ページ目か
+function get_multi_page_number() {
+  $paged = (get_query_var('page')) ? get_query_var('page') : 1;
+  return $paged;
+}

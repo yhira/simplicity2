@@ -1,0 +1,121 @@
+
+#sharebar {
+  margin-left:-120px;
+}
+.ad-space {
+  text-align:center;
+}
+ul.snsp li.twitter-page a span{
+  color: #55acee !important;
+}
+
+ul.snsp li.facebook-page a span{
+  color: #3b5998 !important;
+}
+
+ul.snsp li.google-plus-page a span{
+  color: #dd4b39 !important;
+}
+
+ul.snsp li.instagram-page a span{
+  color: #3f729b !important;
+}
+
+ul.snsp li.hatebu-page a span{
+  color: #008fde !important;
+}
+
+ul.snsp li.pinterest-page a span{
+  color: #cc2127 !important;
+}
+
+ul.snsp li.youtube-page a span{
+  color: #e52d27 !important;
+}
+
+ul.snsp li.flickr-page a span{
+  color: #1d1d1b !important;
+}
+
+ul.snsp li.line-page a span{
+  color: #00c300 !important;
+}
+
+ul.snsp li.feedly-page a span{
+  color: #87bd33 !important;
+}
+
+ul.snsp li.rss-page a span{
+  color: #fe9900 !important;
+}
+
+ul.snsp li a:hover{
+  opacity: 0.7;
+}
+.article {
+  font-size:16px;
+}
+
+/*サイドバーの幅をレクタングル（大）の幅にする*/
+#sidebar{
+  width: 336px;
+}
+#header-in, #navi-in, #body-in, #footer-in{
+  width: 1106px;
+}
+
+/* 画面幅が1110px以下の時 */
+/*@media screen and (max-width:1110px){
+  #header-in, #navi-in, #body-in, #footer-in {
+    width: 740px;
+  }
+
+  #sidebar{
+    width: auto;
+  }
+}*/
+
+#header, #header-in, #navi-in, #body-in, #footer-in, #sidebar {
+  width:100%;
+}
+
+/*サイトタイトルを中央寄せ*/
+#header .alignleft {
+    text-align: center;
+    max-width: none;
+    /*width: calc(100% - 60px);*/
+}
+
+#h-top #site-title a{
+  margin-right: 0 !important;
+}
+
+#site-description{
+  margin-right: 0;
+}
+
+#header .alignright {
+    display: none;
+}
+/*サイドバーの背景色を白色*/
+#sidebar{
+  background-color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+@media screen and (max-width:639px){
+  .article br{
+    display: block;
+  }
+}
+a.balloon-btn-link:hover,
+.snsbs li a:hover,
+ul.snsp li a:hover,
+#mobile-menu a:hover,
+#page-top a:hover {
+  opacity: 1;
+}
+.entry-content{
+  margin-left: 0;
+}
