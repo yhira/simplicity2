@@ -285,13 +285,6 @@ function fetch_feedly_count(rss_url, selector) {
   });
 }
 
-function doMasonry() {
-  jQuery('#list').masonry({ //<!-- #listは記事一覧を囲んでる部分 -->
-    itemSelector: '.entry', //<!--.entryは各記事を囲んでる部分-->
-    isAnimated: true //<!--アニメーションON-->
-  });
-}
-
 jQuery(function(){
   if (typeof social_count_config !== 'undefined') {
     //console.log(social_count_config.all_sns_share_btns_visible);
@@ -333,6 +326,13 @@ jQuery(function(){
     jQuery('img').lazyload(lazyload_config);
   }
 });
+
+function doMasonry() {
+  jQuery('#list').masonry({ //<!-- #listは記事一覧を囲んでる部分 -->
+    itemSelector: '.entry', //<!--.entryは各記事を囲んでる部分-->
+    isAnimated: false //<!--アニメーションON-->
+  });
+}
 
 jQuery(window).load(function(){
   if (typeof do_masonry !== 'undefined') {
@@ -380,7 +380,7 @@ jQuery(document).ready(function() {
 ///////////////////////////////////
 function fetch_twitter_count_from_count_jsoon(url, selector) {
   jQuery.ajax({
-    url:'http://jsoon.digitiminimi.com/twitter/count.json',
+    url:'//jsoon.digitiminimi.com/twitter/count.json',
     dataType:'jsonp',
     timeout: 10000, //10sec
     data:{

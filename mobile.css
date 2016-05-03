@@ -42,8 +42,14 @@ div#sidebar{
   margin: 0 auto;
   max-width: 720px;
   box-sizing: border-box;
-  float: none !important;
+  float: none;
+  /*float: none !important;*/
 }
+
+#main{
+  padding: 20px;
+}
+
 
 /************************************
 ** #header内

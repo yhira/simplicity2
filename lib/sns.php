@@ -74,15 +74,6 @@ function fetch_pocket_count($url) {
     preg_match( '/<em id="cnt">([0-9.]+)<\/em>/i', $result["body"], $count );
     // 共有数を表示
     return isset($count[1]) ? intval($count[1]) : 0;
-    // //$wp_filesystemオブジェクトのメソッドとして呼び出す
-    // $html = $wp_filesystem->get_contents($query);
-    // $dom = new DOMDocument('1.0', 'UTF-8');
-    // $dom->preserveWhiteSpace = false;
-    // $dom->loadHTML($html);
-    // $xpath = new DOMXPath($dom);
-    // $result = $xpath->query('//em[@id = "cnt"]')->item(0);
-    // return isset($result->nodeValue) ? intval($result->nodeValue) : 0;
-
   }
   return 0;
 }
@@ -90,7 +81,7 @@ function fetch_pocket_count($url) {
 //count.jsoonからTwitterのツイート数を取得
 function fetch_twitter_count($url){
   $url = rawurlencode( $url );
-  $subscribers = wp_remote_get( "http://jsoon.digitiminimi.com/twitter/count.json?url=$url" );
+  $subscribers = wp_remote_get( "//jsoon.digitiminimi.com/twitter/count.json?url=$url" );
   $res = '0';
   if (!is_wp_error( $subscribers ) && $subscribers["response"]["code"] === 200) {
        $body = $subscribers['body'];
@@ -98,4 +89,44 @@ function fetch_twitter_count($url){
     $res = ($json->{"count"} ? $json->{"count"} : '0');
   }
   return $res;
+}
+
+//SNS Count Cacheプラグインはインストールされているか
+function scc_exists(){
+  return function_exists('scc_get_share_twitter');
+}
+
+//ツイート数取得関数が存在しているか
+function scc_twitter_exists(){
+  return function_exists('scc_get_share_twitter');
+}
+
+//Facebookシェア数取得関数が存在しているか
+function scc_facebook_exists(){
+  return function_exists('scc_get_share_facebook');
+}
+
+//Google＋シェア数取得関数が存在しているか
+function scc_gplus_exists(){
+  return function_exists('scc_get_share_gplus');
+}
+
+//はてブ数取得関数が存在しているか
+function scc_hatebu_exists(){
+  return function_exists('scc_get_share_hatebu');
+}
+
+//Pocketストック数取得関数が存在しているか
+function scc_pocket_exists(){
+  return function_exists('scc_get_share_pocket');
+}
+
+//トータルシェア数取得関数が存在しているか
+function scc_total_exists(){
+  return function_exists('scc_get_share_total');
+}
+
+//feedly購読者数取得関数が存在しているか
+function scc_feedly_exists(){
+  return function_exists('scc_get_follow_feedly');
 }

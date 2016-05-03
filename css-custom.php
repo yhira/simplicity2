@@ -211,47 +211,47 @@ if ( is_ads_center() ): ?>
 <?php //フォローボタンに色をつける
 if ( is_colored_follow_btns() ): ?>
 ul.snsp li.twitter-page a span{
-  color: #55acee !important;
+  color: #55acee;
 }
 
 ul.snsp li.facebook-page a span{
-  color: #3b5998 !important;
+  color: #3b5998;
 }
 
 ul.snsp li.google-plus-page a span{
-  color: #dd4b39 !important;
+  color: #dd4b39;
 }
 
 ul.snsp li.instagram-page a span{
-  color: #3f729b !important;
+  color: #3f729b;
 }
 
 ul.snsp li.hatebu-page a span{
-  color: #008fde !important;
+  color: #008fde;
 }
 
 ul.snsp li.pinterest-page a span{
-  color: #cc2127 !important;
+  color: #cc2127;
 }
 
 ul.snsp li.youtube-page a span{
-  color: #e52d27 !important;
+  color: #e52d27;
 }
 
 ul.snsp li.flickr-page a span{
-  color: #1d1d1b !important;
+  color: #1d1d1b;
 }
 
 ul.snsp li.line-page a span{
-  color: #00c300 !important;
+  color: #00c300;
 }
 
 ul.snsp li.feedly-page a span{
-  color: #87bd33 !important;
+  color: #87bd33;
 }
 
 ul.snsp li.rss-page a span{
-  color: #fe9900 !important;
+  color: #fe9900;
 }
 
 ul.snsp li a:hover{
@@ -324,11 +324,11 @@ a.entry-image,
 
 .widget_new_popular .wpp-thumbnail,
 .widget_popular_ranking .wpp-thumbnail{
-  display:none !important;
+  display: none;
 }
 
 .related-entry-thumbnail .related-entry-thumb{
-  display:block;
+  display: block;
 }
 
 .entry-card-content,
@@ -675,7 +675,7 @@ if ( get_mobile_header_background_image() ): ?>
 }
 
 #h-top{
-  background-color: transparent !important;
+  background-color: transparent;
 }
 <?php endif; //!is_mobile ?>
 <?php endif; //get_mobile_header_background_image ?>
@@ -708,6 +708,11 @@ if ( is_blog_card_thumbnail_right() ): ?>
   margin-right: 110px;
 }
 
+img.blog-card-thumb-image{
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
 @media screen and (max-width:440px){
   .blog-card-content {
     margin-right: 0;
@@ -716,8 +721,8 @@ if ( is_blog_card_thumbnail_right() ): ?>
     margin-left: 0;
   }
   img.blog-card-thumb-image{
-    margin-left: 5px !important;
-    margin-right: 0px !important;
+    margin-left: 5px;
+    margin-right: 0px;
   }
 }
 <?php endif; ?>
@@ -727,7 +732,7 @@ if ( is_image_effect_border1px() ): ?>
 #the-content > p > img,
 #the-content > .hover-image > img,
 #the-content > p > a > img {
-  border: 1px solid #ddd !important;
+  border: 1px solid #ddd;
 }
 <?php endif; ?>
 <?php //画像効果はシャドーか
@@ -744,11 +749,10 @@ if ( is_title_center() ): ?>
 #header .alignleft {
   text-align: center;
   max-width: none;
-  /*width: calc(100% - 60px);*/
 }
 
 #h-top #site-title a{
-  margin-right: 0 !important;
+  margin-right: 0;
 }
 
 #site-description{
@@ -908,10 +912,10 @@ ul.snsp li a:hover,
 }
 <?php endif; ?>
 <?php //シェア数を表示しない場合
-if ( !is_all_share_count_visible() && is_simplicity_share_button() ): ?>
+if ( !is_all_share_count_visible() && (is_simplicity_share_button() || is_mobile()) ): ?>
 /*数字部分を消す*/
-.social-count {
-  display: none !important;
+#main .social-count {
+  display: none;
 }
 
 /*バルーンを消す*/

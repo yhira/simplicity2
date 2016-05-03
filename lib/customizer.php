@@ -2778,6 +2778,19 @@ function theme_customize_register($wp_customize) {
     'priority' => 400,
   ));
 
+  //管理者のみにPV表示
+  $wp_customize->add_setting('admin_pv_visible', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'admin_pv_visible', array(
+    'settings' => 'admin_pv_visible',
+    'label' =>'管理者のみにPV表示',
+    'description' => is_tips_visible() ? 'ログインユーザーのみにPVを表示します。（※要Wordpress Popular Postsプラグインのインストール）' : '',
+    'section' => 'admin_section',
+    'type' => 'checkbox',
+    'priority' => 500,
+  ));
+
 
   /////////////////////////////
   //その他項目の追加
@@ -4179,6 +4192,11 @@ function is_initial_media_disp_type_in_entry(){
 //記事を公開前に確認するか
 function is_confirmation_before_publish(){
   return get_theme_mod( 'confirmation_before_publish', false );
+}
+
+//管理者にPV表示
+function is_admin_pv_visible(){
+  return get_theme_mod( 'admin_pv_visible', false );
 }
 
 //テーマでファビコンを設定するかどうか

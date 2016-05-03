@@ -14,8 +14,12 @@
             <span class="social-count twitter-count"><?php
               //count.jsoonでシェア数を表示
               if ( is_twitter_count_visible() ) {
-                //ツイート数の表示用のスピナー
-                echo '<span class="fa fa-spinner fa-pulse"></span>';
+                if ( scc_twitter_exists() ) {//SNS Count Cache関数があるか
+                  echo scc_get_share_twitter();
+                } else {
+                  //カウント数取得待ち表示用のスピナー
+                  echo '<span class="fa fa-spinner fa-pulse"></span>';
+                }
               } else {
                 //コメントアイコン
                 echo '<span class="fa fa-comments"></span>';
@@ -34,7 +38,14 @@
       <span class="balloon-btn-set">
         <span class="arrow-box">
           <a href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>&amp;t=<?php echo urlencode( get_the_title() );?>" target="blank" class="arrow-box-link facebook-arrow-box-link" rel="nofollow">
-            <span class="social-count facebook-count"><span class="fa fa-spinner fa-pulse"></span></span>
+            <span class="social-count facebook-count"><?php
+              if ( scc_facebook_exists() ) {//SNS Count Cache関数があるか
+                echo scc_get_share_facebook();
+              } else {
+                //カウント数取得待ち表示用のスピナー
+                echo '<span class="fa fa-spinner fa-pulse"></span>';
+              }
+             ?></span>
           </a>
         </span>
         <a href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>&amp;t=<?php echo urlencode( get_the_title() ); ?>" target="blank" class="balloon-btn-link facebook-balloon-btn-link" rel="nofollow">
@@ -48,7 +59,14 @@
       <span class="balloon-btn-set">
         <span class="arrow-box">
           <a href="//plus.google.com/share?url=<?php echo rawurlencode(get_permalink($post->ID)) ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="blank" class="arrow-box-link googleplus-arrow-box-link" rel="nofollow">
-            <span class="social-count googleplus-count"><span class="fa fa-spinner fa-pulse"></span></span>
+            <span class="social-count googleplus-count"><?php
+              if ( scc_gplus_exists() ) {//SNS Count Cache関数があるか
+                echo scc_get_share_gplus();
+              } else {
+                //カウント数取得待ち表示用のスピナー
+                echo '<span class="fa fa-spinner fa-pulse"></span>';
+              }
+             ?></span>
           </a>
         </span>
         <a href="//plus.google.com/share?url=<?php echo rawurlencode(get_permalink($post->ID)) ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="blank" class="balloon-btn-link googleplus-balloon-btn-link" rel="nofollow">
@@ -62,7 +80,14 @@
       <span class="balloon-btn-set">
         <span class="arrow-box">
           <a href="<?php echo get_hatebu_url(get_permalink()); ?>" target="blank" class="arrow-box-link hatena-arrow-box-link" rel="nofollow">
-            <span class="social-count hatebu-count"><span class="fa fa-spinner fa-pulse"></span></span>
+            <span class="social-count hatebu-count"><?php
+              if ( scc_hatebu_exists() ) {//SNS Count Cache関数があるか
+                echo scc_get_share_hatebu();
+              } else {
+                //カウント数取得待ち表示用のスピナー
+                echo '<span class="fa fa-spinner fa-pulse"></span>';
+              }
+             ?></span>
           </a>
         </span>
         <a href="//b.hatena.ne.jp/entry/<?php echo get_encoded_url(get_permalink()) ?>" target="blank" class="hatena-bookmark-button balloon-btn-link hatena-balloon-btn-link" data-hatena-bookmark-layout="simple" title="<?php the_title(); ?>" rel="nofollow">
@@ -76,7 +101,14 @@
       <span class="balloon-btn-set">
         <span class="arrow-box">
           <a href="//getpocket.com/edit?url=<?php the_permalink() ?>" target="blank" class="arrow-box-link pocket-arrow-box-link" rel="nofollow">
-            <span class="social-count pocket-count"><span class="fa fa-spinner fa-pulse"></span></span>
+            <span class="social-count pocket-count"><?php
+              if ( scc_pocket_exists() ) {//SNS Count Cache関数があるか
+                echo scc_get_share_pocket();
+              } else {
+                //カウント数取得待ち表示用のスピナー
+                echo '<span class="fa fa-spinner fa-pulse"></span>';
+              }
+             ?></span>
           </a>
         </span>
         <a href="//getpocket.com/edit?url=<?php the_permalink() ?>" target="blank" class="balloon-btn-link pocket-balloon-btn-link" rel="nofollow">
@@ -126,7 +158,14 @@
       <span class="balloon-btn-set">
         <span class="arrow-box">
           <a href="//feedly.com/index.html#subscription%2Ffeed%2F<?php urlencode(bloginfo('rss2_url')); ?>" target="blank" class="arrow-box-link feedly-arrow-box-link" rel="nofollow">
-            <span class="social-count feedly-count"><span class="fa fa-spinner fa-pulse"></span></span>
+            <span class="social-count feedly-count"><?php
+              if ( scc_feedly_exists() ) {//SNS Count Cache関数があるか
+                echo scc_get_follow_feedly();
+              } else {
+                //カウント数取得待ち表示用のスピナー
+                echo '<span class="fa fa-spinner fa-pulse"></span>';
+              }
+             ?></span>
           </a>
         </span>
         <a href="//feedly.com/index.html#subscription%2Ffeed%2F<?php urlencode(bloginfo('rss2_url')); ?>" target="blank" class="balloon-btn-link feedly-balloon-btn-link" rel="nofollow">

@@ -3,6 +3,20 @@
 ************************************/
 @media screen and (max-width:639px){
 
+  .entry-read a,
+  .related-entry-read a{
+    display:block;
+    width: auto;
+    background-color:#eee;
+    border:1px solid #ddd;
+    border-radius:10px;
+    text-align:center;
+    padding:5px;
+    text-decoration:none;
+    color:#111;
+    margin-top:18px;
+  }
+
   /*モバイルで呼び出されるスタイル*/
   #list .post{
     margin-bottom: 10px;
@@ -27,19 +41,22 @@
   #main .entry{
     overflow: visible;
   }
-
+/*
   .entry.masonry-brick .entry-thumb a img{
     margin: 0;
   }
-
+*/
   /*img.alginleft, img.alginlright対策*/
   .article img{
-    padding: 0 !important;
-    margin: 0 auto !important;
+    padding: 0;
+    margin: 0 auto;
+/*    padding: 0 !important;
+    margin: 0 auto !important;*/
   }
 
   img.blog-card-thumb-image{
-    margin-right: 10px !important;
+    margin-right: 10px;
+    /*margin-right: 10px !important;*/
   }
 
   .entry .entry-thumb a,
@@ -115,7 +132,7 @@
   }
 
   .article h2{
-    margin:30px 0 !important;
+    margin:30px 0;
     padding: 15px;
   }
 
@@ -134,11 +151,11 @@
 
   /*AndroidHTML対応用の設定*/
   .bookmarklet.androidhtml > div {
-      margin-left: 0 !important;
+      margin-left: 0;
   }
 
   .bookmarklet.androidhtml > div img.cover-image {
-      margin-left: 0 !important;
+      margin-left: 0;
   }
 
 }
@@ -162,7 +179,8 @@
 
   .entry-large-thumbnail{
     max-width:100%;
-    margin:10px 0 !important;
+    margin:10px 0;
+    /*margin:10px 0 !important;*/
   }
 
   .entry-large-thumbnail .entry-read a{
@@ -174,14 +192,15 @@
   .entry-large-thumbnail .entry-thumb img{
     width: 100%;
     max-width:100%;
-    height:auto !important;
+    height:auto;
+    /*height:auto !important;*/
   }
 
-  .entry .entry-card-content,
+/*  .entry .entry-card-content,
   .related-entry-content{
     margin:0;
   }
-
+*/
   .entry .entry-thumb,
   .related-entry-thumb{
     margin:0 5px;
@@ -230,7 +249,8 @@
   .article ol,
   .article ul,
   .article dl{
-    line-height: 1.8em !important;
+    line-height: 1.8em;
+    /*line-height: 1.8em !important;*/
   }
 
   /************************************
@@ -249,6 +269,10 @@
 
   #sidebar .widget_categories li ul.children{
     margin-top: 10px;
+  }
+
+  .article .blog-card{
+    width: 100%;
   }
 
   .blog-card-content{
@@ -280,12 +304,57 @@
 
 }
 
+@media screen and (max-width:440px){
+  /* サムネイル回り込み */
+  .entry-card .entry-thumb,
+  .related-entry .related-entry-thumb {
+    float: left;
+    margin: 0 6px 0 0;
+    padding: 0;
+  }
+
+  .entry-card-content,
+  .related-entry-content{
+    margin-left: 110px;
+  }
+
+
+  /* サムネイルサイズ変更 */
+  .entry-card .entry-thumb img{
+    width:100px;
+    height:100px;
+    margin-bottom: 10px;
+  }
+
+  /* 記事間の余白調整 */
+  #main .entry-card,
+  #main .related-entry {
+    margin-bottom: 23px;
+  }
+
+  /* 本文抜粋の調整 */
+  .entry-card .entry-snippet,
+  .related-entry .related-entry-snippet,
+  .admin-pv {
+    font-size: 13px ;
+    line-height: 130%;
+    margin-bottom: 5px;
+  }
+  /* 「続きを読む」の調整 */
+  .entry-card .entry-read a,
+  .related-entry .related-entry-read a {
+    font-size: 80%;
+    margin: 0;
+    padding: 3px;
+  }
+}
+
 /***********************************
  モバイルへのサムネイルカードの一覧性を上げる
  ダメだったら元に戻しやすいようにあえて
- max-width:440pxを分けて書く
+ max-width:359pxを分けて書く
  ***********************************/
-@media screen and (max-width:440px){
+@media screen and (max-width:359px){
   /* 記事タイトルfont調整 */
   .entry-card h2 a.entry-title,
   .related-entry h4 a {
@@ -306,37 +375,48 @@
   }
 
   /* サムネイルサイズ変更 */
-  .entry-card .entry-thumb img{
+/*  .entry-card .entry-thumb img{
     width:100px;
     height:100px;
     margin-bottom: 10px;
-  }
+  }*/
   /* meta情報の回込み解除 */
   .entry-card .post-meta{
     margin: 1px auto;
     margin-top: 9px;
     clear: both;
   }
+
+  .entry .entry-card-content,
+  .related-entry-content{
+    margin-left: 0;
+  }
+
   /* 本文抜粋の調整 */
   .entry-card .entry-snippet,
+  .related-entry .related-entry-snippet,
+  .admin-pv {
+    clear: both;
+  }
+/*  .entry-card .entry-snippet,
   .related-entry .related-entry-snippet {
     font-size: 13px ;
     clear: both;
     line-height: 130%;
-  }
+  }*/
   /* 「続きを読む」の調整 */
-  .entry-card .entry-read a,
+/*  .entry-card .entry-read a,
   .related-entry .related-entry-read a {
     font-size: 80%;
     margin: 0;
     padding: 3px;
-  }
+  }*/
   /* 記事間の余白調整 */
-  #main .entry-card,
+/*  #main .entry-card,
   #main .related-entry {
     margin-bottom: 23px;
   }
-
+*/
   #related-entries .related-entry-thumbnail{
     margin: auto;
     width: 100%;
@@ -347,9 +427,6 @@
     margin: auto;
   }
 
-  /*#header, #header-in, #navi-in, #body-in, #footer-in, #sidebar {
-    width:auto !important;
-  }*/
 }
 
 /************************************
@@ -391,4 +468,63 @@
   div.fb-like-pc{
     display: none;
   }
+}
+
+/***********************************
+ 「サムネイル大」サイズを2列にする
+ ***********************************/
+@media screen and (max-width:699px){
+/*  #main{
+    padding: 10px 5px;
+  }*/
+
+  #main .entry.entry-large-thumbnail,
+  #main .entry.entry-tile{
+    width: 47%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  #main .entry.entry-large-thumbnail{
+    height: 340px;
+  }
+
+/*  #main .entry.entry-tile{
+    height: 400px;
+    overflow: hidden;
+  }*/
+
+  .entry-large-thumbnail .entry-card-content,
+  .entry-large-thumbnail .entry-card-content .post-meta,
+  .entry-tile .entry-card-content,
+  .entry-tile .entry-card-content .post-meta{
+    font-size: 13px;
+  }
+
+  .entry-large-thumbnail .entry-thumb img,
+  .entry-tile .entry-thumb img{
+      height: auto;
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 5px;
+  }
+}
+/***********************************
+ 「サムネイル大」画面幅が狭い場合は1列
+ ***********************************/
+ @media screen and (max-width:440px){
+  #main .entry.entry-large-thumbnail,
+  #main .entry.entry-tile{
+    width: auto;
+    float: none;
+    height: auto;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #main .entry.entry-tile{
+    width: 100%;
+  }
+
 }

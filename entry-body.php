@@ -39,6 +39,8 @@
       <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
     </p>
 
+    <?php get_template_part('admin-pv');//管理者のみにPV表示?>
+
     <?php if ( is_single() ) get_template_part('ad-top');//記事トップ広告 ?>
 
     <?php if ( is_single() ) get_template_part('sns-buttons-top');//タイトル下の小さなシェアボタン?>

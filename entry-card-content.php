@@ -36,6 +36,7 @@ if ( is_list_style_large_cards() ||
       <?php endif ?>
 
     </p><!-- /.post-meta -->
+    <?php get_template_part('admin-pv');//管理者のみにPV表示?>
   </header>
   <p class="entry-snippet"><?php echo get_the_custom_excerpt( get_the_content(''), get_excerpt_length() ); //カスタマイズで指定した文字の長さだけ本文抜粋?></p>
 
