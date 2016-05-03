@@ -335,7 +335,8 @@
   /* 本文抜粋の調整 */
   .entry-card .entry-snippet,
   .related-entry .related-entry-snippet,
-  .admin-pv {
+  .admin-pv,
+  .post-meta {
     font-size: 13px ;
     line-height: 130%;
     margin-bottom: 5px;
