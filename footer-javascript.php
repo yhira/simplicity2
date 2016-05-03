@@ -16,6 +16,14 @@ if ( is_pinterest_btn_visible() && is_singular() ): ?>
 <?php endif; ?>
 <?php
 ///////////////////////////////////
+//はてブシェアボタン用のスクリプト呼び出し
+///////////////////////////////////
+if ( is_hatena_btn_visible() && is_singular() ): ?>
+<!-- はてブシェアボタン用スクリプト -->
+<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+<?php endif; ?>
+<?php
+///////////////////////////////////
 //animatedModal.js関連ファイルの呼び出し
 ///////////////////////////////////
 if ( is_mobile_menu_type_modal() && is_mobile() ): ?>
@@ -34,7 +42,7 @@ if ( is_mobile_menu_type_modal() && is_mobile() ): ?>
 ///////////////////////////////////
 //animatedModal.jsの呼び出し
 ///////////////////////////////////
-//wp_enqueue_script( "animated_modal", get_template_directory_uri() . "/js/animatedModal.min.js", array( "jquery" ), false, true );
+//wp_enqueue_script( "animated-modal-js", get_template_directory_uri() . "/js/animatedModal.min.js", array( "jquery" ), false, true );
 ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/animatedModal.min.js"></script>
 <script>
@@ -42,8 +50,6 @@ if ( is_mobile_menu_type_modal() && is_mobile() ): ?>
     color: '#333',
     animatedIn:  'fadeIn',
     animatedOut: 'fadeOut',
-    // animatedIn:  'bounceInRight',
-    // animatedOut: 'bounceOutLeft',
     animationDuration: '.1s',
   });
 </script>

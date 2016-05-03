@@ -7,7 +7,7 @@
   }
 ?>
 
-<?php //var_dump(is_slide_in_bottom_buttons());
+<?php
 ////////////////////////////
 //アーカイブのタイトル
 ////////////////////////////
@@ -119,7 +119,12 @@ if (have_posts()) : // WordPress ループ
     }
 
     //3つ目のアイテムの下にインデックスリストミドルウィジェットを表示するか
-    if ( $count == 3 && is_list_style_entry_cards() && is_active_sidebar( 'widget-index-middle' ) ) {
+    if ( $count == 3 && //3番目
+      is_list_style_entry_type() && //表示タイプがエントリーカードタイプの時のみ
+      is_active_sidebar( 'widget-index-middle' ) && //インデックスミドルに値が入っているとき
+      !is_pagination_last_page() && //インデックスリストの最後のページでないとき
+      is_posts_per_page_6_and_over() //1ページに表示する最大投稿数が6以上の時
+    ) {
       echo '<div id="widget-index-middle" class="widgets">';
       dynamic_sidebar( 'widget-index-middle' );
       echo '</div>';

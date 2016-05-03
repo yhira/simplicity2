@@ -44,16 +44,19 @@ function get_all_post_count_in_publish(){
 //広告をトップページのリスト表示中間に掲載するか
 if ( !function_exists( 'is_ads_list_in_middle_on_top_page_enable' ) ):
 function is_ads_list_in_middle_on_top_page_enable($count){
-  if ( ($count == 3) && //3個目の表示のときのみ
-      is_home() && //トップページリストのみ
-      !is_paged() && //2ページ目以降でないとき、もしくはレスポンシブ広告の時
-      (is_mobile() || is_responsive_enable() ) && //モバイルの時
-      ( intval(get_option('posts_per_page')) >=6 ) && //1ページに表示する最大投稿数が6以上の時
-      !is_ads_sidebar_top() && //サイドバー広告が表示されていないとき
+  if (
       is_ads_performance_visible() &&//パフォーマンス追求広告を表示するとき
-      !is_list_style_tile_thumb_cards() && //タイル状リスト表示でないとき
       is_ads_top_page_visible()  &&//トップページ広告が許可されているとき
-      (get_all_post_count_in_publish() > 3) //&&//公開記事が3つより多いとき
+      ($count == 3) && //3個目の表示のときのみ
+      is_home() && //トップページリストのみ
+      //!is_paged() && //2ページ目以降でないとき
+      !is_pagination_last_page() && //ページネーションの最終ページでないとき
+      (is_mobile() || is_responsive_enable() ) && //モバイルの時、もしくはレスポンシブ広告の時
+      is_posts_per_page_6_and_over() && //1ページに表示する最大投稿数が6以上の時
+      !is_ads_sidebar_top() && //サイドバー広告が表示されていないとき
+      is_list_style_entry_type() && //エントリーカードタイプの一覧のとき
+      //!is_list_style_tile_thumb_cards() && //タイル状リスト表示でないとき
+      (get_all_post_count_in_publish() >= 6) //&&//公開記事が6以上の時
       //( !is_category() || ( get_the_category()[0]->count >= 3 ) )
   ) {
     return true;
@@ -132,3 +135,21 @@ function is_ads_top_banner_enable(){
 }
 endif;
 
+//インデックスページの最後のページかどうか
+if ( !function_exists( 'is_posts_per_page_6_and_over' ) ):
+function is_posts_per_page_6_and_over(){
+  return ( intval(get_option('posts_per_page')) >= 6 );
+}
+endif;
+
+//インデックスページの最後のページかどうか
+if ( !function_exists( 'is_pagination_last_page' ) ):
+function is_pagination_last_page(){
+  global $wp_query;
+  //現在のページ数
+  $now_page = get_query_var('paged') ? get_query_var('paged') : 1;
+  //インデックスリストのページ数
+  $max_page = intval($wp_query->max_num_pages);
+  return ( $now_page == $max_page );
+}
+endif;

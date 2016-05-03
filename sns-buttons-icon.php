@@ -22,11 +22,8 @@ $viral_class = is_share_button_type_mobile_viral() ? ' sns-group-viral' : ''; ?>
   	<li class="google-plus-btn-icon"><a href="//plus.google.com/share?url=<?php echo rawurlencode(get_permalink($post->ID)) ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="google-plus-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-googleplus"></span><span class="social-count googleplus-count"><span class="fa fa-spinner fa-pulse"></span></span></a></li>
     <?php endif; ?>
     <?php if ( is_hatena_btn_visible() )://はてなボタンを表示するか ?>
-  	<li class="hatena-btn-icon"><?php
-//    $page_title=trim(wp_title( '', false));
-//    $page_title_encoded=urlencode(mb_convert_encoding($page_title, "UTF-8"));
-?>
-    <a href="//b.hatena.ne.jp/add?mode=confirm&amp;url=<?php echo get_encoded_url(get_permalink()) ?>&amp;title=<?php echo get_encoded_title( trim(wp_title( '', false)) ); ?>" class="hatena-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-hatena"></span><span class="social-count hatebu-count"><span class="fa fa-spinner fa-pulse"></span></span></a></li>
+    <li class="hatena-btn-icon"><a href="//b.hatena.ne.jp/entry/<?php echo get_encoded_url(get_permalink()) ?>" class="hatena-bookmark-button hatena-btn-icon-link" data-hatena-bookmark-layout="simple" title="<?php the_title(); ?>" rel="nofollow"><span class="social-icon icon-hatena"></span><span class="social-count hatebu-count"><span class="fa fa-spinner fa-pulse"></span></span></a></li>
+  	<!-- <li class="hatena-btn-icon"><a href="//b.hatena.ne.jp/add?mode=confirm&amp;url=<?php echo get_encoded_url(get_permalink()) ?>&amp;title=<?php echo get_encoded_title( trim(wp_title( '', false)) ); ?>" class="hatena-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-hatena"></span><span class="social-count hatebu-count"><span class="fa fa-spinner fa-pulse"></span></span></a></li> -->
     <?php endif; ?>
     <?php if ( is_pocket_btn_visible() )://pocketボタンを表示するか ?>
   	<li class="pocket-btn-icon"><a href="//getpocket.com/edit?url=<?php the_permalink() ?>" class="pocket-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-pocket"></span><span class="social-count pocket-count"><span class="fa fa-spinner fa-pulse"></span></span></a></li>

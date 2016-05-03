@@ -24,7 +24,11 @@ function is_mobile(){
     'blackberry9800', // Torch
     'webOS', // Palm Pre Experimental
     'incognito', // Other iPhone browser
-    'webmate' // Other iPhone browser
+    'webmate' ,// Other iPhone browser
+    'Mobile.*Firefox', // Firefox OS
+    'Opera Mini', // Opera Mini Browser
+    'BB10', // BlackBerry 10
+    'Touch' // MSIE Touch Function
   );
   $pattern = '/'.implode('|', $useragents).'/i';
   return preg_match($pattern, $_SERVER['HTTP_USER_AGENT']);

@@ -320,6 +320,16 @@ function simplicity_scripts() {
     //Lityスクリプトの呼び出し
     wp_enqueue_script( 'lity-js', get_template_directory_uri() . '/js/lity.min.js', array( 'jquery' ), false, true  );
   }
+
+
+  // ///////////////////////////////////
+  // //Evernoteに関する記述
+  // ///////////////////////////////////
+  // if ( is_singular() && is_evernote_btn_visible() ) {
+  //   wp_enqueue_script( 'evernote-js', get_template_directory_uri() . '/js/noteit.js', array(), false, true  );
+  // }
+
+
 }
 endif;
 add_action( 'wp_enqueue_scripts', 'simplicity_scripts', 1 );

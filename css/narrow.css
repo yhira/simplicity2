@@ -309,7 +309,7 @@
   .entry-card .entry-thumb img{
     width:100px;
     height:100px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
   /* meta情報の回込み解除 */
   .entry-card .post-meta{

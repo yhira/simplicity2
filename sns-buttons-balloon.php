@@ -65,7 +65,7 @@
             <span class="social-count hatebu-count"><span class="fa fa-spinner fa-pulse"></span></span>
           </a>
         </span>
-        <a href="//b.hatena.ne.jp/add?mode=confirm&amp;url=<?php the_permalink() ?>&amp;title=<?php echo get_encoded_title(trim(wp_title( '', false))) ?>" target="blank" class="balloon-btn-link hatena-balloon-btn-link" rel="nofollow">
+        <a href="//b.hatena.ne.jp/entry/<?php echo get_encoded_url(get_permalink()) ?>" target="blank" class="hatena-bookmark-button balloon-btn-link hatena-balloon-btn-link" data-hatena-bookmark-layout="simple" title="<?php the_title(); ?>" rel="nofollow">
           <span class="icon-hatena"></span>
         </a>
       </span>

@@ -819,6 +819,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 4,
   ));
 
+  //長い単語を強制改行する
+  $wp_customize->add_setting('word_wrap_break_word', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'word_wrap_break_word', array(
+    'settings' => 'word_wrap_break_word',
+    'label' =>'長い単語を必要に応じて改行する',
+    'description' => is_tips_visible() ? '必要に応じて長い単語やURLを要素からはみ出さないように改行します。ただし、この機能を有効にすると単語の途中で改行されることもあります。' : '',
+    'section' => 'layout_singular_section',
+    'type' => 'checkbox',
+    'priority' => 6,
+  ));
+
   //モバイルで改行を表示する
   $wp_customize->add_setting('br_visible_with_mobile', array(
     'default' => true,
@@ -3024,6 +3038,11 @@ function get_article_mobile_font_size(){
   return get_theme_mod( 'article_mobile_font_size', ARTICLE_FONT_SIZE );
 }
 
+//長い単語を強制改行するか
+function is_word_wrap_break_word(){
+  return get_theme_mod( 'word_wrap_break_word', false );
+}
+
 //モバイルでbr改行を表示するか
 function is_br_visible_with_mobile(){
   return get_theme_mod( 'br_visible_with_mobile', true );
@@ -3282,6 +3301,14 @@ function is_thumbnail_radius_10px(){
 //サムネイルを円形にするか
 function is_thumbnail_circle(){
   return get_thumbnail_radius() == 'circle';
+}
+
+//一覧リストのスタイルがエントリーカードタイプかどうか（インデックスミドル広告を表示するか）
+function is_list_style_entry_type(){
+  return is_list_style_entry_cards() ||
+         is_list_style_large_cards() ||
+         is_list_style_large_card_just_for_first() ||
+         is_list_style_body_just_for_first();
 }
 
 //一覧リストのスタイルがエントリーカード表示かどうか

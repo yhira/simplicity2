@@ -636,8 +636,8 @@ if ( !is_mobile() ):  ?>
 <?php if ( false && !is_mobile() ):  ?>
 /*@media screen and (max-width: 1110px) {
   #header, #header-in, #navi-in, #navi, #navi-in, #body-in, #footer-in {
-      width: 740px;
-      margin:auto;
+    width: 740px;
+    margin:auto;
   }
 }
 
@@ -726,9 +726,9 @@ if ( is_image_effect_shadow() ): ?>
 if ( is_title_center() ): ?>
 /*サイトタイトルを中央寄せ*/
 #header .alignleft {
-    text-align: center;
-    max-width: none;
-    /*width: calc(100% - 60px);*/
+  text-align: center;
+  max-width: none;
+  /*width: calc(100% - 60px);*/
 }
 
 #h-top #site-title a{
@@ -740,7 +740,7 @@ if ( is_title_center() ): ?>
 }
 
 #header .alignright {
-    display: none;
+  display: none;
 }
 <?php endif; ?>
 <?php //サイドバーの背景色を白色にするか
@@ -758,19 +758,19 @@ if ( is_share_button_type_mobile_viral() && is_mobile() ): ?>
 /*モバイルのシェアボタン*/
 @media screen and (max-width:740px){
   .sns-group-viral ul.snsb li a {
-      width: 130px;
-      margin-bottom: 0;
+    width: 130px;
+    margin-bottom: 0;
   }
 }
 <?php endif; ?>
 <?php //サイドバートップに広告を表示しているときモバイルで広告が2つかぶらないようにする
 if ( false && is_ads_sidebar_top() && is_mobile() ): ?>
 .ad-article-bottom {
-    margin-bottom: 200px;
+  margin-bottom: 200px;
 }
 
 #sidebar .ad-space-sidebar {
-    margin-top: 250px;
+  margin-top: 250px;
 }
 <?php endif; ?>
 <?php //スライドインボタンをボトムに表示するか
@@ -843,7 +843,7 @@ if ( is_mobile() && !(is_mobile_menu_type_accordion() || is_mobile_menu_type_mod
 <?php //ページタイプが狭いか
 if ( is_singular() && is_page_type_narrow() ): ?>
 #header-in, #navi-in, #body-in, #footer-in {
-    width: 740px;
+  width: 740px;
 }
 
 #sidebar,
@@ -854,7 +854,7 @@ if ( is_singular() && is_page_type_narrow() ): ?>
 <?php //ページタイプが広い1カラムか
 if ( is_singular() && is_page_type_wide() ): ?>
 #main {
-    width: 100%;
+  width: 100%;
 }
 
 #sidebar{
@@ -895,19 +895,23 @@ ul.snsp li a:hover,
 if ( !is_all_share_count_visible() && is_simplicity_share_button() ): ?>
 /*数字部分を消す*/
 .social-count {
-    display: none !important;
+  display: none !important;
 }
 
 /*バルーンを消す*/
 .arrow-box {
-    display: none;
+  display: none;
 }
 
 #sns-group-top .balloon-btn-set {
-    width: auto;
+  width: auto;
 }
 <?php endif;//is_all_share_count_visible ?>
-<?php //いずれ消す（ブラウザキャッシュ対策） ?>
-.entry-content{
-  margin-left: 0;
+<?php //長い単語を強制改行する場合
+if ( is_word_wrap_break_word() ): ?>
+/*強制的に改行する*/
+body {
+  word-wrap: break-word;
 }
+<?php endif;//is_word_wrap_break_word ?>
+
