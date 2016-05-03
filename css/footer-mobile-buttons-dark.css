@@ -78,3 +78,7 @@ div.sidr ul li ul li.sidr-class-active{
 ul.snsp li a span{
   background-color: transparent;
 }
+
+.blog-card-excerpt{
+  color: #ccc;
+}

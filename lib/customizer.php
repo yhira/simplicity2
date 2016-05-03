@@ -534,6 +534,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 40,
   ));
 
+  //モバイルで1ページに表示する最大投稿数
+  $wp_customize->add_setting('posts_per_page_mobile', array(
+    'default' => '10',
+    'sanitize_callback' => 'sanitize_number',
+  ));
+  $wp_customize->add_control( 'posts_per_page_mobile', array(
+    'settings' => 'posts_per_page_mobile',
+    'label' =>'モバイルで1ページに表示する最大投稿数（デフォルト：10）',
+    'description' => is_tips_visible() ? 'モバイルのインデックスリストに表示される最大投稿数を設定します。' : '',
+    'section' => 'layout_section',
+    'type' => 'text',
+    'priority' => 45,
+  ));
+
   //固定ページを一覧に含める
   $wp_customize->add_setting('page_include_in_list', array(
     'sanitize_callback' => 'sanitize_check',
@@ -3308,6 +3322,11 @@ function is_page_breadcrumb_visible(){
 //一覧リストのスタイル取得
 function get_list_style(){
   return get_theme_mod( 'list_style', 'cards');
+}
+
+//モバイルで1ページに表示する最大投稿数
+function get_posts_per_page_mobile(){
+  return get_theme_mod( 'posts_per_page_mobile', 10);
 }
 
 //固定ページを一覧リストに含めるか

@@ -31,6 +31,10 @@ function simplicity_scripts() {
     } else {
       //通常のスキンスタイル
       wp_enqueue_style( 'skin-style',  get_skin_file(), array('simplicity-style') );
+      //スキンフォルダ内にjavascript.jsファイルがあれば読み込む
+      if ( file_exists( get_skins_js_local_dir() ) ) {
+        wp_enqueue_script( 'skins-javascript-js', get_skins_js_uri(), array( 'jquery', 'simplicity-js' ), false, true );
+      }
     }
   }
 

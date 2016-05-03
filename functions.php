@@ -586,6 +586,28 @@ function get_pearts_base_skin($skin_file = null){
   }
 }
 
+//スキンフォルダ内のJavaScriptファイルのURLを取得
+function get_skins_js_uri(){
+  $path_parts = pathinfo( get_skin_file() );
+  if ( isset( $path_parts["dirname"] ) ) {
+    return $path_parts["dirname"] . '/javascript.js';
+  }
+}
+
+//スキンフォルダ内のJavaScriptファイルのローカルパスを取得
+function get_skins_js_local_dir(){
+  if ( get_skins_js_uri() ) {
+    $dir = get_skins_js_uri();
+    if( strpos( $dir , get_stylesheet_directory_uri() ) !== false ){
+      $dir = str_replace( get_stylesheet_directory_uri(), get_stylesheet_directory(), $dir );
+    } else {
+      $dir = str_replace( get_template_directory_uri(), get_template_directory(), $dir );
+    }
+    //var_dump($dir);
+    return str_replace( '\\', '/', $dir);
+  }
+}
+
 //Wordpressテーマフォルダのローカルパスを取得
 function get_theme_local_dir(){
   $dir = get_simplicity_local_dir();
@@ -807,3 +829,11 @@ function get_category_ids(){
   }
   return null;
 }
+
+//モバイルで1ページに表示する最大投稿数を設定する
+function set_posts_per_page_mobile( $query ) {
+  if ( is_mobile() && $query->is_main_query() ) {
+      $query->set( 'posts_per_page', get_posts_per_page_mobile() );
+  }
+}
+add_action( 'pre_get_posts', 'set_posts_per_page_mobile' );
