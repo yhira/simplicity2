@@ -32,7 +32,7 @@ function url_to_blog_card_tag($url){
   $target = is_blog_card_target_blank() ? ' target="_blank"' : '';
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
-  $hatebu_tag = is_blog_card_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.'><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="はてブ数" /></a></div>' : '';
+  $hatebu_tag = is_blog_card_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.'><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
   //サイトロゴを表示する場合
   $favicon_tag = '';
   if ( is_favicon_enable() && get_the_favicon_url() ) {//ファビコンが有効か確認

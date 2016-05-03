@@ -47,6 +47,13 @@
 
           <?php get_template_part('ad-article-footer');//本文下広告?>
 
+          <?php //固定ページSNSボタン上ウイジェット
+          if ( is_active_sidebar( 'widget-over-page-sns-buttons' ) ): ?>
+            <div id="widget-over-page-sns-buttons" class="widgets">
+            <?php dynamic_sidebar( 'widget-over-page-sns-buttons' ); ?>
+            </div>
+          <?php endif; ?>
+
           <?php if ( is_page() )://固定ページのときのみ表示 ?>
           <div id="sns-group">
           <?php if ( is_bottom_share_btns_visible() ) get_template_part('sns-buttons'); //SNSシェアボタンの取得?>
@@ -55,6 +62,13 @@
             get_template_part('sns-pages'); //SNSフォローボタンの取得?>
           </div>
           <?php endif;//is_page ?>
+
+          <?php //固定ページSNSボタン下ウイジェット
+          if ( is_active_sidebar( 'widget-under-page-sns-buttons' ) ): ?>
+            <div id="widget-under-page-sns-buttons" class="widgets">
+            <?php dynamic_sidebar( 'widget-under-page-sns-buttons' ); ?>
+            </div>
+          <?php endif; ?>
 
           <p class="footer-post-meta">
 

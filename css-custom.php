@@ -509,11 +509,11 @@ if ( is_list_style_tile_thumb_cards() ): ?>
 
 .entry .post-meta{
   margin:0;
-  font-size:14px;
+  font-size:12px;
 }
 
 .entry-snippet{
-  font-size:14px;
+  font-size:11px;
   padding:0 5px;
   word-wrap:break-word;
 }

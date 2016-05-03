@@ -36,7 +36,7 @@ function thread_comment($comment, $args, $depth) {
         <div class="comment-info">
             <?php echo get_avatar( $comment, 48 );//アバター画像 ?>
             <?php printf('<span class="admin">名前:<cite class="fn comment-author">%s</cite></span> ', get_comment_author_link()); //投稿者の設定 ?>
-            <span class="comment-datetime">投稿日：<?php printf('%1$s at %2$s', get_comment_date('Y/m/d(D)'),  get_comment_time('H:i:s')); //投稿日の設定 ?></span>
+            <span class="comment-datetime">投稿日：<?php printf('%1$s %2$s', get_comment_date('Y/m/d(D)'),  get_comment_time('H:i:s')); //投稿日の設定 ?></span>
             <span class="comment-id">
             ID：<?php //IDっぽい文字列の表示（あくまでIDっぽいものです。）
                 $ip01 = get_comment_author_IP(); //書き込んだユーザーのIPアドレスを取得

@@ -339,7 +339,6 @@ function simplicity_scripts() {
   //   wp_enqueue_script( 'evernote-js', get_template_directory_uri() . '/js/noteit.js', array(), false, true  );
   // }
 
-
 }
 endif;
 add_action( 'wp_enqueue_scripts', 'simplicity_scripts', 1 );

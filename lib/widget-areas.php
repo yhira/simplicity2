@@ -214,6 +214,28 @@ register_sidebars(1,
 
 register_sidebars(1,
   array(
+  'name'=>'固定ページSNSボタン上',
+  'id' => 'widget-over-page-sns-buttons',
+  'description' => '固定ページのメインカラムの一番下となるSNSボタンの上に表示されるウイジェット。広告を表示している場合は、広告の下になります。設定しないと表示されません。',
+  'before_widget' => '<div id="%1$s" class="widget-over-page-sns-buttons %2$s">',
+  'after_widget' => '</div>',
+  'before_title' => '<div class="widget-over-page-sns-buttons-title main-widget-label">',
+  'after_title' => '</div>',
+));
+
+register_sidebars(1,
+  array(
+  'name'=>'固定ページSNSボタン下',
+  'id' => 'widget-under-page-sns-buttons',
+  'description' => '固定ページのメインカラムの一番下となるSNSボタンの下に表示されるウイジェット。設定しないと表示されません。',
+  'before_widget' => '<div id="%1$s" class="widget-under-page-sns-buttons %2$s">',
+  'after_widget' => '</div>',
+  'before_title' => '<div class="widget-under-page-sns-buttons-title main-widget-label">',
+  'after_title' => '</div>',
+));
+
+register_sidebars(1,
+  array(
   'name'=>'インデックスリストトップ',
   'id' => 'widget-index-top',
   'description' => 'インデックスリストのトップに表示されるウイジェット。広告が表示されているときは広告の下に表示されます。設定しないと表示されません。',

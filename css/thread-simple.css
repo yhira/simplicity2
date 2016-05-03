@@ -24,7 +24,8 @@
   margin-bottom:0px;
 }
 
-#commentform input,
+#commentform input[type="text"],
+#commentform input[type="url"],
 #commentform textarea{
   background-color:#fff;
   border:1px solid #aaa;
