@@ -14,7 +14,6 @@ global $g_widget_item;//このテンプレートを利用するウイジェッ�
            is_thumbnail_visible() ):
   echo ' popular-entrys-large-on';
 endif
-//echo ($g_entry_type == 'large_thumb_on' ? ' new-entrys-large-on' : ''); ?>
 //echo ($g_entry_type == 'large_thumb_on' ? ' popular-entrys-large-on' : ''); ?>">
 <?php
 //「Simplicity同カテゴリーの人気エントリー」ウイジェットを使用している時だけカテゴリを絞る

@@ -4,7 +4,11 @@
 global $g_entry_count;
 global $g_entry_type;
  ?>
-<div class="popular-entrys popular-entrys-large<?php echo ($g_entry_type == 'large_thumb_on' ? ' popular-entrys-large-on' : ''); ?>">
+<div class="popular-entrys popular-entrys-large<?php if ( $g_entry_type == 'large_thumb_on' &&
+           is_thumbnail_visible() ):
+  echo ' popular-entrys-large-on';
+endif
+//echo ($g_entry_type == 'large_thumb_on' ? ' popular-entrys-large-on' : ''); ?>">
 <?php query_posts( '&posts_per_page='.$g_entry_count.'&orderby=comment_count&order=DESC&ignore_sticky_posts=1'  ); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <div class="popular-entry">
