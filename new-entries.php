@@ -1,14 +1,17 @@
 <?php
 //グローバル変数の呼び出し
-global $g_entry_count; ?>
-<ul class="new-entrys">
-<?php
+global $g_widget_mode;//ウィジェットモード（全て表示するか、カテゴリ別に表示するか）
+global $g_entry_count;
 $args = array(
   'posts_per_page' => $g_entry_count,
-  //'category__in' => array(6, 7),
 );
-query_posts( $args ); //クエリの作成
-//query_posts('posts_per_page='.$g_entry_count); //クエリの作成?>
+$cat_ids = get_category_ids();//カテゴリ配列の取得
+$has_cat_ids = $cat_ids;
+if ( $has_cat_ids ) {
+  $args += array('category__in' => $cat_ids);
+}
+query_posts( $args ); //クエリの作成?>
+<ul class="new-entrys">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <li class="new-entry">
   <div class="new-entry-thumb">

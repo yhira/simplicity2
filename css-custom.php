@@ -28,7 +28,7 @@ a {
 <?php endif; ?>
 <?php //リンクホバー色
 if ( $link_hover_color != LINK_HOVER_COLOR): ?>
-a:hover:not(.sns-buttons a),
+a:hover:not(.balloon-btn-link):not(.btn-icon-link),
 .widget_new_entries a:hover,
 .widget_new_popular a:hover,
 .widget_popular_ranking a:hover,
@@ -310,7 +310,8 @@ blockquote{
 <?php endif; //is_mobile?>
 <?php endif; //is_blockquote_wide?>
 <?php //サムネイル表示
-if ( !is_thumbnail_visible() ): ?>
+if ( !is_thumbnail_visible() ):
+$thum_a_coler = ( $link_color ? $link_color : LINK_COLOR); ?>
 /************************************
 ** サムネイルの非表示
 ************************************/
@@ -333,6 +334,21 @@ a.entry-image,
 .entry-card-content,
 .related-entry-content{
   margin-left: 0;
+}
+
+.widget_new_popular ul li::before{
+  display: none;
+}
+
+.new-entry,
+#sidebar ul.wpp-list {
+  padding-left: 1em;
+}
+
+.new-entry a,
+#sidebar ul.wpp-list a{
+  color: <?php echo $thum_a_coler; ?>;
+  text-decoration: underline;
 }
 <?php endif; ?>
 <?php //本文文字サイズ

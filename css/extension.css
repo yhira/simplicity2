@@ -200,3 +200,47 @@
   padding: 10px;
   padding-bottom: 20px;
 }
+
+/*******************************
+* 補足説明
+********************************/
+.information,
+.question{
+  background-color: #F4F3EB;
+  padding: 20px 20px 20px 72px;
+  border-radius: 4px;
+  position: relative;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.information::before,
+.question::before{
+  font-family: "FontAwesome";
+  font-size: 50px;
+  position: absolute;
+  top: 20px;
+  left: 13px;
+  color: #EAE3B4;
+}
+
+.information::before{
+  content: '\f05a';
+}
+
+.question::before{
+  content: '\f059';
+}
+
+@media screen and (max-width:440px){
+  .information,
+  .question{
+    padding: 10px;
+  }
+
+  .information::before,
+  .question::before{
+    display: none;
+  }
+}

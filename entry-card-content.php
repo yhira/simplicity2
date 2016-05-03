@@ -13,13 +13,16 @@ if ( is_list_style_large_cards() ||
     <h2><a href="<?php the_permalink(); ?>" class="entry-title entry-title-link" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
     <p class="post-meta">
       <?php if ( is_create_date_visible() ): //投稿日を表示する場合?>
-      <span class="post-date"><span class="fa fa-clock-o fa-fw"></span><span class="published"><?php the_time( get_theme_text_date_format() ) ;?></span></span>
+      <span class="post-date"><span class="published"><?php the_time( get_theme_text_date_format() ) ;?></span></span>
       <?php endif; //is_create_date_visible?>
 
       <?php if ( is_category_visible() && //カテゴリを表示する場合
                  get_the_category() ): //投稿ページの場合?>
       <span class="category"><span class="fa fa-folder fa-fw"></span><?php the_category(', ') ?></span>
       <?php endif; //is_category_visible?>
+
+      <?php //インデクスにタグを表示したい場合コメントアウト
+      //the_tags( '<span class="tag"><span class="fa fa-tags fa-fw"></span>', ', ', '</span>'); ?>
 
       <?php //コメント数を表示するか
       if ( is_comments_visible() && is_list_comment_count_visible() ):

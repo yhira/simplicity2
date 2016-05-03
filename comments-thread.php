@@ -7,6 +7,10 @@ if(have_comments()):
   <ol class="commets-list">
     <?php wp_list_comments('callback=thread_comment'); ?>
   </ol>
+
+  <div class="comment-page-link">
+      <?php paginate_comments_links(); //コメントが多い場合、ページャーを表示 ?>
+  </div>
 </section>
   <?php
 endif;
