@@ -219,25 +219,25 @@ if ( !function_exists( 'Simplicity_pixiv_embed_changer' ) ):
 function Simplicity_pixiv_embed_changer($the_content){
   if ( is_mobile() && strstr($the_content, 'http://source.pixiv.net/source/embed.js') )  {
     $patterns = array();
-    $patterns[0] = '/data-border="off"/';
-    $patterns[1] = '/data-size="large"/';
-    $patterns[2] = '/data-size="medium"/';
+    $patterns[0] = '/data-size="large"/';
+    $patterns[1] = '/data-size="medium"/';
+    //$patterns[2] = '/data-border="off"/';
     $replacements = array();
-    $replacements[0] = 'data-border="on"';
+    $replacements[0] = 'data-size="small"';
     $replacements[1] = 'data-size="small"';
-    $replacements[2] = 'data-size="small"';
+    //$replacements[2] = 'data-border="on"';
     $the_content = preg_replace($patterns, $replacements, $the_content);
   }
   elseif ( strstr($the_content, 'http://source.pixiv.net/source/embed.js') )  {
-    $patterns = array();
-    $patterns[0] = '/data-border="off"/';
-    $patterns[1] = '/data-size="small"/';
-    $patterns[2] = '/data-size="medium"/';
-    $replacements = array();
-    $replacements[0] = 'data-border="on"';
-    $replacements[1] = 'data-size="large"';
-    $replacements[2] = 'data-size="large"';
-    $the_content = preg_replace($patterns, $replacements, $the_content);
+    // $patterns = array();
+    // $patterns[0] = '/data-size="small"/';
+    // $patterns[1] = '/data-size="medium"/';
+    // //$patterns[2] = '/data-border="off"/';
+    // $replacements = array();
+    // $replacements[0] = 'data-size="large"';
+    // $replacements[1] = 'data-size="large"';
+    // //$replacements[2] = 'data-border="on"';
+    // $the_content = preg_replace($patterns, $replacements, $the_content);
   }
   return $the_content;
 }
@@ -260,20 +260,33 @@ function get_the_description(){
 }
 endif;
 
+//最新記事の投稿IDを取得する
+if ( !function_exists( 'get_the_latest_ID' ) ):
+function get_the_latest_ID() {
+  global $wpdb;
+  $row = $wpdb->get_row("SELECT ID FROM $wpdb->posts WHERE post_type = 'post' AND post_status = 'publish' ORDER BY post_date DESC");
+  return !empty( $row ) ? $row->ID : 0;
+}
+endif;
+
 //WordPress の投稿スラッグを自動的に生成する
 if ( !function_exists( 'auto_post_slug' ) ):
 function auto_post_slug( $slug, $post_ID, $post_status, $post_type ) {
-    if ( preg_match( '/(%[0-9a-f]{2})+/', $slug ) &&
-       ( $post_type == 'post' || $post_type == 'page') ) {//投稿もしくは固定ページのときのみ実行する
-        $slug = utf8_uri_encode( $post_type ) . '-' . $post_ID;
-    }
-    return $slug;
+  $type = utf8_uri_encode( $post_type );
+  if ( empty( $post_ID ) ){//IDがまだ指定されていないとき
+    $slug = $type . '-' . strval(get_the_latest_ID() + 1); //最新記事のIDに＋1
+  } elseif ( preg_match( '/(%[0-9a-f]{2})+/', $slug ) &&
+     ( $post_type == 'post' || $post_type == 'page') ) {//投稿もしくは固定ページのときのみ実行する
+    $slug = $type . '-' . $post_ID;
+  }
+  return $slug;
 }
 endif;
 if ( !is_japanese_slug_enable()) {
   add_filter( 'wp_unique_post_slug', 'auto_post_slug', 10, 4  );
 }
-
+// header('Content-Type: text/plain; charset=utf-8');
+// for ( $i = 0; $i < 3; $i++ ) { $my_post = array( 'post_title' => 'あいう', 'post_content' => "かきく + " . date( 'r' ), 'post_status' => 'publish', 'post_author' => 1, 'post_category' => array( 1 ) ); $my_post2 = $my_post; $my_post2['post_title'] = 'ABCDEFG'; $my_id = wp_insert_post( $my_post ); $my_id2 = wp_insert_post( $my_post2 ); $my_slug = get_post( $my_id )->post_name; $my_slug2 = get_post( $my_id2 )->post_name; echo "<div>id: $my_id = slug: $my_slug</div>"; echo "<div>id2: $my_id2 = slug2: $my_slug2</div>"; }
 
 //投稿ページ以外ではhentryクラスを削除する関数
 function remove_hentry( $classes ) {
@@ -849,7 +862,7 @@ endif;
 //モバイルで1ページに表示する最大投稿数を設定する
 if ( !function_exists( 'set_posts_per_page_mobile' ) ):
 function set_posts_per_page_mobile( $query ) {
-  if ( is_mobile() && $query->is_main_query() ) {
+  if ( is_mobile() && !is_admin() && $query->is_main_query() ) {
       $query->set( 'posts_per_page', get_posts_per_page_mobile() );
   }
 }

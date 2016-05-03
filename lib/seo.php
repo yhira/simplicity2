@@ -63,6 +63,9 @@ function simplicity_title_parts( $title ){
     if ( is_site_name_to_singular_title() )://サイト名を追加する場合
       $title['site'] = $site_name;
     endif;
+  // elseif(is_404()):
+  //   $title['title'] = trim( get_theme_text_not_found_title() );
+  //   $title['site'] = $site_name;
   endif;
 
   return $title;

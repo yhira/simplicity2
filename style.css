@@ -5,7 +5,7 @@ Description: Simplicityの意味は、単純、簡単、簡素、質素です。
 Theme URI: http://wp-simplicity.com/
 Author: yhira
 Author URI: http://nelog.jp/
-Version: 2.1.4 20160408
+Version: 2.1.5 20160425
 Tags: white, two-columns, left-sidebar, right-sidebar, fluid-layout, fixed-layout
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2542,10 +2542,10 @@ ul.snsp li a span.icon-hatebu-square{
   /* 画像をBase64にするためコメントアウト
   background-image: url("../images/white-feedly.png"); */
 /*  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcAQMAAABIw03XAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAB9JREFUCNdjkP//v4Gh/v//BxDi////H+hGIOwFOwMAuf5pDfN+XdkAAAAASUVORK5CYII=");*/
-  font-size:33.5px;
+  font-size:34px;
   position: relative;
-  top: 1px;
-  line-height: 34.5px;
+  /*top: 1px;
+  line-height: 34.5px;*/
 }
 
 ul.snsp li.twitter-page a span:hover{
@@ -3412,3 +3412,20 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
   padding: 10px 5px 0;
 }
 */
+/*
+.twitter-tweet{
+  width: 100% !important;
+}
+
+.EmbeddedTweet {
+  max-width: 100%;
+}*/
+
+.facebook-save-button{
+  margin: 1em 0;
+}
+
+.widget-under-sns-buttons.widget_facebook_save_button .main-widget-label{
+  display: block;
+  margin: 1em 0;
+}

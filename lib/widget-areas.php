@@ -300,6 +300,17 @@ register_sidebars(1,
   'after_title' => '</h3>',
 ));
 
+register_sidebars(1,
+  array(
+  'name'=>'404ページ',
+  'id' => '404-page',
+  'description' => '404ページをカスタマイズするためのウィジットエリアです。',
+  'before_widget' => '<div id="%1$s" class="widget %2$s">',
+  'after_widget' => '</div>',
+  'before_title' => '<div class="404_widget_title">',
+  'after_title' => '</div>',
+));
+
 //カスタムヘッダー
 $custom_header_defaults = array(
  'random-default' => false,

@@ -794,6 +794,18 @@ function theme_customize_register($wp_customize) {
     'priority' => 180,
   ));
 
+  //404イメージ
+  $wp_customize->add_setting( '404_image', array(
+    'sanitize_callback' => 'sanitize_file_url',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, '404_image', array(
+    'settings' => '404_image',
+    'label' => '404イメージ',
+    'description' => is_tips_visible() ? '404ページに表示するイメージを設定してください' : '',
+    'section' => 'layout_section',
+    'priority' => 200,
+  ) ) );
+
 
   /////////////////////////////
   //レイアウト（ページ）設定項目の追加
@@ -2754,15 +2766,43 @@ function theme_customize_register($wp_customize) {
     'priority'=> 1100,
   ));
 
+  // //関連記事が見つからなかった時のメッセージ
+  // $wp_customize->add_setting('theme_text_related_not_found_message', array(
+  //   'default' => '関連記事は見つかりませんでした。',
+  //   'sanitize_callback' => 'sanitize_text',
+  // ));
+  // $wp_customize->add_control( 'theme_text_related_not_found_message', array(
+  //   'settings' => 'theme_text_related_not_found_message',
+  //   'label' =>'関連記事が見つからなかった時のメッセージ',
+  //   'description' => is_tips_visible() ? '関連記事が見つからなかった場合に表示されるテキスト変更します。' : '',
+  //   'section' => 'theme_text_section',
+  //   'type' => 'text',
+  //   'priority'=> 1125,
+  // ));
+
+  // //ページが見つからなかった時のタイトル
+  // $wp_customize->add_setting('theme_text_not_found_title', array(
+  //   'default' => 'ページが見つかりませんでした',
+  //   'sanitize_callback' => 'sanitize_text',
+  // ));
+  // $wp_customize->add_control( 'theme_text_not_found_title', array(
+  //   'settings' => 'theme_text_not_found_title',
+  //   'label' =>'見つからなかった時のタイトル',
+  //   'description' => is_tips_visible() ? '404ページのタイトルを変更します。' : '',
+  //   'section' => 'theme_text_section',
+  //   'type' => 'text',
+  //   'priority'=> 1150,
+  // ));
+
   //ページが見つからなかった時のメッセージ
   $wp_customize->add_setting('theme_text_not_found_message', array(
-    'default' => 'ページは見つかりませんでした。',
+    'default' => '記事は見つかりませんでした。',
     'sanitize_callback' => 'sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_not_found_message', array(
     'settings' => 'theme_text_not_found_message',
     'label' =>'見つからなかった時のメッセージ',
-    'description' => is_tips_visible() ? '404ページで表示されるテキスト変更します。' : '',
+    'description' => is_tips_visible() ? '記事が見つからなかった時に表示されるテキスト変更します。' : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 1200,
@@ -2903,7 +2943,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'favicon_url', array(
     'settings' => 'favicon_url',
     'label' => 'ファビコン',
-    'description' => is_tips_visible() ? 'メディアからファビコンを設定できます。（※.ico推奨）' : '',
+    'description' => is_tips_visible() ? 'メディアからファビコンを設定できます。' : '',
     'section' => 'other_section',
     'priority' => 20,
   ) ) );
@@ -3545,6 +3585,11 @@ function get_go_to_top_button_image(){
 //カレンダーウィジェットの枠線を表示するか
 function is_calendar_border_visible(){
   return get_theme_mod( 'calendar_border_visible', false );
+}
+
+//404イメージの取得
+function get_404_image(){
+  return get_theme_mod( '404_image', null );
 }
 
 //アイキャッチの自動設定をするか
@@ -4262,6 +4307,11 @@ function get_theme_text_y_format(){
 //検索ボックスのプレースホルダテキストを取得
 function get_theme_text_search_placeholder(){
   return get_theme_mod( 'theme_text_search_placeholder', 'ブログ内を検索' );
+}
+
+//記事が見つからなかったページのタイトルテキストを取得
+function get_theme_text_not_found_title(){
+  return get_theme_mod( 'theme_text_not_found_title', 'ページが見つかりませんでした' );
 }
 
 //記事が見つからなかった時のメッセージテキストを取得

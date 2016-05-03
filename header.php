@@ -78,6 +78,6 @@ endif; ?>
           <?php get_template_part('before-main'); //メインカラーの手前に挿入するテンプレート（3カラム作成カスタマイズ時などに） ?>
 
           <!-- main -->
-          <main itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-            <div id="main">
+          <main itemscope itemprop="mainContentOfPage">
+            <div id="main" itemtype="http://schema.org/Blog">
 
