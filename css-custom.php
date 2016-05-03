@@ -251,7 +251,7 @@ ul.snsp li.feedly-page a span{
 }
 
 ul.snsp li.push7-page a span{
-  background-color: #eeac00;
+  color: #eeac00;
 }
 
 ul.snsp li.rss-page a span{

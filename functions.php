@@ -16,6 +16,7 @@ include 'lib/mobile.php';    //モバイル関係の関数
 include 'lib/image.php';     //画像関係の関数
 include 'lib/comment.php';   //コメント関係の関数
 include 'lib/scripts.php';   //スクリプト関係の関数
+include 'lib/qtags.php';     //クイックタグ関係の関数
 
 //URLの正規表現
 define('URL_REG', '/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/');
@@ -407,12 +408,15 @@ function get_skin_files(){
           $name = trim(strip_tags($matches[1]));
           if ( is_parts_skin_file($pathname) )//パーツスキンの場合
             $name = '[P] '.$name;
+
+          $file_path = str_replace($search, $replace , $pathname);
+          $file_path = preg_replace('/https?:/i', '', $file_path);
           //返り値の設定
           $results[] = array(
             'name' => $name,
             'dir' => $dir_name,
             'priority' => $priority,
-            'path' => str_replace($search, $replace , $pathname),
+            'path' => $file_path,
           );
         }
       }
@@ -853,3 +857,14 @@ function remove_facebook_embed_scripts($the_content){
 }
 endif;
 add_filter('the_content', 'remove_facebook_embed_scripts');
+
+// //テーブルのレスポンシブ
+// if ( !function_exists( 'wrap_table_elements' ) ):
+// function wrap_table_elements($the_content){
+//   //埋め込みタグのスクリプトを空文字に置換する
+//   $the_content = str_replace('<table', '<div class="table-wrap"><table', $the_content);
+//   $the_content = str_replace('</table>', '</table></div>', $the_content);
+//   return $the_content;
+// }
+// endif;
+// add_filter('the_content', 'wrap_table_elements');

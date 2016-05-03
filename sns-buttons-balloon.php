@@ -155,8 +155,9 @@
     <?php endif; ?>
     <?php //Push7ボタン
     if ( is_push7_btn_visible() ):
-    $push7 = fetch_push7_info();
-     ?>
+      $push7 = fetch_push7_info();
+      if ( isset($push7->domain) ): //APIの値が正常取得出来たかドメインで判断
+       ?>
         <li class="balloon-btn push7-balloon-btn">
           <span class="balloon-btn-set">
             <span class="arrow-box">
@@ -172,10 +173,11 @@
               </a>
             </span>
             <a href="//<?php echo $push7->domain; ?>" target="blank" class="balloon-btn-link push7-balloon-btn-link" rel="nofollow">
-              <span class="fa fa-bolt"></span>
+              <span class="icon-push7"></span>
             </a>
           </span>
         </li>
+      <?php endif //isset($push7->domain) ?>
     <?php endif //is_push7_btn_visible ?>
     <?php if ( is_feedly_btn_visible() )://feedlyボタンを表示するか ?>
     <li class="balloon-btn feedly-balloon-btn">

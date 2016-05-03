@@ -139,6 +139,15 @@
     padding: 15px;
   }
 
+  .table-wrap{
+    /*overflow: scroll;
+    -webkit-overflow-scrolling: touch;*/
+  }
+
+/*  .article table{
+    width: 100%;
+  }*/
+
   /*ポストページナビ*/
   #prev-next{text-align:center;}
 

@@ -2078,6 +2078,19 @@ function theme_customize_register($wp_customize) {
     'priority' => 170,
   ));
 
+  //外部サイトデータ取得時にSSL検証を行う
+  $wp_customize->add_setting('ssl_verification_enable', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'ssl_verification_enable', array(
+    'settings' => 'ssl_verification_enable',
+    'label' =>'外部サイトデータ取得時にSSL検証を行う',
+    'description' => is_tips_visible() ? 'wp_remote_getで外部サイトデータを取得時に、SSL検証を有効にします。Google＋、Pocket、Push7、feedlyカウントが取得できないとき無効にしてみてください。必要のない場合は無効にしないでください。' : '',
+    'section' => 'sns_section',
+    'type' => 'checkbox',
+    'priority' => 180,
+  ));
 
   /////////////////////////////
   //広告設定項目の追加
@@ -3039,7 +3052,9 @@ function get_skin_options(){
 //スキンファイルを設定している場合はスタイルシート名（パス/style.css）を返す
 //設定していない場合は偽（空文字）を返す
 function get_skin_file(){
-  return get_theme_mod( 'skin_file', null );
+  $file_path = get_theme_mod( 'skin_file', null );
+  $file_path = preg_replace('/https?:/i', '', $file_path);
+  return $file_path;
 }
 
 //カスタムレイアウト設定の値を取得
@@ -3957,6 +3972,11 @@ function get_ogp_home_image(){
 //フォローボタンに色をつけるかどうか
 function is_colored_follow_btns(){
   return get_theme_mod( 'colored_follow_btns', false );
+}
+
+//外部サイトデータを取得時にSSL検証を行うか
+function is_ssl_verification_enable(){
+  return get_theme_mod( 'ssl_verification_enable', true );
 }
 
 //タイトル下に小さなシェアボタンを表示するかどうか

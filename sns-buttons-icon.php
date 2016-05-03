@@ -74,16 +74,19 @@ $viral_class = is_share_button_type_mobile_viral() ? ' sns-group-viral' : ''; ?>
     }); return false;" class="btn-icon-link evernote-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-evernote"></span></a></li>
     <?php endif; ?>
     <?php if ( is_push7_btn_visible() )://Push7ボタンを表示するか
-    $push7 = fetch_push7_info(); ?>
-    <li class="push7-btn-icon"><a href="//<?php echo $push7->domain; ?>" class="btn-icon-link push7-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon fa fa-bolt"></span><span class="social-count push7-count"><?php
-              if ( scc_exists() ) {
-                echo $push7->subscribers;
-              } else {
-                //カウント数取得待ち表示用のスピナー
-                echo '<span class="fa fa-spinner fa-pulse"></span>';
-              }
-             ?></span></a></li>
-    <?php endif; ?>
+      $push7 = fetch_push7_info();
+      if ( isset($push7->domain) ): //APIの値が正常取得出来たかドメインで判断 ?>
+        <li class="push7-btn-icon"><a href="//<?php echo $push7->domain; ?>" class="btn-icon-link push7-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-push7"></span><span class="social-count push7-count"><?php
+                  if ( scc_exists() ) {
+                    echo $push7->subscribers;
+                  } else {
+                    //カウント数取得待ち表示用のスピナー
+                    echo '<span class="fa fa-spinner fa-pulse"></span>';
+                  }
+                 ?></span></a></li>
+    <?php
+      endif; //isset($push7->domain)
+    endif; //is_push7_btn_visible ?>
     <?php if ( is_feedly_btn_visible() )://feedlyボタンを表示するか ?>
     <li class="feedly-btn-icon">
     <a href="//feedly.com/index.html#subscription%2Ffeed%2F<?php urlencode(bloginfo('rss2_url')); ?>" class="btn-icon-link feedly-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-feedly"></span><span class="social-count feedly-count"><?php

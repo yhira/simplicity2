@@ -533,4 +533,10 @@ jQuery(function(){
 
 })(jQuery);
 
+/////////////////////////////////
+//テーブルにレスポンシブ用のラップを追加する
+/////////////////////////////////
+// (function($){
+//   $('table:not(.table-wrap table)').wrap('<div class="table-wrap"></div>');
+// })(jQuery);
 
