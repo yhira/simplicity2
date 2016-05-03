@@ -304,7 +304,10 @@
 
 }
 
-@media screen and (max-width:440px){
+/***********************************
+ エントリーカードのモバイル表示
+ ***********************************/
+@media screen and (max-width:500px){
   /* サムネイル回り込み */
   .entry-card .entry-thumb,
   .related-entry .related-entry-thumb {
@@ -355,7 +358,7 @@
  ダメだったら元に戻しやすいようにあえて
  max-width:359pxを分けて書く
  ***********************************/
-@media screen and (max-width:359px){
+@media screen and (max-width:379px){
   /* 記事タイトルfont調整 */
   .entry-card h2 a.entry-title,
   .related-entry h4 a {
