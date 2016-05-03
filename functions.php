@@ -26,11 +26,12 @@ add_theme_support('post-thumbnails');
 add_image_size('thumb100', 100, 100, true);
 add_image_size('thumb150', 150, 150, true);
 add_image_size('thumb320', 320, 180, true);
+add_image_size('thumb320_raw', 320, 0, false);
 
-//画像の縦横比を保存したタイル状リストのとき
-if ( is_list_style_tile_thumb_cards_raw() ) {
-  add_image_size('thumb320_raw', 320, 0, false);
-}
+// //画像の縦横比を保存したタイル状リストのとき
+// if ( is_list_style_tile_thumb_cards_raw() ) {
+//   add_image_size('thumb320_raw', 320, 0, false);
+// }
 
 //コンテンツの幅の指定
 if ( ! isset( $content_width ) ) $content_width = 680;
@@ -64,6 +65,10 @@ $custom_background_defaults = array(
         'default-color' => 'ffffff',
 );
 add_theme_support( 'custom-background', $custom_background_defaults );
+
+//ヘッダーに以下のようなタグが挿入されるWP4.4からの機能を解除
+//<link rel='https://api.w.org/' href='http:/xxxx/wordpress/wp-json/' />
+remove_action( 'wp_head', 'rest_output_link_wp_head' );
 
 // //カスタマイズした値をCSSに反映させる
 // function simplicity_customize_css(){

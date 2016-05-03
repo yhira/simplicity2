@@ -312,6 +312,7 @@ function fetch_google_plus_count(url, selector) {
 function fetch_hatebu_count(url, selector) {
   jQuery.ajax({
     url:'//b.hatena.ne.jp/entry.count?callback=?',
+    //url:'//api.b.st-hatena.com/entry.count?callback=?',
     dataType:'jsonp',
     timeout: 10000, //10sec
     data:{

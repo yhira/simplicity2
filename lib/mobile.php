@@ -28,7 +28,6 @@ function is_mobile(){
     'Mobile.*Firefox', // Firefox OS
     'Opera Mini', // Opera Mini Browser
     'BB10', // BlackBerry 10
-    'Touch' // MSIE Touch Function
   );
   $pattern = '/'.implode('|', $useragents).'/i';
   return preg_match($pattern, $_SERVER['HTTP_USER_AGENT']);
