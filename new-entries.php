@@ -6,7 +6,7 @@ $args = array(
   'posts_per_page' => $g_entry_count,
 );
 $cat_ids = get_category_ids();//カテゴリ配列の取得
-$has_cat_ids = $cat_ids;
+$has_cat_ids = $cat_ids && ($g_widget_mode == 'category');
 if ( $has_cat_ids ) {
   $args += array('category__in' => $cat_ids);
 }
