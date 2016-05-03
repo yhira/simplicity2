@@ -1,7 +1,8 @@
 /************************************
 ** Twitterタイプボタン表示CSS
 ************************************/
-a.balloon-btn-link {
+a.balloon-btn-link/*,
+.push7-balloon-btn .p7-b > a*/ {
   font-size:16px;
   font-weight:normal;
   border:1px solid #bbb;
@@ -19,6 +20,17 @@ a.balloon-btn-link {
    box-shadow:inset 1px 1px 0px 0px #ffffff;
 }
 
+/*.push7-balloon-btn .p7-b > a{
+  height: 16px;
+  color: #eeac00;
+}*/
+
+.push7-balloon-btn .p7-b > a > span {
+    display: inline-block;
+}
+
+.push7-balloon-btn .cls-1{fill: currentColor;}
+
 a.twitter-balloon-btn-link{color:#55acee;}
 a.facebook-balloon-btn-link{color:#3c5a99;}
 a.googleplus-balloon-btn-link{color:#dd4b39;}
@@ -27,6 +39,7 @@ a.pocket-balloon-btn-link{color:#ee4257;}
 a.line-balloon-btn-link{color:#00c300;}
 a.evernote-balloon-btn-link{color:#51b125;}
 a.feedly-balloon-btn-link{color:#87bd33;}
+a.push7-balloon-btn-link{color:#eeac00;}
 a.comments-balloon-btn-link{color:#777;}
 
 a.twitter-balloon-btn-link:hover{color:#55acee;}
@@ -37,4 +50,5 @@ a.pocket-balloon-btn-link:hover{color:#ee4257;}
 a.line-balloon-btn-link:hover{color:#00c300;}
 a.evernote-balloon-btn-link:hover{color:#51b125;}
 a.feedly-balloon-btn-link:hover{color:#87bd33;}
+a.push7-balloon-btn-link:hover{color:#eeac00;}
 a.comments-balloon-btn-link:hover{color:#777;}

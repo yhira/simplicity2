@@ -250,6 +250,10 @@ ul.snsp li.feedly-page a span{
   color: #87bd33;
 }
 
+ul.snsp li.push7-page a span{
+  background-color: #eeac00;
+}
+
 ul.snsp li.rss-page a span{
   color: #fe9900;
 }
@@ -927,7 +931,8 @@ a.balloon-btn-link:hover,
 .snsbs li a:hover,
 ul.snsp li a:hover,
 #mobile-menu a:hover,
-#page-top a:hover {
+#page-top a:hover,
+.push7-balloon-btn .p7-b > a:hover {
   opacity: 1;
 }
 <?php endif; ?>

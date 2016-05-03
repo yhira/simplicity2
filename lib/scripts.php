@@ -276,6 +276,8 @@ function simplicity_scripts() {
         'hatena_btn_visible' => is_hatena_btn_visible(),
         'pocket_btn_visible' => is_pocket_btn_visible(),
         'feedly_btn_visible' => is_feedly_btn_visible(),
+        'push7_btn_visible' => is_push7_btn_visible(),
+        'push7_app_no' => get_push7_follow_app_no(),
       ));
     }
   }
@@ -334,7 +336,6 @@ function simplicity_scripts() {
     //Lityスクリプトの呼び出し
     wp_enqueue_script( 'lity-js', get_template_directory_uri() . '/js/lity.min.js', array( 'jquery' ), false, true  );
   }
-
 
   // ///////////////////////////////////
   // //Evernoteに関する記述

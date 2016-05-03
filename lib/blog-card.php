@@ -52,7 +52,7 @@ function url_to_blog_card_tag($url){
     $thumbnail = '<img src="'.get_template_directory_uri().'/images/no-image.png" alt="'.$title.'" class="blog-card-thumb-image" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
-  $tag = '<div class="blog-card internal-blog-card"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
+  $tag = '<div class="blog-card internal-blog-card cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
 
   return $tag;
 }
@@ -134,7 +134,7 @@ function url_to_external_blog_card_tag($url){
   $tag = '';
   if ( is_blog_card_external_hatena() ) {
     //取得した情報からはてなブログカードのHTMLタグを作成
-    $tag = '<'.'iframe '.'class="blog-card external-blog-card" src="//hatenablog-parts.com/embed?url='.$url.'"></'.'iframe'.'>';
+    $tag = '<'.'iframe '.'class="blog-card external-blog-card cf" src="//hatenablog-parts.com/embed?url='.$url.'"></'.'iframe'.'>';
   } elseif ( is_blog_card_external_embedly() ) {
     //取得した情報からEmbedlyブログカードのHTMLタグを作成
     $tag = '<a class="embedly-card" href="'.$url.'">'.$url.'</a><script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';

@@ -2,24 +2,25 @@
 include 'customizer-sanitize.php';//カスタマイザーサニタイズ関係の関数
 
 //色を定数にする
-define("LINK_COLOR", "#2098a8");
-define("LINK_HOVER_COLOR", "#cc0033");
-define("HEADER_OUTER_BACKGROUND_COLOR", "#ffffff");
-define("HEADER_INNER_BACKGROUND_COLOR", "#ffffff");
-define("SITE_TITLE_COLOR", "#222222");
-define("SITE_DESCRIPTION_COLOR", "#777777");
-define("MOBILE_BACKGROUND_COLOR", "#ffffff");
-define("NAVI_COLOR", "#f7f7f7");
-define("NAVI_LINK_COLOR", "#111111");
-define("NAVI_LINK_HOVER_COLOR", "#dddddd");
-define("MENU_BUTTON_COLOR", "#333333");
-define("MENU_BUTTON_BACKGROUND_COLOR", "#ffffff");
-define("GO_TO_TOP_BUTTON_COLOR", "#ffffff");
-define("GO_TO_TOP_BUTTON_BACKGROUND_COLOR", "#aaaaaa");
-define("FOOTER_COLOR", "#555555");
+define("LINK_COLOR", "");
+define("LINK_HOVER_COLOR", "");
+define("HEADER_OUTER_BACKGROUND_COLOR", "");
+define("HEADER_INNER_BACKGROUND_COLOR", "");
+define("SITE_TITLE_COLOR", "");
+define("SITE_DESCRIPTION_COLOR", "");
+define("MOBILE_BACKGROUND_COLOR", "");
+define("NAVI_COLOR", "");
+define("NAVI_LINK_COLOR", "");
+define("NAVI_LINK_HOVER_COLOR", "");
+define("MENU_BUTTON_COLOR", "");
+define("MENU_BUTTON_BACKGROUND_COLOR", "");
+define("GO_TO_TOP_BUTTON_COLOR", "");
+define("GO_TO_TOP_BUTTON_BACKGROUND_COLOR", "");
+define("FOOTER_COLOR", "");
 
 //文字サイズ
 define("ARTICLE_FONT_SIZE", "16");
+
 
 add_action( 'customize_register', 'theme_customize_register' );
 function theme_customize_register($wp_customize) {
@@ -40,7 +41,7 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
     'label' => __( 'リンク色', 'colors' ),
-    'description' => is_tips_visible() ? '通常のリンク色です。' : '',
+    'description' => is_tips_visible() ? '通常のリンク色です。（デフォルト色：#2098a8）' : '',
     'section' => 'colors',
     'settings' => 'link_color',
     'priority' => 15,
@@ -53,7 +54,7 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
     'label' => __( 'リンクホバー色', 'colors' ),
-    'description' => is_tips_visible() ? 'マウスカーソルが乗ったときのリンク色です。' : '',
+    'description' => is_tips_visible() ? 'マウスカーソルが乗ったときのリンク色です。（デフォルト色：#cc0033）' : '',
     'section' => 'colors',
     'settings' => 'link_hover_color',
     'priority' => 20,
@@ -66,7 +67,7 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_outer_background_color', array(
     'label' => __( 'ヘッダー外側背景色', 'colors' ),
-    'description' => is_tips_visible() ? '画面幅いっぱいに広がるヘッダーの背景色です。' : '',
+    'description' => is_tips_visible() ? '画面幅いっぱいに広がるヘッダーの背景色です。（デフォルト色：transparent）' : '',
     'section' => 'colors',
     'settings' => 'header_outer_background_color',
     'priority' => 25,
@@ -79,7 +80,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_inner_background_color', array(
     'label' => __( 'ヘッダー内側背景色', 'colors' ),
-    'description' => is_tips_visible() ? 'ヘッダー内側の背景色です。' : '',
+    'description' => is_tips_visible() ? 'ヘッダー内側の背景色です。（デフォルト色：transparent）' : '',
     'section' => 'colors',
     'settings' => 'header_inner_background_color',
     'priority' => 26,
@@ -92,7 +93,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_title_color', array(
     'label' => __( 'サイトタイトル色', 'colors' ),
-    'description' => is_tips_visible() ? 'サイトタイトルの文字色です。' : '',
+    'description' => is_tips_visible() ? 'サイトタイトルの文字色です。（デフォルト色：#222222）' : '',
     'section' => 'colors',
     'settings' => 'site_title_color',
     'priority' => 30,
@@ -105,7 +106,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_description_color', array(
     'label' => __( 'サイト概要色', 'colors' ),
-    'description' => is_tips_visible() ? 'サイトキャッチフレーズの文字色です。' : '',
+    'description' => is_tips_visible() ? 'サイトキャッチフレーズの文字色です。（デフォルト色：#777777）' : '',
     'section' => 'colors',
     'settings' => 'site_description_color',
     'priority' => 40,
@@ -118,7 +119,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'mobile_background_color', array(
     'label' => __( 'モバイル時ヘッダー背景色', 'colors' ),
-    'description' => is_tips_visible() ? '画面幅いっぱいに広がるモバイルヘッダーの背景色です。' : '',
+    'description' => is_tips_visible() ? '画面幅いっぱいに広がるモバイルヘッダーの背景色です。（デフォルト色：transparent）' : '',
     'section' => 'colors',
     'settings' => 'mobile_background_color',
     'priority' => 50,
@@ -131,7 +132,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'mobile_site_title_color', array(
     'label' => __( 'モバイルサイトタイトル色', 'colors' ),
-    'description' => is_tips_visible() ? 'モバイル時のサイトタイトルの文字色です。' : '',
+    'description' => is_tips_visible() ? 'モバイル時のサイトタイトルの文字色です。（デフォルト色：#222222）' : '',
     'section' => 'colors',
     'settings' => 'mobile_site_title_color',
     'priority' => 60,
@@ -144,7 +145,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'mobile_site_description_color', array(
     'label' => __( 'モバイルサイト概要色', 'colors' ),
-    'description' => is_tips_visible() ? 'モバイル時のサイトキャッチフレーズの文字色です。' : '',
+    'description' => is_tips_visible() ? 'モバイル時のサイトキャッチフレーズの文字色です。（デフォルト色：#777777）' : '',
     'section' => 'colors',
     'settings' => 'mobile_site_description_color',
     'priority' => 70,
@@ -157,7 +158,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navi_color', array(
     'label' => __( 'グローバルナビ色', 'colors' ),
-    'description' => is_tips_visible() ? 'グローバルナビ（メインメニュー）の背景色です。' : '',
+    'description' => is_tips_visible() ? 'グローバルナビ（メインメニュー）の背景色です。（デフォルト色：#f7f7f7）' : '',
     'section' => 'colors',
     'settings' => 'navi_color',
     'priority' => 80,
@@ -170,7 +171,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navi_link_color', array(
     'label' => __( 'グローバルナビリンク色', 'colors' ),
-    'description' => is_tips_visible() ? 'グローバルナビリンクの文字色です。' : '',
+    'description' => is_tips_visible() ? 'グローバルナビリンクの文字色です。（デフォルト色：#111111）' : '',
     'section' => 'colors',
     'settings' => 'navi_link_color',
     'priority' => 90,
@@ -183,7 +184,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navi_link_hover_color', array(
     'label' => __( 'グローバルナビリンクホバー色', 'colors' ),
-    'description' => is_tips_visible() ? 'マウスカーソルが乗ったときのメニュー項目の背景色です。' : '',
+    'description' => is_tips_visible() ? 'マウスカーソルが乗ったときのメニュー項目の背景色です。（デフォルト色：#dddddd）' : '',
     'section' => 'colors',
     'settings' => 'navi_link_hover_color',
     'priority' => 100,
@@ -196,7 +197,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_button_color', array(
     'label' => __( 'メニューボタン色', 'colors' ),
-    'description' => is_tips_visible() ? 'モバイル用メニュー表示ボタンのアイコン色です。' : '',
+    'description' => is_tips_visible() ? 'モバイル用メニュー表示ボタンのアイコン色です。（デフォルト色：#333333）' : '',
     'section' => 'colors',
     'settings' => 'menu_button_color',
     'priority' => 102,
@@ -209,7 +210,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_button_background_color', array(
     'label' => __( 'メニューボタン背景色', 'colors' ),
-    'description' => is_tips_visible() ? 'モバイル用メニュー表示ボタンの背景色です。' : '',
+    'description' => is_tips_visible() ? 'モバイル用メニュー表示ボタンの背景色です。（デフォルト色：transparent）' : '',
     'section' => 'colors',
     'settings' => 'menu_button_background_color',
     'priority' => 104,
@@ -222,7 +223,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'go_to_top_button_color', array(
     'label' => __( 'トップへ戻るボタン色', 'colors' ),
-    'description' => is_tips_visible() ? 'トップに戻るボタンのアイコン色です。' : '',
+    'description' => is_tips_visible() ? 'トップに戻るボタンのアイコン色です。（デフォルト色：#ffffff）' : '',
     'section' => 'colors',
     'settings' => 'go_to_top_button_color',
     'priority' => 110,
@@ -235,7 +236,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'go_to_top_button_background_color', array(
     'label' => __( 'トップへ戻るボタン背景色', 'colors' ),
-    'description' => is_tips_visible() ? 'トップに戻るボタンの背景色です。' : '',
+    'description' => is_tips_visible() ? 'トップに戻るボタンの背景色です。（デフォルト色：#aaaaaa）' : '',
     'section' => 'colors',
     'settings' => 'go_to_top_button_background_color',
     'priority' => 112,
@@ -248,7 +249,7 @@ function theme_customize_register($wp_customize) {
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
     'label' => __( 'フッター色', 'colors' ),
-    'description' => is_tips_visible() ? 'フッター部分の背景色です。' : '',
+    'description' => is_tips_visible() ? 'フッター部分の背景色です。（デフォルト色：#555555）' : '',
     'section' => 'colors',
     'settings' => 'footer_color',
     'priority' => 120,
@@ -1650,13 +1651,26 @@ function theme_customize_register($wp_customize) {
     'priority' => 71,
   ));
 
+  //Push7ボタン表示
+  $wp_customize->add_setting('push7_btn_visible', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'push7_btn_visible', array(
+    'settings' => 'push7_btn_visible',
+    'label' =>'Push7ボタンの表示',
+    'description' => is_tips_visible() ? '※フォローボタンの設定でAPPNO入力をしないと反映されません。' : '',
+    'section' => 'sns_section',
+    'type' => 'checkbox',
+    'priority' => 71.5,
+  ));
+
   //feedlyボタン表示
   $wp_customize->add_setting('feedly_btn_visible', array(
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'feedly_btn_visible', array(
     'settings' => 'feedly_btn_visible',
-    'label' =>'feedlyボタンの表示（PCのみ吹出付）',
+    'label' =>'feedlyボタンの表示',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 72,
@@ -1923,6 +1937,19 @@ function theme_customize_register($wp_customize) {
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 117.5,
+  ));
+
+  //Push7購読ボタン
+  $wp_customize->add_setting('push7_follow_app_no', array(
+    'sanitize_callback' => 'sanitize_text',
+  ));
+  $wp_customize->add_control( 'push7_follow_app_no', array(
+    'settings' => 'push7_follow_app_no',
+    'label' =>'Push7のAPPNO',
+    'description' => is_tips_visible() ? 'Push7でタグに出力されるAPPNOを入力してください。' : '',
+    'section' => 'sns_section',
+    'type' => 'text',
+    'priority' => 119,
   ));
 
   //feedlyフォローボタン
@@ -3751,6 +3778,11 @@ function is_feedly_btn_visible(){
   return get_theme_mod( 'feedly_btn_visible', false );
 }
 
+//Push7ボタンを表示するかどうか
+function is_push7_btn_visible(){
+  return get_theme_mod( 'push7_btn_visible', false ) && get_push7_follow_app_no();
+}
+
 //コメント数ボタンを表示するかどうか
 function is_comments_btn_visible(){
   return get_theme_mod( 'comments_btn_visible', false );
@@ -3868,6 +3900,11 @@ function get_flickr_follow_id(){
 //LINE@フォローボタンのIDを取得
 function get_line_at_follow_id(){
   return get_theme_mod( 'line_at_follow_id', null );
+}
+
+//Push7フォローボタンのIDを取得
+function get_push7_follow_app_no(){
+  return get_theme_mod( 'push7_follow_app_no', null );
 }
 
 //feedlyフォローボタンを表示するかどうか

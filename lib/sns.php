@@ -46,6 +46,23 @@ function fetch_feedly_count(){
   return $res;
 }
 
+//Push7情報取得
+function fetch_push7_info(){
+  $res = 0;
+  $app_no = get_push7_follow_app_no();
+  if ( $app_no ) {
+    $url = 'https://api.push7.jp/api/v1/'.$app_no.'/head';
+    $info = wp_remote_get( $url );
+    if (!is_wp_error( $info ) && $info["response"]["code"] === 200) {
+      $info = json_decode( $info['body'] );
+      if ( $info ) {
+        $res = $info;
+      }
+    }
+  }
+  return $res;
+}
+
 //不具合対策用のfeedlyの購読者数取得の別名
 function get_feedly_count(){
   return fetch_feedly_count();

@@ -802,6 +802,7 @@ if ( is_analytics_universal() ) {
 }
 
 //HTML5で警告が出てしまう部分をできるだけ修正する
+if ( !function_exists( 'simplicity_html5_fix' ) ):
 function simplicity_html5_fix($the_content){
   //</div>に</p></div>が追加されてしまう
   //http://tenman.info/labo/snip/archives/5197
@@ -810,10 +811,12 @@ function simplicity_html5_fix($the_content){
   $the_content = preg_replace('/<img((?![^>]*alt=)[^>]*)>/i', '<img alt=""${1}>', $the_content);
   return $the_content;
 }
+endif;
 add_filter('the_content', 'simplicity_html5_fix');
 add_filter('widget_text', 'simplicity_html5_fix');
 
 //現在のカテゴリをカンマ区切りテキストで取得する
+if ( !function_exists( 'get_category_ids' ) ):
 function get_category_ids(){
   if ( is_single() ) {//投稿ページでは全カテゴリー取得
     $categories = get_the_category();
@@ -829,11 +832,24 @@ function get_category_ids(){
   }
   return null;
 }
+endif;
 
 //モバイルで1ページに表示する最大投稿数を設定する
+if ( !function_exists( 'set_posts_per_page_mobile' ) ):
 function set_posts_per_page_mobile( $query ) {
   if ( is_mobile() && $query->is_main_query() ) {
       $query->set( 'posts_per_page', get_posts_per_page_mobile() );
   }
 }
+endif;
 add_action( 'pre_get_posts', 'set_posts_per_page_mobile' );
+
+//Facebookの埋め込みの不要なスクリプトを除去する
+if ( !function_exists( 'remove_facebook_embed_scripts' ) ):
+function remove_facebook_embed_scripts($the_content){
+  //埋め込みタグのスクリプトを空文字に置換する
+  $the_content = preg_replace('/<div id="fb-root"><\/div><script>.+?connect\.facebook\.net.+?<\/script>/i', '', $the_content);
+  return $the_content;
+}
+endif;
+add_filter('the_content', 'remove_facebook_embed_scripts');

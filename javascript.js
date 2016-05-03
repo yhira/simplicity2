@@ -285,6 +285,23 @@ function fetch_feedly_count(rss_url, selector) {
   });
 }
 
+//Push7で購読者数を取得
+function fetch_push7_count(app_no, selector) {
+  url = 'https://api.push7.jp/api/v1/'+app_no+'/head';
+  jQuery.ajax({
+    url:url,
+    dataType:'json',
+    timeout: 10000, //10sec
+    data:{
+      url:url
+    }
+  }).done(function(res){
+    jQuery( selector ).text( res.subscribers || 0 );
+  }).fail(function(){
+    jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
+  });
+}
+
 jQuery(function(){
   if (typeof social_count_config !== 'undefined') {
     //console.log(social_count_config.all_sns_share_btns_visible);
@@ -316,6 +333,10 @@ jQuery(function(){
       //feedlyカウントの取得
       if ( social_count_config.feedly_btn_visible ){
         fetch_feedly_count(social_count_config.rss2_url, '.feedly-count');
+      }
+      //push7カウントの取得
+      if ( social_count_config.push7_btn_visible ){
+        fetch_push7_count(social_count_config.push7_app_no, '.push7-count');
       }
 
     }
@@ -394,6 +415,7 @@ function fetch_twitter_count_from_count_jsoon(url, selector) {
   }
   });
 }
+
 
 ///////////////////////////////////
 // Twitterのツイート数取得関数を呼び出す

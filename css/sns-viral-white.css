@@ -92,6 +92,14 @@
     background-color: #87bd33;
 }
 
+.sns-group-viral ul.snsbs li a.push7-btn-icon-link {
+    color: #eeac00;
+    border-color: #eeac00;
+}
+.sns-group-viral ul.snsbs li a.push7-btn-icon-link:hover {
+    background-color: #eeac00;
+}
+
 .sns-group-viral ul.snsbs li a.comments-btn-icon-link {
     color: #555;
     border-color: #555;
@@ -99,3 +107,4 @@
 .sns-group-viral ul.snsbs li a.comments-btn-icon-link:hover {
     background-color: #555;
 }
+

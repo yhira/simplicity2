@@ -35,6 +35,8 @@
     contentId:'the-content',
     }); return false;" class="evernote-btn-link"><img src="<?php echo get_template_directory_uri();?>/images/article-clipper-vert.png" alt="Evernoteに保存" class="evernote-btn-img"><img src="<?php echo get_template_directory_uri();?>/images/article-clipper.png" alt="Evernoteに保存" class="evernote-btn-img-mini"></a></li>
     <?php endif; ?>
+    <?php //Push7ボタン
+    get_template_part('sns-button-push7'); ?>
     <?php if ( is_feedly_btn_visible() )://feedlyボタンを表示するか ?>
       <?php if ($g_is_small): //横型の小さいfeedlyボタン?>
       <li class="feedly-btn feedly-btn-horizontal">

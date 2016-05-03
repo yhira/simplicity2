@@ -153,6 +153,30 @@
       </span>
     </li>
     <?php endif; ?>
+    <?php //Push7ボタン
+    if ( is_push7_btn_visible() ):
+    $push7 = fetch_push7_info();
+     ?>
+        <li class="balloon-btn push7-balloon-btn">
+          <span class="balloon-btn-set">
+            <span class="arrow-box">
+              <a href="//<?php echo $push7->domain; ?>" target="blank" class="arrow-box-link push7-arrow-box-link" rel="nofollow">
+                <span class="social-count push7-count"><?php
+                  if ( scc_exists() ) {
+                    echo $push7->subscribers;
+                  } else {
+                    //カウント数取得待ち表示用のスピナー
+                    echo '<span class="fa fa-spinner fa-pulse"></span>';
+                  }
+                 ?></span>
+              </a>
+            </span>
+            <a href="//<?php echo $push7->domain; ?>" target="blank" class="balloon-btn-link push7-balloon-btn-link" rel="nofollow">
+              <span class="fa fa-bolt"></span>
+            </a>
+          </span>
+        </li>
+    <?php endif //is_push7_btn_visible ?>
     <?php if ( is_feedly_btn_visible() )://feedlyボタンを表示するか ?>
     <li class="balloon-btn feedly-balloon-btn">
       <span class="balloon-btn-set">

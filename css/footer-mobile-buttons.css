@@ -4,6 +4,7 @@
 div#navi {
   display: none;
   max-width: 260px;
+  -webkit-overflow-scrolling: touch;
 }
 
 div#navi ul{
@@ -54,6 +55,7 @@ div#sidebar{
   float: right;
   position: fixed !important;
   display: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media screen and (max-width:639px){
