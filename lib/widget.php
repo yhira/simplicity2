@@ -113,6 +113,23 @@ class SimplicityWidgetItem extends WP_Widget {
     $instance['is_ranking_visible'] = strip_tags($new_instance['is_ranking_visible']);
       return $instance;
   }
+  // private function init_instance($instance) {
+  //   if( empty($instance) ){
+  //     return array(
+  //       'title_new' => null,
+  //       'title_popular' => null,
+  //       'entry_count' => null,
+  //       'entry_type' => null,
+  //       'is_pages_include' => null,
+  //       'is_views_visible' => null,
+  //       'range' => null,
+  //       'range_visible' => null,
+  //       'is_ranking_visible' => null,
+  //     );
+  //   }else{
+  //     return $instance;
+  //   }
+  // }
   function form($instance) {
     if(empty($instance)){
       $instance = array(
@@ -222,6 +239,8 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
+    // //ウィジェットモード（全ての新着記事を表示するか、カテゴリ別に表示するか）
+    // $widget_mode = apply_filters( 'widget_mode', $instance['widget_mode'] );
     //タイトル名を取得
     $title_new = apply_filters( 'widget_title_new', $instance['title_new'] );
     //表示数を取得
@@ -229,10 +248,15 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
     $is_top_visible = apply_filters( 'widget_is_top_visible', $instance['is_top_visible'] );
     $entry_type = apply_filters( 'widget_is_top_visible', $instance['entry_type'] );
     //表示数をグローバル変数に格納
+    // //ウィジェットモード
+    // global $g_widget_mode;
     //後で使用するテンプレートファイルへの受け渡し
     global $g_entry_count;
     //表示タイプをグローバル変数に格納
     global $g_entry_type;
+    // //ウィジェットモードが設定されてない場合はall（全て表示）にする
+    // if ( !$widget_mode ) $widget_mode = 'all';
+    // $g_widget_mode = $widget_mode;
     //表示数が設定されていない時は5にする
     if ( !$entry_count ) $entry_count = 5;
     $g_entry_count = $entry_count;
@@ -247,6 +271,11 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
       <?php if ($title_new) {
         echo $title_new;//タイトルが設定されている場合は使用する
       } else {
+        // if ( $widget_mode == 'all' ) {//全ての表示モードの時は
+        //   echo '新着記事';
+        // } else {
+        //   echo 'カテゴリー別新着記事';
+        // }
         echo '新着記事';
       }
         ?>
@@ -267,6 +296,7 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
+    //$instance['widget_mode'] = strip_tags($new_instance['widget_mode']);
     $instance['title_new'] = strip_tags($new_instance['title_new']);
     $instance['entry_count'] = strip_tags($new_instance['entry_count']);
     $instance['is_top_visible'] = strip_tags($new_instance['is_top_visible']);
@@ -276,12 +306,14 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
   function form($instance) {
     if(empty($instance)){
       $instance = array(
+        //'widget_mode' => null,
         'title_new' => null,
         'entry_count' => null,
         'is_top_visible' => null,
         'entry_type' => null,
       );
     }
+    //$widget_mode = esc_attr($instance['widget_mode']);
     $title_new = esc_attr($instance['title_new']);
     $entry_count = esc_attr($instance['entry_count']);
     $is_top_visible = esc_attr($instance['is_top_visible']);

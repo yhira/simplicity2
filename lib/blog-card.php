@@ -88,7 +88,7 @@ if ( !function_exists( 'url_shortcode_to_blog_card' ) ):
 function url_shortcode_to_blog_card($the_content) {
   if ( is_singular() ) {//投稿ページもしくは固定ページのとき
     //1行にURLのみが期待されている行（URL）を全て$mに取得
-    $res = preg_match_all('/\[https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+\]/im', $the_content,$m);
+    $res = preg_match_all('/\[https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+\]/im', $the_content, $m);
     foreach ($m[0] as $match) {
     //マッチしたURL一つ一つをループしてカードを作成
       $url = strip_tags($match);//URL

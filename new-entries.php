@@ -1,6 +1,14 @@
+<?php
+//グローバル変数の呼び出し
+global $g_entry_count; ?>
 <ul class="new-entrys">
-<?php global $g_entry_count; //グローバル変数の呼び出し?>
-<?php query_posts('posts_per_page='.$g_entry_count); //クエリの作成?>
+<?php
+$args = array(
+  'posts_per_page' => $g_entry_count,
+  //'category__in' => array(6, 7),
+);
+query_posts( $args ); //クエリの作成
+//query_posts('posts_per_page='.$g_entry_count); //クエリの作成?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <li class="new-entry">
   <div class="new-entry-thumb">

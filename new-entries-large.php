@@ -4,7 +4,13 @@ global $g_entry_count;
 global $g_entry_type;
  ?>
 <div class="new-entrys new-entrys-large<?php echo ($g_entry_type == 'large_thumb_on' ? ' new-entrys-large-on' : ''); ?>">
-<?php query_posts('posts_per_page='.$g_entry_count); //クエリの作成?>
+<?php
+$args = array(
+  'posts_per_page' => $g_entry_count,
+  //'category__in' => array(6, 7),
+);
+query_posts( $args ); //クエリの作成
+//query_posts('posts_per_page='.$g_entry_count); //クエリの作成?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <div class="new-entry">
 

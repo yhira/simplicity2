@@ -46,7 +46,7 @@
   </header>
 
   <?php if ( has_post_thumbnail() && is_eye_catch_visible() ): // サムネイルを持っているときの処理 ?>
-  <fegure class="eye-catch">
+  <figure class="eye-catch">
       <?php
           //the_post_thumbnail('large');
           //アイキャッチの表示
@@ -58,7 +58,7 @@
               echo '<figcaption class="eye-catch-caption">' . get_post( get_post_thumbnail_id() )->post_excerpt . '</figcaption>';
           }
       ?>
-  </fegure>
+  </figure>
   <?php endif; ?>
 
   <div id="the-content" class="entry-content">

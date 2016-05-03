@@ -163,19 +163,6 @@ function theme_customize_register($wp_customize) {
     'priority' => 80,
   ) ) );
 
-  //グローバルナビ横幅いっぱいにする
-  $wp_customize->add_setting('layout_option_navi_wide', array(
-    'sanitize_callback' => 'sanitize_check',
-    ));
-  $wp_customize->add_control( 'layout_option_navi_wide', array(
-    'settings' => 'layout_option_navi_wide',
-    'label' =>'グローバルナビを横幅いっぱいにする',
-    'description' => is_tips_visible() ? 'グローバルナビを画面幅いっぱいに広げるか。（※要グローバルナビ色設定）' : '',
-    'section' => 'colors',
-    'type' => 'checkbox',
-    'priority' => 81,
-  ));
-
   //グローバルナビリンク色
   $wp_customize->add_setting( 'navi_link_color', array(
     'default' => NAVI_LINK_COLOR,
@@ -269,11 +256,11 @@ function theme_customize_register($wp_customize) {
 
 
   /////////////////////////////
-  //ヘッダー画像設定項目の書き換え
+  //ヘッダー設定項目の書き換え
   /////////////////////////////
   $wp_customize->add_section( 'header_image', array(
-    'title' =>'ヘッダー画像',
-    'description' => is_tips_visible() ? 'ヘッダーで使用する画像に関する設定です。' : '',
+    'title' =>'ヘッダー',
+    'description' => is_tips_visible() ? 'ヘッダーで使用する画像や、ロゴ、グローバルナビの幅に関する設定です。' : '',
     'priority' => 30,
   ));
 
@@ -323,10 +310,23 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_outer_background_image', array(
     'settings' => 'header_outer_background_image',
     'label' =>'ヘッダー外側背景画像',
-    'description' => is_tips_visible() ? '画面幅いっぱいに広がるヘッダー画像を設定します。（※画像の高さは高めに設定しておいてください）' : '',
+    'description' => is_tips_visible() ? '画面幅いっぱいに広がるヘッダー画像を設定します。（※画像の高さは高めに設定しておいてください）<br><a href="http://wp-simplicity.com/how-to-set-big-header-image/">ヘッダー画像の設定方法</a>' : '',
     'section' => 'header_image',
     'priority' => 50,
   ) ) );
+
+  //グローバルナビ横幅いっぱいにする
+  $wp_customize->add_setting('layout_option_navi_wide', array(
+    'sanitize_callback' => 'sanitize_check',
+    ));
+  $wp_customize->add_control( 'layout_option_navi_wide', array(
+    'settings' => 'layout_option_navi_wide',
+    'label' =>'グローバルナビを横幅いっぱいにする',
+    'description' => is_tips_visible() ? 'グローバルナビを画面幅いっぱいに広げて「ヘッダー外側背景画像」に合わせるか。（※「色→グローバルナビ色」の設定も併せて行う必要があるかもしれません）<br><a href="http://wp-simplicity.com/how-to-set-big-header-image/">ヘッダー画像の設定方法設定方法</a>' : '',
+    'section' => 'header_image',
+    'type' => 'checkbox',
+    'priority' => 55,
+  ));
 
   //ヘッダー外側背景画像
   $wp_customize->add_setting( 'mobile_header_background_image', array(

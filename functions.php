@@ -768,14 +768,13 @@ if ( is_analytics_universal() ) {
   add_action('wp_head', 'add_universal_analytics_code', 11);
 }
 
-
-// function get_tweet_count_iconic_font(){
-//   //count.jsoonでシェア数を表示
-//   if ( is_twitter_count_visible() ) {
-//     //ツイート数の表示用のスピナー
-//     return '<span class="fa fa-spinner fa-pulse"></span>';
-//   } else {
-//     //コメントアイコン
-//     return '<span class="fa fa-comments"></span>';
-//   }
-// }
+//HTML5で警告が出てしまう部分をできるだけ修正する
+function simplicity_html5_fix($the_content){
+  //</div>に</p></div>が追加されてしまう
+  //http://tenman.info/labo/snip/archives/5197
+  $the_content = str_replace( '</p></div>','</div>', $the_content );
+  //Alt属性がないIMGタグにalt=""を追加する
+  $the_content = preg_replace('/<img((?![^>]*alt=)[^>]*)>/i', '<img alt=""${1}>', $the_content);
+  return $the_content;
+}
+add_filter('the_content', 'simplicity_html5_fix');
