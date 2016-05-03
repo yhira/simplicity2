@@ -663,15 +663,18 @@ function get_parts_skin_file_uri(){
   array_pop($skin_arr);//CSSファイル名の除去
   $skin_dir = implode('/', $skin_arr);
   //var_dump(get_theme_local_dir());
+  $theme_dir = remove_protocol(get_theme_dir());
   //スキンファイルをローカルパスに変換
   $skin_local_file = str_replace(
-    get_theme_dir(),
+    //get_theme_dir(),
+    $theme_dir,
     get_theme_local_dir(),
     $skin_file
   );
   //URLをローカルパスに変換
   $skin_local_dir = str_replace(
-    get_theme_dir(),
+    //get_theme_dir(),
+    $theme_dir,
     get_theme_local_dir(),
     $skin_dir
   );
