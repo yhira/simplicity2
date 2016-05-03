@@ -484,7 +484,7 @@ if ( is_page_include_in_list() ) {//固定ページをリスト表示する設�
 if ( is_auto_update_enable() ) {//テーマのオートアップデート機能が有効のとき
   require 'theme-update-checker.php'; //ライブラリのパス
   $example_update_checker = new ThemeUpdateChecker(
-    'simplicity', //テーマフォルダ名
+    'simplicity2', //テーマフォルダ名
     'http://wp-simplicity.com/wp-content/themes/simplicity/update-info2.json' //JSONファイルのURL
   );
 }
