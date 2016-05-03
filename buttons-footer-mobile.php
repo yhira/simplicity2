@@ -44,164 +44,108 @@ if ( is_mobile_menu_type_slide_in() ): ?>
 <div class="slidein-over-ray"></div>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.sidr.min.js"></script>
 <script>
-//var is_scroll = true;
 ///////////////////////////////////
 // フッターモバイルメニューの挙動
 ///////////////////////////////////
-jQuery(document).ready(function() {
-  //ページトップへスクロール移動する
-  jQuery('#footer-button-go-to-top').click(function(){
-    jQuery('body,html').animate({
-            scrollTop: 0
-        }, 800);
-  });
+(function($) {
+  $(document).ready(function() {
+    //ページトップへスクロール移動する
+    $('#footer-button-go-to-top').click(function(){
+      jQuery('body,html').animate({
+              scrollTop: 0
+          }, 800);
+    });
 
-  //モバイルの検索フォーム動作
-  jQuery('#footer-button-search').click(function(){
-    if (jQuery('#mobile-search-box').css('display') == 'none'){
-      jQuery('#mobile-search-box').fadeIn('normal');
-      jQuery('#footer-button-search .menu-icon span').
-        removeClass('fa-search').addClass('fa-times');
-    } else {
-      jQuery('#mobile-search-box').fadeOut('normal');
-      jQuery('#footer-button-search .menu-icon span').
-        removeClass('fa-times').addClass('fa-search');
+    //モバイルの検索フォーム動作
+    $('#footer-button-search').click(function(){
+      if ($('#mobile-search-box').css('display') == 'none'){
+        $('#mobile-search-box').fadeIn('normal');
+        $('#footer-button-search .menu-icon span').
+          removeClass('fa-search').addClass('fa-times');
+      } else {
+        $('#mobile-search-box').fadeOut('normal');
+        $('#footer-button-search .menu-icon span').
+          removeClass('fa-times').addClass('fa-search');
+      }
+    });
+
+    //検索リンククリック動作をキャンセル
+    $('a#footer-button-menu, a#footer-button-search, a#footer-button-go-to-top, a#footer-button-sidebar').on('click', function(e){
+        e.preventDefault()
+    });
+
+    //スライドエリアを開いたときにコンテンツを暗転してぼかす
+    function blur_body() {
+      $('#header, #main, #footer').css({
+        '-webkit-filter': 'blur(5px)',
+        'filter': 'blur(5px)',
+      });
+      $('.slidein-over-ray').css({
+        'display': 'block',
+      });
     }
-  });
 
-  //検索リンククリック動作をキャンセル
-  jQuery('a#footer-button-menu, a#footer-button-search, a#footer-button-go-to-top, a#footer-button-sidebar').on('click', function(e){
-      e.preventDefault()
-  });
+    //スライドエリアを閉じるときにコンテンツのエフェクトを元に戻す
+    function unblur_body() {
+      $('#header, #main, #footer').css({
+        '-webkit-filter': 'none',
+        'filter': 'none',
+      });
+      $('.slidein-over-ray').css({
+        'display': 'none',
+      });
+    }
 
-  //スライドエリアを開いたときにコンテンツを暗転してぼかす
-  function blur_body() {
-    jQuery('#header, #main, #footer').css({
-      '-webkit-filter': 'blur(5px)',
-      'filter': 'blur(5px)',
+    //メニューを開いているか
+    var is_menu_open = false;
+    //Sidrメニュー表示
+    $('#footer-button-menu, #footer-button-menu-close').sidr({
+      name: 'navi',
+      side: 'left',
+      displace: false,
+      onOpen: function(name) {
+        is_menu_open = true;
+        blur_body();
+      },
+      onClose: function(name) {
+        is_menu_open = false;
+        unblur_body();
+      },
     });
-    jQuery('.slidein-over-ray').css({
-      'display': 'block',
+
+    $('.slidein-over-ray').click(function(){
+      if ( is_menu_open ) {
+        $.sidr('close', 'navi')
+      };
     });
-    // jQuery('.ad-space').css({
-    //   'display': 'none',
-    // });
-  }
 
-  //スライドエリアを閉じるときにコンテンツのエフェクトを元に戻す
-  function unblur_body() {
-    jQuery('#header, #main, #footer').css({
-      '-webkit-filter': 'none',
-      'filter': 'none',
+    var is_sidebar_open = false;
+    $('#footer-button-sidebar, #footer-button-sidebar-close').sidr({
+      name: 'sidebar',
+      side: 'right',
+      displace: false,
+      onOpen: function(name) {
+        $('#footer-button-sidebar .menu-icon span').
+          removeClass('fa-outdent').addClass('fa-times');
+        is_sidebar_open = true;
+        blur_body();
+      },
+      onClose: function(name) {
+        $('#footer-button-sidebar .menu-icon span').
+          removeClass('fa-times').addClass('fa-outdent');
+        is_sidebar_open = false;
+        unblur_body();
+      },
     });
-    jQuery('.slidein-over-ray').css({
-      'display': 'none',
+
+    $('.slidein-over-ray').click(function(){
+      if ( is_sidebar_open ) {
+        $.sidr('close', 'sidebar')
+      };
     });
-    // jQuery('.ad-space').css({
-    //   'display': 'block',
-    // });
-  }
 
-  //メニューを開いているか
-  var is_menu_open = false;
-  //Sidrメニュー表示
-  jQuery('#footer-button-menu, #footer-button-menu-close').sidr({
-    name: 'navi',
-    side: 'left',
-    displace: false,
-    onOpen: function(name) {
-      // jQuery('#footer-button-menu .menu-icon span').
-      //   removeClass('fa-bars').addClass('fa-times');
-      is_menu_open = true;
-      blur_body();
-    },
-    onClose: function(name) {
-      // jQuery('#footer-button-menu .menu-icon span').
-      //  removeClass('fa-times').addClass('fa-bars');
-      is_menu_open = false;
-      unblur_body();
-    },
   });
-
-  jQuery('.slidein-over-ray').click(function(){
-    if ( is_menu_open ) {
-      jQuery.sidr('close', 'navi')
-    };
-  });
-
-  var is_sidebar_open = false;
-  jQuery('#footer-button-sidebar, #footer-button-sidebar-close').sidr({
-    name: 'sidebar',
-    side: 'right',
-    displace: false,
-    onOpen: function(name) {
-      //jQuery('#footer-mobile-buttons').hide();
-      jQuery('#footer-button-sidebar .menu-icon span').
-        removeClass('fa-outdent').addClass('fa-times');
-      is_sidebar_open = true;
-      blur_body();
-    },
-    onClose: function(name) {
-      jQuery('#footer-button-sidebar .menu-icon span').
-        removeClass('fa-times').addClass('fa-outdent');
-      //jQuery('#footer-mobile-buttons').fadeIn('normal')
-      is_sidebar_open = false;
-      unblur_body();
-    },
-  });
-
-  jQuery('.slidein-over-ray').click(function(){
-    if ( is_sidebar_open ) {
-      jQuery.sidr('close', 'sidebar')
-    };
-  });
-
-});
-
-// //一部ブラウザでスライドインメニューボタンを押すと「閉じる」ボタンが消えてしまう不具合対策
-// function adjustSlideInButtons() {
-//   var windowHeight = jQuery(window).height();
-//   var windowWidth = jQuery(window).width();
-//   var buttonsHeight = jQuery('#footer-mobile-buttons').height();
-//   jQuery('#footer-mobile-buttons').css({
-//     //'buttom': 0,
-//     //'tpo':0,
-//     //'top': windowHeight - buttonsHeight + 'px',
-//     'width': windowWidth + 'px',
-//   });
-// }
-// //画面サイズリサイズ時
-// jQuery(window).resize(function() {
-//   adjustSlideInButtons();
-// });
-// //ドキュメント読み込み時
-// jQuery(document).ready(function() {
-//   adjustSlideInButtons();
-// });
-//スクロール時
-// jQuery(window).scroll(function() {
-//   adjustSlideInButtons();
-//   //console.log('aaa');
-// });
-
-
-// ///////////////////////////////////
-// // スライドインメニュー・サイドバーがなぜか
-// // 上下にスライドできなくなる不具合対策
-// // 画面と、メニューの高さを合わせるとなぜか改善する
-// ///////////////////////////////////
-// function AdjustSlideInElementsHeight() {
-//   var windowHeight = jQuery(window).height();
-//   jQuery('div#navi, div#sidebar').height(windowHeight);
-// }
-// //画面サイズリサイズ時
-// jQuery(window).resize(function() {
-//   AdjustSlideInElementsHeight();
-// });
-// //ドキュメント読み込み時
-// jQuery(document).ready(function() {
-//   AdjustSlideInElementsHeight();
-// });
+})(jQuery);
 </script>
 <?php if ( !is_user_logged_in() && is_slide_in_top_buttons() ): ?>
 <style>

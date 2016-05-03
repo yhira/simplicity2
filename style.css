@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /*!
-Theme Name: Simplicity2.0.8
+Theme Name: Simplicity2.0.9
 Description: Simplicityの意味は、単純、簡単、簡素、質素です。飾り気のないカスタマイズの土台となれるようなテーマを目指して作りました。
 Theme URI: http://wp-simplicity.com/
 Author: yhira
 Author URI: http://nelog.jp/
-Version: 2.0.8 20160214
+Version: 2.0.9 20160217
 Tags: white, two-columns, left-sidebar, right-sidebar, flexible-width
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -3169,4 +3169,31 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
 
 .eye-catch-caption{
   font-size: 75%;
+}
+
+
+/************************************
+** 折り畳みアーカイブウィジェット
+************************************/
+.widget_archive a.year{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.widget_archive .years ul {
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+#sidebar .widget_archive ul.years li{
+  margin-bottom: 0;
+}
+
+.widget_archive ul.years .hide {
+  margin: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
 }

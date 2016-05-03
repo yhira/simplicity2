@@ -159,11 +159,11 @@ function auto_post_thumbnail_image() {
 }
 if ( is_auto_post_thumbnail_enable() ) {
   //新しい投稿で自動設定する場合
-  add_action( 'transition_post_status', 'auto_post_thumbnail_image');
-  // add_action('save_post', 'auto_post_thumbnail_image');
-  // add_action('draft_to_publish', 'auto_post_thumbnail_image');
-  // add_action('new_to_publish', 'auto_post_thumbnail_image');
-  // add_action('pending_to_publish', 'auto_post_thumbnail_image');
-  // add_action('future_to_publish', 'auto_post_thumbnail_image');
-  // add_action('xmlrpc_publish_post', 'auto_post_thumbnail_image');
+  //add_action( 'transition_post_status', 'auto_post_thumbnail_image');
+  add_action('save_post', 'auto_post_thumbnail_image');
+  add_action('draft_to_publish', 'auto_post_thumbnail_image');
+  add_action('new_to_publish', 'auto_post_thumbnail_image');
+  add_action('pending_to_publish', 'auto_post_thumbnail_image');
+  add_action('future_to_publish', 'auto_post_thumbnail_image');
+  add_action('xmlrpc_publish_post', 'auto_post_thumbnail_image');
 }

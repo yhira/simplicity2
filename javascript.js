@@ -1,28 +1,28 @@
 /////////////////////////////////
 //TOPへ戻るボタン
 /////////////////////////////////
-jQuery(function(){
-  jQuery(window).scroll(function(){
+(function($){
+  $(window).scroll(function(){
     //最上部から現在位置までの距離を取得して、変数[now]に格納
-    var now = jQuery(window).scrollTop();
+    var now = $(window).scrollTop();
     //最上部から現在位置までの距離(now)が600以上
     if(now > 600){
       //[#page-top]をゆっくりフェードインする
-      jQuery('#page-top').fadeIn('slow');
+      $('#page-top').fadeIn('slow');
       //それ以外だったらフェードアウトする
     }else{
-      jQuery('#page-top').fadeOut('slow');
+      $('#page-top').fadeOut('slow');
     }
     //console.log(wrapperTop);
   });
   //ボタン(id:move-page-top)のクリックイベント
-  jQuery('#move-page-top').click(function(){
+  $('#move-page-top').click(function(){
   //ページトップへ移動する
-    jQuery('body,html').animate({
+    $('body,html').animate({
             scrollTop: 1
         }, 800);
   });
-});
+})(jQuery);
 
 /////////////////////////////////
 //スクロール追従
@@ -39,15 +39,15 @@ setInterval(function (){
   wrapperTop = sidebarHeight - wrapperHeight + 240;
 }, 2000);
 
-(function(jquery) {
-  jquery(document).ready(function() {
+(function($) {
+  $(document).ready(function() {
     /*
     Ads Sidewinder
     by Hamachiya2. http://d.hatena.ne.jp/Hamachiya2/20120820/adsense_sidewinder
     */
-    var main = jQuery('#main'); // メインカラムのID
-    var side = jQuery('#sidebar'); // サイドバーのID
-    var wrapper = jQuery('#sidebar-scroll'); // スクロール追従要素のID
+    var main = $('#main'); // メインカラムのID
+    var side = $('#sidebar'); // サイドバーのID
+    var wrapper = $('#sidebar-scroll'); // スクロール追従要素のID
     var side_top_margin = 60;
     if (!wrapper.size()) {return;}//スクロール追従エリアにウイジェットが入っていないときはスルー
     if (side.css('clear') == 'both') {return;}//レスポンシブでサイドバーをページ下に表示しているときはスルー
@@ -56,7 +56,7 @@ setInterval(function (){
       return;
     }
 
-    var w = jquery(window);
+    var w = $(window);
     wrapperHeight = wrapper.outerHeight();
     wrapperTop = wrapper.offset().top;//とりあえずドキュメントを読み込んだ時点でスクロール追従領域の高さを取得
     var sideLeft = side.offset().left;
@@ -148,29 +148,30 @@ setInterval(function (){
 /////////////////////////////////
 // メニューボタンの開閉
 /////////////////////////////////
-jQuery(document).ready(function() {
-  jQuery('#mobile-menu-toggle').click(function(){
-    header_menu = jQuery('#navi ul');
-    if (header_menu.css('display') == 'none') {
-      header_menu.slideDown();
-    } else{
-      header_menu.slideUp();
-    }
+(function($){
+  $(document).ready(function() {
+    $('#mobile-menu-toggle').click(function(){
+      header_menu = $('#navi ul');
+      if (header_menu.css('display') == 'none') {
+        header_menu.slideDown();
+      } else{
+        header_menu.slideUp();
+      }
+    });
   });
-
-});
+})(jQuery);
 
 ///////////////////////////////////
 // ソーシャルボタンカウントの非同期取得
 ///////////////////////////////////
-jQuery(function(){
-  jQuery(window).scroll(function(){
-    //console.log(jQuery('#sidebar').css('clear'));
+(function($){
+  $(window).scroll(function(){
+    //console.log($('#sidebar').css('clear'));
     //最上部から現在位置までの距離を取得して、変数[now]に格納
-    var now = jQuery(window).scrollTop();
-    var sharebar = jQuery('#sharebar');
+    var now = $(window).scrollTop();
+    var sharebar = $('#sharebar');
     if (!sharebar.size()) {return;}
-    var main = jQuery('#main');
+    var main = $('#main');
     var sharebar_top = sharebar.offset().top;
     var sharebar_h = sharebar.outerHeight();
     var main_top = main.offset().top;
@@ -179,7 +180,6 @@ jQuery(function(){
     var bottom_line = main_h-400;
     if(now < (main_h-sharebar_h)){
       if (now > main_top) {
-        //sharebar.fadeIn('fast');
         sharebar.css({
           position: 'fixed',
           top: '70px'
@@ -191,16 +191,13 @@ jQuery(function(){
         });
       }
     }else{
-      //sharebar.fadeOut('fast');
       sharebar.css({
         position: 'absolute',
         top: main_h-sharebar_h
       });
     }
-    //console.log(sharebar_h);
-
   });
-});
+})(jQuery);
 
 // Twitterのシェア数を取得
 function fetch_twitter_count(url, selector) {
@@ -352,13 +349,13 @@ jQuery(function(){
 // レスポンス表示時のメニューの挙動
 // メニューのスタイル表示崩れの防止
 ///////////////////////////////////
-jQuery(function(){
-  jQuery(window).resize(function(){
-    if ( jQuery(window).width() > 1110 ) {
-      jQuery('#navi-in ul').removeAttr('style');
+(function($){
+  $(window).resize(function(){
+    if ( $(window).width() > 1110 ) {
+      $('#navi-in ul').removeAttr('style');
     }
   });
-});
+})(jQuery);
 
 ///////////////////////////////////
 // Facebookページいいねエリアのリサイズ（Androidブラウザ対応用）
@@ -411,3 +408,105 @@ jQuery(function(){
     }
   }
 });
+
+/////////////////////////////////
+// 折り畳み式アーカイブウィジェット
+/////////////////////////////////
+(function($) {
+  $(function() {
+    var wgts = $(".widget_archive");//アーカイブウィジェット全てを取得
+    //アーカイブウィジェットを1つずつ処理する
+    wgts.each(function(i, el) {
+      wgt = $(el);
+
+      //日付表示＋投稿数か
+      var has_date_count = wgt.text().match(/\d+年\d+月\s\(\d+\)/);
+      //日付表示だけか
+      var has_date_only = wgt.text().match(/\d+年\d+月/) && !has_date_count;
+
+      //日付表示されているとき（ドロップダウン表示でない時）
+      if ( has_date_count || has_date_only ) {
+        var
+          clone = wgt.clone(),//アーカイブウィジェットの複製を作成
+          year = [];
+        //クローンはウィジェットが後にに挿入。クローンはcssで非表示
+        wgt.after(clone);
+        clone.attr("class", "archive_clone").addClass('hide');
+
+        var
+          acv = wgt; //ウィジェット
+          acvLi = acv.find("li"); //ウィジェット内のli全て
+        //ul.yearsをアーカイブウィジェット直下に追加してそのDOMを取得
+        var acv_years =  acv.append('<ul class="years"></ul>').find("ul.years");
+
+        //liのテキストから年がどこからあるかを調べる
+        acvLi.each(function(i) {
+          var reg = /(\d+)年(\d+)月/;
+          //日付表示＋投稿数か
+          if ( has_date_count ) {
+            reg = /(\d+)年(\d+)月\s\((\d+)\)/;
+          }
+          var dt = $(this).text().match(reg);
+          year.push(dt[1]);
+
+        });
+        $.unique(year); //重複削除
+
+        acvLi.unwrap(); //liの親のulを解除
+
+        //投稿年があるだけ中にブロックを作る
+        var
+          yearCount = year.length,
+          i = 0;
+        while (i < yearCount) {
+          acv_years.append("<li class='year_" + year[i] + "'><a class='year'>" + year[i] + "年</a><ul class='month'></ul></li>");
+          i++;
+        }
+
+        //作ったブロック内のulに内容を整形して移動
+        //オリジナルのクローンは順番に削除
+        var j = 0;
+        acvLi.each(function(i, el) {
+          var reg = /(\d+)年(\d+)月/;
+          //日付表示＋投稿数か
+          if ( has_date_count ) {
+            reg = /(\d+)年(\d+)月\s\((\d+)\)/;
+          }
+          var
+            dt = $(this).text().match(reg),
+            href = $(this).find("a").attr("href");
+
+          //月の追加
+          var rTxt = "<li><a href='" + href + "'>" + "" + dt[2] + "月</a>";
+          //日付表示＋投稿数か
+          if ( has_date_count ) {
+            rTxt += " (" + dt[3] + ")" + "</li>"; //投稿数の追加
+          }
+
+          //作成した月のHTMLを追加、不要なものは削除
+          if (year[j] === dt[1]) {
+            acv_years.find(".year_" + year[j] + " ul").append(rTxt);
+            $(this).remove();
+          } else {
+            j++;
+            acv_years.find(".year_" + year[j] + " ul").append(rTxt);
+            $(this).remove();
+          }
+        });
+
+        //クローン要素を削除
+        clone.remove();
+
+        //直近の年の最初以外は.hide
+        acv.find("ul.years ul:not(:first)").addClass("hide");
+
+        //年をクリックでトグルshow
+        acv.find("a.year").on("click", function() {
+          $(this).next().toggleClass("hide");
+        });
+      }//if has_date_count || has_date_only
+    });//wgts.each
+
+  });
+
+})(jQuery);

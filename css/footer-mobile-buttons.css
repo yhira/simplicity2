@@ -114,6 +114,17 @@ div.sidr ul li span{
   display: inline;
 }
 
+#sidebar.sidr li{
+  margin-bottom: 0;
+}
+
+div.sidr ul li ul li,
+div.sidr ul li ul li:hover,
+div.sidr ul li ul li.active,
+div.sidr ul li ul li.sidr-class-active {
+  line-height: 200%;
+}
+
 div.sidr .widget_new_entries a,
 div.sidr .widget_new_popular a,
 div.sidr .widget_popular_ranking a,

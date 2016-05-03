@@ -27,26 +27,6 @@ function simplicity_wp_title( $title ) {
     if ( is_site_name_to_singular_title() )://サイト名を追加する場合
        $title = $title. ' | ' . $site_name;
     endif;
-  // elseif(is_category()):
-  //   $title = single_cat_title( '', false ) .' | ' . $site_name;
-  // elseif(is_tag()):
-  //   $title = single_tag_title( '', false ) .' | ' . $site_name;
-  // elseif(is_archive()):
-  //   if ( is_day() ):
-  //     $title = get_the_time( get_theme_text_ymd_format() ). ' | ' . $site_name;
-  //   elseif ( is_month() ):
-  //     $title = get_the_time( get_theme_text_ym_format() ). ' | ' . $site_name;
-  //   elseif ( is_year() ):
-  //     $title = get_the_time( get_theme_text_y_format() ). ' | ' . $site_name;
-  //   endif;
-  // elseif(is_search()):
-  //   $title = get_search_query(). ' | ' . $site_name;
-  // else:
-  //   $title = $site_name;
-  // endif;
-  // if($paged >= 2 || $page >= 2):
-  //   $title = $title . ' | '.sprintf('%s page',
-  //   max($paged,$page));
   endif;
 
   return $title;

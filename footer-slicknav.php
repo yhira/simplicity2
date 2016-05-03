@@ -9,12 +9,12 @@ if ( is_mobile_menu_type_accordion_tree() ): //アコーディオンツリーメ
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.slicknav.min.js"></script>
 <script>
 //グローバルナビのCSSセレクタを指定する
-jQuery(function(){
-  jQuery('.menu > ul, ul.menu').slicknav({
+(function($){
+  $('#navi .menu > ul, #navi ul.menu').slicknav({
     label: 'MENU',
     allowParentLinks: true,
   });
-});
+})(jQuery);
 </script>
 <?php if ( is_mobile() && //モバイルのときSlickNavメニューを表示
            !is_responsive_enable() ): //でも完全レスポンシブの時は表示しない ?>
