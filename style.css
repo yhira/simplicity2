@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /*!
-Theme Name: Simplicity2.0.4
+Theme Name: Simplicity2.0.5
 Description: Simplicityの意味は、単純、簡単、簡素、質素です。飾り気のないカスタマイズの土台となれるようなテーマを目指して作りました。
 Theme URI: http://wp-simplicity.com/
 Author: yhira
 Author URI: http://nelog.jp/
-Version: 2.0.4 20160121
+Version: 2.0.5 20160125
 Tags: white, two-columns, left-sidebar, right-sidebar, flexible-width
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -974,8 +974,10 @@ a.page-numbers,
 
 .related-entry-thumb {
   float: left;
+  margin-top: 3px;
   margin-bottom: 5px;
-  padding-bottom: 5px;}
+  padding-bottom: 5px;
+}
 
 .related-entry-thumb a{
   display: block;
@@ -1352,6 +1354,7 @@ span.wpp-views{
 ************************************/
 .widget_new_entries .new-entrys-large .new-entry,
 .widget_new_popular .popular-entrys-large .popular-entry,
+.widget_new_popular .new-entrys-large .new-entry,
 .widget_new_popular .popular-entrys-large .wpp-list li,
 .widget_popular_ranking .popular-entrys-large .popular-entry,
 .widget_popular_ranking .popular-entrys-large .wpp-list li{
@@ -1365,6 +1368,7 @@ span.wpp-views{
 
 .widget_new_entries .new-entrys-large .new-entry img,
 .widget_new_popular .popular-entrys-large .popular-entry img,
+.widget_new_popular .new-entrys-large .new-entry img,
 .widget_new_popular .popular-entrys-large .wpp-list li img,
 .widget_popular_ranking .popular-entrys-large .popular-entry img,
 .widget_popular_ranking .popular-entrys-large .wpp-list li img{
@@ -1386,6 +1390,7 @@ span.wpp-views{
 
 .widget_new_entries .new-entrys-large-on .new-entry .new-entry-content,
 .widget_new_popular .popular-entrys-large-on .popular-entry .popular-entry-content,
+.widget_new_popular .new-entrys-large-on .new-entry .new-entry-content,
 .widget_new_popular .popular-entrys-large-on .wpp-list li a.wpp-post-title,
 .widget_popular_ranking .popular-entrys-large-on .popular-entry .popular-entry-content,
 .widget_popular_ranking .popular-entrys-large-on .wpp-list li a.wpp-post-title{
@@ -1406,6 +1411,7 @@ span.wpp-views{
 
 .widget_new_entries .new-entrys-large-on .new-entry .new-entry-content a,
 .widget_new_popular .popular-entrys-large-on .popular-entry .popular-entry-content a,
+.widget_new_popular .new-entrys-large-on .new-entry .new-entry-content a,
 .widget_new_popular .popular-entrys-large-on .wpp-list li a.wpp-post-title,
 .widget_popular_ranking .popular-entrys-large-on .popular-entry .popular-entry-content a,
 .widget_popular_ranking .popular-entrys-large-on .wpp-list li a.wpp-post-title {

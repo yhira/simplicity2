@@ -311,7 +311,7 @@ function fetch_google_plus_count(url, selector) {
 //はてなブックマークではてブ数を取得
 function fetch_hatebu_count(url, selector) {
   jQuery.ajax({
-    url:'//api.b.st-hatena.com/entry.count?callback=?',
+    url:'//b.hatena.ne.jp/entry.count?callback=?',
     dataType:'jsonp',
     timeout: 10000, //10sec
     data:{
@@ -326,7 +326,7 @@ function fetch_hatebu_count(url, selector) {
 // //はてなブックマークではてブ数を取得
 // function fetch_hatebu_count(url, selector) {
 //   jQuery.ajax({
-//     url:'//api.b.st-hatena.com/entry.count?callback=?',
+//     url:'//b.hatena.ne.jp/entry.count?callback=?',
 //     dataType:'jsonp',
 //     timeout: 10000, //10sec
 //     data:{

@@ -186,14 +186,14 @@ class SimplicityWidgetItem extends WP_Widget {
     <?php //固定ページの表示 ?>
     <p>
       <label for="<?php echo $this->get_field_id('is_pages_include'); ?>">
-      <?php echo('固定ページの表示（Popular Posts）'); ?>
+      <?php echo('固定ページの表示（人気記事のみ）'); ?>
       </label><br />
       <input class="widefat" id="<?php echo $this->get_field_id('is_pages_include'); ?>" name="<?php echo $this->get_field_name('is_pages_include'); ?>" type="checkbox" value="on"<?php echo ($is_pages_include ? ' checked="checked"' : ''); ?> />ランキングに固定ページを含める
     </p>
     <?php //集計単位の指定 ?>
     <p>
       <label for="<?php echo $this->get_field_id('range'); ?>">
-      <?php echo('集計単位（Popular Posts）'); ?>
+      <?php echo('集計単位（人気記事のみ）'); ?>
       </label><br />
       <input class="widefat" id="<?php echo $this->get_field_id('range'); ?>" name="<?php echo $this->get_field_name('range'); ?>" type="radio" value="daily"<?php echo ($range == 'daily' ? ' checked="checked"' : ''); ?> />1日<br />
       <input class="widefat" id="<?php echo $this->get_field_id('range'); ?>" name="<?php echo $this->get_field_name('range'); ?>" type="radio" value="weekly"<?php echo ($range == 'weekly' ? ' checked="checked"' : ''); ?> />1週間<br />
@@ -203,21 +203,21 @@ class SimplicityWidgetItem extends WP_Widget {
     <?php //集計単位の表示 ?>
     <p>
       <label for="<?php echo $this->get_field_id('range_visible'); ?>">
-      <?php echo('集計期間の表示（Popular Posts）'); ?>
+      <?php echo('集計期間の表示（人気記事のみ）'); ?>
       </label><br />
       <input class="widefat" id="<?php echo $this->get_field_id('range_visible'); ?>" name="<?php echo $this->get_field_name('range_visible'); ?>" type="checkbox" value="on"<?php echo ($range_visible ? ' checked="checked"' : ''); ?> />集計単位の表示
     </p>
     <?php //閲覧数の表示 ?>
     <p>
       <label for="<?php echo $this->get_field_id('is_views_visible'); ?>">
-      <?php echo('閲覧数の表示（Popular Posts）'); ?>
+      <?php echo('閲覧数の表示（人気記事のみ）'); ?>
       </label><br />
       <input class="widefat" id="<?php echo $this->get_field_id('is_views_visible'); ?>" name="<?php echo $this->get_field_name('is_views_visible'); ?>" type="checkbox" value="on"<?php echo ($is_views_visible ? ' checked="checked"' : ''); ?> />閲覧数の表示
     </p>
     <?php //ランキング順位の表示 ?>
     <p>
       <label for="<?php echo $this->get_field_id('is_ranking_visible'); ?>">
-      <?php echo('ランキング順位の表示'); ?>
+      <?php echo('ランキング順位の表示（人気記事のみ）'); ?>
       </label><br />
       <input class="widefat" id="<?php echo $this->get_field_id('is_ranking_visible'); ?>" name="<?php echo $this->get_field_name('is_ranking_visible'); ?>" type="checkbox" value="on"<?php echo ($is_ranking_visible ? ' checked="checked"' : ''); ?> />ランキング順位の表示
     </p>

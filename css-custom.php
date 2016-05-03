@@ -28,7 +28,7 @@ a {
 <?php endif; ?>
 <?php //リンクホバー色
 if ( $link_hover_color != LINK_HOVER_COLOR): ?>
-a:hover,
+a:hover:not(.sns-buttons a),
 .widget_new_entries a:hover,
 .widget_new_popular a:hover,
 .widget_popular_ranking a:hover,
