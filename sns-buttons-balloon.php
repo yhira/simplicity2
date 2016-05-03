@@ -161,7 +161,7 @@
         <li class="balloon-btn push7-balloon-btn">
           <span class="balloon-btn-set">
             <span class="arrow-box">
-              <a href="//<?php echo $push7->domain; ?>" target="blank" class="arrow-box-link push7-arrow-box-link" rel="nofollow">
+              <a href="https://<?php echo $push7->domain; ?>" target="blank" class="arrow-box-link push7-arrow-box-link" rel="nofollow">
                 <span class="social-count push7-count"><?php
                   if ( scc_exists() ) {
                     echo $push7->subscribers;
@@ -172,7 +172,7 @@
                  ?></span>
               </a>
             </span>
-            <a href="//<?php echo $push7->domain; ?>" target="blank" class="balloon-btn-link push7-balloon-btn-link" rel="nofollow">
+            <a href="https://<?php echo $push7->domain; ?>" target="blank" class="balloon-btn-link push7-balloon-btn-link" rel="nofollow">
               <span class="icon-push7"></span>
             </a>
           </span>

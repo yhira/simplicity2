@@ -33,6 +33,11 @@ function get_twitter_related_param(){
 //feedlyの購読者数取得
 if ( !function_exists( 'fetch_feedly_count' ) ):
 function fetch_feedly_count(){
+  //DBからキャッシュカントの取得
+  $subscribers = get_transient( 'feedly_subscribers' );
+  if ( $subscribers ) {
+    return $subscribers;
+  }
   $feed_url = rawurlencode( get_bloginfo( 'rss2_url' ) );
   $res = 0;
   $args = array( 'sslverify' => is_ssl_verification_enable() );

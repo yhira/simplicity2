@@ -76,7 +76,7 @@ $viral_class = is_share_button_type_mobile_viral() ? ' sns-group-viral' : ''; ?>
     <?php if ( is_push7_btn_visible() )://Push7ボタンを表示するか
       $push7 = fetch_push7_info();
       if ( isset($push7->domain) ): //APIの値が正常取得出来たかドメインで判断 ?>
-        <li class="push7-btn-icon"><a href="//<?php echo $push7->domain; ?>" class="btn-icon-link push7-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-push7"></span><span class="social-count push7-count"><?php
+        <li class="push7-btn-icon"><a href="https://<?php echo $push7->domain; ?>" class="btn-icon-link push7-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-push7"></span><span class="social-count push7-count"><?php
                   if ( scc_exists() ) {
                     echo $push7->subscribers;
                   } else {
