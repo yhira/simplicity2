@@ -160,7 +160,7 @@
 
 }
 
-@media screen and (max-width:440px){
+@media screen and (max-width: 500px){
   .entry .entry-thumb,
   .related-entry-thumb{
     float:none;
