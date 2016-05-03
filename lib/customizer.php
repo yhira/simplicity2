@@ -2476,6 +2476,206 @@ function theme_customize_register($wp_customize) {
     'priority' => 700,
   ));
 
+
+  // /////////////////////////////
+  // //ソースコード設定項目の追加
+  // /////////////////////////////
+  // $wp_customize->add_section( 'source_code_section', array(
+  //   'title'          =>'ソースコード',
+  //   'description' => is_tips_visible() ? 'ソースコードのハイライト表示の設定です。ハイライト表示には、<a href="https://highlightjs.org/" target="_blank">highlight.js</a>を利用しています。' : '',
+  //   'priority'       => 98.2,
+  // ));
+
+  // //ソースコードをハイライト表示
+  // $wp_customize->add_setting('code_highlight_enable', array(
+  //   'sanitize_callback' => 'sanitize_check',
+  // ));
+  // $wp_customize->add_control( 'code_highlight_enable', array(
+  //   'settings' => 'code_highlight_enable',
+  //   'label' => 'ソースコードをハイライト表示',
+  //   'description' => is_tips_visible() ? 'preタグで囲まれたソースコードをハイライト表示します。' : '',
+  //   'section' => 'source_code_section',
+  //   'type' => 'checkbox',
+  //   'priority' => 100,
+  // ));
+
+  // //テーマスタイル
+  // $wp_customize->add_setting('code_highlight_style', array(
+  //   'default' => 'default',
+  //   'sanitize_callback' => 'sanitize_text',
+  // ));
+  // $wp_customize->add_control( 'code_highlight_style', array(
+  //   'settings' => 'code_highlight_style',
+  //   'label' => 'ハイライトスタイル',
+  //   'description' => is_tips_visible() ? 'ソースコードのハイライトテーマです。スタイリについては、<a href="https://highlightjs.org/static/demo/" target="_blank">highlight.js demo</a>を参照してください。' : '',
+  //   'section' => 'source_code_section',
+  //   'type' => 'select',
+  //   'choices'    => array(
+  //     'agate' => 'agate',
+  //     'androidstudio' => 'androidstudio',
+  //     'arduino-light' => 'arduino-light',
+  //     'arta' => 'arta',
+  //     'ascetic' => 'ascetic',
+  //     'atelier-cave-dark' => 'atelier-cave-dark',
+  //     'atelier-cave-light' => 'atelier-cave-light',
+  //     'atelier-dune-dark' => 'atelier-dune-dark',
+  //     'atelier-dune-light' => 'atelier-dune-light',
+  //     'atelier-estuary-dark' => 'atelier-estuary-dark',
+  //     'atelier-estuary-light' => 'atelier-estuary-light',
+  //     'atelier-forest-dark' => 'atelier-forest-dark',
+  //     'atelier-forest-light' => 'atelier-forest-light',
+  //     'atelier-heath-dark' => 'atelier-heath-dark',
+  //     'atelier-heath-light' => 'atelier-heath-light',
+  //     'atelier-lakeside-dark' => 'atelier-lakeside-dark',
+  //     'atelier-lakeside-light' => 'atelier-lakeside-light',
+  //     'atelier-plateau-dark' => 'atelier-plateau-dark',
+  //     'atelier-plateau-light' => 'atelier-plateau-light',
+  //     'atelier-savanna-dark' => 'atelier-savanna-dark',
+  //     'atelier-savanna-light' => 'atelier-savanna-light',
+  //     'atelier-seaside-dark' => 'atelier-seaside-dark',
+  //     'atelier-seaside-light' => 'atelier-seaside-light',
+  //     'atelier-sulphurpool-dark' => 'atelier-sulphurpool-dark',
+  //     'atelier-sulphurpool-light' => 'atelier-sulphurpool-light',
+  //     'brown-paper' => 'brown-paper',
+  //     'codepen-embed' => 'codepen-embed',
+  //     'color-brewer' => 'color-brewer',
+  //     'dark' => 'dark',
+  //     'darkula' => 'darkula',
+  //     'default' => 'default',
+  //     'docco' => 'docco',
+  //     'dracula' => 'dracula',
+  //     'far' => 'far',
+  //     'foundation' => 'foundation',
+  //     'github-gist' => 'github-gist',
+  //     'github' => 'github',
+  //     'googlecode' => 'googlecode',
+  //     'grayscale' => 'grayscale',
+  //     'gruvbox-dark' => 'gruvbox-dark',
+  //     'gruvbox-light' => 'gruvbox-light',
+  //     'hopscotch' => 'hopscotch',
+  //     'hybrid' => 'hybrid',
+  //     'idea' => 'idea',
+  //     'ir-black' => 'ir-black',
+  //     'kimbie.dark' => 'kimbie.dark',
+  //     'kimbie.light' => 'kimbie.light',
+  //     'magula' => 'magula',
+  //     'mono-blue' => 'mono-blue',
+  //     'monokai-sublime' => 'monokai-sublime',
+  //     'monokai' => 'monokai',
+  //     'obsidian' => 'obsidian',
+  //     'paraiso-dark' => 'paraiso-dark',
+  //     'paraiso-light' => 'paraiso-light',
+  //     'pojoaque' => 'pojoaque',
+  //     'purebasic' => 'purebasic',
+  //     'qtcreator_dark' => 'qtcreator_dark',
+  //     'qtcreator_light' => 'qtcreator_light',
+  //     'railscasts' => 'railscasts',
+  //     'rainbow' => 'rainbow',
+  //     'school-book' => 'school-book',
+  //     'solarized-dark' => 'solarized-dark',
+  //     'solarized-light' => 'solarized-light',
+  //     'sunburst' => 'sunburst',
+  //     'tomorrow-night-blue' => 'tomorrow-night-blue',
+  //     'tomorrow-night-bright' => 'tomorrow-night-bright',
+  //     'tomorrow-night-eighties' => 'tomorrow-night-eighties',
+  //     'tomorrow-night' => 'tomorrow-night',
+  //     'tomorrow' => 'tomorrow',
+  //     'vs' => 'vs',
+  //     'xcode' => 'xcode',
+  //     'xt256' => 'xt256',
+  //     'zenburn' => 'zenburn',
+  //     'agate' => 'agate',
+  //     'androidstudio' => 'androidstudio',
+  //     'arduino-light' => 'arduino-light',
+  //     'arta' => 'arta',
+  //     'ascetic' => 'ascetic',
+  //     'atelier-cave-dark' => 'atelier-cave-dark',
+  //     'atelier-cave-light' => 'atelier-cave-light',
+  //     'atelier-dune-dark' => 'atelier-dune-dark',
+  //     'atelier-dune-light' => 'atelier-dune-light',
+  //     'atelier-estuary-dark' => 'atelier-estuary-dark',
+  //     'atelier-estuary-light' => 'atelier-estuary-light',
+  //     'atelier-forest-dark' => 'atelier-forest-dark',
+  //     'atelier-forest-light' => 'atelier-forest-light',
+  //     'atelier-heath-dark' => 'atelier-heath-dark',
+  //     'atelier-heath-light' => 'atelier-heath-light',
+  //     'atelier-lakeside-dark' => 'atelier-lakeside-dark',
+  //     'atelier-lakeside-light' => 'atelier-lakeside-light',
+  //     'atelier-plateau-dark' => 'atelier-plateau-dark',
+  //     'atelier-plateau-light' => 'atelier-plateau-light',
+  //     'atelier-savanna-dark' => 'atelier-savanna-dark',
+  //     'atelier-savanna-light' => 'atelier-savanna-light',
+  //     'atelier-seaside-dark' => 'atelier-seaside-dark',
+  //     'atelier-seaside-light' => 'atelier-seaside-light',
+  //     'atelier-sulphurpool-dark' => 'atelier-sulphurpool-dark',
+  //     'atelier-sulphurpool-light' => 'atelier-sulphurpool-light',
+  //     'brown-paper' => 'brown-paper',
+  //     'codepen-embed' => 'codepen-embed',
+  //     'color-brewer' => 'color-brewer',
+  //     'dark' => 'dark',
+  //     'darkula' => 'darkula',
+  //     'default' => 'default',
+  //     'docco' => 'docco',
+  //     'dracula' => 'dracula',
+  //     'far' => 'far',
+  //     'foundation' => 'foundation',
+  //     'github-gist' => 'github-gist',
+  //     'github' => 'github',
+  //     'googlecode' => 'googlecode',
+  //     'grayscale' => 'grayscale',
+  //     'gruvbox-dark' => 'gruvbox-dark',
+  //     'gruvbox-light' => 'gruvbox-light',
+  //     'hopscotch' => 'hopscotch',
+  //     'hybrid' => 'hybrid',
+  //     'idea' => 'idea',
+  //     'ir-black' => 'ir-black',
+  //     'kimbie.dark' => 'kimbie.dark',
+  //     'kimbie.light' => 'kimbie.light',
+  //     'magula' => 'magula',
+  //     'mono-blue' => 'mono-blue',
+  //     'monokai-sublime' => 'monokai-sublime',
+  //     'monokai' => 'monokai',
+  //     'obsidian' => 'obsidian',
+  //     'paraiso-dark' => 'paraiso-dark',
+  //     'paraiso-light' => 'paraiso-light',
+  //     'pojoaque' => 'pojoaque',
+  //     'purebasic' => 'purebasic',
+  //     'qtcreator_dark' => 'qtcreator_dark',
+  //     'qtcreator_light' => 'qtcreator_light',
+  //     'railscasts' => 'railscasts',
+  //     'rainbow' => 'rainbow',
+  //     'school-book' => 'school-book',
+  //     'solarized-dark' => 'solarized-dark',
+  //     'solarized-light' => 'solarized-light',
+  //     'sunburst' => 'sunburst',
+  //     'tomorrow-night-blue' => 'tomorrow-night-blue',
+  //     'tomorrow-night-bright' => 'tomorrow-night-bright',
+  //     'tomorrow-night-eighties' => 'tomorrow-night-eighties',
+  //     'tomorrow-night' => 'tomorrow-night',
+  //     'tomorrow' => 'tomorrow',
+  //     'vs' => 'vs',
+  //     'xcode' => 'xcode',
+  //     'zenburn' => 'zenburn',
+  //     'xt256' => 'xt256',
+  //   ),
+  //   'priority' => 200,
+  // ));
+
+  // //ソースコードのハイライトをするCSSセレクタの設定
+  // $wp_customize->add_setting('code_highlight_css_selector', array(
+  //   'default' => '.entry-content pre',
+  //   'sanitize_callback' => 'sanitize_text',
+  // ));
+  // $wp_customize->add_control( 'code_highlight_css_selector', array(
+  //   'settings' => 'code_highlight_css_selector',
+  //   'label' => 'ハイライトするCSSセレクタ',
+  //   'description' => is_tips_visible() ? 'ソースコードをハイライトするCSSセレクターを細かく設定できます。よくわからない場合は変更しないでください。' : '',
+  //   'section' => 'source_code_section',
+  //   'type' => 'text',
+  //   'priority'=> 300,
+  // ));
+
+
   /////////////////////////////
   //コメント項目の追加
   /////////////////////////////
@@ -4201,6 +4401,21 @@ function get_theme_text_breadcrumbs_home(){
 //関連記事タイトルの取得
 function get_theme_text_related_entry(){
   return get_theme_mod( 'theme_text_related_entry', '関連記事' );
+}
+
+//コードをハイライト表示するか
+function is_code_highlight_enable(){
+  return false;//get_theme_mod( 'code_highlight_enable', false );
+}
+
+//ソースコードハイライトのスタイル
+function get_code_highlight_style(){
+  return get_theme_mod( 'code_highlight_style', 'default' );
+}
+
+//ソースコードをハイライトするCSSセレクタの指定
+function get_code_highlight_css_selector(){
+  return get_theme_mod( 'code_highlight_css_selector', '.entry-content pre' );
 }
 
 //コメントを表示するか

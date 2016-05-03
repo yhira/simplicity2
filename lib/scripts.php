@@ -97,6 +97,14 @@ function simplicity_scripts() {
   }
 
   ///////////////////////////////////////////
+  //ソースコードのハイライト表示が有効のとき
+  ///////////////////////////////////////////
+  if ( is_code_highlight_enable() ) {
+    //ソースコードハイライト表示用のスタイル
+    wp_enqueue_style( 'code-highlight-style',  get_template_directory_uri() . '/highlight-js/styles/'.get_code_highlight_style().'.css' );
+  }
+
+  ///////////////////////////////////////////
   //Simplicityモバイル
   ///////////////////////////////////////////
   if ( is_mobile() ) {

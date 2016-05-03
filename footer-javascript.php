@@ -37,7 +37,6 @@ if ( is_mobile_menu_type_modal() && is_mobile() ): ?>
         <?php wp_nav_menu( array ( 'theme_location' => 'header-navi' ) ); ?>
     </div>
 </div>
-
 <?php
 ///////////////////////////////////
 //animatedModal.jsの呼び出し
@@ -70,3 +69,17 @@ global $g_facebook_sdk;//Facebookスクリプトを利用するかどうか ?>
 }(document, 'script', 'facebook-jssdk'));</script>
 <?php endif ?>
 <?php //Facebook SDK ?>
+<?php
+///////////////////////////////////
+//ソースコードのハイライト表示
+///////////////////////////////////
+if ( is_code_highlight_enable() ): ?>
+<script src="<?php echo get_template_directory_uri(); ?>/highlight-js/highlight.min.js"></script>
+<script type="text/javascript">
+(function($){
+ $('<?php echo get_code_highlight_css_selector(); ?>').each(function(i, block) {
+  hljs.highlightBlock(block);
+ });
+})(jQuery);
+</script>
+<?php endif ?>
