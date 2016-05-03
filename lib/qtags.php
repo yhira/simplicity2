@@ -48,76 +48,76 @@ function initialize_tinymce_styles($init_array) {
       'inline' => 'span',
       'classes' => 'red'
     ),
-    // array(
-    //   'title' => '太い赤字',
-    //   'inline' => 'span',
-    //   'classes' => 'bold-red'
-    // ),
-    // array(
-    //   'title' => '赤アンダーライン',
-    //   'inline' => 'span',
-    //   'classes' => 'red-under'
-    // ),
-    // array(
-    //   'title' => '黄色マーカー',
-    //   'inline' => 'span',
-    //   'classes' => 'marker'
-    // ),
-    // array(
-    //   'title' => '黄色アンダーラインマーカー',
-    //   'inline' => 'span',
-    //   'classes' => 'marker-under'
-    // ),
-    // array(
-    //   'title' => '打ち消し線',
-    //   'inline' => 'span',
-    //   'classes' => 'strike'
-    // ),
-    // array(
-    //   'title' => 'バッジ',
-    //   'inline' => 'span',
-    //   'classes' => 'ref'
-    // ),
-    // array(
-    //   'title' => 'キーボードキー',
-    //   'inline' => 'span',
-    //   'classes' => 'keyboard-keyld'
-    // ),
-    // array(
-    //   'title' => '補足情報(i)ボックス',
-    //   'block' => 'div',
-    //   'classes' => 'information'
-    // ),
-    // array(
-    //   'title' => '補足情報(?)ボックス',
-    //   'block' => 'div',
-    //   'classes' => 'question'
-    // ),
-    // array(
-    //   'title' => 'primaryボックス',
-    //   'block' => 'div',
-    //   'classes' => 'sp-primary'
-    // ),
+    array(
+      'title' => '太い赤字',
+      'inline' => 'span',
+      'classes' => 'bold-red'
+    ),
+    array(
+      'title' => '赤アンダーライン',
+      'inline' => 'span',
+      'classes' => 'red-under'
+    ),
+    array(
+      'title' => '黄色マーカー',
+      'inline' => 'span',
+      'classes' => 'marker'
+    ),
+    array(
+      'title' => '黄色アンダーラインマーカー',
+      'inline' => 'span',
+      'classes' => 'marker-under'
+    ),
+    array(
+      'title' => '打ち消し線',
+      'inline' => 'span',
+      'classes' => 'strike'
+    ),
+    array(
+      'title' => 'バッジ',
+      'inline' => 'span',
+      'classes' => 'ref'
+    ),
+    array(
+      'title' => 'キーボードキー',
+      'inline' => 'span',
+      'classes' => 'keyboard-keyld'
+    ),
+    array(
+      'title' => '補足情報(i)ボックス',
+      'block' => 'div',
+      'classes' => 'information'
+    ),
+    array(
+      'title' => '補足情報(?)ボックス',
+      'block' => 'div',
+      'classes' => 'question'
+    ),
+    array(
+      'title' => 'primaryボックス',
+      'block' => 'div',
+      'classes' => 'sp-primary'
+    ),
     array(
       'title' => 'successボックス',
       'block' => 'div',
       'classes' => 'sp-success'
     ),
-    // array(
-    //   'title' => 'infoボックス',
-    //   'block' => 'div',
-    //   'classes' => 'sp-info'
-    // ),
-    // array(
-    //   'title' => 'warningボックス',
-    //   'block' => 'div',
-    //   'classes' => 'sp-warning'
-    // ),
-    // array(
-    //   'title' => 'dangerボックス',
-    //   'block' => 'div',
-    //   'classes' => 'sp-danger'
-    // ),
+    array(
+      'title' => 'infoボックス',
+      'block' => 'div',
+      'classes' => 'sp-info'
+    ),
+    array(
+      'title' => 'warningボックス',
+      'block' => 'div',
+      'classes' => 'sp-warning'
+    ),
+    array(
+      'title' => 'dangerボックス',
+      'block' => 'div',
+      'classes' => 'sp-danger'
+    ),
   );
   //JSONに変換
   $init_array['style_formats'] = json_encode($style_formats);
