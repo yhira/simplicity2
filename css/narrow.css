@@ -316,6 +316,10 @@
     padding: 0;
   }
 
+  .entry-card h2 a{
+    font-size: 17px;
+  }
+
   .entry-card-content,
   .related-entry-content{
     margin-left: 110px;
@@ -436,7 +440,7 @@
 /************************************
 ** Facebookページを「いいね！」するエリアのスタイル
 ************************************/
-@media screen and (max-width:639px){
+@media screen and (max-width: 639px){
   .article-like-body{
     margin-right: 100px;
     font-size: 1em;
@@ -447,7 +451,7 @@
   }
 }
 
-@media screen and (max-width:440px){
+@media screen and (max-width: 440px){
   .article-like-body{
     font-size: 0.8em;
     padding: 5px;
@@ -477,7 +481,7 @@
 /***********************************
  「サムネイル大」サイズを2列にする
  ***********************************/
-@media screen and (max-width:699px){
+@media screen and (max-width: 699px){
 /*  #main{
     padding: 10px 5px;
   }*/
@@ -516,7 +520,7 @@
 /***********************************
  「サムネイル大」画面幅が狭い場合は1列
  ***********************************/
- @media screen and (max-width:440px){
+ @media screen and (max-width: 440px){
   #main .entry.entry-large-thumbnail,
   #main .entry.entry-tile{
     width: auto;
