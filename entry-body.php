@@ -56,7 +56,7 @@
       <?php
           //the_post_thumbnail('large');
           //アイキャッチの表示
-          the_post_thumbnail('large');
+          the_post_thumbnail();
           //アイキャッチのキャプション機能が有効のとき
           if( is_eye_catch_caption_visible() &&
             //アイキャッチにキャプションが設定されているとき

@@ -77,6 +77,9 @@ add_theme_support( 'custom-background', $custom_background_defaults );
 //<link rel='https://api.w.org/' href='http:/xxxx/wordpress/wp-json/' />
 remove_action( 'wp_head', 'rest_output_link_wp_head' );
 
+// // Webサイト全体の画像をResponsive images機能の対象から外す
+// add_filter( 'wp_calculate_image_srcset', '__return_false' );
+
 // //カスタマイズした値をCSSに反映させる
 // function simplicity_customize_css(){
 //   if ( is_external_custom_css_enable() && //カスタムCSSを外部ファイルに書き込む時
