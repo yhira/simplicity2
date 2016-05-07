@@ -2520,18 +2520,14 @@ ul.snsp li a span{
 }
 
 
-ul.snsp li a span{
-  background-repeat: no-repeat;
-  background-position:3px 5px;
-  padding:0;
-  z-index: 10;
-  width:33px;
-  height:33px;
-  display: inline-block;
-  border-radius: 8px;
-  z-index: 1;
-  line-height: 33.5px;
+ul.snsp li a span {
   background-color: #fff;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 33px;
+  overflow: hidden;
+  padding: 0;
+  z-index: 1;
 }
 
 /*feedly、LINEアイコンは自作なので少し大きかったので調整*/
