@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?qe3ih6');
-    src:    url('fonts/icomoon.eot?qe3ih6#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?qe3ih6') format('truetype'),
-        url('fonts/icomoon.woff?qe3ih6') format('woff'),
-        url('fonts/icomoon.svg?qe3ih6#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?c0wbwb');
+    src:    url('fonts/icomoon.eot?c0wbwb#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?c0wbwb') format('truetype'),
+        url('fonts/icomoon.woff?c0wbwb') format('woff'),
+        url('fonts/icomoon.svg?c0wbwb#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -25,138 +25,138 @@
 }
 
 .icon-facebook-sq:before {
-    content: "\e903";
-}
-.icon-feedly-sq:before {
-    content: "\e904";
-}
-.icon-flickr-sq:before {
-    content: "\e905";
-}
-.icon-google-plus-sq:before {
-    content: "\e906";
-}
-.icon-hatebu-sq:before {
-    content: "\e907";
-}
-.icon-instagram-sq:before {
-    content: "\e908";
-}
-.icon-line-sq:before {
-    content: "\e909";
-}
-.icon-pinterest-sq:before {
-    content: "\e90a";
-}
-.icon-push7-sq:before {
-    content: "\e90b";
-}
-.icon-rss-sq:before {
-    content: "\e90c";
-}
-.icon-twitter-sq:before {
-    content: "\e90d";
-}
-.icon-youtube-sq:before {
-    content: "\e90e";
-}
-.icon-push7-square:before {
-    content: "\e901";
-}
-.icon-feedly-square:before {
-    content: "\e902";
-}
-.icon-push7:before {
     content: "\e900";
 }
+.icon-google-plus-sq:before {
+    content: "\e903";
+}
+.icon-pinterest-sq:before {
+    content: "\e907";
+}
+.icon-feedly-sq:before {
+    content: "\e901";
+}
+.icon-flickr-sq:before {
+    content: "\e902";
+}
+.icon-hatebu-sq:before {
+    content: "\e904";
+}
+.icon-instagram-sq:before {
+    content: "\e905";
+}
+.icon-line-sq:before {
+    content: "\e906";
+}
+.icon-push7-sq:before {
+    content: "\e908";
+}
+.icon-rss-sq:before {
+    content: "\e909";
+}
+.icon-twitter-sq:before {
+    content: "\e90a";
+}
+.icon-youtube-sq:before {
+    content: "\e90b";
+}
+.icon-push7-square:before {
+    content: "\e90c";
+}
+.icon-feedly-square:before {
+    content: "\e90d";
+}
+.icon-push7:before {
+    content: "\e90e";
+}
 .icon-hatebu-square:before {
-    content: "\e602";
+    content: "\e90f";
 }
 .icon-flickr-square:before {
-    content: "\66";
+    content: "\e910";
 }
 .icon-hatena-square:before {
-    content: "\68";
+    content: "\e911";
 }
 .icon-evernote:before {
-    content: "\e004";
+    content: "\e912";
 }
 .icon-feedly:before {
-    content: "\e007";
+    content: "\e913";
 }
 .icon-pocket:before {
-    content: "\e008";
+    content: "\e914";
 }
 .icon-line:before {
-    content: "\e009";
+    content: "\e915";
 }
 .icon-hatena:before {
-    content: "\e00a";
+    content: "\e916";
 }
 .icon-line-square:before {
-    content: "\e600";
+    content: "\e917";
 }
 .icon-googleplus:before {
-    content: "\e608";
+    content: "\e918";
 }
 .icon-facebook:before {
-    content: "\e60d";
+    content: "\e919";
 }
 .icon-facebook-square:before {
-    content: "\e60e";
+    content: "\e91a";
 }
 .icon-instagram:before {
-    content: "\e610";
+    content: "\e91b";
 }
 .icon-twitter:before {
-    content: "\e611";
+    content: "\e91c";
 }
 .icon-twitter-square:before {
-    content: "\e612";
+    content: "\e91d";
 }
 .icon-feed:before {
-    content: "\e614";
+    content: "\e91e";
 }
 .icon-youtube:before {
-    content: "\e617";
+    content: "\e91f";
 }
 .icon-flickr2:before {
-    content: "\e61e";
+    content: "\e920";
 }
 .icon-githubmark:before {
-    content: "\e626";
+    content: "\e921";
 }
 .icon-github:before {
-    content: "\e627";
+    content: "\e922";
 }
 .icon-wordpress:before {
-    content: "\e629";
+    content: "\e923";
 }
 .icon-tumblr:before {
-    content: "\e62d";
+    content: "\e924";
 }
 .icon-yahoo:before {
-    content: "\e62f";
+    content: "\e925";
 }
 .icon-apple:before {
-    content: "\e631";
+    content: "\e926";
 }
 .icon-android:before {
-    content: "\e633";
+    content: "\e927";
 }
 .icon-windows:before {
-    content: "\e634";
+    content: "\e928";
 }
 .icon-windows8:before {
-    content: "\e635";
+    content: "\e929";
 }
 .icon-skype:before {
-    content: "\e636";
+    content: "\e92a";
 }
 .icon-delicious:before {
-    content: "\e638";
+    content: "\e92b";
 }
 .icon-pinterest:before {
-    content: "\e63a";
+    content: "\e92c";
 }
 
