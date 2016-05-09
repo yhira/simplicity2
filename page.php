@@ -30,6 +30,8 @@
             <?php endif; ?>
         </header>
 
+        <?php get_template_part('entry-eye-catch');//アイキャッチ挿入機能?>
+
         <div id="the-content" class="entry-content">
         <?php the_content(); //本文の呼び出し?>
         </div>
