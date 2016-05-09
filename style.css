@@ -2531,7 +2531,7 @@ ul.snsp li a span {
   width: 33px;
   height: 32px;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: #fff;
 /*  background: -webkit-radial-gradient(circle cover, #fff 50%, #000 100%); background: -moz-radial-gradient(circle cover, #fff 50%, #000 100%); background: radial-gradient(#fff 50%, #000 100%);*/
 }

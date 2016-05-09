@@ -2482,7 +2482,7 @@ function theme_customize_register($wp_customize) {
   /////////////////////////////
   $wp_customize->add_section( 'source_code_section', array(
     'title'          =>'ソースコード',
-    'description' => is_tips_visible() ? 'ソースコードのハイライト表示の設定です。ハイライト表示には、<a href="https://highlightjs.org/" target="_blank">highlight.js</a>を利用しています。' : '',
+    'description' => is_tips_visible() ? 'ソースコードのハイライト表示の設定です。ハイライト表示には、<a href="https://highlightjs.org/" target="_blank">highlight.js</a>を利用しています。詳しくは、<a href="http://wp-simplicity.com/highlight-js/" target="_blank">ハイライト設定</a>を参照してください。' : '',
     'priority'       => 98.2,
   ));
 
