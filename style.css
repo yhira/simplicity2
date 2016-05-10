@@ -2529,11 +2529,11 @@ ul.snsp li a span {
   display: block;
   font-size: 33px;
   width: 33px;
-  height: 32px;
+  height: 33px;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: #fff;
-/*  background: -webkit-radial-gradient(circle cover, #fff 50%, #000 100%); background: -moz-radial-gradient(circle cover, #fff 50%, #000 100%); background: radial-gradient(#fff 50%, #000 100%);*/
+  /*background: -webkit-radial-gradient(circle cover, #fff 80%, #777 100%); background: -moz-radial-gradient(circle cover, #fff 80%, #777 100%); background: radial-gradient(#fff 80%, #777 100%);*/
 }
 
 /*feedly、LINEアイコンは自作なので少し大きかったので調整*/
