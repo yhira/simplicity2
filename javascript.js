@@ -82,12 +82,13 @@ setInterval(function (){
     var pos;
 
     var scrollAdjust = function() {
-      sideHeight = side.outerHeight();
-      mainHeight = main.outerHeight();
-      mainAbs = main.offset().top + mainHeight;
-      var winTop = w.scrollTop()+side_top_margin;
-      winLeft = w.scrollLeft();
-      var winHeight = w.height();
+      var
+        sideHeight = side.outerHeight(),
+        mainHeight = main.outerHeight(),
+        mainAbs = main.offset().top + mainHeight,
+        winTop = w.scrollTop()+side_top_margin,
+        winLeft = w.scrollLeft(),
+        winHeight = w.height();
       var nf = (winTop > wrapperTop) && (mainHeight > sideHeight) ? true : false;
       pos = !nf ? 'static' : (winTop + wrapperHeight) > mainAbs ? 'absolute' : 'fixed';
       if (pos === 'fixed') {

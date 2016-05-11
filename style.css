@@ -196,7 +196,6 @@ blockquote:before {
 }
 
 blockquote:after {
-  bottom: 0;
   color: #C8C8C8;
   content: "”";
   font-family: serif;
@@ -344,7 +343,6 @@ hr.sep {
 ** レイアウト（Layout）
 ************************************/
 #container {
-  margin:0;
   padding:0;
   margin: 0 auto;
 }
@@ -431,17 +429,11 @@ hr.sep {
   font-size:30px;
   font-weight:normal;
 }
-/*
-#site-title a img{
-  max-width: 100%;
-  height: auto;
-}*/
 
 #site-description{
-  margin-top: 0;
   color: #777;
   margin:0;
-  padding:10 0;
+  /*padding:10 0;*//*様子を見る*/
   line-height:140%;
   font-size:15px;
   margin-right:20px;
@@ -459,7 +451,6 @@ hr.sep {
 #navi ul{
   position: relative;
   clear: both;
-  margin-bottom: 0;
   border: 1px solid #ddd;
   background-color:#F7F7F7;
   border-radius:3px;
@@ -2083,7 +2074,6 @@ div.fb-like-mobile{
   line-height: 31px;
   text-align: center;
   display: block;
-  background: white;
 }
 
 #feedly-count a{
@@ -2362,7 +2352,6 @@ ul.snsbs li a{
 
 ul.snsbs li a .social-count{
   font-size:10px;
-  position:relative;
   background-color:#555;
   width:auto;
   padding:1px 3px;
@@ -2641,7 +2630,6 @@ ul.snsp li a span{
   padding: 0;
   text-align: center;
   float:none;
-  padding:0;
 }
 
 #sharebar ul li div{
