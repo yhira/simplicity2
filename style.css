@@ -2510,7 +2510,7 @@ ul.snsp li {
 }
 
 ul.snsp li a {
-  color: #666;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -2521,8 +2521,7 @@ ul.snsp li a span {
   height: 33px;
   overflow: hidden;
   border-radius: 4px;
-  background-color: #fff;
-  /*background: -webkit-radial-gradient(circle cover, #fff 80%, #777 100%); background: -moz-radial-gradient(circle cover, #fff 80%, #777 100%); background: radial-gradient(#fff 80%, #777 100%);*/
+  background-color: #666;
 }
 
 /*feedly、LINEアイコンは自作なので少し大きかったので調整*/
@@ -2540,51 +2539,51 @@ ul.snsp li a span.icon-hatebu-square{
 }
 
 ul.snsp li.twitter-page a span:hover{
-  color:#55acee;
+  background-color:#55acee;
 }
 
 ul.snsp li.facebook-page a span:hover{
-  color:#3b5998;
+  background-color:#3b5998;
 }
 
 ul.snsp li.google-plus-page a span:hover{
-  color:#dd4b39;
+  background-color:#dd4b39;
 }
 
 ul.snsp li.instagram-page a span:hover{
-  color:#3f729b;
+  background-color:#3f729b;
 }
 
 ul.snsp li.hatebu-page a span:hover{
-  color:#008fde;
+  background-color:#008fde;
 }
 
 ul.snsp li.pinterest-page a span:hover{
-  color:#cc2127;
+  background-color:#cc2127;
 }
 
 ul.snsp li.youtube-page a span:hover{
-  color:#e52d27;
+  background-color:#e52d27;
 }
 
 ul.snsp li.flickr-page a span:hover{
-  color:#1d1d1b;
+  background-color:#1d1d1b;
 }
 
 ul.snsp li.feedly-page a span:hover{
-  color:#87bd33;
+  background-color:#87bd33;
 }
 
 ul.snsp li.push7-page a span:hover{
-  color: #eeac00;
+  background-color: #eeac00;
 }
 
 ul.snsp li.line-page a span:hover{
-  color:#00c300;
+  background-color:#00c300;
 }
 
 ul.snsp li.rss-page a span:hover{
-  color:#fe9900;
+  background-color:#fe9900;
 }
 
 

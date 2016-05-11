@@ -211,51 +211,51 @@ if ( is_ads_center() ): ?>
 <?php //フォローボタンに色をつける
 if ( is_colored_follow_btns() ): ?>
 ul.snsp li.twitter-page a span{
-  color: #55acee;
+  background-color: #55acee;
 }
 
 ul.snsp li.facebook-page a span{
-  color: #3b5998;
+  background-color: #3b5998;
 }
 
 ul.snsp li.google-plus-page a span{
-  color: #dd4b39;
+  background-color: #dd4b39;
 }
 
 ul.snsp li.instagram-page a span{
-  color: #3f729b;
+  background-color: #3f729b;
 }
 
 ul.snsp li.hatebu-page a span{
-  color: #008fde;
+  background-color: #008fde;
 }
 
 ul.snsp li.pinterest-page a span{
-  color: #cc2127;
+  background-color: #cc2127;
 }
 
 ul.snsp li.youtube-page a span{
-  color: #e52d27;
+  background-color: #e52d27;
 }
 
 ul.snsp li.flickr-page a span{
-  color: #1d1d1b;
+  background-color: #1d1d1b;
 }
 
 ul.snsp li.line-page a span{
-  color: #00c300;
+  background-color: #00c300;
 }
 
 ul.snsp li.feedly-page a span{
-  color: #87bd33;
+  background-color: #87bd33;
 }
 
 ul.snsp li.push7-page a span{
-  color: #eeac00;
+  background-color: #eeac00;
 }
 
 ul.snsp li.rss-page a span{
-  color: #fe9900;
+  background-color: #fe9900;
 }
 
 ul.snsp li a:hover{
