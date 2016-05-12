@@ -3415,16 +3415,16 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
 
 
 /************************************
-** highlight.js要のスタイル
+** highlight.js用のスタイル
 ************************************/
 .hljs {
   display: block;
-　word-wrap: normal;
-  overflow:auto;
+  word-wrap: normal;
+  overflow: auto;
   padding: 0.5em;
   border-radius:5px;
-  margin:1em auto;
-  line-height:1.4;
+  margin: 1em auto;
+  line-height: 1.4;
   -webkit-text-size-adjust: none;
 }
 
