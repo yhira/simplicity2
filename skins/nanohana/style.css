@@ -62,8 +62,8 @@ blockquote:after,
   color:#FFE74C;
 }
 
-ul.snsp li a{
-  color:#E5D150;
+ul.snsp li a span{
+  background-color:#E5D150;
 }
 
 .article h2{

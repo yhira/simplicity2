@@ -225,12 +225,9 @@ a.balloon-btn-link{
 }
 
 
-ul.snsp li a{
-  color: #E6DB74;
-}
-
-ul.snsp li a i{
-  background-image: none !important;
+ul.snsp li a span{
+  background-color: #E6DB74;
+  color: #272822;
 }
 
 input[type="text"], input[type="url"], input[type="password"], input[type="email"], input[type="search"], input[type="tel"], textarea,

@@ -64,8 +64,8 @@ blockquote:after,
   color:#F9CFD7;
 }
 
-ul.snsp li a{
-  color:#ED7B8C;/*桃紅色*/
+ul.snsp li a span{
+  background-color:#ED7B8C;/*桃紅色*/
 }
 
 .article h2{
