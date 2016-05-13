@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/**
+ * article
+ */
+
+.article {
+    font-size: 16px;
+    line-height: 170%;
+
+    // img全般
+    // これはもしかしたら不要かも
+    // 2016/05/09 hidekichi
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    //
+    //  見出し
+    //  ------------------------------------------
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        position: relative;
+        margin-top: 35px;
+        margin-bottom: 20px;
+    }
+    h1 {
+        margin-top: 30px;
+        //margin-bottom: 20px;
+        font-size: 30px;
+        line-height: 117%;
+    }
+    h2 {
+        margin-top: 40px;
+        margin-left: -29px;
+        margin-right: -29px;
+        padding: 25px 30px;
+        font-size: 26px;
+        border-left: 1px solid #000;
+    }
+    h3 {
+        padding: 10px 0;
+        font-size: 23px;
+        border-bottom: 5px solid #e7e7e7;
+    }
+    h4,
+    h5,
+    h6 {
+        padding: 8px 0;
+        font-size: 20px;
+    }
+    h4 {
+        border-bottom: 5px dashed #eee;
+    }
+
+    //
+    //  テーブル
+    //  ------------------------------------------
+
+    table {
+        border-collapse: collapse;
+        margin: 15px 0;
+    }
+    th {
+        background-color: #eee;
+    }
+    td,
+    th {
+        border: solid 1px #ccc;
+        padding: 3px 5px;
+    }
+
+    //
+    //  リスト
+    //  ------------------------------------------
+    dl,
+    ol,
+    ul {
+        line-height: 150%;
+    }
+    > {
+        dl,
+        ol,
+        ul {
+            margin: 30px 0;
+        }
+        dl dl,
+        ol ol,
+        ul ul {
+            margin: 0;
+        }
+    }
+
+    //リストスタイルをデフォルトでnoneにしたので必要なところには下記のようにして表示
+    ul {
+        list-style-type: circle;
+    }
+    ol {
+        list-style-type: decimal;
+    }
+
+    //
+    //  アンカー
+    //  ------------------------------------------
+    //aの元々のタグにtext-decoration: none;を入れたため追加
+    a {
+        text-decoration: underline;
+    }
+}

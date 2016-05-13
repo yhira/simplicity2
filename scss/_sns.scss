@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+/**
+ * SNSに関するスタイルシートの設定
+ */
+
+@import "sns/sharebutton";
+@import "sns/followbutton";
+@import "sns/iconfont_size";
+@import "sns/sharebar";
+@import "sns/under_title_snsbutton";
+@import "sns/balloonButton";
+@import "sns/viralbutton";
+@import "sns/push7NotificationButton";
+
+//
+//  Facebookコメント欄が表示されない不具合修正
+//  ------------------------------------------
+.fb-like iframe {
+    max-width: none;
+}

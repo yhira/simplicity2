@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+/**
+ * リスト（List）
+ */
+
+ol,
+ul {
+    ul {
+        margin-left: 1em;
+    }
+}
+
+dl {
+    margin: 30px 0;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-bottom: 5px;
+}
+
+// #the-content ul li{
+//   list-style-type:none;
+// }
+// #the-content > ul > li:before{
+//   content: "\f0da";
+//   font-family: FontAwesome;
+//   margin-right:7px;
+// }
+//
+// #the-content > ul > li > ul > li:before{
+//   content: "\f101";
+//   font-family: FontAwesome;
+//   margin-right:7px;
+// }
+//
+// #the-content > ul > li > ul > li > ul > li:before{
+//   content: "\f105";
+//   font-family: FontAwesome;
+//   margin-right:7px;
+// }

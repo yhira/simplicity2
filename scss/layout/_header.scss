@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+/**
+ * ヘッダー
+ */
+
+*:first-child + html #header > div {
+    //IE7
+    clear: both;
+    zoom: 1;
+}
+
+#header {
+    margin-bottom: 0;
+    .alignleft,
+    .alignright {
+        margin-bottom: 0;
+        width: auto;
+    }
+    .alignleft {
+        margin-left: 30px;
+        margin-right: 30px;
+        //max-width:700px;
+    }
+    .alignright {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 52px;
+        text-align: right;
+        margin-right: 30px;
+    }
+}
+
+#h-top {
+    position: relative;
+    min-height: 100px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    overflow: hidden;
+}
+
+#site-title {
+    margin-top: 16px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    line-height: 100%;
+    a {
+        //text-decoration: none;
+        color: #222;
+        font-size: 30px;
+        font-weight: normal;
+    }
+}
+
+#site-description {
+    margin: 0;
+    //margin-top: 0; //margin:0があるのでcomment out
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding: 10 0;
+    font-size: 15px;
+    font-weight: normal;
+    color: #777;
+    line-height: 140%;
+}
+
+#header-image {
+    margin-bottom: 40px;
+}
