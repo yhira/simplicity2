@@ -81,7 +81,7 @@ function initialize_tinymce_styles($init_array) {
     array(
       'title' => 'キーボードキー',
       'inline' => 'span',
-      'classes' => 'keyboard-keyld'
+      'classes' => 'keyboard-key'
     ),
     array(
       'title' => '補足情報(i)ボックス',
