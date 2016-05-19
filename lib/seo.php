@@ -188,7 +188,7 @@ if ( !function_exists( 'is_noindex_page' ) ):
 function is_noindex_page(){
   return (is_archive() && !is_category()) || //アーカイブページはインデックスに含めない
   is_tag() || //タグページをインデックスしたい場合はこの行を削除
-  is_paged()  || //ページの2ページ目以降はインデックスに含めない（似たような内容の薄いコンテンツの除外）
+  ( is_paged() && is_paged_category_page_noindex() )  || //ページの2ページ目以降はインデックスに含めない（似たような内容の薄いコンテンツの除外）
   is_search() || //検索結果ページはインデックスに含めない
   is_attachment(); //添付ファイルページも含めない
 }

@@ -1356,7 +1356,7 @@ function theme_customize_register($wp_customize) {
 
   //投稿・固定ページのタイトルのあとサイト名を付加
   $wp_customize->add_setting('rel_next_prev_link_enable', array(
-    'default' => false,
+    'default' => true,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'rel_next_prev_link_enable', array(
@@ -1366,6 +1366,20 @@ function theme_customize_register($wp_customize) {
     'section' => 'seo_section',
     'type' => 'checkbox',
     'priority' => 95,
+  ));
+
+  //カテゴリページの2ページ目以降をnoindexとする
+  $wp_customize->add_setting('paged_category_page_noindex', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'paged_category_page_noindex', array(
+    'settings' => 'paged_category_page_noindex',
+    'label' => 'カテゴリページの2ページ目以降をnoindexとする',
+    'description' => is_tips_visible() ? 'カテゴリページの2ページ目以降は検索エンジンのインデックスから除外します。' : '',
+    'section' => 'seo_section',
+    'type' => 'checkbox',
+    'priority' => 97,
   ));
 
   //検索エンジンに伝える日付
@@ -3874,7 +3888,12 @@ function get_top_page_meta_keyword(){
 
 //分割ページにrel="next"/"prev"を追加するか
 function is_rel_next_prev_link_enable(){
-  return get_theme_mod( 'rel_next_prev_link_enable', false );
+  return get_theme_mod( 'rel_next_prev_link_enable', true );
+}
+
+//2ページ目以降のカテゴリページをnoindexとするか
+function is_paged_category_page_noindex(){
+  return get_theme_mod( 'paged_category_page_noindex', false );
 }
 
 //canonicalタグをを追加するか
