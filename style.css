@@ -3432,11 +3432,15 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
     font-weight: bold;
 }
 
+/************************************
+** 最近のコメントウィジェットのスタイル
+************************************/
 dl.recent-comments {
   width:100%;
   margin: 20px auto;
 
 }
+
 dl.recent-comments dt{
   text-align: left;
   clear: left;
@@ -3444,14 +3448,17 @@ dl.recent-comments dt{
   width: 46px;
   white-space: nowrap;
   margin-top: 3px;
-  }
+}
+
 dl.recent-comments dd{
   margin-left: 0;
-  margin-bottom: 1em;
-  }
+  margin-bottom: 20px;
+}
+
 dl.recent-comments dd .recent-comment-author{
   font-weight: bold;
-  }
+}
+
 dl.recent-comments dd .recent-comment-content{
   font-size:14px;
-  }
+}
