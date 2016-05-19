@@ -62,7 +62,7 @@ class RecentCommentsWidgetItem extends WP_Widget {
               echo '<a href="'.get_permalink($comment->comment_post_ID).'.comment-'.$comment->comment_ID.'">'.$comment->post_title.'</a>';
               echo '</div>';
               echo '<div>';
-              echo '<span class="recent-comment-content"><span class="fa fa-comment-o"></span>&nbsp;';
+              echo '<div class="recent-comment-content">';
               $my_pre_comment_content = strip_tags($comment->comment_content);
                if(mb_strlen($my_pre_comment_content,"UTF-8") > $str_count) {
                 $my_comment_content = mb_substr($my_pre_comment_content, 0, $str_count) ; echo $my_comment_content. '...' ;
