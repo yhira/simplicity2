@@ -101,9 +101,6 @@ class RecentCommentsWidgetItem extends WP_Widget {
     $count = esc_attr($instance['count']);
     $str_count = esc_attr($instance['str_count']);
     $author_not_in = esc_attr($instance['author_not_in']);
-    // $title = isset($instance['title']) ? esc_attr($instance['title']) : '';
-    // $count = isset($instance['count']) ? esc_attr($instance['count']) : 3;
-    // $author_not_in = isset($instance['author_not_in']) ? esc_attr($instance['author_not_in']) : false;
     ?>
     <?php //タイトル入力フォーム ?>
     <p>

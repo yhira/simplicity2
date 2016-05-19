@@ -66,6 +66,9 @@ add_theme_support( 'custom-header', $custom_header_defaults );
 
 //テキストウィジェットでショートコードを使用する
 add_filter('widget_text', 'do_shortcode');
+add_filter('widget_text_pc_text', 'do_shortcode');
+add_filter('widget_text_mobile_text', 'do_shortcode');
+
 
 //カスタム背景
 $custom_background_defaults = array(

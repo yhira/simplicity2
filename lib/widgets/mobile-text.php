@@ -14,7 +14,9 @@ class MobileTextWidgetItem extends WP_Widget {
     extract( $args );
     //タイトル名を取得
     $title = apply_filters( 'widget_title_mobile_text', $instance['title_mobile_text'] );
-    $text = apply_filters( 'widget_text_mobile_text', $instance['text_mobile_text'] );
+    $widget_text = isset( $instance['text_mobile_text'] ) ? $instance['text_mobile_text'] : '';
+    $text = apply_filters( 'widget_text', $widget_text, $instance, $this );
+    //$text = apply_filters( 'widget_text_mobile_text', $instance['text_mobile_text'] );
 
      ?>
       <?php //classにwidgetと一意となるクラス名を追加する ?>

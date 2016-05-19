@@ -84,6 +84,8 @@ endif;
 if ( is_blog_card_enable() ) {
   add_filter('the_content', 'url_to_blog_card', 9999999);//本文表示をフック
   add_filter('widget_text', 'url_to_blog_card', 9999999);//テキストウィジェットをフック
+  add_filter('widget_text_pc_text', 'url_to_blog_card', 9999999);
+  add_filter('widget_text_mobile_text', 'url_to_blog_card', 9999999);
   //add_filter('comment_text', 'url_to_blog_card', 9999999);//コメントをフック
 }
 
@@ -116,6 +118,8 @@ function url_shortcode_to_blog_card($the_content) {
 endif;
 add_filter('the_content', 'url_shortcode_to_blog_card' ,9999999);//本文表示をフック
 add_filter('widget_text', 'url_shortcode_to_blog_card' ,9999999);//テキストウィジェットをフック
+add_filter('widget_text_pc_text', 'url_shortcode_to_blog_card', 9999999);
+add_filter('widget_text_mobile_text', 'url_shortcode_to_blog_card', 9999999);
 //add_filter('comment_text', 'url_shortcode_to_blog_card', 9999999);//コメントをフック
 
 //外部URLからブログをカードタグの取得
@@ -168,5 +172,7 @@ endif;
 if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有効のとき
   add_filter('the_content','url_to_external_blog_card', 9999999);//本文表示をフック
   add_filter('widget_text', 'url_to_external_blog_card', 9999999);//テキストウィジェットをフック
+  add_filter('widget_text_pc_text', 'url_to_external_blog_card', 9999999);
+  add_filter('widget_text_mobile_text', 'url_to_external_blog_card', 9999999);
   //add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
 }
