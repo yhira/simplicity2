@@ -30,6 +30,9 @@ require_once('widgets/pc-ad.php');
 //パソコン用ダブルレクタングル広告ウイジェット
 require_once('widgets/pc-double-ads.php');
 
+//最近のコメントウイジェット
+require_once('widgets/recent-comments.php');
+
 //Facebook保存ボタンウイジェット
 require_once('widgets/facebook-save-button.php');
 

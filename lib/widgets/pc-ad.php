@@ -71,7 +71,7 @@ class PcAdWidgetItem extends WP_Widget {
   <?php if ( empty($margin_left_px) ){
     $margin_left_px = 0;
   } ?>
-  <input class="widefat" id="<?php echo $this->get_field_id('margin_left_px'); ?>" name="<?php echo $this->get_field_name('margin_left_px'); ?>" type="text" value="<?php echo $margin_left_px; ?>" />
+  <input class="widefat" id="<?php echo $this->get_field_id('margin_left_px'); ?>" name="<?php echo $this->get_field_name('margin_left_px'); ?>" type="number" value="<?php echo $margin_left_px; ?>" />
 </p>
 <?php //広告除外設定を適用するか ?>
 <p>
