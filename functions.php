@@ -849,6 +849,8 @@ function simplicity_html5_fix($the_content){
 endif;
 add_filter('the_content', 'simplicity_html5_fix');
 add_filter('widget_text', 'simplicity_html5_fix');
+add_filter('widget_text_pc_text', 'simplicity_html5_fix');
+add_filter('widget_text_mobile_text', 'simplicity_html5_fix');
 
 //現在のカテゴリをカンマ区切りテキストで取得する
 if ( !function_exists( 'get_category_ids' ) ):
