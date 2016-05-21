@@ -2538,6 +2538,10 @@ ul.snsp li a span.icon-hatebu-square{
   line-height: 34.5px;*/
 }
 
+#sns-group ul.snsp li a:hover{
+  color: #fff;
+}
+
 ul.snsp li.twitter-page a span:hover{
   background-color:#55acee;
 }
