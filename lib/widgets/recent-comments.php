@@ -59,7 +59,7 @@ class RecentCommentsWidgetItem extends WP_Widget {
               echo comment_date( 'Y/n/d', $comment->comment_ID);
               echo '</div>';
               echo '<div class="recent-comment-title">';
-              echo '<a href="'.get_permalink($comment->comment_post_ID).'.comment-'.$comment->comment_ID.'">'.$comment->post_title.'</a>';
+              echo '<a href="'.get_permalink($comment->comment_post_ID).'#comment-'.$comment->comment_ID.'">'.$comment->post_title.'</a>';
               echo '</div>';
               echo '<div>';
               echo '<div class="recent-comment-content"><span class="fa fa-comment-o"></span>&nbsp;';
