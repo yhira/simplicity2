@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/**
+ * レイアウト
+ */
+
+#container {
+    margin: 0;
+    padding: 0;
+    margin: 0 auto;
+    @include clearfix;
+}
+
+#body-in,
+#footer-in,
+#header-in,
+#navi-in {
+    width: 1070px;
+    margin: 0 auto;
+    //box-sizing: border-box;
+}
+
+#navi {
+    @include clearfix;
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+/**
+ * clearfix for ie7
+ */
+
+#container,
+#navi ul,
+.clearfix {
+    //display: inline-block;
+    @include clearfix();
+}
+
+#container,
+#navi ul,
+.clearfix {
+    display: block;
+}
+
+//#body top margin
+#body {
+    //margin-top: 15px;
+    margin-top: $line-height-computed; //change
+}
+
+#main {
+    float: left;
+    width: 740px;
+    margin-bottom: 30px;
+    padding: 20px 29px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+    //box-sizing: border-box;
+}
+#sidebar {
+    float: right;
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+//
+//  その他レイアウト読み込み
+//  ------------------------------------------
+@import "layout/header";
+@import "layout/main";
+@import "layout/list_item";
+@import "layout/breadcrumb";
+@import "layout/article";
+@import "layout/anything_responsive";
+@import "layout/navi_menu";
+@import "layout/pager_navigation";
+@import "layout/sidebar";
+@import "layout/related_entry";
+@import "layout/comment_area";
+@import "layout/inputform";
+@import "layout/footer";

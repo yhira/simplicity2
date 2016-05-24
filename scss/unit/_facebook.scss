@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+/**
+ * facebook
+ */
+
+ //
+ //  Facebookページを「いいね！」するエリアのスタイル
+ //  ------------------------------------------
+.fb-like-mobile {
+    display: none;
+}
+
+.article-like {
+    height: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    clear: both;
+}
+
+.article-like-thumb {
+    float: left;
+    width: 100px;
+
+    img {
+        display: block;
+    }
+}
+
+.article-like-body {
+    float: none;
+    height: 100px;
+    margin-right: 140px;
+    padding: 10px;
+    font-size: 18px;
+    color: #000;
+    line-height: 1.3em;
+    background-color: #fff;
+    //box-sizing: border-box;
+    overflow: hidden;
+
+    &::after {
+        content: '\f054';
+        position: absolute;
+        top: 27px;
+        right: 110px;
+        font-size: 50px;
+        font-family: FontAwesome;
+        color: #ccc;
+        line-height: 100%;
+    }
+}
+
+.article-like-button {
+    background-color: #f3f3f3;
+    // width: 100px;
+    // height: 100px;
+    @include square(100px);
+    float: right;
+    padding-top: 18px;
+    text-align: center;
+    //box-sizing: border-box;
+    //  display: -webkit-flex;
+    //  display:         flex;
+    //  -webkit-align-items: center;
+    //          align-items: center;
+    //  -webkit-justify-content: center;
+    //          justify-content: center;
+}
+
+.article-like-arrow-box-in {}
+.article-like-arrow-box {
+    float: left;
+    position: relative;
+    width: calc(100% - 114px);
+    margin-left: 12px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+
+    &:after,
+    &:before {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        width: 0;
+        height: 0;
+        border: solid transparent;
+        pointer-events: none;
+    }
+    &:after {
+        margin-top: -10px;
+        border-color: rgba(255, 255, 255, 0);
+        border-right-color: #fff;
+        border-width: 10px;
+    }
+    &:before {
+        margin-top: -11px;
+        border-color: rgba(221, 221, 221, 0);
+        border-right-color: #bbb;
+        border-width: 11px;
+    }
+}
+
+//
+//  Facebookページを「いいね！」するエリアのスタイル
+//  （サイドバーの時）
+//  ------------------------------------------
+#sidebar {
+    .article-like-body {
+        height: 70px;
+        margin-right: 0;
+        padding: 5px;
+        font-size: 0.8em;
+        line-height: 1.1em;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .article-like-arrow-box {
+        height: 100px;
+    }
+
+    .article-like-button {
+        display: block;
+        float: none;
+        // width: 100%;
+        // height: 30px;
+        @include size(100%,30px);
+        padding-top: 0;
+        line-height: 24px;
+    }
+
+    div {
+        &.fb-like-mobile {
+            display: block;
+        }
+
+        &.fb-like-pc {
+            display: none;
+        }
+    }
+}

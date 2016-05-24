@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+/**
+ * article
+ */
+
+.article {
+    //font-size: 16px; //mute?
+    //line-height: 170%;
+    line-height: $line-height-base;
+
+    // img全般
+    // これはもしかしたら不要かも
+    // 2016/05/09 hidekichi
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    //
+    //  見出し
+    //  ------------------------------------------
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        position: relative;
+        //margin-top: 35px;
+        margin-top: $line-height-computed;  //add
+        //margin-bottom: 20px;
+        margin-bottom: ($line-height-computed / 2);  //add
+        //line-height: $headings-line-height; //add
+    }
+    h1 {
+        //margin-top: 30px;
+        //margin-bottom: 20px;
+        //font-size: 30px;
+        font-size: $font-size-h1; //add
+        //line-height: 117%;
+    }
+    h2 {
+        //margin-top: 40px;
+        margin-left: -29px;
+        margin-right: -29px;
+        //padding: 25px 30px;
+        padding: 0 30px;
+        //font-size: 26px;
+        font-size: $font-size-h2; //add
+        border-left: 1px solid #000;
+    }
+    h3 {
+        //padding: 10px 0;
+        //font-size: 23px;
+        font-size: $font-size-h3; //add
+        border-bottom: 5px solid #e7e7e7;
+    }
+    h4 {
+        border-bottom: 5px dashed #eee;
+        font-size: $font-size-h4; //add
+    }
+    h3,h4 {
+        padding-bottom: ( $line-height-computed / 4 ); //6.5px
+    }
+    h5 {
+        font-size: $font-size-h5; //add
+    }
+    h6 {
+        font-size: $font-size-h6; //add
+    }
+    h4,
+    h5,
+    h6 {
+        //padding: 8px 0;
+        //font-size: 20px;
+    }
+
+    //
+    //  テーブル
+    //  ------------------------------------------
+
+    table {
+        border-collapse: collapse;
+        margin: 15px 0;
+    }
+    th {
+        background-color: #eee;
+    }
+    td,
+    th {
+        border: solid 1px #ccc;
+        padding: 3px 5px;
+    }
+
+    //
+    //  リスト
+    //  ------------------------------------------
+    dl,
+    ol,
+    ul {
+        line-height: 150%;
+    }
+    > {
+        dl,
+        ol,
+        ul {
+            margin: 30px 0;
+        }
+        dl dl,
+        ol ol,
+        ul ul {
+            margin: 0;
+        }
+    }
+
+    //
+    //  アンカー
+    //  ------------------------------------------
+    //aの元々のタグにtext-decoration: none;を入れたため追加
+    a {
+        text-decoration: underline;
+    }
+
+    .widget_new_entries,
+    .widget_new_popular,
+    .widget_popular_ranking {
+        a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.entry-content {
+    //margin-bottom: 60px;
+    margin-bottom: $item-margin; //change 40pxへ
+
+
+    //  リストスタイルをオープンでnoneにしているので
+    //  それを部分的に修復させる
+    ul,ol {
+        li {
+            display: list-item;
+            list-style: unset;
+        }
+    }
+    p {
+        margin: 0 0 ($line-height-computed / 1.5);
+    }
+
+
+}

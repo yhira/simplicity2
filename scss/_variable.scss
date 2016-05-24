@@ -1,0 +1,74 @@
+@charset "UTF-8";
+//
+//  variable 変数
+//  ------------------------------------------
+
+// 基本フォントファミリー
+$simplicity_fontfamily: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+$font-size-base: 16px !default;
+
+$font-size-h1: floor(($font-size-base * 1.875)) !default; //30px
+$font-size-h2: floor(($font-size-base * 1.625)) !default;  //26px
+$font-size-h3: floor(($font-size-base * 1.4375)) !default;  //23px
+$font-size-h4: floor(($font-size-base * 1.25)) !default;  //20px
+$font-size-h5: $font-size-base !default;
+$font-size-h6: floor(($font-size-base * 0.875)) !default; //14px
+
+//行間設定
+//$line-height-base: 1.75 !default; // 28/16
+//$line-height-base: 1.6875 !default; // 27/16 - オリジナルはこのあたり
+$line-height-base: 1.625 !default; // 26/16
+// $line-height-base: 1.5625 !default; // 25/16
+// $line-height-base: 1.5 !default; // 24/16
+$line-height-computed: floor(($font-size-base * $line-height-base)) !default; //27px
+
+$headings-line-height: 1.1 !default;
+$snippet-line-height: 1.3 !default;
+
+//リストアイテム、widgetの間隔など
+$item-margin: ceil(($font-size-base * 2.5)) !default; //40px
+
+//	基本色
+$fontColor: #333;
+$backgroundColor: transparent;
+$headingColor: #333;
+
+
+//	anchor
+$linkColor: #2098A8;
+$hoverColor: #c03;
+
+// anchor - widget
+$widgetlinkColor: #111;
+$widgetHoverColor: #c03;
+
+//
+//  tag color
+//  ------------------------------------------
+
+//	tag - pre
+$preBackground-color: #eee;
+
+//	tag hr
+$hrColor: #ddd;
+
+//	tag - table
+$thBackgroundColor: #eee;
+
+//	sns color
+$twitterColor: #55acee;
+$facebookColor: #3b5998;
+$googlePlusColor: #dd4b39;
+$instagramColor: #3f729b;
+$hatenaColor: #3C7DD1;
+$pinterestColor: #cc2127;
+$pocketColor: #EE4257;
+$youtubeColor: #e52d27;
+$flickrColor: #1d1d1d;
+$lineColor: #00c300;
+$evernoteColor: #51b125;
+$feedlyColor: #87bd33;
+$push7Color: #eeac00;
+$rssColor: #fe9900;
+$commentColor: #555;

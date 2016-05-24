@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+/**
+ * グローバルナビメニュー（menu）
+ */
+
+#navi {
+    ul {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        //margin-bottom: 0; //?
+        padding: 0;
+        background-color: #F7F7F7;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        //box-sizing: border-box;
+        clear: both;
+
+        ul {
+            box-sizing: content-box;
+        }
+
+        > li {
+            position: relative;
+            float: left;
+            //list-style: none;
+        }
+
+        li {
+            a {
+                display: block;
+                padding: 0.3em 0.7em;
+                font-size: 14px;
+                color: #111;
+                //text-decoration: none;
+                z-index: 99;
+
+                &:hover {
+                    background-color: #ddd;
+                }
+            }
+        }
+
+        &.children,
+        &.sub-menu {
+            display: none;
+            position: absolute;
+            min-width: 200px;
+            margin-left: 0;
+            padding-left: 0;
+            border: 1px solid #ddd;
+            //list-style: none;
+            z-index: 99;
+
+            ul {
+                position: relative;
+                top: -31px;
+                left: 200px;
+
+                li {
+                    position: relative;
+                    height: 31px;
+                    border: none;
+                    float: none;
+
+                    &:hover {
+                        > ul {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  フッターナビメニュー
+//  ------------------------------------------
+#footer-navi {
+    ul {
+        text-align: center;
+        li {
+            display: inline;
+            list-style: outside none none;
+
+            &::before {
+                content: "|";
+                padding: 0 0.6em;
+            }
+
+            &:first-child::before {
+                content: "";
+                padding: 0;
+            }
+        }
+        .sub-menu {
+            display: none;
+        }
+    }
+}
+
+//
+//  モバイルメニュー
+//  ------------------------------------------
+#mobile-menu {
+    display: none;
+
+    a {
+        display: block;
+        position: absolute;
+        right: 7px;
+        margin-top: 3px;
+        padding: 4px 8px;
+        font-size: 15px;
+        color: #333;
+        //text-decoration: none;
+        text-align: center;
+        line-height: 100%;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+#page-top {
+    a {
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+//
+//  サムネイルつきポストナビ
+//  ------------------------------------------
+#prev-next {
+    display: table;
+    width: 100%;
+    margin: 36px 0 24px;
+    padding: 0;
+
+    #next,
+    #prev {
+        display: table-cell;
+        position: relative;
+        width: 50%;
+        text-decoration: none;
+
+        &:hover {
+            background-color: rgba(238, 238, 238, 0.7);
+        }
+
+        img {
+            margin: 0 auto;
+            // width: 100px;
+            // height: 100px;
+            @include square(100px);
+        }
+    }
+
+    #prev {
+        border-right: #ddd 1px solid;
+        //box-sizing: border-box;
+        //-webkit-transition: all .3s;
+        //    transition: all .3s;
+        &::after,
+        &::before {
+            //box-sizing: border-box;
+            //-webkit-transition: all .3s;
+            // transition: all .3s;
+        }
+
+        img {
+            float: left;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+    }
+
+    #prev-title {
+        position: absolute;
+        top: -0.8em;
+        padding: 5px;
+        font-size: 28px;
+        color: #666;
+        text-align: center;
+        background-color: #fff;
+        border: 1px #ccc solid;
+        border-radius: 6px;
+    }
+
+    #next {
+        //box-sizing: border-box;
+        //-webkit-transition: all .3s;
+        // transition: all .3s;
+        &::after,
+        &::before {
+            //box-sizing: border-box;
+            ///-webkit-transition: all .3s;
+            // transition: all .3s;
+        }
+
+        img {
+            float: right;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+    }
+
+    #next-title {
+        position: absolute;
+        top: -0.8em;
+        right: 10px;
+        padding: 5px;
+        font-size: 28px;
+        color: #666;
+        text-align: center;
+        background-color: #fff;
+        border: 1px #ccc solid;
+        border-radius: 6px;
+    }
+
+    span {
+        margin: 0;
+        padding: 0;
+    }
+
+    #next-no,
+    #prev-no {
+        display: table-cell;
+        position: relative;
+        width: 50%;
+        padding: 0 10px;
+
+        a {
+            &:hover {
+                background-color: #fff;
+            }
+        }
+    }
+
+    #prev-no {
+        border-right: #ddd 1px solid;
+    }
+}
+
+#prev-next-home {
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0 auto;
+        font-size: 100px;
+        color: #ccc;
+        //-webkit-transform: translate(-50%, -50%);
+        //-ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+//
+//  IE10以降に適用されるCSSハック（一応）
+//  ------------------------------------------
+@media all and (-ms-high-contrast: none) {
+    #prev-next-home {
+        span {
+            margin-top: 50px;
+        }
+    }
+}

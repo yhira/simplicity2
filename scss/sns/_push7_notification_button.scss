@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+/**
+ * Push7通知ボタンのスタイル
+ */
+
+.snsb .p7-b > {
+	.p7-left,
+	.p7-top {
+		font-weight: bold;
+		font-size: 14px;
+		font-family: Arial;
+		text-align: center;
+		color: #777;
+		border-color: #bbb;
+	}
+
+	.p7-left {
+		margin-left: 6px;
+	}
+
+	.p7-top {
+		height: 33px;
+		margin-bottom: 4px;
+		padding: 0;
+		line-height: 33px;
+	}
+}
+
+#sharebar {
+	.snsb {
+		.p7-b {
+			> .p7-top {
+				margin-bottom: 4px;
+			}
+		}
+	}
+}
+// .push7-balloon-btn .p7-b > a > span{
+//   display: none;
+// }
+.push7-balloon-btn {
+	.p7-b {
+		> a {
+			padding: 2px 4px;
+			border: 1px solid #ddd;
+
+			> span {
+				font-size: 12px;
+			}
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+}
+// .sns-group-top .p7-b > .p7-left{
+//   width: 50px;
+//   line-height: 20px;
+//   padding-top: 2px;
+// }
+// .sns-group-top .p7-b > a{
+//   padding: 2px 9px;
+// }
+//
+// .sns-group-bottom .p7-b > a,
+// #sharebar .p7-b > a{
+//   padding: 2px 23px;
+// }
+//
+// #sharebar ul.snsb-balloon .push7-balloon-btn{
+//   margin-left: 4px;
+// }
+//アイコン
+//
+// .push7{
+//   position: relative;
+// }
+//
+// .sns-buttons-icon li.push7-balloon-btn a {
+//   background: #eeac00;
+//   padding: 4px 2px 5px 10px;
+// }
+//
+// .sns-buttons-icon .p7-b > a > svg{
+//   height: 28px;
+// }
+//
+// .sns-buttons-icon li .p7-b > .p7-top{
+//   display:inline-block;
+//   height:12px;
+//   line-height:12px;
+//   width: auto;
+//   font-weight: normal;
+//   border: none;
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   z-index: 1;
+// }
+//
+// .sns-buttons-icon li .p7-b > .p7-top > span{
+//   font-size: 10px;
+//   background-color:#555;
+//   width:auto;
+//   padding:0px 3px;
+//   border-radius:5px;
+//   color: #fff;
+//   font-family: Arial;
+// }
+//
+// .sns-buttons-icon .p7-b > .p7-top::after,
+// .sns-buttons-icon .p7-b > .p7-top::after{
+//   display: none;
+// }
+// バイラル
+//
+// .sns-group-viral ul.snsbs li.push7-balloon-btn a {
+//   padding: 9px 2px 0px 10px;
+// }
+//
+// .sns-group-viral ul.snsbs li.push7-balloon-btn a span{
+//   display: inline-block;
+//   margin-left: 5px;
+//   margin-top: 4px;
+// }
+//
+// .sns-group-viral ul.snsbs .p7-b > a > svg{
+//   height: 26px;
+// }
+//
+// .sns-group-viral ul.snsbs li .p7-b > .p7-top{
+//   background-color: transparent;
+//   bottom: 5px;
+// }
+//
+// .sns-group-viral ul.snsbs li .p7-b > .p7-top > span{
+//   background-color: transparent;
+//   font-weight: bold;
+//   font-size: 12px;
+// }
+//
+// #sharebar .sns-group-viral ul.snsbs li.push7-balloon-btn a{
+//   padding: 10px 5px 0;
+// }
+// .twitter-tweet{
+//   width: 100% !important;
+// }
+//
+// .EmbeddedTweet {
+//   max-width: 100%;
+// }
+
+.facebook-save-button {
+	margin: 1em 0;
+}
+
+.widget-under-sns-buttons.widget_facebook_save_button {
+	.main-widget-label {
+		display: block;
+		margin: 1em 0;
+	}
+}

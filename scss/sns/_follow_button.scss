@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/**
+ * SNSページフォロー
+ */
+
+.sns-follow-msg {
+    margin: 8px 0 0;
+    font-size: medium;
+}
+
+.sns-share-msg {
+    //margin-bottom: -20px;
+    margin-bottom: 0;
+    font-size: medium;
+}
+
+#header {
+    .sns-follow-msg {
+        display: none;
+    }
+}
+
+//タイトルと上位置をあわせるため追記
+#header {
+    .snsp {
+        margin: 0 0 15px;
+    }
+}
+
+.snsp {
+    //list-style: none;
+    padding-left: 0;
+    margin: 10px 0 15px;
+
+    li {
+        display: inline;
+        margin-right: 5px;
+
+        a {
+            color: #666;
+            font-size: 19px;
+            line-height: 170%;
+            //text-decoration: none;
+        }
+    }
+}
+// ul.snsp li.push7-page a span {
+//   font-size: 26px;
+//   background-color: transparent;
+//   width: 30px;
+//   height: 30px;
+//   background-color: #666;
+//   padding: 2px 2px 3px;
+//   color: #fff;
+//   position: relative;
+//   top: -4px;
+// }
+//
+// ul.snsp li.push7-page a{
+//   text-align: center;
+//   border-radius: 4px;
+//   display: inline-block;
+//   position: relative;
+// }

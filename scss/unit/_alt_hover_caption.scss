@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+/**
+ * Alt属性値を画像ホバー時にキャプション表示する
+ */
+
+.hover-image {
+	display: inline-block;
+	position: relative;
+	margin: 16px 0;
+	text-align: left;
+	border-radius: 3px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+	opacity: 0.99;
+	overflow: hidden;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 0;
+		// width: 100%;
+		// height: 50%;
+		@include size(100%,50%);
+		background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+		transition-property: top, opacity;
+		transition-duration: 0.3s;
+		opacity: 0;
+		z-index: 2;
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+		backface-visibility: hidden;
+	}
+
+	.details {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 20px;
+		font-size: 16px;
+		color: #fff;
+		z-index: 3;
+
+		a {
+			color: #fff;
+			//text-decoration: none;
+		}
+
+		span {
+			display: block;
+			position: relative;
+			top: 100px;
+			transition-property: top, opacity;
+			transition-duration: 0.3s;
+			transition-delay: 0s;
+			opacity: 0;
+		}
+
+		.info {
+			line-height: 1.2;
+			margin-top: 5px;
+			font-size: 12px;
+		}
+	}
+
+	&:hover {
+		&:before {
+			opacity: 1;
+			top: 50%;
+		}
+
+		span {
+			top: 0;
+			opacity: 1;
+		}
+
+		.info {
+			transition-delay: 0.15s;
+		}
+	}
+}
+// .hover-image .details .title {
+//   line-height: 1;
+//   font-weight: 600;
+//   font-size: 18px;
+// }
+//
+// .hover-image:hover .title {
+//   -webkit-transition-delay: 0.15s;
+//           transition-delay: 0.15s;
+// }

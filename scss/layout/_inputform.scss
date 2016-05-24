@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+/**
+ * 入力フォーム（Form）
+ */
+
+input {
+	&[type="email"],
+	&[type="password"],
+	&[type="search"],
+	&[type="tel"],
+	&[type="text"],
+	&[type="url"] {
+		//  display: block;
+		width: 100%;
+		font-size: 16px;
+		color: #333;
+		line-height: 1.42857;
+		padding: 6px 12px;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+		transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+		//box-sizing: border-box;
+		&:focus {
+			color: #444;
+			background: #fff;
+			border: 1px solid #ff69b4;
+			box-shadow: 0 0 3px rgba(255, 105, 180, 1);
+		}
+	}
+	&[type="button"],
+	&[type="reset"],
+	&[type="submit"] {
+		display: inline-block;
+		margin-bottom: 20px;
+		padding: 6px 12px;
+		font-weight: bold;
+		color: #333;
+		text-decoration: none;
+		line-height: normal;
+		background-color: #fff;
+		border: 1px solid #777;
+		border-radius: 3px;
+		cursor: pointer;
+		//  Old browsers
+		&:hover {
+			background-color: #eee;
+		}
+		&:active {
+			position: relative;
+			top: 1px;
+		}
+	}
+	&#author,
+	&#email,
+	&#url {
+		max-width: 360px;
+	}
+}
+textarea {
+	// display: block;
+	width: 100%;
+	padding: 6px 12px;
+	font-size: 16px;
+	color: #333;
+	line-height: 1.42857;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+	//box-sizing: border-box;
+}
+
+//
+//  Google検索
+//  ------------------------------------------
+.gsc-search-box {
+	input[type="text"] {
+		background-color: #FFF;
+		border-radius: 0;
+	}
+}
+#comment-area {
+	input[type="text"],
+	textarea {
+		display: block;
+	}
+}
+textarea {
+	width: 100%;
+	overflow: auto;
+	//box-sizing: border-box;
+	&:focus {
+		color: #444;
+		border: 1px solid #ff69b4;
+		background-color: #fff;
+		box-shadow: 0 0 3px rgba(255, 105, 180, 1);
+	}
+}
+.button,
+button {
+	display: inline-block;
+	margin-bottom: 20px;
+	padding: 6px 12px;
+	color: #333;
+	font-weight: bold;
+	line-height: normal;
+	text-decoration: none;
+	background-color: #fff;
+	border: 1px solid #777;
+	border-radius: 3px;
+	cursor: pointer;
+	// Old browsers
+	&:hover {
+		background-color: #eee;
+	}
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+}

@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+/**
+ * 引用（blockquote）
+ */
+
+blockquote {
+    background: none repeat scroll 0 0 rgba(245, 245, 245, 0.8);
+    border: 1px solid #FFFFFF;
+    margin: 1em 0;
+    padding: 20px 55px;
+    position: relative;
+
+    // blockquoteの中のp,ul,olがあった場合最後のmarginを0にする
+    // 親のblockquoteタグのpaddingと中の子のmarginを正しく表示させるため
+    // 最後の要素に何かしらmarginがあった場合blockquoteのpaddingと加算され
+    // ボトムスペースが広くなりすぎるのを解消するため
+    p,
+    ul,
+    ol {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        font-family: serif;
+        font-size: 600%;
+        color: #C8C8C8;
+    }
+    &:before {
+        content: "“";
+        line-height: 1em;
+        top: 0;
+        left: 0;
+    }
+    &:after {
+        content: "”";
+        line-height: 0;
+        //bottom: 0;	//上書きされている
+        bottom: -16px;
+        right: 0;
+    }
+}

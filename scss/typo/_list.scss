@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/**
+ * リスト（List）
+ */
+
+ ul,
+ ol {
+   margin-top: 0;
+   margin-bottom: ($line-height-computed / 2); //add
+   ul,
+   ol {
+     margin-bottom: 0;
+   }
+ }
+
+ol,
+ul {
+    ul {
+        margin-left: 1em;
+    }
+}
+
+dl {
+    margin-top: 0; //add Remove browser default
+    //margin: 30px 0;
+    margin-bottom: $line-height-computed; //change
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    //margin-bottom: 5px; //mute?
+    margin-left: 0; //add Undo browser default
+}
+
+// #the-content ul li{
+//   list-style-type:none;
+// }
+// #the-content > ul > li:before{
+//   content: "\f0da";
+//   font-family: FontAwesome;
+//   margin-right:7px;
+// }
+//
+// #the-content > ul > li > ul > li:before{
+//   content: "\f101";
+//   font-family: FontAwesome;
+//   margin-right:7px;
+// }
+//
+// #the-content > ul > li > ul > li > ul > li:before{
+//   content: "\f105";
+//   font-family: FontAwesome;
+//   margin-right:7px;
+// }

@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+/**
+ * 外部パーツ微調整
+ */
+
+//
+//  外部パーツの微調整など
+//  SimplicityでbbPressのスタイルを整える
+//  ------------------------------------------
+.bbp-breadcrumb-home {
+    display: none;
+    + .bbp-breadcrumb-sep {
+        display: none;
+    }
+}
+
+.topic {
+    .footer-post-meta,
+    .post-date,
+    .post-update {
+        display: none;
+    }
+}
+
+.post-0 {
+    .footer-post-meta,
+    .post-date,
+    .post-update {
+        display: none;
+    }
+    .post-meta {
+        height: 27px;
+    }
+}
+
+.forum {
+    .footer-post-meta,
+    .post-date,
+    .post-update {
+        display: none;
+    }
+}
+
+#bbp_search {
+    font-size: 17px;
+}
+
+#bbp_search_submit {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.bbp-reply-content {
+    font-size: 16px;
+    line-height: 170%;
+}
+
+.bbp-forum-title {
+    font-size: 16px;
+}
+
+.bbp-topic-permalink {
+    font-size: 14px;
+}
+
+#main {
+    #bbpress-forums {
+        .status-closed {
+            color: #000;
+            background-color: #fcfcfc;
+
+            a {
+                color: #2098a8;
+            }
+
+            li.bbp-topic-title {
+                a {
+                    color: #333;
+                }
+            }
+        }
+    }
+}
+
+#bbp-container {
+    .entry-content {
+        margin-left: 0;
+    }
+}
+
+.bbp-form > {
+    div,
+    p {
+        text-align: left;
+    }
+}
+
+#bbp_reply_content,
+#bbp_topic_content {
+    border: 1px solid #ccc;
+}
+
+//
+//  bbResolutions
+//  ------------------------------------------
+.bbr-form-wrapper {
+    clear: left;
+}
+
+.bbr-field-wrapper {
+    float: left;
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+}
+
+.bbr-resolution-sticker {}
+
+@media screen and (max-width: 440px) {
+    #main #bbpress-forums div {
+        &.bbp-forum-content,
+        &.bbp-reply-content,
+        &.bbp-topic-content {
+            margin-left: 10px;
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .article #bbpress-forums {
+        .bbp-body div.bbp-reply-author {
+            margin-top: 10px;
+            padding-left: 0;
+            line-height: 130%;
+        }
+        div.bbp-reply-author img.avatar {
+            top: 0;
+        }
+    }
+}
+
+//
+//  Googleカスタム検索用
+//  ------------------------------------------
+#cse-search-box {
+    input {
+        display: inline-block;
+        height: 34px;
+        color: #333;
+        //box-sizing: border-box;
+
+        &[type="text"] {
+            width: calc(100% - 70px);
+            background-color: #fff;
+        }
+
+        &[type="submit"] {
+            height: 32px;
+        }
+    }
+}
+
+#main {
+    #bbpress-forums {
+        div.bbp-reply-author {
+            img.avatar {
+                position: relative;
+            }
+        }
+    }
+}
+
+//
+//  カテゴリ・アーカイブウィジェットをドロップダウンにしたとき
+//  ラベルを表示しない
+//  ------------------------------------------
+.widget_archive,
+.widget_categories {
+    label.screen-reader-text {
+        display: none;
+    }
+}

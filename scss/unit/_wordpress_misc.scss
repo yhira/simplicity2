@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/**
+ * WordPress Misc
+ */
+
+ .aligncenter {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+img {
+	&.alignleft {
+		float: left;
+		margin: 0 1.5em 1em 0;
+	}
+
+	&.alignright {
+      float: right;
+	  margin: 0 0 1em 1.5em;
+    }
+
+	&.alignleft,
+	&.alignright {
+		display: inline-block;
+		margin-left: 10px;
+        margin-bottom: 10px;
+	}
+}
+
+.wp-caption {
+	padding-top: 4px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f3f3f3;
+    text-align: center;
+
+    &.alignleft,
+    &alignright {
+        margin-bottom: 10px;
+    }
+
+	&.alignleft {
+      float: left;
+      margin-right: 10px;
+    }
+
+	&.alignright {
+      float: right;
+      margin-left: 10px;
+    }
+
+	img {
+      margin: 0;
+      padding: 0;
+      border: 0 none;
+    }
+}
+
+ .wp-caption-text, .gallery-caption {
+   font-size: 80%;
+ }
+
+ .wp-caption-dd {
+   margin: 0;
+   padding: 0 4px 5px;
+   font-size: 11px;
+   line-height: 17px;
+ }

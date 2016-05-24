@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/**
+ * ヘッダー
+ */
+
+*:first-child + html #header > div {
+    //IE7
+    clear: both;
+    zoom: 1;
+}
+
+#header {
+    margin-bottom: 0;
+
+    .alignleft,
+    .alignright {
+        margin-bottom: 0;
+        width: auto;
+    }
+    .alignleft {
+        margin-left: 30px;
+        margin-right: 30px;
+        //フォローボタンに重ならないように700〜800pxで
+        //max-widthはあってよいかと思う。
+        //こここそflexが有効な所です
+        //max-width:700px;
+    }
+    .alignright {
+        position: absolute;
+        //top: 0;
+        top: ($line-height-computed / 2); //change
+        right: 0;
+        height: 52px;
+        text-align: right;
+        margin-right: 30px;
+    }
+}
+
+#h-top {
+    position: relative;
+    min-height: 100px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    overflow: hidden;
+}
+
+#site-title {
+    // margin-top: 16px;
+    margin-top: ($line-height-computed / 2); //change
+    // margin-bottom: 10px;
+    margin-bottom: ($line-height-computed / 3); //change
+    //font-size: 30px;
+    font-size: $font-size-h1; //change
+    //line-height: 100%;
+    //100%だと折り返しで文字がくっつくため
+    line-height: $headings-line-height; //change
+    font-weight: normal; //change
+    a {
+        //text-decoration: none;
+        color: #222;
+        //font-size: 30px;
+        //font-weight: normal;
+    }
+}
+
+#site-description {
+    margin: 0;
+    //margin-top: 0; //margin:0があるのでcomment out
+    margin-right: 20px;
+    //margin-bottom: 10px;
+    margin-bottom:$line-height-computed; //change
+    padding: 10 0; //?
+    //font-size: 15px;
+    font-size: $font-size-h6; //change
+    font-weight: normal;
+    color: #777;
+    //line-height: 140%;
+    line-height: $headings-line-height; //change
+}
+
+#header-image {
+    margin-bottom: 40px;
+}

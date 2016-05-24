@@ -1,0 +1,503 @@
+@charset "UTF-8";
+
+/**
+ * widget
+ */
+
+//.article内の新着・人気等のリストはリストタイプなし
+// .article {
+// 	.widget_new_entries,
+// 	.widget_new_popular,
+// 	.widget_popular_ranking {
+// 		ul {
+// 			list-style-type: none;
+// 		}
+// 	}
+// }
+
+#main,
+#sidebar,
+#footer {
+	.widget {
+		//aの元々のタグにtext-decoration: none;を入れたため追加
+	    a {
+	        text-decoration: underline;
+	    }
+
+		&.widget_new_entries,
+		&.widget_new_popular,
+		&.widget_popular_ranking {
+			a {
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+/**
+ * widget 新着記事・人気記事（new, pupular）
+ */
+
+#footer,
+#main,
+#sidebar {
+	.widget_new_entries,
+	.widget_new_popular,
+	.widget_popular_ranking {
+
+		ul {
+			padding-left: 0;
+			//list-style: none;
+		}
+	}
+}
+
+// クラスのつけ方を再考したほうが良いのでは案件
+// 以下のように、クラスをつけたら仮に.entry(内容が同一の場合)にアクセス時に
+// .widget new-entries .entry {...} でアクセスできるように思う。
+// 異なる部分だけ.large {...}; .large-on {...}と書き分けるほうがわかりやすいかも
+// <div class="widget new-entries large">
+// 	<div class="entry">
+// <div class="widget new-entries large-on">
+// 	<div class="entry">
+.widget_new_entries,
+.widget_new_popular,
+.widget_popular_ranking {
+	line-height: 150%;
+
+	h4 {
+		margin-bottom: 15px;
+	}
+
+	ul {
+		li {
+			clear: left;
+			float: none;
+			margin-bottom: 10px;
+			//overflow: auto;
+			//zoom: 1;
+
+			img {
+				display: inline;
+				float: left;
+				// width: 75px;
+				// height: 75px;
+				@include square(75px);
+				margin-top: 3px;
+				margin-bottom: 10px;
+				margin-right: 5px;
+				border: medium none;
+			}
+		}
+	}
+}
+
+span.wpp-views {
+	font-size: x-small;
+	font-style: italic;
+}
+
+//
+//  新着記事・人気記事（拡張）
+//  ------------------------------------------
+.widget_new_entries {
+	.new-entrys-large {
+		.new-entry {
+			display: block;
+			position: relative;
+			max-width: 440px;
+			//これを書いておかないと、タイトル部分がはみ出す
+			line-height: 120%;
+			margin-bottom: 15px;
+			overflow: visible;
+
+			img {
+				display: block;
+				float: none;
+				// width: 100%;
+				// height: auto;
+				@include size(100%,auto);
+				max-width: 440px;
+				//iPhone6は幅が414pxなのでそれより大きく
+				min-height: 180px;
+				max-height: 240px;
+				margin: 0 0 5px;
+			}
+		}
+	}
+
+	.new-entrys-large-on {
+		.new-entry {
+			.new-entry-content {
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 10px;
+				max-height: 28%;
+				overflow: hidden;
+				//画像をBase64にするためコメントアウト
+				//background: url("images/black-transparent.png") repeat scroll 0 0 transparent;
+				background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAAA1BMVEUAAACnej3aAAAAAXRSTlOZyTXzhgAAAA1JREFUGNNjGAWDCgAAAZAAAXtlmk8AAAAASUVORK5CYII=") repeat scroll 0 0 transparent;
+				//opacity:0.7;
+				//background-color:#333;
+
+				a {
+					display: block;
+					color: #fff;
+					//opacity:0.8;
+				}
+			}
+		}
+	}
+}
+
+.widget_new_popular {
+	.popular-entrys-large {
+		.popular-entry {
+			display: block;
+			position: relative;
+			max-width: 440px;
+			//これを書いておかないと、タイトル部分がはみ出す
+			line-height: 120%;
+			margin-bottom: 15px;
+			overflow: visible;
+
+			img {
+				display: block;
+				// width: 100%;
+				// height: auto;
+				@include size(100%,auto);
+				float: none;
+				min-height: 180px;
+				max-width: 440px;
+				//iPhone6は幅が414pxなのでそれより大きく
+				max-height: 240px;
+				margin: 0 0 5px;
+			}
+		}
+
+		.wpp-list {
+			li {
+				position: relative;
+				display: block;
+				max-width: 440px;
+				//これを書いておかないと、タイトル部分がはみ出す
+				line-height: 120%;
+				margin-bottom: 15px;
+				overflow: visible;
+
+				img {
+					display: block;
+					// width: 100%;
+					// height: auto;
+					@include size(100%,auto);
+					float: none;
+					min-height: 180px;
+					max-width: 440px;
+					//iPhone6は幅が414pxなのでそれより大きく
+					max-height: 240px;
+					margin: 0 0 5px;
+
+					&.wpp_cached_thumb {
+						height: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.popular-entrys-large-on {
+		.popular-entry {
+			.popular-entry-content {
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				max-height: 28%;
+				padding: 10px;
+				overflow: hidden;
+				//画像をBase64にするためコメントアウト
+				//background: url("images/black-transparent.png") repeat scroll 0 0 transparent;
+				background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAAA1BMVEUAAACnej3aAAAAAXRSTlOZyTXzhgAAAA1JREFUGNNjGAWDCgAAAZAAAXtlmk8AAAAASUVORK5CYII=") repeat scroll 0 0 transparent;
+				// opacity:0.7;
+				// background-color:#333;
+
+				a {
+					display: block;
+					color: #fff;
+					//opacity:0.8;
+				}
+			}
+		}
+
+		.wpp-list {
+			li {
+				a {
+					display: block;
+					color: #fff;
+					//opacity:0.8;
+
+					&.wpp-post-title {
+						display: block;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						//max-height要再考
+						max-height: 28%;
+						padding: 10px;
+						overflow: hidden;
+						//画像をBase64にするためコメントアウト
+						//background: url("images/black-transparent.png") repeat scroll 0 0 transparent;
+						background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAAA1BMVEUAAACnej3aAAAAAXRSTlOZyTXzhgAAAA1JREFUGNNjGAWDCgAAAZAAAXtlmk8AAAAASUVORK5CYII=") repeat scroll 0 0 transparent;
+						// opacity:0.7;
+						// background-color:#333;
+
+					}
+				}
+
+				span.wpp-views {
+					display: block;
+					position: absolute;
+					right: 0;
+					top: 0;
+					padding: 2px 10px;
+					color: #fff;
+					opacity: 1;
+					border-bottom-left-radius: 15px;
+					font-size: medium;
+					//画像をBase64にするためコメントアウト
+					//background: url("images/black-transparent.png") repeat scroll 0 0 transparent;
+					background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAAA1BMVEUAAACnej3aAAAAAXRSTlOZyTXzhgAAAA1JREFUGNNjGAWDCgAAAZAAAXtlmk8AAAAASUVORK5CYII=") repeat scroll 0 0 transparent;
+				}
+			}
+		}
+	}
+
+	.new-entrys-large {
+		.new-entry {
+			position: relative;
+			display: block;
+			max-width: 440px;
+			//これを書いておかないと、タイトル部分がはみ出す
+			line-height: 120%;
+			margin-bottom: 15px;
+			overflow: visible;
+
+			img {
+				display: block;
+				// width: 100%;
+				// height: auto;
+				@include size(100%,auto);
+				float: none;
+				min-height: 180px;
+				max-width: 440px;
+				//iPhone6は幅が414pxなのでそれより大きく
+				max-height: 240px;
+				margin: 0 0 5px;
+			}
+		}
+	}
+
+	.new-entrys-large-on {
+		.new-entry {
+			.new-entry-content {
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				max-height: 28%;
+				padding: 10px;
+				overflow: hidden;
+				//画像をBase64にするためコメントアウト
+				//background: url("images/black-transparent.png") repeat scroll 0 0 transparent;
+				background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAAA1BMVEUAAACnej3aAAAAAXRSTlOZyTXzhgAAAA1JREFUGNNjGAWDCgAAAZAAAXtlmk8AAAAASUVORK5CYII=") repeat scroll 0 0 transparent;
+				// opacity:0.7;
+				// background-color:#333;
+
+				a {
+					display: block;
+					color: #fff;
+					//opacity:0.8;
+				}
+			}
+		}
+	}
+}
+.widget_popular_ranking {
+	.popular-entrys-large {
+		.popular-entry {
+			position: relative;
+			display: block;
+			max-width: 440px;
+			//これを書いておかないと、タイトル部分がはみ出す
+			line-height: 120%;
+			margin-bottom: 15px;
+			overflow: visible;
+
+			img {
+				display: block;
+				// width: 100%;
+				// height: auto;
+				@include size(100%,auto);
+				float: none;
+				max-width: 440px;
+				//iPhone6は幅が414pxなのでそれより大きく
+				min-height: 180px;
+				max-height: 240px;
+				margin: 0 0 5px;
+			}
+		}
+
+		.wpp-list {
+			li {
+				position: relative;
+				display: block;
+				max-width: 440px;
+				//これを書いておかないと、タイトル部分がはみ出す
+				line-height: 120%;
+				margin-bottom: 15px;
+				overflow: visible;
+
+				img {
+					display: block;
+					// width: 100%;
+					// height: auto;
+					@include size(100%,auto);
+					float: none;
+					max-width: 440px;
+					//iPhone6は幅が414pxなのでそれより大きく
+					min-height: 180px;
+					max-height: 240px;
+					margin: 0 0 5px;
+
+					&.wpp_cached_thumb {
+						height: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.popular-entrys-large-on {
+		.popular-entry {
+			.popular-entry-content {
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				max-height: 28%;
+				padding: 10px;
+				overflow: hidden;
+				// 画像をBase64にするためコメントアウト
+				// background: url("images/black-transparent.png") repeat scroll 0 0 transparent;
+				background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAAA1BMVEUAAACnej3aAAAAAXRSTlOZyTXzhgAAAA1JREFUGNNjGAWDCgAAAZAAAXtlmk8AAAAASUVORK5CYII=") repeat scroll 0 0 transparent;
+				// opacity:0.7;
+				// background-color:#333;
+
+				a {
+					display: block;
+					color: #fff;
+					//opacity:0.8;
+				}
+			}
+		}
+
+		.wpp-list {
+			li {
+				a {
+					&.wpp-post-title {
+						display: block;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						max-height: 28%;
+						padding: 10px;
+						overflow: hidden;
+						// 画像をBase64にするためコメントアウト
+						// background: url("images/black-transparent.png") repeat scroll 0 0 transparent;
+						background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAAA1BMVEUAAACnej3aAAAAAXRSTlOZyTXzhgAAAA1JREFUGNNjGAWDCgAAAZAAAXtlmk8AAAAASUVORK5CYII=") repeat scroll 0 0 transparent;
+						// opacity:0.7;
+						// background-color:#333;
+						a {
+							display: block;
+							color: #fff;
+							//opacity:0.8;
+						}
+					}
+				}
+
+				span.wpp-views {
+					display: block;
+					position: absolute;
+					top: 0;
+					right: 0;
+					padding: 2px 10px;
+					color: #fff;
+					opacity: 1;
+					border-bottom-left-radius: 15px;
+					font-size: medium;
+					//画像をBase64にするためコメントアウト
+					//background: url("images/black-transparent.png") repeat scroll 0 0 transparent;
+					background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAAA1BMVEUAAACnej3aAAAAAXRSTlOZyTXzhgAAAA1JREFUGNNjGAWDCgAAAZAAAXtlmk8AAAAASUVORK5CYII=") repeat scroll 0 0 transparent;
+				}
+			}
+		}
+	}
+}
+
+
+// wp calendar
+// ------------------------------------------
+// このウィジェットはidでprev,nextを出力するみたいてす
+// 同idをjq,js利用時は注意
+#wp-calendar {
+    width: 100%;
+    max-width: 400px;
+
+	td,
+	th {
+	    text-align: center;
+	}
+	#prev {
+		text-align: left;
+	}
+	#next {
+		text-align: right;
+	}
+}
+
+// 最近のコメントのウィジェットスタイル
+// ------------------------------------------
+.recent-comments {
+	width: 100%;
+	margin: 20px auto;
+	dt {
+		width: 46px;
+		margin-top: 3px;
+		text-align: left;
+		clear: left;
+		float: left;
+		white-space: nowrap;
+	}
+	dd {
+		margin-left: 0;
+		margin-bottom: 20px;
+		.recent-comment-author {
+			font-weight: bold;
+		}
+		.recent-comment-content {
+			font-size: 14px;
+		}
+	}
+}

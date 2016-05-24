@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+/**
+ * highlight.js要のスタイル
+ */
+
+.hljs {
+    display: block;
+    margin: 1em auto;
+    padding: 0.5em;
+    line-height: 1.4;
+    border-radius: 5px;
+    word-wrap: normal;
+    overflow: auto;
+    -webkit-text-size-adjust: none;
+}
+
+.hljs-attribute,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta-keyword,
+.hljs-name,
+.hljs-selector-tag {
+    font-weight: bold;
+}

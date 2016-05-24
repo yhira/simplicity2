@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+/**
+ * フッター(footer)
+ */
+
+#footer {
+    padding: 5px;
+    color: #fff;
+    background-color: #555;
+    clear: both;
+
+    a {
+        color: #DCDCDC;
+    }
+
+    h3 {
+        font-size: 16px;
+        color: #fff;
+    }
+
+    .snsp {
+        padding-left: 0;
+    }
+}
+
+#footer-widget {
+    margin: 10px auto;
+    padding: 0 5%;
+    color: #fcfcfc;
+    text-align: left;
+
+    ul {
+        //list-style: none;
+        padding-left: 1em;
+    }
+
+    li {
+        font-size: 14px;
+    }
+}
+
+// mixin rowMachineの利用おすすめ
+// サンプル: http://codepen.io/Hidekichi/pen/NNoKbG
+.footer-center,
+.footer-left,
+.footer-right {
+    //box-sizing: border-box;
+    padding: 10px;
+}
+.footer-left {
+    float: left;
+    width: 34%;
+}
+.footer-center,
+.footer-right {
+    float: left;
+    width: 33%;
+}
+
+#copyright {
+    padding: 20px 0;
+    font-size: 80%;
+    text-align: center;
+    a {
+        //text-decoration: none;
+        color: #fff;
+    }
+}

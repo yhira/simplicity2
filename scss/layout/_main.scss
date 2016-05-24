@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+/**
+ * メインカラム（#main、記事、固定ページなど）
+ */
+
+#main {
+    .page,
+    .post {
+        //margin-bottom: 59px;
+        margin-bottom: ($item-margin * 1.5); //change 60px
+    }
+}
+
+.sticky {
+    // 先頭固定ポストのスタイル
+}
+
+.post-meta {
+    //margin-bottom: 0.5em;
+    margin: 0; //add p要素のため
+    margin-bottom: ( $line-height-computed / 2); //change
+    //font-size: 16px; //mute
+    color: #555;
+    text-align: right;
+    background-color: #F7F7F7;
+
+    .category,
+    .comments,
+    .edit,
+    .post-date,
+    .post-update {
+        padding-right: 0.7em;
+    }
+
+    //aの元々のタグにtext-decoration: none;を入れたため追加
+    a {
+        text-decoration: underline;
+    }
+}
+
+.comment-num {
+    white-space: nowrap;
+}
+
+.footer-post-meta {
+    //font-size: 16px; //mute
+    color: #555;
+    text-align: right;
+    clear: both;
+
+    .edit,
+    .post-author,
+    .post-tag {
+        padding-right: 0.7em;
+    }
+}
+
+.article-list {
+    .footer-post-meta {
+        margin-top: 30px;
+    }
+}
+
+.more-link {
+    display: block;
+    //margin-top: 15px;
+    margin-top: ( $line-height-computed /2 ); //change
+    // margin-bottom: 30px;
+    margin-bottom: $line-height-computed; //change
+    text-align: right;
+    clear: both;
+}
+
+//タグが入っていない場合は非表示
+#list {
+    .post .footer-post-meta {
+        &:empty,
+        .post-tag:empty {
+            display: none;
+        }
+    }
+}
+
+.content-box {
+    float: right;
+    margin-top: -0.25em;
+    width: 420px;
+
+    .more-link {
+        margin: 0;
+    }
+}
+
+.thumbnail-box {
+    float: left;
+    width: 160px;
+    img {
+        // width: 160px;
+        // height: 160px;
+        @include square(160px);
+    }
+}
+
+#main {
+    .snsp {
+        padding-left: 0;
+    }
+    .widgets {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

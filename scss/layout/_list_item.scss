@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/**
+ * リストアイテム(index.phpのリスト)
+ */
+
+// #main か #list #listの方が良いような気も
+#main {
+    .entry {
+        clear: both;
+        //margin-bottom: 40px;
+        margin-bottom: $item-margin; //change
+        // overflow: auto;
+        // zoom: 1;
+        word-wrap: break-word;
+
+        //最後のentryのボトムマージン除去
+        &:last-of-type {
+            margin: 0;
+        }
+    }
+}
+
+.entry-thumb {
+    float: left;
+    margin-right: 10px;
+    margin-top: 3px;
+    margin-left: 0;
+    a {
+        display: block;
+    }
+    img {
+        display: block;
+        // width: 150px;
+        // height: 150px;
+        @include square(150px);
+        //  margin-bottom: 40px;
+        // basic.scssにてborder-width: 0になっているのでコメントアウト
+        //border: 0;
+    }
+}
+
+// 大きなサムネイル表示スタイルでのサムネイル
+.entry-large-thumbnail {
+    img {
+        // width: 320px;
+        // height: 180px;
+        @include size(320px, 180px);
+    }
+}
+
+.entry-card-content {
+    margin-left: 160px;
+}
+
+.entry {
+    .post-meta {
+        //margin: 7px auto;
+        margin: 0 auto ($line-height-computed / 2); //change
+        text-align: left;
+
+        a {
+            color: #000;
+        }
+    }
+
+    //[1] フォーラムで見出しの色が変わらないというのを解決するためのものをコメントで入れました。
+    //[2] h2にリンクがある場合リンクカラーが適用れるのを防ぐためcolor: inherit;のみ必要かと。
+    //[1][2]にする事により、カスタマイズする人は、h2: color:#f00;等でリンクの色が変更できます。
+    h2,
+    .entry-title {
+        margin-top: 0;
+        //margin-bottom: 5px;
+        margin-bottom: ($line-height-computed / 2); //change
+
+        //[1]
+        // font-size: 24px;
+        // font-weight: bold;
+        color: #333;
+
+        a {
+            //font-size: 24px;
+            //font-weight: bold;
+            //color: #333;
+            //text-decoration: none;
+
+            //[2]リンクカラーだけ適用させないという感じです。
+            // font-size: inherit;
+            // font-weight: inherit;
+            color: inherit;
+        }
+    }
+}
+
+//上記.entryに統合
+//.entry .entry-titleでアクセスできますが、.entryと範囲が限定されているので、
+//ここは.titleだけもokかと思います。
+//ex).entry .title でアクセスできるような感じです。
+
+//.entry-title {} //中身なし
+
+//ここ以下も、例えば.entry .snippetとしてアクセスした方が良い場合があります。
+//blog-cardのsnippetと、仕様を共通化するなどですね
+//ex) .snippet { font-size: 14px; }
+//このようにオリジナルを定義しておいて、それはfont-size: 14pxだと決めておけば、
+//.entry .snippet {...}と書かない場合、font-sizeはおのずと14pxかと
+//結果的にどうなるかというと、変更したい部分の記述が少なくなる可能性が高いです。
+// サンプル) http://codepen.io/Hidekichi/pen/KzErQX
+.entry-snippet {
+    // margin: 0 0 5px;
+    margin: 0 0 ($line-height-computed / 2); //chande
+    color: #555;
+    //line-height: 150%;
+    line-height: $snippet-line-height; //chande
+}
+
+.entry-read {
+    margin: 0;
+
+    // aタグにtext-decoration: none;としたので必要な場所にはunderline要追加
+    a {
+        text-decoration: underline;
+    }
+}
+
+.entry-snippet,
+.related-entry-snippet {
+    word-wrap: break-word;
+}

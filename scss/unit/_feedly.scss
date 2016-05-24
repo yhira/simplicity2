@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+/**
+ * feedly
+ */
+
+//
+//  購読者数つきFeedlyボタン（縦型）
+//  ------------------------------------------
+#feedly-followers {
+    display: block;
+
+    a {
+        display: block;
+    }
+
+    img {
+        // width: 72px;
+        // height: 22px;
+        @include size(72px,22px);
+        border: none;
+    }
+}
+
+//
+//  購読者数の表示部分
+//  ------------------------------------------
+#feedly-count {
+    display: block;
+    position: relative;
+    // width: 62px;
+    // height: 31px;
+    @include size(62px,31px);
+    margin: 0 auto 6px;
+    padding: 0 4px;
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 31px;
+    text-align: center;
+    background-color: #FFF;
+    border: 1px solid #BDBDBD;
+    border-radius: 4px;
+    //background: white;
+
+    a {
+        color: #333;
+        //text-decoration: none;
+    }
+}
+
+//
+//  購読者数吹き出し部分
+//  ------------------------------------------
+.fdly-count {
+    &::after,
+    &::before {
+        content: '';
+        position: absolute;
+        right: 43%;
+        border-width: 5px;
+        border: solid transparent;
+    }
+
+    &:before {
+        border-top-color: #B0C1D8;
+        top: 32px;
+    }
+
+    &:after {
+        border-top-color: #FFF;
+        top: 30px;
+    }
+}
+
+//
+//  購読者数つきFeedlyボタン（横型）
+//  ------------------------------------------
+.feedly-btn-horizontal {
+    img#feedly-follow {
+        // width: 60px;
+        // height: 20px;
+        @include size(60px,20px);
+        margin-right: 3px;
+        border: 0;
+    }
+
+    .arrow_box {
+        display: inline-block;
+        position: relative;
+        top: -7px;
+        height: 22px;
+        padding: 0 6px;
+        line-height: 18px;
+        background: #fff;
+        border: 1px solid #BDBDBD;
+        border-radius: 3px;
+    }
+
+    a {
+        color: #333;
+        font-size: 11px;
+        //text-decoration: none;
+        line-height: 18px;
+
+        &:hover {
+            color: #333;
+        }
+    }
+
+    .arrow_box {
+        &:after,
+        &:before {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            // width: 0;
+            // height: 0;
+            @include square(0);
+            border: solid transparent;
+            pointer-events: none;
+        }
+
+        &:after {
+            margin-top: -3px;
+            border-width: 3px;
+            border-color: rgba(255, 255, 255, 0);
+            border-right-color: #fff;
+        }
+
+        &:before {
+            margin-top: -4px;
+            border-width: 4px;
+            border-color: rgba(189, 189, 189, 0);
+            border-right-color: #BDBDBD;
+        }
+    }
+}

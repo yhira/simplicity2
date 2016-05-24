@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+/**
+ * コメントエリア（Comments Area）
+ */
+
+#comment-area {
+    ol,
+    ul {
+        //list-style: none;
+        padding-left: 0;
+
+        ul {
+            margin-left: 1.5em;
+        }
+    }
+
+    //aの元々のタグにtext-decoration: none;を入れたため追加
+	a {
+		text-decoration: underline;
+	}
+}
+
+.required {
+    color: #fe56aa;
+}
+
+.comment-list {
+    .avatar {
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.commets-list,
+.trackback-list {
+    margin-top: -20px;
+    margin-bottom: 40px;
+
+    li {
+        margin-top: -1px;
+        padding: 20px 0 0;
+        width: 100%;
+        border-bottom: 1px solid transparent;
+    }
+}
+.comment-meta,
+.comment-notes,
+.form-allowed-tags,
+.reply,
+span.small {
+    font-size: 80%;
+}
+
+.comment-body {
+    p {
+        clear: both;
+    }
+}
+
+.reply {
+    text-align: right;
+}
+
+.bypostauthor {
+    // 記事投稿者のコメントのスタイル
+}
+
+.children {
+    padding-left: 2em;
+}
+
+#respond {
+    margin-bottom: 40px;
+}
+
+#comments,
+#reply-title {
+    font-size: 21px;
+}
+
+#comments {
+    margin-bottom: 25px;
+}

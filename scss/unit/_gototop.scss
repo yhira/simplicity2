@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/**
+ * TOPへ戻るボタン（Go to top）
+ */
+
+#page-top {
+	display: none;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+
+	a {
+		display: block;
+		padding: 7px;
+		font-size: 11px;
+		color: #fff;
+		line-height: 100%;
+		text-align: center;
+		background-color: #aaa;
+		border-radius: 4px;
+		//text-decoration: none;
+		cursor: pointer;
+
+		// トップへ戻る画像の背景
+		&.move-page-top-image {
+		  background-color: transparent;
+		}
+	}
+}

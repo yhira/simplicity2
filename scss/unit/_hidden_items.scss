@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/**
+ * 非表示にするものまとめ
+ */
+
+#sidebar {
+	.ad-space .ad-label,
+	.widget-ad,
+	.widget-over-article-title,
+	.widget-over-sns-buttons-title,
+	.widget-under-article-title,
+	.widget-under-sns-buttons-title {
+		display: none;
+	}
+}
+
+.widget-index-top {
+	margin-bottom: 30px;
+}
+
+.widget-index-middle {
+	margin-bottom: 40px;
+}

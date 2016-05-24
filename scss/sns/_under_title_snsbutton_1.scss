@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/**
+  * タイトル下SNSボタン
+  * オリジナルの読み込み位置にあわせるため
+  * 分離したものの最初のブロック
+  */
+
+ #sns-group-top {
+    margin-bottom: ($line-height-computed / 2); //add
+
+    ul {
+        padding: 0;
+        line-height: 20px;
+        li {
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+    }
+    .sns-share-msg {
+        display: none;
+    }
+    .twitter-btn {
+        width: 100px;
+    }
+    .facebook-btn {
+        width: 110px;
+    }
+    .google-plus-btn {
+        width: 70px;
+        margin-top: -2px;
+    }
+    .pocket-btn {
+        width: 95px;
+    }
+    .evernote-btn-img {
+        display: none;
+    }
+    .evernote-btn-img-mini {
+        display: block;
+        height: 20px;
+        width: auto;
+    }
+}

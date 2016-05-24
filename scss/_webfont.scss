@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+//
+//  Google FontsのBoogalooをダウンロードしたものの呼び出し
+//  ------------------------------------------
+
+//for IE
+@font-face {
+    font-family: Boogaloo;
+    src: url('webfonts/boogaloo/Boogaloo-Regular.ttf');
+}
+
+//for non IE
+@font-face {
+    font-family: Boogaloo;
+    src: url('webfonts/boogaloo/Boogaloo-Regular.ttf') format("truetype");
+}

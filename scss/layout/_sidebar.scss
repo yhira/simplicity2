@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+/**
+ * サイドバー（Sidebar）・ウィジェットなど
+ */
+
+#sidebar {
+
+    h3 {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .widget {
+        //margin-bottom: 45px;
+        margin-bottom: $item-margin; //change
+
+        //最後のwidgetのmargin-bottomを解除
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ol,
+    ul {
+        //list-style: none;
+        padding-left: 1em;
+    }
+
+    li {
+        margin-bottom: 5px;
+
+        //最後のwidgetのmargin-bottomを解除
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .snsp {
+        padding-left: 0;
+    }
+
+    .widget_category_sns_follow_buttons,
+    .widget_category_sns_follow_buttons {
+
+        ul {
+            padding-left: 0;
+        }
+    }
+}
+
+// 追加
+// 最後の子要素のボトムマージンを0にする
+#sidebar-scroll {
+    .widget {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.widget_search {
+    margin-bottom: 0;
+}
+
+.widget-over-article {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.widget-over-article,
+.widget-under-article,
+.widget-over-sns-buttons,
+.widget-under-sns-buttons {
+    ol,
+    ul {
+        padding-left: 1em;
+        //list-style: none;
+    }
+}
+
+#sidebar-popular-posts,
+#sidebar-recent-posts {
+    li {
+        margin: 20px 0;
+    }
+
+    h3,
+    p {
+        margin: 0;
+    }
+}
+
+.sidebar-thumbnail-box {
+    float: left;
+    width: 75px;
+}
+
+.sidebar-recent-posts-title {
+    float: right;
+    width: 165px;
+}

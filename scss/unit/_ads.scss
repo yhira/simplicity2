@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/**
+ * 広告（ads）
+ */
+
+.ad-space {
+    margin: 30px 0;
+    clear: both;
+}
+
+.ad-article-bottom {}
+
+.ad-left {
+    float: left;
+    margin-right: 2px;
+}
+
+.ad-right {
+    float: right;
+    margin-left: 2px;
+}
+
+.ad-left,
+.ad-right {
+    width: 336px;
+}
+
+.ad-top-pc {
+    width: 728px;
+    margin: 0 -24px 15px;
+}
+
+.ad-space-top {
+    margin-top: 0;
+    margin-bottom: 5px;
+
+    .ad-label {
+        display: none;
+    }
+}
+
+.ad-space-singular {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#sidebar {
+    .ad-space {
+        margin-top: 0;
+    }
+}

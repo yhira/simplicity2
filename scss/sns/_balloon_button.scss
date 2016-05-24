@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+/**
+ * 自作のバルーンシェアボタン
+ */
+
+.balloon-btn-set {
+    display: block;
+    // width: 60px;
+    // height: 63px;
+    @include size(60px,63px);
+
+    a {
+        display: block;
+        font-size: 14px;
+        color: #777;
+        //text-decoration: none;
+
+        &.twitter-arrow-box-link {
+            // .fa-comments {
+            //     font-size: 13px;
+            //     color: #aaa;
+            // }
+        }
+    }
+}
+a {
+    &.arrow-box-link {
+        display: block;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    &.evernote-arrow-box-link {
+        font-family: 'Boogaloo', cursive;
+        font-weight: normal;
+    }
+
+    &.arrow-box-link:hover {
+        color: #555;
+    }
+
+    &.balloon-btn-link {
+        display: block;
+        position: relative;
+        top: 4px; //バルーンの位置決めのため必要
+        // width: 58px;
+        // height: 20px;
+        @include size(58px,20px);
+        color: white;
+        text-align: center;
+        line-height: 22px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+
+        //縦センターに寄せるため追記
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%,-50%,0);
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    &.twitter-balloon-btn-link {
+        background-color: $twitterColor;
+    }
+    &.facebook-balloon-btn-link {
+        background-color: $facebookColor;
+    }
+    &.googleplus-balloon-btn-link {
+        background-color: $googlePlusColor;
+    }
+    &.hatena-balloon-btn-link {
+        background-color: $hatenaColor;
+    }
+    &.pocket-balloon-btn-link {
+        background-color: $pocketColor;
+    }
+    &.line-balloon-btn-link {
+        background-color: $lineColor;
+    }
+    &.evernote-balloon-btn-link {
+        background-color: $evernoteColor;
+    }
+    &.feedly-balloon-btn-link {
+        background-color: $feedlyColor;
+    }
+    &.push7-balloon-btn-link {
+        background-color: $push7Color;
+    }
+    &.comments-balloon-btn-link {
+        background-color: $commentColor;
+        // .fa-comment {
+        //     position: relative;
+        //     top: -3px;
+        // }
+
+    }
+}
+
+.arrow-box {
+    display: inline-block;
+    position: relative;
+    // width: 58px;
+    // height: 33px;
+    @include size(58px,33px);
+    text-align: center;
+    line-height: 33px;
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+
+    &:after,
+    &:before {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        content: " ";
+        height: 0;
+        width: 0;
+        border: solid transparent;
+        pointer-events: none;
+    }
+
+    &:after {
+        margin-left: -3px;
+        border-color: rgba(255, 255, 255, 0);
+        border-top-color: #fff;
+        border-width: 3px;
+    }
+
+    &:before {
+        margin-left: -5px;
+        border-color: rgba(187, 187, 187, 0);
+        border-top-color: #ddd;
+        border-width: 5px;
+    }
+}
+
+/**
+ * 旧Twitterボタンのような見た目を再現
+ */
+
+.twitter-balloon-btn-defalt {
+
+    .balloon-btn-set {
+        display: block;
+        //  width: 65px;
+        //  height: 63px;
+        @include size(65px,63px);
+    }
+
+    a.balloon-btn-link {
+        position: relative;
+        width: 65px;
+    }
+
+    .arrow-box {
+        width: 65px;
+    }
+
+    a.twitter-balloon-btn-link {
+        .tweet-label {
+            font: 11px "Helvetica Neue",Arial,sans-serif;
+            font-weight: bold;
+            color: #000;
+            vertical-align: 25%;
+        }
+    }
+}
+
+#sns-group-top {
+    .twitter-balloon-btn-defalt {
+
+        .balloon-btn-set {
+            width: 100px;
+            margin-bottom: 0;
+        }
+
+        .balloon-btn-link {
+            width: 65px;
+        }
+
+        .arrow-box {
+            width: 25px;
+        }
+    }
+}

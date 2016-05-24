@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+/**
+ *	前の記事へ、次の記事へ
+ */
+
+.navigation {
+	clear: both;
+	margin: 20px -30px 40px;
+	overflow: hidden;
+
+	> div {
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+
+		+ div {
+			border-top: 0;
+			border-bottom: 1px solid #ddd;
+		}
+	}
+
+	.alignright {
+		text-align: right;
+
+		a {
+			&:hover {
+				border-left: 1px solid #ddd;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		padding: 1em;
+		border: none;
+		//aの元々のタグにtext-decoration: none;を入れたため追加
+		//text-decoration: underline;
+
+		span {
+			margin-top: -4px;
+			padding-right: 10px;
+			color: #ddd;
+			clear: left;
+		}
+
+		&:hover {
+			background: #eee;
+		}
+	}
+}
+
+//
+//  ページャー、ページナビゲーション
+//  ------------------------------------------
+a.page-numbers {
+	margin: 0 2px;
+	padding: 5px 8px;
+	background-color: #ddd;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.pager {
+	margin: 3em 0;
+	text-align: center;
+
+	.current {
+		margin: 0 2px;
+		padding: 5px 8px;
+		color: #000;
+		background-color: #ddd;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+	}
+
+	a {
+		color: #000;
+		background-color: #fff;
+		//text-decoration: none;
+
+		&:hover {
+			border: solid 1px #ddd;
+			background-color: #eee;
+		}
+	}
+}
+
+//
+//  記事分割時のページナビゲーション
+//  ------------------------------------------
+.page-link {
+	margin: 3em 0;
+	text-align: center;
+
+	span {
+		margin-right: 3px;
+		padding: 5px 8px;
+		background-color: #ddd;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+	}
+
+	a {
+		color: #000;
+		border-bottom: none;
+		//text-decoration: none;
+
+		span {
+			color: #000;
+			background-color: #fff;
+
+			&:hover {
+				color: inherit;
+				background: inherit;
+			}
+		}
+	}
+}
+
+.comment-page-link {
+	margin: 1em 1em 3em;
+	text-align: center;
+
+	a,
+	span {
+		margin-right: 3px;
+		padding: 5px 8px;
+		background-color: #ddd;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+
+		&:hover {
+			color: #000;
+			background-color: inherit;
+		}
+		//以下確認
+		color: #000;
+		background-color: #fff;
+	}
+}

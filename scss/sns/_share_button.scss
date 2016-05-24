@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+/**
+ * SNSシェアボタン
+ */
+
+#sns-group {
+    //clear: both;
+    @include clearfix;
+}
+
+.article {
+    ul.snsb {
+        list-style-type: none; //2.1.7
+    }
+}
+
+.snsb {
+    margin-bottom: 0;
+    padding: 10px 0;
+    font-family: sans-serif;
+
+    li {
+        float: left;
+        margin-top: 2px;
+        margin-bottom: 5px;
+        margin-right: 7px;
+        //list-style-type: none;
+    }
+
+    // article内のリンクはunderlineアリにしたのでここでは非表示
+    a {
+        text-decoration: none;
+    }
+}
+
+.snsbs {
+    li {
+        margin-right: 5px;
+        margin-bottom: 5px;
+
+        a {
+            display: block;
+            position: relative;
+            // width: 25px;
+            // height: 30px;
+            @include size(25px,30px);
+            padding: 7px 6px 3px;
+            font-size: 25px;
+            color: #fff;
+            text-align: center;
+            //text-decoration: none;
+            background-color: #000;
+            border-radius: 5px;
+
+            .social-count {
+                //position: relative; あとで上書きされている
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                // width: auto;
+                // height: 12px;
+                @include size(auto,12px);
+                padding: 1px 3px;
+                font-size: 10px;
+                font-family: Arial;
+                line-height: 12px;
+                background-color: #555;
+                border-radius: 5px;
+            }
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        img {
+            border-radius: 10px;
+        }
+    }
+
+    a {
+        &.twitter-btn-icon-link {
+            background-color: $twitterColor;
+        }
+        &.facebook-btn-icon-link {
+            background-color: $facebookColor;
+        }
+        &.google-plus-btn-icon-link {
+            background-color: $googlePlusColor;
+        }
+        &.hatena-btn-icon-link {
+            background-color: $hatenaColor;
+        }
+        &.pocket-btn-icon-link {
+            background-color: $pocketColor;
+        }
+        &.line-btn-icon-link {
+            background-color: $lineColor;
+        }
+        &.evernote-btn-icon-link {
+            background-color: $evernoteColor;
+        }
+        &.feedly-btn-icon-link {
+            background-color: $feedlyColor;
+        }
+        &.push7-btn-icon-link {
+            background-color: $push7Color;
+        }
+        &.comments-btn-icon-link {
+            background-color: $commentColor;
+            padding-top: 4px;
+            padding-bottom: 6px;
+        }
+    }
+}
+
+img {
+    &.evernote-btn-img {
+        min-height: 62px;
+    }
+    &.evernote-btn-img-mini {
+        display: none;
+    }
+}
+
+//
+//  自作のバルーンシェアボタン
+//  ------------------------------------------
+// .balloon-btn-set {
+//     display: block;
+//     // width: 60px;
+//     // height: 63px;
+//     @include size(60px,63px);
+//
+//     a {
+//         display: block;
+//         font-size: 14px;
+//         color: #777;
+//         //text-decoration: none;
+//
+//         &.twitter-arrow-box-link {
+//             .fa-comments {
+//                 font-size: 13px;
+//                 color: #aaa;
+//             }
+//         }
+//     }
+// }
+//
+// a {
+//     &.arrow-box-link {
+//         display: block;
+//         font-weight: bold;
+//         font-family: Arial;
+//         font-size: 14px;
+//         text-align: center;
+//
+//         &:hover {
+//             color: #555;
+//         }
+//     }
+//
+//     &.evernote-arrow-box-link {
+//         font-family: 'Boogaloo', cursive;
+//         font-weight: normal;
+//     }
+//
+//     &.balloon-btn-link {
+//         display: block;
+//         position: relative;
+//         top: 4px;
+//         // width: 58px;
+//         // height: 20px;
+//         @include size(58px,20px);
+//         color: white;
+//         text-align: center;
+//         line-height: 22px;
+//         border: 1px solid #ddd;
+//         border-radius: 3px;
+//
+//         &:hover {
+//             opacity: 0.7;
+//         }
+//     }
+//
+//     &.twitter-balloon-btn-link {
+//         background-color: $twitterColor;
+//     }
+//     &.facebook-balloon-btn-link {
+//         background-color: $facebookColor;
+//     }
+//     &.googleplus-balloon-btn-link {
+//         background-color: $googlePlusColor;
+//     }
+//     &.hatena-balloon-btn-link {
+//         background-color: $hatenaColor;
+//     }
+//     &.pocket-balloon-btn-link {
+//         background-color: $pocketColor;
+//     }
+//     &.line-balloon-btn-link {
+//         background-color: $lineColor;
+//     }
+//     &.evernote-balloon-btn-link {
+//         background-color: $evernoteColor;
+//     }
+//     &.feedly-balloon-btn-link {
+//         background-color: $feedlyColor;
+//     }
+//     &.push7-balloon-btn-link {
+//         background-color: $push7Color;
+//     }
+//     &.comments-balloon-btn-link {
+//         background-color: $commentColor;
+//         .fa-comment {
+//             position: relative;
+//             top: -3px;
+//         }
+//     }
+// }
+// .arrow-box {
+//     display: inline-block;
+//     position: relative;
+//     // width: 58px;
+//     // height: 33px;
+//     @include size(58px,33px);
+//     text-align: center;
+//     line-height: 33px;
+//     background: #fff;
+//     border: 1px solid #bbb;
+//     border-radius: 3px;
+//
+//     &:after,
+//     &:before {
+//         content: "";
+//         position: absolute;
+//         top: 100%;
+//         left: 50%;
+//         // height: 0;
+//         // width: 0;
+//         @include size(0,0);
+//         border: solid transparent;
+//         pointer-events: none;
+//     }
+//
+//     &:after {
+//         margin-left: -3px;
+//         border-color: rgba(255, 255, 255, 0);
+//         border-top-color: #fff;
+//         border-width: 3px;
+//     }
+//
+//     &:before {
+//         margin-left: -5px;
+//         border-color: rgba(187, 187, 187, 0);
+//         border-top-color: #ddd;
+//         border-width: 5px;
+//     }
+// }
