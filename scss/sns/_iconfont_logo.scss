@@ -4,17 +4,10 @@
  * アイコンフォントの大きさ
  */
 
- #container {
- 	ul {
- 		&.snsp {
- 			li {
- 				a:hover{
-				  color: #fff;
-				}
- 			}
- 		}
- 	}
- }
+//2.1.7のフォローボタンの仕様変更によりテーマカスタマイザーでホバーを設定しているときにも打ち勝つ優先度の高いCSSセレクタで設定する必要がある
+#container ul.snsp li a:hover{
+	color: #fff;
+}
 
 .snsp {
 	li {
@@ -48,7 +41,6 @@
 				&.icon-line-square,
 				&.icon-push7-square {
 					position: relative;
-					font-size: 34px;
 					//画像をBase64にするためコメントアウト
 					//background-image: url("../images/white-feedly.png");
 					//background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcAQMAAABIw03XAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAB9JREFUCNdjkP//v4Gh/v//BxDi////H+hGIOwFOwMAuf5pDfN+XdkAAAAASUVORK5CYII=");
@@ -96,9 +88,6 @@
 		}
 		&.feedly-page a img {
 			margin-bottom: -3px;
-			// width: 32.5px;
-			// height: 32.5px;
-			@include square(32.5px);
 			border-radius: 7px;
 			border-width: 0;
 		}
@@ -108,6 +97,7 @@
 //
 //  feedly、LINEアイコンは自作なので少し大きかったので調整
 //  ------------------------------------------
+//  feedly、LINEアイコンは調節して作り直しているので元に戻した
 #footer {
 	.snsp {
 		li {

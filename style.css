@@ -3489,21 +3489,21 @@ img.evernote-btn-img-mini {
 /**
  * アイコンフォントの大きさ
  */
-/* line 11, scss/sns/_iconfont_size.scss */
+/* line 8, scss/sns/_iconfont_logo.scss */
 #container ul.snsp li a:hover {
   color: #fff;
 }
 
-/* line 20, scss/sns/_iconfont_size.scss */
+/* line 13, scss/sns/_iconfont_logo.scss */
 .snsp li {
   display: inline-block;
   margin-right: 5px;
 }
-/* line 24, scss/sns/_iconfont_size.scss */
+/* line 17, scss/sns/_iconfont_logo.scss */
 .snsp li a {
   color: #fff;
 }
-/* line 27, scss/sns/_iconfont_size.scss */
+/* line 20, scss/sns/_iconfont_logo.scss */
 .snsp li a span {
   display: block;
   width: 33px;
@@ -3517,69 +3517,66 @@ img.evernote-btn-img-mini {
   z-index: 1;
   overflow: hidden;
 }
-/* line 46, scss/sns/_iconfont_size.scss */
+/* line 39, scss/sns/_iconfont_logo.scss */
 .snsp li a span.icon-feedly-square, .snsp li a span.icon-hatebu-square, .snsp li a span.icon-line-square, .snsp li a span.icon-push7-square {
   position: relative;
-  font-size: 34px;
 }
-/* line 61, scss/sns/_iconfont_size.scss */
+/* line 53, scss/sns/_iconfont_logo.scss */
 .snsp li.twitter-page a span:hover {
   background-color: #55acee;
 }
-/* line 64, scss/sns/_iconfont_size.scss */
+/* line 56, scss/sns/_iconfont_logo.scss */
 .snsp li.facebook-page a span:hover {
   background-color: #3b5998;
 }
-/* line 67, scss/sns/_iconfont_size.scss */
+/* line 59, scss/sns/_iconfont_logo.scss */
 .snsp li.google-plus-page a span:hover {
   background-color: #dd4b39;
 }
-/* line 70, scss/sns/_iconfont_size.scss */
+/* line 62, scss/sns/_iconfont_logo.scss */
 .snsp li.instagram-page a span:hover {
   background-color: #3f729b;
 }
-/* line 73, scss/sns/_iconfont_size.scss */
+/* line 65, scss/sns/_iconfont_logo.scss */
 .snsp li.hatebu-page a span:hover {
   background-color: #3C7DD1;
 }
-/* line 76, scss/sns/_iconfont_size.scss */
+/* line 68, scss/sns/_iconfont_logo.scss */
 .snsp li.pinterest-page a span:hover {
   background-color: #cc2127;
 }
-/* line 79, scss/sns/_iconfont_size.scss */
+/* line 71, scss/sns/_iconfont_logo.scss */
 .snsp li.youtube-page a span:hover {
   background-color: #e52d27;
 }
-/* line 82, scss/sns/_iconfont_size.scss */
+/* line 74, scss/sns/_iconfont_logo.scss */
 .snsp li.flickr-page a span:hover {
   background-color: #1d1d1d;
 }
-/* line 85, scss/sns/_iconfont_size.scss */
+/* line 77, scss/sns/_iconfont_logo.scss */
 .snsp li.feedly-page a span:hover {
   background-color: #87bd33;
 }
-/* line 88, scss/sns/_iconfont_size.scss */
+/* line 80, scss/sns/_iconfont_logo.scss */
 .snsp li.push7-page a span:hover {
   background-color: #eeac00;
 }
-/* line 91, scss/sns/_iconfont_size.scss */
+/* line 83, scss/sns/_iconfont_logo.scss */
 .snsp li.line-page a span:hover {
   background-color: #00c300;
 }
-/* line 94, scss/sns/_iconfont_size.scss */
+/* line 86, scss/sns/_iconfont_logo.scss */
 .snsp li.rss-page a span:hover {
   background-color: #fe9900;
 }
-/* line 97, scss/sns/_iconfont_size.scss */
+/* line 89, scss/sns/_iconfont_logo.scss */
 .snsp li.feedly-page a img {
   margin-bottom: -3px;
-  width: 32.5px;
-  height: 32.5px;
   border-radius: 7px;
   border-width: 0;
 }
 
-/* line 115, scss/sns/_iconfont_size.scss */
+/* line 105, scss/sns/_iconfont_logo.scss */
 #footer .snsp li a span {
   background-color: transparent;
 }
