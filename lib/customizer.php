@@ -1390,12 +1390,13 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'seo_date_type', array(
     'settings' => 'seo_date_type',
     'label' =>'検索エンジンに伝える日付',
-    'description' => is_tips_visible() ? '検索エンジンに伝える日時を「公開日」にするか「更新日」にするか。' : '',
+    'description' => is_tips_visible() ? '検索エンジンに伝える日時を「公開日」にするか「更新日」にするか。（※投稿・固定ページのみ）' : '',
     'section' => 'seo_section',
     'type' => 'radio',
     'choices'    => array(
       'create' => '公開日',
       'update' => '更新日',
+      'update_only' => '更新日（更新したら更新日だけを表示）β版',
     ),
     'priority' => 100,
   ));
@@ -3915,6 +3916,11 @@ function is_seo_date_type_create(){
 //更新日を検索エンジンに伝えるか
 function is_seo_date_type_update(){
   return get_seo_date_type() == 'update';
+}
+
+//更新日のみを検索エンジンに伝えるか
+function is_seo_date_type_update_only(){
+  return get_seo_date_type() == 'update_only';
 }
 
 //抜粋を投稿ページのMeta Descriptionタグに挿入するか
