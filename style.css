@@ -2200,14 +2200,15 @@ div.fb-like-mobile{
   margin-left: 90px;
 }
 
-.internal-blog-card{
+.internal-blog-card,
+.external-blog-card{
   padding:12px 12px 0;
   border:1px solid #ddd;
   word-wrap:break-word;
   border-radius:5px;
 }
 
-.external-blog-card{
+.external-blog-card-hatena{
   border: 0;
   background-color: transparent;
   overflow: hidden;

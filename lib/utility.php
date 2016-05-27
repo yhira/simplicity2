@@ -24,3 +24,9 @@ function get_this_site_domain(){
 function is_login_name_and_display_name_same(){
   return get_the_author_meta('user_login') == get_the_author_meta('display_name');
 }
+
+//URLからドメインを取得
+function get_domain_name($url){
+  return parse_url($url, PHP_URL_HOST);
+}
+

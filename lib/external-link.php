@@ -9,7 +9,7 @@ $g_external_link_table_version = "1.0";
 global $g_external_link_table_name;
 $g_external_link_table_name = 'sp_external_links';
 
-// require_once('lib/OpenGraph.php');
+// require_once('OpenGraph.php');
 // $graph = OpenGraph::fetch('http://www.yahoo.co.jp/');
 // echo '<pre>';
 // var_dump($graph);

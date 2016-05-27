@@ -26,14 +26,15 @@
     }
 }
 
-.internal-blog-card {
+.internal-blog-card,
+.external-blog-card {
     padding: 12px 12px 0;
     border: 1px solid #ddd;
     border-radius: 5px;
     word-wrap: break-word;
 }
 
-.external-blog-card {
+.external-blog-card-hatena {
     border: 0;
     background-color: transparent;
     overflow: hidden;
