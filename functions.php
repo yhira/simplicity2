@@ -10,6 +10,7 @@ include 'lib/widget.php';    //ウイジェット関係の関数
 include 'lib/widget-areas.php';//ウイジェットエリア関係の関数
 include 'lib/custom-field.php';//カスタムフィールド関係の関数
 include 'lib/auto-post-thumbnail.php'; //アイキャッチ自動設定関数
+//include 'lib/external-link.php'; //外部リンク関係の関数
 include 'lib/blog-card.php'; //ブログカード関係の関数
 include 'lib/seo.php';       //SEO関係の関数
 include 'lib/mobile.php';    //モバイル関係の関数

@@ -137,8 +137,9 @@ function url_to_external_blog_card_tag($url){
 
   $tag = '';
   if ( is_blog_card_external_hatena() ) {
+    $tag = url_to_external_ogp_blog_card_tag($url);
     //取得した情報からはてなブログカードのHTMLタグを作成
-    $tag = '<'.'iframe '.'class="blog-card external-blog-card cf" src="//hatenablog-parts.com/embed?url='.$url.'"></'.'iframe'.'>';
+    //$tag = '<'.'iframe '.'class="blog-card external-blog-card cf" src="//hatenablog-parts.com/embed?url='.$url.'"></'.'iframe'.'>';
   } elseif ( is_blog_card_external_embedly() ) {
     //取得した情報からEmbedlyブログカードのHTMLタグを作成
     $tag = '<a class="embedly-card" href="'.$url.'">'.$url.'</a><script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
@@ -175,4 +176,51 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
   add_filter('widget_text_pc_text', 'url_to_external_blog_card', 9999999);
   add_filter('widget_text_mobile_text', 'url_to_external_blog_card', 9999999);
   //add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
+}
+
+function url_to_external_ogp_blog_card_tag($url){
+  if ( !$url ) return;
+  $url = strip_tags($url);//URL
+  $tag = 'aaa';
+  // $id = url_to_postid( $url );//IDを取得（URLから投稿ID変換）
+  // if ( !$id ) return;//IDを取得できない場合はループを飛ばす
+
+  // global $post;
+  // $post_data = get_post($id);
+  // setup_postdata($post_data);
+  // $exce = $post_data->post_excerpt;
+
+  // $title = $post_data->post_title;//タイトルの取得
+  // $date = mysql2date('Y-m-d H:i', $post_data->post_date);//投稿日の取得
+  // $excerpt = get_content_excerpt($post_data->post_content, get_excerpt_length());//抜粋の取得
+  // if ( is_wordpress_excerpt() && $exce ) {//Wordpress固有の抜粋のとき
+  //   $excerpt = $exce;
+  // }
+  // //新しいタブで開く場合
+  // $target = is_blog_card_target_blank() ? ' target="_blank"' : '';
+  // //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
+  // //はてブを表示する場合
+  // $hatebu_tag = is_blog_card_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.'><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
+  // //サイトロゴを表示する場合
+  // $favicon_tag = '';
+  // if ( is_favicon_enable() && get_the_favicon_url() ) {//ファビコンが有効か確認
+
+  //   //GoogleファビコンAPIを利用する
+  //   ////www.google.com/s2/favicons?domain=nelog.jp
+  //   $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
+  // }
+  // $site_logo_tag = is_blog_card_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="'.home_url().'"'.$target.'>'.get_this_site_domain().'</a></div>' : '';
+  // $date_tag = '';
+  // if ( is_blog_card_date_visible() ) {
+  //   $date_tag = '<div class="blog-card-date">'.$date.'</div>';
+  // }
+  // //サムネイルの取得（要100×100のサムネイル設定）
+  // $thumbnail = get_the_post_thumbnail($id, 'thumb100', array('class' => 'blog-card-thumb-image', 'alt' => $title));
+  // if ( !$thumbnail ) {//サムネイルが存在しない場合
+  //   $thumbnail = '<img src="'.get_template_directory_uri().'/images/no-image.png" alt="'.$title.'" class="blog-card-thumb-image" />';
+  // }
+  // //取得した情報からブログカードのHTMLタグを作成
+  // $tag = '<div class="blog-card internal-blog-card cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
+
+  return $tag;
 }
