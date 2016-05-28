@@ -268,7 +268,7 @@ function url_to_external_ogp_blog_card_tag($url){
   $site_logo_tag = is_blog_card_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. get_domain_name($url) .'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a></div>' : '';
 
   if ( $image ) {//サムネイルが存在しない場合
-    $thumbnail = '<img src="'.$image.'" alt="'.$title.'" class="blog-card-thumb-image" />';
+    $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
   $tag = '<div class="blog-card external-blog-card cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
