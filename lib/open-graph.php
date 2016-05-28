@@ -55,11 +55,11 @@ class OpenGraph implements Iterator
         if (!is_wp_error( $res ) && $res["response"]["code"] === 200) {
           $response = $res['body'];
         }
-
+        //var_dump($response);
         if (!empty($response)) {
             return self::_parse($response);
         } else {
-            $URI
+            return false;
         }
 	}
 
@@ -74,6 +74,10 @@ class OpenGraph implements Iterator
 		$old_libxml_error = libxml_use_internal_errors(true);
 
 		$doc = new DOMDocument();
+    //UTF-8ページの文字化け問題
+    //対処法1：http://qiita.com/kobake@github/items/3c5d09f9584a8786339d
+    //対処法2：http://nplll.com/archives/2011/06/_domdocumentloadhtml.php
+    $HTML = mb_convert_encoding($HTML,'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
 		$doc->loadHTML($HTML);
 
 		libxml_use_internal_errors($old_libxml_error);
@@ -112,6 +116,7 @@ class OpenGraph implements Iterator
             if ($titles->length > 0) {
                 $page->_values['title'] = $titles->item(0)->textContent;
             }
+
         }
         if (!isset($page->_values['description']) && $nonOgDescription) {
             $page->_values['description'] = $nonOgDescription;

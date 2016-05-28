@@ -182,7 +182,7 @@ function url_to_external_ogp_blog_card_tag($url){
   if ( !$url ) return;
   $url = strip_tags($url);//URL
   $url_hash = md5( $url );
-  $error_title = '404 NOT FOUND';
+  $error_title = 'This page is error.';
   $title = $error_title;
   $error_image = get_template_directory_uri() . '/images/no-image.png';
   $image = $error_image;
@@ -192,16 +192,14 @@ function url_to_external_ogp_blog_card_tag($url){
   // echo('<pre>');
   // var_dump($url);
   // echo('</pre>');
-  require_once('OpenGraph.php');
-  //$ogp = get_transient( $url_hash );
-    // $a['bbbbb']= 'aaaaaaaaaaaa';
-    // require_once('OpenGraph.php');
-    // $a = OpenGraph::fetch( $url );
-    // set_transient( $url_hash, $a, 6000 );
+  require_once('open-graph.php');
+
+  $ogp = get_transient( $url_hash );
+
   if ( empty($ogp) ) {
     $ogp = OpenGraph::fetch( $url );
     if ( $ogp == false ) {
-      $ogp = '404';
+      $ogp = 'error';
       // $excerpt = '';
       // $image = get_template_directory_uri() . '/images/no-image.png';
     } else {
@@ -219,14 +217,14 @@ function url_to_external_ogp_blog_card_tag($url){
       // }
       $error_rel_nollow = null;
     }
-    set_transient( $url_hash, $ogp, 60 * 60 );
+    set_transient( $url_hash, $ogp, 60 * 60 * 24 * 30 );
     // echo('aaaaaaaaaa');
     // echo('<pre>');
     // var_dump($url);
     // echo('<br>');
     // var_dump($ogp);
     // echo('</pre>');
-  } elseif ( $ogp == '404' ) {
+  } elseif ( $ogp == 'error' ) {
     //前回取得したとき404ページだったら何の出力しない
     // $title = $error_title;
     // $excerpt = '';
