@@ -2492,6 +2492,21 @@ function theme_customize_register($wp_customize) {
     'priority' => 1000,
   ));
 
+  //キャッシュの保存期間
+  $wp_customize->add_setting('cache_days', array(
+    'default' => 30,
+    'sanitize_callback' => 'sanitize_cache_days',
+  ));
+  $wp_customize->add_control( 'cache_days', array(
+    'settings' => 'cache_days',
+    'label' => 'ブログカードキャシュ保存日数',
+    'description' => is_tips_visible() ? '外部リンクカードが「ブログカード」になっている時のOGP情報キャッシュを保存する期間を設定します。設定範囲は1～365日です。短くすると、キャッシュの更新は早いですが表示速度が遅くなったり、先方のサーバーに負荷がかかります。' : '',
+    'section' => 'blog_card_section',
+    'type' => 'number',
+    'priority'=> 1100,
+  ));
+
+
   /////////////////////////////
   //ソースコード設定項目の追加
   /////////////////////////////
@@ -4421,6 +4436,11 @@ function is_blog_card_external_hatena(){
 //外部リンクをブログカードタイプはEmbedlyか
 function is_blog_card_external_embedly(){
   return get_blog_card_external_type() == 'embedly';
+}
+
+//外部リンクをブログカードタイプはEmbedlyか
+function get_cache_days(){
+  return get_theme_mod( 'cache_days', 30 );
 }
 
 //パンくずリストのホームを取得

@@ -6,6 +6,16 @@ function sanitize_text( $str ) {
   return sanitize_text_field( $str );
 }
 
+function sanitize_cache_days( $int ) {
+  if ( $int < 1 ) {
+    $int = 1;
+  }
+  if ( $int > 365 ) {
+    $int = 365;
+  }
+  return absint( $int );
+}
+
 function sanitize_html_text( $str ) {
   $str = trim(strip_tags( $str ));
   $str = htmlspecialchars($str);
