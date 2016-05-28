@@ -250,6 +250,7 @@ function url_to_external_ogp_blog_card_tag($url){
     // echo('</pre>');
   }
 
+  $excerpt = get_content_excerpt( $excerpt, 300 );
 
   //新しいタブで開く場合
   $target = is_blog_card_target_blank() ? ' target="_blank"' : '';
