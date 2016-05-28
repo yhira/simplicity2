@@ -36,7 +36,8 @@ function customize_admin_add_column($column_name, $post_id) {
 }
 //アイキャッチ画像の列の幅をCSSで調整
 function customize_admin_css_list() {
-    echo '<style TYPE="text/css">.column-thumbnail{width:80px;}</style>';
+    echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/admin.css" />'.PHP_EOL;
+    //echo '<style TYPE="text/css">.column-thumbnail{width:80px;}</style>'.PHP_EOL;
 }
 //カラムの挿入
 add_filter( 'manage_posts_columns', 'customize_admin_manage_posts_columns' );

@@ -275,7 +275,7 @@ function theme_customize_register($wp_customize) {
     'label' => 'ヘッダーの高さpx（デフォルト：100）',
     'description' => is_tips_visible() ? '画面トップからグローバルメニューまでの高さです。（※ヘッダー画像の設定をする前に高さの設定推奨）' : '',
     'section' => 'header_image',
-    'type' => 'text',
+    'type' => 'number',
     'priority' => 20,
   ));
 
@@ -339,7 +339,7 @@ function theme_customize_register($wp_customize) {
     'label' => 'ヘッダーの高さpx（デフォルト：0）',
     'description' => is_tips_visible() ? 'モバイルでの画面トップからグローバルメニューまでの高さです。（※0にするとデフォルト設定になります）' : '',
     'section' => 'header_image',
-    'type' => 'text',
+    'type' => 'number',
     'priority' => 57,
   ));
 
@@ -545,7 +545,7 @@ function theme_customize_register($wp_customize) {
     'label' =>'モバイルで1ページに表示する最大投稿数（デフォルト：10）',
     'description' => is_tips_visible() ? 'モバイルのインデックスリストに表示される最大投稿数を設定します。' : '',
     'section' => 'layout_section',
-    'type' => 'text',
+    'type' => 'number',
     'priority' => 45,
   ));
 
@@ -605,7 +605,7 @@ function theme_customize_register($wp_customize) {
     'label' =>'抜粋文字数（デフォルト：70）',
     'description' => is_tips_visible() ? 'インデックスリストや関連記事、ブログカードで表示される抜粋文字の文字数を設定します。' : '',
     'section' => 'layout_section',
-    'type' => 'text',
+    'type' => 'number',
     'priority' => 80,
   ));
 
@@ -1114,7 +1114,7 @@ function theme_customize_register($wp_customize) {
     'label' =>'関連記事表示数（デフォルト：10）',
     'description' => is_tips_visible() ? '関連記事の表示数を設定します。' : '',
     'section' => 'layout_singular_section',
-    'type' => 'text',
+    'type' => 'number',
     'priority' => 50,
   ));
 
@@ -2467,7 +2467,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'blog_card_width_auto', array(
     'settings' => 'blog_card_width_auto',
     'label' =>'カード幅を広げる',
-    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。（※外部リンクカードも広がります）<hr>' : '',
+    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。<div class="admin-custum-label">外部リンクカードの詳細設定</div>' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 900,
