@@ -2371,92 +2371,11 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_enable', array(
     'settings' => 'blog_card_enable',
-    'label' =>'ブログカード有効',
+    'label' =>'内部リンクのブログカード有効',
     'description' => is_tips_visible() ? 'サイト内のURL（内部リンク）を入力するとブログカードとして表示します。' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 100,
-  ));
-
-  //ブログカードのサムネイルを右側にする
-  $wp_customize->add_setting('blog_card_thumbnail_right', array(
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'blog_card_thumbnail_right', array(
-    'settings' => 'blog_card_thumbnail_right',
-    'label' =>'サムネイルを右側にする',
-    'description' => is_tips_visible() ? 'ブログカードのサムネイルを右側に表示するか。' : '',
-    'section' => 'blog_card_section',
-    'type' => 'checkbox',
-    'priority' => 150,
-  ));
-
-  //ブログカードのリンクを新しいタブで開く
-  $wp_customize->add_setting('blog_card_target_blank', array(
-    'default' => true,
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'blog_card_target_blank', array(
-    'settings' => 'blog_card_target_blank',
-    'label' =>'新しいタブで開く',
-    'description' => is_tips_visible() ? 'ブログカードのリンクをクリックした時に新しいタブで開くか。' : '',
-    'section' => 'blog_card_section',
-    'type' => 'checkbox',
-    'priority' => 200,
-  ));
-
-  //サイトロゴ表示
-  $wp_customize->add_setting('blog_card_site_logo_visible', array(
-    'default' => true,
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'blog_card_site_logo_visible', array(
-    'settings' => 'blog_card_site_logo_visible',
-    'label' =>'サイトロゴを表示',
-    'description' => is_tips_visible() ? 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。' : '',
-    'section' => 'blog_card_section',
-    'type' => 'checkbox',
-    'priority' => 300,
-  ));
-
-  //はてブ数を表示
-  $wp_customize->add_setting('blog_card_hatena_visible', array(
-    'default' => true,
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'blog_card_hatena_visible', array(
-    'settings' => 'blog_card_hatena_visible',
-    'label' =>'はてブ数を表示',
-    'description' => is_tips_visible() ? 'はてなブックマーク数を表示するか。' : '',
-    'section' => 'blog_card_section',
-    'type' => 'checkbox',
-    'priority' => 400,
-  ));
-
-  //日付を表示
-  $wp_customize->add_setting('blog_card_date_visible', array(
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'blog_card_date_visible', array(
-    'settings' => 'blog_card_date_visible',
-    'label' =>'投稿日を表示',
-    'description' => is_tips_visible() ? '投稿日を表示するか。' : '',
-    'section' => 'blog_card_section',
-    'type' => 'checkbox',
-    'priority' => 450,
-  ));
-
-  //カード幅を広げる
-  $wp_customize->add_setting('blog_card_width_auto', array(
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'blog_card_width_auto', array(
-    'settings' => 'blog_card_width_auto',
-    'label' =>'カード幅を広げる',
-    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。（※外部リンクカードも広がります）<hr>' : '',
-    'section' => 'blog_card_section',
-    'type' => 'checkbox',
-    'priority' => 500,
   ));
 
   //外部リンクもブログカードにする
@@ -2470,27 +2389,108 @@ function theme_customize_register($wp_customize) {
     'description' => is_tips_visible() ? '投稿時に外部リンクのみを記入するとブログカードを表示します。' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
+    'priority' => 200,
+  ));
+
+  //ブログカードのサムネイルを右側にする
+  $wp_customize->add_setting('blog_card_thumbnail_right', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_thumbnail_right', array(
+    'settings' => 'blog_card_thumbnail_right',
+    'label' =>'サムネイルを右側にする',
+    'description' => is_tips_visible() ? 'ブログカードのサムネイルを右側に表示するか。' : '',
+    'section' => 'blog_card_section',
+    'type' => 'checkbox',
+    'priority' => 400,
+  ));
+
+  //ブログカードのリンクを新しいタブで開く
+  $wp_customize->add_setting('blog_card_target_blank', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_target_blank', array(
+    'settings' => 'blog_card_target_blank',
+    'label' =>'新しいタブで開く',
+    'description' => is_tips_visible() ? 'ブログカードのリンクをクリックした時に新しいタブで開くか。' : '',
+    'section' => 'blog_card_section',
+    'type' => 'checkbox',
+    'priority' => 500,
+  ));
+
+  //サイトロゴ表示
+  $wp_customize->add_setting('blog_card_site_logo_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_site_logo_visible', array(
+    'settings' => 'blog_card_site_logo_visible',
+    'label' =>'サイトロゴを表示',
+    'description' => is_tips_visible() ? 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。' : '',
+    'section' => 'blog_card_section',
+    'type' => 'checkbox',
     'priority' => 600,
+  ));
+
+  //はてブ数を表示
+  $wp_customize->add_setting('blog_card_hatena_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_hatena_visible', array(
+    'settings' => 'blog_card_hatena_visible',
+    'label' =>'はてブ数を表示',
+    'description' => is_tips_visible() ? 'はてなブックマーク数を表示するか。' : '',
+    'section' => 'blog_card_section',
+    'type' => 'checkbox',
+    'priority' => 700,
+  ));
+
+  //日付を表示
+  $wp_customize->add_setting('blog_card_date_visible', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_date_visible', array(
+    'settings' => 'blog_card_date_visible',
+    'label' =>'投稿日を表示',
+    'description' => is_tips_visible() ? '投稿日を表示するか。（※内部リンクブログカードのみ）' : '',
+    'section' => 'blog_card_section',
+    'type' => 'checkbox',
+    'priority' => 800,
+  ));
+
+  //カード幅を広げる
+  $wp_customize->add_setting('blog_card_width_auto', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_width_auto', array(
+    'settings' => 'blog_card_width_auto',
+    'label' =>'カード幅を広げる',
+    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。（※外部リンクカードも広がります）<hr>' : '',
+    'section' => 'blog_card_section',
+    'type' => 'checkbox',
+    'priority' => 900,
   ));
 
   //外部ブログカードタイプ
   $wp_customize->add_setting('blog_card_external_type', array(
-    'default' => 'hatena',
+    'default' => 'default',
     'sanitize_callback' => 'sanitize_text',
   ));
   $wp_customize->add_control( 'blog_card_external_type', array(
     'settings' => 'blog_card_external_type',
     'label' =>'外部ブログカードタイプ',
-    'description' => is_tips_visible() ? '外部リンク表示用のプラットホームを選択します。（※はてなブログカードのみに依存しないため機能追加）' : '',
+    'description' => is_tips_visible() ? '外部リンク表示用のプラットホームを選択します。（※ブログカードはSimplicity独自のブログをカードで、外部リンクのOGP情報を取得して表示します）' : '',
     'section' => 'blog_card_section',
     'type' => 'radio',
     'choices'    => array(
+      'default' => 'ブログカード（独自キャッシュ）',
       'hatena' => 'はてなカード',
       'embedly' => 'Embedlyカード',
     ),
-    'priority' => 700,
+    'priority' => 1000,
   ));
-
 
   /////////////////////////////
   //ソースコード設定項目の追加
@@ -4403,12 +4403,17 @@ function is_blog_card_external_enable(){
   return get_theme_mod( 'blog_card_external_enable', false );
 }
 
-//外部リンクをブログカードタイプの取得
+//外部リンクのブログカードタイプの取得
 function get_blog_card_external_type(){
-  return get_theme_mod( 'blog_card_external_type', 'hatena' );
+  return get_theme_mod( 'blog_card_external_type', 'default' );
 }
 
-//外部リンクをブログカードタイプははてなか
+//外部リンクのブログカードタイプはSimplicity独自ブログカードか
+function is_blog_card_external_default(){
+  return get_blog_card_external_type() == 'default';
+}
+
+//外部リンクのブログカードタイプははてなか
 function is_blog_card_external_hatena(){
   return get_blog_card_external_type() == 'hatena';
 }

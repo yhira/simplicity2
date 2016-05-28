@@ -136,8 +136,10 @@ function url_to_external_blog_card_tag($url){
   }
 
   $tag = '';
-  if ( is_blog_card_external_hatena() ) {
+  if ( is_blog_card_external_default() ) {
+    //Simplicity独自プローブカード（キャッシュ）の利用
     $tag = url_to_external_ogp_blog_card_tag($url);
+  } elseif ( is_blog_card_external_hatena() ) {
     //取得した情報からはてなブログカードのHTMLタグを作成
     //$tag = '<'.'iframe '.'class="blog-card external-blog-card-hatena cf" src="//hatenablog-parts.com/embed?url='.$url.'"></'.'iframe'.'>';
   } elseif ( is_blog_card_external_embedly() ) {
