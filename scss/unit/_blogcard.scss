@@ -48,6 +48,7 @@ img.blog-card-thumb-image {
     // width: 100px;
     // height: 100px;
     @include square(100px);
+    object-fit: cover;
 }
 
 .blog-card-content {

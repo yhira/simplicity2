@@ -2226,6 +2226,7 @@ div.fb-like-mobile{
 img.blog-card-thumb-image{
   width: 100px;
   height: 100px;
+  object-fit: cover;
 }
 
 .blog-card-content{
