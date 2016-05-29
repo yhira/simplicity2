@@ -180,6 +180,8 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
   //add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
 }
 
+//外部サイトから直接OGP情報を取得してブログカードにする
+if ( !function_exists( 'url_to_external_ogp_blog_card_tag' ) ):
 function url_to_external_ogp_blog_card_tag($url){
   if ( !$url ) return;
   $url = strip_tags($url);//URL
@@ -275,3 +277,4 @@ function url_to_external_ogp_blog_card_tag($url){
 
   return $tag;
 }
+endif;

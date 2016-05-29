@@ -2453,8 +2453,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_date_visible', array(
     'settings' => 'blog_card_date_visible',
-    'label' =>'投稿日を表示',
-    'description' => is_tips_visible() ? '投稿日を表示するか。（※内部リンクブログカードのみ）' : '',
+    'label' =>'投稿日を表示（内部リンクのみ）',
+    'description' => is_tips_visible() ? '投稿日を表示するか。' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 800,
