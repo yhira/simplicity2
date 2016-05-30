@@ -197,8 +197,11 @@ function url_to_external_ogp_blog_card_tag($url){
   // var_dump($url);
   // echo('</pre>');
   require_once('open-graph.php');
-
-  $ogp = get_transient( $url_hash );
+  //ブログカードキャッシュ更新モードのとき
+  if ( !is_blog_card_cache_refresh_mode() && is_user_logged_in() ) {
+    //保存したキャッシュを取得
+    $ogp = get_transient( $url_hash );
+  }
 
   if ( empty($ogp) ) {
     $ogp = OpenGraph::fetch( $url );
@@ -221,7 +224,7 @@ function url_to_external_ogp_blog_card_tag($url){
       // }
       $error_rel_nollow = null;
     }
-    set_transient( $url_hash, $ogp, 60 * 60 * 24 * 30 );
+    set_transient( $url_hash, $ogp, 60 * 60 * 24 * get_blog_card_cache_days() );
     // echo('aaaaaaaaaa');
     // echo('<pre>');
     // var_dump($url);
