@@ -879,7 +879,7 @@ if ( is_br_visible_with_mobile() ): ?>
 }
 <?php endif; ?>
 <?php //モバイルメニュータイプがアコーディオンでないとき
-if ( is_mobile() && !(is_mobile_menu_type_accordion() || is_mobile_menu_type_modal()) ): ?>
+if ( (is_mobile() || is_responsive_enable()) && !(is_mobile_menu_type_accordion() || is_mobile_menu_type_modal()) ): ?>
 #site-title{
   margin-right: 0;
 }

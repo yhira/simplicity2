@@ -23,7 +23,7 @@ if ( is_responsive_enable() ): //完全レスポンシブにするか?>
 <?php endif; //モバイル終了?>
 <?php //ビューポート ?>
 <?php //モバイルもしくはページキャシュモードの時
-if ( is_mobile() || is_page_cache_enable() ): ?>
+if ( is_mobile() || is_responsive_enable() || is_page_cache_enable() ): ?>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <?php else: ?>
   <meta name="viewport" content="width=1280, maximum-scale=1, user-scalable=yes">
@@ -34,7 +34,7 @@ if ( is_mobile() || is_page_cache_enable() ): ?>
 ///////////////////////////////////
 //animatedModal.js関連ファイルの呼び出し
 ///////////////////////////////////
-if ( is_mobile_menu_type_modal() && is_mobile() ): ?>
+if ( is_mobile_menu_type_modal() && (is_mobile() || is_responsive_enable()) ): ?>
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/normalize.min.css">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/animate.min.css">
 <?php endif; //モバイル終了?>

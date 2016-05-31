@@ -197,8 +197,8 @@ function url_to_external_ogp_blog_card_tag($url){
   // var_dump($url);
   // echo('</pre>');
   require_once('open-graph.php');
-  //ブログカードキャッシュ更新モードのとき
-  if ( !is_blog_card_cache_refresh_mode() && is_user_logged_in() ) {
+  //ブログカードキャッシュ更新モード、もしくはログインユーザー以外のときはキャッシュの取得
+  if ( !(is_blog_card_cache_refresh_mode() && is_user_logged_in()) ) {
     //保存したキャッシュを取得
     $ogp = get_transient( $url_hash );
   }

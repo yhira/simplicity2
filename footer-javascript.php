@@ -26,7 +26,7 @@ if ( is_hatena_btn_visible() && is_singular() ): ?>
 ///////////////////////////////////
 //animatedModal.js関連ファイルの呼び出し
 ///////////////////////////////////
-if ( is_mobile_menu_type_modal() && is_mobile() ): ?>
+if ( is_mobile_menu_type_modal() && (is_mobile() || is_responsive_enable()) ): ?>
 <!--#mobile-menu-toggleボタンで呼び出される-->
 <div id="animatedModal">
     <div class="close-animatedModal">

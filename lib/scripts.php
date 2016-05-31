@@ -105,16 +105,9 @@ function simplicity_scripts() {
   }
 
   ///////////////////////////////////////////
-  //Simplicityモバイル
+  //モバイルか完全レスポンシブモードのとき
   ///////////////////////////////////////////
-  if ( is_mobile() ) {
-    ///////////////////////////////////////////
-    //完全レスポンシブじゃないときだけモバイルスタイルを読み込む
-    ///////////////////////////////////////////
-    if ( !is_responsive_enable() ) {
-      wp_enqueue_style( 'mobile-style',  get_template_directory_uri() . '/mobile.css', array('simplicity-style') );
-    }
-
+  if ( is_mobile() || is_responsive_enable() ) {
     ///////////////////////////////////////////
     //画面が狭い端末用のnarrow.css
     ///////////////////////////////////////////
@@ -126,18 +119,31 @@ function simplicity_scripts() {
     wp_enqueue_style( 'media-style',  get_template_directory_uri() . '/css/media.css', array('simplicity-style') );
 
     ///////////////////////////////////////////
+    //animatedModal.js関連ファイルの呼び出し
+    ///////////////////////////////////////////
+    if ( is_mobile_menu_type_modal() ) {
+      wp_enqueue_style( 'animatedmodal-normalize-style',  get_template_directory_uri() . '/css/normalize.min.css', array('simplicity-style') );
+      wp_enqueue_style( 'animatedmodal-animate-style',  get_template_directory_uri() . '/css/animate.min.css', array('simplicity-style') );
+    }
+
+  }
+
+  ///////////////////////////////////////////
+  //Simplicityモバイル
+  ///////////////////////////////////////////
+  if ( is_mobile() ) {
+    ///////////////////////////////////////////
+    //完全レスポンシブじゃないときだけモバイルスタイルを読み込む
+    ///////////////////////////////////////////
+    if ( !is_responsive_enable() ) {
+      wp_enqueue_style( 'mobile-style',  get_template_directory_uri() . '/mobile.css', array('simplicity-style') );
+    }
+
+    ///////////////////////////////////////////
     //設定されたスキンがある場合mobile.cssを読み込む
     ///////////////////////////////////////////
     if ( get_skin_file() ) {
       wp_enqueue_style( 'mobile-skin-style',  str_replace('style.css', 'mobile.css', get_skin_file()), array('simplicity-style', 'skin-style', 'mobile-style') );
-    }
-
-    ///////////////////////////////////////////
-    //animatedModal.js関連ファイルの呼び出し
-    ///////////////////////////////////////////
-    if ( is_mobile_menu_type_modal() && is_mobile() ) {
-      wp_enqueue_style( 'animatedmodal-normalize-style',  get_template_directory_uri() . '/css/normalize.min.css', array('simplicity-style') );
-      wp_enqueue_style( 'animatedmodal-animate-style',  get_template_directory_uri() . '/css/animate.min.css', array('simplicity-style') );
     }
 
     ///////////////////////////////////////////

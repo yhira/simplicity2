@@ -11,7 +11,7 @@ if ( get_webmaster_tool_id() ): ?>
 <meta charset="<?php bloginfo('charset'); ?>">
 <?php //ビューポート
 //モバイルもしくはページキャシュモードの時
-if ( is_mobile() || is_page_cache_enable() ): ?>
+if ( is_mobile() || is_responsive_enable() || is_page_cache_enable() ): ?>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <?php else: ?>
   <meta name="viewport" content="width=1280, maximum-scale=1, user-scalable=yes">

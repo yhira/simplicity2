@@ -7,7 +7,7 @@ if ( is_navi_visible() &&
   $button_id = 'mobile-menu-toggle';
   $href_val = '#';
   //モーダルメニューがオンのときIDとhrefの付け替え
-  if ( is_mobile_menu_type_modal() && is_mobile() ) {
+  if ( is_mobile_menu_type_modal() && (is_mobile() || is_responsive_enable()) ) {
     $button_id = 'mobile-menu-modal';
     $href_val = '#animatedModal';
   } ?>
