@@ -161,10 +161,11 @@ if ( !function_exists( 'url_to_external_blog_card' ) ):
 function url_to_external_blog_card($the_content) {
   if ( true /*is_singular()*/ ) {//投稿ページもしくは固定ページのとき
     //1行にURLのみが期待されている行（URL）を全て$mに取得
-    $res = preg_match_all('/^(<p>)?(<a.+?>)?https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+(<\/a>)?(<\/p>)?(<br ? \/>)?$/im', $the_content,$m);
+    $res = preg_match_all('/^(<p>)?(<a.+?>)?https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+(<\/a>)?(<\/p>)?(<br ? \/>)?/im', $the_content,$m);
     //マッチしたURL一つ一つをループしてカードを作成
     foreach ($m[0] as $match) {
       $url = strip_tags($match);//URL
+      echo $url.'<br>';
 
       $tag = url_to_external_blog_card_tag($url);
 
