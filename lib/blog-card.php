@@ -28,6 +28,11 @@ function url_to_blog_card_tag($url){
   if ( is_wordpress_excerpt() && $exce ) {//Wordpress固有の抜粋のとき
     $excerpt = $exce;
   }
+  //ブログカードのサムネイルを右側に
+  $thumbnail_right_class = null;
+  if ( is_blog_card_thumbnail_right() ) {
+    $thumbnail_right_class = ' blog-card-thumbnail-right';
+  }
   //新しいタブで開く場合
   $target = is_blog_card_target_blank() ? ' target="_blank"' : '';
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
@@ -52,7 +57,7 @@ function url_to_blog_card_tag($url){
     $thumbnail = '<img src="'.get_template_directory_uri().'/images/no-image.png" alt="'.$title.'" class="blog-card-thumb-image" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
-  $tag = '<div class="blog-card internal-blog-card cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
+  $tag = '<div class="blog-card internal-blog-card'.$thumbnail_right_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
 
   return $tag;
 }
@@ -224,7 +229,8 @@ function url_to_external_ogp_blog_card_tag($url){
       // }
       $error_rel_nollow = null;
     }
-    set_transient( $url_hash, $ogp, 60 * 60 * 24 * get_blog_card_cache_days() );
+    set_transient( $url_hash, $ogp,
+                   60 * 60 * 24 * get_blog_card_external_cache_days() );
     // echo('aaaaaaaaaa');
     // echo('<pre>');
     // var_dump($url);
@@ -255,7 +261,13 @@ function url_to_external_ogp_blog_card_tag($url){
     // echo('</pre>');
   }
 
-  $excerpt = get_content_excerpt( $excerpt, 300 );
+  $excerpt = get_content_excerpt( $excerpt, 160 );
+
+  //ブログカードのサムネイルを右側に
+  $thumbnail_right_class = null;
+  if ( is_blog_card_external_thumbnail_right() ) {
+    $thumbnail_right_class = ' blog-card-thumbnail-right';
+  }
 
   //新しいタブで開く場合
   $target = is_blog_card_target_blank() ? ' target="_blank"' : '';
@@ -276,7 +288,7 @@ function url_to_external_ogp_blog_card_tag($url){
     $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
-  $tag = '<div class="blog-card external-blog-card cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
+  $tag = '<div class="blog-card external-blog-card'.$thumbnail_right_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
 
   return $tag;
 }
