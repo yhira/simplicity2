@@ -2453,7 +2453,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'blog_card_width_auto', array(
     'settings' => 'blog_card_width_auto',
     'label' =>'カード幅を広げる',
-    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。<div class="admin-custum-label">外部リンクカードの詳細設定</div>' : '',
+    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 900,
@@ -2595,6 +2595,19 @@ function theme_customize_register($wp_customize) {
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 700,
+  ));
+
+  //カード幅を広げる
+  $wp_customize->add_setting('blog_card_external_width_auto', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_width_auto', array(
+    'settings' => 'blog_card_external_width_auto',
+    'label' =>'カード幅を広げる',
+    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 900,
   ));
 
 
@@ -4499,7 +4512,7 @@ function is_blog_card_date_visible(){
   return get_theme_mod( 'blog_card_date_visible', false );
 }
 
-//内部ブログカードのブログカードをカラム幅いっぱいにするか
+//内部ブログカードのカラム幅いっぱいにするか
 function is_blog_card_width_auto(){
   return get_theme_mod( 'blog_card_width_auto', false );
 }
@@ -4547,6 +4560,11 @@ function is_blog_card_external_site_logo_visible(){
 //外部ブログカードのはてブ数を表示するか
 function is_blog_card_external_hatena_visible(){
   return get_theme_mod( 'blog_card_external_hatena_visible', true );
+}
+
+//外部ブログカードのカラム幅いっぱいにするか
+function is_blog_card_external_width_auto(){
+  return get_theme_mod( 'blog_card_external_width_auto', false );
 }
 
 

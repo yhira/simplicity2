@@ -24,20 +24,31 @@ function url_to_blog_card_tag($url){
 
   $title = $post_data->post_title;//タイトルの取得
   $date = mysql2date('Y-m-d H:i', $post_data->post_date);//投稿日の取得
-  $excerpt = get_content_excerpt($post_data->post_content, get_excerpt_length());//抜粋の取得
+  $excerpt = get_content_excerpt($post_data->post_content, get_excerpt_length());
+  //抜粋の取得
   if ( is_wordpress_excerpt() && $exce ) {//Wordpress固有の抜粋のとき
     $excerpt = $exce;
   }
+
   //ブログカードのサムネイルを右側に
   $thumbnail_class = ' blog-card-thumbnail-left';
   if ( is_blog_card_thumbnail_right() ) {
     $thumbnail_class = ' blog-card-thumbnail-right';
   }
+
   //新しいタブで開く場合
   $target = is_blog_card_target_blank() ? ' target="_blank"' : '';
+
+  //ブログカードの幅を広げる
+  $wide_class = null;
+  if ( is_blog_card_width_auto() ) {
+    $wide_class = ' blog-card-wide';
+  }
+
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
   $hatebu_tag = is_blog_card_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
+
   //サイトロゴを表示する場合
   $favicon_tag = '';
   if ( is_favicon_enable() && get_the_favicon_url() ) {//ファビコンが有効か確認
@@ -57,7 +68,7 @@ function url_to_blog_card_tag($url){
     $thumbnail = '<img src="'.get_template_directory_uri().'/images/no-image.png" alt="'.$title.'" class="blog-card-thumb-image" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
-  $tag = '<div class="blog-card internal-blog-card'.$thumbnail_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
+  $tag = '<div class="blog-card internal-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
 
   return $tag;
 }
@@ -165,7 +176,6 @@ function url_to_external_blog_card($the_content) {
     //マッチしたURL一つ一つをループしてカードを作成
     foreach ($m[0] as $match) {
       $url = strip_tags($match);//URL
-      echo $url.'<br>';
 
       $tag = url_to_external_blog_card_tag($url);
 
@@ -272,7 +282,14 @@ function url_to_external_ogp_blog_card_tag($url){
 
   //新しいタブで開く場合
   $target = is_blog_card_external_target_blank() ? ' target="_blank"' : '';
-  $hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
+
+  //ブログカードの幅を広げる
+  $wide_class = null;
+  if ( is_blog_card_external_width_auto() ) {
+    $wide_class = ' blog-card-wide';
+  }
+
+  //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
   $hatebu_tag = is_blog_card_external_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
   //サイトロゴを表示する場合
@@ -289,7 +306,7 @@ function url_to_external_ogp_blog_card_tag($url){
     $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
-  $tag = '<div class="blog-card external-blog-card'.$thumbnail_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
+  $tag = '<div class="blog-card external-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
 
   return $tag;
 }

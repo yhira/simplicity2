@@ -629,9 +629,9 @@ if ( is_ads_custum_ad_space() && !is_mobile() ): ?>
 }
 <?php endif; ?>
 <?php //ブログカードをカラム幅いっぱいにする
-if ( is_blog_card_width_auto() ): ?>
+if ( is_blog_card_width_auto() || is_blog_card_external_width_auto() ): ?>
 /*ブログカードをカラム幅いっぱいにする*/
-.blog-card {
+.blog-card-wide {
   width: calc(100% - 40px);
   margin: 20px;
 }
