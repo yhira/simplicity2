@@ -2183,6 +2183,10 @@ div.fb-like-mobile{
   margin-right: 0;
 }
 
+#sidebar .blog-card-title{
+  font-size: 14px;
+  line-height: 120%;
+}
 
 #sidebar .blog-card-excerpt,
 #sidebar .blog-card-footer{
@@ -2232,6 +2236,7 @@ img.blog-card-thumb-image{
 .blog-card-content{
   margin-left:110px;
   line-height:120%;
+  margin-bottom: 1em;
 }
 .blog-card-title{
   margin-bottom:5px;
@@ -2253,7 +2258,8 @@ img.blog-card-thumb-image{
   color:#777;
   clear:both;
   margin-top: 5px;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+
 }
 
 .blog-card-site{
@@ -2301,9 +2307,10 @@ img.blog-card-thumb-image{
     margin-left: 0;
   }
 
-/*  .blog-card-title{
-    margin-left: 110px;
-  }*/
+  .blog-card-title a{
+    font-size: 14px;
+    line-height: 120%;
+  }
 
   .blog-card-excerpt,
   .blog-card-footer{
