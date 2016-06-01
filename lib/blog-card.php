@@ -282,7 +282,7 @@ function url_to_external_ogp_blog_card_tag($url){
     ////www.google.com/s2/favicons?domain=nelog.jp
     $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_domain_name($url).'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
    }
-  $site_logo_tag = is_blog_card_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. get_domain_name($url) .'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a></div>' : '';
+  $site_logo_tag = is_blog_card_external_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. get_domain_name($url) .'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a></div>' : '';
 
   if ( $image ) {//サムネイルが存在しない場合
     $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" />';

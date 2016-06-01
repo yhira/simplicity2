@@ -2569,6 +2569,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 500,
   ));
 
+  //サイトロゴ表示
+  $wp_customize->add_setting('blog_card_external_site_logo_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_site_logo_visible', array(
+    'settings' => 'blog_card_external_site_logo_visible',
+    'label' =>'サイトロゴを表示',
+    'description' => is_tips_visible() ? 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 600,
+  ));
+
 
   /////////////////////////////
   //ソースコード設定項目の追加
@@ -4509,6 +4523,11 @@ function is_blog_card_external_thumbnail_right(){
 //外部ブログカードリンクを新しいタブで開くか
 function is_blog_card_external_target_blank(){
   return get_theme_mod( 'blog_card_external_target_blank', false );
+}
+
+//外部ブログカードサイトロゴを表示するか
+function is_blog_card_external_site_logo_visible(){
+  return get_theme_mod( 'blog_card_external_site_logo_visible', true );
 }
 
 //外部ブログカードのキャッシュ保存期間を取得
