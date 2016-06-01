@@ -2439,7 +2439,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_date_visible', array(
     'settings' => 'blog_card_date_visible',
-    'label' =>'投稿日を表示（内部リンクのみ）',
+    'label' =>'投稿日を表示',
     'description' => is_tips_visible() ? '投稿日を表示するか。' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
@@ -2581,6 +2581,20 @@ function theme_customize_register($wp_customize) {
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 600,
+  ));
+
+  //はてブ数を表示
+  $wp_customize->add_setting('blog_card_external_hatena_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_hatena_visible', array(
+    'settings' => 'blog_card_external_hatena_visible',
+    'label' =>'はてブ数を表示',
+    'description' => is_tips_visible() ? 'はてなブックマーク数を表示するか。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 700,
   ));
 
 
@@ -4455,37 +4469,37 @@ function is_ads_center(){
   return get_theme_mod( 'ads_center', false );
 }
 
-//ブログカードを有効にするか
+//内部ブログカードを有効にするか
 function is_blog_card_enable(){
   return get_theme_mod( 'blog_card_enable', true );
 }
 
-//ブログカードのサムネイルを右側にするか
+//内部ブログカードのブログカードのサムネイルを右側にするか
 function is_blog_card_thumbnail_right(){
   return get_theme_mod( 'blog_card_thumbnail_right', false );
 }
 
-//ブログカードリンクを新しいタブで開くか
+//内部ブログカードのブログカードリンクを新しいタブで開くか
 function is_blog_card_target_blank(){
   return get_theme_mod( 'blog_card_target_blank', false );
 }
 
-//サイトロゴを表示するか
+//内部ブログカードのサイトロゴを表示するか
 function is_blog_card_site_logo_visible(){
   return get_theme_mod( 'blog_card_site_logo_visible', true );
 }
 
-//はてブ数を表示するか
+//内部ブログカードのはてブ数を表示するか
 function is_blog_card_hatena_visible(){
   return get_theme_mod( 'blog_card_hatena_visible', true );
 }
 
-//日付を表示するか
+//内部ブログカードの日付を表示するか
 function is_blog_card_date_visible(){
   return get_theme_mod( 'blog_card_date_visible', false );
 }
 
-//ブログカードをカラム幅いっぱいにするか
+//内部ブログカードのブログカードをカラム幅いっぱいにするか
 function is_blog_card_width_auto(){
   return get_theme_mod( 'blog_card_width_auto', false );
 }
@@ -4520,22 +4534,28 @@ function is_blog_card_external_thumbnail_right(){
   return get_theme_mod( 'blog_card_external_thumbnail_right', false );
 }
 
-//外部ブログカードリンクを新しいタブで開くか
+//外部ブログカードのリンクを新しいタブで開くか
 function is_blog_card_external_target_blank(){
   return get_theme_mod( 'blog_card_external_target_blank', false );
 }
 
-//外部ブログカードサイトロゴを表示するか
+//外部ブログカードのサイトロゴを表示するか
 function is_blog_card_external_site_logo_visible(){
   return get_theme_mod( 'blog_card_external_site_logo_visible', true );
 }
+
+//外部ブログカードのはてブ数を表示するか
+function is_blog_card_external_hatena_visible(){
+  return get_theme_mod( 'blog_card_external_hatena_visible', true );
+}
+
 
 //外部ブログカードのキャッシュ保存期間を取得
 function get_blog_card_external_cache_days(){
   return get_theme_mod( 'blog_card_external_cache_days', 30 );
 }
 
-//プログカードキャッシュ更新モードか
+//外部ブログカードキャッシュ更新モードか
 function is_blog_card_cache_refresh_mode(){
   return get_theme_mod( 'blog_card_cache_refresh_mode', false );
 }
