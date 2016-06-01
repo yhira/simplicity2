@@ -2197,7 +2197,7 @@ div.fb-like-mobile{
   margin-bottom: 20px;
 }
 
-#sidebar .blog-card-content {
+#sidebar .blog-card-thumbnail-left .blog-card-content {
   margin-left: 90px;
 }
 
@@ -2287,6 +2287,47 @@ img.blog-card-thumb-image{
   width:16px;
   height:16px;
 }
+
+
+/***********************************
+ ブログカード（幅が狭い場合）
+ ***********************************/
+@media screen and (max-width: 560px){
+  .article .blog-card{
+    width: 100%;
+  }
+
+  .blog-card-content{
+    margin-left: 0;
+  }
+
+/*  .blog-card-title{
+    margin-left: 110px;
+  }*/
+
+  .blog-card-excerpt,
+  .blog-card-footer{
+    font-size: 11px;
+    line-height: 120%;
+  }
+
+  .article .blog-card,
+  .commets-list .blog-card{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  img.blog-card-thumb-image{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .blog-card-content {
+    margin-left: 90px;
+  }
+}
+
 
 /* IE10以降 */
 /*@media all and (-ms-high-contrast:none){

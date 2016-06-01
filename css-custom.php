@@ -719,7 +719,7 @@ if ( is_blog_card_thumbnail_right() || is_blog_card_external_thumbnail_right() )
   margin-right: 0px;
 }
 
-.blog-card-thumbnail-right #sidebar .blog-card-content {
+#sidebar .blog-card-thumbnail-right .blog-card-content {
   margin-left: 0;
   margin-right: 90px;
 }
