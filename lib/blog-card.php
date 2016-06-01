@@ -152,12 +152,20 @@ function url_to_external_blog_card_tag($url){
   }
 
   $tag = '';
+
+
+  //ブログカードの幅を広げる
+  $wide_class = null;
+  if ( is_blog_card_external_width_auto() ) {
+    $wide_class = ' blog-card-wide';
+  }
+
   if ( is_blog_card_external_default() ) {
     //Simplicity独自プローブカード（キャッシュ）の利用
     $tag = url_to_external_ogp_blog_card_tag($url);
   } elseif ( is_blog_card_external_hatena() ) {
     //取得した情報からはてなブログカードのHTMLタグを作成
-    $tag = '<'.'iframe '.'class="blog-card external-blog-card-hatena cf" src="//hatenablog-parts.com/embed?url='.$url.'"></'.'iframe'.'>';
+    $tag = '<'.'iframe '.'class="blog-card external-blog-card-hatena'.$wide_class.' cf" src="//hatenablog-parts.com/embed?url='.$url.'"></'.'iframe'.'>';
   } elseif ( is_blog_card_external_embedly() ) {
     //取得した情報からEmbedlyブログカードのHTMLタグを作成
     $tag = '<a class="embedly-card" href="'.$url.'">'.$url.'</a><script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
