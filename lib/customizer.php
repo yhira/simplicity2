@@ -2393,7 +2393,7 @@ function theme_customize_register($wp_customize) {
 
   //ブログカードのリンクを新しいタブで開く
   $wp_customize->add_setting('blog_card_target_blank', array(
-    'default' => true,
+    'default' => false,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'blog_card_target_blank', array(
@@ -2553,6 +2553,20 @@ function theme_customize_register($wp_customize) {
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 400,
+  ));
+
+  //ブログカードのリンクを新しいタブで開く
+  $wp_customize->add_setting('blog_card_external_target_blank', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_target_blank', array(
+    'settings' => 'blog_card_external_target_blank',
+    'label' =>'新しいタブで開く',
+    'description' => is_tips_visible() ? 'ブログカードのリンクをクリックした時に新しいタブで開くか。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 500,
   ));
 
 
@@ -4439,7 +4453,7 @@ function is_blog_card_thumbnail_right(){
 
 //ブログカードリンクを新しいタブで開くか
 function is_blog_card_target_blank(){
-  return get_theme_mod( 'blog_card_target_blank', true );
+  return get_theme_mod( 'blog_card_target_blank', false );
 }
 
 //サイトロゴを表示するか
@@ -4494,7 +4508,7 @@ function is_blog_card_external_thumbnail_right(){
 
 //外部ブログカードリンクを新しいタブで開くか
 function is_blog_card_external_target_blank(){
-  return get_theme_mod( 'blog_card_external_target_blank', true );
+  return get_theme_mod( 'blog_card_external_target_blank', false );
 }
 
 //外部ブログカードのキャッシュ保存期間を取得
