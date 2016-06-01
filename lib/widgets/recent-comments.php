@@ -49,19 +49,22 @@ class RecentCommentsWidgetItem extends WP_Widget {
             foreach ( $comments as $comment ) {
               $url = get_permalink($comment->comment_post_ID);
               echo '<dt>';
-              echo get_avatar( $comment, '38' );
+              echo get_avatar( $comment, '38', null );
               echo '</dt>';
+
               echo '<dd>';
               echo '<div class="recent-comment-author">';
               comment_author($comment->comment_ID);
               echo '</div>';
+
               echo '<div class="recent-comment-date">';
               echo comment_date( get_theme_text_date_format(), $comment->comment_ID);
               echo '</div>';
+
               echo '<div class="recent-comment-title">';
               echo '<a href="'.get_permalink($comment->comment_post_ID).'#comment-'.$comment->comment_ID.'">'.$comment->post_title.'</a>';
               echo '</div>';
-              echo '<div>';
+
               echo '<div class="recent-comment-content"><span class="fa fa-comment-o"></span>&nbsp;';
               $my_pre_comment_content = strip_tags($comment->comment_content);
                if(mb_strlen($my_pre_comment_content,"UTF-8") > $str_count) {
@@ -70,6 +73,7 @@ class RecentCommentsWidgetItem extends WP_Widget {
                 echo $comment->comment_content;
               };
               echo '</div>';
+
               echo '</dd>';
             }
           } else {
