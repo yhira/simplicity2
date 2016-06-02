@@ -2278,11 +2278,14 @@ img.blog-card-thumb-image{
   margin-top: -1px;
 }
 
+.blog-card-site{
+  position:relative;
+  top:-3px;
+}
+
 .blog-card-site a{
   color:#777;
   text-decoration:none;
-  position:relative;
-  top:-3px;
 }
 
 .blog-card-favicon{

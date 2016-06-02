@@ -2419,6 +2419,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 600,
   ));
 
+  //サイトロゴリンク有効
+  $wp_customize->add_setting('blog_card_site_logo_link_enable', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_site_logo_link_enable', array(
+    'settings' => 'blog_card_site_logo_link_enable',
+    'label' =>'サイトロゴリンク有効',
+    'description' => is_tips_visible() ? 'サイトドメインにトップURLへのリンクを貼るかどうか。' : '',
+    'section' => 'blog_card_section',
+    'type' => 'checkbox',
+    'priority' => 650,
+  ));
+
   //はてブ数を表示
   $wp_customize->add_setting('blog_card_hatena_visible', array(
     'default' => true,
@@ -2554,6 +2568,20 @@ function theme_customize_register($wp_customize) {
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 600,
+  ));
+
+  //サイトロゴリンク有効
+  $wp_customize->add_setting('blog_card_external_site_logo_link_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_site_logo_link_enable', array(
+    'settings' => 'blog_card_external_site_logo_link_enable',
+    'label' =>'サイトロゴリンク有効',
+    'description' => is_tips_visible() ? 'サイトドメインにトップURLへのリンクを貼るかどうか。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 650,
   ));
 
   //はてブ数を表示
@@ -4502,6 +4530,11 @@ function is_blog_card_site_logo_visible(){
   return get_theme_mod( 'blog_card_site_logo_visible', true );
 }
 
+//内部ブログカードのサイトロゴリンクを有効にするか
+function is_blog_card_site_logo_link_enable(){
+  return get_theme_mod( 'blog_card_site_logo_link_enable', true );
+}
+
 //内部ブログカードのはてブ数を表示するか
 function is_blog_card_hatena_visible(){
   return get_theme_mod( 'blog_card_hatena_visible', true );
@@ -4555,6 +4588,11 @@ function is_blog_card_external_target_blank(){
 //外部ブログカードのサイトロゴを表示するか
 function is_blog_card_external_site_logo_visible(){
   return get_theme_mod( 'blog_card_external_site_logo_visible', true );
+}
+
+//内部ブログカードのサイトロゴリンクを有効にするか
+function is_blog_card_external_site_logo_link_enable(){
+  return get_theme_mod( 'blog_card_external_site_logo_link_enable', false );
 }
 
 //外部ブログカードのはてブ数を表示するか

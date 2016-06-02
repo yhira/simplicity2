@@ -49,7 +49,7 @@ function url_to_blog_card_tag($url){
   //はてブを表示する場合
   $hatebu_tag = is_blog_card_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
 
-  //サイトロゴを表示する場合
+  //ファビコン
   $favicon_tag = '';
   if ( is_favicon_enable() && get_the_favicon_url() ) {//ファビコンが有効か確認
 
@@ -57,7 +57,18 @@ function url_to_blog_card_tag($url){
     ////www.google.com/s2/favicons?domain=nelog.jp
     $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
   }
-  $site_logo_tag = is_blog_card_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="'.home_url().'"'.$target.'>'.get_this_site_domain().'</a></div>' : '';
+
+  //サイトロゴ
+  if ( is_blog_card_site_logo_visible() ) {
+    if ( is_blog_card_site_logo_link_enable() ) {
+      $site_logo_tag = $favicon_tag.'<a href="'.home_url().'"'.$target.'>'.get_this_site_domain().'</a>';
+    } else {
+      $site_logo_tag = get_this_site_domain();
+    }
+    $site_logo_tag = '<div class="blog-card-site">'.$site_logo_tag.'</div>';
+  }
+
+
   $date_tag = '';
   if ( is_blog_card_date_visible() ) {
     $date_tag = '<div class="blog-card-date">'.$date.'</div>';
@@ -204,6 +215,17 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
   //add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
 }
 
+// function __set_curl_nofollow( &$handle )
+// {
+//     curl_setopt( $handle, CURLOPT_FOLLOWLOCATION, true );
+//     //curl_setopt( $handle,   CURLOPT_RETURNTRANSFER, true );
+//     curl_setopt( $handle, CURLOPT_MAXREDIRS, 10 );
+//     curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
+//     //curl_setopt( $handle, CURLOPT_FOLLOWLOCATION, true );
+//     //curl_setopt( $handle, CURLOPT_NOBODY, true );
+// }
+// add_action( 'http_api_curl', '__set_curl_nofollow', 1 );
+
 //外部サイトから直接OGP情報を取得してブログカードにする
 if ( !function_exists( 'url_to_external_ogp_blog_card_tag' ) ):
 function url_to_external_ogp_blog_card_tag($url){
@@ -216,6 +238,10 @@ function url_to_external_ogp_blog_card_tag($url){
   $image = $error_image;
   $excerpt = '';
   $error_rel_nollow = ' rel="nofollow"';
+
+  //var_dump(WP_Http_Curl::request($url));
+
+
 
   // echo('<pre>');
   // var_dump($url);
@@ -308,7 +334,19 @@ function url_to_external_ogp_blog_card_tag($url){
     ////www.google.com/s2/favicons?domain=nelog.jp
     $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_domain_name($url).'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
    }
-  $site_logo_tag = is_blog_card_external_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. get_domain_name($url) .'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a></div>' : '';
+
+
+  //サイトロゴ
+  if ( is_blog_card_external_site_logo_visible() ) {
+    if ( is_blog_card_external_site_logo_link_enable() ) {
+      $site_logo_tag = $favicon_tag.'<a href="'.get_domain_name($url).'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a>';
+    } else {
+      $site_logo_tag = get_domain_name($url);
+    }
+    $site_logo_tag = '<div class="blog-card-site">'.$site_logo_tag.'</div>';
+  }
+
+  //$site_logo_tag = is_blog_card_external_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. get_domain_name($url) .'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a></div>' : '';
 
   if ( $image ) {//サムネイルが存在しない場合
     $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" />';
