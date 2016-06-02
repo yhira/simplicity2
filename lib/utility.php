@@ -27,6 +27,7 @@ function is_login_name_and_display_name_same(){
 
 //URLからドメインを取得
 function get_domain_name($url){
+  //var_dump(parse_url($url, PHP_URL_HOST));
   return parse_url($url, PHP_URL_HOST);
 }
 

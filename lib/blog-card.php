@@ -339,7 +339,7 @@ function url_to_external_ogp_blog_card_tag($url){
   //サイトロゴ
   if ( is_blog_card_external_site_logo_visible() ) {
     if ( is_blog_card_external_site_logo_link_enable() ) {
-      $site_logo_tag = $favicon_tag.'<a href="'.get_domain_name($url).'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a>';
+      $site_logo_tag = $favicon_tag.'<a href="//'.get_domain_name($url).'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a>';
     } else {
       $site_logo_tag = get_domain_name($url);
     }
