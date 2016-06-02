@@ -238,6 +238,7 @@ function url_to_external_ogp_blog_card_tag($url){
   $image = $error_image;
   $excerpt = '';
   $error_rel_nollow = ' rel="nofollow"';
+  $domain = get_domain_name($url);
 
   //var_dump(WP_Http_Curl::request($url));
 
@@ -306,6 +307,15 @@ function url_to_external_ogp_blog_card_tag($url){
     // echo('</pre>');
   }
 
+  //URLが含まれないとき（相対パスの時）はエラー用の画像を表示
+  //本来なら相対パスでもURLを生成したいところだけど
+  if(strpos($image, '//') === false){
+    // $tmp_url = preg_replace('/[^\/]*$/i', '', $url);
+    // $image = $tmp_url.$image;
+    // var_dump($image);
+    $image = $error_image;
+  }
+
   $excerpt = get_content_excerpt( $excerpt, 160 );
 
   //ブログカードのサムネイルを右側に
@@ -332,21 +342,21 @@ function url_to_external_ogp_blog_card_tag($url){
 
     //GoogleファビコンAPIを利用する
     ////www.google.com/s2/favicons?domain=nelog.jp
-    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_domain_name($url).'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
+    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.$domain.'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
    }
 
 
   //サイトロゴ
   if ( is_blog_card_external_site_logo_visible() ) {
     if ( is_blog_card_external_site_logo_link_enable() ) {
-      $site_logo_tag = $favicon_tag.'<a href="//'.get_domain_name($url).'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a>';
+      $site_logo_tag = $favicon_tag.'<a href="//'.$domain.'"'.$target.$error_rel_nollow.'>'.$domain.'</a>';
     } else {
-      $site_logo_tag = get_domain_name($url);
+      $site_logo_tag = $domain;
     }
     $site_logo_tag = '<div class="blog-card-site">'.$site_logo_tag.'</div>';
   }
 
-  //$site_logo_tag = is_blog_card_external_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. get_domain_name($url) .'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a></div>' : '';
+  //$site_logo_tag = is_blog_card_external_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. $domain .'"'.$target.$error_rel_nollow.'>'.$domain.'</a></div>' : '';
 
   if ( $image ) {//サムネイルが存在しない場合
     $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" />';
