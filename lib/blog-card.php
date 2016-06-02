@@ -307,12 +307,15 @@ function url_to_external_ogp_blog_card_tag($url){
     // echo('</pre>');
   }
 
-  //URLが含まれないとき（相対パスの時）はエラー用の画像を表示
-  //本来なら相対パスでもURLを生成したいところだけど
+
+  //og:imageが相対パスのとき
   if(strpos($image, '//') === false){
+    //相対パス用の処理（$urlと同じドメイン内の相対パスでないとうまくいかない）
     // $tmp_url = preg_replace('/[^\/]*$/i', '', $url);
     // $image = $tmp_url.$image;
     // var_dump($image);
+
+    //相対パスの時はエラー用の画像を表示
     $image = $error_image;
   }
 

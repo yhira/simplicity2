@@ -2478,7 +2478,7 @@ function theme_customize_register($wp_customize) {
   /////////////////////////////
   $wp_customize->add_section( 'blog_card_external_section', array(
     'title'          =>'ブログカード（外部リンク）',
-    'description' => is_tips_visible() ? '外部リンクブログカードに関する設定です。<br><a href="http://wp-simplicity.com/how-to-use-blogcard/" target="_blank" class="example-setting">ブログカードの利用方法</a>' : '',
+    'description' => is_tips_visible() ? '外部リンクブログカードに関する設定です。<br>ブログカード自体の使い方は<a href="http://wp-simplicity.com/how-to-use-blogcard/" target="_blank" class="example-setting">ブログカードの利用方法</a>を。<br>外部リンクブログカードに関する設定は<a href="http://wp-simplicity.com/external-blog-card/" target="_blank">外部ブログカードの設定</a>を参照してください。' : '',
     'priority'       => 98.1,
   ));
 
