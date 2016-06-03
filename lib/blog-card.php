@@ -55,17 +55,17 @@ function url_to_blog_card_tag($url){
 
     //GoogleファビコンAPIを利用する
     ////www.google.com/s2/favicons?domain=nelog.jp
-    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
+    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="" /></span>';
   }
 
   //サイトロゴ
   if ( is_blog_card_site_logo_visible() ) {
     if ( is_blog_card_site_logo_link_enable() ) {
-      $site_logo_tag = $favicon_tag.'<a href="'.home_url().'"'.$target.'>'.get_this_site_domain().'</a>';
+      $site_logo_tag = '<a href="'.home_url().'"'.$target.'>'.get_this_site_domain().'</a>';
     } else {
       $site_logo_tag = get_this_site_domain();
     }
-    $site_logo_tag = '<div class="blog-card-site">'.$site_logo_tag.'</div>';
+    $site_logo_tag = '<div class="blog-card-site">'.$favicon_tag.$site_logo_tag.'</div>';
   }
 
 
@@ -345,24 +345,19 @@ function url_to_external_ogp_blog_card_tag($url){
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
   $hatebu_tag = is_blog_card_external_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
-  //サイトロゴを表示する場合
-  $favicon_tag = '';
-  if ( is_favicon_enable() ) {//ファビコンが有効か確認
 
-    //GoogleファビコンAPIを利用する
-    ////www.google.com/s2/favicons?domain=nelog.jp
-    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.$domain.'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
-   }
-
+  //GoogleファビコンAPIを利用する
+  ////www.google.com/s2/favicons?domain=nelog.jp
+  $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.$domain.'" class="blog-card-favicon-img" alt="" /></span>';
 
   //サイトロゴ
   if ( is_blog_card_external_site_logo_visible() ) {
     if ( is_blog_card_external_site_logo_link_enable() ) {
-      $site_logo_tag = $favicon_tag.'<a href="//'.$domain.'"'.$target.$error_rel_nollow.'>'.$domain.'</a>';
+      $site_logo_tag = '<a href="//'.$domain.'"'.$target.$error_rel_nollow.'>'.$domain.'</a>';
     } else {
       $site_logo_tag = $domain;
     }
-    $site_logo_tag = '<div class="blog-card-site">'.$site_logo_tag.'</div>';
+    $site_logo_tag = '<div class="blog-card-site">'.$favicon_tag.$site_logo_tag.'</div>';
   }
 
   //$site_logo_tag = is_blog_card_external_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. $domain .'"'.$target.$error_rel_nollow.'>'.$domain.'</a></div>' : '';
