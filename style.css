@@ -3529,3 +3529,7 @@ dl.recent-comments dd .recent-comment-author{
 dl.recent-comments dd .recent-comment-content{
   font-size:14px;
 }
+
+.recent-comment-title{
+  clear: both;
+}
