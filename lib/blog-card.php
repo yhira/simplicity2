@@ -238,7 +238,6 @@ function url_to_external_ogp_blog_card_tag($url){
   $image = $error_image;
   $excerpt = '';
   $error_rel_nollow = ' rel="nofollow"';
-  $domain = get_domain_name($url);
 
   //var_dump(WP_Http_Curl::request($url));
 
@@ -270,6 +269,7 @@ function url_to_external_ogp_blog_card_tag($url){
 
       if ( isset( $ogp->image ) )
         $image = $ogp->image;////画像URLの取得
+
       // } else {
       //   $image = get_template_directory_uri() . '/images/no-image.png';
       // }
@@ -307,16 +307,22 @@ function url_to_external_ogp_blog_card_tag($url){
     // echo('</pre>');
   }
 
+  //ドメイン名を取得
+  $domain = get_domain_name(isset($ogp->url) ? $ogp->url : $url);
+
 
   //og:imageが相対パスのとき
   if(strpos($image, '//') === false){
-    //相対パス用の処理（$urlと同じドメイン内の相対パスでないとうまくいかない）
-    // $tmp_url = preg_replace('/[^\/]*$/i', '', $url);
-    // $image = $tmp_url.$image;
-    // var_dump($image);
-
     //相対パスの時はエラー用の画像を表示
     $image = $error_image;
+
+    // //OGPのURL情報があるか
+    // if ( isset($ogp->url) ) {
+    //   //相対パス用の処理（$urlと同じドメイン内の相対パスでないとうまくいかない）
+    //   $tmp_url = preg_replace('/[^\/]*$/i', '', $ogp->url);
+    //   $image = $tmp_url.$image;
+    //   // var_dump($image);
+    // }
   }
 
   $excerpt = get_content_excerpt( $excerpt, 160 );
