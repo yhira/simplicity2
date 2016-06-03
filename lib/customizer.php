@@ -2421,7 +2421,7 @@ function theme_customize_register($wp_customize) {
 
   //サイトロゴリンク有効
   $wp_customize->add_setting('blog_card_site_logo_link_enable', array(
-    'default' => true,
+    'default' => false,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'blog_card_site_logo_link_enable', array(
@@ -4532,7 +4532,7 @@ function is_blog_card_site_logo_visible(){
 
 //内部ブログカードのサイトロゴリンクを有効にするか
 function is_blog_card_site_logo_link_enable(){
-  return get_theme_mod( 'blog_card_site_logo_link_enable', true );
+  return get_theme_mod( 'blog_card_site_logo_link_enable', false );
 }
 
 //内部ブログカードのはてブ数を表示するか
