@@ -2613,13 +2613,13 @@ function theme_customize_register($wp_customize) {
 
   //キャッシュの保存期間
   $wp_customize->add_setting('blog_card_external_cache_days', array(
-    'default' => 30,
+    'default' => 90,
     'sanitize_callback' => 'sanitize_cache_days',
   ));
   $wp_customize->add_control( 'blog_card_external_cache_days', array(
     'settings' => 'blog_card_external_cache_days',
     'label' => '外部ブログカードキャシュ保存日数',
-    'description' => is_tips_visible() ? '外部リンクカードが「ブログカード」になっている時のOGP情報キャッシュを保存する期間を設定します。設定範囲は1～365日です。短くすると、キャッシュの更新は早いですが表示速度が遅くなったり、先方のサーバーに負荷がかかります。' : '',
+    'description' => is_tips_visible() ? '外部リンクカードが「ブログカード」になっている時のOGP情報キャッシュを保存する期間を設定します。設定範囲は7～365日です。短くすると、キャッシュの更新は早いですが表示速度が遅くなったり、先方のサーバーに負荷がかかります。' : '',
     'section' => 'blog_card_external_section',
     'type' => 'number',
     'priority'=> 1100,
@@ -4608,7 +4608,7 @@ function is_blog_card_external_width_auto(){
 
 //外部ブログカードのキャッシュ保存期間を取得
 function get_blog_card_external_cache_days(){
-  return get_theme_mod( 'blog_card_external_cache_days', 30 );
+  return get_theme_mod( 'blog_card_external_cache_days', 90 );
 }
 
 //外部ブログカードキャッシュ更新モードか

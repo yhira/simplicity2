@@ -7,8 +7,8 @@ function sanitize_text( $str ) {
 }
 
 function sanitize_cache_days( $int ) {
-  if ( $int < 1 ) {
-    $int = 1;
+  if ( $int < 7 ) {
+    $int = 7;
   }
   if ( $int > 365 ) {
     $int = 365;

@@ -226,6 +226,22 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
 // }
 // add_action( 'http_api_curl', '__set_curl_nofollow', 1 );
 
+function remove_directory($dir) {
+  if ($handle = opendir("$dir")) {
+    while (false !== ($item = readdir($handle))) {
+      if ($item != "." && $item != "..") {
+        if (is_dir("$dir/$item")) {
+          remove_directory("$dir/$item");
+        } else {
+          unlink("$dir/$item");
+        }
+      }
+    }
+  closedir($handle);
+  rmdir($dir);
+  }
+}
+
 function fetch_card_image($image){
   if ( WP_Filesystem() ) {//WP_Filesystemの初期化
     global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
@@ -237,10 +253,10 @@ function fetch_card_image($image){
       $ext = $temp_ext;
     }
     //画像編集作業用ディレクトリ
-    $dir = ABSPATH.'wp-content/uploads/temp/';
+    $dir = ABSPATH.'wp-content/uploads/simplicity-temp-314159265/';
     //ディレクトリがないときには作成する
     if ( !file_exists($dir) ) {
-      mkdir($dir, 666);
+      mkdir($dir, 0777);
     }
     //ローカル画像ファイルパス
     $new_file = $dir.$filename;
@@ -259,7 +275,8 @@ function fetch_card_image($image){
         }
       }
       $image = base64_encode($file_data);
-      $wp_filesystem->delete($new_file);
+      //$wp_filesystem->delete($new_file);
+      remove_directory($dir);
       return 'data:image/'.$ext.';base64,'.$image;
     }
   }
@@ -278,7 +295,8 @@ function url_to_external_ogp_blog_card_tag($url){
   $image = $error_image;
   $excerpt = '';
   $error_rel_nollow = ' rel="nofollow"';
-
+  //画像編集作業用ディレクトリ
+  //$dir = ABSPATH.'wp-content/uploads/excard-images-314159265/';
   //var_dump(WP_Http_Curl::request($url));
 
 
@@ -300,6 +318,12 @@ function url_to_external_ogp_blog_card_tag($url){
       // $excerpt = '';
       // $image = get_template_directory_uri() . '/images/no-image.png';
     } else {
+      //base64画像の取得
+      $res = fetch_card_image($ogp->image);
+      if ( $res ) {
+        $ogp->image = $res;
+      }
+
       if ( isset( $ogp->title ) )
         //$title = mb_convert_encoding($ogp->title, "UTF-8", "auto");
         $title = $ogp->title;//タイトルの取得
@@ -315,6 +339,8 @@ function url_to_external_ogp_blog_card_tag($url){
       // }
       $error_rel_nollow = null;
     }
+
+    //var_dump($ogp->image);
     set_transient( $url_hash, $ogp,
                    60 * 60 * 24 * get_blog_card_external_cache_days() );
     // echo('aaaaaaaaaa');
@@ -352,7 +378,8 @@ function url_to_external_ogp_blog_card_tag($url){
 
 
   //og:imageが相対パスのとき
-  if(strpos($image, '//') === false){    // //OGPのURL情報があるか
+  if(!$image || ((strpos($image, 'data:image/') === false) && (strpos($image, '//') === false))){    // //OGPのURL情報があるか
+  //if(strpos($image, '//') === false){    // //OGPのURL情報があるか
 
     // //OGPのURL情報があるか
     // if ( isset($ogp->url) ) {
@@ -383,14 +410,10 @@ function url_to_external_ogp_blog_card_tag($url){
     //   // var_dump($image);
     // }
   } else {
-    $res = fetch_card_image($image);
-    if ( $res ) {
-      $image = $res;
-    }
-
-
-    // $image = base64_encode(file_get_contents($image));
-    // $image = 'data:image/gif;base64,'.$image;
+    // $res = fetch_card_image($image);
+    // if ( $res ) {
+    //   $image = $res;
+    // }
   }
 
   $excerpt = get_content_excerpt( $excerpt, 160 );
