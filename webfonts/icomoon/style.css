@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?xn3dcp');
-    src:    url('fonts/icomoon.eot?xn3dcp#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?xn3dcp') format('truetype'),
-        url('fonts/icomoon.woff?xn3dcp') format('woff'),
-        url('fonts/icomoon.svg?xn3dcp#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?szquq3');
+    src:    url('fonts/icomoon.eot?szquq3#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?szquq3') format('truetype'),
+        url('fonts/icomoon.woff?szquq3') format('woff'),
+        url('fonts/icomoon.svg?szquq3#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -27,9 +27,6 @@
 .icon-facebook-logo:before {
     content: "\e92d";
 }
-.icon-youtube-logo:before {
-    content: "\e938";
-}
 .icon-feedly-logo:before {
     content: "\e92e";
 }
@@ -45,20 +42,29 @@
 .icon-instagram-logo:before {
     content: "\e932";
 }
-.icon-line-logo:before {
+.icon-instagram-logo-new:before {
     content: "\e933";
 }
-.icon-pinterest-logo:before {
+.icon-instagram-logo-new-sq:before {
     content: "\e934";
 }
-.icon-push7-logo:before {
+.icon-line-logo:before {
     content: "\e935";
 }
-.icon-rss-logo:before {
+.icon-pinterest-logo:before {
     content: "\e936";
 }
-.icon-twitter-logo:before {
+.icon-push7-logo:before {
     content: "\e937";
+}
+.icon-rss-logo:before {
+    content: "\e938";
+}
+.icon-twitter-logo:before {
+    content: "\e939";
+}
+.icon-youtube-logo:before {
+    content: "\e93a";
 }
 .icon-line-sq:before {
     content: "\e905";

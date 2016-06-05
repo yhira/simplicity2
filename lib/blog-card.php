@@ -24,24 +24,51 @@ function url_to_blog_card_tag($url){
 
   $title = $post_data->post_title;//タイトルの取得
   $date = mysql2date('Y-m-d H:i', $post_data->post_date);//投稿日の取得
-  $excerpt = get_content_excerpt($post_data->post_content, get_excerpt_length());//抜粋の取得
+  $excerpt = get_content_excerpt($post_data->post_content, get_excerpt_length());
+  //抜粋の取得
   if ( is_wordpress_excerpt() && $exce ) {//Wordpress固有の抜粋のとき
     $excerpt = $exce;
   }
+
+  //ブログカードのサムネイルを右側に
+  $thumbnail_class = ' blog-card-thumbnail-left';
+  if ( is_blog_card_thumbnail_right() ) {
+    $thumbnail_class = ' blog-card-thumbnail-right';
+  }
+
   //新しいタブで開く場合
   $target = is_blog_card_target_blank() ? ' target="_blank"' : '';
+
+  //ブログカードの幅を広げる
+  $wide_class = null;
+  if ( is_blog_card_width_auto() ) {
+    $wide_class = ' blog-card-wide';
+  }
+
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
   $hatebu_tag = is_blog_card_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
-  //サイトロゴを表示する場合
+
+  //ファビコン
   $favicon_tag = '';
   if ( is_favicon_enable() && get_the_favicon_url() ) {//ファビコンが有効か確認
 
     //GoogleファビコンAPIを利用する
     ////www.google.com/s2/favicons?domain=nelog.jp
-    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
+    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="" /></span>';
   }
-  $site_logo_tag = is_blog_card_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="'.home_url().'"'.$target.'>'.get_this_site_domain().'</a></div>' : '';
+
+  //サイトロゴ
+  if ( is_blog_card_site_logo_visible() ) {
+    if ( is_blog_card_site_logo_link_enable() ) {
+      $site_logo_tag = '<a href="'.home_url().'"'.$target.'>'.get_this_site_domain().'</a>';
+    } else {
+      $site_logo_tag = get_this_site_domain();
+    }
+    $site_logo_tag = '<div class="blog-card-site">'.$favicon_tag.$site_logo_tag.'</div>';
+  }
+
+
   $date_tag = '';
   if ( is_blog_card_date_visible() ) {
     $date_tag = '<div class="blog-card-date">'.$date.'</div>';
@@ -52,7 +79,7 @@ function url_to_blog_card_tag($url){
     $thumbnail = '<img src="'.get_template_directory_uri().'/images/no-image.png" alt="'.$title.'" class="blog-card-thumb-image" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
-  $tag = '<div class="blog-card internal-blog-card cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
+  $tag = '<div class="blog-card internal-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
 
   return $tag;
 }
@@ -136,12 +163,20 @@ function url_to_external_blog_card_tag($url){
   }
 
   $tag = '';
+
+
+  //ブログカードの幅を広げる
+  $wide_class = null;
+  if ( is_blog_card_external_width_auto() ) {
+    $wide_class = ' blog-card-wide';
+  }
+
   if ( is_blog_card_external_default() ) {
     //Simplicity独自プローブカード（キャッシュ）の利用
     $tag = url_to_external_ogp_blog_card_tag($url);
   } elseif ( is_blog_card_external_hatena() ) {
     //取得した情報からはてなブログカードのHTMLタグを作成
-    $tag = '<'.'iframe '.'class="blog-card external-blog-card-hatena cf" src="//hatenablog-parts.com/embed?url='.$url.'"></'.'iframe'.'>';
+    $tag = '<'.'iframe '.'class="blog-card external-blog-card-hatena'.$wide_class.' cf" src="//hatenablog-parts.com/embed?url='.$url.'"></'.'iframe'.'>';
   } elseif ( is_blog_card_external_embedly() ) {
     //取得した情報からEmbedlyブログカードのHTMLタグを作成
     $tag = '<a class="embedly-card" href="'.$url.'">'.$url.'</a><script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
@@ -156,7 +191,7 @@ if ( !function_exists( 'url_to_external_blog_card' ) ):
 function url_to_external_blog_card($the_content) {
   if ( true /*is_singular()*/ ) {//投稿ページもしくは固定ページのとき
     //1行にURLのみが期待されている行（URL）を全て$mに取得
-    $res = preg_match_all('/^(<p>)?(<a.+?>)?https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+(<\/a>)?(<\/p>)?(<br ? \/>)?$/im', $the_content,$m);
+    $res = preg_match_all('/^(<p>)?(<a.+?>)?https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+(<\/a>)?(<\/p>)?(<br ? \/>)?/im', $the_content,$m);
     //マッチしたURL一つ一つをループしてカードを作成
     foreach ($m[0] as $match) {
       $url = strip_tags($match);//URL
@@ -180,6 +215,73 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
   //add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
 }
 
+// function __set_curl_nofollow( &$handle )
+// {
+//     curl_setopt( $handle, CURLOPT_FOLLOWLOCATION, true );
+//     //curl_setopt( $handle,   CURLOPT_RETURNTRANSFER, true );
+//     curl_setopt( $handle, CURLOPT_MAXREDIRS, 10 );
+//     curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
+//     //curl_setopt( $handle, CURLOPT_FOLLOWLOCATION, true );
+//     //curl_setopt( $handle, CURLOPT_NOBODY, true );
+// }
+// add_action( 'http_api_curl', '__set_curl_nofollow', 1 );
+
+function remove_directory($dir) {
+  if ($handle = opendir("$dir")) {
+    while (false !== ($item = readdir($handle))) {
+      if ($item != "." && $item != "..") {
+        if (is_dir("$dir/$item")) {
+          remove_directory("$dir/$item");
+        } else {
+          unlink("$dir/$item");
+        }
+      }
+    }
+  closedir($handle);
+  rmdir($dir);
+  }
+}
+
+function fetch_card_image($image){
+  if ( WP_Filesystem() ) {//WP_Filesystemの初期化
+    global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
+    $filename = substr($image, (strrpos($image, '/'))+1);
+    //拡張子取得
+    $ext = 'png';
+    $temp_ext = preg_replace('/^.*\.([^.]+)$/D', '$1', $filename);
+    if ( $temp_ext ) {
+      $ext = $temp_ext;
+    }
+    //画像編集作業用ディレクトリ
+    $dir = ABSPATH.'wp-content/uploads/simplicity-temp-314159265/';
+    //ディレクトリがないときには作成する
+    if ( !file_exists($dir) ) {
+      mkdir($dir, 0777);
+    }
+    //ローカル画像ファイルパス
+    $new_file = $dir.$filename;
+    //$wp_filesystemオブジェクトのメソッドとしてファイルを取得する
+    $file_data = @$wp_filesystem->get_contents($image);
+    if ( $file_data ) {
+      $wp_filesystem->put_contents($new_file, $file_data);
+      //画像編集オブジェクトの作成
+      $image_editor = wp_get_image_editor($new_file);
+      if ( !is_wp_error($image_editor) ) {
+        $image_editor->resize(100, 100, true);
+        $image_editor->save( $new_file );
+        $file_data = @$wp_filesystem->get_contents($new_file);
+        if ( !$file_data ) {
+          return null;
+        }
+      }
+      $image = base64_encode($file_data);
+      //$wp_filesystem->delete($new_file);
+      remove_directory($dir);
+      return 'data:image/'.$ext.';base64,'.$image;
+    }
+  }
+}
+
 //外部サイトから直接OGP情報を取得してブログカードにする
 if ( !function_exists( 'url_to_external_ogp_blog_card_tag' ) ):
 function url_to_external_ogp_blog_card_tag($url){
@@ -188,17 +290,23 @@ function url_to_external_ogp_blog_card_tag($url){
   $url_hash = md5( $url );
   $error_title = 'This page is error.';
   $title = $error_title;
-  $error_image = get_template_directory_uri() . '/images/no-image.png';
+  $error_image = 'http://capture.heartrails.com/100x100/shorten?'.$url;
+  //$error_image = get_template_directory_uri() . '/images/no-image.png';
   $image = $error_image;
   $excerpt = '';
   $error_rel_nollow = ' rel="nofollow"';
+  //画像編集作業用ディレクトリ
+  //$dir = ABSPATH.'wp-content/uploads/excard-images-314159265/';
+  //var_dump(WP_Http_Curl::request($url));
+
+
 
   // echo('<pre>');
   // var_dump($url);
   // echo('</pre>');
   require_once('open-graph.php');
   //ブログカードキャッシュ更新モード、もしくはログインユーザー以外のときはキャッシュの取得
-  if ( !(is_blog_card_cache_refresh_mode() && is_user_logged_in()) ) {
+  if ( !(is_blog_card_external_cache_refresh_mode() && is_user_logged_in()) ) {
     //保存したキャッシュを取得
     $ogp = get_transient( $url_hash );
   }
@@ -210,6 +318,12 @@ function url_to_external_ogp_blog_card_tag($url){
       // $excerpt = '';
       // $image = get_template_directory_uri() . '/images/no-image.png';
     } else {
+      //base64画像の取得
+      $res = fetch_card_image($ogp->image);
+      if ( $res ) {
+        $ogp->image = $res;
+      }
+
       if ( isset( $ogp->title ) )
         //$title = mb_convert_encoding($ogp->title, "UTF-8", "auto");
         $title = $ogp->title;//タイトルの取得
@@ -219,12 +333,16 @@ function url_to_external_ogp_blog_card_tag($url){
 
       if ( isset( $ogp->image ) )
         $image = $ogp->image;////画像URLの取得
+
       // } else {
       //   $image = get_template_directory_uri() . '/images/no-image.png';
       // }
       $error_rel_nollow = null;
     }
-    set_transient( $url_hash, $ogp, 60 * 60 * 24 * get_blog_card_cache_days() );
+
+    //var_dump($ogp->image);
+    set_transient( $url_hash, $ogp,
+                   60 * 60 * 24 * get_blog_card_external_cache_days() );
     // echo('aaaaaaaaaa');
     // echo('<pre>');
     // var_dump($url);
@@ -255,28 +373,91 @@ function url_to_external_ogp_blog_card_tag($url){
     // echo('</pre>');
   }
 
-  $excerpt = get_content_excerpt( $excerpt, 300 );
+  //ドメイン名を取得
+  $domain = get_domain_name(isset($ogp->url) ? $ogp->url : $url);
+
+
+  //og:imageが相対パスのとき
+  if(!$image || ((strpos($image, 'data:image/') === false) && (strpos($image, '//') === false))){    // //OGPのURL情報があるか
+  //if(strpos($image, '//') === false){    // //OGPのURL情報があるか
+
+    // //OGPのURL情報があるか
+    // if ( isset($ogp->url) ) {
+    //   //相対パス用の処理（$urlと同じドメイン内の相対パスでないとうまくいかない）
+    //   $tmp_url = preg_replace('/[^\/]*$/i', '', $ogp->url);
+
+    //   var_dump($tmp_url);
+    //   $tmp_url = $tmp_url.$image;
+    //   //$tmp_url = str_replace('//a', '/a', $tmp_url);
+
+    //   $res = fetch_card_image($tmp_url);
+    //   if ( $res ) {
+    //     $image = $res;
+    //   } else {
+    //     $image = $error_image;
+    //   }
+    // } else {
+    //   $image = $error_image;
+    // }
+    //相対パスの時はエラー用の画像を表示
+    $image = $error_image;
+
+    // //OGPのURL情報があるか
+    // if ( isset($ogp->url) ) {
+    //   //相対パス用の処理（$urlと同じドメイン内の相対パスでないとうまくいかない）
+    //   $tmp_url = preg_replace('/[^\/]*$/i', '', $ogp->url);
+    //   $image = $tmp_url.$image;
+    //   // var_dump($image);
+    // }
+  } else {
+    // $res = fetch_card_image($image);
+    // if ( $res ) {
+    //   $image = $res;
+    // }
+  }
+
+  $excerpt = get_content_excerpt( $excerpt, 160 );
+
+  //ブログカードのサムネイルを右側に
+  $thumbnail_class = ' blog-card-thumbnail-left';
+  if ( is_blog_card_external_thumbnail_right() ) {
+    $thumbnail_class = ' blog-card-thumbnail-right';
+  }
 
   //新しいタブで開く場合
-  $target = is_blog_card_target_blank() ? ' target="_blank"' : '';
-  $hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
-  //はてブを表示する場合
-  $hatebu_tag = is_blog_card_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
-  //サイトロゴを表示する場合
-  $favicon_tag = '';
-  if ( is_favicon_enable() ) {//ファビコンが有効か確認
+  $target = is_blog_card_external_target_blank() ? ' target="_blank"' : '';
 
-    //GoogleファビコンAPIを利用する
-    ////www.google.com/s2/favicons?domain=nelog.jp
-    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_domain_name($url).'" class="blog-card-favicon-img" alt="ファビコン" /></span>';
-   }
-  $site_logo_tag = is_blog_card_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. get_domain_name($url) .'"'.$target.$error_rel_nollow.'>'.get_domain_name($url).'</a></div>' : '';
+  //ブログカードの幅を広げる
+  $wide_class = null;
+  if ( is_blog_card_external_width_auto() ) {
+    $wide_class = ' blog-card-wide';
+  }
+
+  //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
+  //はてブを表示する場合
+  $hatebu_tag = is_blog_card_external_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
+
+  //GoogleファビコンAPIを利用する
+  ////www.google.com/s2/favicons?domain=nelog.jp
+  $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.$domain.'" class="blog-card-favicon-img" alt="" /></span>';
+
+  //サイトロゴ
+  if ( is_blog_card_external_site_logo_visible() ) {
+    if ( is_blog_card_external_site_logo_link_enable() ) {
+      $site_logo_tag = '<a href="//'.$domain.'"'.$target.$error_rel_nollow.'>'.$domain.'</a>';
+    } else {
+      $site_logo_tag = $domain;
+    }
+    $site_logo_tag = '<div class="blog-card-site">'.$favicon_tag.$site_logo_tag.'</div>';
+  }
+
+  //$site_logo_tag = is_blog_card_external_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. $domain .'"'.$target.$error_rel_nollow.'>'.$domain.'</a></div>' : '';
 
   if ( $image ) {//サムネイルが存在しない場合
     $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
-  $tag = '<div class="blog-card external-blog-card cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
+  $tag = '<div class="blog-card external-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
 
   return $tag;
 }

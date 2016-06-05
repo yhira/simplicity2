@@ -28,7 +28,7 @@ a {
 <?php endif; ?>
 <?php //リンクホバー色
 if ( $link_hover_color != LINK_HOVER_COLOR): ?>
-a:hover:not(.balloon-btn-link):not(.btn-icon-link),
+a:hover:not(.balloon-btn-link):not(.btn-icon-link):not(.arrow-box-link),
 .widget_new_entries a:hover,
 .widget_new_popular a:hover,
 .widget_popular_ranking a:hover,
@@ -629,9 +629,9 @@ if ( is_ads_custum_ad_space() && !is_mobile() ): ?>
 }
 <?php endif; ?>
 <?php //ブログカードをカラム幅いっぱいにする
-if ( is_blog_card_width_auto() ): ?>
+if ( is_blog_card_width_auto() || is_blog_card_external_width_auto() ): ?>
 /*ブログカードをカラム幅いっぱいにする*/
-.blog-card {
+.blog-card-wide {
   width: calc(100% - 40px);
   margin: 20px;
 }
@@ -702,49 +702,50 @@ if ( is_related_entry_type_thumbnail4() ): ?>
 }
 <?php endif; ?>
 <?php //ブログカードのサムネイルを右側にする
-if ( is_blog_card_thumbnail_right() ): ?>
+//if ( is_blog_card_thumbnail_right() ):
+if ( is_blog_card_thumbnail_right() || is_blog_card_external_thumbnail_right() ): ?>
 /*ブログカードのサムネイルを右側に*/
-.blog-card-thumbnail {
+.blog-card-thumbnail-right .blog-card-thumbnail {
   float: right;
 }
 
-.blog-card-content {
+.blog-card-thumbnail-right .blog-card-content {
   margin-left: 0;
   margin-right: 110px;
 }
 
-img.blog-card-thumb-image{
+.blog-card-thumbnail-right img.blog-card-thumb-image{
   margin-left: 10px;
   margin-right: 0px;
 }
 
-#sidebar .blog-card-content {
+#sidebar .blog-card-thumbnail-right .blog-card-content {
   margin-left: 0;
   margin-right: 90px;
 }
 
 
 @media screen and (max-width: 560px){
-  .blog-card-content {
+  .blog-card-thumbnail-right .blog-card-content {
     margin-right: 90px;
   }
-  .blog-card-title {
+  .blog-card-thumbnail-right .blog-card-title {
     margin-left: 0;
   }
-  img.blog-card-thumb-image{
+  .blog-card-thumbnail-right img.blog-card-thumb-image{
     margin-left: 5px;
     margin-right: 0px;
   }
 }
 
 /*@media screen and (max-width:440px){
-  .blog-card-content {
+  .blog-card-thumbnail-right .blog-card-content {
     margin-right: 0;
   }
-  .blog-card-title {
+  .blog-card-thumbnail-right .blog-card-title {
     margin-left: 0;
   }
-  img.blog-card-thumb-image{
+  .blog-card-thumbnail-right img.blog-card-thumb-image{
     margin-left: 5px;
     margin-right: 0px;
   }

@@ -2359,8 +2359,8 @@ function theme_customize_register($wp_customize) {
   //ブログカード設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'blog_card_section', array(
-    'title'          =>'ブログカード',
-    'description' => is_tips_visible() ? '内部リンクブログカード、外部リンクブログカードに関する設定です。<br><a href="http://wp-simplicity.com/how-to-use-blogcard/" target="_blank" class="example-setting">ブログカードの利用方法</a>' : '',
+    'title'          =>'ブログカード（内部リンク）',
+    'description' => is_tips_visible() ? '内部リンクブログカードに関する設定です。<br><a href="http://wp-simplicity.com/how-to-use-blogcard/" target="_blank" class="example-setting">ブログカードの利用方法</a>' : '',
     'priority'       => 98,
   ));
 
@@ -2371,25 +2371,11 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_enable', array(
     'settings' => 'blog_card_enable',
-    'label' =>'内部リンクのブログカード有効',
+    'label' =>'ブログカード有効',
     'description' => is_tips_visible() ? 'サイト内のURL（内部リンク）を入力するとブログカードとして表示します。' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 100,
-  ));
-
-  //外部リンクもブログカードにする
-  $wp_customize->add_setting('blog_card_external_enable', array(
-    'default' => false,
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'blog_card_external_enable', array(
-    'settings' => 'blog_card_external_enable',
-    'label' =>'外部リンクのブログカード有効',
-    'description' => is_tips_visible() ? '投稿時に外部リンクのみを記入するとブログカードを表示します。' : '',
-    'section' => 'blog_card_section',
-    'type' => 'checkbox',
-    'priority' => 200,
   ));
 
   //ブログカードのサムネイルを右側にする
@@ -2407,7 +2393,7 @@ function theme_customize_register($wp_customize) {
 
   //ブログカードのリンクを新しいタブで開く
   $wp_customize->add_setting('blog_card_target_blank', array(
-    'default' => true,
+    'default' => false,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'blog_card_target_blank', array(
@@ -2433,6 +2419,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 600,
   ));
 
+  //サイトロゴリンク有効
+  $wp_customize->add_setting('blog_card_site_logo_link_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_site_logo_link_enable', array(
+    'settings' => 'blog_card_site_logo_link_enable',
+    'label' =>'サイトロゴリンク有効',
+    'description' => is_tips_visible() ? 'サイトドメインにトップURLへのリンクを貼るかどうか。' : '',
+    'section' => 'blog_card_section',
+    'type' => 'checkbox',
+    'priority' => 650,
+  ));
+
   //はてブ数を表示
   $wp_customize->add_setting('blog_card_hatena_visible', array(
     'default' => true,
@@ -2453,7 +2453,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_date_visible', array(
     'settings' => 'blog_card_date_visible',
-    'label' =>'投稿日を表示（内部リンクのみ）',
+    'label' =>'投稿日を表示',
     'description' => is_tips_visible() ? '投稿日を表示するか。' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
@@ -2467,10 +2467,33 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'blog_card_width_auto', array(
     'settings' => 'blog_card_width_auto',
     'label' =>'カード幅を広げる',
-    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。<div class="admin-custum-label">外部リンクカードの詳細設定</div>' : '',
+    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。' : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 900,
+  ));
+
+  /////////////////////////////
+  //外部ブログカード設定項目の追加
+  /////////////////////////////
+  $wp_customize->add_section( 'blog_card_external_section', array(
+    'title'          =>'ブログカード（外部リンク）',
+    'description' => is_tips_visible() ? '外部リンクブログカードに関する設定です。<br>ブログカード自体の使い方は<a href="http://wp-simplicity.com/how-to-use-blogcard/" target="_blank" class="example-setting">ブログカードの利用方法</a>を。<br>外部リンクブログカードに関する設定は<a href="http://wp-simplicity.com/external-blog-card/" target="_blank">外部ブログカードの設定</a>を参照してください。' : '',
+    'priority'       => 98.1,
+  ));
+
+  //外部URLをブログカードにする
+  $wp_customize->add_setting('blog_card_external_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_enable', array(
+    'settings' => 'blog_card_external_enable',
+    'label' =>'ブログカード有効',
+    'description' => is_tips_visible() ? '投稿時に外部リンクURLのみを記入するとブログカードを表示します。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 100,
   ));
 
   //外部ブログカードタイプ
@@ -2481,40 +2504,136 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'blog_card_external_type', array(
     'settings' => 'blog_card_external_type',
     'label' =>'外部ブログカードタイプ',
-    'description' => is_tips_visible() ? '外部リンク表示用のプラットホームを選択します。（※ブログカードはSimplicity独自のブログをカードで、外部リンクのOGP情報を取得して表示します）' : '',
-    'section' => 'blog_card_section',
+    'description' => is_tips_visible() ? '外部リンク用のブログカードのタイプ設定です。「はてなカード」と「Embedlyカード」は以降の細かな設定はできません。' : '',
+    'section' => 'blog_card_external_section',
     'type' => 'radio',
     'choices'    => array(
       'default' => 'ブログカード（独自キャッシュ）',
       'hatena' => 'はてなカード',
       'embedly' => 'Embedlyカード',
     ),
-    'priority' => 1000,
+    'priority' => 200,
+  ));
+
+  //ブログカードのサムネイルを右側にする
+  $wp_customize->add_setting('blog_card_external_thumbnail_right', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_thumbnail_right', array(
+    'settings' => 'blog_card_external_thumbnail_right',
+    'label' =>'サムネイルを右側にする',
+    'description' => is_tips_visible() ? 'ブログカードのサムネイルを右側に表示するか。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 300,
+  ));
+
+  //ブログカードのリンクを新しいタブで開く
+  $wp_customize->add_setting('blog_card_external_target_blank', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_target_blank', array(
+    'settings' => 'blog_card_external_target_blank',
+    'label' =>'新しいタブで開く',
+    'description' => is_tips_visible() ? 'ブログカードのリンクをクリックした時に新しいタブで開くか。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 400,
+  ));
+
+  //ブログカードのリンクを新しいタブで開く
+  $wp_customize->add_setting('blog_card_external_target_blank', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_target_blank', array(
+    'settings' => 'blog_card_external_target_blank',
+    'label' =>'新しいタブで開く',
+    'description' => is_tips_visible() ? 'ブログカードのリンクをクリックした時に新しいタブで開くか。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 500,
+  ));
+
+  //サイトロゴ表示
+  $wp_customize->add_setting('blog_card_external_site_logo_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_site_logo_visible', array(
+    'settings' => 'blog_card_external_site_logo_visible',
+    'label' =>'サイトロゴを表示',
+    'description' => is_tips_visible() ? 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 600,
+  ));
+
+  //サイトロゴリンク有効
+  $wp_customize->add_setting('blog_card_external_site_logo_link_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_site_logo_link_enable', array(
+    'settings' => 'blog_card_external_site_logo_link_enable',
+    'label' =>'サイトロゴリンク有効',
+    'description' => is_tips_visible() ? 'サイトドメインにトップURLへのリンクを貼るかどうか。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 650,
+  ));
+
+  //はてブ数を表示
+  $wp_customize->add_setting('blog_card_external_hatena_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_hatena_visible', array(
+    'settings' => 'blog_card_external_hatena_visible',
+    'label' =>'はてブ数を表示',
+    'description' => is_tips_visible() ? 'はてなブックマーク数を表示するか。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 700,
+  ));
+
+  //カード幅を広げる
+  $wp_customize->add_setting('blog_card_external_width_auto', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_external_width_auto', array(
+    'settings' => 'blog_card_external_width_auto',
+    'label' =>'カード幅を広げる',
+    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 900,
   ));
 
   //キャッシュの保存期間
-  $wp_customize->add_setting('blog_card_cache_days', array(
-    'default' => 30,
+  $wp_customize->add_setting('blog_card_external_cache_days', array(
+    'default' => 90,
     'sanitize_callback' => 'sanitize_cache_days',
   ));
-  $wp_customize->add_control( 'blog_card_cache_days', array(
-    'settings' => 'blog_card_cache_days',
-    'label' => 'ブログカードキャシュ保存日数',
-    'description' => is_tips_visible() ? '外部リンクカードが「ブログカード」になっている時のOGP情報キャッシュを保存する期間を設定します。設定範囲は1～365日です。短くすると、キャッシュの更新は早いですが表示速度が遅くなったり、先方のサーバーに負荷がかかります。' : '',
-    'section' => 'blog_card_section',
+  $wp_customize->add_control( 'blog_card_external_cache_days', array(
+    'settings' => 'blog_card_external_cache_days',
+    'label' => '外部ブログカードキャシュ保存日数',
+    'description' => is_tips_visible() ? '外部リンクカードが「ブログカード」になっている時のOGP情報キャッシュを保存する期間を設定します。設定範囲は7～365日です。短くすると、キャッシュの更新は早いですが表示速度が遅くなったり、先方のサーバーに負荷がかかります。' : '',
+    'section' => 'blog_card_external_section',
     'type' => 'number',
     'priority'=> 1100,
   ));
 
   //OGPキャッシュクリアモード
-  $wp_customize->add_setting('blog_card_cache_refresh_mode', array(
+  $wp_customize->add_setting('blog_card_external_cache_refresh_mode', array(
     'sanitize_callback' => 'sanitize_check',
   ));
-  $wp_customize->add_control( 'blog_card_cache_refresh_mode', array(
-    'settings' => 'blog_card_cache_refresh_mode',
+  $wp_customize->add_control( 'blog_card_external_cache_refresh_mode', array(
+    'settings' => 'blog_card_external_cache_refresh_mode',
     'label' =>'キャッシュ更新モード',
-    'description' => is_tips_visible() ? '「キャッシュ更新モード」を有効にして管理者（ログインユーザー）によって外部リンクブログカードが表示されているページを閲覧したときに、OGPキャシュが更新されます。更新が済んだら無効などに戻すなどして使用してください。' : '',
-    'section' => 'blog_card_section',
+    'description' => is_tips_visible() ? '「キャッシュ更新モード」を有効にして管理者（ログインユーザー）によって外部ブログカードが表示されているページを閲覧したときに、OGPキャシュが更新されます。更新が済んだら無効などに戻すなどして使用してください。' : '',
+    'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 1200,
   ));
@@ -4391,37 +4510,42 @@ function is_ads_center(){
   return get_theme_mod( 'ads_center', false );
 }
 
-//ブログカードを有効にするか
+//内部ブログカードを有効にするか
 function is_blog_card_enable(){
   return get_theme_mod( 'blog_card_enable', true );
 }
 
-//ブログカードのサムネイルを右側にするか
+//内部ブログカードのブログカードのサムネイルを右側にするか
 function is_blog_card_thumbnail_right(){
   return get_theme_mod( 'blog_card_thumbnail_right', false );
 }
 
-//ブログカードリンクを新しいタブで開くか
+//内部ブログカードのブログカードリンクを新しいタブで開くか
 function is_blog_card_target_blank(){
-  return get_theme_mod( 'blog_card_target_blank', true );
+  return get_theme_mod( 'blog_card_target_blank', false );
 }
 
-//サイトロゴを表示するか
+//内部ブログカードのサイトロゴを表示するか
 function is_blog_card_site_logo_visible(){
   return get_theme_mod( 'blog_card_site_logo_visible', true );
 }
 
-//はてブ数を表示するか
+//内部ブログカードのサイトロゴリンクを有効にするか
+function is_blog_card_site_logo_link_enable(){
+  return get_theme_mod( 'blog_card_site_logo_link_enable', false );
+}
+
+//内部ブログカードのはてブ数を表示するか
 function is_blog_card_hatena_visible(){
   return get_theme_mod( 'blog_card_hatena_visible', true );
 }
 
-//日付を表示するか
+//内部ブログカードの日付を表示するか
 function is_blog_card_date_visible(){
   return get_theme_mod( 'blog_card_date_visible', false );
 }
 
-//ブログカードをカラム幅いっぱいにするか
+//内部ブログカードのカラム幅いっぱいにするか
 function is_blog_card_width_auto(){
   return get_theme_mod( 'blog_card_width_auto', false );
 }
@@ -4451,14 +4575,45 @@ function is_blog_card_external_embedly(){
   return get_blog_card_external_type() == 'embedly';
 }
 
-//外部リンクをブログカードタイプはEmbedlyか
-function get_blog_card_cache_days(){
-  return get_theme_mod( 'blog_card_cache_days', 30 );
+//外部ブログカードのサムネイルを右側にするか
+function is_blog_card_external_thumbnail_right(){
+  return get_theme_mod( 'blog_card_external_thumbnail_right', false );
 }
 
-//プログカードキャッシュ更新モードか
-function is_blog_card_cache_refresh_mode(){
-  return get_theme_mod( 'blog_card_cache_refresh_mode', false );
+//外部ブログカードのリンクを新しいタブで開くか
+function is_blog_card_external_target_blank(){
+  return get_theme_mod( 'blog_card_external_target_blank', false );
+}
+
+//外部ブログカードのサイトロゴを表示するか
+function is_blog_card_external_site_logo_visible(){
+  return get_theme_mod( 'blog_card_external_site_logo_visible', true );
+}
+
+//内部ブログカードのサイトロゴリンクを有効にするか
+function is_blog_card_external_site_logo_link_enable(){
+  return get_theme_mod( 'blog_card_external_site_logo_link_enable', false );
+}
+
+//外部ブログカードのはてブ数を表示するか
+function is_blog_card_external_hatena_visible(){
+  return get_theme_mod( 'blog_card_external_hatena_visible', true );
+}
+
+//外部ブログカードのカラム幅いっぱいにするか
+function is_blog_card_external_width_auto(){
+  return get_theme_mod( 'blog_card_external_width_auto', false );
+}
+
+
+//外部ブログカードのキャッシュ保存期間を取得
+function get_blog_card_external_cache_days(){
+  return get_theme_mod( 'blog_card_external_cache_days', 90 );
+}
+
+//外部ブログカードキャッシュ更新モードか
+function is_blog_card_external_cache_refresh_mode(){
+  return get_theme_mod( 'blog_card_external_cache_refresh_mode', false );
 }
 
 //パンくずリストのホームを取得

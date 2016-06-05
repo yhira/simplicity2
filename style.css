@@ -2166,12 +2166,13 @@ div.fb-like-mobile{
 ** ブログカードのスタイル
 ************************************/
 .blog-card{
-  margin:20px 0;
+  margin: 20px 0;
   max-width:100%;
-  width:500px;
-  position:relative;
+  padding-bottom: 20px;
+  width: 500px;
+  position: relative;
   clear:both;
-  min-height:155px;
+  min-height:145px;
   min-width: 300px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2183,6 +2184,10 @@ div.fb-like-mobile{
   margin-right: 0;
 }
 
+#sidebar .blog-card-title{
+  font-size: 14px;
+  line-height: 120%;
+}
 
 #sidebar .blog-card-excerpt,
 #sidebar .blog-card-footer{
@@ -2197,16 +2202,17 @@ div.fb-like-mobile{
   margin-bottom: 20px;
 }
 
-#sidebar .blog-card-content {
+#sidebar .blog-card-thumbnail-left .blog-card-content {
   margin-left: 90px;
 }
 
 .internal-blog-card,
 .external-blog-card{
-  padding:12px 12px 0;
+  padding:12px;
+  padding-bottom: 6px;
   border:1px solid #ddd;
-  word-wrap:break-word;
-  border-radius:5px;
+  word-wrap: break-word;
+  border-radius: 5px;
 }
 
 .external-blog-card-hatena{
@@ -2215,45 +2221,52 @@ div.fb-like-mobile{
   overflow: hidden;
 }
 
-.blog-card img{
-  border:0;
-}
-
 .blog-card-thumbnail{
   float:left;
 }
 
-img.blog-card-thumb-image{
+.blog-card img.blog-card-thumb-image{
+  border:0;
   width: 100px;
   height: 100px;
   object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .blog-card-content{
   margin-left:110px;
   line-height:120%;
+  margin-bottom: 0.5em;
 }
 .blog-card-title{
   margin-bottom:5px;
 }
 
 .blog-card-title a{
-  font-weight:bold;
-  text-decoration:none;
-  color:#111;
+  font-weight: bold;
+  text-decoration: none;
+  color: #111;
 }
 
 .blog-card-excerpt{
-  color:#333;
-  font-size:90%;
+  color: #333;
+  font-size: 0.9em;
+  max-height: 80px;
+  overflow: hidden;
 }
 
 .blog-card-footer{
   font-size: 0.7em;
+  width: 100%;
   color:#777;
   clear:both;
-  margin-top: 5px;
-  margin-bottom: 3px;
+  vertical-align: bottom;
+  margin-left: -4px;
+  /*position: absolute;
+  bottom: 12px;*/
+  /*position: relative;
+  left: -3px;*/
 }
 
 .blog-card-site{
@@ -2265,28 +2278,75 @@ img.blog-card-thumb-image{
 .blog-card-hatebu{
   float: left;
   margin-right: 7px;
+  position: relative;
+  bottom: -5px;
 }
 
 .blog-card-date{
   float: right;
-  margin-top: -1px;
+  margin-bottom: -5px;
+}
+
+.blog-card-site{
+  position:relative;
 }
 
 .blog-card-site a{
   color:#777;
   text-decoration:none;
-  position:relative;
-  top:-3px;
 }
 
 .blog-card-favicon{
   margin-right:3px;
+  position: relative;
+  bottom: -4px;
 }
 
 .blog-card-favicon-img{
   width:16px;
   height:16px;
 }
+
+
+/***********************************
+ ブログカード（幅が狭い場合）
+ ***********************************/
+@media screen and (max-width: 560px){
+  .article .blog-card{
+    width: 100%;
+  }
+
+  .blog-card-content{
+    margin-left: 0;
+  }
+
+  .blog-card-title a{
+    font-size: 14px;
+    line-height: 120%;
+  }
+
+  .blog-card-excerpt,
+  .blog-card-footer{
+    font-size: 11px;
+    line-height: 120%;
+  }
+
+  .article .blog-card,
+  .commets-list .blog-card{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  img.blog-card-thumb-image{
+    width: 80px;
+    height: 80px;
+  }
+
+  .blog-card-content {
+    margin-left: 90px;
+  }
+}
+
 
 /* IE10以降 */
 /*@media all and (-ms-high-contrast:none){
@@ -3468,4 +3528,8 @@ dl.recent-comments dd .recent-comment-author{
 
 dl.recent-comments dd .recent-comment-content{
   font-size:14px;
+}
+
+.recent-comment-title{
+  clear: both;
 }

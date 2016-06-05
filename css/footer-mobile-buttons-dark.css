@@ -79,6 +79,6 @@ ul.snsp li a span{
   background-color: transparent;
 }
 
-.blog-card-excerpt{
+#sidebar.sidr .blog-card-excerpt{
   color: #ccc;
 }

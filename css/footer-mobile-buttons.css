@@ -51,7 +51,7 @@ div#navi ul.children li{
 ************************************/
 div#sidebar{
   width: 336px;
-  padding: 5px;
+  padding: 10px;
   float: right;
   position: fixed !important;
   display: none;

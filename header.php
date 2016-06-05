@@ -79,5 +79,5 @@ endif; ?>
 
           <!-- main -->
           <main itemscope itemprop="mainContentOfPage">
-            <div id="main" itemtype="http://schema.org/Blog">
+            <div id="main" itemscope itemtype="http://schema.org/Blog">
 

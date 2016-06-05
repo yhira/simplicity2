@@ -51,7 +51,11 @@ class OpenGraph implements Iterator
    */
 	static public function fetch($URI) {
 
-        $res = wp_remote_get( $URI );
+        $args = array(
+          'sslverify' => is_ssl_verification_enable(),
+          'redirection' => 10,
+        );
+        $res = wp_remote_get( $URI, $args );
         if (!is_wp_error( $res ) && $res["response"]["code"] === 200) {
           $response = $res['body'];
         }
