@@ -90,7 +90,7 @@
              ?></span>
           </a>
         </span>
-        <a href="//b.hatena.ne.jp/entry/<?php echo get_encoded_url(get_permalink()) ?>" target="blank" class="hatena-bookmark-button balloon-btn-link hatena-balloon-btn-link" data-hatena-bookmark-layout="simple" title="<?php the_title(); ?>" rel="nofollow">
+        <a href="<?php echo get_hatebu_url(get_permalink()); ?>" target="blank" class="hatena-bookmark-button balloon-btn-link hatena-balloon-btn-link" data-hatena-bookmark-layout="simple" title="<?php the_title(); ?>" rel="nofollow">
           <span class="icon-hatena"></span>
         </a>
       </span>
