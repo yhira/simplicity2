@@ -17,7 +17,7 @@ function get_hatebu_url($url){
   } else {
     $u = preg_replace('/http:\/\//', '', $url);
   }
-  return get_encoded_url('//b.hatena.ne.jp/entry/'.$u);
+  return '//b.hatena.ne.jp/entry/'.$u;
 }
 
 //Twitter IDを含めるURLパラメータを取得
