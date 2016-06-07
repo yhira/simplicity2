@@ -47,3 +47,7 @@ function remove_directory($dir) {
   rmdir($dir);
   }
 }
+
+function get_extention($filename){
+  return preg_replace('/^.*\.([^.]+)$/D', '$1', $filename);
+}
