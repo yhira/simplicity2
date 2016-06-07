@@ -226,6 +226,11 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
 // }
 // add_action( 'http_api_curl', '__set_curl_nofollow', 1 );
 
+//Simplicityキャッシュディレクトリ
+function get_simplicity_cache_dir(){
+  return WP_CONTENT_DIR.'/uploads/simplicity-cache';
+}
+
 //外部サイトからブログカードサムネイル用のbase64テキストを取得する
 if ( !function_exists( 'fetch_card_image' ) ):
 function fetch_card_image($image){
@@ -234,18 +239,20 @@ function fetch_card_image($image){
     $filename = substr($image, (strrpos($image, '/'))+1);
     //拡張子取得
     $ext = 'png';
-    $temp_ext = preg_replace('/^.*\.([^.]+)$/D', '$1', $filename);
+    $temp_ext = get_extention($filename);
     if ( $temp_ext ) {
       $ext = $temp_ext;
     }
-    //画像編集作業用ディレクトリ
-    $dir = ABSPATH.'wp-content/uploads/simplicity-temp-314159265/';
+    //キャッシュディレクトリ
+    $dir = get_simplicity_cache_dir();
+    //$dir = ABSPATH.'wp-content/uploads/simplicity-temp-314159265';
     //ディレクトリがないときには作成する
     if ( !file_exists($dir) ) {
       mkdir($dir, 0777);
     }
     //ローカル画像ファイルパス
-    $new_file = $dir.$filename;
+    $new_file = $dir.'/'.md5($image).'.'.$ext;
+    //$new_file = $dir.$filename;
     //$wp_filesystemオブジェクトのメソッドとしてファイルを取得する
     $file_data = @$wp_filesystem->get_contents($image);
     if ( $file_data ) {
@@ -255,15 +262,17 @@ function fetch_card_image($image){
       if ( !is_wp_error($image_editor) ) {
         $image_editor->resize(100, 100, true);
         $image_editor->save( $new_file );
-        $file_data = @$wp_filesystem->get_contents($new_file);
-        if ( !$file_data ) {
-          return null;
-        }
+        return str_replace(WP_CONTENT_DIR, content_url(), $new_file);
+        //$file_data = @$wp_filesystem->get_contents($new_file);
+        // if ( !$file_data ) {
+        //   return null;
+        // }
       }
-      $image = base64_encode($file_data);
-      //$wp_filesystem->delete($new_file);
-      remove_directory($dir);
-      return 'data:image/'.$ext.';base64,'.$image;
+      $wp_filesystem->delete($new_file);
+      // $image = base64_ encode($file_data);
+      // //$wp_filesystem->delete($new_file);
+      // remove_directory($dir);
+      // return 'data:image/'.$ext.';base64,'.$image;
     }
   }
 }
@@ -274,7 +283,7 @@ if ( !function_exists( 'url_to_external_ogp_blog_card_tag' ) ):
 function url_to_external_ogp_blog_card_tag($url){
   if ( !$url ) return;
   $url = strip_tags($url);//URL
-  $url_hash = md5( $url );
+  $url_hash = 'sp_bcc_'.md5( $url );
   $error_title = 'This page is error.';
   $title = $error_title;
   $error_image = 'http://capture.heartrails.com/100x100/shorten?'.$url;
@@ -365,7 +374,8 @@ function url_to_external_ogp_blog_card_tag($url){
 
 
   //og:imageが相対パスのとき
-  if(!$image || ((strpos($image, 'data:image/') === false) && (strpos($image, '//') === false))){    // //OGPのURL情報があるか
+  //if(!$image || ((strpos($image, 'data:image/') === false) && (strpos($image, '//') === false))){    // //OGPのURL情報があるか
+  if(!$image && (strpos($image, '//') === false)){    // //OGPのURL情報があるか
   //if(strpos($image, '//') === false){    // //OGPのURL情報があるか
 
     // //OGPのURL情報があるか
@@ -449,3 +459,15 @@ function url_to_external_ogp_blog_card_tag($url){
   return $tag;
 }
 endif;
+
+function delete_blog_card_cache_transients(){
+  global $wpdb;
+  $wpdb->query("DELETE FROM `wp_options` WHERE (`option_name` LIKE '%_transient_sp_bcc_%') OR (`option_name` LIKE '%_transient_timeout_sp_bcc_%')");
+}
+
+//テーマを変更時にブログカードのキャッシュを削除
+function delete_blog_card_cache() {
+  delete_blog_card_cache_transients();
+  remove_directory(get_simplicity_cache_dir());
+}
+add_action('switch_theme', 'delete_blog_card_cache');
