@@ -237,9 +237,13 @@ function fetch_card_image($image){
   if ( WP_Filesystem() ) {//WP_Filesystemの初期化
     global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
     $filename = substr($image, (strrpos($image, '/'))+1);
+    $allow_exts = array('png', 'jpg', 'jpeg', 'gif' );
     //拡張子取得
     $ext = 'png';
     $temp_ext = get_extention($filename);
+    if ( in_array($temp_ext, $allow_exts) ) {
+      return ;
+    }
     if ( $temp_ext ) {
       $ext = $temp_ext;
     }
