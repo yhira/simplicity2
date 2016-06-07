@@ -226,22 +226,8 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
 // }
 // add_action( 'http_api_curl', '__set_curl_nofollow', 1 );
 
-function remove_directory($dir) {
-  if ($handle = opendir("$dir")) {
-    while (false !== ($item = readdir($handle))) {
-      if ($item != "." && $item != "..") {
-        if (is_dir("$dir/$item")) {
-          remove_directory("$dir/$item");
-        } else {
-          unlink("$dir/$item");
-        }
-      }
-    }
-  closedir($handle);
-  rmdir($dir);
-  }
-}
-
+//外部サイトからブログカードサムネイル用のbase64テキストを取得する
+if ( !function_exists( 'fetch_card_image' ) ):
 function fetch_card_image($image){
   if ( WP_Filesystem() ) {//WP_Filesystemの初期化
     global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
@@ -281,6 +267,7 @@ function fetch_card_image($image){
     }
   }
 }
+endif;
 
 //外部サイトから直接OGP情報を取得してブログカードにする
 if ( !function_exists( 'url_to_external_ogp_blog_card_tag' ) ):

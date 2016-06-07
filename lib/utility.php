@@ -31,3 +31,19 @@ function get_domain_name($url){
   return parse_url($url, PHP_URL_HOST);
 }
 
+//フォルダごとファイルを全て削除
+function remove_directory($dir) {
+  if ($handle = opendir("$dir")) {
+    while (false !== ($item = readdir($handle))) {
+      if ($item != "." && $item != "..") {
+        if (is_dir("$dir/$item")) {
+          remove_directory("$dir/$item");
+        } else {
+          unlink("$dir/$item");
+        }
+      }
+    }
+  closedir($handle);
+  rmdir($dir);
+  }
+}
