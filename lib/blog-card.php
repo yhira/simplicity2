@@ -463,10 +463,10 @@ function delete_blog_card_cache_transients(){
   global $wpdb;
   $wpdb->query("DELETE FROM `wp_options` WHERE (`option_name` LIKE '%_transient_sp_bcc_%') OR (`option_name` LIKE '%_transient_timeout_sp_bcc_%')");
 }
-//delete_blog_card_cache();
-//  _transient_timeout_sp_bcc_
+
+//テーマを変更時にブログカードのキャッシュを削除
 function delete_blog_card_cache() {
   delete_blog_card_cache_transients();
   remove_directory(get_temp_blog_card_thumb_dir());
 }
-//add_action('switch_theme', 'delete_blog_card_cache');
+add_action('switch_theme', 'delete_blog_card_cache');
