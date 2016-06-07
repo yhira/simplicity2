@@ -226,8 +226,9 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
 // }
 // add_action( 'http_api_curl', '__set_curl_nofollow', 1 );
 
-function get_temp_blog_card_thumb_dir(){
-  return WP_CONTENT_DIR.'/uploads/sp-bc-thums';
+//Simplicityキャッシュディレクトリ
+function get_simplicity_cache_dir(){
+  return WP_CONTENT_DIR.'/uploads/simplicity-cache';
 }
 
 //外部サイトからブログカードサムネイル用のbase64テキストを取得する
@@ -242,8 +243,8 @@ function fetch_card_image($image){
     if ( $temp_ext ) {
       $ext = $temp_ext;
     }
-    //画像編集作業用ディレクトリ
-    $dir = get_temp_blog_card_thumb_dir();
+    //キャッシュディレクトリ
+    $dir = get_simplicity_cache_dir();
     //$dir = ABSPATH.'wp-content/uploads/simplicity-temp-314159265';
     //ディレクトリがないときには作成する
     if ( !file_exists($dir) ) {
@@ -467,6 +468,6 @@ function delete_blog_card_cache_transients(){
 //テーマを変更時にブログカードのキャッシュを削除
 function delete_blog_card_cache() {
   delete_blog_card_cache_transients();
-  remove_directory(get_temp_blog_card_thumb_dir());
+  remove_directory(get_simplicity_cache_dir());
 }
 add_action('switch_theme', 'delete_blog_card_cache');
