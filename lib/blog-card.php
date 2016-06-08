@@ -215,17 +215,6 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
   //add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
 }
 
-// function __set_curl_nofollow( &$handle )
-// {
-//     curl_setopt( $handle, CURLOPT_FOLLOWLOCATION, true );
-//     //curl_setopt( $handle,   CURLOPT_RETURNTRANSFER, true );
-//     curl_setopt( $handle, CURLOPT_MAXREDIRS, 10 );
-//     curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, false );
-//     //curl_setopt( $handle, CURLOPT_FOLLOWLOCATION, true );
-//     //curl_setopt( $handle, CURLOPT_NOBODY, true );
-// }
-// add_action( 'http_api_curl', '__set_curl_nofollow', 1 );
-
 //Simplicityキャッシュディレクトリ
 function get_simplicity_cache_dir(){
   return WP_CONTENT_DIR.'/uploads/simplicity-cache';
@@ -297,13 +286,7 @@ function url_to_external_ogp_blog_card_tag($url){
   $error_rel_nollow = ' rel="nofollow"';
   //画像編集作業用ディレクトリ
   //$dir = ABSPATH.'wp-content/uploads/excard-images-314159265/';
-  //var_dump(WP_Http_Curl::request($url));
 
-
-
-  // echo('<pre>');
-  // var_dump($url);
-  // echo('</pre>');
   require_once('open-graph.php');
   //ブログカードキャッシュ更新モード、もしくはログインユーザー以外のときはキャッシュの取得
   if ( !(is_blog_card_external_cache_refresh_mode() && is_user_logged_in()) ) {
@@ -315,17 +298,14 @@ function url_to_external_ogp_blog_card_tag($url){
     $ogp = OpenGraph::fetch( $url );
     if ( $ogp == false ) {
       $ogp = 'error';
-      // $excerpt = '';
-      // $image = get_template_directory_uri() . '/images/no-image.png';
     } else {
-      //base64画像の取得
+      //キャッシュ画像の取得
       $res = fetch_card_image($ogp->image);
       if ( $res ) {
         $ogp->image = $res;
       }
 
       if ( isset( $ogp->title ) )
-        //$title = mb_convert_encoding($ogp->title, "UTF-8", "auto");
         $title = $ogp->title;//タイトルの取得
 
       if ( isset( $ogp->description ) )
@@ -334,29 +314,19 @@ function url_to_external_ogp_blog_card_tag($url){
       if ( isset( $ogp->image ) )
         $image = $ogp->image;////画像URLの取得
 
-      // } else {
-      //   $image = get_template_directory_uri() . '/images/no-image.png';
-      // }
       $error_rel_nollow = null;
     }
 
-    //var_dump($ogp->image);
     set_transient( $url_hash, $ogp,
                    60 * 60 * 24 * get_blog_card_external_cache_days() );
-    // echo('aaaaaaaaaa');
-    // echo('<pre>');
-    // var_dump($url);
-    // echo('<br>');
-    // var_dump($ogp);
-    // echo('</pre>');
+
   } elseif ( $ogp == 'error' ) {
-    //前回取得したとき404ページだったら何の出力しない
+    //前回取得したとき404ページだったら何も出力しない
     // $title = $error_title;
     // $excerpt = '';
     // $image = get_template_directory_uri() . '/images/no-image.png';
   } else {
     if ( isset( $ogp->title ) )
-      //$title = mb_convert_encoding($ogp->title, "UTF-8", "auto");
       $title = $ogp->title;//タイトルの取得
 
     if ( isset( $ogp->description ) )
@@ -366,11 +336,6 @@ function url_to_external_ogp_blog_card_tag($url){
       $image = $ogp->image;//画像URLの取得
 
     $error_rel_nollow = null;
-    // echo('bbbbbbbb');
-    // echo('<pre>');
-    // echo $url;
-    // var_dump($ogp);
-    // echo('</pre>');
   }
 
   //ドメイン名を取得
@@ -378,43 +343,9 @@ function url_to_external_ogp_blog_card_tag($url){
 
 
   //og:imageが相対パスのとき
-  //if(!$image || ((strpos($image, 'data:image/') === false) && (strpos($image, '//') === false))){    // //OGPのURL情報があるか
-  if(!$image && (strpos($image, '//') === false)){    // //OGPのURL情報があるか
-  //if(strpos($image, '//') === false){    // //OGPのURL情報があるか
-
-    // //OGPのURL情報があるか
-    // if ( isset($ogp->url) ) {
-    //   //相対パス用の処理（$urlと同じドメイン内の相対パスでないとうまくいかない）
-    //   $tmp_url = preg_replace('/[^\/]*$/i', '', $ogp->url);
-
-    //   var_dump($tmp_url);
-    //   $tmp_url = $tmp_url.$image;
-    //   //$tmp_url = str_replace('//a', '/a', $tmp_url);
-
-    //   $res = fetch_card_image($tmp_url);
-    //   if ( $res ) {
-    //     $image = $res;
-    //   } else {
-    //     $image = $error_image;
-    //   }
-    // } else {
-    //   $image = $error_image;
-    // }
+  if(!$image || (strpos($image, '//') === false)){    // //OGPのURL情報があるか
     //相対パスの時はエラー用の画像を表示
     $image = $error_image;
-
-    // //OGPのURL情報があるか
-    // if ( isset($ogp->url) ) {
-    //   //相対パス用の処理（$urlと同じドメイン内の相対パスでないとうまくいかない）
-    //   $tmp_url = preg_replace('/[^\/]*$/i', '', $ogp->url);
-    //   $image = $tmp_url.$image;
-    //   // var_dump($image);
-    // }
-  } else {
-    // $res = fetch_card_image($image);
-    // if ( $res ) {
-    //   $image = $res;
-    // }
   }
 
   $excerpt = get_content_excerpt( $excerpt, 160 );
@@ -451,8 +382,6 @@ function url_to_external_ogp_blog_card_tag($url){
     }
     $site_logo_tag = '<div class="blog-card-site">'.$favicon_tag.$site_logo_tag.'</div>';
   }
-
-  //$site_logo_tag = is_blog_card_external_site_logo_visible() ? '<div class="blog-card-site">'.$favicon_tag.'<a href="//'. $domain .'"'.$target.$error_rel_nollow.'>'.$domain.'</a></div>' : '';
 
   if ( $image ) {//サムネイルが存在しない場合
     $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" />';

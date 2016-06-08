@@ -179,3 +179,8 @@ function scc_total_exists(){
 function scc_feedly_exists(){
   return function_exists('scc_get_follow_feedly');
 }
+
+//Push7購読者数取得関数が存在しているか
+function scc_push7_exists(){
+  return function_exists('scc_get_follow_push7');
+}
