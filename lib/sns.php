@@ -37,7 +37,7 @@ function get_twitter_related_param(){
 //feedlyの購読者数取得
 if ( !function_exists( 'fetch_feedly_count' ) ):
 function fetch_feedly_count(){
-  //DBからキャッシュカントの取得
+  //DBキャッシュからカウントの取得
   $subscribers = get_transient( 'feedly_subscribers' );
   if ( $subscribers ) {
     return $subscribers;
@@ -68,6 +68,11 @@ endif;
 //Push7情報取得
 if ( !function_exists( 'fetch_push7_info' ) ):
 function fetch_push7_info(){
+  //DBキャッシュからカウントの取得
+  $info = get_transient( 'push7_info' );
+  if ( $info ) {
+    return $info;
+  }
   $res = null;
   $app_no = get_push7_follow_app_no();
   if ( $app_no ) {
@@ -78,6 +83,9 @@ function fetch_push7_info(){
     if (!is_wp_error( $info ) && $info["response"]["code"] === 200) {
       $info = json_decode( $info['body'] );
       if ( $info ) {
+        //Push7情報をキャッシュに保存
+        set_transient( 'push7_info', $info, 60 * 60 * 12 );
+
         $res = $info;
       }
     }
