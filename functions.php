@@ -772,7 +772,7 @@ function responsive_pagination($pages = '', $range = 4){
     echo '<li class="previous"><a href="'.get_pagenum_link($paged - 1).'"><span>Previous</span></a></li>';
     //番号つきページ送りボタン
     for ($i=1; $i <= $pages; $i++)     {
-      if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))       {
+      if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) ))       {
         echo ($paged == $i)? '<li class="current"><a>'.$i.'</a></li>':'<li><a href="'.get_pagenum_link($i).'" class="inactive" >'.$i.'</a></li>';
       }
     }
