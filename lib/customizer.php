@@ -1914,32 +1914,6 @@ function theme_customize_register($wp_customize) {
     'priority' => 117,
   ));
 
-  // //YouTubeフォローID
-  // $wp_customize->add_setting('youtube_follow_id', array(
-  //   'sanitize_callback' => 'sanitize_text',
-  // ));
-  // $wp_customize->add_control( 'youtube_follow_id', array(
-  //   'settings' => 'youtube_follow_id',
-  //   'label' =>'youtube.com/user/XXXXXXX',
-  //   'description' => is_tips_visible() ? 'YouTubeユーザーページURLのXXXXXXX部分を入力してください。' : '',
-  //   'section' => 'sns_section',
-  //   'type' => 'text',
-  //   'priority' => 117,
-  // ));
-
-  // //YouTubeチャンネルID
-  // $wp_customize->add_setting('youtube_channel_id', array(
-  //   'sanitize_callback' => 'sanitize_text',
-  // ));
-  // $wp_customize->add_control( 'youtube_channel_id', array(
-  //   'settings' => 'youtube_channel_id',
-  //   'label' =>'youtube.com/channel/XXXXXXXXXX',
-  //   'description' => is_tips_visible() ? 'YouTubeチャンネルページURLのXXXXXXX部分を入力してください。（※ユーザーページと同時登録した場合はチャンネルページが優先）' : '',
-  //   'section' => 'sns_section',
-  //   'type' => 'text',
-  //   'priority' => 117.1,
-  // ));
-
   //Flickr
   $wp_customize->add_setting('flickr_follow_id', array(
     'sanitize_callback' => 'sanitize_text',
@@ -1959,8 +1933,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'line_at_follow_id', array(
     'settings' => 'line_at_follow_id',
-    'label' =>'line.naver.jp/ti/p/@XXXXXXXXXX',
-    'description' => is_tips_visible() ? 'LINE@ページURLのXXXXXXX部分を入力してください。@は不要です。（※モバイル時のみ表示されます。）' : '',
+    'label' =>'line.naver.jp/ti/p/XXXXXXXXXX',
+    'description' => is_tips_visible() ? 'LINE@ページURLのXXXXXXX部分を入力してください。<span style="color: red;">@が必要な場合は@もし入力してください。</span>' : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 117.5,
