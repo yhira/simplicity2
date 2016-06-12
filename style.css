@@ -2536,7 +2536,6 @@ ul.snsp li{
 }
 
 ul.snsp li a{
-  color:#666;
   font-size:19px;
   line-height:170%;
   text-decoration:none;
@@ -2573,7 +2572,6 @@ ul.snsp li {
 }
 
 ul.snsp li a {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -2585,6 +2583,7 @@ ul.snsp li a span {
   overflow: hidden;
   border-radius: 4px;
   background-color: #666;
+  color: #fff;
 }
 
 /*feedly、LINEアイコンは自作なので少し大きかったので調整*/
@@ -2660,10 +2659,6 @@ ul.snsp li.feedly-page a img{
   height:32.5px;
   border-radius:7px;
   border-width:0px;
-}
-
-#footer ul.snsp li a span{
-  background-color: transparent;
 }
 
 /************************************
