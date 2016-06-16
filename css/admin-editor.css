@@ -9,6 +9,12 @@ body.mceContentBody {
   width: 680px;
 }
 
+@media screen and (max-width:740px){
+  body.mceContentBody {
+    width: auto;
+  }
+}
+
 .editor-area a {
   color: #339933;
   text-decoration: underline;
