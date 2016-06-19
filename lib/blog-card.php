@@ -398,6 +398,7 @@ function url_to_external_ogp_blog_card_tag($url){
 }
 endif;
 
+//transientキャッシュの削除
 function delete_blog_card_cache_transients(){
   global $wpdb;
   $wpdb->query("DELETE FROM `wp_options` WHERE (`option_name` LIKE '%_transient_sp_bcc_%') OR (`option_name` LIKE '%_transient_timeout_sp_bcc_%')");

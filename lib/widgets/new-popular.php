@@ -7,7 +7,7 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
     parent::__construct(
       'new_popular',
       '[S] 新着・人気記事',
-      array('description' => 'トップページで「人気理事「人気記事」リストを、それ以外のページで「新着記事」リストを表示するSimplicityウィジェットです。（※要Wordpress Popular Postsプラグイン）')
+      array('description' => 'トップページで「人気記事」リストを、それ以外のページで「新着記事」リストを表示するSimplicityウィジェットです。（※要Wordpress Popular Postsプラグイン）')
     );
   }
   function widget($args, $instance) {
