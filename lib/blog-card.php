@@ -8,6 +8,8 @@ add_filter( 'embed_oembed_discover', '__return_false' );
 remove_action( 'parse_query', 'wp_oembed_parse_query' );
 remove_action( 'wp_head', 'wp_oembed_remove_discovery_links' );
 remove_action( 'wp_head', 'wp_oembed_remove_host_js' );
+//本文中のURLが内部リンクの場合にWordpressがoembedをしてしまうのを解除(WP4.5.3向けの対策)
+remove_filter( 'pre_oembed_result', 'wp_filter_pre_oembed_result' );
 
 //内部URLからブログをカードタグの取得
 if ( !function_exists( 'url_to_blog_card_tag' ) ):
