@@ -914,3 +914,42 @@ function get_multi_page_number() {
   $paged = (get_query_var('page')) ? get_query_var('page') : 1;
   return $paged;
 }
+
+// //remove_filter( 'embed_html', 'get_post_embed_html' );
+
+remove_filter( 'pre_oembed_result', 'wp_filter_pre_oembed_result');
+//remove_filter( 'oembed_dataparse',       'wp_filter_oembed_result');
+//remove_filter( 'oembed_response_data',   'get_oembed_response_data_rich');
+
+// remove_action( 'rest_api_init',          'wp_oembed_register_route'              );
+// remove_filter( 'rest_pre_serve_request', '_oembed_rest_pre_serve_request');
+
+// remove_action( 'wp_head',                'wp_oembed_add_discovery_links'         );
+// remove_action( 'wp_head',                'wp_oembed_add_host_js'                 );
+
+// remove_action( 'embed_head',             'enqueue_embed_scripts');
+// remove_action( 'embed_head',             'print_emoji_detection_script'          );
+// remove_action( 'embed_head',             'print_embed_styles'                    );
+// remove_action( 'embed_head',             'wp_print_head_scripts'  );
+// remove_action( 'embed_head',             'wp_print_styles' );
+// remove_action( 'embed_head',             'wp_no_robots'                          );
+// remove_action( 'embed_head',             'rel_canonical'                         );
+// remove_action( 'embed_head',             'locale_stylesheet'                     );
+
+// remove_action( 'embed_content_meta',     'print_embed_comments_button'           );
+// remove_action( 'embed_content_meta',     'print_embed_sharing_button'            );
+
+// remove_action( 'embed_footer',           'print_embed_sharing_dialog'            );
+// remove_action( 'embed_footer',           'print_embed_scripts'                   );
+// remove_action( 'embed_footer',           'wp_print_footer_scripts');
+
+// remove_filter( 'excerpt_more',           'wp_embed_excerpt_more');
+// remove_filter( 'the_excerpt_embed',      'wptexturize'                           );
+// remove_filter( 'the_excerpt_embed',      'convert_chars'                         );
+// remove_filter( 'the_excerpt_embed',      'wpautop'                               );
+// remove_filter( 'the_excerpt_embed',      'shortcode_unautop'                     );
+// remove_filter( 'the_excerpt_embed',      'wp_embed_excerpt_attachment'           );
+
+// remove_filter( 'oembed_dataparse',       'wp_filter_oembed_result' );
+// remove_filter( 'oembed_response_data',   'get_oembed_response_data_rich');
+// remove_filter( 'pre_oembed_result',      'wp_filter_pre_oembed_result');
