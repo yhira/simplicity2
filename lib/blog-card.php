@@ -346,7 +346,7 @@ function url_to_external_ogp_blog_card_tag($url){
   }
 
   //ドメイン名を取得
-  $domain = get_domain_name(isset($ogp->url) ? $ogp->url : $url);
+  $domain = get_domain_name(isset($ogp->url) ? punycode_decode($ogp->url) : punycode_decode($url));
 
 
   //og:imageが相対パスのとき
