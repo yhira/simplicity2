@@ -33,6 +33,11 @@ function get_domain_name($url){
 
 //フォルダごとファイルを全て削除
 function remove_directory($dir) {
+  //ディレクトリが存在しないときは何もしない
+  if ( !file_exists($dir) ) {
+    return ;
+  }
+  //ディレクトリが存在する時はすべて削除する
   if ($handle = opendir("$dir")) {
     while (false !== ($item = readdir($handle))) {
       if ($item != "." && $item != "..") {
