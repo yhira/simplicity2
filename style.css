@@ -2471,6 +2471,7 @@ img.evernote-btn-img-mini{
 #sns-group-top ul li{
   margin-top: 2px;
   margin-bottom: 2px;
+  height: 30px;
 }
 
 #sns-group-top .sns-share-msg{
@@ -2482,7 +2483,7 @@ img.evernote-btn-img-mini{
 }
 
 #sns-group-top .facebook-btn{
-  width: 85px;
+  width:130px;
 }
 
 #sns-group-top .google-plus-btn{
