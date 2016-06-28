@@ -1965,7 +1965,7 @@ div.fb-like-mobile{
   height: 100px;
   text-align: center;
   float: right;
-  padding-top: 18px;
+  padding-top: 27px;
   box-sizing: border-box;
 /*  display: -webkit-flex;
   display:         flex;
@@ -2482,7 +2482,7 @@ img.evernote-btn-img-mini{
 }
 
 #sns-group-top .facebook-btn{
-  width:110px;
+  width: 85px;
 }
 
 #sns-group-top .google-plus-btn{
