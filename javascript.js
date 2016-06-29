@@ -489,10 +489,10 @@ jQuery(function(){
         //投稿年があるだけ中にブロックを作る
         var
           yearCount = year.length,
-          i = 0;
-        while (i < yearCount) {
-          acv_years.append("<li class='year_" + year[i] + "'><a class='year'>" + year[i] + "年</a><ul class='month'></ul></li>");
-          i++;
+          ii = 0;
+        while (ii < yearCount) {
+          acv_years.append("<li class='year_" + year[ii] + "'><a class='year'>" + year[ii] + "年</a><ul class='month'></ul></li>");
+          ii++;
         }
 
         //作ったブロック内のulに内容を整形して移動
