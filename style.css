@@ -6,7 +6,7 @@ Theme URI: http://wp-simplicity.com/
 Author: yhira
 Author URI: http://nelog.jp/
 Text Domain: simplicity2
-Version: 2.2.0f
+Version: 2.2.0g
 Tags: white, two-columns, left-sidebar, right-sidebar, fluid-layout, fixed-layout
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2471,7 +2471,6 @@ img.evernote-btn-img-mini{
 #sns-group-top ul li{
   margin-top: 2px;
   margin-bottom: 2px;
-  height: 30px;
 }
 
 #sns-group-top .sns-share-msg{
@@ -2483,16 +2482,16 @@ img.evernote-btn-img-mini{
 }
 
 #sns-group-top .facebook-btn{
-  width:130px;
+  width: 127px;
 }
 
 #sns-group-top .google-plus-btn{
-  width:70px;
+  width: 65px;
   margin-top:-2px;
 }
 
 #sns-group-top .pocket-btn{
-  width:95px;
+  width:90px;
 }
 
 #sns-group-top .evernote-btn-img{
