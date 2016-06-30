@@ -1232,14 +1232,14 @@ input[type="button"]:hover {
 
 }
 
-.button:active,
+/*.button:active,
 button:active,
 input[type="submit"]:active,
 input[type="reset"]:active,
 input[type="button"]:active {
   position: relative;
   top:1px;
-}
+}*/
 
 /************************************
 ** サイドバー（Sidebar）・ウィジェットなど
@@ -2591,13 +2591,8 @@ ul.snsp li a span.icon-feedly-square,
 ul.snsp li a span.icon-line-square,
 ul.snsp li a span.icon-push7-square,
 ul.snsp li a span.icon-hatebu-square{
-  /* 画像をBase64にするためコメントアウト
-  background-image: url("../images/white-feedly.png"); */
-/*  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcAQMAAABIw03XAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAB9JREFUCNdjkP//v4Gh/v//BxDi////H+hGIOwFOwMAuf5pDfN+XdkAAAAASUVORK5CYII=");*/
   font-size:34px;
   position: relative;
-  /*top: 1px;
-  line-height: 34.5px;*/
 }
 
 #sns-group ul.snsp li a:hover{
