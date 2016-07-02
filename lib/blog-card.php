@@ -286,7 +286,9 @@ function url_to_external_ogp_blog_card_tag($url){
   $url_hash = 'sp_bcc_'.md5( $url );
   $error_title = 'This page is error.';
   $title = $error_title;
-  $error_image = 'http://capture.heartrails.com/100x100/shorten?'.$url;
+  $mshot = is_ssl() ? 'https://s0.wordpress.com/mshots/v1/' : 'http://s.wordpress.com/mshots/v1/';
+  //$mshot = 'http://capture.heartrails.com/100x100/shorten?';
+  $error_image = $mshot.urlencode($url);
   //$error_image = get_template_directory_uri() . '/images/no-image.png';
   $image = $error_image;
   $excerpt = '';
