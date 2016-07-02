@@ -431,7 +431,7 @@ function get_skin_files(){
             $name = '[P] '.$name;
 
           $file_path = str_replace($search, $replace , $pathname);
-          $file_path = preg_replace('/https?:/i', '', $file_path);
+          $file_path = remove_protocol($file_path);
           //返り値の設定
           $results[] = array(
             'name' => $name,
@@ -623,6 +623,8 @@ function get_skins_js_uri(){
 function get_skins_js_local_dir(){
   if ( get_skins_js_uri() ) {
     $dir = get_skins_js_uri();
+    // $stylesheet_directory_uri = get_stylesheet_directory_uri();
+    // $template_directory_uri = get_template_directory_uri();
     $stylesheet_directory_uri = remove_protocol(get_stylesheet_directory_uri());
     $template_directory_uri = remove_protocol(get_template_directory_uri());
     if( strpos( $dir , $stylesheet_directory_uri ) !== false ){
@@ -670,7 +672,8 @@ function get_parts_skin_file_uri(){
   array_pop($skin_arr);//CSSファイル名の除去
   $skin_dir = implode('/', $skin_arr);
   //var_dump(get_theme_local_dir());
-  $theme_dir = remove_protocol(get_theme_dir());
+  $theme_dir = get_theme_dir();
+  //$theme_dir = remove_protocol(get_theme_dir());
   //スキンファイルをローカルパスに変換
   $skin_local_file = str_replace(
     //get_theme_dir(),

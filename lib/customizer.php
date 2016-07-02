@@ -3433,9 +3433,18 @@ function remove_protocol($url){
 //設定していない場合は偽（空文字）を返す
 function get_skin_file(){
   $file_path = get_theme_mod( 'skin_file', null );
-  $file_path = remove_protocol($file_path);
-  //$file_path = preg_replace('/https?:/i', '', $file_path);
-  return $file_path;
+  if ( $file_path ) {
+    $file_path = remove_protocol($file_path);
+    //CSS縮小化プラグインのためにプロトコルをつけるように変更v2.2.1
+    //プロトコルがついていないと縮小化できないプラグインもある
+    if ( is_ssl() ) {
+      $file_path = 'https:'.$file_path;
+    } else {
+      $file_path = 'http:'.$file_path;
+    }
+
+    return $file_path;
+  }
 }
 
 //カスタムレイアウト設定の値を取得
