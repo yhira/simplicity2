@@ -352,7 +352,7 @@ function url_to_external_ogp_blog_card_tag($url){
 
 
   //og:imageが相対パスのとき
-  if(!$image || (strpos($image, '//') === false)){    // //OGPのURL情報があるか
+  if(!$image || (strpos($image, '//') === false) || (strpos($image, 'https:') === false)){    // //OGPのURL情報があるか
     //相対パスの時はエラー用の画像を表示
     $image = $error_image;
   }
