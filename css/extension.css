@@ -256,3 +256,61 @@
     font-size: 32px;
   }
 }
+
+/*******************************
+* 続きはWEBで的な検索ボックス
+********************************/
+.search{
+  margin: 2em 0;
+}
+
+.search div{
+  border: 1px solid #555;
+  border-radius: 2px;
+  padding: 5px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.search div.sform{
+  min-width: 280px;
+  background-color: #fff;
+}
+
+.search div.sbtn{
+  background-color: #1155EE;
+  color: #fff;
+  padding-left: 20px;
+  padding-right: 30px;
+  position: absolute;
+}
+
+.search div.sbtn:after{
+  content: "\f25a";
+  font-family: FontAwesome;
+  color: #000;
+  position: absolute;
+  bottom: -28px;
+  font-size: 25px;
+}
+
+@media screen and (max-width:450px){
+  .search div{
+    padding: 3px 5px;
+    font-size: 75%;
+  }
+
+  .search div.sform{
+    min-width: 180px;
+  }
+
+  .search div.sbtn{
+    padding-left: 5px;
+    padding-right: 10px;
+  }
+
+  .search div.sbtn:after{
+    font-size: 20px;
+    margin-left: -10px;
+  }
+}
