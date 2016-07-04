@@ -1974,6 +1974,11 @@ div.fb-like-mobile{
   -webkit-justify-content: center;
           justify-content: center;*/
 }
+
+.article-like-button iframe{
+  background-color: #fff;
+}
+
 .article-like-arrow-box {
   float: left;
   position: relative;
