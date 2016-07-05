@@ -77,6 +77,8 @@
             <?php get_template_part('author-link') //投稿者リンク?>
 
             <?php get_template_part('edit-link') //編集リンク?>
+
+            <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
           </p>
         </footer>
         </article><!-- .article -->
