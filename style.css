@@ -543,6 +543,7 @@ hr.sep {
 
 #footer-navi ul{
   text-align: center;
+  padding-left: 0;
 }
 
 #footer-navi ul li {
