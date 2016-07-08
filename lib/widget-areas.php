@@ -326,6 +326,7 @@ $custom_header_defaults = array(
 /////////////////////////////////////
 // 投稿本文中にウィジェットを表示する
 /////////////////////////////////////
+if ( !function_exists( 'add_widget_before_1st_h2' ) ):
 function add_widget_before_1st_h2($the_content) {
   if ( is_single() && //投稿ページのとき、固定ページも表示する場合はis_singular()にする
        is_active_sidebar( 'widget-in-article' ) //ウィジェットが設定されているとき
@@ -345,11 +346,13 @@ function add_widget_before_1st_h2($the_content) {
   }
   return $the_content;
 }
+endif;
 add_filter('the_content','add_widget_before_1st_h2');
 
 /////////////////////////////////////
 // 固定ページ本文中にウィジェットを表示する
 /////////////////////////////////////
+if ( !function_exists( 'add_widget_before_1st_h2_in_page' ) ):
 function add_widget_before_1st_h2_in_page($the_content) {
   if ( is_page() && //投稿ページのとき、固定ページも表示する場合はis_singular()にする
        is_active_sidebar( 'widget-in-page-article' ) //ウィジェットが設定されているとき
@@ -369,4 +372,5 @@ function add_widget_before_1st_h2_in_page($the_content) {
   }
   return $the_content;
 }
+endif;
 add_filter('the_content','add_widget_before_1st_h2_in_page');
