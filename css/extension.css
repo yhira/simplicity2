@@ -285,6 +285,12 @@
   position: absolute;
 }
 
+.search-form div.sbtn:before{
+  content: "\f002";
+  font-family: FontAwesome;
+  margin-right: 7px;
+}
+
 .search-form div.sbtn:after{
   content: "\f25a";
   font-family: FontAwesome;
