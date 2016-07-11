@@ -9,6 +9,9 @@ if( !is_user_logged_in() && get_tracking_id() && is_analytics_universal() ): ?>
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', '<?php echo esc_html( get_tracking_id() ) ?>', 'auto');
+  <?php if( is_analytics_tracking_type_analytics_with_displayfeatures() ): ?>
+  ga('require', 'displayfeatures');
+  <?php endif; ?>
   ga('send', 'pageview');
 </script>
 <!-- /Google Analytics -->

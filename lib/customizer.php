@@ -2282,6 +2282,7 @@ function theme_customize_register($wp_customize) {
       'ga' => 'ga.js（旧タイプ）',
       'dc' => 'dc.js（ユーザー属性、インタレスト対応）',
       'analytics' => 'analytics.js（ユニバーサルアナリティクス）',
+      'analytics_displayfeatures' => 'analytics.js（ユニバーサルアナリティクス + ユーザー属性、インタレスト対応）',
     ),
     'priority' => 20,
   ));
@@ -4808,6 +4809,11 @@ function is_analytics_tracking_type_analytics(){
   return get_analytics_tracking_type() == 'analytics';
 }
 
+//Analyticsトラッキングタイプがanalytics.jsか
+function is_analytics_tracking_type_analytics_with_displayfeatures(){
+  return get_analytics_tracking_type() == 'analytics_displayfeatures';
+}
+
 //ユーザー属性とインタレストカテゴリに関するレポートに対応しているか
 function is_analytics_interest(){
   return is_analytics_tracking_type_dc();
@@ -4816,7 +4822,7 @@ function is_analytics_interest(){
 
 //ユニバーサルアナリティクスか
 function is_analytics_universal(){
-  return is_analytics_tracking_type_analytics();
+  return is_analytics_tracking_type_analytics() || is_analytics_tracking_type_analytics_with_displayfeatures();
 }
 
 //PtengineトラッキングIDの取得
