@@ -96,7 +96,7 @@ register_sidebars(1,
   array(
   'name'=>'投稿パンくずリスト上',
   'id' => 'widget-over-breadcrumbs',
-  'description' => '投稿タイトル上に表示されるウイジェット。設定しないと表示されません。',
+  'description' => '投稿のパンくずリスト上に表示されるウイジェット。設定しないと表示されません。',
   'before_widget' => '<div id="%1$s" class="widget-over-breadcrumbs %2$s">',
   'after_widget' => '</div>',
   'before_title' => '<div class="widget-over-breadcrumbs-title main-widget-label">',
