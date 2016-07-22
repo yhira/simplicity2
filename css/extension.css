@@ -336,6 +336,11 @@
   border: 2px solid transparent;
 }
 
+.btn:before{
+  font-family: FontAwesome;
+  margin-right: 10px;
+}
+
 #container a.btn:hover{
   color: #333;
   background-color: #fff;
@@ -375,3 +380,15 @@
 .btn-brown{background-color: #795548;}
 .btn-grey{background-color: #9E9E9E;}
 .btn-blue-grey{background-color: #607D8B;}
+
+.btn-arrow-right:before{content: "\f061";}
+.btn-chevron-right:before{content: "\f054";}
+.btn-angle-right:before{content: "\f105";}
+.btn-caret-right:before{content: "\f0da";}
+.btn-long-arrow-right:before{content: "\f178";}
+.btn-chevron-circle-right:before{content: "\f138";}
+.btn-angle-double-right:before{content: "\f101";}
+.btn-arrow-circle-right:before{content: "\f0a9";}
+.btn-hand-o-right:before{content: "\f0a4";}
+.btn-arrow-circle-o-right:before{content: "\f18e";}
+.btn-caret-square-o-right:before{content: "\f152";}
