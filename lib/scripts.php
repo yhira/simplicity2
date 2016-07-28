@@ -237,6 +237,9 @@ function simplicity_scripts() {
   ///////////////////////////////////////////
   //jQueryの読み込み
   ///////////////////////////////////////////
+  //wp_deregister_script('jquery');//jQuery読み込みがキャンセル
+  //wp_enqueue_script( 'jquery', includes_url() . 'js/jquery/jquery.js', null, false, true );//後から読み込みには出来ない模様
+  //jQueryの読み込み（なくてもOKだけど一応明示）
   wp_enqueue_script('jquery');
 
   ///////////////////////////////////////////
