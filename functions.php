@@ -917,3 +917,13 @@ function get_multi_page_number() {
   $paged = (get_query_var('page')) ? get_query_var('page') : 1;
   return $paged;
 }
+
+// //レンダリングをブロックするスクリプトリソースを遅れて読み込む
+// if ( !function_exists( 'add_defer_to_enqueue_script' ) ):
+// function add_defer_to_enqueue_script( $url ) {
+//     if (  FALSE === strpos( $url, '.js' ) ) return $url;
+//     //if ( strpos( $url, 'jquery.js' ) ) return $url;
+//     return "$url' defer='defer";
+// }
+// endif;
+// add_filter( 'clean_url', 'add_defer_to_enqueue_script', 11, 1 );
