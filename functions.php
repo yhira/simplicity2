@@ -927,3 +927,15 @@ function get_multi_page_number() {
 // }
 // endif;
 // add_filter( 'clean_url', 'add_defer_to_enqueue_script', 11, 1 );
+
+function get_template_part_card($template_name){
+  ob_start();//バッファリング
+  get_template_part($template_name);//テンプレートの呼び出し
+  $template = ob_get_clean();//テンプレート内容を変数に代入
+
+  $template = preg_replace('/<a [^>]+?>/i', '', $template);
+  $template = str_replace('</a>', '', $template);
+
+  $template = '<a class="hover-card" href="'.get_the_permalink().'">'.$template.'</a>';
+  echo $template;
+}

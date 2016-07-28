@@ -497,7 +497,7 @@ if ( is_list_style_tile_thumb_cards() ): ?>
 .entry-thumb img{
   width:100%;
   height:auto;
-  margin-bottom:0;
+  margin-bottom: 6px;
 }
 
 .entry-card-content {
@@ -689,7 +689,8 @@ if ( is_related_entry_type_thumbnail4() ): ?>
 /*関連記事のサムネイルが4列表示*/
 .related-entry-thumbnail {
   height: 230px;
-  width: 170px;
+  width: 160px;
+  margin-right: 10px;
 }
 
 .related-entry-thumbnail .related-entry-title a{

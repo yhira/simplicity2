@@ -16,11 +16,7 @@
       <?php if ( is_related_entry_visible() ): //関連記事を表示するか?>
       <aside id="related-entries">
         <h2><?php echo get_theme_text_related_entry();//関連記事タイトルの取得 ?></h2>
-        <?php if (is_related_entry_type_default()) {
-          get_template_part('related-entries');
-        } else{
-          get_template_part('related-entries-thumbnail');
-        }  ?>
+        <?php get_template_part('related-entries'); ?>
       </aside><!-- #related-entries -->
       <?php endif; //is_related_entry_visible?>
 

@@ -93,24 +93,24 @@ if (have_posts()) : // WordPress ループ
     if ( is_list_style_bodies() ) {//一覧表示スタイルが本文表示
       get_template_part('entry-body');//一覧表示スタイルが本文表示の場合
     } else if ( is_list_style_large_cards() ){//大きなエントリーカードの場合
-      get_template_part('entry-card-large');
+      get_template_part_card('entry-card-large');
     } else if ( is_list_style_large_card_just_for_first() ){//最初だけ大きなエントリーカードの場合
       //最初だけ大きなものであとは普通のエントリーカード
       if ( is_home() && !is_paged() && $count == 1 ) {
-        get_template_part('entry-card-large');
+        get_template_part_card('entry-card-large');
       } else {
-        get_template_part('entry-card');
+        get_template_part_card('entry-card');
       }
     } else if ( is_list_style_body_just_for_first() ){//最初だけ本文表示の場合
       //最初だけ本文表示であとは普通のエントリーカード
       if ( is_home() && !is_paged() && $count == 1 ) {
         get_template_part('entry-body');
       } else {
-        get_template_part('entry-card');
+        get_template_part_card('entry-card');
       }
     } else {//エントリーカードか、大きなサムネイルカードの場合
       //一覧表示スタイルがカードor大きなサムネイルカード表示の場合
-      get_template_part('entry-card');
+      get_template_part_card('entry-card');
     }
 
     //トップページ中間に広告を表示できるかどうか（表示するかどうか）
