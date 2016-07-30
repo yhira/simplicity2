@@ -631,7 +631,8 @@ if ( is_ads_custum_ad_space() && !is_mobile() ): ?>
 <?php //ブログカードをカラム幅いっぱいにする
 if ( is_blog_card_width_auto() || is_blog_card_external_width_auto() ): ?>
 /*ブログカードをカラム幅いっぱいにする*/
-.blog-card-wide {
+.blog-card-wide,
+.entry-content .hover-card {
   width: calc(100% - 40px);
   margin: 20px;
 }

@@ -562,6 +562,19 @@ function theme_customize_register($wp_customize) {
     'priority' => 50,
   ));
 
+  //エントリーカード全体をリンク化
+  $wp_customize->add_setting('wraped_entry_card', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'wraped_entry_card', array(
+    'settings' => 'wraped_entry_card',
+    'label' =>'エントリーカード全体をリンク化',
+    'description' => is_tips_visible() ? 'インデックスリスト・関連記事のエントリーカードやブログカード全体をAタグで囲ってリンク化するか。' : '',
+    'section' => 'layout_section',
+    'type' => 'checkbox',
+    'priority' => 55,
+  ));
+
   //サムネイル表示
   $wp_customize->add_setting('thumbnail_visible', array(
     'default' => true,
@@ -3765,6 +3778,11 @@ function get_posts_per_page_mobile(){
 //固定ページを一覧リストに含めるか
 function is_page_include_in_list(){
   return get_theme_mod( 'page_include_in_list', false );
+}
+
+//エントリーカード全体をリンク化するか
+function is_wraped_entry_card(){
+  return get_theme_mod( 'wraped_entry_card', false );
 }
 
 //サムネイルを表示するかどうか

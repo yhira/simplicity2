@@ -3538,28 +3538,38 @@ dl.recent-comments dd .recent-comment-content{
   text-decoration: none;
   display: block;
 }
-
+.entry-content .hover-card{
+  width: 500px;
+}
+/*
 .hover-card:hover{
   background-color: #f7f7f7;
 }
-
+*/
 
 .hover-card .entry-read,
 .hover-card .category,
-.hover-card .related-entry-read{
+.hover-card .related-entry-read,
+.hover-card .blog-card-title{
   color: #111;
   text-decoration: underline;
 }
 
-.hover-card .entry-large-thumbnail:hover,
-.hover-card .entry-tile:hover,
-.hover-card .related-entry-thumbnail:hover{
+.hover-card .entry:hover,
+/*.hover-card .entry-large-thumbnail:hover,
+.hover-card .entry-tile:hover,*/
+.hover-card .related-entry:hover,
+.hover-card .related-entry-thumbnail:hover,
+.hover-card .blog-card:hover{
   background-color: #f7f7f7;
 }
 
-.hover-card .entry-tile h2 {
+.hover-card .entry-tile h2,
+.hover-card .blog-card-title {
   font-size: 16px;
   line-height: 110%;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .hover-card .related-entry-thumbnail h3{

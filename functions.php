@@ -928,14 +928,47 @@ function get_multi_page_number() {
 // endif;
 // add_filter( 'clean_url', 'add_defer_to_enqueue_script', 11, 1 );
 
+//エントリーカード全体をリンク化する
+if ( !function_exists( 'get_template_part_card' ) ):
 function get_template_part_card($template_name){
   ob_start();//バッファリング
   get_template_part($template_name);//テンプレートの呼び出し
   $template = ob_get_clean();//テンプレート内容を変数に代入
-
+  /*
   $template = preg_replace('/<a [^>]+?>/i', '', $template);
   $template = str_replace('</a>', '', $template);
 
   $template = '<a class="hover-card" href="'.get_the_permalink().'">'.$template.'</a>';
+  */
+  //エントリーカードをカード化する場合はaタグを削除して全体をa.hover-cardで囲む
+  $template = wrap_entry_card($template);
   echo $template;
 }
+endif;
+
+//文字列内のaタグを削除して全体をa.hover-cardで囲む
+if ( !function_exists( 'wrap_entry_card' ) ):
+function wrap_entry_card($template, $url = null, $is_target_blank = false){
+  if ( is_wraped_entry_card() ) {
+    $template = preg_replace('/<a [^>]+?>/i', '', $template);
+    $template = str_replace('</a>', '', $template);
+
+    $class = null;
+    if ( !$url ) {
+      //$class = ' hover-blog-card';
+      $url = get_the_permalink();
+    }
+
+    $target = null;
+    if ( $is_target_blank ) {
+      $target = ' target="_blank"';
+    }
+
+    //var_dump($template);
+    //$template = '<a class="hover-card" href="'.$url.'"'.$target.'><object>'.$template.'</object></a>';
+    $template = '<a class="hover-card" href="'.$url.'"'.$target.'>'.$template.'</a>';
+    //$template = '<span>'.$template.'</span>';
+  }
+  return $template;
+}
+endif;
