@@ -631,11 +631,23 @@ if ( is_ads_custum_ad_space() && !is_mobile() ): ?>
 <?php //ブログカードをカラム幅いっぱいにする
 if ( is_blog_card_width_auto() || is_blog_card_external_width_auto() ): ?>
 /*ブログカードをカラム幅いっぱいにする*/
-.blog-card-wide,
-.entry-content .hover-card {
+.blog-card-wide {
   width: calc(100% - 40px);
   margin: 20px;
 }
+
+<?php //ブログカードをカラム幅いっぱいにする
+if ( is_wraped_entry_card() ): ?>
+.blog-card-wide {
+  width: auto;
+  margin: 0;
+}
+
+.entry-content .hover-card{
+  width: calc(100% - 40px);
+  margin: 20px;
+}
+<?php endif; ?>
 <?php endif; ?>
 <?php //ヘッダー外側の背景画像URLが設定されているとき
 if ( get_header_outer_background_image() ): ?>
