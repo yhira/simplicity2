@@ -354,8 +354,10 @@
  ***********************************/
 @media screen and (max-width:359px){
   /* 記事タイトルfont調整 */
+  .entry-card h2,
   .entry-card h2 a.entry-title,
-  .related-entry h4 a {
+  .related-entry h3,
+  .related-entry h3 a {
     line-height: 100%;
     font-size: 17px ;
   }
