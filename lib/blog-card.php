@@ -83,6 +83,10 @@ function url_to_blog_card_tag($url){
   //取得した情報からブログカードのHTMLタグを作成
   $tag = '<div class="blog-card internal-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
 
+  if ( is_wraped_entry_card() ) {
+    //エントリーカードをカード化する場合はaタグを削除して全体をa.hover-cardで囲む
+    $tag = wrap_entry_card($tag, $url, $target);
+  }
   return $tag;
 }
 endif;
@@ -123,7 +127,7 @@ if ( !function_exists( 'url_shortcode_to_blog_card' ) ):
 function url_shortcode_to_blog_card($the_content) {
   if ( true /*is_singular()*/ ) {//投稿ページもしくは固定ページのとき
     //1行にURLのみが期待されている行（URL）を全て$mに取得
-    $res = preg_match_all('/\[https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+\]/im', $the_content, $m);
+    $res = preg_match_all('/(<p>)?\[https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+\](<\/p>)?(<br ? \/>)?/im', $the_content, $m);
     foreach ($m[0] as $match) {
     //マッチしたURL一つ一つをループしてカードを作成
       $url = strip_tags($match);//URL
@@ -199,11 +203,13 @@ function url_to_external_blog_card($the_content) {
       $url = strip_tags($match);//URL
 
       $tag = url_to_external_blog_card_tag($url);
+      //$tag = $tag.htmlspecialchars($tag);
 
       if ( !$tag ) continue;
 
       //本文中のURLをブログカードタグで置換
       $the_content = preg_replace('{'.preg_quote($match).'}', $tag , $the_content, 1);
+      //$the_content = htmlspecialchars($the_content);
     }
   }
   return $the_content;//置換後のコンテンツを返す
@@ -397,7 +403,11 @@ function url_to_external_ogp_blog_card_tag($url){
   }
   //取得した情報からブログカードのHTMLタグを作成
   $tag = '<div class="blog-card external-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
-
+  if ( is_wraped_entry_card() ) {
+    //エントリーカードをカード化する場合はaタグを削除して全体をa.hover-cardで囲む
+    $tag = wrap_entry_card($tag, $url, $target);
+    //$tag = '<a class="abc"><object><div>aaa</div></object></a>';
+  }
   return $tag;
 }
 endif;

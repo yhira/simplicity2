@@ -497,7 +497,7 @@ if ( is_list_style_tile_thumb_cards() ): ?>
 .entry-thumb img{
   width:100%;
   height:auto;
-  margin-bottom:0;
+  margin-bottom: 6px;
 }
 
 .entry-card-content {
@@ -635,6 +635,19 @@ if ( is_blog_card_width_auto() || is_blog_card_external_width_auto() ): ?>
   width: calc(100% - 40px);
   margin: 20px;
 }
+
+<?php //ブログカードをカラム幅いっぱいにする
+if ( is_wraped_entry_card() ): ?>
+.blog-card-wide {
+  width: auto;
+  margin: 0;
+}
+
+.entry-content .hover-card{
+  width: calc(100% - 40px);
+  margin: 20px;
+}
+<?php endif; ?>
 <?php endif; ?>
 <?php //ヘッダー外側の背景画像URLが設定されているとき
 if ( get_header_outer_background_image() ): ?>
@@ -689,7 +702,8 @@ if ( is_related_entry_type_thumbnail4() ): ?>
 /*関連記事のサムネイルが4列表示*/
 .related-entry-thumbnail {
   height: 230px;
-  width: 170px;
+  width: 160px;
+  margin-right: 10px;
 }
 
 .related-entry-thumbnail .related-entry-title a{

@@ -1052,12 +1052,13 @@ a.page-numbers,
 ************************************/
 
 .related-entry-thumbnail{
-  width:226px;
+  width:200px;
   height:292px;
   text-align:center;
   overflow:hidden;
   float:left;
   margin-bottom:15px;
+  margin-right: 26px;
 }
 
 .related-entry-thumbnail .related-entry-thumb{
@@ -1067,7 +1068,7 @@ a.page-numbers,
 }
 
 .related-entry-thumbnail .related-entry-content{
-  margin: -20px 6px 0;
+  margin: -10px 0px 0;
 }
 
 .related-entry-thumbnail .related-entry-content a{
@@ -3528,4 +3529,51 @@ dl.recent-comments dd .recent-comment-content{
 
 .recent-comment-title{
   clear: both;
+}
+
+/************************************
+** ホバーカードの設定
+************************************/
+.hover-card{
+  text-decoration: none;
+  display: block;
+}
+.entry-content .hover-card{
+  width: 500px;
+}
+/*
+.hover-card:hover{
+  background-color: #f7f7f7;
+}
+*/
+
+.hover-card .entry-read,
+.hover-card .category,
+.hover-card .related-entry-read,
+.hover-card .blog-card-title{
+  color: #111;
+  text-decoration: underline;
+}
+
+.hover-card .entry:hover,
+/*.hover-card .entry-large-thumbnail:hover,
+.hover-card .entry-tile:hover,*/
+.hover-card .related-entry:hover,
+.hover-card .related-entry-thumbnail:hover,
+.hover-card .blog-card:hover{
+  background-color: #f7f7f7;
+}
+
+.hover-card .entry-tile h2,
+.hover-card .blog-card-title {
+  font-size: 16px;
+  line-height: 110%;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hover-card .related-entry-thumbnail h3{
+  font-size: 16px;
+  line-height: 110%;
+  font-weight: normal;
 }
