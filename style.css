@@ -6,7 +6,7 @@ Theme URI: http://wp-simplicity.com/
 Author: yhira
 Author URI: http://nelog.jp/
 Text Domain: simplicity2
-Version: 2.2.3a
+Version: 2.2.3b
 Tags: white, two-columns, left-sidebar, right-sidebar, fluid-layout, fixed-layout
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2339,6 +2339,7 @@ div.fb-like-mobile{
   }
 
   .article .blog-card,
+  .article .entry-content .hover-card,
   .commets-list .blog-card{
     margin-left: 0;
     margin-right: 0;
