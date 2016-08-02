@@ -138,6 +138,7 @@ div#sidebar{
   background-color:#ddd;
 }
 
+.entry h2,
 .entry h2 a {
   font-size: 18px;
 }
