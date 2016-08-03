@@ -3256,8 +3256,10 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
 
 .twitter-balloon-btn-defalt a.twitter-balloon-btn-link .tweet-label{
   font: 11px "Helvetica Neue",Arial,sans-serif;
+  /*
   font-weight: bold;
   color: #000;
+  */
   vertical-align: 25%;
 }
 
