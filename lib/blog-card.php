@@ -102,13 +102,18 @@ function url_to_blog_card($the_content) {
     //var_dump($res);
     foreach ($m[0] as $match) {
 
-      //ブログカード置換用テキストにpタグが含まれているかどうか
-      if (strpos($match,'p>') !== false){
-        //pタグが含まれていた場合は開始タグと終了タグが揃っているかどうか
-        if ( !((strpos($match,'<p>') !== false) && (strpos($match,'</p>') !== false)) ) {
-          continue;
-        }
+      //マッチしたpタグが適正でないときはブログカード化しない
+      if ( !is_p_tag_appropriate($match) ) {
+        continue;
       }
+
+      // //ブログカード置換用テキストにpタグが含まれているかどうか
+      // if (strpos($match,'p>') !== false){
+      //   //pタグが含まれていた場合は開始タグと終了タグが揃っているかどうか
+      //   if ( !((strpos($match,'<p>') !== false) && (strpos($match,'</p>') !== false)) ) {
+      //     continue;
+      //   }
+      // }
 
       $url = strip_tags($match);//URL
 
@@ -203,6 +208,18 @@ function url_to_external_blog_card_tag($url){
 }
 endif;
 
+//ブログカード置換用テキストにpタグが含まれているかどうか
+if ( !function_exists( 'is_p_tag_appropriate' ) ):
+function is_p_tag_appropriate($match){
+  if (strpos($match,'p>') !== false){
+    //pタグが含まれていた場合は開始タグと終了タグが揃っているかどうか
+    if ( (strpos($match,'<p>') !== false) && (strpos($match,'</p>') !== false) ) {
+      return true;
+    }
+  }
+}
+endif;
+
 //本文中の外部URLをはてなブログカードタグに変更する
 if ( !function_exists( 'url_to_external_blog_card' ) ):
 function url_to_external_blog_card($the_content) {
@@ -213,13 +230,18 @@ function url_to_external_blog_card($the_content) {
     //マッチしたURL一つ一つをループしてカードを作成
     foreach ($m[0] as $match) {
 
-      //ブログカード置換用テキストにpタグが含まれているかどうか
-      if (strpos($match,'p>') !== false){
-        //pタグが含まれていた場合は開始タグと終了タグが揃っているかどうか
-        if ( !((strpos($match,'<p>') !== false) && (strpos($match,'</p>') !== false)) ) {
-          continue;
-        }
+      //マッチしたpタグが適正でないときはブログカード化しない
+      if ( !is_p_tag_appropriate($match) ) {
+        continue;
       }
+
+      // //ブログカード置換用テキストにpタグが含まれているかどうか
+      // if (strpos($match,'p>') !== false){
+      //   //pタグが含まれていた場合は開始タグと終了タグが揃っているかどうか
+      //   if ( !((strpos($match,'<p>') !== false) && (strpos($match,'</p>') !== false)) ) {
+      //     continue;
+      //   }
+      // }
 
       $url = strip_tags($match);//URL
       //var_dump(htmlentities($match));
