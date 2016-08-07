@@ -216,7 +216,9 @@ function is_p_tag_appropriate($match){
     if ( (strpos($match,'<p>') !== false) && (strpos($match,'</p>') !== false) ) {
       return true;
     }
+    return false;
   }
+  return true;
 }
 endif;
 

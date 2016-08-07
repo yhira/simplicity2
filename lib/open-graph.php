@@ -56,6 +56,9 @@ class OpenGraph implements Iterator
           'redirection' => 10,
         );
         $res = wp_remote_get( $URI, $args );
+        // echo('<pre>');
+        // var_dump($res);
+        // echo('</pre>');
         if (!is_wp_error( $res ) && $res["response"]["code"] === 200) {
           $response = $res['body'];
         }
