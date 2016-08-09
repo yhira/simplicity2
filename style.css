@@ -2319,7 +2319,8 @@ div.fb-like-mobile{
  ブログカード（幅が狭い場合）
  ***********************************/
 @media screen and (max-width: 560px){
-  .article .blog-card{
+  .article .blog-card,
+  .article .entry-content .hover-card{
     width: 100%;
   }
 
