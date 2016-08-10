@@ -1842,7 +1842,7 @@ div.vdh-mask{
   overflow: hidden;
   position: relative;
   border-radius: 3px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+  /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);*/
 }
 .hover-image:before {
   content: '';
@@ -1857,14 +1857,19 @@ div.vdh-mask{
   z-index: 2;
   -webkit-transition-property: top, opacity;
           transition-property: top, opacity;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+  -webkit-transition-duration: 0.1s;
+          transition-duration: 0.1s;
+}
+.hover-image-admin:before {
+  -webkit-transition-duration: 0s;
+          transition-duration: 0s;
 }
 .hover-image img {
   display: block;
   max-width: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  vertical-align: bottom;
 }
 .hover-image .details {
   font-size: 16px;
@@ -1886,16 +1891,15 @@ div.vdh-mask{
   top: 100px;
   -webkit-transition-property: top, opacity;
           transition-property: top, opacity;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+  -webkit-transition-duration: 0.1s;
+          transition-duration: 0.1s;
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
 }
-/*.hover-image .details .title {
-  line-height: 1;
-  font-weight: 600;
-  font-size: 18px;
-}*/
+.hover-image-admin .details span {
+  -webkit-transition-duration: 0s;
+          transition-duration: 0s;
+}
 .hover-image .details .info {
   line-height: 1.2;
   margin-top: 5px;
@@ -1911,14 +1915,15 @@ div.vdh-mask{
 .hover-image:hover span {
   top: 0;
 }
-/*.hover-image:hover .title {
-  -webkit-transition-delay: 0.15s;
-          transition-delay: 0.15s;
-}*/
 .hover-image:hover .info {
   -webkit-transition-delay: 0.15s;
           transition-delay: 0.15s;
 }
+.hover-image-admin:hover .info {
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
 
 /************************************
 ** Facebookページを「いいね！」するエリアのスタイル

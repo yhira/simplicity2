@@ -58,7 +58,7 @@ function add_lightbox_property( $content ) {
   return $content;
 }
 if ( is_lightbox_enable() ) {
-  add_filter( 'the_content', 'add_lightbox_property', 11 );
+  add_filter( 'the_content', 'add_lightbox_property', 9 );
 }
 
 //画像リンクのAタグをlityに対応するように付け替え
@@ -97,5 +97,33 @@ function deregister_thickbox_files() {
   wp_dequeue_style( 'thickbox' );
   wp_dequeue_script( 'thickbox' );
 }
-
 add_action( 'wp_enqueue_scripts', 'deregister_thickbox_files' );
+
+//画像が出てきたらキャプション表示用のラッパーを装着
+if ( !function_exists( 'wrap_hover_image' ) ):
+function wrap_hover_image($the_content) {
+  if ( is_singular() ) {
+    $hover_image_admin_class = null;
+    if ( is_user_logged_in() ) {
+      $hover_image_admin_class = ' hover-image-admin';
+    }
+    //Alt属性値のある画像タグをラッパー付きのタグで置換する
+    $the_content = preg_replace(
+      '/(<img.+?alt=[\'"]([^\'"]+?)[\'"].+?>)/i',
+      '<div class="hover-image'.$hover_image_admin_class.'">${0}<div class="details"><span class="info">${2}</span></div></div>',
+      $the_content);
+  }
+  return $the_content;
+}
+endif;
+if ( !is_mobile() ) {
+  if (
+    //管理者（ログインユーザー）のみにキャプション表示
+    ( is_alt_caption_type_ac_admin() && is_user_logged_in() ) ||
+    //全てのユーザーにキャプションを表示
+    ( is_alt_caption_type_ac_all() )
+  ) {
+    add_filter('the_content','wrap_hover_image');
+  }
+}
+

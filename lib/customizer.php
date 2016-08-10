@@ -1286,6 +1286,44 @@ function theme_customize_register($wp_customize) {
     'priority' => 60,
   ));
 
+  //画像リンク拡大効果
+  $wp_customize->add_setting('lightbox_type', array(
+    'default' => 'none',
+    'sanitize_callback' => 'sanitize_text',
+  ));
+  $wp_customize->add_control( 'lightbox_type', array(
+    'settings' => 'lightbox_type',
+    'label' =>'画像リンク拡大効果のタイプ',
+    'description' => is_tips_visible() ? 'ライトボックス（画像拡大効果）のタイプを指定します。それぞれは、jQueryライブラリ名です。詳細はリンク先を参照してください。<a href="http://nelog.jp/lightbox-jquery" target="_blank">Lightbox</a>、<a href="http://nelog.jp/lity-js" target="_blank">Lity</a>' : '',
+    'section' => 'image_section',
+    'type' => 'radio',
+    'choices'    => array(
+      'none' => '拡大効果なし',
+      'lightbox' => 'Lightbox',
+      'lity' => 'Lity（軽い）',
+    ),
+    'priority' => 50,
+  ));
+
+  //マウスホバーでAlt属性値をキャプション表示
+  $wp_customize->add_setting('alt_caption_type', array(
+    'default' => 'none',
+    'sanitize_callback' => 'sanitize_text',
+  ));
+  $wp_customize->add_control( 'alt_caption_type', array(
+    'settings' => 'alt_caption_type',
+    'label' =>'Alt属性値をキャプション表示',
+    'description' => is_tips_visible() ? '画像の上にマウスホバーするとAlt属性値を利用してキャプションを表示するかどうかを設定します。' : '',
+    'section' => 'image_section',
+    'type' => 'radio',
+    'choices'    => array(
+      'none' => '表示しない（デフォルト）',
+      'ac_admin' => '管理者のみ（ログインユーザーのみ）',
+      'ac_all' => '全てのユーザー',
+    ),
+    'priority' => 70,
+  ));
+
   // //マウスホバーでAlt属性値をキャプション表示
   // $wp_customize->add_setting('alt_hover_effect_enable', array(
   //   'default' => false,
@@ -3979,6 +4017,21 @@ function get_lazy_load_threshold(){
 //画像リンク拡大効果タイプの取得
 function get_lightbox_type(){
   return get_theme_mod( 'lightbox_type', 'none' );
+}
+
+//Alt属性キャプション表示タイプの取得
+function get_alt_caption_type(){
+  return get_theme_mod( 'alt_caption_type', 'none' );
+}
+
+//Alt属性キャプション表示タイプは「管理者のみ」か
+function is_alt_caption_type_ac_admin(){
+  return get_alt_caption_type() == 'ac_admin';
+}
+
+//Alt属性キャプション表示タイプは「全てのユーザー」か
+function is_alt_caption_type_ac_all(){
+  return get_alt_caption_type() == 'ac_all';
 }
 
 //Lightboxが有効か

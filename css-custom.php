@@ -768,17 +768,18 @@ if ( is_blog_card_thumbnail_right() || is_blog_card_external_thumbnail_right() )
 <?php //画像効果はボーダーか
 if ( is_image_effect_border1px() ): ?>
 /*画像効果ボーダー*/
-#the-content > p > img,
-#the-content > .hover-image > img,
-#the-content > p > a > img {
+.entry-content > p > img,
+.entry-content > p > a > img,
+.entry-content > .hover-image img {
   border: 1px solid #ddd;
 }
 <?php endif; ?>
 <?php //画像効果はシャドーか
 if ( is_image_effect_shadow() ): ?>
 /*画像効果シャドー*/
-#the-content > p > img,
-#the-content > p > a > img {
+.entry-content > p > img,
+.entry-content > p > a > img,
+.entry-content > .hover-image {
   box-shadow:5px 5px 15px #ddd;
 }
 <?php endif; ?>
