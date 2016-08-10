@@ -54,6 +54,7 @@ class OpenGraph implements Iterator
         $args = array(
           'sslverify' => is_ssl_verification_enable(),
           'redirection' => 10,
+          'simplicity' => true,
         );
         $res = wp_remote_get( $URI, $args );
         // echo('<pre>');
@@ -215,3 +216,55 @@ class OpenGraph implements Iterator
 	public function next() { next($this->_values); ++$this->_position; }
 	public function valid() { return $this->_position < sizeof($this->_values); }
 }
+
+//curl_setoptで暗号化スイートを設定
+//http://blog.tojiru.net/article/437364535.html
+//https://github.com/hirak/prestissimo/pull/69/files
+if ( !function_exists( 'set_ecc_cipher_suites' ) ):
+function set_ecc_cipher_suites($handle, $r) {
+  if (isset($r['simplicity'])) {
+    $cipher_list = array(
+      "rsa_3des_sha",
+      "rsa_des_sha",
+      "rsa_null_md5",
+      "rsa_null_sha",
+      "rsa_rc2_40_md5",
+      "rsa_rc4_128_md5",
+      "rsa_rc4_128_sha",
+      "rsa_rc4_40_md5",
+      "fips_des_sha",
+      "fips_3des_sha",
+      "rsa_des_56_sha",
+      "rsa_rc4_56_sha",
+      "rsa_aes_128_sha",
+      "rsa_aes_256_sha",
+      "rsa_aes_128_gcm_sha_256",
+      "dhe_rsa_aes_128_gcm_sha_256",
+      "ecdh_ecdsa_null_sha",
+      "ecdh_ecdsa_rc4_128_sha",
+      "ecdh_ecdsa_3des_sha",
+      "ecdh_ecdsa_aes_128_sha",
+      "ecdh_ecdsa_aes_256_sha",
+      "ecdhe_ecdsa_null_sha",
+      "ecdhe_ecdsa_rc4_128_sha",
+      "ecdhe_ecdsa_3des_sha",
+      "ecdhe_ecdsa_aes_128_sha",
+      "ecdhe_ecdsa_aes_256_sha",
+      "ecdh_rsa_null_sha",
+      "ecdh_rsa_128_sha",
+      "ecdh_rsa_3des_sha",
+      "ecdh_rsa_aes_128_sha",
+      "ecdh_rsa_aes_256_sha",
+      "echde_rsa_null",
+      "ecdhe_rsa_rc4_128_sha",
+      "ecdhe_rsa_3des_sha",
+      "ecdhe_rsa_aes_128_sha",
+      "ecdhe_rsa_aes_256_sha",
+      "ecdhe_ecdsa_aes_128_gcm_sha_256",
+      "ecdhe_rsa_aes_128_gcm_sha_256",
+    );
+    curl_setopt($handle, CURLOPT_SSL_CIPHER_LIST, implode(',', $cipher_list));
+  }
+}
+endif;
+add_action('http_api_curl', 'set_ecc_cipher_suites', 10, 2);
