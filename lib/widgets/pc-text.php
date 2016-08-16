@@ -12,8 +12,10 @@ class PcTextWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
+    // //タイトル名を取得
+    // $title = apply_filters( 'widget_title_pc_text', $instance['title_pc_text'] );
     //タイトル名を取得
-    $title = apply_filters( 'widget_title_pc_text', $instance['title_pc_text'] );
+    $title = apply_filters( 'widget_title_pc_text', empty($instance['title_pc_text']) ? "" : $instance['title_pc_text'] );
     $widget_text = isset( $instance['text_pc_text'] ) ? $instance['text_pc_text'] : '';
     $text = apply_filters( 'widget_text_pc_text', $widget_text, $instance, $this );
     //$text = apply_filters( 'widget_text_pc_text', $instance['text_pc_text'] );
