@@ -50,6 +50,7 @@ class OpenGraph implements Iterator
    * @return OpenGraph
    */
 	static public function fetch($URI) {
+        global $wp_version;
 
         $args = array(
           'sslverify' => is_ssl_verification_enable(),
