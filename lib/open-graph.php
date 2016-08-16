@@ -55,12 +55,15 @@ class OpenGraph implements Iterator
           'sslverify' => is_ssl_verification_enable(),
           'redirection' => 10,
           'simplicity' => true,
+          //'user-agent' => $_SERVER['HTTP_USER_AGENT'],
+          'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' ),
         );
         $res = wp_remote_get( $URI, $args );
+        $response_code = wp_remote_retrieve_response_code( $res );
         // echo('<pre>');
         // var_dump($res);
         // echo('</pre>');
-        if (!is_wp_error( $res ) && $res["response"]["code"] === 200) {
+        if (!is_wp_error( $res ) && $response_code === 200) {
           $response = $res['body'];
         }
         //var_dump($response);
@@ -217,6 +220,14 @@ class OpenGraph implements Iterator
 	public function valid() { return $this->_position < sizeof($this->_values); }
 }
 
+//curlのバージョンチェック
+if ( !function_exists( 'is_nss_curl' ) ):
+function is_nss_curl() {
+  $info = curl_version();
+  return $info['version'] === '7.19.7';
+}
+endif;
+
 //curl_setoptで暗号化スイートを設定
 //http://blog.tojiru.net/article/437364535.html
 //https://github.com/hirak/prestissimo/pull/69/files
@@ -267,4 +278,6 @@ function set_ecc_cipher_suites($handle, $r) {
   }
 }
 endif;
-add_action('http_api_curl', 'set_ecc_cipher_suites', 10, 2);
+if (is_nss_curl()) {
+  add_action('http_api_curl', 'set_ecc_cipher_suites', 10, 2);
+}
