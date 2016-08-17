@@ -8,6 +8,7 @@ global $g_is_pages_include; //固定ページの表示
 global $g_is_views_visible;//閲覧数を表示するかどうか
 global $g_range;//集計期間
 global $g_widget_item;//このテンプレートを利用するウイジェットアイテム
+global $g_exclude_ids;//除外ID
 ?>
 <div class="popular-entrys popular-entrys-large
 <?php if ( $g_entry_type == 'large_thumb_on' &&
@@ -52,6 +53,7 @@ if ( is_wpp_enable() ):
   thumbnail_width='.$thumbnail_width.'&
   thumbnail_height='.$thumbnail_height.'&
   cat="'.$now_id.'"&
+  pid="'.$g_exclude_ids.'"&
   wpp_start=""&
   wpp_end=""&'.
   $post_type.

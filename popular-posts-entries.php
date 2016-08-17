@@ -5,6 +5,7 @@ global $g_is_pages_include; //固定ページの表示
 global $g_is_views_visible;//閲覧数を表示するかどうか
 global $g_range;//集計期間
 global $g_widget_item;//このテンプレートを利用するウイジェットアイテム
+global $g_exclude_ids;//除外ID
 //「Simplicity同カテゴリーの人気エントリー」ウイジェットを使用している時だけカテゴリを絞る
 $now_id = null;
 $post_type = $g_is_pages_include ? null : 'post_type="post"&';
@@ -39,6 +40,7 @@ if ( is_wpp_enable() ):
   thumbnail_width=75&
   thumbnail_height=75&
   cat="'.$now_id.'"&
+  pid="'.$g_exclude_ids.'"&
   wpp_start=""&
   wpp_end=""&
   post_start="<div class="popular-post"><ul>"&
