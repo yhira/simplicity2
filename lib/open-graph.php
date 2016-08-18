@@ -54,10 +54,11 @@ class OpenGraph implements Iterator
 
         $args = array(
           'sslverify' => is_ssl_verification_enable(),
-          'redirection' => 10,
+          //'sslverify' => false,
+          //'redirection' => 10,
           'simplicity' => true,
-          //'user-agent' => $_SERVER['HTTP_USER_AGENT'],
-          'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' ),
+          'user-agent' => $_SERVER['HTTP_USER_AGENT'],
+          //'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' ),
         );
         $res = wp_remote_get( $URI, $args );
         $response_code = wp_remote_retrieve_response_code( $res );

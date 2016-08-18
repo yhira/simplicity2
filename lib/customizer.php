@@ -4456,11 +4456,7 @@ function is_colored_follow_btns(){
 
 //外部サイトデータを取得時にSSL検証を行うか
 function is_ssl_verification_enable(){
-  if ( get_theme_mod( 'ssl_verification_enable', true ) ) {
-    return true;
-  } else {
-    return false;
-  }
+  return get_theme_mod( 'ssl_verification_enable', true );
 }
 
 //タイトル下に小さなシェアボタンを表示するかどうか
