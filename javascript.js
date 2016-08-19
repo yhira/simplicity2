@@ -227,16 +227,16 @@ function fetch_twitter_count(url, selector) {
 
 //Facebookのシェア数を取得
 function fetch_facebook_count(url, selector) {
-    jQuery.ajax({
-      url:'https://graph.facebook.com/',
-      dataType:'jsonp',
-      timeout: 10000, //10sec
-      data:{ id:url }
-    }).done(function(res){
-      jQuery( selector ).text( res.shares || 0 );
-    }).fail(function(){
-      jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
-    });
+  jQuery.ajax({
+    url:'https://graph.facebook.com/',
+    dataType:'jsonp',
+    timeout: 10000, //10sec
+    data:{ id:url }
+  }).done(function(res){
+    jQuery( selector ).text( res.share.share_count || 0 );
+  }).fail(function(){
+    jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
+  });
 }
 
 //Google＋のシェア数を取得
