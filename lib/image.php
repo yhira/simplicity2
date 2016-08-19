@@ -123,7 +123,7 @@ if ( !is_mobile() ) {
     //全てのユーザーにキャプションを表示
     ( is_alt_caption_type_ac_all() )
   ) {
-    add_filter('the_content','wrap_hover_image');
+    add_filter('the_content','wrap_hover_image', 9999);
   }
 }
 

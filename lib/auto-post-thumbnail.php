@@ -96,7 +96,7 @@ function fetch_thumbnail_image($matches, $key, $post_content, $post_id){
     'post_mime_type' => $type,
     'guid' => $url,
     'post_parent' => null,
-    'post_title' => $imageTitle,
+    'post_title' => $imageTitle ? $imageTitle : get_basename($filename),
     'post_content' => '',
   );
 
@@ -134,6 +134,7 @@ function auto_post_thumbnail_image() {
     //投稿本文からすべての画像を取得
     preg_match_all('/<\s*img [^\>]*src\s*=\s*[\""\']?([^\""\'>]*).+?\/?>/i', $post[0]->post_content, $matches);
     //var_dump($matches);
+
     //YouTubeのサムネイルを取得（画像がなかった場合）
     if (empty($matches[0])) {
       preg_match('%(?:youtube\.com/(?:user/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $post[0]->post_content, $match);

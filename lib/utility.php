@@ -53,6 +53,13 @@ function remove_directory($dir) {
   }
 }
 
+//拡張子のみを取得する
 function get_extention($filename){
   return preg_replace('/^.*\.([^.]+)$/D', '$1', $filename);
+}
+
+//ファイル名のみを取得する
+function get_basename($filename){
+  $p = pathinfo($filename);
+  return basename ( $filename, ".{$p['extension']}" );
 }
