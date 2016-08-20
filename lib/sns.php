@@ -148,6 +148,27 @@ function fetch_twitter_count($url){
 }
 endif;
 
+//Facebookシェア数を取得する
+if ( !function_exists( 'fetch_facebook_count' ) ):
+function fetch_facebook_count($url) {
+  //URLをURLエンコード
+  $encoded_url = rawurlencode( $url );
+  //オプションの設定
+  $args = array( 'sslverify' => is_ssl_verification_enable() );
+  //Facebookにリクエストを送る
+  $response = wp_remote_get( 'http://graph.facebook.com/?id='.$encoded_url, $args );
+  $res = 0;
+
+  //取得に成功した場合
+  if (!is_wp_error( $response ) && $response["response"]["code"] === 200) {
+    $body = $response['body'];
+    $json = json_decode( $body ); //ジェイソンオブジェクトに変換する
+    $res = ($json->{'share'}->{'share_count'} ? $json->{'share'}->{'share_count'} : 0);
+  }
+  return $res;
+}
+endif;
+
 //SNS Count Cacheプラグインはインストールされているか
 function scc_exists(){
   return function_exists('scc_get_share_twitter');
