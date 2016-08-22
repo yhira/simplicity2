@@ -972,3 +972,26 @@ function wrap_entry_card($template, $url = null, $is_target_blank = false){
   return $template;
 }
 endif;
+
+// function category_classize($cat_id) {
+//   return 'category-'.$cat_id;
+// };
+
+// function get_category_id_classes(){
+//   if ( is_single() ) {
+//     $cat_ids = get_category_ids();
+//     $cat_ids = array_map('category_classize', $cat_ids);
+//     if ( $cat_ids ) {
+//       return implode(' ', $cat_ids);
+//     }
+//   }
+// }
+
+//カテゴリクラスをbodyクラスに含める
+function add_category_id_classes_to_body_classes($classes) {
+    global $post;
+    foreach((get_the_category($post->ID)) as $category)
+        $classes[] = 'categoryid-'.$category->cat_ID;
+    return $classes;
+}
+add_filter('body_class', 'add_category_id_classes_to_body_classes');
