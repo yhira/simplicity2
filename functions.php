@@ -987,11 +987,20 @@ endif;
 //   }
 // }
 
-//カテゴリクラスをbodyクラスに含める
+//カテゴリIDクラスをbodyクラスに含める
 function add_category_id_classes_to_body_classes($classes) {
-    global $post;
-    foreach((get_the_category($post->ID)) as $category)
-        $classes[] = 'categoryid-'.$category->cat_ID;
-    return $classes;
+  global $post;
+  foreach((get_the_category($post->ID)) as $category)
+    $classes[] = 'categoryid-'.$category->cat_ID;
+  return $classes;
 }
 add_filter('body_class', 'add_category_id_classes_to_body_classes');
+
+// //カテゴリスラッグクラスをbodyクラスに含める
+// function add_category_slug_classes_to_body_classes($classes) {
+//   global $post;
+//   foreach((get_the_category($post->ID)) as $category)
+//      $classes[] = $category->category_nicename;
+//   return $classes;
+// }
+// add_filter('body_class', 'add_category_slug_classes_to_body_classes');
