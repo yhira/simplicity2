@@ -93,14 +93,19 @@ class OpenGraph implements Iterator
     $HTML = mb_convert_encoding($HTML,'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
 		$doc->loadHTML($HTML);
 
+    //タイトルタグからタイトル情報を取得
+    preg_match( "/<title>(.*?)<\/title>/i", $HTML, $matches);
+    $title = $matches[1];
+
 		libxml_use_internal_errors($old_libxml_error);
 
 		$tags = $doc->getElementsByTagName('meta');
-		if (!$tags || $tags->length === 0) {
+		if ((!$tags || $tags->length === 0) && !$title) {
 			return false;
 		}
 
 		$page = new self();
+    $page->_values['title'] = $title;
 
 		$nonOgDescription = null;
 
