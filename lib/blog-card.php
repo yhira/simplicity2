@@ -343,7 +343,7 @@ function url_to_external_ogp_blog_card_tag($url){
   if ( !$url ) return;
   $url = strip_tags($url);//URL
   $url_hash = 'sp_bcc_'.md5( $url );
-  $error_title = 'This page is error.';
+  $error_title = $url;//'This page is error.';
   $title = $error_title;
   $mshot = is_ssl() ? 'https://s0.wordpress.com/mshots/v1/' : 'http://s.wordpress.com/mshots/v1/';
   //$mshot = 'http://capture.heartrails.com/100x100/shorten?';
