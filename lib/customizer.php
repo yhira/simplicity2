@@ -2132,7 +2132,7 @@ function theme_customize_register($wp_customize) {
 
   //外部サイトデータ取得時にSSL検証を行う
   $wp_customize->add_setting('ssl_verification_enable', array(
-    'default' => true,
+    'default' => false,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'ssl_verification_enable', array(
@@ -4456,7 +4456,7 @@ function is_colored_follow_btns(){
 
 //外部サイトデータを取得時にSSL検証を行うか
 function is_ssl_verification_enable(){
-  return get_theme_mod( 'ssl_verification_enable', true );
+  return get_theme_mod( 'ssl_verification_enable', false );
 }
 
 //タイトル下に小さなシェアボタンを表示するかどうか
