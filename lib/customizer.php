@@ -2130,20 +2130,6 @@ function theme_customize_register($wp_customize) {
     'priority' => 170,
   ));
 
-  //外部サイトデータ取得時にSSL検証を行う
-  $wp_customize->add_setting('ssl_verification_enable', array(
-    'default' => false,
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'ssl_verification_enable', array(
-    'settings' => 'ssl_verification_enable',
-    'label' =>'外部サイトデータ取得時にSSL検証を行う',
-    'description' => is_tips_visible() ? 'wp_remote_getで外部サイトデータを取得時に、SSL検証を有効にします。Google＋、Pocket、Push7、feedlyカウントが取得できないとき無効にしてみてください。必要のない場合は無効にしないでください。' : '',
-    'section' => 'sns_section',
-    'type' => 'checkbox',
-    'priority' => 180,
-  ));
-
   /////////////////////////////
   //広告設定項目の追加
   /////////////////////////////
@@ -3359,6 +3345,20 @@ function theme_customize_register($wp_customize) {
     'section' => 'other_section',
     'priority' => 40,
   ) ) );
+
+  //外部サイトデータ取得時にSSL検証を行う
+  $wp_customize->add_setting('ssl_verification_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'ssl_verification_enable', array(
+    'settings' => 'ssl_verification_enable',
+    'label' =>'外部サイトデータ取得時にSSL検証を行う',
+    'description' => is_tips_visible() ? 'wp_remote_getで外部サイトデータを取得時に、SSL検証を有効にします。' : '',
+    'section' => 'other_section',
+    'type' => 'checkbox',
+    'priority' => 43,
+  ));
 
   //自動アップデートを有効にする
   $wp_customize->add_setting('auto_update_enable', array(
