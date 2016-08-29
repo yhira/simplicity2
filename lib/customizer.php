@@ -4496,10 +4496,13 @@ function is_ads_visible(){
   );
 //  var_dump('広告非表示か');
 //  var_dump($is_exclude_ids);
+  global $wp_query;
+  //var_dump($wp_query->found_posts);
   return get_theme_mod( 'ads_visible', true) &&
     !$is_exclude_ids && //除外ページでない場合広告を表示（カスタマイザー設定）
     !is_ads_removed_in_page() && //ページで除外していない場合
-    !is_attachment();
+    !is_attachment() && //添付ページではない場合
+    !(is_search() && ($wp_query->found_posts == 0)); //検索結果ページではない場合（加えて検索結果数が1以上）
 }
 endif;
 
