@@ -4480,6 +4480,7 @@ function is_bottom_share_btns_visible(){
 // }
 
 //広告表示がオンかどうか
+if ( !function_exists( 'is_ads_visible' ) ):
 function is_ads_visible(){
   $article_ids = get_exclude_article_ids();
   $category_ids =get_exclude_category_ids();
@@ -4500,6 +4501,7 @@ function is_ads_visible(){
     !is_ads_removed_in_page() && //ページで除外していない場合
     !is_attachment();
 }
+endif;
 
 //ダブルレクタングルが縦型か
 function is_ads_vatical_rectangle(){
