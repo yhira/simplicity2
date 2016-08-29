@@ -988,6 +988,7 @@ endif;
 // }
 
 //カテゴリIDクラスをbodyクラスに含める
+if ( !function_exists( 'add_category_id_classes_to_body_classes' ) ):
 function add_category_id_classes_to_body_classes($classes) {
   global $post;
   if ( is_single() ) {
@@ -996,7 +997,7 @@ function add_category_id_classes_to_body_classes($classes) {
   }
   return $classes;
 }
-
+endif;
 add_filter('body_class', 'add_category_id_classes_to_body_classes');
 
 // //カテゴリスラッグクラスをbodyクラスに含める
