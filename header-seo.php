@@ -51,6 +51,14 @@ if ( is_category() && is_meta_description_insert_to_category() ): ?>
 if ( is_category() && is_meta_keywords_insert_to_category() ): ?>
 <meta name="keywords" content="<?php echo get_meta_keyword_from_category(); ?>" />
 <?php endif; ?>
+<?php //タグページにMETAディスクリプションを挿入するとき
+if ( is_tag() ): ?>
+<meta name="description" content="<?php echo get_meta_description_from_tag(); ?>" />
+<?php endif; ?>
+<?php //タグページにMETAキーワードを挿入するとき
+if ( is_tag() ): ?>
+<meta name="keywords" content="<?php echo get_meta_keyword_from_tag(); ?>" />
+<?php endif; ?>
 <?php
 ///////////////////////////////////////
 // canonicalタグの設定

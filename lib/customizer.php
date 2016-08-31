@@ -4502,7 +4502,7 @@ function is_ads_visible(){
     !$is_exclude_ids && //除外ページでない場合広告を表示（カスタマイザー設定）
     !is_ads_removed_in_page() && //ページで除外していない場合
     !is_attachment() && //添付ページではない場合
-    !(is_search() && ($wp_query->found_posts == 0)); //検索結果ページではない場合（加えて検索結果数が1以上）
+    !(is_search() && ($wp_query->found_posts == 0)); //検索結果ページで一件もヒットしなかった場合
 }
 endif;
 
@@ -5073,6 +5073,22 @@ function get_meta_description_from_category(){
 //カテゴリメタキーワード用のキーワードを取得
 function get_meta_keyword_from_category(){
   return single_cat_title('', false) . ',ブログ,記事一覧';
+}
+
+
+//タグメタディスクリプション用の説明文を取得
+function get_meta_description_from_tag(){
+  $tag_desc = trim( strip_tags( tag_description() ) );
+  if ( $tag_desc ) {//タグ設定に説明がある場合はそれを返す
+    return htmlspecialchars($tag_desc);
+  }
+  $tag_desc = '「' . single_tag_title('', false) . '」の記事一覧です。';
+  return htmlspecialchars($tag_desc);
+}
+
+//タグメタキーワード用のキーワードを取得
+function get_meta_keyword_from_tag(){
+  return single_tag_title('', false) . ',ブログ,記事一覧';
 }
 
 

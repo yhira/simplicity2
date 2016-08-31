@@ -233,6 +233,7 @@ function fetch_facebook_count(url, selector) {
     timeout: 10000, //10sec
     data:{ id:url }
   }).done(function(res){
+    //console.log(res);
     jQuery( selector ).text( res.share.share_count || 0 );
   }).fail(function(){
     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');

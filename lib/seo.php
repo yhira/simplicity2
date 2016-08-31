@@ -161,6 +161,9 @@ function generate_canonical_url(){
     $canonical_url = home_url();
   } elseif (is_category()) {
     $canonical_url = get_category_link(get_query_var('cat'));
+  } elseif (is_tag()) {
+    $postTag = get_the_tags();
+    $canonical_url = get_tag_link( $postTag[0]->term_id );
   } elseif (is_page() || is_single()) {
     $canonical_url = get_permalink();
   // } elseif(is_404()) {
