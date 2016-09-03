@@ -234,7 +234,11 @@ function fetch_facebook_count(url, selector) {
     data:{ id:url }
   }).done(function(res){
     //console.log(res);
-    jQuery( selector ).text( res.share.share_count || 0 );
+    if ( res.share && res.share.share_count ) {
+      jQuery( selector ).text( res.share.share_count );
+    } else {
+      jQuery( selector ).text( 0 );
+    }
   }).fail(function(){
     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
   });
