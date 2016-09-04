@@ -1008,3 +1008,40 @@ add_filter('body_class', 'add_category_id_classes_to_body_classes');
 //   return $classes;
 // }
 // add_filter('body_class', 'add_category_slug_classes_to_body_classes');
+
+if ( !function_exists( 'defer_async_scripts' ) ):
+function defer_async_scripts( $tag, $handle, $src ) {
+
+  //var_dump($handle);
+  // The handles of the enqueued scripts we want to defer
+  $async_defer = array(
+      'jquery-core',
+      'jquery-migrate',
+  );
+  $async_scripts = array(
+    'comment-reply',
+    'lity-js',
+    'jquery-lazyload-js',
+    'lightbox-js',
+  );
+  $defer_scripts = array(
+    'admin-bar',
+    'simplicity-js',
+    'simplicity-child-js',
+    //'crayon_js',
+
+  );
+    if ( in_array( $handle, $async_defer ) ) {
+        return '<script src="' . $src . '" async defer></script>' . "\n";
+    }
+    if ( in_array( $handle, $defer_scripts ) ) {
+        return '<script src="' . $src . '" defer></script>' . "\n";
+    }
+    if ( in_array( $handle, $async_scripts ) ) {
+        return '<script src="' . $src . '" async></script>' . "\n";
+    }
+
+    return $tag;
+}
+endif;
+add_filter( 'script_loader_tag', 'defer_async_scripts', 10, 3 );

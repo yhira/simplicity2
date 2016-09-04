@@ -6,7 +6,7 @@ if ( is_mobile_menu_type_accordion_tree() ): //アコーディオンツリーメ
 <!-- SlickNav用のスタイル -->
 <!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/slicknav.css"> -->
 <!-- SlickNavのスクリプトファイル -->
-<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.slicknav.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.slicknav.min.js" defer></script>
 <script>
 //グローバルナビのCSSセレクタを指定する
 (function($){
