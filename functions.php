@@ -1015,8 +1015,8 @@ function defer_async_scripts( $tag, $handle, $src ) {
   //var_dump($handle);
   // The handles of the enqueued scripts we want to defer
   $async_defer = array(
-      'jquery-core',
-      'jquery-migrate',
+    'jquery-core',
+    'jquery-migrate',
   );
   $async_scripts = array(
     'comment-reply',
