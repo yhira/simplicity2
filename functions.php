@@ -102,15 +102,15 @@ remove_action( 'wp_head', 'rest_output_link_wp_head' );
   それ以外はget_the_modified_time()をかえす。
 */
 function get_mtime($format) {
-    $mtime = get_the_modified_time('Ymd');
-    $ptime = get_the_time('Ymd');
-    if ($ptime > $mtime) {
-        return get_the_time($format);
-    } elseif ($ptime === $mtime) {
-        return null;
-    } else {
-        return get_the_modified_time($format);
-    }
+  $mtime = get_the_modified_time('Ymd');
+  $ptime = get_the_time('Ymd');
+  if ($ptime > $mtime) {
+    return get_the_time($format);
+  } elseif ($ptime === $mtime) {
+    return null;
+  } else {
+    return get_the_modified_time($format);
+  }
 }
 
 // 抜粋の長さを変更する
