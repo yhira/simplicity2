@@ -1051,3 +1051,9 @@ add_filter('wp_theme_editor_filetypes', function ($default_types) {
   $default_types[] = 'js';
   return $default_types;
 });
+
+//カテゴリの説明でショートコードを使えるようにする
+add_filter( 'term_description', function ( $term ){
+ if( empty( $term ) ) return false;
+ return apply_filters( 'the_content', $term );
+});
