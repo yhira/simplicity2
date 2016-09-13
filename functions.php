@@ -1044,7 +1044,7 @@ function defer_async_scripts( $tag, $handle, $src ) {
     return $tag;
 }
 endif;
-add_filter( 'script_loader_tag', 'defer_async_scripts', 10, 3 );
+//add_filter( 'script_loader_tag', 'defer_async_scripts', 10, 3 );
 
 //Wordpress管理画面でJavaScriptファイルも編集できるようにする wp4.4以降
 add_filter('wp_theme_editor_filetypes', function ($default_types) {
