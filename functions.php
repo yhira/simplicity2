@@ -30,11 +30,6 @@ add_image_size('thumb150', 150, 150, true);
 add_image_size('thumb320', 320, 180, true);
 add_image_size('thumb320_raw', 320, 0, false);
 
-// //画像の縦横比を保存したタイル状リストのとき
-// if ( is_list_style_tile_thumb_cards_raw() ) {
-//   add_image_size('thumb320_raw', 320, 0, false);
-// }
-
 //コンテンツの幅の指定
 if ( ! isset( $content_width ) ) $content_width = 680;
 
@@ -1015,8 +1010,9 @@ function defer_async_scripts( $tag, $handle, $src ) {
   //var_dump($handle);
   // The handles of the enqueued scripts we want to defer
   $async_defer = array(
-    'jquery-core',
-    'jquery-migrate',
+    //とりあえず影響が計り知れないのでコメントアウト
+    // 'jquery-core',
+    // 'jquery-migrate',
   );
   $async_scripts = array(
     'comment-reply',
@@ -1044,7 +1040,7 @@ function defer_async_scripts( $tag, $handle, $src ) {
     return $tag;
 }
 endif;
-//add_filter( 'script_loader_tag', 'defer_async_scripts', 10, 3 );
+add_filter( 'script_loader_tag', 'defer_async_scripts', 10, 3 );
 
 //Wordpress管理画面でJavaScriptファイルも編集できるようにする wp4.4以降
 add_filter('wp_theme_editor_filetypes', function ($default_types) {

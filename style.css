@@ -3559,9 +3559,14 @@ dl.recent-comments dd .recent-comment-content{
 .hover-card .entry-read,
 .hover-card .category,
 .hover-card .related-entry-read,
-.hover-card .blog-card-title{
+.hover-card .blog-card-title,
+.hover-card .admin-pv{
   color: #111;
   text-decoration: underline;
+}
+
+.hover-card .admin-pv{
+  text-decoration: none;
 }
 
 .hover-card .entry:hover,
