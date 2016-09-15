@@ -182,7 +182,7 @@
 
   .entry h2{
     margin-top:0;
-    line-height: 100%;
+    /*line-height: 100%;*/
   }
 
   #main div.entry-large-thumbnail{
@@ -358,7 +358,7 @@
   .entry-card h2 a.entry-title,
   .related-entry h3,
   .related-entry h3 a {
-    line-height: 100%;
+    /*line-height: 100%;*/
     font-size: 17px ;
   }
 
