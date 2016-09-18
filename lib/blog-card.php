@@ -468,7 +468,7 @@ endif;
 //transientキャッシュの削除
 function delete_blog_card_cache_transients(){
   global $wpdb;
-  $wpdb->query("DELETE FROM `wp_options` WHERE (`option_name` LIKE '%_transient_sp_bcc_%') OR (`option_name` LIKE '%_transient_timeout_sp_bcc_%')");
+  $wpdb->query("DELETE FROM $wpdb->options WHERE (`option_name` LIKE '%_transient_sp_bcc_%') OR (`option_name` LIKE '%_transient_timeout_sp_bcc_%')");
 }
 
 //テーマを変更時にブログカードのキャッシュを削除
