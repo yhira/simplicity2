@@ -16,6 +16,7 @@ include 'lib/seo.php';       //SEO関係の関数
 include 'lib/mobile.php';    //モバイル関係の関数
 include 'lib/image.php';     //画像関係の関数
 include 'lib/comment.php';   //コメント関係の関数
+include 'lib/amp.php';       //AMP関係の関数
 include 'lib/scripts.php';   //スクリプト関係の関数
 include 'lib/qtags.php';     //クイックタグ関係の関数
 
