@@ -7,7 +7,7 @@ div#header-in, div#navi-in, div#body-in, div#footer-in {
   width: 100%;
 }
 
-#main{
+div#main{
   float:none;
   width:auto;
   padding:10px;
