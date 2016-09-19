@@ -1043,13 +1043,15 @@ endif;
 add_filter( 'script_loader_tag', 'defer_async_scripts', 10, 3 );
 
 //Wordpress管理画面でJavaScriptファイルも編集できるようにする wp4.4以降
-add_filter('wp_theme_editor_filetypes', function ($default_types) {
+function add_js_to_wp_theme_editor_filetypes($default_types){
   $default_types[] = 'js';
   return $default_types;
-});
+}
+add_filter('wp_theme_editor_filetypes', 'add_js_to_wp_theme_editor_filetypes');
 
 //カテゴリの説明でショートコードを使えるようにする
-add_filter( 'term_description', function ( $term ){
+function add_shortcode_to_category_description($default_types){
  if( empty( $term ) ) return false;
  return apply_filters( 'the_content', $term );
-});
+}
+add_filter( 'term_description', 'add_shortcode_to_category_description');
