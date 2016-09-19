@@ -1,6 +1,7 @@
 <?php
 require_once(ABSPATH . 'wp-admin/includes/file.php');//WP_Filesystemの使用
 include 'lib/customizer.php';//テーマカスタマイザー関係の関数
+include 'lib/amp.php';       //AMP関係の関数
 include 'lib/ad.php';        //広告関係の関数
 include 'lib/sns.php';       //SNS関係の関数
 include 'lib/admin.php';     //管理画面用の関数
@@ -16,7 +17,6 @@ include 'lib/seo.php';       //SEO関係の関数
 include 'lib/mobile.php';    //モバイル関係の関数
 include 'lib/image.php';     //画像関係の関数
 include 'lib/comment.php';   //コメント関係の関数
-include 'lib/amp.php';       //AMP関係の関数
 include 'lib/scripts.php';   //スクリプト関係の関数
 include 'lib/qtags.php';     //クイックタグ関係の関数
 

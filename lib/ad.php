@@ -16,6 +16,9 @@ endif;
 //最初のH2の手前に広告を挿入（最初のH2を置換）
 if ( !function_exists( 'add_ads_before_1st_h2' ) ):
 function add_ads_before_1st_h2($the_content) {
+  if ( is_amp() ) {
+    return $the_content;
+  }
   if ( is_single() && //投稿ページのとき、固定ページも表示する場合はis_singular()にする
       ( is_ads_in_content() || //本文中表示設定のときもしくは
       (!is_ads_sidebar_top() && is_responsive_enable()) ) //サイドバー項目設定じゃないときでレスポンシブ設定のとき
@@ -35,6 +38,7 @@ function add_ads_before_1st_h2($the_content) {
 }
 endif;
 add_filter('the_content','add_ads_before_1st_h2');
+
 
 function get_all_post_count_in_publish(){
   global $wpdb;

@@ -3,21 +3,24 @@
 
 //画像タグにLazyLoad用の属性などを追加
 function add_image_tag_placeholders( $content ) {
-    //プレビューやフィードモバイルなどで遅延させない
-    if( is_feed() || is_preview() || is_mobile() )
-        return $content;
-
-    //既に適用させているところは処理しない
-    if ( false !== strpos( $content, 'data-original' ) )
-        return $content;
-
-    //画像正規表現で置換
-    $content = preg_replace(
-        '#<img([^>]+?)src=[\'"]?([^\'"\s>]+)[\'"]?([^>]*)>#',//IMGタグの正規表現
-        sprintf( '<img${1}src="%s" data-original="${2}"${3} data-lazy="true"><noscript><img${1}src="${2}"${3}></noscript>', get_template_directory_uri().'/images/1x1.trans.gif' ),//置換するIMGタグ（JavaScriptがオフのとき用のnoscriptタグも追加）
-        $content );//投稿本文（置換する文章）
-
+  if ( is_amp() ) {
     return $content;
+  }
+  //プレビューやフィードモバイルなどで遅延させない
+  if( is_feed() || is_preview() || is_mobile() )
+      return $content;
+
+  //既に適用させているところは処理しない
+  if ( false !== strpos( $content, 'data-original' ) )
+      return $content;
+
+  //画像正規表現で置換
+  $content = preg_replace(
+      '#<img([^>]+?)src=[\'"]?([^\'"\s>]+)[\'"]?([^>]*)>#',//IMGタグの正規表現
+      sprintf( '<img${1}src="%s" data-original="${2}"${3} data-lazy="true"><noscript><img${1}src="${2}"${3}></noscript>', get_template_directory_uri().'/images/1x1.trans.gif' ),//置換するIMGタグ（JavaScriptがオフのとき用のnoscriptタグも追加）
+      $content );//投稿本文（置換する文章）
+
+  return $content;
 }
 if ( is_lazy_load_enable() ) {//Lazy Loadが有効の場合のみ
   add_filter( 'the_content', 'add_image_tag_placeholders', 99 );

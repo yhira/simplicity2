@@ -328,6 +328,9 @@ $custom_header_defaults = array(
 /////////////////////////////////////
 if ( !function_exists( 'add_widget_before_1st_h2' ) ):
 function add_widget_before_1st_h2($the_content) {
+  if ( is_amp() ) {
+    return $the_content;
+  }
   if ( is_single() && //投稿ページのとき、固定ページも表示する場合はis_singular()にする
        is_active_sidebar( 'widget-in-article' ) //ウィジェットが設定されているとき
   ) {
@@ -348,6 +351,7 @@ function add_widget_before_1st_h2($the_content) {
 }
 endif;
 add_filter('the_content','add_widget_before_1st_h2');
+
 
 /////////////////////////////////////
 // 固定ページ本文中にウィジェットを表示する
