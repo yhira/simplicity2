@@ -12,14 +12,22 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
+    // //ウィジェットモード（全ての新着記事を表示するか、カテゴリ別に表示するか）
+    // $widget_mode = apply_filters( 'widget_mode', $instance['widget_mode'] );
+    // //タイトル名を取得
+    // $title_new = apply_filters( 'widget_title_new', $instance['title_new'] );
+    // //表示数を取得
+    // $entry_count = apply_filters( 'widget_entry_count', $instance['entry_count'] );
+    // $is_top_visible = apply_filters( 'widget_is_top_visible', $instance['is_top_visible'] );
+    // $entry_type = apply_filters( 'widget_is_top_visible', $instance['entry_type'] );
     //ウィジェットモード（全ての新着記事を表示するか、カテゴリ別に表示するか）
-    $widget_mode = apply_filters( 'widget_mode', $instance['widget_mode'] );
+    $widget_mode = apply_filters( 'widget_mode', empty($instance['widget_mode']) ? 'all' : $instance['widget_mode'] );
     //タイトル名を取得
-    $title_new = apply_filters( 'widget_title_new', $instance['title_new'] );
+    $title_new = apply_filters( 'widget_title_new', empty($instance['title_new']) ? '新着記事' : $instance['title_new'] );
     //表示数を取得
-    $entry_count = apply_filters( 'widget_entry_count', $instance['entry_count'] );
-    $is_top_visible = apply_filters( 'widget_is_top_visible', $instance['is_top_visible'] );
-    $entry_type = apply_filters( 'widget_is_top_visible', $instance['entry_type'] );
+    $entry_count = apply_filters( 'widget_entry_count', empty($instance['entry_count']) ? 5 : $instance['entry_count'] );
+    $is_top_visible = apply_filters( 'widget_is_top_visible', empty($instance['is_top_visible']) ? false : $instance['is_top_visible'] );
+    $entry_type = apply_filters( 'widget_is_top_visible', empty($instance['entry_type']) ? 'default' : $instance['entry_type'] );
     //表示数をグローバル変数に格納
     //ウィジェットモード
     global $g_widget_mode;
@@ -34,7 +42,7 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
     if ( !$entry_count ) $entry_count = 5;
     $g_entry_count = $entry_count;
     //表示タイプのデフォルト設定
-    if ( !$entry_type ) $entry_type ='default';
+    if ( !$entry_type ) $entry_type = 'default';
     $g_entry_type = $entry_type;
      ?>
     <?php //classにwidgetと一意となるクラス名を追加する ?>
