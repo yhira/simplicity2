@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html amp>
 <head>
-  <meta charset="utf-8">
-  <link rel="canonical" href="<?php the_permalink() ?>" />
-  <link rel="amphtml" href="<?php echo get_permalink().'?amp=1'; ?>">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-  <?php get_template_part('header-title-tag'); ?>
-  <!-- <title><?php single_post_title(); ?></title> -->
-  <?php if ( is_facebook_ogp_enable() ) //Facebook OGPタグ挿入がオンのとき
-    get_template_part('header-ogp');//Facebook OGP用のタグテンプレート?>
-  <?php if ( is_twitter_cards_enable() ) //Twitterカードタグ挿入がオンのとき
-    get_template_part('header-twitter-card');//Twitterカード用のタグテンプレート?>
+<meta charset="utf-8">
+<link rel="canonical" href="<?php the_permalink() ?>" />
+<link rel="amphtml" href="<?php echo get_permalink().'?amp=1'; ?>">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<?php get_template_part('header-title-tag'); ?>
+<!-- <title><?php single_post_title(); ?></title> -->
+<?php if ( is_facebook_ogp_enable() ) //Facebook OGPタグ挿入がオンのとき
+get_template_part('header-ogp');//Facebook OGP用のタグテンプレート?>
+<?php if ( is_twitter_cards_enable() ) //Twitterカードタグ挿入がオンのとき
+get_template_part('header-twitter-card');//Twitterカード用のタグテンプレート?>
+<style type="text/css">
+<?php
+if ( WP_Filesystem() ) {//WP_Filesystemの初期化
+  global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
+  //コメントで位置を表示するためのファイル名取得
+  $css_file = get_template_directory().'/amp.css';
+  $css = $wp_filesystem->get_contents($css_file);//ファイルの読み込み
+  echo $css;
+}
+?>
+</style>
 </head>
 <body <?php body_class('amp'); ?> itemscope itemtype="http://schema.org/WebPage">
   <div id="container">
