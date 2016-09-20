@@ -12,6 +12,12 @@ get_template_part('header-ogp');//Facebook OGP用のタグテンプレート?>
 <?php if ( is_twitter_cards_enable() ) //Twitterカードタグ挿入がオンのとき
 get_template_part('header-twitter-card');//Twitterカード用のタグテンプレート?>
 <script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+<script async custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"></script>
+<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+<script async custom-element="amp-vine" src="https://cdn.ampproject.org/v0/amp-vine-0.1.js"></script>
+<script custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" async></script>
+<script custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js" async></script>
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -50,15 +56,16 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
   "description": "<?php echo get_the_description(); ?>…" // 抜粋
 }
 </script>
-<style type="text/css">
+<style amp-custom>
 <?php
 if ( WP_Filesystem() ) {//WP_Filesystemの初期化
   global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
   //コメントで位置を表示するためのファイル名取得
   $css_file = get_template_directory().'/amp.css';
   $css = $wp_filesystem->get_contents($css_file);//ファイルの読み込み
-  echo $css;
+  echo $css.PHP_EOL;
   get_template_part('css-custom');
+  echo PHP_EOL;
 }
 ?>
 </style>
@@ -114,7 +121,7 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
       <?php //if ( is_single() ) get_template_part('sns-buttons-top');//タイトル下の小さなシェアボタン?>
     </header>
 
-    <?php get_template_part('entry-eye-catch');//アイキャッチ挿入機能?>
+    <?php get_template_part_amp('entry-eye-catch');//アイキャッチ挿入機能?>
 
     <div id="the-content" class="entry-content">
     <?php //記事本文の表示
@@ -143,7 +150,7 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
   <?php if ( is_related_entry_visible() ): //関連記事を表示するか?>
   <aside id="related-entries">
     <h2><?php echo get_theme_text_related_entry();//関連記事タイトルの取得 ?></h2>
-    <?php get_template_part('related-entries'); ?>
+    <?php get_template_part_amp('related-entries'); ?>
   </aside><!-- #related-entries -->
   <?php endif; //is_related_entry_visible?>
 </div>
