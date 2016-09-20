@@ -28,8 +28,8 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
     $image_url = wp_get_attachment_image_src($image_id, true);
     echo $image_url[0];
     ?>",
-    // "height": 800,
-    // "width": 800
+    "height": 800,
+    "width": 800
   },
   "datePublished": "<?php the_time('Y/m/d') ?>", // 記事投稿時間
   "dateModified": "<?php the_modified_date('Y/m/d') ?>", // 記事更新時間
