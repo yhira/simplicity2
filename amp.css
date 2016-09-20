@@ -572,3 +572,45 @@ hr{
   text-align: center;
   font-size: 14px;
 }
+
+/************************************
+** BabyLink
+************************************/
+.babylink-box{
+  overflow: hidden;
+  font-size: small;
+  zoom: 1;
+  margin: 1em 0;
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+.babylink-image{
+  float: left;
+  margin: 0px 15px 10px 0px;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+}
+.babylink-image img{
+  border-top: medium none;
+  border-right: medium none;
+  border-bottom: medium none;
+  border-left: medium none;
+}
+.babylink-info{
+  overflow: hidden;
+  zoom: 1;
+  line-height: 120%;
+}
+.babylink-title{
+  margin-bottom: 2px;
+  line-height: 120%;
+}
+.babylink-manufacturer{
+  margin-bottom: 5px;
+}
+.babylink-description{
+  margin-top: 7px;
+}
