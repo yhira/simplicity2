@@ -77,6 +77,11 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
 }
 ?>
 </style>
+<?php //Google Analyticsコード（ログインユーザーはカウントしない）
+if ( !is_user_logged_in() && get_tracking_id() ): ?>
+<amp-pixel src="//ssl.google-analytics.com/collect?v=1&amp;tid=<?php echo get_tracking_id() ?>&amp;t=pageview&amp;cid=$RANDOM&amp;dt=$TITLE&amp;dl=$CANONICAL_URL&amp;z=$RANDOM"></amp-pixel>
+<?php endif ?>
+<?php else: // 通常ページの場合 ?>
 </head>
 <body <?php body_class('amp'); ?> itemscope itemtype="http://schema.org/WebPage">
   <div id="container">
@@ -87,7 +92,14 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
           <div id="h-top">
 
             <div class="alignleft top-title-catchphrase">
-              <?php get_template_part('header-logo');?>
+              <p id="site-title" itemscope itemtype="http://schema.org/Organization">
+                <?php
+                $site_title = '<a href="'.home_url('/').'">'.get_bloginfo('name').'</a>';
+                echo $site_title ?>
+              </p>
+              <p id="site-description">
+                <?php echo get_bloginfo('description') ?>
+              </p>
             </div>
 
             <div class="alignright top-sns-follows">

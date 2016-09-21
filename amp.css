@@ -594,7 +594,7 @@ hr{
 ** レスポンシブ
 ************************************/
 @media screen and (max-width:740px){
-  #h-top{
+  div#h-top{
     margin: 0;
     padding-left: 10px;
     padding-right: 10px;
