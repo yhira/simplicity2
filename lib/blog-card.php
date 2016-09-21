@@ -49,7 +49,7 @@ function url_to_blog_card_tag($url){
 
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
-  $hatebu_tag = is_blog_card_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
+  $hatebu_tag = is_blog_card_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
 
   //ファビコン
   $favicon_tag = '';
@@ -435,7 +435,7 @@ function url_to_external_ogp_blog_card_tag($url){
 
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
-  $hatebu_tag = is_blog_card_external_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
+  $hatebu_tag = is_blog_card_external_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
 
   //GoogleファビコンAPIを利用する
   ////www.google.com/s2/favicons?domain=nelog.jp

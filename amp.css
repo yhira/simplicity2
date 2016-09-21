@@ -671,14 +671,18 @@ hr{
   padding: 25px 25px 18px;
 }
 
-.kaerebalink-image{
-
+.kaerebalink-image,
+.booklink-image{
+  width: 85px;
+  float: left;
+  margin-top: 4px;
 }
-.kaerebalink-box amp-img,
+/*.kaerebalink-box amp-img,
 .kaerebalink-box img,
 .kaerebalink-image,
 .booklink-box amp-img,
-.booklink-box img{
+.booklink-box img,*/
+.kaerebalink-link1 amp-img{
   display: none;
 }
 
@@ -688,7 +692,8 @@ hr{
   line-height: 1.7em;
 }
 
-.kaerebalink-powered-date{
+.kaerebalink-powered-date,
+.booklink-powered-date{
   font-size: small;
 }
 
