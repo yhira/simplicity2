@@ -171,14 +171,6 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
   <div id="footer" class="main-footer">
     <div id="footer-in">
       <div id="copyright" class="wrapper">
-        <?php //フッターメニューの設定
-        if ( has_nav_menu('footer-navi') ): ?>
-        <div id="footer-navi">
-          <div id="footer-navi-in">
-            <?php wp_nav_menu( array( 'theme_location' => 'footer-navi' ) ); ?>
-            </div>
-        </div>
-        <?php endif ?>
         <div class="credit">
           <?php echo get_site_license(); //サイトのライセンス表記の取得 ?>
         </div>

@@ -606,9 +606,13 @@ hr{
     width: auto;
     margin: 0;
   }
-  figure.eye-catch{
-    margin-left: -10px;
+
+  amp-img.attachment-post-thumbnail{
+    max-width: 100%;
   }
+/*  figure.eye-catch{
+    margin-left: -10px;
+  }*/
 }
 
 /************************************
