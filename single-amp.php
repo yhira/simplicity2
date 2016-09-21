@@ -56,6 +56,7 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
   "description": "<?php echo get_the_description(); ?>…" // 抜粋
 }
 </script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 <style amp-custom>
 <?php
 if ( WP_Filesystem() ) {//WP_Filesystemの初期化
@@ -64,7 +65,7 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
   $css_file = get_template_directory().'/amp.css';
   $css = $wp_filesystem->get_contents($css_file);//ファイルの読み込み
   echo $css.PHP_EOL;
-//   get_template_part('css-custom');
+   get_template_part('css-custom');
   echo PHP_EOL;
   if ( get_template_directory_uri() != get_stylesheet_directory_uri() ) {
     $css_file_child = get_stylesheet_directory().'/amp.css';

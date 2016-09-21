@@ -140,10 +140,12 @@ a:hover {
   font-weight: normal;
 }
 
-#h-top{
+div#h-top{
   margin-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
+  background-image: none;
+  min-height: auto;
 }
 
 /************************************
@@ -522,9 +524,9 @@ hr{
     width: 100%;
   }
 
-  .blog-card-content{
+/*  .blog-card-content{
     margin-left: 0;
-  }
+  }*/
 
   .blog-card-title a{
     font-size: 14px;
@@ -549,8 +551,23 @@ hr{
     height: 80px;
   }
 
+  amp-img.blog-card-thumb-image{
+    max-width: 80px;
+    max-height: 80px;
+  }
+
   .blog-card-content {
     margin-left: 90px;
+  }
+
+  .blog-card-footer{
+    position: absolute;
+    bottom: 5px;
+  }
+
+  .blog-card-date{
+    position: absolute;
+    right: 15px;
   }
 }
 
@@ -661,21 +678,14 @@ hr{
   display: none;
 }
 
-/*.shoplinkamazon a,
-.shoplinkrakuten a,
-.shoplinkyahoo a,
-.shoplinkkindle a,
-.shoplinkrakukobo a{
-  display: block;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-right: 6px;
-  margin: 5px;
-}*/
 .booklink-name,
 .kaerebalink-name {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.7em;
+}
+
+.kaerebalink-powered-date{
+  font-size: small;
 }
 
 .kaerebalink-link1 div,
