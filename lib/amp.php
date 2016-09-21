@@ -37,6 +37,8 @@ function convert_content_for_amp($the_content){
 
   //カエレバ・ヨメレバの商品画像にwidthとhightを追加する
   $the_content = preg_replace('/ src="http:\/\/ecx.images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://ecx.images-amazon.com', $the_content);
+  //カエレバ・ヨメレバの商品画像にwidthとhightを追加する（SSL用）
+  $the_content = preg_replace('/ src="https:\/\/images-fe.ssl-images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="https://images-fe.ssl-images-amazon.com', $the_content);
 
   //画像タグをAMP用に置換
   $the_content = preg_replace('/<img/i', '<amp-img layout="responsive"', $the_content);
