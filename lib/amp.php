@@ -31,7 +31,8 @@ function convert_content_for_amp($the_content){
     return $the_content;
   }
   //style属性を取り除く
-  $the_content = preg_replace('/ +style=[\'"][^\'"]*?[\'"]/i', '', $the_content);
+  $the_content = preg_replace('/ +style=["][^"]*?["]/i', '', $the_content);
+  $the_content = preg_replace('/ +style=[\'][^\']*?[\']/i', '', $the_content);
 
   //画像タグをAMP用に置換
   $the_content = preg_replace('/<img/i', '<amp-img layout="responsive"', $the_content);
@@ -64,7 +65,7 @@ function convert_content_for_amp($the_content){
   // YouTubeを置換する（埋め込みコード）
   $pattern = '/<div class="youtube">.*<iframe width="853" height="480" src="https:\/\/www.youtube.com\/embed\/(.*)" frameborder="0" allowfullscreen><\/iframe>.*<\/div>/i';
   $append = '<div class="youtube"><amp-youtube layout="responsive" data-videoid="$1" width="592" height="363"></amp-youtube></div>';
-  $the_content = preg_replace($pattern, $append, $the_content)
+  $the_content = preg_replace($pattern, $append, $the_content);
 
   // iframeをamp-iframeに置換する
   $pattern = '/<iframe/i';

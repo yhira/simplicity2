@@ -81,7 +81,6 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
 if ( !is_user_logged_in() && get_tracking_id() ): ?>
 <amp-pixel src="//ssl.google-analytics.com/collect?v=1&amp;tid=<?php echo get_tracking_id() ?>&amp;t=pageview&amp;cid=$RANDOM&amp;dt=$TITLE&amp;dl=$CANONICAL_URL&amp;z=$RANDOM"></amp-pixel>
 <?php endif ?>
-<?php else: // 通常ページの場合 ?>
 </head>
 <body <?php body_class('amp'); ?> itemscope itemtype="http://schema.org/WebPage">
   <div id="container">
