@@ -64,8 +64,15 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
   $css_file = get_template_directory().'/amp.css';
   $css = $wp_filesystem->get_contents($css_file);//ファイルの読み込み
   echo $css.PHP_EOL;
-  get_template_part('css-custom');
+//   get_template_part('css-custom');
   echo PHP_EOL;
+  if ( get_template_directory_uri() != get_stylesheet_directory_uri() ) {
+    $css_file_child = get_stylesheet_directory().'/amp.css';
+    if ( file_exists($css_file_child) ) {
+      $css_child = $wp_filesystem->get_contents($css_file_child);//ファイルの読み込み
+      echo $css_child.PHP_EOL;
+    }
+  }
 }
 ?>
 </style>
