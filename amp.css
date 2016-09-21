@@ -574,6 +574,10 @@ hr{
 }
 
 /************************************
+** レスポンシブ
+************************************/
+
+/************************************
 ** BabyLink
 ************************************/
 .babylink-box{
@@ -582,7 +586,7 @@ hr{
   zoom: 1;
   margin: 1em 0;
   text-align: left;
-  border: 1px solid #ccc;
+  border: medium double #ccc;
   border-radius: 4px;
   padding: 10px;
 }
@@ -613,4 +617,112 @@ hr{
 }
 .babylink-description{
   margin-top: 7px;
+}
+
+/************************************
+** カエレバ・ヨメレバ
+************************************/
+.booklink-box,
+.kaerebalink-box,
+.pochireba {
+  border: medium double #ccc;
+  border-radius: 5px;
+  font-size: small;
+  margin: 20px auto;
+  overflow: hidden;
+  padding: 25px 25px 18px;
+}
+
+.kaerebalink-image{
+
+}
+.kaerebalink-box amp-img,
+.kaerebalink-box img,
+.kaerebalink-image,
+.booklink-box amp-img,
+.booklink-box img{
+  display: none;
+}
+
+/*.shoplinkamazon a,
+.shoplinkrakuten a,
+.shoplinkyahoo a,
+.shoplinkkindle a,
+.shoplinkrakukobo a{
+  display: block;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-right: 6px;
+  margin: 5px;
+}*/
+.booklink-name,
+.kaerebalink-name {
+  font-size: 16px;
+  line-height: 1.7em;
+}
+
+.kaerebalink-link1 div,
+.booklink-link2 div {
+  background: #ffffff linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%) repeat scroll 0 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 7px auto;
+  padding: 10px 1px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #dcdcdc;
+  width: 100%;
+}
+
+.kaerebalink-link1 div:hover,
+.booklink-link2 div:hover {
+    background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%) repeat scroll 0 0;
+}
+
+.kaerebalink-link1 div a,
+.booklink-link2 div a{
+  text-decoration: none;
+}
+
+.booklink-footer {
+    clear: left;
+}
+.shoplinkamazon a {
+    color: #ff9901;
+}
+.shoplinkrakuten a {
+    color: #c20004;
+}
+.shoplinkkindle a {
+    color: #007dcd;
+}
+.shoplinkkakakucom a {
+    color: #314995;
+}
+.shoplinkyahoo a {
+    color: #7b0099;
+}
+.shoplinkseven a {
+    color: #000;
+}
+.shoplinkehon a {
+    color: #0086cd;
+}
+.shoplinkkino a {
+    color: #004097;
+}
+.shoplinkjun a {
+    color: #1c2c5e;
+}
+.shoplinktoshokan a {
+    color: #27b5e9;
+}
+.shoplinkpsstore a {
+    color: #003791;
 }
