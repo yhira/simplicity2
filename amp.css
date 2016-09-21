@@ -576,6 +576,23 @@ hr{
 /************************************
 ** レスポンシブ
 ************************************/
+@media screen and (max-width:740px){
+  #h-top{
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  div#main {
+    border: medium none;
+    float: none;
+    padding: 10px;
+    width: auto;
+    margin: 0;
+  }
+  figure.eye-catch{
+    margin-left: -10px;
+  }
+}
 
 /************************************
 ** BabyLink
