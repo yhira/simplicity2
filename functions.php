@@ -1,5 +1,6 @@
 <?php
 require_once(ABSPATH . 'wp-admin/includes/file.php');//WP_Filesystemの使用
+include 'lib/php-html-css-js-minifier.php'; //縮小化ライブラリ
 include 'lib/customizer.php';//テーマカスタマイザー関係の関数
 include 'lib/amp.php';       //AMP関係の関数
 include 'lib/ad.php';        //広告関係の関数
