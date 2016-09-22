@@ -2920,6 +2920,29 @@ function theme_customize_register($wp_customize) {
     'priority' => 300,
   ));
 
+  /////////////////////////////
+  //AMP項目の追加
+  /////////////////////////////
+  $wp_customize->add_section( 'amp_section', array(
+    'title'          =>'AMP（β機能）',
+    'description' => is_tips_visible() ? 'AMP（Accelerated Mobile Pages）に関する設定です。投稿ページをモバイル上で高速表示させるための仕組みです。' : '',
+    'priority'       => 98.4,
+  ));
+
+  //AMPの有効化
+  $wp_customize->add_setting('amp_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'amp_enable', array(
+    'settings' => 'amp_enable',
+    'label' =>'AMPの有効化',
+    'description' => is_tips_visible() ? 'AMP機能を有効化して投稿ページのモバイル表示高速化を行うかどうか。' : '',
+    'section' => 'amp_section',
+    'type' => 'checkbox',
+    'priority' => 10,
+  ));
+
 
   /////////////////////////////
   //テーマテキスト設定項目の追加
@@ -4677,6 +4700,11 @@ function get_blog_card_external_cache_days(){
 //外部ブログカードキャッシュ更新モードか
 function is_blog_card_external_cache_refresh_mode(){
   return get_theme_mod( 'blog_card_external_cache_refresh_mode', false );
+}
+
+//AMPを有効化するか
+function is_amp_enable(){
+  return get_theme_mod( 'amp_enable', false );
 }
 
 //パンくずリストのホームを取得

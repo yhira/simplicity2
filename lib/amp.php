@@ -14,7 +14,8 @@ function is_amp(){
 
   // ampのパラメーターが1かつ記事の中に<script>タグが入っていない
   // かつsingleページのみ$is_ampをtrueにする
-  if(is_single() &&
+  if(is_amp_enable() && //AMPがカスタマイザーの有効化されているか
+     is_single() &&
      $_GET['amp'] === '1' &&
      strpos($content,'<script>') === false
     ){
