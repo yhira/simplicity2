@@ -44,36 +44,24 @@ function convert_content_for_amp($the_content){
   //画像タグをAMP用に置換
   $the_content = preg_replace('/<img/i', '<amp-img layout="responsive"', $the_content);
 
-  // // Twitterをamp-twitterに置換する（自動埋め込み）
-  // $pattern = '/<p>https:\/\/twitter.com\/.*\/status\/(.*).*<\/p>/i';
-  // $append = '<p><amp-twitter width=592 height=472 layout="responsive" data-tweetid="$1"></amp-twitter></p>';
-  // $the_content = preg_replace($pattern, $append, $the_content);
-
   // Twitterをamp-twitterに置換する（埋め込みコード）
   $pattern = '/<blockquote class="twitter-tweet".*?>.+?<a href="https:\/\/twitter.com\/.*?\/status\/(.*?)">.+?<\/blockquote>.*?<script async src="\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/is';
   $append = '<p><amp-twitter width=592 height=472 layout="responsive" data-tweetid="$1"></amp-twitter></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
-
   // vineをamp-vineに置換する
-  $pattern = '/<iframe.+?"https:\/\/vine.co\/v\/(.+?)\/embed\/simple".+?<\/iframe>/is';
+  $pattern = '/<iframe[^>]+?src="https:\/\/vine.co\/v\/(.+?)\/embed\/simple".+?><\/iframe>/is';
   $append = '<p><amp-vine data-vineid="$1" width="592" height="592" layout="responsive"></amp-vine></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
-
 
   // Instagramをamp-instagramに置換する
   $pattern = '/<blockquote class="instagram-media".+?"https:\/\/www.instagram.com\/p\/(.+?)\/".+?<\/blockquote>/is';
   $append = '<p><amp-instagram layout="responsive" data-shortcode="$1" width="592" height="592" ></amp-instagram></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
-  // // YouTubeを置換する（自動埋め込み）
-  // $pattern = '/<div class="youtube">.*https:\/\/youtu.be\/(.*).*<\/div>/i';
-  // $append = '<div class="youtube"><amp-youtube layout="responsive" data-videoid="$1" width="592" height="363"></amp-youtube></div>';
-  // $the_content = preg_replace($pattern, $append, $the_content);
-
   // YouTubeを置換する（埋め込みコード）
-  $pattern = '/<div class="youtube">.*<iframe width="853" height="480" src="https:\/\/www.youtube.com\/embed\/(.*)" frameborder="0" allowfullscreen><\/iframe>.*<\/div>/i';
-  $append = '<div class="youtube"><amp-youtube layout="responsive" data-videoid="$1" width="592" height="363"></amp-youtube></div>';
+  $pattern = '/<iframe.+?src="https:\/\/www.youtube.com\/embed\/(.+?)".*?><\/iframe>/is';
+  $append = '<amp-youtube layout="responsive" data-videoid="$1" width="800" height="450"></amp-youtube>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
   // iframeをamp-iframeに置換する
