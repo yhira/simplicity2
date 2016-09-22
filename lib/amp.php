@@ -44,13 +44,13 @@ function convert_content_for_amp($the_content){
   //画像タグをAMP用に置換
   $the_content = preg_replace('/<img/i', '<amp-img layout="responsive"', $the_content);
 
-  // Twitterをamp-twitterに置換する（自動埋め込み）
-  $pattern = '/<p>https:\/\/twitter.com\/.*\/status\/(.*).*<\/p>/i';
-  $append = '<p><amp-twitter width=592 height=472 layout="responsive" data-tweetid="$1"></amp-twitter></p>';
-  $the_content = preg_replace($pattern, $append, $the_content);
+  // // Twitterをamp-twitterに置換する（自動埋め込み）
+  // $pattern = '/<p>https:\/\/twitter.com\/.*\/status\/(.*).*<\/p>/i';
+  // $append = '<p><amp-twitter width=592 height=472 layout="responsive" data-tweetid="$1"></amp-twitter></p>';
+  // $the_content = preg_replace($pattern, $append, $the_content);
 
   // Twitterをamp-twitterに置換する（埋め込みコード）
-  $pattern = '/<blockquote class="twitter-tweet".*>.*<a href="https:\/\/twitter.com\/.*\/status\/(.*).*<\/blockquote>.*<script async src="\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/i';
+  $pattern = '/<blockquote class="twitter-tweet".*?>.+?<a href="https:\/\/twitter.com\/.*?\/status\/(.*?)">.+?<\/blockquote>.*?<script async src="\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/is';
   $append = '<p><amp-twitter width=592 height=472 layout="responsive" data-tweetid="$1"></amp-twitter></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
