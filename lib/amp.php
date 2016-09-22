@@ -62,14 +62,14 @@ function convert_content_for_amp($the_content){
 
 
   // Instagramをamp-instagramに置換する
-  $pattern = '/<iframe src=\'\/\/instagram.com\/p\/(.*?)\/embed\/\'.*?<\/iframe>/i';
-  $append = '<p><amp-instagram layout="responsive" data-shortcode="$1" width="592" height="716" ></amp-instagram></p>';
+  $pattern = '/<blockquote class="instagram-media".+?"https:\/\/www.instagram.com\/p\/(.+?)\/".+?<\/blockquote>/is';
+  $append = '<p><amp-instagram layout="responsive" data-shortcode="$1" width="592" height="592" ></amp-instagram></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
-  // YouTubeを置換する（自動埋め込み）
-  $pattern = '/<div class="youtube">.*https:\/\/youtu.be\/(.*).*<\/div>/i';
-  $append = '<div class="youtube"><amp-youtube layout="responsive" data-videoid="$1" width="592" height="363"></amp-youtube></div>';
-  $the_content = preg_replace($pattern, $append, $the_content);
+  // // YouTubeを置換する（自動埋め込み）
+  // $pattern = '/<div class="youtube">.*https:\/\/youtu.be\/(.*).*<\/div>/i';
+  // $append = '<div class="youtube"><amp-youtube layout="responsive" data-videoid="$1" width="592" height="363"></amp-youtube></div>';
+  // $the_content = preg_replace($pattern, $append, $the_content);
 
   // YouTubeを置換する（埋め込みコード）
   $pattern = '/<div class="youtube">.*<iframe width="853" height="480" src="https:\/\/www.youtube.com\/embed\/(.*)" frameborder="0" allowfullscreen><\/iframe>.*<\/div>/i';
@@ -81,7 +81,7 @@ function convert_content_for_amp($the_content){
   $append = '<amp-iframe layout="responsive"';
   $the_content = preg_replace($pattern, $append, $the_content);
 
-  //
+  //スクリプトを除去する
   $pattern = '/<script.+?<\/script>/is';
   $append = '';
   $the_content = preg_replace($pattern, $append, $the_content);
