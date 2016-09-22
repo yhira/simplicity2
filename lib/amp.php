@@ -56,14 +56,14 @@ function convert_content_for_amp($the_content){
 
 
   // vineをamp-vineに置換する
-  $pattern = '/<iframe.+?"https:\/\/vine.co\/v\/(.+?)\/embed\/simple".+?<\/iframe>.*?<script src="https:\/\/platform.vine.co\/static\/scripts\/embed.js">.*?<\/script>/is';
+  $pattern = '/<iframe.+?"https:\/\/vine.co\/v\/(.+?)\/embed\/simple".+?<\/iframe>/is';
   $append = '<p><amp-vine data-vineid="$1" width="592" height="592" layout="responsive"></amp-vine></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
 
   // Instagramをamp-instagramに置換する
-  $pattern = '/<div class=\'embed-container\'><iframe src=\'\/\/instagram.com\/p\/(.*)\/embed\/\'.*<\/iframe><\/div>/i';
-  $append = '<div class=\'embed-container\'><amp-instagram layout="responsive" data-shortcode="$1" width="592" height="716" ></amp-instagram></div>';
+  $pattern = '/<iframe src=\'\/\/instagram.com\/p\/(.*?)\/embed\/\'.*?<\/iframe>/i';
+  $append = '<p><amp-instagram layout="responsive" data-shortcode="$1" width="592" height="716" ></amp-instagram></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
   // YouTubeを置換する（自動埋め込み）
@@ -79,6 +79,11 @@ function convert_content_for_amp($the_content){
   // iframeをamp-iframeに置換する
   $pattern = '/<iframe/i';
   $append = '<amp-iframe layout="responsive"';
+  $the_content = preg_replace($pattern, $append, $the_content);
+
+  //
+  $pattern = '/<script.+?<\/script>/is';
+  $append = '';
   $the_content = preg_replace($pattern, $append, $the_content);
 
   return $the_content;
