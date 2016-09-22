@@ -6,7 +6,6 @@
 <link rel="amphtml" href="<?php echo get_permalink().'?amp=1'; ?>">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <?php get_template_part('header-title-tag'); ?>
-<!-- <title><?php single_post_title(); ?></title> -->
 <?php if ( is_facebook_ogp_enable() ) //Facebook OGPタグ挿入がオンのとき
 get_template_part('header-ogp');//Facebook OGP用のタグテンプレート?>
 <?php if ( is_twitter_cards_enable() ) //Twitterカードタグ挿入がオンのとき
@@ -48,7 +47,7 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
     "name": "<?php bloginfo('name'); ?>", // サイト名
     // "logo": {
     //   "@type": "ImageObject",
-    //   "url": "<?php bloginfo('template_url'); ?>/img/logo.png", // ロゴ画像
+    //   "url": "<?php echo get_template_directory_uri(); ?>/img/logo.png", // ロゴ画像
     //   "width": 130,
     //   "height": 53
     // }
