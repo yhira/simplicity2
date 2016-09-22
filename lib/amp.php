@@ -54,10 +54,12 @@ function convert_content_for_amp($the_content){
   $append = '<p><amp-twitter width=592 height=472 layout="responsive" data-tweetid="$1"></amp-twitter></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
+
   // vineをamp-vineに置換する
-  $pattern = '/<div class=\'embed-container\'><iframe width=\'100%\' src=\'https:\/\/vine.co\/v\/(.*)\/embed\/simple\'.*<\/div>/i';
-  $append = '<div class=\'embed-container\'><amp-vine data-vineid="$1" width="592" height="592" layout="responsive"></amp-vine></div>';
+  $pattern = '/<iframe.+?"https:\/\/vine.co\/v\/(.+?)\/embed\/simple".+?<\/iframe>.*?<script src="https:\/\/platform.vine.co\/static\/scripts\/embed.js">.*?<\/script>/is';
+  $append = '<p><amp-vine data-vineid="$1" width="592" height="592" layout="responsive"></amp-vine></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
+
 
   // Instagramをamp-instagramに置換する
   $pattern = '/<div class=\'embed-container\'><iframe src=\'\/\/instagram.com\/p\/(.*)\/embed\/\'.*<\/iframe><\/div>/i';
