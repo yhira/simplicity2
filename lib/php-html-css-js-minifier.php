@@ -16,11 +16,11 @@ $SS = '"(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\'';
 $CC = '\/\*[\s\S]*?\*\/';
 $CH = '<\!--[\s\S]*?-->';
 
-function __minify_x($input) {
+function __minifyx($input) {
     return str_replace(array("\n", "\t", ' '), array(X . '\n', X . '\t', X . '\s'), $input);
 }
 
-function __minify_v($input) {
+function __minifyv($input) {
     return str_replace(array(X . '\n', X . '\t', X . '\s'), array("\n", "\t", ' '), $input);
 }
 
@@ -79,7 +79,7 @@ function minify_html($input) {
                 if(substr($v, -12) !== '<![endif]-->') continue;
                 $output .= $v;
             } else {
-                $output .= __minify_x(_minify_html($v));
+                $output .= __minifyx(_minify_html($v));
             }
         } else {
             // Force line-break with `&#10;` or `&#xa;`
@@ -105,7 +105,7 @@ function minify_html($input) {
             '$1'
         ),
     $output);
-    $output = __minify_v($output);
+    $output = __minifyv($output);
     // Remove white-space(s) after ignored tag-open and before ignored tag-close (except `<textarea>`)
     return preg_replace('#<(code|pre|script|style)(>|\s[^<>]*?>)\s*([\s\S]*?)\s*<\/\1>#i', '<$1$2$3</$1>', $output);
 }
@@ -214,7 +214,7 @@ function minify_css($input) {
             '$1$2$4$5'
         ),
     $output);
-    return __minify_v($output);
+    return __minifyv($output);
 }
 
 

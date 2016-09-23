@@ -63,18 +63,25 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
   //コメントで位置を表示するためのファイル名取得
   $css_file = get_template_directory().'/amp.css';
   $css = $wp_filesystem->get_contents($css_file);//ファイルの読み込み
-  echo $css.PHP_EOL;
-   get_template_part('css-custom');
-  echo PHP_EOL;
+  $css_all = $css;
+
+  ob_start();//バッファリング
+  get_template_part('css-custom');//カスタムテンプレートの呼び出し
+  $css_custom = ob_get_clean();
+  $css_all .= $css_custom;
+
   if ( get_template_directory_uri() != get_stylesheet_directory_uri() ) {
     $css_file_child = get_stylesheet_directory().'/amp.css';
     if ( file_exists($css_file_child) ) {
       $css_child = $wp_filesystem->get_contents($css_file_child);//ファイルの読み込み
-      echo $css_child.PHP_EOL;
+      $css_all .= $css_child;
     }
   }
-}
-?>
+  //CSSの縮小化
+  $css_all = minify_css($css_all);
+  //全てのCSSの出力
+  echo $css_all;
+}?>
 </style>
 <?php //Google Analyticsコード（ログインユーザーはカウントしない）
 if ( !is_user_logged_in() && get_tracking_id() ): ?>
