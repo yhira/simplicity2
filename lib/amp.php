@@ -89,3 +89,24 @@ function get_template_part_amp($template_name){
   echo $template;
 }
 endif;
+
+//AMP用のAdSenseコードを取得する
+if ( !function_exists( 'get_amp_adsense_code' ) ):
+function get_amp_adsense_code(){
+  $adsense_code = null;
+  if ( is_active_sidebar( 'adsense-300' ) ) {
+    ob_start();
+    dynamic_sidebar('adsense-300');
+    $ad300 = ob_get_clean();
+    preg_match('/data-ad-client="(ca-pub-[^"]+?)"/i', $ad300, $m);
+    $data_ad_client = $m[1];
+    if (!$data_ad_client) return;
+    preg_match('/data-ad-slot="([^"]+?)"/i', $ad300, $m);
+    $data_ad_slot = $m[1];
+    if (!$data_ad_slot) return;
+    $adsense_code = '<amp-ad width="300" height="250" type="adsense" data-ad-client="'.$data_ad_client.'" data-ad-slot="'.$data_ad_slot.'"></amp-ad>';
+    //var_dump(htmlspecialchars($adsense_code));
+  }
+  return $adsense_code;
+}
+endif;

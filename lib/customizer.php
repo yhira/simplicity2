@@ -2943,6 +2943,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 10,
   ));
 
+  // //AdSenseコード（data-ad-client）
+  // $wp_customize->add_setting('adsense', array(
+  //   'default' => 'ホーム',
+  //   'sanitize_callback' => 'sanitize_text',
+  // ));
+  // $wp_customize->add_control( 'adsense', array(
+  //   'settings' => 'adsense',
+  //   'label' =>'AdSenseコード（data-ad-client）',
+  //   'description' => is_tips_visible() ? 'AdSenseのコードにあるdata-ad-clientコードを入力してください（例：ca-pub-XXXXXXXXXXXXXXXX）。' : '',
+  //   'section' => 'amp_section',
+  //   'type' => 'text',
+  //   'priority'=> 20,
+  // ));
+
 
   /////////////////////////////
   //テーマテキスト設定項目の追加
@@ -4520,7 +4534,7 @@ function is_ads_visible(){
 //  var_dump('広告非表示か');
 //  var_dump($is_exclude_ids);
   global $wp_query;
-  //var_dump($wp_query->found_posts);
+  //var_dump(is_single() && in_category( $category_ids));
   return get_theme_mod( 'ads_visible', true) &&
     !$is_exclude_ids && //除外ページでない場合広告を表示（カスタマイザー設定）
     !is_ads_removed_in_page() && //ページで除外していない場合
