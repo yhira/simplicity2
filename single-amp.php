@@ -17,6 +17,7 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
 <script async custom-element="amp-vine" src="https://cdn.ampproject.org/v0/amp-vine-0.1.js"></script>
 <script custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" async></script>
 <script custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js" async></script>
+<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -157,6 +158,30 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
       <?php if ( is_single() ) get_template_part('pager-page-links');//ページリンクのページャー?>
 
       <?php //if ( is_single() ) get_template_part('ad-article-footer');?>
+
+    <div id="sns-group" class="sns-group sns-group-bottom">
+    <?php if ( is_single() && is_bottom_share_btns_visible() )://SNSシェアボタンの?>
+
+      <?php if ( get_share_message_label() ): //シェアボタン用のメッセージを取得?>
+      <p class="sns-share-msg"><?php echo esc_html( get_share_message_label() ) ?></p>
+      <?php endif; ?>
+
+      <ul class="sns-amp">
+        <?php if ( is_twitter_btn_visible() )://Twitterボタンを表示するか ?>
+        <li class="sns-amp-twitter"><amp-social-share type="twitter" width="80" height="30"></amp-social-share></li>
+        <?php endif; ?>
+        <?php if ( is_facebook_btn_visible() && get_fb_app_id() )://Facebookボタンを表示するか ?>
+        <li class="sns-amp-facebook"><amp-social-share type="facebook"
+          data-param-app_id="<?php echo get_fb_app_id(); ?>"
+          width="80" height="30"></amp-social-share></li>
+        <?php endif; ?>
+        <?php if ( is_google_plus_btn_visible() )://Google＋ボタンを表示するか ?>
+        <li class="sns-amp-gplus"><amp-social-share type="gplus" width="80" height="30"></amp-social-share></li>
+        <?php endif; ?>
+      </ul>
+
+    <?php endif; ?>
+    </div>
 
       <p class="footer-post-meta">
         <?php if (is_tag_visible()): ?>
