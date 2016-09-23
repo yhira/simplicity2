@@ -116,6 +116,9 @@ a:hover {
   text-decoration: none;
 }
 
+.related-entry-read a {
+    color: #111;
+}
 
 .hover-card .entry-read, .hover-card .category, .hover-card .related-entry-read, .hover-card .blog-card-title, .hover-card .admin-pv {
   color: #111;
@@ -613,6 +616,29 @@ hr{
 /*  figure.eye-catch{
     margin-left: -10px;
   }*/
+}
+
+@media screen and (max-width:639px){
+  .related-entry {
+      line-height: 110%;
+  }
+
+  .related-entry-thumb amp-img{
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  .related-entry-content{
+    margin-left: 70px;
+  }
+
+  .related-entry-title-link{
+    font-size: 16px;
+  }
+
+  .related-entry-snippet{
+    font-size: 12px;
+  }
 }
 
 /************************************
