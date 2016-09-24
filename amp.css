@@ -196,7 +196,8 @@ p.post-meta {
   text-align: right;
 }
 
-.post-meta > span{
+.post-meta > span,
+.footer-post-meta > span{
   margin-left: 5px;
 }
 
@@ -217,7 +218,7 @@ p.post-meta {
   font-size: 14px;
 }
 
-.post-tag::before{
+.footer-post-meta .fa-tag::before{
   content: "タグ:";
 }
 
