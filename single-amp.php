@@ -163,8 +163,8 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
       <?php //AMP用のアドセンスコード
       get_template_part('ad-amp'); ?>
 
-      <div id="sns-group" class="sns-group sns-group-bottom">
       <?php if ( is_single() && is_bottom_share_btns_visible() )://SNSシェアボタンの?>
+      <div id="sns-group" class="sns-group sns-group-bottom">
 
         <?php if ( get_share_message_label() ): //シェアボタン用のメッセージを取得?>
         <p class="sns-share-msg"><?php echo esc_html( get_share_message_label() ) ?></p>
@@ -185,8 +185,8 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
           <?php endif; ?>
         </ul>
 
-      <?php endif; ?>
       </div>
+      <?php endif; ?>
 
       <p class="footer-post-meta">
         <?php if (is_tag_visible()): ?>
