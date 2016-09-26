@@ -1,6 +1,6 @@
 <?php //主にモバイル用に表情は早くするためのアイコンボタン ?>
 <?php if ( is_all_sns_share_btns_visible() ):
-$viral_class = is_share_button_type_mobile_viral() ? ' sns-group-viral' : ''; ?>
+$viral_class = is_share_button_type_mobile_viral() || is_amp() ? ' sns-group-viral' : ''; ?>
 <div class="sns-buttons sns-buttons-icon<?php echo $viral_class; ?>">
   <?php if ( get_share_message_label() ): //シェアボタン用のメッセージを取得?>
   <p class="sns-share-msg"><?php echo esc_html( get_share_message_label() ) ?></p>
