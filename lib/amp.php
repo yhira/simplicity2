@@ -43,6 +43,10 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ +onclick=["][^"]*?["]/i', '', $the_content);
   $the_content = preg_replace('/ +onclick=[\'][^\']*?[\']/i', '', $the_content);
 
+  //FONTタグを取り除く
+  $the_content = preg_replace('/<font[^>]+?>/i', '', $the_content);
+  $the_content = preg_replace('/<\/font>/i', '', $the_content);
+
   //カエレバ・ヨメレバの商品画像にwidthとhightを追加する
   $the_content = preg_replace('/ src="http:\/\/ecx.images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://ecx.images-amazon.com', $the_content);
   //カエレバ・ヨメレバの商品画像にwidthとhightを追加する（SSL用）

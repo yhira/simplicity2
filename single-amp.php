@@ -85,12 +85,12 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
   echo $css_all;
 }?>
 </style>
-<?php //Google Analyticsコード（ログインユーザーはカウントしない）
-if ( !is_user_logged_in() && get_tracking_id() ): ?>
-<amp-pixel src="//ssl.google-analytics.com/collect?v=1&amp;tid=<?php echo get_tracking_id() ?>&amp;t=pageview&amp;cid=$RANDOM&amp;dt=$TITLE&amp;dl=$CANONICAL_URL&amp;z=$RANDOM"></amp-pixel>
-<?php endif ?>
 </head>
 <body <?php body_class('amp'); ?> itemscope itemtype="http://schema.org/WebPage">
+<?php //Google Analyticsコード（ログインユーザーはカウントしない）
+if ( !is_user_logged_in() && get_tracking_id() ): ?>
+<amp-pixel src="//ssl.google-analytics.com/collect?v=1&amp;tid=<?php echo get_tracking_id() ?>&amp;t=pageview&amp;cid=<?php echo mt_rand(0, 99999999); ?>&amp;dt=<?php the_title() ?>&amp;dl=<?php the_permalink() ?>&amp;z=<?php echo mt_rand(0, 99999999); ?>"></amp-pixel>
+<?php endif ?>
   <div id="container">
     <!-- header -->
     <header itemscope itemtype="http://schema.org/WPHeader">

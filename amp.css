@@ -18,6 +18,10 @@ img{
   border-width:0px;
 }
 
+amp-img {
+  max-width: 100%;
+}
+
 figure{
   margin: 0;
 }
@@ -495,6 +499,10 @@ hr{
   clear:both;
   vertical-align: bottom;
   margin-left: -4px;
+}
+
+.blog-card-favicon amp-img{
+  display: inline-block;
 }
 
 .blog-card-site{
