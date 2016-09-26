@@ -1017,13 +1017,13 @@ function defer_async_scripts( $tag, $handle, $src ) {
   $async_scripts = array(
     'comment-reply',
     'lity-js',
-    'jquery-lazyload-js',
     'lightbox-js',
   );
   $defer_scripts = array(
     'admin-bar',
     'simplicity-js',
     'simplicity-child-js',
+    'jquery-lazyload-js',
     //'crayon_js',
 
   );
