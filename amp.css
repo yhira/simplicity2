@@ -620,6 +620,10 @@ hr{
 /************************************
 ** シェアボタン
 ************************************/
+.sns-buttons{
+  margin-top: 30px;
+}
+
 .sns-amp{
   padding: 0;
   margin-top: 0;
@@ -744,8 +748,20 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 }
 
 /************************************
+** 広告
+************************************/
+/*.ad-space{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}*/
+
+/************************************
 ** フッター
 ************************************/
+footer{
+  margin-top: 40px;
+}
+
 .credit{
   text-align: center;
   font-size: 14px;

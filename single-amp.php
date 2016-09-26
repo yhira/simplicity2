@@ -62,10 +62,20 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
 <?php
 if ( WP_Filesystem() ) {//WP_Filesystemの初期化
   global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
-  //コメントで位置を表示するためのファイル名取得
+  $css_all = '';
+  //AMPスタイルの取得
   $css_file = get_template_directory().'/amp.css';
-  $css = $wp_filesystem->get_contents($css_file);//ファイルの読み込み
-  $css_all = $css;
+  if ( file_exists($css_file) ) {
+    $css = $wp_filesystem->get_contents($css_file);//ファイルの読み込み
+    $css_all .= $css;
+  }
+
+  //文字装飾スタイルの取得
+  $css_file = get_template_directory().'/css/extension.css';
+  if ( file_exists($css_file) ) {
+    $css = $wp_filesystem->get_contents($css_file);//ファイルの読み込み
+    $css_all .= $css;
+  }
 
   ob_start();//バッファリング
   get_template_part('css-custom');//カスタムテンプレートの呼び出し
@@ -79,8 +89,12 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
       $css_all .= $css_child;
     }
   }
+  $ex_css = '.information, .question{padding:10px;}';
+  $css_all .= $ex_css;
+
   //CSSの縮小化
   $css_all = minify_css($css_all);
+
   //全てのCSSの出力
   echo $css_all;
 }?>
