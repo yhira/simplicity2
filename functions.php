@@ -1055,11 +1055,3 @@ function add_js_to_wp_theme_editor_filetypes($default_types){
 endif;
 add_filter('wp_theme_editor_filetypes', 'add_js_to_wp_theme_editor_filetypes');
 
-//カテゴリの説明でショートコードを使えるようにする
-if ( !function_exists( 'add_shortcode_to_category_description' ) ):
-function add_shortcode_to_category_description($default_types){
- if( empty( $term ) ) return false;
- return apply_filters( 'the_content', $term );
-}
-endif;
-add_filter( 'term_description', 'add_shortcode_to_category_description');
