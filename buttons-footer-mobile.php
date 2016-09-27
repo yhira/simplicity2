@@ -144,6 +144,14 @@ if ( is_mobile_menu_type_slide_in() ): ?>
       };
     });
 
+    //テキストエリアにフォーカスが入った時にメニューを隠す
+    $("textarea#comment")
+      .on("focus", function(){
+        $("#footer-mobile-buttons").addClass("active");
+      })
+      .on("blur", function(){
+        $("#footer-mobile-buttons").removeClass("active");
+      });
   });
 })(jQuery);
 </script>

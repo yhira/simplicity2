@@ -274,3 +274,11 @@ div#sidebar{
   opacity: 0.3;
   display: none;
 }
+
+#footer-mobile-buttons {
+  transition: .3s ease;
+}
+
+#footer-mobile-buttons.active {
+  transform: translate(0, 200%);
+}
