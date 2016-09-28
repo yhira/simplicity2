@@ -274,11 +274,28 @@ div#sidebar{
   opacity: 0.3;
   display: none;
 }
-
+/*
+#footer-mobile-buttons.comment-active {
+  display: none;
+}
+#container.comment-active{
+  margin-bottom: 0;
+}
+*/
 #footer-mobile-buttons {
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -ms-transition: .3s ease;
+  -o-transition: .3s ease;
   transition: .3s ease;
 }
 
-#footer-mobile-buttons.active {
-  transform: translate(0, 200%);
+#footer-mobile-buttons.comment-active {
+/*  -webkit-transform: translate(0, 200%);
+          transform: translate(0, 200%);*/
+  opacity: 0;
+}
+
+#container.comment-active {
+  margin-bottom: 0;
 }

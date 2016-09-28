@@ -146,12 +146,25 @@ if ( is_mobile_menu_type_slide_in() ): ?>
 
     //テキストエリアにフォーカスが入った時にメニューを隠す
     $("textarea#comment")
-      .on("focus", function(){
-        $("#footer-mobile-buttons").addClass("active");
+      .on("touchend focus", function(){
+        $("#footer-mobile-buttons").addClass("comment-active");
+        $("#container").addClass("comment-active");
       })
-      .on("blur", function(){
-        $("#footer-mobile-buttons").removeClass("active");
+      .on("touchend blur", function(){
+        $("#footer-mobile-buttons").removeClass("comment-active");
+        $("#container").removeClass("comment-active");
       });
+
+
+    // $('textarea#comment')
+    //   .focusin(function(e) {
+    //     $("#footer-mobile-buttons").addClass("comment-active");
+    //     $("#container").addClass("comment-active");
+    //   })
+    //   .focusout(function(e) {
+    //     $("#footer-mobile-buttons").removeClass("comment-active");
+    //     $("#container").removeClass("comment-active");
+    //   });
   });
 })(jQuery);
 </script>
