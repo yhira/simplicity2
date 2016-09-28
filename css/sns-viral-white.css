@@ -4,25 +4,18 @@
   background-color: #fff;
   border: 3px solid #ccc;
   color: #ccc;
+  line-height: 32px;
 }
 
 .sns-group-viral ul.snsb li a span.social-icon{
   font-weight: bold;
 }
 
-.sns-group-viral ul.snsb li a:hover{
-  color: #fff !important;
-  opacity: 1 !important;
-}
-/*
-.sns-group-viral ul.snsbs li a .social-count{
-  color: #333;
+div.sns-group-viral ul.snsb li a:hover{
+  color: #fff;
+  opacity: 1;
 }
 
-.sns-group-viral ul.snsbs li a .social-count:hover{
-  color: #fff;
-}
-*/
 #sharebar .sns-group-viral ul.snsb li a {
     width: 62px;
 }
