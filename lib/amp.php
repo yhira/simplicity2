@@ -79,6 +79,9 @@ function convert_content_for_amp($the_content){
   $pattern = '/<iframe/i';
   $append = '<amp-iframe layout="responsive"';
   $the_content = preg_replace($pattern, $append, $the_content);
+  $pattern = '/<\/iframe>/i';
+  $append = '</amp-iframe>';
+  $the_content = preg_replace($pattern, $append, $the_content);
 
   //スクリプトを除去する
   $pattern = '/<script.+?<\/script>/is';
