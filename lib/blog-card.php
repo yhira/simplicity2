@@ -149,6 +149,7 @@ function url_shortcode_to_blog_card($the_content) {
       $url = strip_tags($match);//URL
       $url = preg_replace('/[\[\]]/', '', $url);//[と]の除去
       $url = str_replace('?', '%3F', $url);//?をエンコード
+      // $match = str_replace('?', '%3F', $match);//?をエンコード
 
       //取得した内部URLからブログカードのHTMLタグを作成
       $tag = url_to_blog_card_tag($url);//外部ブログカードタグに変換
@@ -156,20 +157,29 @@ function url_shortcode_to_blog_card($the_content) {
       if ( !$tag ) {//取得したURLが外部URLだった場合
         $tag = url_to_external_blog_card($url);//外部ブログカードタグに変換
       }
+      // echo('<pre>');
+      // var_dump(htmlspecialchars('{'.preg_quote($match).'}'));
+      // var_dump(htmlspecialchars($tag));
+      // echo('</pre>');
+
       if ( $tag ) {//内部・外部ブログカードどちらかでタグを作成できた場合
         //本文中のURLをブログカードタグで置換
         $the_content = preg_replace('{'.preg_quote($match).'}', $tag , $the_content, 1);
       }
     }
   }
+
+  // echo('<pre>');
+  // var_dump(htmlspecialchars($the_content));
+  // echo('</pre>');
   return $the_content;//置換後のコンテンツを返す
 }
 endif;
-add_filter('the_content', 'url_shortcode_to_blog_card' ,9999999);//本文表示をフック
-add_filter('widget_text', 'url_shortcode_to_blog_card' ,9999999);//テキストウィジェットをフック
-add_filter('widget_text_pc_text', 'url_shortcode_to_blog_card', 9999999);
-add_filter('widget_text_mobile_text', 'url_shortcode_to_blog_card', 9999999);
-//add_filter('comment_text', 'url_shortcode_to_blog_card', 9999999);//コメントをフック
+add_filter('the_content', 'url_shortcode_to_blog_card' ,99999999);//本文表示をフック
+add_filter('widget_text', 'url_shortcode_to_blog_card' ,99999999);//テキストウィジェットをフック
+add_filter('widget_text_pc_text', 'url_shortcode_to_blog_card', 99999999);
+add_filter('widget_text_mobile_text', 'url_shortcode_to_blog_card', 99999999);
+//add_filter('comment_text', 'url_shortcode_to_blog_card', 99999999);//コメントをフック
 
 //外部URLからブログをカードタグの取得
 if ( !function_exists( 'url_to_external_blog_card_tag' ) ):
