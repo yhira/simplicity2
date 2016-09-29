@@ -124,3 +124,23 @@ function get_amp_adsense_code(){
   return $adsense_code;
 }
 endif;
+
+//最初のH2の手前に広告を挿入（最初のH2を置換）
+if ( !function_exists( 'add_ads_before_1st_h2_in_amp' ) ):
+function add_ads_before_1st_h2_in_amp($the_content) {
+  if ( is_amp() ) {//AMPの時のみ有効
+    //広告（AdSense）タグを記入
+    ob_start();//バッファリング
+    get_template_part('ad-amp');//広告貼り付け用に作成したテンプレート
+    $ad_template = ob_get_clean();
+    $h2result = get_h2_included_in_body( $the_content );//本文にH2タグが含まれていれば取得
+    if ( $h2result ) {//H2見出しが本文中にある場合のみ
+      //最初のH2の手前に広告を挿入（最初のH2を置換）
+      $count = 1;
+      $the_content = preg_replace(H2_REG, $ad_template.$h2result, $the_content, $count);
+    }
+  }
+  return $the_content;
+}
+endif;
+add_filter('the_content','add_ads_before_1st_h2_in_amp');
