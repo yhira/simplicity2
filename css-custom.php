@@ -818,16 +818,6 @@ if ( is_sidebar_background_white() ): ?>
   border: 1px solid #ddd;
 }
 <?php endif; ?>
-<?php //モバイルのシェアボタンをバイラルにするか
-if ( is_share_button_type_mobile_viral() && is_mobile() ): ?>
-/*モバイルのシェアボタン*/
-@media screen and (max-width:740px){
-  .sns-group-viral ul.snsb li a {
-    width: 130px;
-    margin-bottom: 0;
-  }
-}
-<?php endif; ?>
 <?php //サイドバートップに広告を表示しているときモバイルで広告が2つかぶらないようにする
 if ( false && is_ads_sidebar_top() && is_mobile() ): ?>
 .ad-article-bottom {

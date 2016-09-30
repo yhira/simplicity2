@@ -44,22 +44,14 @@
   #main .entry{
     overflow: visible;
   }
-/*
-  .entry.masonry-brick .entry-thumb a img{
-    margin: 0;
-  }
-*/
-  /*img.alginleft, img.alginlright対策*/
+ /
   .article img{
     padding: 0;
     margin: 0 auto;
-/*    padding: 0 !important;
-    margin: 0 auto !important;*/
   }
 
   img.blog-card-thumb-image{
     margin-right: 10px;
-    /*margin-right: 10px !important;*/
   }
 
   .entry .entry-thumb a,
@@ -72,11 +64,6 @@
   .related-entry-thumb img{
     margin-bottom: 10px;
   }
-
-  /*.entry .entry-thumb a img,
-  #related-entries .related-entry-thumb a img{
-    margin:5px;
-  }*/
 
   .post-meta,
   .footer-post-meta{
@@ -139,15 +126,6 @@
     padding: 15px;
   }
 
-  .table-wrap{
-    /*overflow: scroll;
-    -webkit-overflow-scrolling: touch;*/
-  }
-
-/*  .article table{
-    width: 100%;
-  }*/
-
   /*ポストページナビ*/
   #prev-next{text-align:center;}
 
@@ -192,7 +170,6 @@
   .entry-large-thumbnail{
     max-width:100%;
     margin:10px 0;
-    /*margin:10px 0 !important;*/
   }
 
   .entry-large-thumbnail .entry-read a{
@@ -205,14 +182,8 @@
     width: 100%;
     max-width:100%;
     height:auto;
-    /*height:auto !important;*/
   }
 
-/*  .entry .entry-card-content,
-  .related-entry-content{
-    margin:0;
-  }
-*/
   .entry .entry-thumb,
   .related-entry-thumb{
     margin:0 5px;
@@ -262,7 +233,6 @@
   .article ul,
   .article dl{
     line-height: 1.8em;
-    /*line-height: 1.8em !important;*/
   }
 
   /************************************
@@ -374,12 +344,6 @@
     margin-top: 5px;
   }
 
-  /* サムネイルサイズ変更 */
-/*  .entry-card .entry-thumb img{
-    width:100px;
-    height:100px;
-    margin-bottom: 10px;
-  }*/
   /* meta情報の回込み解除 */
   .entry-card .post-meta{
     margin: 1px auto 5px;
@@ -398,25 +362,7 @@
   .admin-pv {
     clear: both;
   }
-/*  .entry-card .entry-snippet,
-  .related-entry .related-entry-snippet {
-    font-size: 13px ;
-    clear: both;
-    line-height: 130%;
-  }*/
-  /* 「続きを読む」の調整 */
-/*  .entry-card .entry-read a,
-  .related-entry .related-entry-read a {
-    font-size: 80%;
-    margin: 0;
-    padding: 3px;
-  }*/
-  /* 記事間の余白調整 */
-/*  #main .entry-card,
-  #main .related-entry {
-    margin-bottom: 23px;
-  }
-*/
+
   #related-entries .related-entry-thumbnail{
     margin: auto;
     width: 100%;
@@ -506,13 +452,6 @@
     padding: 0;
   }
 
-
-
-/*  #main .entry.entry-tile{
-    height: 400px;
-    overflow: hidden;
-  }*/
-
   .entry-large-thumbnail .entry-card-content,
   .entry-large-thumbnail .entry-card-content .post-meta,
   .entry-tile .entry-card-content,
@@ -553,3 +492,22 @@
 
 }
 
+/***********************************
+ バイラルシェアボタンのレスポンシブ
+ ***********************************/
+@media screen and (max-width:540px){
+  .sns-group-viral ul.snsb li a{
+    font-size: 15px;
+  }
+  .sns-group-viral ul.snsb li{
+    width: 32%;
+    margin-right: 1%;
+  }
+}
+
+@media screen and (max-width:380px){
+  .sns-group-viral ul.snsb li{
+    width: 49%;
+    margin-right: 1%;
+  }
+}
