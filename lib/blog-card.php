@@ -49,7 +49,7 @@ function url_to_blog_card_tag($url){
 
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
-  $hatebu_tag = is_blog_card_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
+  $hatebu_tag = is_blog_card_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
 
   //ファビコン
   $favicon_tag = '';
@@ -57,7 +57,7 @@ function url_to_blog_card_tag($url){
 
     //GoogleファビコンAPIを利用する
     ////www.google.com/s2/favicons?domain=nelog.jp
-    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="" /></span>';
+    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="" width="16" height="16" /></span>';
   }
 
   //サイトロゴ
@@ -78,7 +78,7 @@ function url_to_blog_card_tag($url){
   //サムネイルの取得（要100×100のサムネイル設定）
   $thumbnail = get_the_post_thumbnail($id, 'thumb100', array('class' => 'blog-card-thumb-image', 'alt' => $title));
   if ( !$thumbnail ) {//サムネイルが存在しない場合
-    $thumbnail = '<img src="'.get_template_directory_uri().'/images/no-image.png" alt="'.$title.'" class="blog-card-thumb-image" />';
+    $thumbnail = '<img src="'.get_template_directory_uri().'/images/no-image.png" alt="'.$title.'" class="blog-card-thumb-image" height="100" width="100" sizes="(max-width: 100px) 100vw, 100px" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
   $tag = '<div class="blog-card internal-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
@@ -445,11 +445,11 @@ function url_to_external_ogp_blog_card_tag($url){
 
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
-  $hatebu_tag = is_blog_card_external_hatena_visible() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
+  $hatebu_tag = is_blog_card_external_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
 
   //GoogleファビコンAPIを利用する
   ////www.google.com/s2/favicons?domain=nelog.jp
-  $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.$domain.'" class="blog-card-favicon-img" alt="" /></span>';
+  $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.$domain.'" class="blog-card-favicon-img" alt="" width="16" height="16" /></span>';
 
   //サイトロゴ
   if ( is_blog_card_external_site_logo_visible() ) {
@@ -462,7 +462,7 @@ function url_to_external_ogp_blog_card_tag($url){
   }
 
   if ( $image ) {//サムネイルが存在しない場合
-    $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" />';
+    $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" height="100" width="100" sizes="(max-width: 100px) 100vw, 100px" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
   $tag = '<div class="blog-card external-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';

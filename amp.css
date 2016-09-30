@@ -1,0 +1,994 @@
+/************************************
+** 基本設定（General Setting）
+************************************/
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+      'Hiragino Kaku Gothic ProN',
+      Meiryo, sans-serif;
+  font-size:16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+img{
+  border-width:0px;
+}
+
+amp-img {
+  max-width: 100%;
+}
+
+figure{
+  margin: 0;
+}
+
+.article{
+  font-size:16px;
+  line-height:170%;
+}
+
+/*記事・カテゴリ中の画像を要素内に収める*/
+.article img,
+.category-description img,
+.wp-caption,
+.hover-image{
+  max-width:100%;
+  height:auto;
+}
+
+.aligncenter{
+  clear:both;
+}
+
+.cf:after{
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/************************************
+** 見出し（H1-6）
+************************************/
+h1, h2, h3, h4, h5, h6{
+  line-height:130%;
+  color:#333;
+}
+
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6{
+  position:relative;
+  margin-top:35px;
+  margin-bottom:20px;
+  padding: 10px;
+}
+
+.article h1 {
+  font-size: 22px;
+  line-height: 117%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.article h2 {
+  font-size:22px;
+  background-color: #f0f0f0;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.article h3{
+  font-size:20px;
+  border-bottom:5px solid #e7e7e7;
+}
+
+.article h4, .article h5, .article h6{
+  font-size:18px;
+}
+
+.article  h4{
+  border-bottom:5px dashed #eee;
+}
+
+.entry-content{
+  margin-bottom: 60px;
+}
+
+/************************************
+** アンカー
+************************************/
+a {
+  color: #2098A8;
+  word-wrap: break-word;
+}
+
+a:hover {
+  color: #C03;
+}
+
+.hover-card {
+  display: block;
+  text-decoration: none;
+}
+
+.related-entry-read a {
+    color: #111;
+}
+
+.hover-card .entry-read, .hover-card .category, .hover-card .related-entry-read, .hover-card .blog-card-title, .hover-card .admin-pv {
+  color: #111;
+  text-decoration: underline;
+}
+
+#site-title,
+#site-description{
+  margin: 5px 0;
+}
+
+#site-title a {
+  color: #222;
+  font-size: 22px;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+#site-description {
+  color: #777;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+div#h-top{
+  margin-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-image: none;
+  min-height: auto;
+}
+
+/************************************
+** パンくずリスト（Breadcrumb）
+************************************/
+#breadcrumb{
+  margin-bottom: 20px;
+  color:#777;
+  font-size:13px;
+}
+
+div#breadcrumb div {
+  display: inline;
+}
+
+#breadcrumb span.sp{
+  margin:0 5px;
+}
+
+#breadcrumb span.sp:before{
+  content: '>';
+}
+#breadcrumb a{
+  text-decoration:none;
+  color:#777;
+}
+
+#container{
+  box-sizing: border-box;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+#main {
+  margin: 30px;
+}
+
+
+
+p.post-meta {
+  background-color: #f7f7f7;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 0.5em;
+  text-align: right;
+}
+
+.post-meta > span,
+.footer-post-meta > span{
+  margin-left: 5px;
+}
+
+.post-date::before {
+  content: "公開:";
+}
+
+.post-update::before {
+  content: "更新:";
+}
+
+.category::before{
+  content: "カテゴリ:";
+}
+
+.footer-post-meta{
+  text-align: right;
+  font-size: 14px;
+}
+
+.footer-post-meta .fa-tag::before{
+  content: "タグ:";
+}
+
+.post-author::before{
+  content: "著者:";
+}
+
+/************************************
+** 記事分割時のページナビゲーション
+************************************/
+.page-link{
+  margin: 3em 0;
+  text-align:center;
+}
+.comment-page-link{
+  margin: 1em 1em 3em;
+  text-align: center;
+}
+
+.page-link span,
+.comment-page-link span,
+.comment-page-link a{
+  margin-right: 3px;
+  padding: 5px 8px;
+  border: 1px solid #ddd;
+  background: #ddd;
+  border-radius:5px;
+}
+.page-link a span,
+.comment-page-link a{
+  background: #fff;
+  color:#000;
+}
+
+.page-link a{
+  border-bottom: none;
+  color: #000;
+  text-decoration:none;
+}
+
+.page-link a span:hover,
+.comment-page-link a:hover{
+  background: #eee;
+  color: #000;
+}
+
+/************************************
+** 関連記事（Relation）
+************************************/
+.related-entry{
+  line-height:150%;
+  margin-bottom:20px;
+  margin-right:10px;
+  clear: both;
+/*  overflow: auto;
+  zoom: 1;*/
+}
+
+.related-entry h4{
+  margin-top: 0;
+}
+
+.related-entry-thumb {
+  float: left;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.related-entry-thumb a{
+  display: block;
+}
+
+.related-entry-thumb img{
+  border:0;
+  width: 100px;
+  height: 100px;
+  /*margin-bottom: 20px;*/
+  display: block;
+}
+
+/*関連記事のサムネイル表示*/
+.related-entry-thumbnail img{
+  width: 200px;
+  height: 200px;
+  margin-bottom: 0;
+}
+
+.related-entry-content {
+  margin-left: 110px;
+}
+
+.related-entry-title{
+  margin-bottom:5px;
+}
+
+.related-entry-title a{
+  text-decoration:none;
+  font-size:18px;
+  font-weight:bold;
+  color:#333;
+}
+
+.related-entry-snippet{
+  margin:0 0 5px 0;
+  color:#555;
+}
+
+.related-entry-read{
+  margin:0;
+  font-size:14px;
+}
+
+/************************************
+** 引用（blockquote）
+************************************/
+blockquote {
+  background: none repeat scroll 0 0 rgba(245, 245, 245, 0.8);
+  border: 1px solid #ddd;
+  margin: 1em 0;
+  padding: 5px;
+}
+/************************************
+** テーブル（Table）
+************************************/
+.article table{
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+.article th{
+  border: solid 1px #ccc;
+  background-color: #eee;
+}
+.article td{
+  border: solid 1px #ccc;
+}
+.article th, .article td{
+  padding: 3px 5px;
+}
+
+.article ol,
+.article ul,
+.article dl{
+  line-height:150%;
+}
+
+.article > ol,
+.article > ul,
+.article > dl{
+  margin:30px 0;
+}
+
+.article > ol ol,
+.article > ul ul,
+.article > dl dl{
+  margin:0;
+}
+
+/************************************
+** その他（Other）
+************************************/
+pre {
+  background-color:#eee;
+  border:1px solid #ccc;
+  padding:7px;
+  overflow: auto;
+}
+
+hr{
+  color: #ddd;
+  margin:30px 0;
+  width:98%;
+  border:1px solid #ddd;
+}
+
+/************************************
+** ブログカードのスタイル
+************************************/
+.blog-card{
+  margin: 20px 0;
+  max-width:100%;
+  padding-bottom: 20px;
+  width: 500px;
+  position: relative;
+  clear:both;
+  min-height:145px;
+  min-width: 300px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#sidebar .blog-card{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#sidebar .blog-card-title{
+  font-size: 14px;
+  line-height: 120%;
+}
+
+#sidebar .blog-card-excerpt,
+#sidebar .blog-card-footer{
+  font-size: 11px;
+  line-height: 120%;
+}
+
+
+#sidebar img.blog-card-thumb-image{
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+#sidebar .blog-card-thumbnail-left .blog-card-content {
+  margin-left: 90px;
+}
+
+.internal-blog-card,
+.external-blog-card{
+  padding:12px;
+  padding-bottom: 6px;
+  border:1px solid #ddd;
+  word-wrap: break-word;
+  border-radius: 5px;
+}
+
+.external-blog-card-hatena{
+  border: 0;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.blog-card-thumbnail{
+  float:left;
+}
+
+.blog-card img.blog-card-thumb-image{
+  border:0;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.blog-card-content{
+  margin-left:110px;
+  line-height:120%;
+  margin-bottom: 0.5em;
+}
+.blog-card-title{
+  margin-bottom:5px;
+}
+
+.blog-card-title a{
+  font-weight: bold;
+  text-decoration: none;
+  color: #111;
+}
+
+.blog-card-excerpt{
+  color: #333;
+  font-size: 0.9em;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.blog-card-footer{
+  font-size: 0.7em;
+  width: 100%;
+  color:#777;
+  clear:both;
+  vertical-align: bottom;
+  margin-left: -4px;
+}
+
+.blog-card-favicon amp-img{
+  display: inline-block;
+}
+
+.blog-card-site{
+  float: left;
+  margin-right: 7px;
+  margin-top: 1px;
+}
+
+.blog-card-hatebu{
+  float: left;
+  margin-right: 7px;
+  position: relative;
+  bottom: -5px;
+}
+
+.blog-card-date{
+  float: right;
+  margin-bottom: -5px;
+}
+
+.blog-card-site{
+  position:relative;
+}
+
+.blog-card-site a{
+  color:#777;
+  text-decoration:none;
+}
+
+.blog-card-favicon{
+  margin-right:3px;
+  position: relative;
+  bottom: -4px;
+}
+
+.blog-card-favicon-img{
+  width:16px;
+  height:16px;
+}
+
+.hover-card .entry-tile h2, .hover-card .blog-card-title {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 110%;
+  text-decoration: none;
+}
+
+
+/***********************************
+ ブログカード（幅が狭い場合）
+ ***********************************/
+@media screen and (max-width: 560px){
+  .article .blog-card,
+  .article .entry-content .hover-card{
+    width: 100%;
+  }
+
+/*  .blog-card-content{
+    margin-left: 0;
+  }*/
+
+  .blog-card-title a{
+    font-size: 14px;
+    line-height: 120%;
+  }
+
+  .blog-card-excerpt,
+  .blog-card-footer{
+    font-size: 11px;
+    line-height: 120%;
+  }
+
+  .article .blog-card,
+  .article .entry-content .hover-card,
+  .commets-list .blog-card{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  img.blog-card-thumb-image{
+    width: 80px;
+    height: 80px;
+  }
+
+  amp-img.blog-card-thumb-image{
+    max-width: 80px;
+    max-height: 80px;
+  }
+
+  .blog-card-content {
+    margin-left: 90px;
+  }
+
+  .blog-card-footer{
+    position: absolute;
+    bottom: 5px;
+  }
+
+  .blog-card-date{
+    position: absolute;
+    right: 15px;
+  }
+}
+
+
+.clear{
+  clear:both;
+}
+
+#sidebar .blog-card {
+  width: 100%;
+  min-width: initial;
+}
+
+/************************************
+** シェアボタン
+************************************/
+.sns-buttons{
+  margin-top: 30px;
+}
+
+.sns-amp{
+  padding: 0;
+  margin-top: 0;
+}
+.sns-amp li {
+  display: inline-block;
+  list-style-type: none;
+  margin-bottom: 5px;
+  margin-right: 7px;
+  margin-top: 2px;
+}
+.sns-share-msg{
+  margin: 8px 0;
+}
+
+/************************************
+** バイラルボタン
+************************************/
+.snsb{
+  padding: 0;
+  margin-top: 3px;
+}
+
+.snsb li {
+  display: inline-block;
+  list-style-type: none;
+/*  margin-bottom: 5px;
+  margin-right: 7px;
+  margin-top: 2px;*/
+}
+
+.sns-group-viral ul.snsb{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sns-group-viral ul.snsb li{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 23.5%;
+  margin-right: 0.5%;
+}
+
+.sns-group-viral ul.snsb li a{
+  /*width: 150px;*/
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 40px;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+.sns-group-viral .social-icon:after{
+  font-family: arial;
+}
+
+.sns-group-viral .fa-comment:after{
+  top: 0;
+}
+
+ul.snsbs a.twitter-btn-icon-link{background-color:#55acee;}
+ul.snsbs a.facebook-btn-icon-link{background-color:#3b5998;}
+ul.snsbs a.google-plus-btn-icon-link{background-color:#dd4b39;}
+ul.snsbs a.hatena-btn-icon-link{background-color:#3C7DD1;}
+ul.snsbs a.pocket-btn-icon-link{background-color:#EE4257;}
+ul.snsbs a.line-btn-icon-link{background-color:#00c300;}
+ul.snsbs a.evernote-btn-icon-link{background-color:#51b125;}
+ul.snsbs a.feedly-btn-icon-link{background-color:#87bd33;}
+ul.snsbs a.push7-btn-icon-link{background-color:#eeac00;}
+ul.snsbs a.comments-btn-icon-link{background-color:#555;}
+
+.sns-group-viral .icon-twitter:after{
+  content: 'Twitter';
+}
+
+.sns-group-viral .icon-facebook:after{
+  content: 'Facebook';
+}
+
+.sns-group-viral .icon-googleplus:after{
+  content: 'Google+';
+}
+
+.sns-group-viral .icon-hatena:after{
+  content: 'Hatena';
+}
+
+.sns-group-viral .icon-pocket:after{
+  content: 'Pocket';
+}
+
+.sns-group-viral .icon-line:after{
+  content: 'Line';
+}
+
+.sns-group-viral .icon-evernote:after{
+  content: 'Evernote';
+}
+
+.sns-group-viral .icon-feedly:after{
+  content: 'Feedly';
+}
+
+.sns-group-viral .icon-push7:after{
+  content: 'Push';
+}
+
+.sns-group-viral .fa-comment:after{
+  content: 'Comment';
+}
+
+.snsb li.evernote-btn-icon,
+.snsb li.comments-btn-icon,
+.social-count {
+  display: none;
+}
+
+
+/***********************************
+ バイラルシェアボタンのレスポンシブ
+ ***********************************/
+@media screen and (max-width:540px){
+  .sns-group-viral ul.snsb li a{
+    font-size: 15px;
+  }
+  .sns-group-viral ul.snsb li{
+    width: 31%;
+    margin-right: 1%;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width:380px){
+  .sns-group-viral ul.snsb li{
+    width: 48%;
+  }
+}
+
+/************************************
+** 広告
+************************************/
+/*.ad-space{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}*/
+
+/************************************
+** フッター
+************************************/
+footer{
+  margin-top: 40px;
+}
+
+.credit{
+  text-align: center;
+  font-size: 14px;
+}
+
+/************************************
+** レスポンシブ
+************************************/
+@media screen and (max-width:740px){
+  div#h-top{
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  div#main {
+    border: medium none;
+    float: none;
+    padding: 10px;
+    width: auto;
+    margin: 0;
+  }
+
+  amp-img.attachment-post-thumbnail{
+    max-width: 100%;
+  }
+/*  figure.eye-catch{
+    margin-left: -10px;
+  }*/
+}
+
+@media screen and (max-width:639px){
+  .related-entry {
+      line-height: 110%;
+  }
+
+  .related-entry-thumb amp-img{
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  .related-entry-thumb amp-img img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .related-entry-content{
+    margin-left: 67px;
+  }
+
+  .related-entry-title-link{
+    font-size: 16px;
+  }
+
+  .related-entry-snippet,
+  .related-entry-read{
+    font-size: 12px;
+  }
+}
+
+/************************************
+** BabyLink
+************************************/
+.babylink-box{
+  overflow: hidden;
+  font-size: small;
+  zoom: 1;
+  margin: 1em 0;
+  text-align: left;
+  border: medium double #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+.babylink-image{
+  float: left;
+  margin: 0px 15px 10px 0px;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+}
+.babylink-image img{
+  border-top: medium none;
+  border-right: medium none;
+  border-bottom: medium none;
+  border-left: medium none;
+}
+.babylink-info{
+  overflow: hidden;
+  zoom: 1;
+  line-height: 120%;
+}
+.babylink-title{
+  margin-bottom: 2px;
+  line-height: 120%;
+}
+.babylink-manufacturer{
+  margin-bottom: 5px;
+}
+.babylink-description{
+  margin-top: 7px;
+}
+
+/************************************
+** カエレバ・ヨメレバ
+************************************/
+.booklink-box,
+.kaerebalink-box,
+.pochireba {
+  border: medium double #ccc;
+  border-radius: 5px;
+  font-size: small;
+  margin: 20px auto;
+  overflow: hidden;
+  padding: 25px 25px 18px;
+}
+
+.kaerebalink-image,
+.booklink-image{
+  width: 85px;
+  float: left;
+  margin-top: 4px;
+}
+/*.kaerebalink-box amp-img,
+.kaerebalink-box img,
+.kaerebalink-image,
+.booklink-box amp-img,
+.booklink-box img,*/
+.kaerebalink-link1 amp-img{
+  display: none;
+}
+
+.booklink-name,
+.kaerebalink-name {
+  font-size: 16px;
+  line-height: 1.3em;
+}
+
+.kaerebalink-powered-date,
+.booklink-powered-date{
+  font-size: small;
+}
+
+.kaerebalink-link1 div,
+.booklink-link2 div {
+  background: #ffffff linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%) repeat scroll 0 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 7px auto;
+  padding: 10px 1px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #dcdcdc;
+  width: 100%;
+}
+
+.kaerebalink-link1 div:hover,
+.booklink-link2 div:hover {
+    background: #f6f6f6 linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%) repeat scroll 0 0;
+}
+
+.kaerebalink-link1 div a,
+.booklink-link2 div a{
+  text-decoration: none;
+}
+
+.booklink-footer {
+    clear: left;
+}
+.shoplinkamazon a {
+    color: #ff9901;
+}
+.shoplinkrakuten a {
+    color: #c20004;
+}
+.shoplinkkindle a {
+    color: #007dcd;
+}
+.shoplinkkakakucom a {
+    color: #314995;
+}
+.shoplinkyahoo a {
+    color: #7b0099;
+}
+.shoplinkseven a {
+    color: #000;
+}
+.shoplinkehon a {
+    color: #0086cd;
+}
+.shoplinkkino a {
+    color: #004097;
+}
+.shoplinkjun a {
+    color: #1c2c5e;
+}
+.shoplinktoshokan a {
+    color: #27b5e9;
+}
+.shoplinkpsstore a {
+    color: #003791;
+}

@@ -4,7 +4,7 @@ $query = new WP_Query( $args ); ?>
   <?php if( $query -> have_posts() && !empty($args) ): //関連記事があるとき?>
   <?php while ($query -> have_posts()) : $query -> the_post(); ?>
     <?php //関連記事表示タイプ
-    if (is_related_entry_type_default()) {
+    if (is_related_entry_type_default() || is_amp()) {
       get_template_part_card('related-entry-card');
     } else{
       get_template_part_card('related-entry-thumbnail-card');
