@@ -144,3 +144,17 @@ function add_ads_before_1st_h2_in_amp($the_content) {
 }
 endif;
 add_filter('the_content','add_ads_before_1st_h2_in_amp');
+
+//AMP用のURLを取得する
+if ( !function_exists( 'get_amp_permalink' ) ):
+function get_amp_permalink(){
+  $permalink = get_permalink();
+  //URLの中に?が存在しているか
+  if (strpos($permalink,'?') !== false) {
+    $amp_permalink = $permalink.'&amp=1';
+  } else {
+    $amp_permalink = $permalink.'?amp=1';
+  }
+  return $amp_permalink;
+}
+endif;
