@@ -230,6 +230,15 @@ p.post-meta {
   content: "著者:";
 }
 
+.admin-pv{
+  text-align: right;
+}
+
+.admin-pv > span {
+    margin: 0 5px;
+    padding: 0 3px;
+}
+
 /************************************
 ** 記事分割時のページナビゲーション
 ************************************/
@@ -339,11 +348,35 @@ p.post-meta {
 /************************************
 ** 引用（blockquote）
 ************************************/
-blockquote {
-  background: none repeat scroll 0 0 rgba(245, 245, 245, 0.8);
+.entry-content blockquote {
+  background-color: #fafafa;
   border: 1px solid #ddd;
   margin: 1em 0;
-  padding: 5px;
+  padding: 10px;
+  position: relative;
+}
+
+
+.entry-content blockquote:before {
+  color: #C8C8C8;
+  content: "\"";
+  font-family: serif;
+  font-size: 300%;
+  left: 10px;
+  line-height: 1em;
+  position: absolute;
+  top: 0;
+}
+
+.entry-content blockquote:after {
+  color: #C8C8C8;
+  content: "\"";
+  font-family: serif;
+  font-size: 300%;
+  line-height: 0;
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
 }
 /************************************
 ** テーブル（Table）
