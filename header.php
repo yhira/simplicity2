@@ -20,7 +20,7 @@ if ( is_mobile() || is_responsive_enable() || is_page_cache_enable() ): ?>
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php if ( is_single() &&
            is_amp_enable() &&
-           (!function_exists('bbp_is_single_topic') || !bbp_is_single_topic()) ): ?>
+           (!function_exists('is_bbpress') || !is_bbpress()) ): ?>
 <link rel="amphtml" href="<?php echo get_amp_permalink(); ?>">
 <?php endif ?>
 <?php //Wordpressのバージョンが4.1以下のとき
