@@ -5,6 +5,12 @@ if ( !function_exists( 'is_amp' ) ):
 function is_amp(){
   global $post;
   //var_dump(is_single());
+  //bbPressがインストールされていて、トピックの時は除外
+  if (function_exists('bbp_is_topic')) {
+    if (bbp_is_topic()) {
+      return false;
+    }
+  }
   //AMPチェック
   $is_amp = false;
   if ( empty($_GET['amp']) ) {
@@ -16,8 +22,7 @@ function is_amp(){
   // かつsingleページのみ$is_ampをtrueにする
   if(is_amp_enable() && //AMPがカスタマイザーの有効化されているか
      is_single() &&
-     $_GET['amp'] === '1' &&
-     strpos($content,'<script>') === false
+     $_GET['amp'] === '1'
     ){
     $is_amp = true;
   }

@@ -18,7 +18,9 @@ if ( is_mobile() || is_responsive_enable() || is_page_cache_enable() ): ?>
 <?php endif ?>
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<?php if ( is_single() && is_amp_enable() ): ?>
+<?php if ( is_single() &&
+           is_amp_enable() &&
+           (!function_exists('bbp_is_single_topic') || !bbp_is_single_topic()) ): ?>
 <link rel="amphtml" href="<?php echo get_amp_permalink(); ?>">
 <?php endif ?>
 <?php //Wordpressのバージョンが4.1以下のとき
