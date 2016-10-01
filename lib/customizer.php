@@ -21,6 +21,21 @@ define("FOOTER_COLOR", "");
 //文字サイズ
 define("ARTICLE_FONT_SIZE", "16");
 
+if(class_exists('WP_Customize_Control')):
+  class SP_Customizer_Textarea_Control extends WP_Customize_Control {
+    public $type = 'textarea';
+    public function render_content() {
+      ?>
+      <label>
+      <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+      <textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+      </label>
+      <span class="description customize-control-description"><?php echo $this->description; ?></span>
+      <?php
+    }
+  }
+endif;
+
 
 add_action( 'customize_register', 'theme_customize_register' );
 function theme_customize_register($wp_customize) {
@@ -2943,6 +2958,21 @@ function theme_customize_register($wp_customize) {
     'priority' => 10,
   ));
 
+  // セクションの設定を追加
+  $wp_customize->add_setting( 'amp_adsense_code', array(
+    'default'   => '',
+    'sanitize_callback' => 'sanitize_textarea',
+  ) );
+  // 管理画面で表示する設定
+  if(class_exists('SP_Customizer_Textarea_Control')):
+    $wp_customize->add_control( new SP_Customizer_Textarea_Control( $wp_customize, 'amp_adsense_code', array(
+      'settings'  => 'amp_adsense_code',
+      'label'     => 'AMP用AdSenseコード',
+    'description' => is_tips_visible() ? 'AMP用のAdSenseコードを入力します。ここに入力をしていない場合は、ウィジェット設定の「広告 300×250」のIDを利用してアドセンスが表示されます。双方とも入力されている場合は、こちらのコードが優先されます。' : '',
+      'section'   => 'amp_section',
+    ) ) );
+  endif;
+
   // //AdSenseコード（data-ad-client）
   // $wp_customize->add_setting('adsense', array(
   //   'default' => 'ホーム',
@@ -4719,6 +4749,11 @@ function is_blog_card_external_cache_refresh_mode(){
 //AMPを有効化するか
 function is_amp_enable(){
   return get_theme_mod( 'amp_enable', false );
+}
+
+//AMP用のAdSenseAdSenseコードを取得
+function get_amp_adsense_code(){
+  return get_theme_mod( 'amp_adsense_code', null );
 }
 
 //パンくずリストのホームを取得

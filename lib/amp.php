@@ -105,14 +105,17 @@ function get_template_part_amp($template_name){
 endif;
 
 //AMP用のAdSenseコードを取得する
-if ( !function_exists( 'get_amp_adsense_code' ) ):
-function get_amp_adsense_code(){
+if ( !function_exists( 'generate_amp_adsense_code' ) ):
+function generate_amp_adsense_code(){
   $adsense_code = null;
   if ( is_active_sidebar( 'adsense-300' ) ) {
+    $ad300 = get_amp_adsense_code();
     ob_start();
     dynamic_sidebar('adsense-300');
-    $ad300 = ob_get_clean();
+    $ad300 .= ob_get_clean();
+    //var_dump(htmlspecialchars(get_amp_adsense_code()));
     preg_match('/data-ad-client="(ca-pub-[^"]+?)"/i', $ad300, $m);
+    if (empty($m[1])) return;
     $data_ad_client = $m[1];
     if (!$data_ad_client) return;
     preg_match('/data-ad-slot="([^"]+?)"/i', $ad300, $m);
