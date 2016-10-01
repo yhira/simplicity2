@@ -2961,7 +2961,7 @@ function theme_customize_register($wp_customize) {
   // セクションの設定を追加
   $wp_customize->add_setting( 'amp_adsense_code', array(
     'default'   => '',
-    'sanitize_callback' => 'sanitize_textarea',
+    'sanitize_callback' => 'sanitize_adsense_code',
   ) );
   // 管理画面で表示する設定
   if(class_exists('SP_Customizer_Textarea_Control')):
@@ -4753,7 +4753,7 @@ function is_amp_enable(){
 
 //AMP用のAdSenseAdSenseコードを取得
 function get_amp_adsense_code(){
-  return get_theme_mod( 'amp_adsense_code', null );
+  return htmlspecialchars_decode(get_theme_mod( 'amp_adsense_code', null ));
 }
 
 //パンくずリストのホームを取得

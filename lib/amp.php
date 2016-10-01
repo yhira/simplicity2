@@ -113,7 +113,7 @@ function generate_amp_adsense_code(){
     ob_start();
     dynamic_sidebar('adsense-300');
     $ad300 .= ob_get_clean();
-    //var_dump(htmlspecialchars(get_amp_adsense_code()));
+    //var_dump(htmlspecialchars($ad300));
     preg_match('/data-ad-client="(ca-pub-[^"]+?)"/i', $ad300, $m);
     if (empty($m[1])) return;
     $data_ad_client = $m[1];

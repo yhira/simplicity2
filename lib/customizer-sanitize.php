@@ -33,6 +33,10 @@ function sanitize_textarea( $text ) {
   return esc_textarea( $text );
 }
 
+function sanitize_adsense_code( $text ) {
+  return sanitize_text_field( htmlspecialchars($text) );
+}
+
 function sanitize_number( $int ) {
   return absint( $int );
 }
