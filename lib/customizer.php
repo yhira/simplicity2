@@ -2940,7 +2940,7 @@ function theme_customize_register($wp_customize) {
   /////////////////////////////
   $wp_customize->add_section( 'amp_section', array(
     'title'          =>'AMP（β機能）',
-    'description' => is_tips_visible() ? 'AMP（Accelerated Mobile Pages）に関する設定です。投稿ページをモバイル上で高速表示させるための仕組みです。' : '',
+    'description' => is_tips_visible() ? 'AMP（Accelerated Mobile Pages）に関する設定です。投稿ページをモバイル上で高速表示させるための仕組みです。<a href="https://wp-simplicity.com/simplicity-amp/" target="_blank">設定方法</a>' : '',
     'priority'       => 98.4,
   ));
 
@@ -2968,7 +2968,7 @@ function theme_customize_register($wp_customize) {
     $wp_customize->add_control( new SP_Customizer_Textarea_Control( $wp_customize, 'amp_adsense_code', array(
       'settings'  => 'amp_adsense_code',
       'label'     => 'AMP用AdSenseコード',
-    'description' => is_tips_visible() ? 'AMP用のAdSenseコードを入力します。ここに入力をしていない場合は、ウィジェット設定の「広告 300×250」のIDを利用してアドセンスが表示されます。双方とも入力されている場合は、こちらのコードが優先されます。' : '',
+    'description' => is_tips_visible() ? 'AMP用のAdSenseコードを入力します。ここに入力をしていない場合は、ウィジェット設定の「広告 300×250」のIDを利用してアドセンスが表示されます。双方とも入力されている場合は、こちらのコードが優先されます。<a href="https://wp-simplicity.com/amp-adsense/" target="_blank">コード設定方法</a>' : '',
       'section'   => 'amp_section',
     ) ) );
   endif;
