@@ -31,16 +31,28 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
   "headline": "<?php the_title();?>", // ページタイトルを取得
   "image": {
     "@type": "ImageObject",
-    "url": "<?php // アイキャッチ画像URLを取得
-    $image_id = get_post_thumbnail_id();
-    $image_url = wp_get_attachment_image_src($image_id, true);
-    echo $image_url[0];
-    ?>",
-    "height": 800,
-    "width": 800
+<?php
+// アイキャッチ画像URLを取得
+$image_id = get_post_thumbnail_id();
+$image = wp_get_attachment_image_src($image_id, true);
+if ($image) {
+  $image_url = $image[0];
+  $size = get_image_width_and_height($image_url);
+  $width = $size ? $size['width'] : 800;
+  $height = $size ? $size['height'] : 800;
+  // $width = $image[1];
+  // $height = $image[2];
+} else {
+  $image_url = get_template_directory_uri().'/images/no-image-large.png';
+  $width = 680;
+  $height = 383;
+} ?>
+    "url": "<?php echo $image_url;?>",
+    "width": <?php echo $width; ?>,
+    "height": <?php echo $height; ?>,
   },
-  "datePublished": "<?php the_time('Y/m/d') ?>", // 記事投稿時間
-  "dateModified": "<?php the_modified_date('Y/m/d') ?>", // 記事更新時間
+  "datePublished": "<?php echo get_the_time('c'); ?>", // 記事投稿時間
+  "dateModified": "<?php echo get_mtime('c'); ?>", // 記事更新時間
   "author": {
     "@type": "Person",
     "name": "<?php the_author_meta('nickname'); ?>" // 投稿者ニックネーム
@@ -51,28 +63,32 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
 <?php
 $ogp_home_image_url = get_ogp_home_image();
 if ($ogp_home_image_url):
-$wp_upload_dir = wp_upload_dir();
-$uploads_dir = $wp_upload_dir['basedir'];
-$uploads_url = $wp_upload_dir['baseurl'];
-// var_dump($uploads_dir);
-// var_dump($uploads_url);
-$ogp_image_file = str_replace($uploads_url, $uploads_dir, $ogp_home_image_url);
-//var_dump($ogp_image_file);
-$imagesize = getimagesize($ogp_image_file);
-//var_dump($imagesize);
+// $wp_upload_dir = wp_upload_dir();
+// $uploads_dir = $wp_upload_dir['basedir'];
+// $uploads_url = $wp_upload_dir['baseurl'];
+// // var_dump($uploads_dir);
+// // var_dump($uploads_url);
+// $ogp_image_file = str_replace($uploads_url, $uploads_dir, $ogp_home_image_url);
+// //var_dump($ogp_image_file);
+// $imagesize = getimagesize($ogp_image_file);
+// //var_dump($imagesize);
+    //画像サイズの取得
+$size = get_image_width_and_height($ogp_home_image_url);
+$width = $size ? $size['width'] : 400;
+$height = $size ? $size['height'] : 400;
  ?>
     "logo": {
       "@type": "ImageObject",
       "url": "<?php echo $ogp_home_image_url; ?>", // ロゴ画像
-      "width": <?php echo $imagesize[0]; ?>,
-      "height": <?php echo $imagesize[1].PHP_EOL; ?>
+      "width": <?php echo $width; ?>,
+      "height": <?php echo $height; ?>,
     }
 <?php else: ?>
     "logo": {
       "@type": "ImageObject",
-      "url": "<?php echo get_template_directory_uri(); ?>/images/no-image-large.png", // ロゴ画像
-      "width": 680,
-      "height": 383
+      "url": "<?php echo get_template_directory_uri(); ?>/images/no-amp-logo.png", // ロゴ画像
+      "width": 525,
+      "height": 153
     }
 <?php endif ?>
   },
@@ -112,7 +128,7 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
     }
   }
   //$ex_css = '.information, .question{padding:10px;}';
-  $css_all .= $ex_css;
+  //$css_all .= $ex_css;
 
   //CSSの縮小化
   $css_all = minify_css($css_all);

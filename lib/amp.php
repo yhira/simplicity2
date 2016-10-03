@@ -166,3 +166,17 @@ function get_amp_permalink(){
   return $amp_permalink;
 }
 endif;
+
+function get_image_width_and_height($image_url){
+  $wp_upload_dir = wp_upload_dir();
+  $uploads_dir = $wp_upload_dir['basedir'];
+  $uploads_url = $wp_upload_dir['baseurl'];
+  $image_file = str_replace($uploads_url, $uploads_dir, $image_url);
+  $imagesize = getimagesize($image_file);
+  if ($imagesize) {
+    $res = array();
+    $res['width'] = $imagesize[0];
+    $res['height'] = $imagesize[1];
+    return $res;
+  }
+}
