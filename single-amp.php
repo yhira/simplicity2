@@ -48,12 +48,33 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
   "publisher": {
     "@type": "Organization",
     "name": "<?php bloginfo('name'); ?>", // サイト名
-    // "logo": {
-    //   "@type": "ImageObject",
-    //   "url": "<?php echo get_template_directory_uri(); ?>/img/logo.png", // ロゴ画像
-    //   "width": 130,
-    //   "height": 53
-    // }
+<?php
+$ogp_home_image_url = get_ogp_home_image();
+if ($ogp_home_image_url):
+$wp_upload_dir = wp_upload_dir();
+$uploads_dir = $wp_upload_dir['basedir'];
+$uploads_url = $wp_upload_dir['baseurl'];
+// var_dump($uploads_dir);
+// var_dump($uploads_url);
+$ogp_image_file = str_replace($uploads_url, $uploads_dir, $ogp_home_image_url);
+//var_dump($ogp_image_file);
+$imagesize = getimagesize($ogp_image_file);
+//var_dump($imagesize);
+ ?>
+    "logo": {
+      "@type": "ImageObject",
+      "url": "<?php echo $ogp_home_image_url; ?>", // ロゴ画像
+      "width": <?php echo $imagesize[0]; ?>,
+      "height": <?php echo $imagesize[1].PHP_EOL; ?>
+    }
+<?php else: ?>
+    "logo": {
+      "@type": "ImageObject",
+      "url": "<?php echo get_template_directory_uri(); ?>/images/no-image-large.png", // ロゴ画像
+      "width": 680,
+      "height": 383
+    }
+<?php endif ?>
   },
   "description": "<?php echo get_the_description(); ?>…" // 抜粋
 }

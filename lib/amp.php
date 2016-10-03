@@ -159,7 +159,7 @@ function get_amp_permalink(){
   $permalink = get_permalink();
   //URLの中に?が存在しているか
   if (strpos($permalink,'?') !== false) {
-    $amp_permalink = $permalink.'&amp=1';
+    $amp_permalink = $permalink.'&amp;amp=1';
   } else {
     $amp_permalink = $permalink.'?amp=1';
   }
