@@ -90,7 +90,7 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
       $css_all .= $css_child;
     }
   }
-  $ex_css = '.information, .question{padding:10px;}';
+  //$ex_css = '.information, .question{padding:10px;}';
   $css_all .= $ex_css;
 
   //CSSの縮小化

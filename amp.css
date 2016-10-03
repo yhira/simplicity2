@@ -1025,3 +1025,14 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 .shoplinkpsstore a {
     color: #003791;
 }
+
+/************************************
+** Font Awesome対策
+************************************/
+#main .information,
+#main .question{padding:10px;}
+
+#main .information::before,
+#main .question::before{
+  display: none;
+}
