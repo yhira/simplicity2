@@ -82,10 +82,12 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
   ?>
     <?php if ( $widget_mode == 'all' || //モードがウィジェットモードが「すべての人気記事表示」の時
                is_single() || is_category() )://投稿ページとカテゴリーページのとき ?>
-      <?php if ( $is_ranking_visible ) {//ランキングの表示
-        echo get_popular_posts_ranking_style('.widget_popular_ranking');//問題なければいずれ消す[TODO]
-      }  ?>
-      <?php echo $args['before_widget']; ?>
+      <?php
+      $before_widget = $args['before_widget'];
+      if ($is_ranking_visible) {
+        $before_widget = str_replace('widget_popular_ranking', 'widget_popular_ranking ranking_list', $before_widget);
+      }
+      echo $before_widget; ?>
         <?php echo $args['before_title']; ?>
         <?php if ($title_popular) {
           echo $title_popular;
