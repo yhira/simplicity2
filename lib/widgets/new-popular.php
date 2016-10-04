@@ -62,7 +62,12 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
     $g_exclude_ids = $exclude_ids;
   ?>
       <?php if ( is_home() ) { //トップリストの場合?>
-      <?php echo $args['before_widget']; ?>
+      <?php
+      $before_widget = $args['before_widget'];
+      if ($is_ranking_visible) {
+        $before_widget = str_replace('widget_new_popular', 'widget_new_popular ranking_list', $before_widget);
+      }
+      echo $before_widget; ?>
           <?php echo $args['before_title']; ?>
           <?php if ($title_popular) {
             echo $title_popular;
@@ -71,9 +76,6 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
           }
             ?>
           <?php echo $args['after_title']; ?>
-        <?php if ( $is_ranking_visible ) {//ランキングの表示
-          echo get_popular_posts_ranking_style('.widget_new_popular');
-        }  ?>
         <?php if ( is_wpp_enable() ) { //Wordpress Popular Postsを有効にしてあるか?>
           <?php //PV順
           if ( $entry_type == 'default' ) {
