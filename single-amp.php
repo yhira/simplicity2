@@ -40,19 +40,17 @@ if ($image) {
   $size = get_image_width_and_height($image_url);
   $width = $size ? $size['width'] : 800;
   $height = $size ? $size['height'] : 800;
-  // $width = $image[1];
-  // $height = $image[2];
 } else {
   $image_url = get_template_directory_uri().'/images/no-image-large.png';
-  $width = 680;
-  $height = 383;
+  $width = 800;
+  $height = 451;
 } ?>
     "url": "<?php echo $image_url;?>",
     "width": <?php echo $width; ?>,
-    "height": <?php echo $height; ?>,
+    "height": <?php echo $height; ?>
   },
   "datePublished": "<?php echo get_the_time('c'); ?>", // 記事投稿時間
-  "dateModified": "<?php echo get_mtime('c'); ?>", // 記事更新時間
+  "dateModified": "<?php echo get_mtime('c') ? get_mtime('c') : get_the_time('c'); ?>", // 記事更新時間
   "author": {
     "@type": "Person",
     "name": "<?php the_author_meta('nickname'); ?>" // 投稿者ニックネーム
@@ -75,7 +73,7 @@ if ($image_url) {//ロゴ画像がある場合
       "@type": "ImageObject",
       "url": "<?php echo $image_url; ?>", // ロゴ画像
       "width": <?php echo $width; ?>,
-      "height": <?php echo $height; ?>,
+      "height": <?php echo $height; ?>
     }
   },
   "description": "<?php echo get_the_description(); ?>…" // 抜粋
