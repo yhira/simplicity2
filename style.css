@@ -919,9 +919,9 @@ a.page-numbers,
 .pager .current{
   background-color: #ddd;
   border: solid 1px #ddd;
-  border-radius:5px;
-  padding:5px 8px;
-  margin:0 2px;
+  border-radius: 3px;
+  padding: 6px 12px;
+  margin: 0 2px;
 }
 
 .pager .current{
@@ -957,10 +957,10 @@ a.page-numbers,
 .comment-page-link span,
 .comment-page-link a{
   margin-right: 3px;
-  padding: 5px 8px;
+  padding: 7px 15px;
   border: 1px solid #ddd;
   background: #ddd;
-  border-radius:5px;
+  border-radius: 4px;
 }
 .page-link a span,
 .comment-page-link a{
