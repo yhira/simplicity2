@@ -2970,8 +2970,21 @@ function theme_customize_register($wp_customize) {
       'label'     => 'AMP用AdSenseコード',
     'description' => is_tips_visible() ? 'AMP用のAdSenseコードを入力します。ここに入力をしていない場合は、ウィジェット設定の「広告 300×250」のIDを利用してアドセンスが表示されます。双方とも入力されている場合は、こちらのコードが優先されます。<a href="https://wp-simplicity.com/amp-adsense/" target="_blank">コード設定方法</a>' : '',
       'section'   => 'amp_section',
+      'priority' => 20,
     ) ) );
   endif;
+
+  //AMP用のロゴ画像
+  $wp_customize->add_setting( 'amp_logo_url', array(
+    'sanitize_callback' => 'sanitize_file_url',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'amp_logo_url', array(
+    'settings' => 'amp_logo_url',
+    'label' =>'AMP用のロゴ画像',
+    'description' => is_tips_visible() ? 'Google検索結果に表示されるAMP用のロゴ画像を設定します。' : '',
+    'section' => 'amp_section',
+    'priority' => 30,
+  ) ) );
 
   // //AdSenseコード（data-ad-client）
   // $wp_customize->add_setting('adsense', array(
@@ -4754,6 +4767,11 @@ function is_amp_enable(){
 //AMP用のAdSenseAdSenseコードを取得
 function get_amp_adsense_code(){
   return htmlspecialchars_decode(get_theme_mod( 'amp_adsense_code', null ));
+}
+
+//AMP用ロゴのURLを取得取得
+function get_amp_logo_url(){
+  return get_theme_mod( 'amp_logo_url', null );
 }
 
 //パンくずリストのホームを取得

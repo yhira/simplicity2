@@ -61,36 +61,22 @@ if ($image) {
     "@type": "Organization",
     "name": "<?php bloginfo('name'); ?>", // サイト名
 <?php
-$ogp_home_image_url = get_ogp_home_image();
-if ($ogp_home_image_url):
-// $wp_upload_dir = wp_upload_dir();
-// $uploads_dir = $wp_upload_dir['basedir'];
-// $uploads_url = $wp_upload_dir['baseurl'];
-// // var_dump($uploads_dir);
-// // var_dump($uploads_url);
-// $ogp_image_file = str_replace($uploads_url, $uploads_dir, $ogp_home_image_url);
-// //var_dump($ogp_image_file);
-// $imagesize = getimagesize($ogp_image_file);
-// //var_dump($imagesize);
-    //画像サイズの取得
-$size = get_image_width_and_height($ogp_home_image_url);
-$width = $size ? $size['width'] : 400;
-$height = $size ? $size['height'] : 400;
- ?>
+$image_url = get_amp_logo_url();
+if ($image_url) {//ロゴ画像がある場合
+  $size = get_image_width_and_height($image_url);
+  $width = $size ? $size['width'] : 400;
+  $height = $size ? $size['height'] : 400;
+} else {//ロゴ画像がない場合
+  $image_url = get_template_directory_uri().'/images/no-amp-logo.png';
+  $width = 525;
+  $height = 153;
+}?>
     "logo": {
       "@type": "ImageObject",
-      "url": "<?php echo $ogp_home_image_url; ?>", // ロゴ画像
+      "url": "<?php echo $image_url; ?>", // ロゴ画像
       "width": <?php echo $width; ?>,
       "height": <?php echo $height; ?>,
     }
-<?php else: ?>
-    "logo": {
-      "@type": "ImageObject",
-      "url": "<?php echo get_template_directory_uri(); ?>/images/no-amp-logo.png", // ロゴ画像
-      "width": 525,
-      "height": 153
-    }
-<?php endif ?>
   },
   "description": "<?php echo get_the_description(); ?>…" // 抜粋
 }
