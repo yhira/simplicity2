@@ -2981,7 +2981,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'amp_logo_url', array(
     'settings' => 'amp_logo_url',
     'label' =>'AMP用のロゴ画像',
-    'description' => is_tips_visible() ? 'Google検索結果に表示されるAMP用のロゴ画像を設定します。設定していない場合は、デフォルトの画像が使用されます（images/no-amp-logo.png）。' : '',
+    'description' => is_tips_visible() ? 'Google検索結果に表示されるAMP用のロゴ画像を設定します。ロゴのサイズは幅600px、高さ60px以下にしてください。設定していない場合は、デフォルトの画像が使用されます（images/no-amp-logo.png）。' : '',
     'section' => 'amp_section',
     'priority' => 30,
   ) ) );

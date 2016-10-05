@@ -1036,3 +1036,8 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 #main .question::before{
   display: none;
 }
+
+/*余分な表示を削除*/
+.hover-image .details{
+  display: none;
+}

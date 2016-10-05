@@ -40,6 +40,11 @@ if ($image) {
   $size = get_image_width_and_height($image_url);
   $width = $size ? $size['width'] : 800;
   $height = $size ? $size['height'] : 800;
+  //サムネイルの幅が小さすぎる場合は仕様（696px以上）に合わせる
+  if ($width < 696) {
+    $height = round($height * (696/$width));
+    $width = 696;
+  }
 } else {
   $image_url = get_template_directory_uri().'/images/no-image-large.png';
   $width = 800;
@@ -62,12 +67,22 @@ if ($image) {
 $image_url = get_amp_logo_url();
 if ($image_url) {//ロゴ画像がある場合
   $size = get_image_width_and_height($image_url);
-  $width = $size ? $size['width'] : 400;
-  $height = $size ? $size['height'] : 400;
+  $width = $size ? $size['width'] : 600;
+  $height = $size ? $size['height'] : 60;
+  //ロゴの幅が大きすぎる場合は仕様の範囲内（600px）にする
+  if ($width > 600) {
+    $height = round($height * (600/$width));
+    $width = 600;
+  }
+  //ロゴの高さが大きすぎる場合は仕様の範囲内（60px）にする
+  if ($height > 60) {
+    $width = round($width * (60/$height));
+    $height = 60;
+  }
 } else {//ロゴ画像がない場合
   $image_url = get_template_directory_uri().'/images/no-amp-logo.png';
-  $width = 525;
-  $height = 153;
+  $width = 206;
+  $height = 60;
 }?>
     "logo": {
       "@type": "ImageObject",
