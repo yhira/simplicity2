@@ -55,7 +55,7 @@ if ($image) {
     "height": <?php echo $height; ?>
   },
   "datePublished": "<?php echo get_the_time('c'); ?>", // 記事投稿時間
-  "dateModified": "<?php echo get_mtime('c') ? get_mtime('c') : get_the_time('c'); ?>", // 記事更新時間
+  "dateModified": "<?php echo get_the_modified_time('c'); ?>", // 記事更新時間
   "author": {
     "@type": "Person",
     "name": "<?php the_author_meta('nickname'); ?>" // 投稿者ニックネーム
