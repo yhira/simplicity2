@@ -36,6 +36,7 @@ function simplicity_scripts() {
       // var_dump(get_skins_js_local_dir());
       // echo('</pre>');
       //スキンフォルダ内にjavascript.jsファイルがあれば読み込む
+      //var_dump(get_skins_js_local_dir());
       if ( file_exists( get_skins_js_local_dir() ) ) {
         wp_enqueue_script( 'skins-javascript-js', get_skins_js_uri(), array( 'jquery', 'simplicity-js' ), false, true );
       }
