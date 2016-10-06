@@ -37,11 +37,11 @@ if ($image) {
     "width": <?php echo $width; ?>,
     "height": <?php echo $height; ?>
   },
-  "datePublished": "<?php echo get_the_time('c'); ?>", // 記事投稿時間
+  "datePublished": "<?php echo (get_the_time('c') ? get_the_time('c') : get_the_modified_time('c')); ?>", // 記事投稿時間（分岐しているのbbPressのトピック対策）
   "dateModified": "<?php echo get_the_modified_time('c'); ?>", // 記事更新時間
   "author": {
     "@type": "Person",
-    "name": "<?php the_author_meta('nickname'); ?>" // 投稿者ニックネーム
+    "name": "<?php echo (get_the_author_meta('nickname') ? get_the_author_meta('nickname') : get_bloginfo('name')); ?>" // 投稿者ニックネーム
   },
   "publisher": {
     "@type": "Organization",
