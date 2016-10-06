@@ -263,6 +263,7 @@ dd{
 .article table{
   border-collapse: collapse;
   margin: 15px 0;
+  max-width: 100%;
 }
 .article th{
   border: solid 1px #ccc;
@@ -273,6 +274,12 @@ dd{
 }
 .article th, .article td{
   padding: 3px 5px;
+  white-space: nowrap;
+}
+
+.scrollable-table {
+  overflow-x: scroll;
+  margin-bottom: 1em;
 }
 
 .article ol,

@@ -523,6 +523,7 @@ function my_comment_form_defaults($defaults){
 add_filter( "comment_form_defaults", "my_comment_form_defaults");
 
 //本文から必要のないものを取り除くフック
+if ( !function_exists( 'remove_unnecessary_sentences' ) ):
 function remove_unnecessary_sentences($the_content) {
   if ( is_singular() ) {
     //border属性は不要
@@ -531,7 +532,18 @@ function remove_unnecessary_sentences($the_content) {
   }
   return $the_content;
 }
+endif;
 add_filter('the_content','remove_unnecessary_sentences');
+
+//本文から必要のないものを取り除くフック
+if ( !function_exists( 'scrollable_responsive_table' ) ):
+function scrollable_responsive_table($the_content) {
+  $the_content = preg_replace('/<table/i', '<div class="scrollable-table"><table', $the_content);
+  $the_content = preg_replace('/<\/table>/i', '</table></div>', $the_content);
+  return $the_content;
+}
+endif;
+add_filter('the_content','scrollable_responsive_table');
 
 //カスタムフィールドのショートコードをロケーションURIに置換
 function replace_directory_uri($code){
