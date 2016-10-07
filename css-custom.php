@@ -645,7 +645,7 @@ if ( is_wraped_entry_card() ): ?>
 
 .external-blog-card-hatena.blog-card-wide{
   width: calc(100% - 40px);
-  margin: 20px;
+  margin: 10px 20px;
 }
 
 .entry-content .hover-card{
