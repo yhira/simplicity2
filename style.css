@@ -23,7 +23,9 @@ html, body {
 body {
   font-family:
       'Hiragino Kaku Gothic ProN',
-      Meiryo, sans-serif;
+      Meiryo, Helvetica, Arial, sans-serif;
+      /* Helvetica, Arial,はZenfone2Laserという端末の不具合対策
+         https://goo.gl/IwQZvd */
   font-size:16px;
   -webkit-text-size-adjust: 100%;
 }
