@@ -30,37 +30,40 @@ function __minifyv($input) {
  *  HTML MINIFIER
  * =======================================================
  */
+function __replace_html_style_for_minify($m) {
+  return $m[1] . $m[2] . minify_css($m[3]) . $m[2];
+}
+
+function __replace_html_for_minify($m) {
+    if(isset($m[2])) {
+        // Minify inline CSS declaration(s)
+        if(stripos($m[2], ' style=') !== false) {
+            $m[2] = preg_replace_callback('#( style=)([\'"]?)(.*?)\2#i', '__replace_html_style_for_minify', $m[2]);
+        }
+        return '<' . $m[1] . preg_replace(
+            array(
+                // From `defer="defer"`, `defer='defer'`, `defer="true"`, `defer='true'`, `defer=""` and `defer=''` to `defer` [^1]
+                '#\s(checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped)(?:=([\'"]?)(?:true|\1)?\2)#i',
+                // Remove extra white-space(s) between HTML attribute(s) [^2]
+                '#\s*([^\s=]+?)(=(?:\S+|([\'"]?).*?\3)|$)#',
+                // From `<img />` to `<img/>` [^3]
+                '#\s+\/$#'
+            ),
+            array(
+                // [^1]
+                ' $1',
+                // [^2]
+                ' $1$2',
+                // [^3]
+                '/'
+            ),
+        str_replace("\n", ' ', $m[2])) . '>';
+    }
+    return '<' . $m[1] . '>';
+    }
 
 function _minify_html($input) {
-    return preg_replace_callback('#<\s*([^\/\s]+)\s*(?:>|(\s[^<>]+?)\s*>)#', function($m) {
-        if(isset($m[2])) {
-            // Minify inline CSS declaration(s)
-            if(stripos($m[2], ' style=') !== false) {
-                $m[2] = preg_replace_callback('#( style=)([\'"]?)(.*?)\2#i', function($m) {
-                    return $m[1] . $m[2] . minify_css($m[3]) . $m[2];
-                }, $m[2]);
-            }
-            return '<' . $m[1] . preg_replace(
-                array(
-                    // From `defer="defer"`, `defer='defer'`, `defer="true"`, `defer='true'`, `defer=""` and `defer=''` to `defer` [^1]
-                    '#\s(checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped)(?:=([\'"]?)(?:true|\1)?\2)#i',
-                    // Remove extra white-space(s) between HTML attribute(s) [^2]
-                    '#\s*([^\s=]+?)(=(?:\S+|([\'"]?).*?\3)|$)#',
-                    // From `<img />` to `<img/>` [^3]
-                    '#\s+\/$#'
-                ),
-                array(
-                    // [^1]
-                    ' $1',
-                    // [^2]
-                    ' $1$2',
-                    // [^3]
-                    '/'
-                ),
-            str_replace("\n", ' ', $m[2])) . '>';
-        }
-        return '<' . $m[1] . '>';
-    }, $input);
+    return preg_replace_callback('#<\s*([^\/\s]+)\s*(?:>|(\s[^<>]+?)\s*>)#', '__replace_html_for_minify', $input);
 }
 
 function minify_html($input) {
@@ -116,13 +119,14 @@ function minify_html($input) {
  *  CSS MINIFIER
  * =======================================================
  */
+function __replace_css_for_minify($m) {
+    return $m[1] . preg_replace('#\s+#', X . '\s', $m[2]) . ')';
+}
 
 function _minify_css($input) {
     // Keep important white-space(s) in `calc()`
     if(stripos($input, 'calc(') !== false) {
-        $input = preg_replace_callback('#\b(calc\()\s*(.*?)\s*\)#i', function($m) {
-            return $m[1] . preg_replace('#\s+#', X . '\s', $m[2]) . ')';
-        }, $input);
+        $input = preg_replace_callback('#\b(calc\()\s*(.*?)\s*\)#i', '__replace_css_for_minify', $input);
     }
     // Minify ...
     return preg_replace(
