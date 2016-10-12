@@ -194,6 +194,11 @@ function get_meta_description_singular_page(){
   return trim(strip_tags(get_post_meta(get_the_ID(), 'meta_description', true)));
 }
 
+//メタディスクリプションを取得
+function get_meta_description_blogcard_snippet($id){
+  return trim(strip_tags(get_post_meta($id, 'meta_description', true)));
+}
+
 //メタキーワードを取得
 function get_meta_keywords_singular_page(){
   return trim(strip_tags(get_post_meta(get_the_ID(), 'meta_keywords', true)));

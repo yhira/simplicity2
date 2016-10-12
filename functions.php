@@ -131,8 +131,14 @@ add_filter('excerpt_more', 'custom_excerpt_more');
 if ( !function_exists( 'get_the_custom_excerpt' ) ):
 function get_the_custom_excerpt($content, $length = 70, $is_card = false) {
   global $post;
-  if ( is_wordpress_excerpt() && $post->post_excerpt ) {//Wordpress固有の抜粋文を使用するとき
-    return  $post->post_excerpt;
+  //SEO設定のディスクリプション取得
+  $description = get_meta_description_blogcard_snippet($post->ID);
+  //SEO設定のディスクリプションがない場合は「抜粋」を取得
+  if (!$description) {
+    $description = $post->post_excerpt;
+  }
+  if (is_wordpress_excerpt() && $description ) {//Wordpress固有の抜粋文を使用するとき
+    return  $description;
   } else {//Simplicity固有の抜粋文を使用するとき
     return get_content_excerpt($content, $length);
   }
