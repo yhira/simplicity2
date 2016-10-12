@@ -2991,8 +2991,12 @@ a.comments-balloon-btn-link .fa-comment{position: relative;top:-3px;}
 /************************************
 ** バイラルボタン（シェアバー）
 ************************************/
+#sharebar .sns-group-viral ul.snsb li{
+  width: 100%;
+}
+
 #sharebar .sns-group-viral ul.snsb li a{
-  width: 68px;
+  width: 80px;
 }
 
 #sharebar .sns-group-viral .social-icon:after{
