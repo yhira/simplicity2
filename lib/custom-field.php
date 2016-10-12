@@ -116,15 +116,15 @@ function view_seo_custom_box(){
   $is_nofollow = get_post_meta(get_the_ID(),'is_nofollow', true);
 
   //タイトル
-  echo '<label style="font-weight:bold;margin-bottom:5px;">タイトル</label>';
+  echo '<label style="font-weight:bold;margin-bottom:5px;">SEOタイトル</label>';
   echo '<input type="text" style="width:100%" placeholder="タイトルを入力してください。" name="seo_title" value="'.$seo_title.'" />';
-  echo '<p class="howto" style="margin-top:0;">検索エンジンに表示させたいタイトルを入力してください。記事のタイトルより、こちらに入力したテキストが優先的にタイトルタグに挿入されます。一般的に日本語の場合は、32文字以内が最適とされています。</p>';
+  echo '<p class="howto" style="margin-top:0;">検索エンジンに表示させたいタイトルを入力してください。記事のタイトルより、こちらに入力したテキストが優先的にタイトルタグ(&lt;title&gt;)に挿入されます。一般的に日本語の場合は、32文字以内が最適とされています。（※ページやインデックスの見出し部分には「記事のタイトル」が利用されます）</p>';
 
 
   //メタディスクリプション
   echo '<label style="font-weight:bold;margin-bottom:5px;">メタディスクリプション</label>';
   echo '<textarea style="width:100%" placeholder="記事の説明文を入力してください。" name="meta_description" rows="3">'.$meta_description.'</textarea>';
-  echo '<p class="howto" style="margin-top:0;">記事の説明を入力してください。日本語では、およそ120文字前後の入力をおすすめします。スマホではそのうちの50文字が表示されます。こちらに入力しない場合は、「抜粋」に入力したものがメタディスクリプションとして挿入されます。</p>';
+  echo '<p class="howto" style="margin-top:0;">記事の説明を入力してください。日本語では、およそ120文字前後の入力をおすすめします。スマホではそのうちの約50文字が表示されます。こちらに入力したメタディスクリプションはブログカードのスニペット（抜粋文部分）にも利用されます。こちらに入力しない場合は、「抜粋」に入力したものがメタディスクリプションとして挿入されます。</p>';
 
   //メタキーワード
   echo '<label style="font-weight:bold;margin-bottom:5px;">メタキーワード</label>';
