@@ -11,7 +11,12 @@ if(is_front_page()):
     echo ' | ' . trim( get_bloginfo('description') );
   endif;
 elseif(is_singular()):
-  echo trim( wp_title('',false) );
+  $title = trim( wp_title('',false) );
+    //SEO向けのタイトルが設定されているとき
+  if (get_seo_title_singular_page()) {
+    $title = get_seo_title_singular_page();
+  }
+  echo $title;
   if ( is_site_name_to_singular_title() )://サイト名を追加する場合
     echo ' | ' . trim( get_bloginfo('name') );
   endif;

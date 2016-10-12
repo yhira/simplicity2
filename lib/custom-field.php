@@ -109,19 +109,26 @@ function is_ads_removed_in_page(){
 function view_seo_custom_box(){
   global $post;
 
+  $seo_title = get_post_meta(get_the_ID(),'seo_title', true);
   $meta_description = get_post_meta(get_the_ID(),'meta_description', true);
   $meta_keywords = get_post_meta(get_the_ID(),'meta_keywords', true);
   $is_noindex = get_post_meta(get_the_ID(),'is_noindex', true);
   $is_nofollow = get_post_meta(get_the_ID(),'is_nofollow', true);
 
+  //タイトル
+  echo '<label style="font-weight:bold;margin-bottom:5px;">タイトル</label>';
+  echo '<input type="text" style="width:100%" placeholder="タイトルを入力してください。" name="seo_title" value="'.$seo_title.'" />';
+  echo '<p class="howto" style="margin-top:0;">検索エンジンに表示させたいタイトルを入力してください。記事のタイトルより、こちらに入力したテキストが優先的にタイトルタグに挿入されます。一般的に日本語の場合は、32文字以内が最適とされています。</p>';
+
+
   //メタディスクリプション
   echo '<label style="font-weight:bold;margin-bottom:5px;">メタディスクリプション</label>';
-  echo '<textarea style="width:100%" placeholder="メタディスクリプションの入力" name="meta_description" rows="3">'.$meta_description.'</textarea>';
+  echo '<textarea style="width:100%" placeholder="記事の説明文を入力してください。" name="meta_description" rows="3">'.$meta_description.'</textarea>';
   echo '<p class="howto" style="margin-top:0;">記事の説明を入力してください。日本語では、およそ120文字前後の入力をおすすめします。スマホではそのうちの50文字が表示されます。こちらに入力しない場合は、「抜粋」に入力したものがメタディスクリプションとして挿入されます。</p>';
 
   //メタキーワード
   echo '<label style="font-weight:bold;margin-bottom:5px;">メタキーワード</label>';
-  echo '<input type="text" style="width:100%" placeholder="メタキーワードの入力" name="meta_keywords" value="'.$meta_keywords.'" />';
+  echo '<input type="text" style="width:100%" placeholder="記事の関連キーワードを半角カンマ区切りで入力してください。" name="meta_keywords" value="'.$meta_keywords.'" />';
   echo '<p class="howto" style="margin-top:0;">記事に関連するキーワードを,（カンマ）区切りで入力してください。入力しない場合は、カテゴリ名などから自動で設定されます。</p>';
 
   //noindex
@@ -140,6 +147,13 @@ function view_seo_custom_box(){
 add_action('save_post', 'save_seo_custom_data');
 function save_seo_custom_data(){
   $id = get_the_ID();
+  //タイトル
+  $seo_title = null;
+  if ( isset( $_POST['seo_title'] ) )
+    $seo_title = $_POST['seo_title'];
+  $seo_title_key = 'seo_title';
+  add_post_meta($id, $seo_title_key, $seo_title, true);
+  update_post_meta($id, $seo_title_key, $seo_title);
   //メタディスクリプション
   $meta_description = null;
   if ( isset( $_POST['meta_description'] ) )
@@ -168,6 +182,11 @@ function save_seo_custom_data(){
   $is_nofollow_key = 'is_nofollow';
   add_post_meta($id, $is_nofollow_key, $is_nofollow, true);
   update_post_meta($id, $is_nofollow_key, $is_nofollow);
+}
+
+//SEO向けのタイトルを取得
+function get_seo_title_singular_page(){
+  return trim(strip_tags(get_post_meta(get_the_ID(), 'seo_title', true)));
 }
 
 //メタディスクリプションを取得

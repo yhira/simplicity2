@@ -43,6 +43,10 @@ if ( is_single() && is_meta_keywords_insert() ):
 ?>
 <meta name="keywords" content="<?php echo get_the_keywores(); ?>" />
 <?php endif; ?>
+<?php //固定ページにMETAキーワードを挿入するとき
+if ( is_page() && is_meta_keywords_insert() && get_meta_keywords_singular_page() ):?>
+<meta name="keywords" content="<?php echo get_meta_keywords_singular_page(); ?>" />
+<?php endif; ?>
 <?php //カテゴリーページにMETAディスクリプションを挿入するとき
 if ( is_category() && is_meta_description_insert_to_category() ): ?>
 <meta name="description" content="<?php echo get_meta_description_from_category(); ?>" />
