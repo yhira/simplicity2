@@ -12,9 +12,9 @@ function add_custom_boxes(){
   add_meta_box( 'ad_setting_in_page','広告の設定', 'view_ad_custom_box', 'page', 'side' );
   add_meta_box( 'ad_setting_in_page','広告の設定', 'view_ad_custom_box', 'topic', 'side' );
   //SEOボックス
-  add_meta_box( 'seo_setting_in_page','SEO設定', 'view_seo_custom_box', 'post', 'side' );
-  add_meta_box( 'seo_setting_in_page','SEO設定', 'view_seo_custom_box', 'page', 'side' );
-  add_meta_box( 'seo_setting_in_page','SEO設定', 'view_seo_custom_box', 'topic', 'side' );
+  add_meta_box( 'seo_setting_in_page','SEO設定', 'view_seo_custom_box', 'post', 'normal', 'high' );
+  add_meta_box( 'seo_setting_in_page','SEO設定', 'view_seo_custom_box', 'page', 'normal', 'high' );
+  add_meta_box( 'seo_setting_in_page','SEO設定', 'view_seo_custom_box', 'topic', 'normal', 'high' );
   //ページ設定
   add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'post', 'side' );
   add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'page', 'side' );
@@ -109,25 +109,51 @@ function is_ads_removed_in_page(){
 function view_seo_custom_box(){
   global $post;
 
+  $meta_description = get_post_meta(get_the_ID(),'meta_description', true);
+  $meta_keywords = get_post_meta(get_the_ID(),'meta_keywords', true);
   $is_noindex = get_post_meta(get_the_ID(),'is_noindex', true);
   $is_nofollow = get_post_meta(get_the_ID(),'is_nofollow', true);
+
+  //メタディスクリプション
+  echo '<label style="font-weight:bold;margin-bottom:5px;">メタディスクリプション</label>';
+  echo '<textarea style="width:100%" placeholder="メタディスクリプションの入力" name="meta_description" rows="3">'.$meta_description.'</textarea>';
+  echo '<p class="howto" style="margin-top:0;">記事の説明を入力してください。日本語では、およそ120文字前後の入力をおすすめします。スマホではそのうちの50文字が表示されます。こちらに入力しない場合は、「抜粋」に入力したものがメタディスクリプションとして挿入されます。</p>';
+
+  //メタキーワード
+  echo '<label style="font-weight:bold;margin-bottom:5px;">メタキーワード</label>';
+  echo '<input type="text" style="width:100%" placeholder="メタキーワードの入力" name="meta_keywords" value="'.$meta_keywords.'" />';
+  echo '<p class="howto" style="margin-top:0;">記事に関連するキーワードを,（カンマ）区切りで入力してください。入力しない場合は、カテゴリ名などから自動で設定されます。</p>';
 
   //noindex
   echo '<label><input type="checkbox" name="is_noindex"';
   if( $is_noindex ){echo " checked";}
   echo '>インデックスしない（noindex）</label>';
-  echo '<p class="howto">このページが検索エンジンにインデックスされないようにメタタグを設定します。</p>';
+  echo '<p class="howto" style="margin-top:0;">このページが検索エンジンにインデックスされないようにメタタグを設定します。</p>';
 
   //nofollow
   echo '<label><input type="checkbox" name="is_nofollow"';
   if( $is_nofollow ){echo " checked";}
   echo '>リンクをフォローしない（nofollow）</label>';
-  echo '<p class="howto">検索エンジンがこのページ上のリンクをフォローしないようにメタタグを設定します。</p>';
+  echo '<p class="howto" style="margin-top:0;">検索エンジンがこのページ上のリンクをフォローしないようにメタタグを設定します。</p>';
 }
 
 add_action('save_post', 'save_seo_custom_data');
 function save_seo_custom_data(){
   $id = get_the_ID();
+  //メタディスクリプション
+  $meta_description = null;
+  if ( isset( $_POST['meta_description'] ) )
+    $meta_description = $_POST['meta_description'];
+  $meta_description_key = 'meta_description';
+  add_post_meta($id, $meta_description_key, $meta_description, true);
+  update_post_meta($id, $meta_description_key, $meta_description);
+  //メタキーワード
+  $meta_keywords = null;
+  if ( isset( $_POST['meta_keywords'] ) )
+    $meta_keywords = $_POST['meta_keywords'];
+  $meta_keywords_key = 'meta_keywords';
+  add_post_meta($id, $meta_keywords_key, $meta_keywords, true);
+  update_post_meta($id, $meta_keywords_key, $meta_keywords);
   //noindex
   $is_noindex = null;
   if ( isset( $_POST['is_noindex'] ) )
@@ -142,6 +168,16 @@ function save_seo_custom_data(){
   $is_nofollow_key = 'is_nofollow';
   add_post_meta($id, $is_nofollow_key, $is_nofollow, true);
   update_post_meta($id, $is_nofollow_key, $is_nofollow);
+}
+
+//メタディスクリプションを取得
+function get_meta_description_singular_page(){
+  return trim(strip_tags(get_post_meta(get_the_ID(), 'meta_description', true)));
+}
+
+//メタキーワードを取得
+function get_meta_keywords_singular_page(){
+  return trim(strip_tags(get_post_meta(get_the_ID(), 'meta_keywords', true)));
 }
 
 //noindexか
