@@ -131,8 +131,14 @@ add_filter('excerpt_more', 'custom_excerpt_more');
 if ( !function_exists( 'get_the_custom_excerpt' ) ):
 function get_the_custom_excerpt($content, $length = 70, $is_card = false) {
   global $post;
-  if ( is_wordpress_excerpt() && $post->post_excerpt ) {//Wordpress固有の抜粋文を使用するとき
-    return  $post->post_excerpt;
+  //SEO設定のディスクリプション取得
+  $description = get_meta_description_blogcard_snippet($post->ID);
+  //SEO設定のディスクリプションがない場合は「抜粋」を取得
+  if (!$description) {
+    $description = $post->post_excerpt;
+  }
+  if (is_wordpress_excerpt() && $description ) {//Wordpress固有の抜粋文を使用するとき
+    return  $description;
   } else {//Simplicity固有の抜粋文を使用するとき
     return get_content_excerpt($content, $length);
   }
@@ -257,7 +263,12 @@ if ( !function_exists( 'get_the_description' ) ):
 function get_the_description(){
   global $post;
 
+  //抜粋を取得
   $desc = trim(strip_tags( $post->post_excerpt ));
+  //投稿・固定ページにメタディスクリプションが設定してあれば取得
+  if (get_meta_description_singular_page()) {
+    $desc = get_meta_description_singular_page();
+  }
   if ( !$desc ) {//投稿で抜粋が設定されていない場合は、110文字の冒頭の抽出分
     $desc = strip_shortcodes(get_the_custom_excerpt( $post->post_content, 150 ));
     $desc = mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($desc)), 0, 120);
@@ -265,6 +276,23 @@ function get_the_description(){
   }
   $desc = htmlspecialchars($desc);
   return $desc;
+}
+endif;
+
+//投稿・固定ページのメタキーワードの取得
+if ( !function_exists( 'get_the_keywores' ) ):
+function get_the_keywores(){
+  global $post;
+  $keywords = get_meta_keywords_singular_page();
+  if (!$keywords) {
+    $categories = get_the_category($post->ID);
+    $category_names = array();
+    foreach($categories as $category):
+      array_push( $category_names, $category -> cat_name);
+    endforeach ;
+    $keywords = implode($category_names, ',');
+  }
+  return $keywords;
 }
 endif;
 

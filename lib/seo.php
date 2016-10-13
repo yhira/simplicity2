@@ -24,6 +24,11 @@ function simplicity_wp_title( $title ) {
     endif;
   elseif(is_singular()):
     $title = trim( get_the_title() );
+
+    //SEO向けのタイトルが設定されているとき
+    if (get_seo_title_singular_page()) {
+      $title = get_seo_title_singular_page();
+    }
     if ( is_site_name_to_singular_title() )://サイト名を追加する場合
        $title = $title. ' | ' . $site_name;
     endif;
@@ -59,6 +64,10 @@ function simplicity_title_parts( $title ){
     endif;
   elseif(is_singular()):
     $title['title'] = trim( get_the_title() );
+    //SEO向けのタイトルが設定されているとき
+    if (get_seo_title_singular_page()) {
+      $title['title'] = get_seo_title_singular_page();
+    }
     $title['site'] = '';
     if ( is_site_name_to_singular_title() )://サイト名を追加する場合
       $title['site'] = $site_name;
