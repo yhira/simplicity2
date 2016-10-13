@@ -653,6 +653,7 @@ function theme_customize_register($wp_customize) {
 
   //Wordpress固有の抜粋文を使用する
   $wp_customize->add_setting('wordpress_excerpt', array(
+    'default' => true,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'wordpress_excerpt', array(
@@ -3725,7 +3726,7 @@ function get_excerpt_more(){
 
 //Wordpress固有の抜粋文を使用するか
 function is_wordpress_excerpt(){
-  return get_theme_mod( 'wordpress_excerpt', false );
+  return get_theme_mod( 'wordpress_excerpt', true );
 }
 
 //関連記事を表示するか
