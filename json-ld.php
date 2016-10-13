@@ -9,9 +9,11 @@
   "@type": "NewsArticle",
   "mainEntityOfPage":{
     "@type":"WebPage",
-    "@id":"<?php the_permalink(); ?>" // パーマリンクを取得
+    "@id":"<?php the_permalink(); ?>"<?php  // パーマリンクを取得 ?>
+
   },
-  "headline": "<?php the_title();?>", // ページタイトルを取得
+  "headline": "<?php the_title();?>",<?php // ページタイトルを取得 ?>
+
   "image": {
     "@type": "ImageObject",
 <?php
@@ -36,16 +38,21 @@ if ($image) {
     "url": "<?php echo $image_url;?>",
     "width": <?php echo $width; ?>,
     "height": <?php echo $height; ?>
+
   },
-  "datePublished": "<?php echo (get_the_time('c') ? get_the_time('c') : get_the_modified_time('c')); ?>", // 記事投稿時間（分岐しているのbbPressのトピック対策）
-  "dateModified": "<?php echo get_the_modified_time('c'); ?>", // 記事更新時間
+  "datePublished": "<?php echo (get_the_time('c') ? get_the_time('c') : get_the_modified_time('c')); ?>",<?php  // 記事投稿時間（分岐しているのbbPressのトピック対策） ?>
+
+  "dateModified": "<?php echo get_the_modified_time('c'); ?>",<?php  // 記事更新時間 ?>
+
   "author": {
     "@type": "Person",
-    "name": "<?php echo (get_the_author_meta('nickname') ? get_the_author_meta('nickname') : get_bloginfo('name')); ?>" // 投稿者ニックネーム
+    "name": "<?php echo (get_the_author_meta('nickname') ? get_the_author_meta('nickname') : get_bloginfo('name')); ?>"<?php // 投稿者ニックネーム ?>
+
   },
   "publisher": {
     "@type": "Organization",
-    "name": "<?php bloginfo('name'); ?>", // サイト名
+    "name": "<?php bloginfo('name'); ?>",<?php // サイト名 ?>
+
 <?php
 $image_url = get_amp_logo_url();
 if ($image_url) {//ロゴ画像がある場合
@@ -69,11 +76,14 @@ if ($image_url) {//ロゴ画像がある場合
 }?>
     "logo": {
       "@type": "ImageObject",
-      "url": "<?php echo $image_url; ?>", // ロゴ画像
+      "url": "<?php echo $image_url; ?>",<?php  // ロゴ画像 ?>
+
       "width": <?php echo $width; ?>,
       "height": <?php echo $height; ?>
+
     }
   },
-  "description": "<?php echo get_the_description(); ?>…" // 抜粋
+  "description": "<?php echo get_the_description(); ?>…"<?php  // 抜粋 ?>
+
 }
 </script>
