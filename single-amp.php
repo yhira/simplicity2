@@ -106,6 +106,7 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
 
 
 
+<?php while(have_posts()): the_post(); ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <article class="article">
     <header>
@@ -130,8 +131,8 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
     <?php get_template_part_amp('entry-eye-catch');//アイキャッチ挿入機能?>
 
     <div id="the-content" class="entry-content">
-    <?php //記事本文の表示
-      the_content( get_theme_text_read_more() ); //デフォルト：続きを読む?>
+      <?php //記事本文の表示
+        the_content( get_theme_text_read_more() ); //デフォルト：続きを読む?>
     </div>
 
     <footer>
@@ -155,7 +156,7 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
     </footer>
   </article><!-- .article -->
 </div><!-- .post -->
-
+<?php endwhile; ?>
 
 
 <div id="under-entry-body">
