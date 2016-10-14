@@ -121,10 +121,34 @@ function initialize_tinymce_styles($init_array) {
   );
   //JSONに変換
   $init_array['style_formats'] = json_encode($style_formats);
+
+  //ビジュアルエディターのフォントサイズ変更機能の文字サイズ指定
+  $init_array['fontsize_formats'] = '10px 12px 14px 16px 18px 20px 24px 28px 32px 36px 42px 48px';
+
   return $init_array;
 }
 endif;
 add_filter('tiny_mce_before_init', 'initialize_tinymce_styles', 10000);
+
+
+// //ビジュアルエディターのフォントサイズ変更機能の文字サイズ指定
+// if ( !function_exists( 'customize_tinymce_initial_settings' ) ):
+// function customize_tinymce_initial_settings($settings) {
+//   $settings['fontsize_formats'] = '10px 12px 14px 16px 18px 20px 24px 28px 32px 36px 42px 48px';
+
+//   return $settings;
+// }
+// endif;
+// add_filter( 'tiny_mce_before_init', 'customize_tinymce_initial_settings' );
+
+//Wordpressビジュアルエディターに文字サイズの変更機能を追加
+if ( !function_exists( 'add_ilc_mce_buttons_to_bar' ) ):
+function add_ilc_mce_buttons_to_bar($buttons){
+  array_push($buttons, 'backcolor', 'fontsizeselect', 'cleanup');
+  return $buttons;
+}
+endif;
+add_filter('mce_buttons', 'add_ilc_mce_buttons_to_bar');
 
 //TinyMCEにスタイルセレクトボックスを追加
 //https://codex.wordpress.org/Plugin_API/Filter_Reference/mce_buttons,_mce_buttons_2,_mce_buttons_3,_mce_buttons_4
