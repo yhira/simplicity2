@@ -582,6 +582,7 @@ function replace_directory_uri($code){
   return $code;
 }
 
+/*
 //現在採用してない
 //画像が出てきたらキャプション表示用のラッパーを装着
 function wrap_images_for_hover($the_content) {
@@ -598,6 +599,7 @@ function wrap_images_for_hover($the_content) {
 if ( is_alt_hover_effect_enable() ) {
   add_filter('the_content','wrap_images_for_hover',100);
 }
+*/
 
 //Simplicityのビジュアルエディタースタイル
 function simplicity_theme_add_editor_styles() {
@@ -1096,4 +1098,3 @@ function add_js_to_wp_theme_editor_filetypes($default_types){
 }
 endif;
 add_filter('wp_theme_editor_filetypes', 'add_js_to_wp_theme_editor_filetypes');
-

@@ -110,10 +110,11 @@ function wrap_hover_image($the_content) {
     if ( is_user_logged_in() ) {
       $hover_image_admin_class = ' hover-image-admin';
     }
+    //$the_content = preg_replace('/<\/?p>/i', '', $the_content);
     //Alt属性値のある画像タグをラッパー付きのタグで置換する
     $the_content = preg_replace(
-      '/(<img.+?alt=[\'"]([^\'"]+?)[\'"].+?>)/i',
-      '<div class="hover-image'.$hover_image_admin_class.'">${0}<div class="details"><span class="info">${2}</span></div></div>',
+      '/(<p>)?(((<a[^>]+?>)?<img.+?alt=[\'"]([^\'"]+?)[\'"].+?>)(<\/a>)?)(<\/p>)?/i',
+      '<div class="hover-image'.$hover_image_admin_class.'">${2}<div class="details"><span class="info">${5}</span></div></div>',
       $the_content);
   }
   return $the_content;

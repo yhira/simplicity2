@@ -1853,6 +1853,12 @@ div.vdh-mask{
   border-radius: 3px;
   /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);*/
 }
+
+
+.wp-caption .hover-image {
+  margin: 0;
+}
+
 .hover-image:before {
   content: '';
   background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
