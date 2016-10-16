@@ -52,10 +52,14 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/<font[^>]+?>/i', '', $the_content);
   $the_content = preg_replace('/<\/font>/i', '', $the_content);
 
-  //カエレバ・ヨメレバの商品画像にwidthとhightを追加する
+  //カエレバ・ヨメレバのAmazon商品画像にwidthとhightを追加する
   $the_content = preg_replace('/ src="http:\/\/ecx.images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://ecx.images-amazon.com', $the_content);
-  //カエレバ・ヨメレバの商品画像にwidthとhightを追加する（SSL用）
+  //カエレバ・ヨメレバのAmazon商品画像にwidthとhightを追加する（SSL用）
   $the_content = preg_replace('/ src="https:\/\/images-fe.ssl-images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="https://images-fe.ssl-images-amazon.com', $the_content);
+  //カエレバ・ヨメレバの楽天商品画像にwidthとhightを追加する
+  $the_content = preg_replace('/ src="http:\/\/thumbnail.image.rakuten.co.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://thumbnail.image.rakuten.co.jp', $the_content);
+  //カエレバ・ヨメレバのYahoo!ショッピング商品画像にwidthとhightを追加する
+  $the_content = preg_replace('/ src="http:\/\/item.shopping.c.yimg.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://item.shopping.c.yimg.jp', $the_content);
 
   //画像タグをAMP用に置換
   $the_content = preg_replace('/<img/i', '<amp-img layout="responsive"', $the_content);
