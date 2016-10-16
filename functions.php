@@ -571,7 +571,10 @@ function scrollable_responsive_table($the_content) {
   return $the_content;
 }
 endif;
-add_filter('the_content','scrollable_responsive_table');
+if (is_scrollable_table_enable()) {
+  add_filter('the_content','scrollable_responsive_table');
+}
+
 
 //カスタムフィールドのショートコードをロケーションURIに置換
 function replace_directory_uri($code){

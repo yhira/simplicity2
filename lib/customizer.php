@@ -1082,9 +1082,23 @@ function theme_customize_register($wp_customize) {
     'priority' => 35,
   ));
 
+  //大きな表は横スクロール
+  $wp_customize->add_setting('scrollable_table_enable', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'scrollable_table_enable', array(
+    'settings' => 'scrollable_table_enable',
+    'label' =>'大きな表は横スクロール',
+    'description' => is_tips_visible() ? '横幅の大きな表（TABLE）は、横スクロール表示するようにして、モバイル端末などでも画面の横揺れを防ぎます。' : '',
+    'section' => 'layout_singular_section',
+    'type' => 'checkbox',
+    'priority' => 35.5,
+  ));
+
   //関連記事の表示
   $wp_customize->add_setting('related_entry_visible', array(
-     'default' => true,
+    'default' => true,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'related_entry_visible', array(
@@ -3727,6 +3741,11 @@ function get_excerpt_more(){
 //Wordpress固有の抜粋文を使用するか
 function is_wordpress_excerpt(){
   return get_theme_mod( 'wordpress_excerpt', true );
+}
+
+//大きな表は横スクロール表示するか
+function is_scrollable_table_enable(){
+  return get_theme_mod( 'scrollable_table_enable', true );
 }
 
 //関連記事を表示するか

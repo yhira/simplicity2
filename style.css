@@ -274,8 +274,13 @@ dd{
 .article td{
   border: solid 1px #ccc;
 }
-.article th, .article td{
+.article th,
+.article td{
   padding: 3px 5px;
+}
+
+.article .scrollable-table th,
+.article .scrollable-table td{
   white-space: nowrap;
 }
 
