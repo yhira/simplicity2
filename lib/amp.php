@@ -36,6 +36,10 @@ function convert_content_for_amp($the_content){
   if ( !is_amp() ) {
     return $the_content;
   }
+
+  //C2A0文字コード（UTF-8の半角スペース）を通常の半角スペースに置換
+  $the_content = str_replace('\xc2\xa0', ' ', $the_content);
+
   //style属性を取り除く
   $the_content = preg_replace('/ +style=["][^"]*?["]/i', '', $the_content);
   $the_content = preg_replace('/ +style=[\'][^\']*?[\']/i', '', $the_content);
