@@ -1084,7 +1084,7 @@ function theme_customize_register($wp_customize) {
 
   //大きな表は横スクロール
   $wp_customize->add_setting('scrollable_table_enable', array(
-    'default' => true,
+    'default' => false,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'scrollable_table_enable', array(
@@ -3745,7 +3745,7 @@ function is_wordpress_excerpt(){
 
 //大きな表は横スクロール表示するか
 function is_scrollable_table_enable(){
-  return get_theme_mod( 'scrollable_table_enable', true );
+  return get_theme_mod( 'scrollable_table_enable', false );
 }
 
 //関連記事を表示するか
