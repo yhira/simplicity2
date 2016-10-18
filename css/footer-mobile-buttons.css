@@ -196,7 +196,7 @@ div#sidebar{
 }
 
 #footer-mobile-buttons a .menu-caption{
-  font-size: 0.6em;
+  font-size: 0.7em;
   font-family: "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
   position: relative;
   text-align: center;
@@ -223,7 +223,7 @@ div#sidebar{
 }
 
 .menu-caption-top::before{
-  content: 'トップへ';
+  content: 'トップ';
 }
 
 .menu-caption-sidebar::before{
@@ -232,6 +232,11 @@ div#sidebar{
 
 #footer-mobile-buttons .fa-times{
   color: #D40000;
+}
+
+a#footer-button-prev,
+a#footer-button-next{
+  display: none;
 }
 
 /************************************
