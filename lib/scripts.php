@@ -187,6 +187,8 @@ function simplicity_scripts() {
     ob_start();//バッファリング
     get_template_part('css-custom');
     $css_custom = ob_get_clean();
+    //CSSの縮小化
+    $css_custom = minify_css($css_custom);
     //HTMLにインラインでスタイルを書く
     wp_add_inline_style( 'extension-style', $css_custom, array('extension-style') );
   }

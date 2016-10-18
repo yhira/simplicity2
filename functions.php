@@ -624,6 +624,10 @@ function css_custum_to_css_file(){
     $css_settings = str_replace('<style type="text/css">', '', $css_settings);
     $css_settings = str_replace('</style>', '', $css_settings);
     //var_dump($css_settings);
+
+    //CSSの縮小化
+    $css_settings = minify_css($css_settings);
+
     $wp_filesystem->put_contents(
       get_simplicity_local_dir().'/css/css-custom.css',
       $css_settings,
