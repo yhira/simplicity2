@@ -11,7 +11,7 @@ if ( is_mobile_menu_type_slide_in() ): ?>
     <div class="menu-icon"><span class="fa fa-bars"></span></div>
     <div class="menu-caption menu-caption-menu"></div>
   </a>
-  <a id="footer-button-home" href="#navi">
+  <a id="footer-button-home" href="<?php echo site_url() ?>">
     <div class="menu-icon"><span class="fa fa-home"></span></div>
     <div class="menu-caption menu-caption-home"></div>
   </a>
