@@ -11,6 +11,10 @@ if ( is_mobile_menu_type_slide_in() ): ?>
     <div class="menu-icon"><span class="fa fa-bars"></span></div>
     <div class="menu-caption menu-caption-menu"></div>
   </a>
+  <a id="footer-button-home" href="#navi">
+    <div class="menu-icon"><span class="fa fa-home"></span></div>
+    <div class="menu-caption menu-caption-home"></div>
+  </a>
   <a id="footer-button-search" href="#">
     <div class="menu-icon"><span class="fa fa-search"></span></div>
     <div class="menu-caption menu-caption-search"></div>

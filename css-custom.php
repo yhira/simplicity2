@@ -854,6 +854,10 @@ if ( !is_mobile_menu_japanese() ): ?>
   content: 'Menu';
 }
 
+.menu-caption-home::before{
+  content: 'Home';
+}
+
 .menu-caption-search::before{
   content: 'Search';
 }

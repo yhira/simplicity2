@@ -206,6 +206,10 @@ div#sidebar{
   content: 'メニュー';
 }
 
+.menu-caption-home::before{
+  content: 'ホーム';
+}
+
 .menu-caption-search::before{
   content: '検索';
 }
