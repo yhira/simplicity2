@@ -118,7 +118,7 @@ endif;
 if ( !function_exists( 'generate_amp_adsense_code' ) ):
 function generate_amp_adsense_code(){
   $adsense_code = null;
-  if ( is_active_sidebar( 'adsense-300' ) ) {
+  if ( get_amp_adsense_code() || is_active_sidebar( 'adsense-300' ) ) {
     $ad300 = get_amp_adsense_code();
     ob_start();
     dynamic_sidebar('adsense-300');
