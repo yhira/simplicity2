@@ -3,8 +3,6 @@
 //AMP判別関数
 if ( !function_exists( 'is_amp' ) ):
 function is_amp(){
-  global $post;
-  //var_dump(is_single());
   //bbPressがインストールされていて、トピックの時は除外
   if (function_exists('bbp_is_topic')) {
     if (bbp_is_topic()) {
@@ -16,9 +14,8 @@ function is_amp(){
   if ( empty($_GET['amp']) ) {
     return false;
   }
-  $content = $post->post_content;
 
-  // ampのパラメーターが1かつ記事の中に<script>タグが入っていない
+  // ampのパラメーターが1かつ
   // かつsingleページのみ$is_ampをtrueにする
   if(is_amp_enable() && //AMPがカスタマイザーの有効化されているか
      is_single() &&
