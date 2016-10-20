@@ -93,7 +93,7 @@ class OpenGraph implements Iterator
 
     //タイトルタグからタイトル情報を取得
     preg_match( "/<title>(.*?)<\/title>/i", $HTML, $matches);
-    $title = $matches[1];
+    $title = $matches ? $matches[1] : null;
 
 		libxml_use_internal_errors($old_libxml_error);
 
