@@ -81,10 +81,15 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace($pattern, $append, $the_content);
 
   // YouTubeを置換する（埋め込みコード）
-  $pattern = '/<iframe.+?src="https:\/\/www.youtube.com\/embed\/(.+?)(\?feature=oembed)?".*?><\/iframe>/is';
+  $pattern = '/<iframe[^>]+?src="https:\/\/www.youtube.com\/embed\/(.+?)(\?feature=oembed)?".*?><\/iframe>/is';
   $append = '<amp-youtube layout="responsive" data-videoid="$1" width="800" height="450"></amp-youtube>';
   $the_content = preg_replace($pattern, $append, $the_content);
-
+/*
+  // Facebookを置換する（埋め込みコード）
+  $pattern = '/<iframe.+?src="(https:\/\/www.facebook.com\/[^"]+?)".*?><\/iframe>/is';
+  $append = '<amp-facebook layout="responsive" data-href="$1" width="500" height="450"></amp-facebook>';
+  $the_content = preg_replace($pattern, $append, $the_content);
+*/
   // iframeをamp-iframeに置換する
   $pattern = '/<iframe/i';
   $append = '<amp-iframe layout="responsive"';
