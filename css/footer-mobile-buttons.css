@@ -234,8 +234,7 @@ div#sidebar{
   color: #D40000;
 }
 
-a#footer-button-prev,
-a#footer-button-next{
+a#footer-button-home{
   display: none;
 }
 
