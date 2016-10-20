@@ -290,6 +290,9 @@ if ( get_search_box_style() == 'white_circle' ): ?>
 #s {
   border-radius:25px;
 }
+#s:focus {
+  outline: none;
+}
 <?php elseif ( get_search_box_style() == 'gray_rect' ): ?>
 #s {
   background-color:#f3f3f3;
@@ -298,6 +301,9 @@ if ( get_search_box_style() == 'white_circle' ): ?>
 #s {
   border-radius:25px;
   background-color:#f3f3f3;
+}
+#s:focus {
+  outline: none;
 }
 <?php endif; ?>
 <?php //引用部分の幅を広げる
