@@ -4339,7 +4339,7 @@ function is_twitter_btn_visible(){
 function is_facebook_btn_visible(){
   $facebook_btn_visible = get_theme_mod( 'facebook_btn_visible', true );
   global $g_facebook_sdk;
-  $g_facebook_sdk = $facebook_btn_visible && is_share_button_type_default();
+  $g_facebook_sdk = $g_facebook_sdk || ($facebook_btn_visible && is_share_button_type_default());
   return $facebook_btn_visible;
 }
 
