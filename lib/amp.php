@@ -80,6 +80,8 @@ function convert_content_for_amp($the_content){
   $append = '<p><amp-instagram layout="responsive" data-shortcode="$1" width="592" height="592" ></amp-instagram></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
+  //YouTubeのURL埋め込み時にiframeのsrc属性のURLに余計なクエリが入るのを除去（力技;）
+  $the_content = str_replace('?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent', '', $the_content);
   // YouTubeを置換する（埋め込みコード）
   $pattern = '/<iframe[^>]+?src="https?:\/\/www.youtube.com\/embed\/([^\?"]+).*?".*?><\/iframe>/is';
   $append = '<amp-youtube layout="responsive" data-videoid="$1" width="800" height="450"></amp-youtube>';
