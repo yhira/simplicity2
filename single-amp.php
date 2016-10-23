@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <link rel="canonical" href="<?php the_permalink() ?>" />
-<link rel="amphtml" href="<?php echo get_amp_permalink(); ?>">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <?php get_template_part('header-title-tag'); ?>
 <?php if ( is_facebook_ogp_enable() ) //Facebook OGPタグ挿入がオンのとき
