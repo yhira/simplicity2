@@ -374,7 +374,7 @@ if ( is_mobile() ): ?>
 }
 <?php endif; ?>
 <?php //サイドバーの幅を336pxにするかどうか
-if ( is_sidebar_width_336() ): ?>
+if ( is_sidebar_width_336() && !is_amp() ): ?>
 
 /*サイドバーの幅をレクタングル（大）の幅にする*/
 #sidebar{
