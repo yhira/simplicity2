@@ -12,7 +12,7 @@ class MobileAdWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
-    $ad = apply_filters( 'widget_ad_text', $instance['ad_text'] );
+    $ad = apply_filters( 'widget_mobile_ad_text', $instance['ad_text'] );
     $margin_left_px = apply_filters( 'widget_margin_left_px', $instance['margin_left_px'] );
     $is_exclude_ads_enable = apply_filters( 'widget_is_exclude_ads_enable', $instance['is_exclude_ads_enable'] );
     if ( empty($margin_left_px) ) {

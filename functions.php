@@ -70,6 +70,11 @@ add_theme_support( 'custom-header', $custom_header_defaults );
 add_filter('widget_text', 'do_shortcode');
 add_filter('widget_text_pc_text', 'do_shortcode');
 add_filter('widget_text_mobile_text', 'do_shortcode');
+add_filter('widget_mobile_ad_text', 'do_shortcode');
+add_filter('widget_pc_ad_text', 'do_shortcode');
+add_filter('widget_pc_double_ad1_text', 'do_shortcode');
+add_filter('widget_pc_double_ad2_text', 'do_shortcode');
+
 
 
 //カスタム背景

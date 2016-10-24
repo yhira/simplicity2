@@ -12,8 +12,8 @@ class PcDoubleAdsWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
-    $ad1 = apply_filters( 'widget_ad1_text', $instance['ad1_text'] );
-    $ad2 = apply_filters( 'widget_ad2_text', $instance['ad2_text'] );
+    $ad1 = apply_filters( 'widget_pc_double_ad1_text', $instance['ad1_text'] );
+    $ad2 = apply_filters( 'widget_pc_double_ad2_text', $instance['ad2_text'] );
     $is_exclude_ads_enable = apply_filters( 'widget_is_exclude_ads_enable', $instance['is_exclude_ads_enable'] );
     if ( empty($margin_left_px) ) {
       $margin_left_px = 0;
