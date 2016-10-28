@@ -34,6 +34,27 @@ function convert_content_for_amp($the_content){
     return $the_content;
   }
 
+
+  //noscriptタグの削除
+  $the_content = preg_replace('/<noscript>/i', '', $the_content);
+  $the_content = preg_replace('/<\/noscript>/i', '', $the_content);
+
+  //Amazon商品リンクのhttp URLをhttpへ
+  $the_content = str_replace('http://rcm-jp.amazon.co.jp/', 'https://rcm-fe.amazon-adsystem.com/', $the_content);
+  //Amazonデフォルトの埋め込みタグを置換する
+  /*$pattern = '/<iframe([^>]+?)(src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?").*?><\/iframe>/is';
+  $append = '<amp-iframe$1$2 width="120" height="240"frameborder="0"></amp-iframe>';
+  */
+  $pattern = '/<iframe([^>]+?)src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?t=([^&]+)[^"]+?asins=([^&]+)[^"]*?".*?><\/iframe>/is';
+  $amazon_url = 'http://www.amazon.co.jp/exec/obidos/ASIN/$3/$2/ref=nosim/';
+  $append = '<a href="'.$amazon_url.'">'.$amazon_url.'</a>';
+  //$append = url_to_external_ogp_blog_card_tag($amazon_url);
+  //$the_content = preg_replace($pattern, htmlspecialchars($append), $the_content);
+  $the_content = preg_replace($pattern, $append, $the_content);
+  //Amazon画像をブログカード化
+  $the_content = url_to_external_blog_card($the_content);
+
+
   //C2A0文字コード（UTF-8の半角スペース）を通常の半角スペースに置換
   $the_content = str_replace('\xc2\xa0', ' ', $the_content);
 
@@ -91,7 +112,9 @@ function convert_content_for_amp($the_content){
   $pattern = '/<iframe.+?src="(https:\/\/www.facebook.com\/[^"]+?)".*?><\/iframe>/is';
   $append = '<amp-facebook layout="responsive" data-href="$1" width="500" height="450"></amp-facebook>';
   $the_content = preg_replace($pattern, $append, $the_content);
+
 */
+
   // iframeをamp-iframeに置換する
   $pattern = '/<iframe/i';
   $append = '<amp-iframe layout="responsive"';
