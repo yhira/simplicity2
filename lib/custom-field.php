@@ -110,6 +110,7 @@ function view_seo_custom_box(){
   global $post;
 
   $seo_title = get_post_meta(get_the_ID(),'seo_title', true);
+  $seo_title = htmlspecialchars($seo_title);
   $meta_description = get_post_meta(get_the_ID(),'meta_description', true);
   $meta_keywords = get_post_meta(get_the_ID(),'meta_keywords', true);
   $is_noindex = get_post_meta(get_the_ID(),'is_noindex', true);
