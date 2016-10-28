@@ -112,7 +112,9 @@ function view_seo_custom_box(){
   $seo_title = get_post_meta(get_the_ID(),'seo_title', true);
   $seo_title = htmlspecialchars($seo_title);
   $meta_description = get_post_meta(get_the_ID(),'meta_description', true);
+  $meta_description = htmlspecialchars($meta_description);
   $meta_keywords = get_post_meta(get_the_ID(),'meta_keywords', true);
+  $meta_keywords = htmlspecialchars($meta_keywords);
   $is_noindex = get_post_meta(get_the_ID(),'is_noindex', true);
   $is_nofollow = get_post_meta(get_the_ID(),'is_nofollow', true);
 
@@ -187,17 +189,17 @@ function save_seo_custom_data(){
 
 //SEO向けのタイトルを取得
 function get_seo_title_singular_page(){
-  return trim(strip_tags(get_post_meta(get_the_ID(), 'seo_title', true)));
+  return trim(get_post_meta(get_the_ID(), 'seo_title', true));
 }
 
 //メタディスクリプションを取得
 function get_meta_description_singular_page(){
-  return trim(strip_tags(get_post_meta(get_the_ID(), 'meta_description', true)));
+  return trim(get_post_meta(get_the_ID(), 'meta_description', true));
 }
 
 //メタディスクリプションを取得
 function get_meta_description_blogcard_snippet($id){
-  return trim(strip_tags(get_post_meta($id, 'meta_description', true)));
+  return trim(get_post_meta($id, 'meta_description', true));
 }
 
 //メタキーワードを取得
