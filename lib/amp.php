@@ -45,9 +45,9 @@ function convert_content_for_amp($the_content){
   /*$pattern = '/<iframe([^>]+?)(src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?").*?><\/iframe>/is';
   $append = '<amp-iframe$1$2 width="120" height="240"frameborder="0"></amp-iframe>';
   */
-  $pattern = '/<iframe([^>]+?)src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?t=([^&]+)[^"]+?asins=([^&]+)[^"]*?".*?><\/iframe>/is';
-  $amazon_url = 'http://www.amazon.co.jp/exec/obidos/ASIN/$3/$2/ref=nosim/';
-  $append = '<a href="'.$amazon_url.'">'.$amazon_url.'</a>';
+  $pattern = '/(<p>)?<iframe([^>]+?)src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?t=([^&]+)[^"]+?asins=([^&]+)[^"]*?".*?><\/iframe>(<\/p>)?/is';
+  $amazon_url = 'http://www.amazon.co.jp/exec/obidos/ASIN/$4/$3/ref=nosim/';
+  $append = PHP_EOL.'<p><a href="'.$amazon_url.'">'.$amazon_url.'</a></p>'.PHP_EOL;
   //$append = url_to_external_ogp_blog_card_tag($amazon_url);
   //$the_content = preg_replace($pattern, htmlspecialchars($append), $the_content);
   $the_content = preg_replace($pattern, $append, $the_content);
