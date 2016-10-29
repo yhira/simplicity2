@@ -203,7 +203,7 @@ function url_to_external_blog_card_tag($url){
     $wide_class = ' blog-card-wide';
   }
 
-  if ( is_blog_card_external_default() ) {
+  if ( is_blog_card_external_default() || is_amp() ) {
     //Simplicity独自プローブカード（キャッシュ）の利用
     $tag = url_to_external_ogp_blog_card_tag($url);
   } elseif ( is_blog_card_external_hatena() ) {
