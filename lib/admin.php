@@ -192,75 +192,41 @@ if ( is_confirmation_before_publish() ) {
   add_action('admin_print_scripts', 'publish_confirm_admin_print_scripts');
 }
 
-//投稿一覧リストの上にタグフィルターを追加する
-if ( !function_exists( 'add_tag_restrict_filter_on_post_list' ) ):
-function add_tag_restrict_filter_on_post_list() {
-    global $post_type;
-    if ( is_object_in_taxonomy( $post_type, 'post_tag' ) ) {
-?>
-  <?php $tags = get_tags(); if ( $tags ) : ?>
-  <select name="tag_name">
-    <option value="" selected="selected">タグを選択</option>
-    <?php foreach ( $tags as $tag ): ?>
-    <option value="<?php echo $tag->name; ?>"><?php echo esc_html( $tag->name ); ?> (<?php echo $tag->count; ?>)</option>
-    <?php endforeach; ?>
-  </select>
-  <?php endif; ?>
-  <!-- <input name="tag_name" size="25" value="<?php echo esc_html( $_GET ? $_GET['tag_name'] : '' ); ?>" class="postform" /> -->
-<?php
-    }
+//投稿一覧リストの上にタグフィルターと管理者フィルターを追加する
+if ( !function_exists( 'custmuize_restrict_manage_posts' ) ):
+function custmuize_restrict_manage_posts(){
+  global $post_type, $tag;
+  if ( is_object_in_taxonomy( $post_type, 'post_tag' ) ) {
+    $dropdown_options = array(
+      'show_option_all' => get_taxonomy( 'post_tag' )->labels->all_items,
+      'hide_empty' => 0,
+      'hierarchical' => 1,
+      'show_count' => 0,
+      'orderby' => 'name',
+      'selected' => $tag,
+      'name' => 'tag',
+      'taxonomy' => 'post_tag',
+      'value_field' => 'slug'
+    );
+    wp_dropdown_categories( $dropdown_options );
+  }
+
+  wp_dropdown_users(
+    array(
+      'show_option_all' => 'すべてのユーザー',
+      'name' => 'author'
+    )
+  );
 }
 endif;
-add_action( 'restrict_manage_posts', 'add_tag_restrict_filter_on_post_list' );
+add_action('restrict_manage_posts', 'custmuize_restrict_manage_posts');
 
-//タグネームをタグスラッグに変換する
-if ( !function_exists( 'convert_tag_name_to_tag_slug' ) ):
-function convert_tag_name_to_tag_slug() {
-  if ( ! isset( $_GET['post_type'] ) ) {
-    $post_type = 'post';
-  } elseif ( in_array( $_GET['post_type'], get_post_types( array( 'show_ui' => true ) ) ) ) {
-    $post_type = $_GET['post_type'];
-  } else {
-    wp_die( __('Invalid post type') );
-  }
-
-  if ( ! is_object_in_taxonomy( $post_type, 'post_tag' ) || ! isset( $_GET['tag_name'] ) ) {
-    return;
-  }
-  if ( is_array( $_GET['tag_name'] ) ) {
-      $_GET['tag_name'] = implode( ',', $_GET['tag_name'] );
-  }
-  $tag_name = explode( ',', $_GET['tag_name'] );
-  $tag_name = array_map( 'trim', $tag_name );
-  if ( $tag_name ) {
-    $tags = get_tags( 'hide_empty=0&orderby=slug' );
-    $tags_arr = array();
-    if ( $tags ) {
-      foreach ( $tags as $tag ) {
-        $tags_arr[$tag->name] = $tag->slug;
-      }
-    } else {
-      unset( $_GET['tag_name'] );
-      return;
-    }
-    $searh_tags = array();
-    $matched_tags = array();
-    foreach ( $tag_name as $t_name ) {
-      if ( isset( $tags_arr[$t_name] ) ) {
-        $searh_tags[] = $tags_arr[$t_name];
-        $matched_tags[] = $t_name;
-      }
-    }
-    $searh_tags = implode( ' ', $searh_tags );
-    // OR 検索にしたい場合は、カンマ繋ぎにする
-    //      $searh_tags = implode( ',', $searh_tags );
-    if ( $searh_tags ) {
-      $_GET['tag'] = $searh_tags;
-      $_GET['tag_name'] = implode( ',', $matched_tags );
-    } else {
-      unset( $_GET['tag_name'] );
-    }
+//投稿一覧で「全てのタグ」選択時は$_GET['tag']をセットしない
+if ( !function_exists( 'custmuize_load_edit_php' ) ):
+function custmuize_load_edit_php(){
+  if (isset($_GET['tag']) && '0' === $_GET['tag']) {
+    unset ($_GET['tag']);
   }
 }
 endif;
-add_action( 'load-edit.php', 'convert_tag_name_to_tag_slug' );
+add_action('load-edit.php', 'custmuize_load_edit_php');
