@@ -42,17 +42,18 @@ function convert_content_for_amp($the_content){
   //Amazon商品リンクのhttp URLをhttpへ
   $the_content = str_replace('http://rcm-jp.amazon.co.jp/', 'https://rcm-fe.amazon-adsystem.com/', $the_content);
   //Amazonデフォルトの埋め込みタグを置換する
-  /*$pattern = '/<iframe([^>]+?)(src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?").*?><\/iframe>/is';
+  $pattern = '/<iframe([^>]+?)(src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?").*?><\/iframe>/is';
   $append = '<amp-iframe$1$2 width="120" height="240"frameborder="0"></amp-iframe>';
-  */
+  /*
   $pattern = '/(<p>)?<iframe([^>]+?)src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?t=([^&]+)[^"]+?asins=([^&]+)[^"]*?".*?><\/iframe>(<\/p>)?/is';
   $amazon_url = 'http://www.amazon.co.jp/exec/obidos/ASIN/$4/$3/ref=nosim/';
   $append = PHP_EOL.'<p><a href="'.$amazon_url.'">'.$amazon_url.'</a></p>'.PHP_EOL;
+  */
   //$append = url_to_external_ogp_blog_card_tag($amazon_url);
   //$the_content = preg_replace($pattern, htmlspecialchars($append), $the_content);
   $the_content = preg_replace($pattern, $append, $the_content);
   //Amazon画像をブログカード化
-  $the_content = url_to_external_blog_card($the_content);
+  //$the_content = url_to_external_blog_card($the_content);
 
 
   //C2A0文字コード（UTF-8の半角スペース）を通常の半角スペースに置換
