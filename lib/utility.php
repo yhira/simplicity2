@@ -63,3 +63,25 @@ function get_basename($filename){
   $p = pathinfo($filename);
   return basename ( $filename, ".{$p['extension']}" );
 }
+
+function is_bbpress_page(){
+  if (function_exists('bbp_is_topic')) {
+    if (bbp_is_topic() ||
+        bbp_is_forum() ||
+        bbp_is_forum_archive() ||
+        bbp_is_single_forum() ||
+        bbp_is_forum_edit() ||
+        bbp_is_single_topic() ||
+        bbp_is_topic_archive() ||
+        bbp_is_topic_edit() ||
+        bbp_is_topic_tag() ||
+        bbp_is_topic_tag_edit() ||
+        bbp_is_reply()||
+        bbp_is_reply_edit() ||
+        bbp_is_single_reply() ||
+        bbp_is_favorites() ||
+        bbp_is_subscriptions()) {
+      return true;
+    }
+  }
+}
