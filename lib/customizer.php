@@ -2674,7 +2674,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'blog_card_external_cache_refresh_mode', array(
     'settings' => 'blog_card_external_cache_refresh_mode',
     'label' =>'キャッシュ更新モード',
-    'description' => is_tips_visible() ? '「キャッシュ更新モード」を有効にして管理者（ログインユーザー）によって外部ブログカードが表示されているページを閲覧したときに、OGPキャシュが更新されます。更新が済んだら無効などに戻すなどして使用してください。' : '',
+    'description' => is_tips_visible() ? '「キャッシュ更新モード」を有効にして管理者（ログインユーザー）によって外部ブログカードが表示されているページを閲覧したときに、OGPキャッシュが更新されます。更新が済んだら無効などに戻すなどして使用してください。' : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 1200,
