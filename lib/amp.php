@@ -118,7 +118,7 @@ function convert_content_for_amp($the_content){
 
   // iframeをamp-iframeに置換する
   $pattern = '/<iframe/i';
-  $append = '<amp-iframe layout="responsive" sandbox="allow-scripts allow-same-origin allow-popups" frameborder="0"';
+  $append = '<amp-iframe layout="responsive" sandbox="allow-scripts allow-same-origin allow-popups"';
   $the_content = preg_replace($pattern, $append, $the_content);
   $pattern = '/<\/iframe>/i';
   $append = '</amp-iframe>';
