@@ -34,6 +34,9 @@ function convert_content_for_amp($the_content){
     return $the_content;
   }
 
+  //iframe用のplaceholderタグ（amp-iframeの呼び出し位置エラー対策）
+  $amp_placeholder = '<amp-img layout="fill" src="'.get_template_directory_uri().'/images/transparence.png'.'" placeholder>';
+
 
   //noscriptタグの削除
   $the_content = preg_replace('/<noscript>/i', '', $the_content);
@@ -43,7 +46,7 @@ function convert_content_for_amp($the_content){
   $the_content = str_replace('http://rcm-jp.amazon.co.jp/', 'https://rcm-fe.amazon-adsystem.com/', $the_content);
   //Amazonデフォルトの埋め込みタグを置換する
   $pattern = '/<iframe([^>]+?)(src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?").*?><\/iframe>/is';
-  $append = '<amp-iframe$1$2 width="120" height="240"frameborder="0"></amp-iframe>';
+  $append = '<amp-iframe$1$2 width="120" height="240"frameborder="0">'.$amp_placeholder.'</amp-iframe>';
   /*
   $pattern = '/(<p>)?<iframe([^>]+?)src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?t=([^&]+)[^"]+?asins=([^&]+)[^"]*?".*?><\/iframe>(<\/p>)?/is';
   $amazon_url = 'http://www.amazon.co.jp/exec/obidos/ASIN/$4/$3/ref=nosim/';
@@ -127,7 +130,7 @@ function convert_content_for_amp($the_content){
   $append = '<amp-iframe layout="responsive" sandbox="allow-scripts allow-same-origin allow-popups"';
   $the_content = preg_replace($pattern, $append, $the_content);
   $pattern = '/<\/iframe>/i';
-  $append = '</amp-iframe>';
+  $append = $amp_placeholder.'</amp-iframe>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
   //スクリプトを除去する
