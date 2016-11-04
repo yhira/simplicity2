@@ -111,13 +111,13 @@ function convert_content_for_amp($the_content){
   $pattern = '/<iframe[^>]+?src="https?:\/\/www.youtube.com\/embed\/([^\?"]+).*?".*?><\/iframe>/is';
   $append = '<amp-youtube layout="responsive" data-videoid="$1" width="800" height="450"></amp-youtube>';
   $the_content = preg_replace($pattern, $append, $the_content);
-/*
+
   // Facebookを置換する（埋め込みコード）
-  $pattern = '/<iframe.+?src="(https:\/\/www.facebook.com\/[^"]+?)".*?><\/iframe>/is';
+  $pattern = '/<div class="fb-video" data-allowfullscreen="true" data-href="([^"]+?)"><\/div>/is';
   $append = '<amp-facebook layout="responsive" data-href="$1" width="500" height="450"></amp-facebook>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
-*/
+
 
   //Facebook動画埋め込み対策
   $the_content = preg_replace('/ +allowTransparency(=["][^"]*?["])?/i', '', $the_content);
