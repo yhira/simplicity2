@@ -1332,6 +1332,13 @@ input[type="button"]:active {
   padding-left: 0;
 }
 
+.widget_text ul {
+  list-style-type:  disc;
+}
+.widget_text ol {
+  list-style-type:  decimal;
+}
+
 /************************************
 ** 新着記事・人気記事（new, pupular）
 ************************************/
