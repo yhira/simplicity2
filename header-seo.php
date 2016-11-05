@@ -34,13 +34,7 @@ if ( is_singular() && is_meta_description_insert() ):
 <meta name="description" content="<?php echo get_the_description().$page_str; ?>" />
 <?php endif; ?>
 <?php //投稿ページにMETAキーワードを挿入するとき
-if ( is_single() && is_meta_keywords_insert() ):
-//   $categories = get_the_category($post->ID);
-//   $category_names = array();
-//   foreach($categories as $category):
-//     array_push( $category_names, $category -> cat_name);
-//   endforeach ;
-?>
+if ( is_single() && is_meta_keywords_insert() && get_the_keywores() ):?>
 <meta name="keywords" content="<?php echo get_the_keywores(); ?>" />
 <?php endif; ?>
 <?php //固定ページにMETAキーワードを挿入するとき
