@@ -88,7 +88,7 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ src="http:\/\/item.shopping.c.yimg.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://item.shopping.c.yimg.jp', $the_content);
 
   //画像タグをAMP用に置換
-  $the_content = preg_replace('/<img([^>]+?)>/is', '<amp-img$1></amp-img>', $the_content);
+  $the_content = preg_replace('/<img([^>]+?)\/?>/is', '<amp-img$1></amp-img>', $the_content);
 
   // Twitterをamp-twitterに置換する（埋め込みコード）
   $pattern = '/<blockquote class="twitter-tweet".*?>.+?<a href="https:\/\/twitter.com\/.*?\/status\/(.*?)">.+?<\/blockquote>.*?<script async src="\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/is';
