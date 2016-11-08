@@ -25,6 +25,15 @@ function is_amp(){
   }
   return $is_amp;
 }
+
+//AMPページがある投稿ページか
+if ( !function_exists( 'has_amp_page' ) ):
+function has_amp_page(){
+  return is_single() &&
+    is_amp_enable() &&
+    (!function_exists('is_bbpress') || !is_bbpress());
+}
+endif;
 endif;
 
 //AMP用にコンテンツを変換する

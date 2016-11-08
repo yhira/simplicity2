@@ -37,6 +37,11 @@
       <?php if ( is_single() ) get_template_part('edit-link'); //編集リンク?>
 
       <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
+
+      <?php //AMPページへ
+      if (is_user_logged_in() && has_amp_page() ): ?>
+        <span class="view-amp"><span class="fa icon-push7"></span><a href="<?php echo get_amp_permalink().'#development=1'; ?>">AMPページ</a></span>
+      <?php endif ?>
     </p>
 
     <?php get_template_part('admin-pv');//管理者のみにPV表示?>

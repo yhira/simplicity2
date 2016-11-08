@@ -118,6 +118,11 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
                    get_the_category() ): //投稿ページの場合?>
         <span class="category"><span class="fa fa-folder fa-fw"></span><?php the_category(', ') ?></span>
         <?php endif; //is_category_visible?>
+
+        <?php //通常ページへ
+        if (is_user_logged_in() ): ?>
+        <span class="view-amp"><a href="<?php echo the_permalink(); ?>">通常ページ</a></span>
+      <?php endif ?>
       </p>
 
       <?php get_template_part('admin-pv');//管理者のみにPV表示?>
