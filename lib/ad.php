@@ -111,6 +111,7 @@ endif;
 //パフォーマンス追求（トップバナー広告）広告が有効化どうか
 if ( !function_exists( 'is_ads_top_banner_enable' ) ):
 function is_ads_top_banner_enable(){
+  global $wp_query;
   if ( is_ads_visible() && is_ads_performance_visible() && !is_responsive_enable() ) {
     if ( is_page() ) {//個別ページのとき
       if ( is_mobile() ) {
@@ -130,7 +131,9 @@ function is_ads_top_banner_enable(){
     }else{//その他、リスト表示のときなど
       if ( is_mobile() ) {
         //トップページ以外は必ず表示、トップページは表示がオンになっていたら
-        return (!is_home() || is_ads_top_page_visible()) && !is_list_style_bodies();
+        return (!is_home() || is_ads_top_page_visible()) && !is_list_style_bodies() &&
+          //表示アイテムが3つ以上あるとき
+          ($wp_query->found_posts > 3);
       } else {
         //サイドバーに広告がなくて、トップページ以外か、TOPページ表示がオンになっているとき
         return !is_ads_sidebar_top() && ( !is_home() || is_ads_top_page_visible() || is_ads_content_top() ) && !is_list_style_bodies();
