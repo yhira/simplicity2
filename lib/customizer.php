@@ -3279,10 +3279,10 @@ function theme_customize_register($wp_customize) {
 
 
   /////////////////////////////
-  //管理画面設定項目の追加
+  //管理者機能設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'admin_section', array(
-    'title'          =>'管理画面',
+    'title'          =>'管理者機能',
     'description' => is_tips_visible() ? '管理画面やアドミンバー（管理バー）に独自機能を追加する設定です。' : '',
     'priority'       => 98.7,
   ));
@@ -3366,6 +3366,19 @@ function theme_customize_register($wp_customize) {
     'section' => 'admin_section',
     'type' => 'checkbox',
     'priority' => 500,
+  ));
+
+  //Windows Live Writerで編集を表示
+  $wp_customize->add_setting('wlw_link_visible', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'wlw_link_visible', array(
+    'settings' => 'wlw_link_visible',
+    'label' => '「WLWで編集」リンクを出す',
+    'description' => is_tips_visible() ? 'ログインユーザーにWindows Live Writer用の編集リンクを表示します。（※Windows Live Writerユーザーで、「WLW Post Downloader Plugin」のインストールが必須）' : '',
+    'section' => 'admin_section',
+    'type' => 'checkbox',
+    'priority'=> 600,
   ));
 
 
@@ -3481,19 +3494,6 @@ function theme_customize_register($wp_customize) {
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority'=> 47,
-  ));
-
-  //Windows Live Writerで編集を表示
-  $wp_customize->add_setting('wlw_link_visible', array(
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'wlw_link_visible', array(
-    'settings' => 'wlw_link_visible',
-    'label' => '「WLWで編集」リンクを出す',
-    'description' => is_tips_visible() ? 'ログインユーザーにWindows Live Writer用の編集リンクを表示します。（※Windows Live Writerユーザーで、「WLW Post Downloader Plugin」のインストールが必須）' : '',
-    'section' => 'other_section',
-    'type' => 'checkbox',
-    'priority'=> 50,
   ));
 
   //日本語のスラッグを有効にする
