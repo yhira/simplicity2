@@ -87,6 +87,92 @@ function convert_content_for_amp($the_content){
   //カエレバ・ヨメレバのYahoo!ショッピング商品画像にwidthとhightを追加する
   $the_content = preg_replace('/ src="http:\/\/item.shopping.c.yimg.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://item.shopping.c.yimg.jp', $the_content);
 
+  //imgタグをamp-imgタグに変更する
+  $res = preg_match_all('/<img([^>]+?)\/?>/is', $the_content, $m);
+  if ($res) {//画像タグがある場合
+
+    foreach ($m[0] as $match) {
+      //変数の初期化
+      $src_attr = null;
+      $url = null;
+      $width_attr = null;
+      $width_value = null;
+      $height_attr = null;
+      $height_value = null;
+      $alt_attr = null;
+      $alt_value = null;
+      $title_attr = null;
+      $title_value = null;
+      $sizes_attr = null;
+
+      //src属性の取得（画像URLの取得）
+      $src_res = preg_match('/src="([^"]+?)"/is', $match, $srcs);
+      if ($src_res) {
+        $src_attr = ' '.$srcs[0];//src属性を作成
+        $url = $srcs[1];//srcの値（URL）を取得する
+      }
+
+      //width属性の取得
+      $width_res = preg_match('/width="([^"]*?)"/is', $match, $widths);
+      if ($width_res) {
+        $width_attr = ' '.$widths[0];//width属性を作成
+        $width_value = $widths[1];//widthの値（幅）を取得する
+      }
+
+      //height属性の取得
+      $height_res = preg_match('/height="([^"]*?)"/is', $match, $heights);
+      if ($height_res) {
+        $height_attr = ' '.$heights[0];//height属性を作成
+        $height_value = $heights[1];//heightの値（高さ）を取得する
+      }
+
+      //alt属性の取得
+      $alt_res = preg_match('/alt="([^"]*?)"/is', $match, $alts);
+      if ($alt_res) {
+        $alt_attr = ' '.$alts[0];//alt属性を作成
+        $alt_value = $alts[1];//altの値を取得する
+      }
+
+      //title属性の取得
+      $title_res = preg_match('/title="([^"]*?)"/is', $match, $titles);
+      if ($title_res) {
+        $title_attr = ' '.$titles[0];//title属性を作成
+        $title_value = $titles[1];//titleの値を取得する
+      }
+
+      //widthとheight属性のないものは画像から情報取得
+      if ($url && (empty($width_value) || empty($height_value))) {
+        $size = get_image_width_and_height($url);
+        if ($size) {
+          $width_value = $size['width'];
+          $width_attr = ' width="'.$width_value.'"';//width属性を作成
+          $height_value = $size['height'];
+          $height_attr = ' height="'.$height_value.'"';//height属性を作成
+        }
+      }
+
+      //sizes属性の作成（きれいなレスポンシブ化のために）
+      if ($width_value) {
+        $sizes_attr = '  sizes="(max-width: '.$width_value.'px) 100vw, '.$width_value.'px"';
+      }
+
+      //amp-imgタグの作成
+      $tag = '<amp-img'.$src_attr.$width_attr.$height_attr.$alt_attr.$title_attr.$sizes_attr.'></amp-img>';
+      //echo('<pre>');
+      // var_dump($srcs);
+      //var_dump(htmlspecialchars($tag));
+      // var_dump($widths);
+      // var_dump($heights);
+      // var_dump($alts);
+      // var_dump($titles);
+      //echo('</pre>');
+
+      //imgタグをamp-imgタグに置換
+      $the_content = preg_replace('{'.preg_quote($match).'}', $tag , $the_content, 1);
+    }
+  }
+
+
   //画像タグをAMP用に置換
   $the_content = preg_replace('/<img([^>]+?)\/?>/is', '<amp-img$1></amp-img>', $the_content);
 

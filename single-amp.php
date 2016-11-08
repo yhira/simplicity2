@@ -100,7 +100,7 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
        <!-- main -->
         <main itemscope itemprop="mainContentOfPage">
           <div id="main" itemscope itemtype="http://schema.org/Blog">
-            <?php get_template_part('breadcrumbs'); //カテゴリパンくずリスト?>
+            <?php //get_template_part('breadcrumbs'); //カテゴリパンくずリスト?>
 
 
 
