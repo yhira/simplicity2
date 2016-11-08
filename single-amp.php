@@ -120,7 +120,7 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
         <?php endif; //is_category_visible?>
 
         <?php //通常ページへ
-        if (is_user_logged_in() ): ?>
+        if (is_user_logged_in() && is_amp_link_visible() ): ?>
         <span class="view-amp"><a href="<?php echo the_permalink(); ?>">通常ページ</a></span>
       <?php endif ?>
       </p>

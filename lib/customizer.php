@@ -3374,13 +3374,26 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'wlw_link_visible', array(
     'settings' => 'wlw_link_visible',
-    'label' => '「WLWで編集」リンクを出す',
+    'label' => '「WLWで編集」リンクを表示',
     'description' => is_tips_visible() ? 'ログインユーザーにWindows Live Writer用の編集リンクを表示します。（※Windows Live Writerユーザーで、「WLW Post Downloader Plugin」のインストールが必須）' : '',
     'section' => 'admin_section',
     'type' => 'checkbox',
     'priority'=> 600,
   ));
 
+  //AMPと通常ページの移動リンク
+  $wp_customize->add_setting('amp_link_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'amp_link_visible', array(
+    'settings' => 'amp_link_visible',
+    'label' => 'AMPと通常ページの移動リンクを表示',
+    'description' => is_tips_visible() ? 'ログインユーザーに「AMPページ」と「通常ページ」を手軽に移動できるリンクを表示します。' : '',
+    'section' => 'admin_section',
+    'type' => 'checkbox',
+    'priority'=> 600,
+  ));
 
   /////////////////////////////
   //その他項目の追加
@@ -5069,6 +5082,11 @@ function is_external_custom_css_enable(){
 //「WLWで編集」を出すかどうか
 function is_wlw_link_visible(){
   return get_theme_mod( 'wlw_link_visible', false );
+}
+
+//「AMPページ」と「通常ページ」の移動リンクを表示するか
+function is_amp_link_visible(){
+  return get_theme_mod( 'amp_link_visible', true );
 }
 
 //テーマカスタマイザー項目の説明を表示するか

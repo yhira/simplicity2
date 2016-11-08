@@ -39,7 +39,7 @@
       <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
 
       <?php //AMPページへ
-      if (is_user_logged_in() && has_amp_page() ): ?>
+      if (is_user_logged_in() && is_amp_link_visible() && has_amp_page() ): ?>
         <span class="view-amp"><span class="fa icon-push7"></span><a href="<?php echo get_amp_permalink().'#development=1'; ?>">AMPページ</a></span>
       <?php endif ?>
     </p>
