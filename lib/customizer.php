@@ -3019,7 +3019,21 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'amp_link_visible', array(
     'settings' => 'amp_link_visible',
     'label' => 'AMPと通常ページ間の移動リンクを表示',
-    'description' => is_tips_visible() ? 'ログインユーザーに「AMPページ」と「通常ページ」を手軽に移動できるリンクを表示します。' : '',
+    'description' => is_tips_visible() ? 'ログインユーザーに「AMP」と「通常ページ」を手軽に移動できるリンクを表示します。' : '',
+    'section' => 'amp_section',
+    'type' => 'checkbox',
+    'priority'=> 40,
+  ));
+
+  //AMPと通常ページの移動リンク
+  $wp_customize->add_setting('amp_check_link_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'amp_check_link_visible', array(
+    'settings' => 'amp_check_link_visible',
+    'label' => 'AMP設定リンクを表示',
+    'description' => is_tips_visible() ? 'ログインユーザーに「AMPチェック」リンクを表示します。リンクをクリックすると、AMPページをバリデーターでチェックを行います。' : '',
     'section' => 'amp_section',
     'type' => 'checkbox',
     'priority'=> 40,
@@ -5097,6 +5111,11 @@ function is_wlw_link_visible(){
 //「AMPページ」と「通常ページ」の移動リンクを表示するか
 function is_amp_link_visible(){
   return get_theme_mod( 'amp_link_visible', true );
+}
+
+//「AMPチェック」リンクを表示するか
+function is_amp_check_link_visible(){
+  return get_theme_mod( 'amp_check_link_visible', true );
 }
 
 //テーマカスタマイザー項目の説明を表示するか
