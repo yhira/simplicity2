@@ -3011,6 +3011,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 30,
   ) ) );
 
+  //AMPと通常ページの移動リンク
+  $wp_customize->add_setting('amp_link_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'amp_link_visible', array(
+    'settings' => 'amp_link_visible',
+    'label' => 'AMPと通常ページ間の移動リンクを表示',
+    'description' => is_tips_visible() ? 'ログインユーザーに「AMPページ」と「通常ページ」を手軽に移動できるリンクを表示します。' : '',
+    'section' => 'amp_section',
+    'type' => 'checkbox',
+    'priority'=> 40,
+  ));
+
   // //AdSenseコード（data-ad-client）
   // $wp_customize->add_setting('adsense', array(
   //   'default' => 'ホーム',
@@ -3386,20 +3400,6 @@ function theme_customize_register($wp_customize) {
     'settings' => 'wlw_link_visible',
     'label' => '「WLWで編集」リンクを表示',
     'description' => is_tips_visible() ? 'ログインユーザーにWindows Live Writer用の編集リンクを表示します。（※Windows Live Writerユーザーで、「WLW Post Downloader Plugin」のインストールが必須）' : '',
-    'section' => 'admin_section',
-    'type' => 'checkbox',
-    'priority'=> 600,
-  ));
-
-  //AMPと通常ページの移動リンク
-  $wp_customize->add_setting('amp_link_visible', array(
-    'default' => true,
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'amp_link_visible', array(
-    'settings' => 'amp_link_visible',
-    'label' => 'AMPと通常ページの移動リンクを表示',
-    'description' => is_tips_visible() ? 'ログインユーザーに「AMPページ」と「通常ページ」を手軽に移動できるリンクを表示します。' : '',
     'section' => 'admin_section',
     'type' => 'checkbox',
     'priority'=> 600,
