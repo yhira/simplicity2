@@ -441,20 +441,6 @@ function theme_customize_register($wp_customize) {
   ));
   endif;
 
-  //タブレットはモバイル表示
-  $wp_customize->add_setting('tablet_mobile', array(
-    'default' => false,
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'tablet_mobile', array(
-    'settings' => 'tablet_mobile',
-    'label' =>'タブレットはモバイル表示',
-    'description' => is_tips_visible() ? 'タブレット端末をモバイルとして表示するか。' : '',
-    'section' => 'layout_section',
-    'type' => 'checkbox',
-    'priority' => 7,
-  ));
-
   //タイトルの中央寄せ
   $wp_customize->add_setting('title_center', array(
     'sanitize_callback' => 'sanitize_check',
@@ -482,47 +468,6 @@ function theme_customize_register($wp_customize) {
     'priority' => 20
   ));
 
-  //モバイルメニュータイプ
-  $radio_items = array();
-  $radio_items += array(
-    'accordion' => 'アコーディオン（デフォルト）',
-    'accordion_tree' => 'アコーディオンツリー',
-    'modal' => 'モーダルメニュー'
-  );
-  if ( !is_responsive_enable() ) $radio_items += array(
-    'slide_in_light_top' => 'スライドインライト（ボタン上）',
-    'slide_in_light_bottom' => 'スライドインライト（ボタン下）',
-    'slide_in_dark_top' => 'スライドインダーク（ボタン上）',
-    'slide_in_dark_bottom' => 'スライドインダーク（ボタン下）',
-  );
-  $wp_customize->add_setting('mobile_menu_type', array(
-    'default' => 'accordion',
-    'sanitize_callback' => 'sanitize_text',
-  ));
-  $wp_customize->add_control( 'mobile_menu_type', array(
-    'settings' => 'mobile_menu_type',
-    'label' =>'モバイルメニュータイプ',
-    'description' => is_tips_visible() ? 'モバイル時、メニューボタンを押したときのスタイルです。（※スライドイン機能は「完全レスポンシブ」機能がオンの時は利用できません）' : '',
-    'section' => 'layout_section',
-    'type' => 'radio',
-    'choices'    => $radio_items,
-    'priority' => 24,
-  ));
-
-  //スライドインメニューを日本語表示
-  $wp_customize->add_setting('mobile_menu_japanese', array(
-    'default' => true,
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'mobile_menu_japanese', array(
-    'settings' => 'mobile_menu_japanese',
-    'label' =>'スライドインメニューを日本語表示',
-    'description' => is_tips_visible() ? 'スライドインメニューを日本語で表示するか。（※モバイルメニュータイプをスライドイン選択しているとき。' : '',
-    'section' => 'layout_section',
-    'type' => 'checkbox',
-    'priority' => 25
-  ));
-
   //リストスタイル
   $wp_customize->add_setting('list_style', array(
     'default' => 'cards',
@@ -548,20 +493,6 @@ function theme_customize_register($wp_customize) {
       'tile_thumb_3columns_raw' => 'タイル3列 画像縦横比保存（要再生成）',
     ),
     'priority' => 40,
-  ));
-
-  //モバイルで1ページに表示する最大投稿数
-  $wp_customize->add_setting('posts_per_page_mobile', array(
-    'default' => '10',
-    'sanitize_callback' => 'sanitize_number',
-  ));
-  $wp_customize->add_control( 'posts_per_page_mobile', array(
-    'settings' => 'posts_per_page_mobile',
-    'label' =>'モバイルで1ページに表示する最大投稿数（デフォルト：10）',
-    'description' => is_tips_visible() ? 'モバイルのインデックスリストに表示される最大投稿数を設定します。' : '',
-    'section' => 'layout_section',
-    'type' => 'number',
-    'priority' => 45,
   ));
 
   //固定ページを一覧に含める
@@ -865,28 +796,6 @@ function theme_customize_register($wp_customize) {
       '19' => '19px（1行35文字くらい）',
     ),
     'priority' => 3,
-  ));
-
-//モバイル本文文字サイズ
-  $wp_customize->add_setting('article_mobile_font_size', array(
-    'default' => ARTICLE_FONT_SIZE,
-    'sanitize_callback' => 'sanitize_number',
-  ));
-  $wp_customize->add_control( 'article_mobile_font_size', array(
-    'settings' => 'article_mobile_font_size',
-    'label' =>'モバイル本文文字サイズ',
-    'description' => is_tips_visible() ? '主にスマホ表示時の本文文字サイズを設定します。' : '',
-    'section' => 'layout_singular_section',
-    'type' => 'radio',
-    'choices'    => array(
-      '14' => '14px',
-      '15' => '15px',
-      '16' => '16px（デフォルト）',
-      '17' => '17px',
-      '18' => '18px',
-      '19' => '19px',
-    ),
-    'priority' => 4,
   ));
 
   //長い単語を強制改行する
@@ -1206,6 +1115,107 @@ function theme_customize_register($wp_customize) {
     'type' => 'checkbox',
     'priority' => 62,
   ));
+
+  /////////////////////////////
+  //レイアウト（モバイル）設定項目の追加
+  /////////////////////////////
+  $wp_customize->add_section( 'layout_mobile_section', array(
+    'title'          =>'レイアウト（モバイル）',
+    'description' => is_tips_visible() ? 'モバイルのレイアウトに関する設定です。' : '',
+    'priority'       => 89.6,
+  ));
+
+  //タブレットはモバイル表示
+  $wp_customize->add_setting('tablet_mobile', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'tablet_mobile', array(
+    'settings' => 'tablet_mobile',
+    'label' =>'タブレットはモバイル表示',
+    'description' => is_tips_visible() ? 'タブレット端末をモバイルとして表示するか。' : '',
+    'section' => 'layout_mobile_section',
+    'type' => 'checkbox',
+    'priority' => 100,
+  ));
+
+  //モバイルメニュータイプ
+  $radio_items = array();
+  $radio_items += array(
+    'accordion' => 'アコーディオン（デフォルト）',
+    'accordion_tree' => 'アコーディオンツリー',
+    'modal' => 'モーダルメニュー'
+  );
+  if ( !is_responsive_enable() ) $radio_items += array(
+    'slide_in_light_top' => 'スライドインライト（ボタン上）',
+    'slide_in_light_bottom' => 'スライドインライト（ボタン下）',
+    'slide_in_dark_top' => 'スライドインダーク（ボタン上）',
+    'slide_in_dark_bottom' => 'スライドインダーク（ボタン下）',
+  );
+  $wp_customize->add_setting('mobile_menu_type', array(
+    'default' => 'accordion',
+    'sanitize_callback' => 'sanitize_text',
+  ));
+  $wp_customize->add_control( 'mobile_menu_type', array(
+    'settings' => 'mobile_menu_type',
+    'label' =>'モバイルメニュータイプ',
+    'description' => is_tips_visible() ? 'モバイル時、メニューボタンを押したときのスタイルです。（※スライドイン機能は「完全レスポンシブ」機能がオンの時は利用できません）' : '',
+    'section' => 'layout_mobile_section',
+    'type' => 'radio',
+    'choices'    => $radio_items,
+    'priority' => 200,
+  ));
+
+  //スライドインメニューを日本語表示
+  $wp_customize->add_setting('mobile_menu_japanese', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'mobile_menu_japanese', array(
+    'settings' => 'mobile_menu_japanese',
+    'label' =>'スライドインメニューを日本語表示',
+    'description' => is_tips_visible() ? 'スライドインメニューを日本語で表示するか。（※モバイルメニュータイプをスライドイン選択しているとき。' : '',
+    'section' => 'layout_mobile_section',
+    'type' => 'checkbox',
+    'priority' => 300
+  ));
+
+  //モバイルで1ページに表示する最大投稿数
+  $wp_customize->add_setting('posts_per_page_mobile', array(
+    'default' => '10',
+    'sanitize_callback' => 'sanitize_number',
+  ));
+  $wp_customize->add_control( 'posts_per_page_mobile', array(
+    'settings' => 'posts_per_page_mobile',
+    'label' =>'モバイルで1ページに表示する最大投稿数（デフォルト：10）',
+    'description' => is_tips_visible() ? 'モバイルのインデックスリストに表示される最大投稿数を設定します。' : '',
+    'section' => 'layout_mobile_section',
+    'type' => 'number',
+    'priority' => 400,
+  ));
+
+//モバイル本文文字サイズ
+  $wp_customize->add_setting('article_mobile_font_size', array(
+    'default' => ARTICLE_FONT_SIZE,
+    'sanitize_callback' => 'sanitize_number',
+  ));
+  $wp_customize->add_control( 'article_mobile_font_size', array(
+    'settings' => 'article_mobile_font_size',
+    'label' =>'モバイル本文文字サイズ',
+    'description' => is_tips_visible() ? '主にスマホ表示時の本文文字サイズを設定します。' : '',
+    'section' => 'layout_mobile_section',
+    'type' => 'radio',
+    'choices'    => array(
+      '14' => '14px',
+      '15' => '15px',
+      '16' => '16px（デフォルト）',
+      '17' => '17px',
+      '18' => '18px',
+      '19' => '19px',
+    ),
+    'priority' => 500,
+  ));
+
 
   /////////////////////////////
   //画像設定項目の追加
