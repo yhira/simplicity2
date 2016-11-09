@@ -3025,18 +3025,37 @@ function theme_customize_register($wp_customize) {
     'priority'=> 40,
   ));
 
-  //AMPと通常ページの移動リンク
-  $wp_customize->add_setting('amp_check_link_visible', array(
+  //AMPテストリンク
+  $wp_customize->add_setting('amp_test_link_visible', array(
     'default' => true,
     'sanitize_callback' => 'sanitize_check',
   ));
-  $wp_customize->add_control( 'amp_check_link_visible', array(
-    'settings' => 'amp_check_link_visible',
-    'label' => 'AMP設定リンクを表示',
-    'description' => is_tips_visible() ? 'ログインユーザーに「AMPチェック」リンクを表示します。リンクをクリックすると、AMPページをバリデーターでチェックを行います。' : '',
+  $wp_customize->add_control( 'amp_test_link_visible', array(
+    'settings' => 'amp_test_link_visible',
+    'label' => 'AMPテスト リンクを表示',
+    'description' => is_tips_visible() ? 'ログインユーザーに「AMPテスト」リンクを表示します。リンクをクリックすると、AMPページをバリデーターでチェックを行います。' : '',
     'section' => 'amp_section',
     'type' => 'checkbox',
     'priority'=> 40,
+  ));
+
+  //AMPバリデーター
+  $wp_customize->add_setting('amp_test_tool', array(
+    'default' => 'google_amp_test',
+    'sanitize_callback' => 'sanitize_text',
+  ));
+  $wp_customize->add_control( 'amp_test_tool', array(
+    'settings' => 'amp_test_tool',
+    'label' => 'AMPバリデーター',
+    'description' => is_tips_visible() ? '「AMPテスト」を行うテストツール（バリデーター）を選択します。' : '',
+    'section' => 'amp_section',
+    'type' => 'radio',
+    'choices'    => array(
+      'google_amp_test' => 'Google AMPテスト（デフォルト）',
+      'the_amp_validator' => 'The AMP Validator',
+      'ampbench' => 'AMPBench',
+    ),
+    'priority' => 50,
   ));
 
   // //AdSenseコード（data-ad-client）
@@ -5114,8 +5133,27 @@ function is_amp_link_visible(){
 }
 
 //「AMPチェック」リンクを表示するか
-function is_amp_check_link_visible(){
-  return get_theme_mod( 'amp_check_link_visible', true );
+function is_amp_test_link_visible(){
+  return get_theme_mod( 'amp_test_link_visible', true );
+}
+
+//AMPバリデーターの取得
+function get_amp_test_tool(){
+  return get_theme_mod( 'amp_test_tool', true );
+}
+
+//AMPバリデーターの取得
+function get_amp_test_tool_url($url){
+  $test_url = null;
+  $encoded_url = urlencode($url);
+  if (get_amp_test_tool() == 'google_amp_test') {
+    $test_url = 'https://search.google.com/search-console/amp?url='.$encoded_url;
+  } elseif (get_amp_test_tool() == 'the_amp_validator') {
+    $test_url = 'https://validator.ampproject.org/#url='.$encoded_url;
+  } else {
+    $test_url = 'https://ampbench.appspot.com/validate?url='.$encoded_url;
+  }
+  return $test_url;
 }
 
 //テーマカスタマイザー項目の説明を表示するか

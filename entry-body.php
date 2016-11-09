@@ -43,9 +43,9 @@
         <span class="amp-view"><span class="fa icon-push7"></span><a href="<?php echo get_amp_permalink().'#development=1'; ?>">AMP</a></span>
       <?php endif ?>
 
-      <?php //AMPチェックへ
-      if (is_user_logged_in() && is_amp_check_link_visible() && has_amp_page() ): ?>
-        <span class="amp-check"><span class="fa icon-push7"></span><a href="https://search.google.com/search-console/amp?url=<?php echo urlencode(get_amp_permalink()); ?>" target="_blank">チェック</a></span>
+      <?php //AMPテストへ
+      if (is_user_logged_in() && is_amp_test_link_visible() && has_amp_page() ): ?>
+        <span class="amp-test"><span class="fa icon-push7"></span><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank">テスト</a></span>
       <?php endif ?>
     </p>
 

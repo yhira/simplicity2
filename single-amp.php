@@ -124,9 +124,9 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
         <span class="view-amp"><a href="<?php echo the_permalink(); ?>">通常ページ</a></span>
         <?php endif ?>
 
-        <?php //AMPチェックへ
-        if (is_user_logged_in() && is_amp_check_link_visible() ): ?>
-        <span class="view-amp"><a href="https://search.google.com/search-console/amp?url=<?php echo urlencode(get_amp_permalink()); ?>" target="_blank">AMPチェック</a></span>
+        <?php //AMPテストへ
+        if (is_user_logged_in() && is_amp_test_link_visible() ): ?>
+        <span class="view-amp"><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank">AMPテスト</a></span>
         <?php endif ?>
       </p>
 
