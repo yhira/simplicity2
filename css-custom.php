@@ -325,7 +325,7 @@ $thum_a_coler = ( $link_color ? $link_color : LINK_COLOR); ?>
 /************************************
 ** サムネイルの非表示
 ************************************/
-a.entry-image,
+figure.entry-thumb,
 .new-entry-thumb,
 .popular-entry-thumb,
 .related-entry-thumb{
