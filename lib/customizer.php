@@ -2670,7 +2670,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_cache_days', array(
     'settings' => 'blog_card_external_cache_days',
-    'label' => '外部ブログカードキャシュ保存日数',
+    'label' => '外部ブログカードキャッシュ保存日数',
     'description' => is_tips_visible() ? '外部リンクカードが「ブログカード」になっている時のOGP情報キャッシュを保存する期間を設定します。設定範囲は7～365日です。短くすると、キャッシュの更新は早いですが表示速度が遅くなったり、先方のサーバーに負荷がかかります。' : '',
     'section' => 'blog_card_external_section',
     'type' => 'number',
