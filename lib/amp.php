@@ -218,7 +218,8 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ +allowTransparency(=["][^"]*?["])?/i', '', $the_content);
   $the_content = preg_replace('/ +allowFullScreen(=["][^"]*?["])?/i', '', $the_content);
   //TED動画埋め込み対策
-  $the_content = str_replace(' webkitAllowFullScreen mozallowfullscreen', '', $the_content);
+  $the_content = preg_replace('/ webkitAllowFullScreen/i', '', $the_content);
+  $the_content = preg_replace('/ mozallowfullscreen/i', '', $the_content);
 
   // iframeをamp-iframeに置換する
   $pattern = '/<iframe/i';
