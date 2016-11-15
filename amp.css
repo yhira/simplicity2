@@ -1041,3 +1041,59 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 .hover-image .details{
   display: none;
 }
+
+/************************************
+** アプリーチのスタイル
+************************************/
+#appreach-box{
+  text-align: left;
+}
+
+#appreach-image{
+  float: left;
+  margin: 10px;
+  width: 25%;
+  max-width: 120px;
+  border-radius: 10%;
+}
+
+.appreach-info{
+  margin: 10px;
+}
+
+#appreach-developer{
+  font-size: 80%;
+  display: inline-block;
+  _display: inline;
+}
+
+#appreach-price{
+  font-size: 80%;
+  display: inline-block;
+  _display: inline;
+}
+
+.appreach-powered{
+  font-size: 80%;
+  display: inline-block;
+  _display: inline;
+}
+
+.appreach-links{
+  float: left;
+}
+
+#appreach-itunes-link{
+  display: inline-block;
+  _display: inline;
+}
+
+#appreach-gplay-link{
+  display: inline-block;
+  _display: inline;
+}
+
+.appreach-footer{
+  margin-bottom: 10px;
+  clear: left;
+}
