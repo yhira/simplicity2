@@ -17,9 +17,9 @@ elseif(is_singular()):
     $title = get_seo_title_singular_page();
   }
   echo $title;
-  if ( is_site_name_to_singular_title() )://サイト名を追加する場合
-    echo ' | ' . trim( get_bloginfo('name') );
-  endif;
+  // if ( is_site_name_to_singular_title() )://サイト名を追加する場合
+  //   echo ' | ' . trim( get_bloginfo('name') );
+  // endif;
 elseif(is_archive()):
   wp_title('|',true,'right');
   bloginfo('name');
