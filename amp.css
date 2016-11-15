@@ -1047,13 +1047,20 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 ************************************/
 #appreach-box{
   text-align: left;
+  margin: 1em 0;
+  border: medium double #ccc;
+}
+
+#appreach-box br,
+#appreach-box p{
+  display: none;
 }
 
 #appreach-image{
   float: left;
   margin: 10px;
   width: 25%;
-  max-width: 120px;
+  max-width: 75px;
   border-radius: 10%;
 }
 
@@ -1081,13 +1088,10 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 
 .appreach-links{
   float: left;
+  margin-top: 10px;
 }
 
-#appreach-itunes-link{
-  display: inline-block;
-  _display: inline;
-}
-
+#appreach-itunes-link,
 #appreach-gplay-link{
   display: inline-block;
   _display: inline;
