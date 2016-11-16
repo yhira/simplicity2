@@ -30,12 +30,12 @@ function url_to_blog_card_tag($url){
   //抜粋の取得
   if ( is_wordpress_excerpt() && $exce ) {//Wordpress固有の抜粋のとき
     $excerpt = $exce;
+  }
 
-    //メタディスクリプションが設定してある場合はメタディスクリプションを抜粋表示
-    $meta_description = get_post_meta($id, 'meta_description', true);
-    if ($meta_description) {
-      $excerpt = $meta_description;
-    }
+  //メタディスクリプションが設定してある場合はメタディスクリプションを抜粋表示
+  $meta_description = get_post_meta($id, 'meta_description', true);
+  if ( is_wordpress_excerpt() && $meta_description ) {
+    $excerpt = $meta_description;
   }
 
   //ブログカードのサムネイルを右側に
