@@ -97,7 +97,7 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ src="http:\/\/item.shopping.c.yimg.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://item.shopping.c.yimg.jp', $the_content);
 
   //アプリーチの画像対応
-  $the_content = preg_replace('/<img([^>]+?src="[^"]+?is1\.mzstatic\.com[^"]+?[^>]+)\/?>/is', '<amp-img$1 width="75" height="75" sizes="(max-width: 75px) 75vw, 75px"></amp-img>', $the_content);
+  $the_content = preg_replace('/<img([^>]+?src="[^"]+?(mzstatic\.com|phobos\.apple\.com|googleusercontent\.com)[^"]+?[^>]+)\/?>/is', '<amp-img$1 width="75" height="75" sizes="(max-width: 75px) 75vw, 75px"></amp-img>', $the_content);
   $the_content = preg_replace('/<img([^>]+?src="[^"]+?nabettu\.github\.io[^"]+?[^>]+)\/?>/is', '<amp-img$1 width="120" height="36" sizes="(max-width: 120px) 120vw, 120px"></amp-img>', $the_content);
 
   //imgタグをamp-imgタグに変更する
@@ -225,7 +225,19 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ webkitAllowFullScreen/i', '', $the_content);
   $the_content = preg_replace('/ mozallowfullscreen/i', '', $the_content);
 
-  // iframeをamp-iframeに置換する
+  //タイトルつきiframeでhttpを呼び出している場合は通常リンクに修正
+  $pattern = '/<iframe[^>]+?src="(http:\/\/[^"]+?)"[^>]+?title="([^"]+?)"[^>]+?><\/iframe>/is';
+  $append = '<a href="$1">$2</a>';
+  $the_content = preg_replace($pattern, $append, $the_content);
+  $pattern = '/<iframe[^>]+?title="([^"]+?)[^>]+?src="(http:\/\/[^"]+?)""[^>]+?><\/iframe>/is';
+  $append = '<a href="$1">$2</a>';
+  $the_content = preg_replace($pattern, $append, $the_content);
+  //iframeでhttpを呼び出している場合は通常リンクに修正
+  $pattern = '/<iframe[^>]+?src="(http:\/\/[^"]+?)"[^>]+?><\/iframe>/is';
+  $append = '<a href="$1">$1</a>';
+  $the_content = preg_replace($pattern, $append, $the_content);
+
+  //iframeをamp-iframeに置換する
   $pattern = '/<iframe/i';
   $append = '<amp-iframe layout="responsive" sandbox="allow-scripts allow-same-origin allow-popups"';
   $the_content = preg_replace($pattern, $append, $the_content);
