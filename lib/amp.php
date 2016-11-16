@@ -97,7 +97,7 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ src="http:\/\/item.shopping.c.yimg.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://item.shopping.c.yimg.jp', $the_content);
 
   //アプリーチの画像対応
-  $the_content = preg_replace('/<img([^>]+?src="[^"]+?(mzstatic\.com|phobos\.apple\.com|googleusercontent\.com)[^"]+?[^>]+)\/?>/is', '<amp-img$1 width="75" height="75" sizes="(max-width: 75px) 75vw, 75px"></amp-img>', $the_content);
+  $the_content = preg_replace('/<img([^>]+?src="[^"]+?(mzstatic\.com|phobos\.apple\.com|googleusercontent\.com|ggpht\.com)[^"]+?[^>]+)\/?>/is', '<amp-img$1 width="75" height="75" sizes="(max-width: 75px) 75vw, 75px"></amp-img>', $the_content);
   $the_content = preg_replace('/<img([^>]+?src="[^"]+?nabettu\.github\.io[^"]+?[^>]+)\/?>/is', '<amp-img$1 width="120" height="36" sizes="(max-width: 120px) 120vw, 120px"></amp-img>', $the_content);
 
   //imgタグをamp-imgタグに変更する
