@@ -27,6 +27,13 @@
 <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="//widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
     </li>
     <?php endif; ?>
+    <?php if ( is_line_btn_visible() )://LINEボタンを表示するか ?>
+    <li class="line-btn">
+      <a href="//line.me/R/msg/text/?<?php the_title(); ?>%0D%0A<?php the_permalink(); ?>" target="blank" class="line-btn-link" rel="nofollow">
+          <img src="<?php echo get_template_directory_uri().'/images/line-btn.png'; ?>" alt="" class="line-btn-img"><img src="<?php echo get_template_directory_uri().'/images/line-btn-mini.png'; ?>" alt="" class="line-btn-img-mini">
+        </a>
+    </li>
+    <?php endif; ?>
     <?php if ( is_evernote_btn_visible() )://Evernoteボタンを表示するか ?>
     <li class="evernote-btn">
   <a href="#" onclick="Evernote.doClip({url:'<?php the_permalink();?>',

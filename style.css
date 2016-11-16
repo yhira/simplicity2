@@ -2494,6 +2494,13 @@ ul.snsbs a.comments-btn-icon-link{
 .snsbs li img {
   border-radius:10px;
 }
+img.line-btn-img{
+  height:62px;
+}
+
+img.line-btn-img-mini{
+  display:none;
+}
 
 img.evernote-btn-img{
   min-height:62px;
@@ -2514,6 +2521,7 @@ img.evernote-btn-img-mini{
 #sns-group-top ul li{
   margin-top: 2px;
   margin-bottom: 2px;
+  height: 28px;
 }
 
 #sns-group-top .sns-share-msg{
@@ -2535,6 +2543,15 @@ img.evernote-btn-img-mini{
 
 #sns-group-top .pocket-btn{
   width:90px;
+}
+
+#sns-group-top img.line-btn-img{
+  display:none;
+}
+
+#sns-group-top img.line-btn-img-mini{
+  display:block;
+  height: 20px;
 }
 
 #sns-group-top .evernote-btn-img{
