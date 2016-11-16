@@ -117,7 +117,7 @@
       </span>
     </li>
     <?php endif; ?>
-    <?php if ( is_line_btn_visible() && is_mobile())://LINEボタンを表示するか ?>
+    <?php if ( is_line_btn_visible() )://LINEボタンを表示するか ?>
     <li class="balloon-btn line-balloon-btn">
       <span class="balloon-btn-set">
         <span class="arrow-box">
