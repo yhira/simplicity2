@@ -1051,9 +1051,13 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
   border: medium double #ccc;
 }
 
-#appreach-box br,
-#appreach-box p{
+#appreach-box br{
   display: none;
+}
+
+#appreach-box p{
+  padding: 0;
+  margin: 0;
 }
 
 #appreach-image{
@@ -1066,6 +1070,7 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 
 .appreach-info{
   margin: 10px;
+  margin-left: 85px;
 }
 
 #appreach-developer{
@@ -1087,8 +1092,7 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 }
 
 .appreach-links{
-  float: left;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 #appreach-itunes-link,
