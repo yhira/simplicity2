@@ -1,7 +1,7 @@
 <?php //ブログカード関係の関数
 
 //はてな oEmbed対応
-wp_oembed_add_provider('http://*', 'http://hatenablog.com/oembed');
+wp_oembed_add_provider('https://*', 'https://hatenablog.com/oembed');
 //oembed無効
 add_filter( 'embed_oembed_discover', '__return_false' );
 //Embeds
