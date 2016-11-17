@@ -995,12 +995,8 @@ if ( $header_image && !is_mobile() ): ?>
 }
 <?php endif; //$header_image ?>
 <?php if (!is_mobile()): ?>
-<<<<<<< HEAD
 .line-btn,
 .line-balloon-btn{
-=======
-.line-btn{
->>>>>>> 186cd265c72c321d7ca4f95f6f2c586839d0e91d
   display: none;
 }
 <?php endif ?>
