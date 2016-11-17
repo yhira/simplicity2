@@ -88,20 +88,20 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/<\/font>/i', '', $the_content);
 
   //カエレバ・ヨメレバのAmazon商品画像にwidthとhightを追加する
-  $the_content = preg_replace('/ src="http:\/\/ecx.images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://ecx.images-amazon.com', $the_content);
+  $the_content = preg_replace('/ src="http:\/\/ecx.images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="http://ecx.images-amazon.com', $the_content);
   //カエレバ・ヨメレバのAmazon商品画像にwidthとhightを追加する（SSL用）
-  $the_content = preg_replace('/ src="https:\/\/images-fe.ssl-images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="https://images-fe.ssl-images-amazon.com', $the_content);
+  $the_content = preg_replace('/ src="https:\/\/images-fe.ssl-images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="https://images-fe.ssl-images-amazon.com', $the_content);
   //カエレバ・ヨメレバの楽天商品画像にwidthとhightを追加する
-  $the_content = preg_replace('/ src="http:\/\/thumbnail.image.rakuten.co.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://thumbnail.image.rakuten.co.jp', $the_content);
+  $the_content = preg_replace('/ src="http:\/\/thumbnail.image.rakuten.co.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="http://thumbnail.image.rakuten.co.jp', $the_content);
   //カエレバ・ヨメレバのYahoo!ショッピング商品画像にwidthとhightを追加する
-  $the_content = preg_replace('/ src="http:\/\/item.shopping.c.yimg.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 75vw, 75px" src="http://item.shopping.c.yimg.jp', $the_content);
+  $the_content = preg_replace('/ src="http:\/\/item.shopping.c.yimg.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="http://item.shopping.c.yimg.jp', $the_content);
 
   //アプリーチの画像対応
-  $the_content = preg_replace('/<img([^>]+?src="[^"]+?(mzstatic\.com|phobos\.apple\.com|googleusercontent\.com|ggpht\.com)[^"]+?[^>\/]+)\/?>/is', '<amp-img$1 width="75" height="75" sizes="(max-width: 75px) 75vw, 75px"></amp-img>', $the_content);
-  $the_content = preg_replace('/<img([^>]+?src="[^"]+?nabettu\.github\.io[^"]+?[^>\/]+)\/?>/is', '<amp-img$1 width="120" height="36" sizes="(max-width: 120px) 120vw, 120px"></amp-img>', $the_content);
+  $the_content = preg_replace('/<img([^>]+?src="[^"]+?(mzstatic\.com|phobos\.apple\.com|googleusercontent\.com|ggpht\.com)[^"]+?[^>\/]+)\/?>/is', '<amp-img$1 width="75" height="75" sizes="(max-width: 75px) 100vw, 75px"></amp-img>', $the_content);
+  $the_content = preg_replace('/<img([^>]+?src="[^"]+?nabettu\.github\.io[^"]+?[^>\/]+)\/?>/is', '<amp-img$1 width="120" height="36" sizes="(max-width: 120px) 100vw, 120px"></amp-img>', $the_content);
 
   //imgタグをamp-imgタグに変更する
-  $res = preg_match_all('/<img([^>\/]+?)\/?>/is', $the_content, $m);
+  $res = preg_match_all('/<img(.+?)\/?>/is', $the_content, $m);
   if ($res) {//画像タグがある場合
 
     foreach ($m[0] as $match) {
@@ -171,14 +171,14 @@ function convert_content_for_amp($the_content){
 
       //amp-imgタグの作成
       $tag = '<amp-img'.$src_attr.$width_attr.$height_attr.$alt_attr.$title_attr.$sizes_attr.'></amp-img>';
-      //echo('<pre>');
+      // echo('<pre>');
       // var_dump($srcs);
-      //var_dump(htmlspecialchars($tag));
+      // var_dump(htmlspecialchars($tag));
       // var_dump($widths);
       // var_dump($heights);
       // var_dump($alts);
       // var_dump($titles);
-      //echo('</pre>');
+      // echo('</pre>');
 
       //imgタグをamp-imgタグに置換
       $the_content = preg_replace('{'.preg_quote($match).'}', $tag , $the_content, 1);
@@ -187,7 +187,7 @@ function convert_content_for_amp($the_content){
 
 
   //画像タグをAMP用に置換
-  $the_content = preg_replace('/<img([^>]+?)\/?>/is', '<amp-img$1></amp-img>', $the_content);
+  $the_content = preg_replace('/<img(.+?)\/?>/is', '<amp-img$1></amp-img>', $the_content);
 
   // Twitterをamp-twitterに置換する（埋め込みコード）
   $pattern = '/<blockquote class="twitter-tweet".*?>.+?<a href="https:\/\/twitter.com\/.*?\/status\/(.*?)">.+?<\/blockquote>.*?<script async src="\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/is';
