@@ -19,7 +19,8 @@ function add_custom_boxes(){
   add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'post', 'side' );
   add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'page', 'side' );
   add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'topic', 'side' );
-
+  //AMP設定
+  add_meta_box( 'amp_setting_in_page','AMP設定', 'view_amp_custom_box', 'post', 'side' );
 }
 
 ///////////////////////////////////////
@@ -145,6 +146,7 @@ function view_seo_custom_box(){
   if( $is_nofollow ){echo " checked";}
   echo '>リンクをフォローしない（nofollow）</label>';
   echo '<p class="howto" style="margin-top:0;">検索エンジンがこのページ上のリンクをフォローしないようにメタタグを設定します。</p>';
+
 }
 
 add_action('save_post', 'save_seo_custom_data');
@@ -233,7 +235,6 @@ function get_meta_robots_tag(){
 ///////////////////////////////////////
 function view_page_custom_box(){
   global $post;
-
   $page_type = get_post_meta(get_the_ID(),'page_type', true);
 
   //ページタイプ
@@ -275,7 +276,6 @@ function save_page_custom_data(){
   add_post_meta($id, $page_type_key, $page_type, true);
   update_post_meta($id, $page_type_key, $page_type);
 }
-
 
 //ページタイプの取得
 function get_page_type(){
@@ -332,4 +332,46 @@ function get_main_column_width(){
     return 1106;
   }
   return 1070;
+}
+
+
+///////////////////////////////////////
+// AMP設定
+///////////////////////////////////////
+function view_amp_custom_box(){
+  global $post;
+
+  //$is_noamp = '';
+  $is_noamp = get_post_meta(get_the_ID(),'is_noamp', true);
+  // //初期値が空文字のとき「AMPを有効にする」のデフォルト値をonにする（無効にする場合のnullの場合は何もしない）
+  // if ($is_noamp === '') {
+  //   $is_noamp = 'on';
+  // }
+  //var_dump($is_noamp);
+
+  //AMP
+  echo '<label><input type="checkbox" name="is_noamp"';
+  if( $is_noamp ){echo " checked";}
+  echo '>AMPページを生成しない</label>';
+  echo '<p class="howto" style="margin-top:0;">AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョンページ、スクリプト動作が必要なページ等ではチェックすることをおすすめしま。</p>';
+
+}
+
+add_action('save_post', 'save_amp_custom_data');
+function save_amp_custom_data(){
+  $id = get_the_ID();
+
+  //AMPを有効化するか
+  $is_noamp = null;
+  if ( isset( $_POST['is_noamp'] ) )
+    $is_noamp = $_POST['is_noamp'];
+  $is_noamp_key = 'is_noamp';
+  add_post_meta($id, $is_noamp_key, $is_noamp, true);
+  update_post_meta($id, $is_noamp_key, $is_noamp);
+}
+
+
+//投稿のAMPページが生成に設定されているか
+function is_amp_single_page_enable(){
+  return !get_post_meta(get_the_ID(), 'is_noamp', true);
 }

@@ -31,6 +31,7 @@ if ( !function_exists( 'has_amp_page' ) ):
 function has_amp_page(){
   return is_single() &&
     is_amp_enable() &&
+    is_amp_single_page_enable() &&
     (!function_exists('is_bbpress') || !is_bbpress());
 }
 endif;
