@@ -19,23 +19,25 @@ function is_amp(){
   // かつsingleページのみ$is_ampをtrueにする
   if(is_amp_enable() && //AMPがカスタマイザーの有効化されているか
      is_single() &&
-     $_GET['amp'] === '1' &&
-     is_amp_single_page_enable()
+     $_GET['amp'] === '1' &&//URLにamp=1パラメータがあるとき
+     has_amp_page()//AMPページが存在しているとき
     ){
     $is_amp = true;
   }
   return $is_amp;
 }
+endif;
 
 //AMPページがある投稿ページか
 if ( !function_exists( 'has_amp_page' ) ):
 function has_amp_page(){
+  $category_ids =get_noamp_category_ids();
   return is_single() &&
     is_amp_enable() &&
     is_amp_single_page_enable() &&
+    !in_category( $category_ids ) && //除外カテゴリではAMPページを生成しない
     (!function_exists('is_bbpress') || !is_bbpress());
 }
-endif;
 endif;
 
 //AMP用にコンテンツを変換する
