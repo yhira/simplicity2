@@ -19,7 +19,8 @@ function is_amp(){
   // かつsingleページのみ$is_ampをtrueにする
   if(is_amp_enable() && //AMPがカスタマイザーの有効化されているか
      is_single() &&
-     $_GET['amp'] === '1'
+     $_GET['amp'] === '1' &&
+     is_amp_single_page_enable()
     ){
     $is_amp = true;
   }

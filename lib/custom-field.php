@@ -19,8 +19,11 @@ function add_custom_boxes(){
   add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'post', 'side' );
   add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'page', 'side' );
   add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'topic', 'side' );
-  //AMP設定
-  add_meta_box( 'amp_setting_in_page','AMP設定', 'view_amp_custom_box', 'post', 'side' );
+  if (is_amp_enable()) {
+    //AMP設定
+    add_meta_box( 'amp_setting_in_page','AMP設定', 'view_amp_custom_box', 'post', 'side' );
+  }
+
 }
 
 ///////////////////////////////////////
@@ -353,7 +356,7 @@ function view_amp_custom_box(){
   echo '<label><input type="checkbox" name="is_noamp"';
   if( $is_noamp ){echo " checked";}
   echo '>AMPページを生成しない</label>';
-  echo '<p class="howto" style="margin-top:0;">AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョンページ、スクリプト動作が必要なページ等ではチェックすることをおすすめしま。</p>';
+  echo '<p class="howto" style="margin-top:0;">AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョンページ、スクリプト動作が必要なページ等ではチェックすることをおすすめします。</p>';
 
 }
 
