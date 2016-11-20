@@ -141,7 +141,7 @@ if ( is_blog_card_enable() ) {
   add_filter('widget_text', 'url_to_blog_card', 9999999);//テキストウィジェットをフック
   add_filter('widget_text_pc_text', 'url_to_blog_card', 9999999);
   add_filter('widget_text_mobile_text', 'url_to_blog_card', 9999999);
-  //add_filter('comment_text', 'url_to_blog_card', 9999999);//コメントをフック
+  add_filter('comment_text', 'url_to_blog_card', 9999999);//コメントをフック
 }
 
 //本文中のURLショートコードをブログカードタグに変更する
@@ -185,7 +185,7 @@ add_filter('the_content', 'url_shortcode_to_blog_card' ,99999999);//本文表示
 add_filter('widget_text', 'url_shortcode_to_blog_card' ,99999999);//テキストウィジェットをフック
 add_filter('widget_text_pc_text', 'url_shortcode_to_blog_card', 99999999);
 add_filter('widget_text_mobile_text', 'url_shortcode_to_blog_card', 99999999);
-//add_filter('comment_text', 'url_shortcode_to_blog_card', 99999999);//コメントをフック
+add_filter('comment_text', 'url_shortcode_to_blog_card', 99999999);//コメントをフック
 
 //外部URLからブログをカードタグの取得
 if ( !function_exists( 'url_to_external_blog_card_tag' ) ):
@@ -289,7 +289,7 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
   add_filter('widget_text', 'url_to_external_blog_card', 9999999);//テキストウィジェットをフック
   add_filter('widget_text_pc_text', 'url_to_external_blog_card', 9999999);
   add_filter('widget_text_mobile_text', 'url_to_external_blog_card', 9999999);
-  //add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
+  add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
 }
 
 //Simplicityキャッシュディレクトリ
@@ -367,7 +367,7 @@ function url_to_external_ogp_blog_card_tag($url){
   //$error_image = get_template_directory_uri() . '/images/no-image.png';
   $image = $error_image;
   $excerpt = '';
-  $error_rel_nollow = ' rel="nofollow"';
+  $error_rel_nofollow = ' rel="nofollow"';
   //画像編集作業用ディレクトリ
   //$dir = ABSPATH.'wp-content/uploads/excard-images-314159265/';
 
@@ -398,7 +398,7 @@ function url_to_external_ogp_blog_card_tag($url){
       if ( isset( $ogp->image ) )
         $image = $ogp->image;////画像URLの取得
 
-      $error_rel_nollow = null;
+      $error_rel_nofollow = null;
     }
 
     set_transient( $url_hash, $ogp,
@@ -419,7 +419,7 @@ function url_to_external_ogp_blog_card_tag($url){
     if ( isset( $ogp->image ) )
       $image = $ogp->image;//画像URLの取得
 
-    $error_rel_nollow = null;
+    $error_rel_nofollow = null;
   }
 
   //ドメイン名を取得
@@ -443,6 +443,13 @@ function url_to_external_ogp_blog_card_tag($url){
   //新しいタブで開く場合
   $target = is_blog_card_external_target_blank() ? ' target="_blank"' : '';
 
+  //コメント内でブログカード呼び出しが行われた際はnofollowをつける
+  global $comment; //コメント内以外で$commentを呼び出すとnullになる
+  $nofollow = $comment || $error_rel_nofollow ? ' rel="nofollow"' : null;
+  // echo('<pre>');
+  // var_dump($nofollow);
+  // echo('</pre>');
+
   //ブログカードの幅を広げる
   $wide_class = null;
   if ( is_blog_card_external_width_auto() ) {
@@ -460,7 +467,7 @@ function url_to_external_ogp_blog_card_tag($url){
   //サイトロゴ
   if ( is_blog_card_external_site_logo_visible() ) {
     if ( is_blog_card_external_site_logo_link_enable() ) {
-      $site_logo_tag = '<a href="//'.$domain.'"'.$target.$error_rel_nollow.'>'.$domain.'</a>';
+      $site_logo_tag = '<a href="//'.$domain.'"'.$target.$nofollow.'>'.$domain.'</a>';
     } else {
       $site_logo_tag = $domain;
     }
@@ -471,7 +478,7 @@ function url_to_external_ogp_blog_card_tag($url){
     $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" height="100" width="100" sizes="(max-width: 100px) 100vw, 100px" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
-  $tag = '<div class="blog-card external-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$error_rel_nollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
+  $tag = '<div class="blog-card external-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$nofollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.$nofollow.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
   if ( is_wraped_entry_card() ) {
     //エントリーカードをカード化する場合はaタグを削除して全体をa.hover-cardで囲む
     $tag = wrap_entry_card($tag, $url, $target);
