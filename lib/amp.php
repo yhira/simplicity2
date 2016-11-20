@@ -76,16 +76,16 @@ function convert_content_for_amp($the_content){
   $the_content = str_replace('\xc2\xa0', ' ', $the_content);
 
   //style属性を取り除く
-  $the_content = preg_replace('/ +style=["][^"]*?["]/i', '', $the_content);
-  $the_content = preg_replace('/ +style=[\'][^\']*?[\']/i', '', $the_content);
+  $the_content = preg_replace('/ *?style=["][^"]*?["]/i', '', $the_content);
+  $the_content = preg_replace('/ *?style=[\'][^\']*?[\']/i', '', $the_content);
 
   //target属性を取り除く
-  $the_content = preg_replace('/ +target=["][^"]*?["]/i', '', $the_content);
-  $the_content = preg_replace('/ +target=[\'][^\']*?[\']/i', '', $the_content);
+  $the_content = preg_replace('/ *?target=["][^"]*?["]/i', '', $the_content);
+  $the_content = preg_replace('/ *?target=[\'][^\']*?[\']/i', '', $the_content);
 
   //onclick属性を取り除く
-  $the_content = preg_replace('/ +onclick=["][^"]*?["]/i', '', $the_content);
-  $the_content = preg_replace('/ +onclick=[\'][^\']*?[\']/i', '', $the_content);
+  $the_content = preg_replace('/ *?onclick=["][^"]*?["]/i', '', $the_content);
+  $the_content = preg_replace('/ *?onclick=[\'][^\']*?[\']/i', '', $the_content);
 
   //FONTタグを取り除く
   $the_content = preg_replace('/<font[^>]+?>/i', '', $the_content);
