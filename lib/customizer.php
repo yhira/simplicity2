@@ -3058,6 +3058,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 50,
   ));
 
+  //除外するカテゴリのID
+  $wp_customize->add_setting('noamp_category_ids', array(
+    'default' => '',
+    'sanitize_callback' => 'sanitize_id_comma_text',
+  ));
+  $wp_customize->add_control( 'noamp_category_ids', array(
+    'settings' => 'noamp_category_ids',
+    'label' =>'AMPページを生成しないカテゴリID',
+    'description' => is_tips_visible() ? 'AMPページを生成しないカテゴリのIDを,（カンマ）区切りで指定してください。例：1,7,22' : '',
+    'section' => 'amp_section',
+    'type' => 'text',
+    'priority'=> 60,
+  ));
+
   // //AdSenseコード（data-ad-client）
   // $wp_customize->add_setting('adsense', array(
   //   'default' => 'ホーム',
@@ -5154,6 +5168,11 @@ function get_amp_test_tool_url($url){
     $test_url = 'https://ampbench.appspot.com/validate?url='.$encoded_url;
   }
   return $test_url;
+}
+
+//AMPページを生成しないカテゴリIDの取得
+function get_noamp_category_ids(){
+  return get_theme_mod( 'noamp_category_ids', null );
 }
 
 //テーマカスタマイザー項目の説明を表示するか
