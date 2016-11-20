@@ -3019,7 +3019,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'amp_link_visible', array(
     'settings' => 'amp_link_visible',
     'label' => 'AMPと通常ページ間の移動リンクを表示',
-    'description' => is_tips_visible() ? 'ログインユーザーに「AMP」と「通常ページ」を手軽に移動できるリンクを表示します。' : '',
+    'description' => is_tips_visible() ? 'ログインユーザーに「AMP」と「通常ページ」を手軽に移動できるリンクを表示します。 <a href="https://wp-simplicity.com/simplicity-amp-test/" target="_blank">機能説明</a>' : '',
     'section' => 'amp_section',
     'type' => 'checkbox',
     'priority'=> 40,
@@ -3033,7 +3033,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'amp_test_link_visible', array(
     'settings' => 'amp_test_link_visible',
     'label' => 'AMPテスト リンクを表示',
-    'description' => is_tips_visible() ? 'ログインユーザーに「AMPテスト」リンクを表示します。リンクをクリックすると、AMPページをバリデーターでチェックを行います。' : '',
+    'description' => is_tips_visible() ? 'ログインユーザーに「AMPテスト」リンクを表示します。リンクをクリックすると、AMPページをバリデーターでチェックを行います。 <a href="https://wp-simplicity.com/simplicity-amp-test/" target="_blank">機能説明</a>' : '',
     'section' => 'amp_section',
     'type' => 'checkbox',
     'priority'=> 40,
@@ -3047,7 +3047,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'amp_test_tool', array(
     'settings' => 'amp_test_tool',
     'label' => 'AMPバリデーター',
-    'description' => is_tips_visible() ? '「AMPテスト」を行うテストツール（バリデーター）を選択します。' : '',
+    'description' => is_tips_visible() ? '「AMPテスト」を行うテストツール（バリデーター）を選択します。 <a href="https://wp-simplicity.com/simplicity-amp-test/" target="_blank">機能説明</a>' : '',
     'section' => 'amp_section',
     'type' => 'radio',
     'choices'    => array(
