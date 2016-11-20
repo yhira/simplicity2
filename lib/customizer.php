@@ -2430,6 +2430,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 100,
   ));
 
+  //ブログカードの有効化
+  $wp_customize->add_setting('blog_card_comment_internal_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_comment_internal_enable', array(
+    'settings' => 'blog_card_comment_internal_enable',
+    'label' =>'コメントでブログカードを有効',
+    'description' => is_tips_visible() ? 'コメント欄で内部ブログカードを利用します。内部ブログカードなのでnofollowは付加されません。' : '',
+    'section' => 'blog_card_section',
+    'type' => 'checkbox',
+    'priority' => 200,
+  ));
+
   //ブログカードのサムネイルを右側にする
   $wp_customize->add_setting('blog_card_thumbnail_right', array(
     'sanitize_callback' => 'sanitize_check',
@@ -2546,6 +2560,20 @@ function theme_customize_register($wp_customize) {
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 100,
+  ));
+
+  //ブログカードの有効化
+  $wp_customize->add_setting('blog_card_comment_external_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'blog_card_comment_external_enable', array(
+    'settings' => 'blog_card_comment_external_enable',
+    'label' =>'コメントでブログカードを有効',
+    'description' => is_tips_visible() ? 'コメント欄で外部ブログカードを利用します。外部ブログカードなのでリンクにはnofollowが付加されます。' : '',
+    'section' => 'blog_card_external_section',
+    'type' => 'checkbox',
+    'priority' => 200,
   ));
 
   //外部ブログカードタイプ
@@ -4748,6 +4776,11 @@ function is_blog_card_enable(){
   return get_theme_mod( 'blog_card_enable', true );
 }
 
+//内部コメントブログカードを有効にするか
+function is_blog_card_comment_internal_enable(){
+  return get_theme_mod( 'blog_card_comment_internal_enable', false );
+}
+
 //内部ブログカードのブログカードのサムネイルを右側にするか
 function is_blog_card_thumbnail_right(){
   return get_theme_mod( 'blog_card_thumbnail_right', false );
@@ -4786,6 +4819,11 @@ function is_blog_card_width_auto(){
 //外部リンクをブログカードにするか
 function is_blog_card_external_enable(){
   return get_theme_mod( 'blog_card_external_enable', false );
+}
+
+//コメント外部リンクをブログカードにするか
+function is_blog_card_comment_external_enable(){
+  return get_theme_mod( 'blog_card_comment_external_enable', false );
 }
 
 //外部リンクのブログカードタイプの取得

@@ -141,7 +141,8 @@ if ( is_blog_card_enable() ) {
   add_filter('widget_text', 'url_to_blog_card', 9999999);//テキストウィジェットをフック
   add_filter('widget_text_pc_text', 'url_to_blog_card', 9999999);
   add_filter('widget_text_mobile_text', 'url_to_blog_card', 9999999);
-  add_filter('comment_text', 'url_to_blog_card', 9999999);//コメントをフック
+  if (is_blog_card_comment_internal_enable())
+    add_filter('comment_text', 'url_to_blog_card', 9999999);//コメントをフック
 }
 
 //本文中のURLショートコードをブログカードタグに変更する
@@ -289,7 +290,8 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
   add_filter('widget_text', 'url_to_external_blog_card', 9999999);//テキストウィジェットをフック
   add_filter('widget_text_pc_text', 'url_to_external_blog_card', 9999999);
   add_filter('widget_text_mobile_text', 'url_to_external_blog_card', 9999999);
-  add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
+  if (is_blog_card_comment_external_enable())
+      add_filter('comment_text', 'url_to_external_blog_card', 9999999);//コメントをフック
 }
 
 //Simplicityキャッシュディレクトリ
