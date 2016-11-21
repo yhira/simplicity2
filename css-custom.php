@@ -644,20 +644,22 @@ if ( is_blog_card_width_auto() || is_blog_card_external_width_auto() ): ?>
 
 <?php //ブログカードをカラム幅いっぱいにする
 if ( is_wraped_entry_card() ): ?>
+/*ホバーカード内に幅いっぱいにする*/
+/*
 .blog-card-wide {
   width: auto;
   margin: 0;
-}
+}*/
 
 .external-blog-card-hatena.blog-card-wide{
   width: calc(100% - 40px);
   margin: 10px 20px;
 }
-
+/*
 .entry-content .hover-card{
   width: calc(100% - 40px);
   margin: 20px;
-}
+}*/
 <?php endif; ?>
 <?php endif; ?>
 <?php //ヘッダー外側の背景画像URLが設定されているとき

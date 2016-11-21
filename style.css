@@ -162,7 +162,8 @@ a:hover {
 .related-entry-title a:hover,
 .navigation a:hover,
 #footer a:hover,
-.article-list .entry-title a:hover{
+.article-list .entry-title a:hover,
+.blog-card-title a:hover{
   color:#c03;
 }
 
@@ -3614,8 +3615,22 @@ dl.recent-comments dd .recent-comment-content{
   text-decoration: none;
   display: block;
 }
-.entry-content .hover-card{
+
+.hover-internal-blog-card,
+.hover-external-blog-card{
   width: 500px;
+}
+
+.hover-internal-blog-card.hover-blog-card-wide,
+.hover-external-blog-card.hover-blog-card-wide{
+  width: calc(100% - 40px);
+  margin: 20px;
+}
+
+/*ホバーカード内に幅いっぱいにする*/
+.hover-blog-card-wide .blog-card-wide {
+  width: auto;
+  margin: 0;
 }
 /*
 .hover-card:hover{

@@ -1003,7 +1003,7 @@ endif;
 
 //文字列内のaタグを削除して全体をa.hover-cardで囲む
 if ( !function_exists( 'wrap_entry_card' ) ):
-function wrap_entry_card($template, $url = null, $is_target_blank = false){
+function wrap_entry_card($template, $url = null, $is_target_blank = false, $is_nofollow = false, $additional_classes = null){
   if ( is_wraped_entry_card() ) {
     $template = preg_replace('/<a [^>]+?>/i', '', $template);
     $template = str_replace('</a>', '', $template);
@@ -1019,9 +1019,14 @@ function wrap_entry_card($template, $url = null, $is_target_blank = false){
       $target = ' target="_blank"';
     }
 
+    //コメント内でブログカード呼び出しが行われた際はnofollowをつける
+    $nofollow = $is_nofollow ? ' rel="nofollow"' : null;
+
+    //$blog_card_hover_class = $is_blog_card ? ' hover-blog-card' : null;
+
     //var_dump($template);
     //$template = '<a class="hover-card" href="'.$url.'"'.$target.'><object>'.$template.'</object></a>';
-    $template = '<a class="hover-card" href="'.$url.'"'.$target.'>'.$template.'</a>';
+    $template = '<a class="hover-card'.$additional_classes.'" href="'.$url.'"'.$target.$nofollow.'>'.$template.'</a>';
     //$template = '<span>'.$template.'</span>';
   }
   return $template;

@@ -90,8 +90,12 @@ function url_to_blog_card_tag($url){
   $tag = '<div class="blog-card internal-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.$date_tag.'</div></div>';
 
   if ( is_wraped_entry_card() ) {
-    //エントリーカードをカード化する場合はaタグを削除して全体をa.hover-cardで囲む
-    $tag = wrap_entry_card($tag, $url, $target);
+
+    $wide_hover_card_class = null;
+    if (is_blog_card_width_auto()) {
+      $wide_hover_card_class = ' hover-blog-card-wide';
+    }    //エントリーカードをカード化する場合はaタグを削除して全体をa.hover-cardで囲む
+    $tag = wrap_entry_card($tag, $url, $target, false, ' hover-blog-card hover-internal-blog-card'.$wide_hover_card_class);
   }
   return $tag;
 }
@@ -457,7 +461,9 @@ function url_to_external_ogp_blog_card_tag($url){
   if ( is_blog_card_external_width_auto() ) {
     $wide_class = ' blog-card-wide';
   }
-
+// echo('<pre>');
+// var_dump(is_blog_card_external_width_auto());
+// echo('</pre>');
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
   $hatebu_tag = is_blog_card_external_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
@@ -482,8 +488,12 @@ function url_to_external_ogp_blog_card_tag($url){
   //取得した情報からブログカードのHTMLタグを作成
   $tag = '<div class="blog-card external-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$nofollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.$nofollow.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
   if ( is_wraped_entry_card() ) {
+    $wide_hover_card_class = null;
+    if (is_blog_card_external_width_auto()) {
+      $wide_hover_card_class = ' hover-blog-card-wide';
+    }
     //エントリーカードをカード化する場合はaタグを削除して全体をa.hover-cardで囲む
-    $tag = wrap_entry_card($tag, $url, $target);
+    $tag = wrap_entry_card($tag, $url, $target, $nofollow, ' hover-blog-card hover-external-blog-card'.$wide_hover_card_class);
     //$tag = '<a class="abc"><object><div>aaa</div></object></a>';
   }
   return $tag;
