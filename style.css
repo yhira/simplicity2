@@ -2374,11 +2374,11 @@ div.fb-like-mobile{
     line-height: 120%;
   }
 
-  .article .blog-card,
-  .article .entry-content .hover-card,
-  .commets-list .blog-card{
+  #main .blog-card,
+  #main .hover-card{
     margin-left: 0;
     margin-right: 0;
+    width: 100%;
   }
 
   img.blog-card-thumb-image{
