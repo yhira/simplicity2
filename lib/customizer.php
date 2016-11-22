@@ -2570,7 +2570,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'blog_card_comment_external_enable', array(
     'settings' => 'blog_card_comment_external_enable',
     'label' =>'コメントでブログカードを有効',
-    'description' => is_tips_visible() ? 'コメント欄で外部ブログカードを利用します。外部ブログカードなのでリンクにはnofollowが付加されます。' : '',
+    'description' => is_tips_visible() ? 'コメント欄で外部ブログカードを利用します。外部ブログカードなのでリンクにはnofollowが付加されます。※外部ブログカードタイプがEmbedlyの場合はnofollowはつきませんので注意が必要です（はてなブログカードはiframe）。' : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 200,
