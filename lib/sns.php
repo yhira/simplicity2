@@ -118,7 +118,9 @@ if ( !function_exists( 'fetch_pocket_count' ) ):
 function fetch_pocket_count($url) {
   if ( WP_Filesystem() ) {//WP_Filesystemの初期化
     global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
-    $query = 'http://widgets.getpocket.com/v1/button?v=1&count=horizontal&url=' . $url;
+    //$query = 'http://widgets.getpocket.com/v1/button?v=1&count=horizontal&url=' . $url;
+    $url = urlencode($url);
+    $query = 'https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url='.$url.'&src=' . $url;
     //URL（クエリ）先の情報を取得
     $args = array( 'sslverify' => is_ssl_verification_enable() );
     $result = wp_remote_get($query, $args);
