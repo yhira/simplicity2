@@ -24,3 +24,33 @@ http://www.gnu.org/licenses/gpl-2.0.html
 äJî≠é“
 ------
 ÇÌÇ¢Ç–ÇÁÅF [yhira](https://github.com/yhira) 
+
+THANKS
+______
+highlight.js
+https://highlightjs.org/
+
+Lightbox
+http://lokeshdhakar.com/projects/lightbox2/
+
+Lity
+http://sorgalla.com/lity/
+
+Masonry
+http://masonry.desandro.com/
+
+Lazy Load Plugin for jQuery
+https://www.appelsiini.net/projects/lazyload
+
+SlickNav
+http://slicknav.com/
+
+Holder.js
+http://holderjs.com/
+
+animatedModal.js
+http://joaopereirawd.github.io/animatedModal.js/
+
+Sidr
+https://www.berriart.com/sidr/
+
