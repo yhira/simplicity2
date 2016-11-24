@@ -27,10 +27,7 @@ if ( floatval(get_bloginfo('version')) < 4.1 ):
   get_template_part('header-title-tag');
 endif; ?>
 <?php get_template_part('header-seo');//SEOの設定テンプレート?>
-<?php //get_template_part('header-css');//CSS関連の記述まとめテンプレート?>
 <?php //wp_enqueue_script('jquery');//jQueryの読み込み?>
-<?php //get_template_part('header-css-mobile-responsive');//モバイル時、レスポンシブ時のCSS関連ファイル読み込みテンプレート（本来ならheader-css.phpに一つにまとめたいところだけど、このテンプレート（モバイル関連の記述）をここで読み込まないとモバイルで表示が崩れるサーバもあったので、あえて分けて書いてあります。?>
-<?php //get_template_part('header-javascript');//JavaScript関連の記述まとめテンプレート?>
 <?php the_apple_touch_icon_tag();//Appleタッチアイコンの呼び出し ?>
 <?php if ( is_facebook_ogp_enable() ) //Facebook OGPタグ挿入がオンのとき
   get_template_part('header-ogp');//Facebook OGP用のタグテンプレート?>

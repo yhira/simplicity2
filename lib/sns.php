@@ -139,7 +139,7 @@ if ( !function_exists( 'fetch_twitter_count' ) ):
 function fetch_twitter_count($url){
   $url = rawurlencode( $url );
   $args = array( 'sslverify' => is_ssl_verification_enable() );
-  $subscribers = wp_remote_get( "//jsoon.digitiminimi.com/twitter/count.json?url=$url", $args );
+  $subscribers = wp_remote_get( "https://jsoon.digitiminimi.com/twitter/count.json?url=$url", $args );
   $res = '0';
   if (!is_wp_error( $subscribers ) && $subscribers["response"]["code"] === 200) {
        $body = $subscribers['body'];

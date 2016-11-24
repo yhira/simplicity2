@@ -291,7 +291,7 @@ function simplicity_scripts() {
         'theme_url' => get_template_directory_uri(),
         'all_sns_share_btns_visible' => is_all_sns_share_btns_visible() && !scc_exists(),
         'all_share_count_visible' => is_all_share_count_visible() && !scc_exists(),
-        'twitter_btn_visible' => false,//is_twitter_btn_visible(),
+        'twitter_btn_visible' => is_twitter_btn_visible(),
         'twitter_count_visible' => is_twitter_count_visible(),
         'facebook_btn_visible' => is_facebook_btn_visible(),
         'google_plus_btn_visible' => is_google_plus_btn_visible(),

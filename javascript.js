@@ -209,17 +209,30 @@ setInterval(function (){
   });
 })(jQuery);
 
-// Twitterのシェア数を取得
+// // Twitterのシェア数を取得
+// function fetch_twitter_count(url, selector) {
+//   jQuery.ajax({
+//     url:'//urls.api.twitter.com/1/urls/count.json',
+//     dataType:'jsonp',
+//     timeout: 10000, //10sec
+//     data:{
+//       url:url
+//     }
+//   }).done(function(res){
+//     jQuery( selector ).text( res.count || 0 );
+//   }).fail(function(){
+//     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
+//   });
+// }
+
+//Twitterのシェア数を取得
 function fetch_twitter_count(url, selector) {
   jQuery.ajax({
-    url:'//urls.api.twitter.com/1/urls/count.json',
-    dataType:'jsonp',
+    url: social_count_config.theme_url+'/lib/fetch-twitter.php?url='+url,
+    dataType:'text',
     timeout: 10000, //10sec
-    data:{
-      url:url
-    }
   }).done(function(res){
-    jQuery( selector ).text( res.count || 0 );
+    jQuery( selector ).text( res || 0 );
   }).fail(function(){
     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
   });
