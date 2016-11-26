@@ -225,18 +225,37 @@ setInterval(function (){
 //   });
 // }
 
-//Twitterのシェア数を取得
-function fetch_twitter_count(url, selector) {
+// //Twitterのシェア数を取得（自分のサーバーからPHPで取得）
+// function fetch_twitter_count(url, selector) {
+//   jQuery.ajax({
+//     url: social_count_config.theme_url+'/lib/fetch-twitter.php?url='+url,
+//     dataType:'text',
+//     timeout: 10000, //10sec
+//   }).done(function(res){
+//     jQuery( selector ).text( res || 0 );
+//   }).fail(function(){
+//     jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
+//   });
+// }
+
+//count.jsoonからTwitterのツイート数を取得
+function fetch_twitter_count_from_count_jsoon(url, selector) {
   jQuery.ajax({
-    url: social_count_config.theme_url+'/lib/fetch-twitter.php?url='+url,
-    dataType:'text',
+    url:'//jsoon.digitiminimi.com/twitter/count.json',
+    dataType:'jsonp',
     timeout: 10000, //10sec
-  }).done(function(res){
-    jQuery( selector ).text( res || 0 );
-  }).fail(function(){
-    jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
+    data:{
+      url:url
+  },
+  success:function(res){
+    jQuery( selector ).html( res.count || 0 );
+  },
+  error:function(){
+    jQuery( selector ).html('error');
+  }
   });
 }
+
 
 //Facebookのシェア数を取得
 function fetch_facebook_count(url, selector) {
@@ -339,7 +358,7 @@ jQuery(function(){
 
       //Twitterカウントの取得
       if ( social_count_config.twitter_btn_visible ){
-        fetch_twitter_count(social_count_config.permalink, '.twitter-count');
+        fetch_twitter_count_from_count_jsoon(social_count_config.permalink, '.twitter-count');
       }
 
       //Facebookカウントの取得
@@ -424,40 +443,19 @@ jQuery(document).ready(function() {
   adjast_article_like_arrow_box()
 });
 
-///////////////////////////////////
-// count.jsoonからTwitterのツイート数を取得
-///////////////////////////////////
-function fetch_twitter_count_from_count_jsoon(url, selector) {
-  jQuery.ajax({
-    url:'//jsoon.digitiminimi.com/twitter/count.json',
-    dataType:'jsonp',
-    timeout: 10000, //10sec
-    data:{
-      url:url
-  },
-  success:function(res){
-    jQuery( selector ).html( res.count || 0 );
-  },
-  error:function(){
-    jQuery( selector ).html('error');
-  }
-  });
-}
-
-
-///////////////////////////////////
-// Twitterのツイート数取得関数を呼び出す
-///////////////////////////////////
-jQuery(function(){
-  if (typeof social_count_config !== 'undefined') {
-    //シェアボタンを全部表示しているとき
-    if ( social_count_config.all_sns_share_btns_visible &&
-         social_count_config.all_share_count_visible &&
-         social_count_config.twitter_count_visible ) {
-      fetch_twitter_count_from_count_jsoon(social_count_config.permalink, '.twitter-count');
-    }
-  }
-});
+// ///////////////////////////////////
+// // Twitterのツイート数取得関数を呼び出す
+// ///////////////////////////////////
+// jQuery(function(){
+//   if (typeof social_count_config !== 'undefined') {
+//     //シェアボタンを全部表示しているとき
+//     if ( social_count_config.all_sns_share_btns_visible &&
+//          social_count_config.all_share_count_visible &&
+//          social_count_config.twitter_count_visible ) {
+//       fetch_twitter_count_from_count_jsoon('http://nelog.jp/google-map-to-amp', '.twitter-count');
+//     }
+//   }
+// });
 
 /////////////////////////////////
 // 折り畳み式アーカイブウィジェット
