@@ -36,12 +36,12 @@
 
       <?php //AMPページへ
       if (is_user_logged_in() && is_amp_link_visible() && has_amp_page() ): ?>
-        <span class="amp-view"><span class="fa icon-push7"></span><a href="<?php echo get_amp_permalink().'#development=1'; ?>">AMP</a></span>
+        <span class="amp-view"><span class="fa icon-amp-logo fa-fw"></span><a href="<?php echo get_amp_permalink().'#development=1'; ?>">AMP</a></span>
       <?php endif ?>
 
       <?php //AMPテストへ
       if (is_user_logged_in() && is_amp_test_link_visible() && has_amp_page() ): ?>
-        <span class="amp-test"><span class="fa icon-push7"></span><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank">テスト</a></span>
+        <span class="amp-test"><span class="fa icon-amp-logo fa-fw"></span><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank">テスト</a></span>
       <?php endif ?>
 
       <?php if ( is_single() ) get_template_part('edit-link'); //編集リンク?>
