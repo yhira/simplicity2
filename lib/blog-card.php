@@ -364,6 +364,9 @@ if ( !function_exists( 'url_to_external_ogp_blog_card_tag' ) ):
 function url_to_external_ogp_blog_card_tag($url){
   if ( !$url ) return;
   $url = strip_tags($url);//URL
+  if (preg_match('/.+(\.mp3|\.midi|\.mp4|\.mpeg|\.mpg|\.jpg|\.jpeg|\.png|\.gif|\.svg|\.pdf)$/i', $url, $m)) {
+    return;
+  }
   $url_hash = 'sp_bcc_'.md5( $url );
   $error_title = $url;//'This page is error.';
   $title = $error_title;
