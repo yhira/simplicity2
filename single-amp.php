@@ -116,17 +116,17 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
         <?php get_template_part('datetime') //投稿日と更新日?>
         <?php if ( is_category_visible() && //カテゴリを表示する場合
                    get_the_category() ): //投稿ページの場合?>
-        <span class="category"><span class="fa fa-folder fa-fw"></span><?php the_category(', ') ?></span>
+        <span class="category"><amp-img src="<?php echo get_template_directory_uri(); ?>/images/folder.svg" width="12" height="12" class="fa fa-svg fa-fw"></amp-img><?php the_category(', ') ?></span>
         <?php endif; //is_category_visible?>
 
         <?php //通常ページへ
         if (is_user_logged_in() && is_amp_link_visible() ): ?>
-        <span class="view-amp"><a href="<?php echo the_permalink(); ?>">通常ページ</a></span>
+        <span class="view-amp"><amp-img src="<?php echo get_template_directory_uri(); ?>/images/file-text-o.svg" width="12" height="12" class="fa fa-svg fa-fw"></amp-img><a href="<?php echo the_permalink(); ?>">通常ページ</a></span>
         <?php endif ?>
 
         <?php //AMPテストへ
         if (is_user_logged_in() && is_amp_test_link_visible() ): ?>
-        <span class="view-amp"><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank">AMPテスト</a></span>
+        <span class="view-amp"><amp-img src="<?php echo get_template_directory_uri(); ?>/images/amp-logo2.svg" width="12" height="12" class="fa fa-svg fa-fw"></amp-img><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank">テスト</a></span>
         <?php endif ?>
       </p>
 
@@ -157,7 +157,7 @@ if ( !is_user_logged_in() && get_tracking_id() ): ?>
 
       <p class="footer-post-meta">
         <?php if (is_tag_visible()): ?>
-        <span class="post-tag"><?php the_tags('<span class="fa fa-tag fa-fw"></span>',', '); ?></span>
+        <span class="post-tag"><?php the_tags('<amp-img src="'.get_template_directory_uri().'/images/tags.svg" width="12" height="12" class="fa fa-svg fa-fw"></amp-img>',', '); ?></span>
         <?php endif; ?>
 
         <?php if ( is_single() ) get_template_part('author-link') //投稿者リンク?>

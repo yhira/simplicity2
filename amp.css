@@ -210,6 +210,10 @@ p.post-meta {
   margin-left: 5px;
 }
 
+.fa-svg{
+  opacity: 0.6;
+}
+/*
 .post-date::before {
   content: "公開:";
 }
@@ -221,12 +225,12 @@ p.post-meta {
 .category::before{
   content: "カテゴリ:";
 }
-
+*/
 .footer-post-meta{
   text-align: right;
   font-size: 14px;
 }
-
+/*
 .footer-post-meta .fa-tag::before{
   content: "タグ:";
 }
@@ -234,7 +238,7 @@ p.post-meta {
 .post-author::before{
   content: "著者:";
 }
-
+*/
 .admin-pv{
   text-align: right;
 }
@@ -1108,4 +1112,9 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 .appreach-footer{
   margin-bottom: 10px;
   clear: left;
+}
+
+.fa-fw {
+  text-align: center;
+  margin: 0 3px;
 }

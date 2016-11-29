@@ -3701,3 +3701,7 @@ dl.recent-comments dd .recent-comment-content{
   border-radius: 2px;
   font-family: Arial;
 }
+
+.icon-amp-logo2::before {
+  font-size: 14px;
+}
