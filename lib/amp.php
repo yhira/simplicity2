@@ -157,24 +157,33 @@ function convert_content_for_amp($the_content){
         $title_value = $titles[1];//titleの値を取得する
       }
 
+      $class_attr = null;
       //widthとheight属性のないものは画像から情報取得
       if ($url && (empty($width_value) || empty($height_value))) {
         $size = get_image_width_and_height($url);
         if ($size) {
+          $class_attr = ' class="internal-content-img"';
           $width_value = $size['width'];
           $width_attr = ' width="'.$width_value.'"';//width属性を作成
           $height_value = $size['height'];
           $height_attr = ' height="'.$height_value.'"';//height属性を作成
+        } else {
+          //外部サイトにある画像の場合
+          $class_attr = ' class="external-content-img"';
+          $width_value = 300;
+          $width_attr = ' width="300"';//width属性を作成
+          $height_value = 300;
+          $height_attr = ' height="300"';//height属性を作成
         }
       }
 
       //sizes属性の作成（きれいなレスポンシブ化のために）
       if ($width_value) {
-        $sizes_attr = '  sizes="(max-width: '.$width_value.'px) 100vw, '.$width_value.'px"';
+        $sizes_attr = ' sizes="(max-width: '.$width_value.'px) 100vw, '.$width_value.'px"';
       }
 
       //amp-imgタグの作成
-      $tag = '<amp-img'.$src_attr.$width_attr.$height_attr.$alt_attr.$title_attr.$sizes_attr.'></amp-img>';
+      $tag = '<amp-img'.$src_attr.$width_attr.$height_attr.$alt_attr.$title_attr.$sizes_attr.$class_attr.'></amp-img>';
       // echo('<pre>');
       // var_dump($srcs);
       // var_dump(htmlspecialchars($tag));
