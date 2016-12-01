@@ -1115,3 +1115,9 @@ function add_js_to_wp_theme_editor_filetypes($default_types){
 }
 endif;
 add_filter('wp_theme_editor_filetypes', 'add_js_to_wp_theme_editor_filetypes');
+
+function url_to_local($url){
+  $path = str_replace(content_url(), WP_CONTENT_DIR, $url);
+  $path = str_replace('\\', '/', $path);
+  return $path;
+}

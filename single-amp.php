@@ -41,11 +41,38 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
     $css_all .= $css;
   }
 
+  ///////////////////////////////////////////
+  //スキンのスタイル
+  ///////////////////////////////////////////
+  if ( get_skin_file() ) {//設定されたスキンがある場合
+    if ( get_pearts_base_skin() ) {//パーツスキンの場合
+      $parts_skin_file = url_to_local(get_parts_skin_file_uri());
+      if (file_exists($parts_skin_file)) {
+        $parts_skin_css = $wp_filesystem->get_contents($parts_skin_file);//ファイルの読み込み
+        $css_all .= $parts_skin_css;
+      }
+    }
+  } else {
+    //通常のスキンスタイル
+    $skin_file = url_to_local(get_skin_file());
+    $amp_css_file = str_replace('style.css', 'amp.css', $skin_file);
+    if (file_exists($amp_css_file)) {
+      $amp_css = $wp_filesystem->get_contents($amp_css_file);//ファイルの読み込み
+      $css_all .= $amp_css;
+    }
+  }
+
+  ///////////////////////////////////////////
+  //カスタマイザーのスタイル
+  ///////////////////////////////////////////
   ob_start();//バッファリング
   get_template_part('css-custom');//カスタムテンプレートの呼び出し
   $css_custom = ob_get_clean();
   $css_all .= $css_custom;
 
+  ///////////////////////////////////////////
+  //子テーマのスタイル
+  ///////////////////////////////////////////
   if ( get_template_directory_uri() != get_stylesheet_directory_uri() ) {
     $css_file_child = get_stylesheet_directory().'/amp.css';
     if ( file_exists($css_file_child) ) {
@@ -53,8 +80,6 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
       $css_all .= $css_child;
     }
   }
-  //$ex_css = '.information, .question{padding:10px;}';
-  //$css_all .= $ex_css;
 
   //CSSの縮小化
   $css_all = minify_css($css_all);
