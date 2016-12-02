@@ -46,7 +46,7 @@ figure{
   height:auto;
 }
 
-.-amp-fill-content{
+.external-content-img img{
   min-width: unset;
   width: unset;
 }
