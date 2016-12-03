@@ -16,7 +16,7 @@ function add_image_tag_placeholders( $content ) {
 
   //画像正規表現で置換
   $content = preg_replace(
-      '#<img([^>]+?)src=[\'"]?([^\'"\s>]+)[\'"]?([^>]*)>#',//IMGタグの正規表現
+      '#<img([^>]+?)src=[\'"]?([^\'"\s>]+)[\'"]?([^>]*?) ?/?>#',//IMGタグの正規表現
       sprintf( '<img${1}src="%s" data-original="${2}"${3} data-lazy="true"><noscript><img${1}src="${2}"${3}></noscript>', get_template_directory_uri().'/images/1x1.trans.gif' ),//置換するIMGタグ（JavaScriptがオフのとき用のnoscriptタグも追加）
       $content );//投稿本文（置換する文章）
 
