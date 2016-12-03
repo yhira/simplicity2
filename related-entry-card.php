@@ -4,7 +4,7 @@
     <?php if ( has_post_thumbnail() ): // サムネイルを持っているとき ?>
     <?php echo get_the_post_thumbnail($post->ID, 'thumb100', array('class' => 'related-entry-thumb-image', 'alt' => get_the_title()) ); //サムネイルを呼び出す?>
     <?php else: // サムネイルを持っていないとき ?>
-    <img src="<?php echo get_template_directory_uri(); ?>/images/no-image.png" alt="NO IMAGE" class="no-image related-entry-no-image" width="100" height="100" sizes="(max-width: 100px) 100vw, 100px" />
+    <img src="<?php echo get_template_directory_uri(); ?>/images/no-image.png" alt="NO IMAGE" class="no-image related-entry-no-image"<?php echo get_noimage_sizes_attr(); ?> />
     <?php endif; ?>
     </a>
   </div><!-- /.related-entry-thumb -->

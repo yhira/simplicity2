@@ -1116,8 +1116,15 @@ function add_js_to_wp_theme_editor_filetypes($default_types){
 endif;
 add_filter('wp_theme_editor_filetypes', 'add_js_to_wp_theme_editor_filetypes');
 
+//内部URLをローカルパスに変更
 function url_to_local($url){
   $path = str_replace(content_url(), WP_CONTENT_DIR, $url);
   $path = str_replace('\\', '/', $path);
   return $path;
+}
+
+//images/no-image.pngを使用するimgタグに出力するサイズ関係の属性
+function get_noimage_sizes_attr(){
+  $sizes = ' srcset="'.get_template_directory_uri().'/images/no-image.png 100w" width="100" height="100" sizes="(max-width: 100px) 100vw, 100px"';
+  return $sizes;
 }
