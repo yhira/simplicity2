@@ -1116,8 +1116,22 @@ function add_js_to_wp_theme_editor_filetypes($default_types){
 endif;
 add_filter('wp_theme_editor_filetypes', 'add_js_to_wp_theme_editor_filetypes');
 
+//サイトアドレスが含まれているか
+function includes_site_url($url){
+  //URLにサイトアドレスが含まれていない場合
+  if (strpos($url, site_url()) === false) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 //内部URLをローカルパスに変更
 function url_to_local($url){
+  //URLにサイトアドレスが含まれていない場合
+  if (!includes_site_url($url)) {
+    return false;
+  }
   $path = str_replace(content_url(), WP_CONTENT_DIR, $url);
   $path = str_replace('\\', '/', $path);
   return $path;

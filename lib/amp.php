@@ -340,7 +340,7 @@ endif;
 //画像URLから幅と高さを取得する（同サーバー内ファイルURLのみ）
 function get_image_width_and_height($image_url){
   //URLにサイトアドレスが含まれていない場合
-  if (strpos($image_url, site_url()) === false) {
+  if (!includes_site_url($image_url)) {
     return false;
   }
   $wp_upload_dir = wp_upload_dir();
