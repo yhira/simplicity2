@@ -415,6 +415,10 @@ hr.sep {
   margin-bottom: 30px;
 }
 
+#sidebar-widget{
+  overflow: hidden;
+}
+
 .clear{
   clear:both;
 }
