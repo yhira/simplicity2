@@ -9,13 +9,8 @@ if ( get_webmaster_tool_id() ): ?>
 <meta name="google-site-verification" content="<?php echo get_webmaster_tool_id() ?>" />
 <?php endif;//ウェブマスターツールID終了 ?>
 <meta charset="<?php bloginfo('charset'); ?>">
-<?php //ビューポート
-//モバイルもしくはページキャシュモードの時
-if ( is_mobile() || is_responsive_enable() || is_page_cache_enable() ): ?>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<?php else: ?>
-  <meta name="viewport" content="width=1280, maximum-scale=1, user-scalable=yes">
-<?php endif ?>
+<?php //ビューポート ?>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php //AMPの案内タグを出力
