@@ -1311,7 +1311,7 @@ input[type="button"]:active {
 }
 
 #sidebar li{
-  margin-bottom:5px;
+  margin-bottom: 8px;
 }
 
 .sidebar-thumbnail-box{
@@ -3386,6 +3386,14 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
 
 #sidebar .widget_archive ul.years li{
   margin-bottom: 0;
+}
+
+/*PageSpeed Insightsのユーザーエクスペリエンス対策*/
+@media screen and (max-width:639px){
+  #sidebar .widget_archive ul.years li a{
+    margin-bottom: 8px;
+    display:block;
+  }
 }
 
 .widget_archive ul.years .hide {
