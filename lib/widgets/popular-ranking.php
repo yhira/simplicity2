@@ -12,23 +12,6 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
-    // //ウィジェットモード（全ての人気記事を表示するか、カテゴリ別に表示するか）
-    // $widget_mode = apply_filters( 'widget_mode', $instance['widget_mode'] );
-    // $title_popular = apply_filters( 'widget_title_popular', $instance['title_popular'] );
-    // //表示数を取得
-    // $entry_count = apply_filters( 'widget_entry_count', $instance['entry_count'] );
-    // //表示タイプを取得
-    // $entry_type = apply_filters( 'widget_entry_count', $instance['entry_type'] );
-    // //固定ページを含める
-    // $is_pages_include = apply_filters( 'widget_is_pages_include', $instance['is_pages_include'] );
-    // //閲覧数の表示
-    // $is_views_visible = apply_filters( 'widget_is_views_visible', $instance['is_views_visible'] );
-    // //集計期間
-    // $range = apply_filters( 'range', $instance['range'] );
-    // //集計期間の表示
-    // $range_visible = apply_filters( 'range_visible', $instance['range_visible'] );
-    // //ランキング順位の表示
-    // $is_ranking_visible = apply_filters( 'is_ranking_visible', $instance['is_ranking_visible'] );
 
     //ウィジェットモード（全ての人気記事を表示するか、カテゴリ別に表示するか）
     $widget_mode = apply_filters( 'widget_mode', empty($instance['widget_mode']) ? "defailt" : $instance['widget_mode'], $instance );

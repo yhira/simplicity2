@@ -12,18 +12,6 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
-    // $title_new = apply_filters( 'widget_title_new', $instance['title_new'] );
-    // $title_popular = apply_filters( 'widget_title_popular', $instance['title_popular'] );
-    // //表示数を取得
-    // $entry_count = apply_filters( 'widget_entry_count', $instance['entry_count'] );
-    // //表示タイプ
-    // $entry_type = apply_filters( 'widget_entry_type', $instance['entry_type'] );
-    // //固定ページを含める
-    // $is_pages_include = apply_filters( 'widget_is_pages_include', $instance['is_pages_include'] );
-    // $is_views_visible = apply_filters( 'widget_is_views_visible', $instance['is_views_visible'] );
-    // $range = apply_filters( 'range', $instance['range'] );
-    // $range_visible = apply_filters( 'range_visible', $instance['range_visible'] );
-    // $is_ranking_visible = apply_filters( 'is_ranking_visible', $instance['is_ranking_visible'] );
 
     $title_new = apply_filters( 'widget_title_new', empty($instance['title_new']) ? "新着記事" : $instance['title_new'] );
     $title_popular = apply_filters( 'widget_title_popular', empty($instance['title_popular']) ? "人気記事" : $instance['title_popular']);
@@ -39,6 +27,9 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
 
     //表示数をグローバル変数に格納
     //後で使用するテンプレートファイルへの受け渡し
+    //ウィジェットモード
+    global $g_widget_mode;
+    $g_widget_mode = 'all';
     //表示数が設定されていない時は5にする
     global $g_entry_count;
     if ( !$entry_count ) $entry_count = 5;
@@ -129,23 +120,6 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
     $instance['exclude_ids'] = strip_tags($new_instance['exclude_ids']);
       return $instance;
   }
-  // private function init_instance($instance) {
-  //   if( empty($instance) ){
-  //     return array(
-  //       'title_new' => null,
-  //       'title_popular' => null,
-  //       'entry_count' => null,
-  //       'entry_type' => null,
-  //       'is_pages_include' => null,
-  //       'is_views_visible' => null,
-  //       'range' => null,
-  //       'range_visible' => null,
-  //       'is_ranking_visible' => null,
-  //     );
-  //   }else{
-  //     return $instance;
-  //   }
-  // }
   function form($instance) {
     if(empty($instance)){
       $instance = array(
