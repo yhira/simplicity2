@@ -19,23 +19,21 @@ class PcAdWidgetItem extends WP_Widget {
       $margin_left_px = 0;
     }
 
-    ?>
-    <?php //classにwidgetと一意となるクラス名を追加する ?>
-    <?php
+    //classにwidgetと一意となるクラス名を追加する
     $margin_left = null;
     $margin_left_tag = null;
     if ( $margin_left_px != 0 ) {
       $margin_left_tag = ' style="margin-left: '.$margin_left_px.'px;"';
     }
     if ( !is_mobile() && !is_404() && //PCかつ404ページでないとき
-      ( is_ads_visible() || !$is_exclude_ads_enable )  ):  ?>
-    <?php echo $args['before_widget']; ?>
+      ( is_ads_visible() || !$is_exclude_ads_enable )  ):
+      echo $args['before_widget']; ?>
       <div class="ad-space"<?php echo $margin_left_tag; ?>>
         <div class="ad-label"><?php echo get_ads_label() ?></div>
         <div class="ad-responsive ad-pc adsense-336"><?php echo $ad; ?></div>
       </div>
-    <?php echo $args['after_widget']; ?>
-    <?php endif //is_mobile ?>
+      <?php echo $args['after_widget'];
+    endif //is_mobile ?>
   <?php
   }
   function update($new_instance, $old_instance) {

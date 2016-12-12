@@ -19,20 +19,18 @@ class PcDoubleAdsWidgetItem extends WP_Widget {
       $margin_left_px = 0;
     }
 
-    ?>
-    <?php //classにwidgetと一意となるクラス名を追加する ?>
-    <?php
+    //classにwidgetと一意となるクラス名を追加する
     if ( !is_mobile() && !is_404() && //PCかつ404ページでないとき
-      ( is_ads_visible() || !$is_exclude_ads_enable )  ):  ?>
-    <?php echo $args['before_widget']; ?>
+      ( is_ads_visible() || !$is_exclude_ads_enable )  ):
+      echo $args['before_widget']; ?>
       <div class="ad-article-bottom ad-space">
         <div class="ad-label"><?php echo get_ads_label() ?></div>
         <div class="ad-left ad-pc adsense-336"><?php echo $ad1;?></div>
         <div class="ad-right ad-pc adsense-336"><?php echo $ad2;?></div>
         <div class="clear"></div>
       </div>
-    <?php echo $args['after_widget']; ?>
-    <?php endif //is_mobile ?>
+      <?php echo $args['after_widget'];
+    endif //is_mobile ?>
   <?php
   }
   function update($new_instance, $old_instance) {

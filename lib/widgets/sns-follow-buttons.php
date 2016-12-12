@@ -13,19 +13,16 @@ class SimplicitySocialFollowWidgetItem extends WP_Widget {
   function widget($args, $instance) {
     extract( $args );
     $title_popular = apply_filters( 'widget_title_social_follow', $instance['title_social_follow'] );
-    ?>
-      <?php echo $args['before_widget']; ?>
-        <?php echo $args['before_title']; ?>
-        <?php if ($title_popular) {
-          echo $title_popular;
-        } else {
-          echo 'SNSフォローボタン';
-        }
-          ?>
-        <?php echo $args['after_title']; ?>
-        <?php get_template_part('sns-pages'); //SNSフォローボタン?>
-      <?php echo $args['after_widget']; ?>
-
+    echo $args['before_widget'];
+    echo $args['before_title'];
+    if ($title_popular) {
+      echo $title_popular;
+    } else {
+      echo 'SNSフォローボタン';
+    }
+    echo $args['after_title'];
+    get_template_part('sns-pages'); //SNSフォローボタン
+    echo $args['after_widget']; ?>
   <?php
   }
   function update($new_instance, $old_instance) {

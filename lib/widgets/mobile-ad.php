@@ -29,14 +29,14 @@ class MobileAdWidgetItem extends WP_Widget {
   }
   if ( is_mobile() && !is_404() && //モバイルかつ404ページでないとき
        ( is_ads_visible() || !$is_exclude_ads_enable ) //広告表示がオンのとき
-     ):  ?>
-    <?php echo $args['before_widget']; ?>
+     ):
+     echo $args['before_widget']; ?>
       <div class="ad-space"<?php echo $margin_left_tag; ?>>
         <div class="ad-label"><?php echo get_ads_label() ?></div>
         <div class="ad-responsive ad-mobile adsense-300"><?php echo $ad; ?></div>
       </div>
-    <?php echo $args['after_widget']; ?>
-  <?php endif //is_mobile ?>
+    <?php echo $args['after_widget'];
+  endif //is_mobile ?>
   <?php
   }
   function update($new_instance, $old_instance) {

@@ -18,21 +18,18 @@ class PcTextWidgetItem extends WP_Widget {
     $title = apply_filters( 'widget_title_pc_text', empty($instance['title_pc_text']) ? "" : $instance['title_pc_text'] );
     $widget_text = isset( $instance['text_pc_text'] ) ? $instance['text_pc_text'] : '';
     $text = apply_filters( 'widget_text_pc_text', $widget_text, $instance, $this );
-    //$text = apply_filters( 'widget_text_pc_text', $instance['text_pc_text'] );
 
-     ?>
-      <?php //classにwidgetと一意となるクラス名を追加する ?>
-      <?php if ( !is_mobile() && !is_404() ): //パソコン表示かつ404ページでないとき ?>
-      <?php echo $args['before_widget']; ?>
-        <?php if ($title) {
-          echo $args['before_title'].$title.$args['after_title'];//タイトルが設定されている場合は使用する
-        }
-          ?>
-        <div class="text-pc">
-          <?php echo $text; ?>
-        </div>
-      <?php echo $args['after_widget']; ?>
-      <?php endif //!is_mobile ?>
+    //classにwidgetと一意となるクラス名を追加する
+    if ( !is_mobile() && !is_404() ): //パソコン表示かつ404ページでないとき
+      echo $args['before_widget'];
+      if ($title) {
+        echo $args['before_title'].$title.$args['after_title'];//タイトルが設定されている場合は使用する
+      } ?>
+      <div class="text-pc">
+        <?php echo $text; ?>
+      </div>
+      <?php echo $args['after_widget'];
+    endif //!is_mobile ?>
     <?php
   }
   function update($new_instance, $old_instance) {

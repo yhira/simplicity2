@@ -16,21 +16,19 @@ class MobileTextWidgetItem extends WP_Widget {
     $title = apply_filters( 'widget_title_mobile_text', $instance['title_mobile_text'] );
     $widget_text = isset( $instance['text_mobile_text'] ) ? $instance['text_mobile_text'] : '';
     $text = apply_filters( 'widget_text_mobile_text', $widget_text, $instance, $this );
-    //$text = apply_filters( 'widget_text_mobile_text', $instance['text_mobile_text'] );
 
-     ?>
-      <?php //classにwidgetと一意となるクラス名を追加する ?>
-      <?php if ( is_mobile() && !is_404() ): //モバイルかつ404ページでないとき ?>
-      <?php echo $args['before_widget']; ?>
-        <?php if ($title) {//タイトルが設定されている場合は使用する
-          echo $args['before_title'].$title.$args['after_title'];
-        }
-          ?>
-        <div class="text-mobile">
-          <?php echo $text; ?>
-        </div>
-      <?php echo $args['after_widget']; ?>
-      <?php endif //is_mobile ?>
+    //classにwidgetと一意となるクラス名を追加する
+    if ( is_mobile() && !is_404() ): //モバイルかつ404ページでないとき
+      echo $args['before_widget'];
+      if ($title) {//タイトルが設定されている場合は使用する
+        echo $args['before_title'].$title.$args['after_title'];
+      }
+        ?>
+      <div class="text-mobile">
+        <?php echo $text; ?>
+      </div>
+    <?php echo $args['after_widget'];
+    endif //is_mobile ?>
     <?php
   }
   function update($new_instance, $old_instance) {

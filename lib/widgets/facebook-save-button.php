@@ -18,19 +18,17 @@ class FacebookSaveButtonWidgetItem extends WP_Widget {
     global $g_facebook_sdk;
     $g_facebook_sdk = true;
 
-     ?>
-      <?php //classにwidgetと一意となるクラス名を追加する ?>
-      <?php if ( is_singular() ): //投稿・固定ページのトップ表示 ?>
-      <?php echo $args['before_widget']; ?>
-        <?php if ($title) {
-          echo $args['before_title'].$title.$args['after_title'];//タイトルが設定されている場合は使用する
-        }
-          ?>
-        <div class="facebook-save-button">
-          <div class="fb-save" data-uri="<?php the_permalink() ?>" data-size="large"></div>
-        </div>
-      <?php echo $args['after_widget']; ?>
-    <?php endif;//is_singular ?>
+    //classにwidgetと一意となるクラス名を追加する
+    if ( is_singular() ): //投稿・固定ページのトップ表示
+      echo $args['before_widget'];
+      if ($title) {
+        echo $args['before_title'].$title.$args['after_title'];//タイトルが設定されている場合は使用する
+      } ?>
+      <div class="facebook-save-button">
+        <div class="fb-save" data-uri="<?php the_permalink() ?>" data-size="large"></div>
+      </div>
+      <?php echo $args['after_widget'];
+    endif;//is_singular ?>
     <?php
   }
   function update($new_instance, $old_instance) {

@@ -12,14 +12,6 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
-    // //ウィジェットモード（全ての新着記事を表示するか、カテゴリ別に表示するか）
-    // $widget_mode = apply_filters( 'widget_mode', $instance['widget_mode'] );
-    // //タイトル名を取得
-    // $title_new = apply_filters( 'widget_title_new', $instance['title_new'] );
-    // //表示数を取得
-    // $entry_count = apply_filters( 'widget_entry_count', $instance['entry_count'] );
-    // $is_top_visible = apply_filters( 'widget_is_top_visible', $instance['is_top_visible'] );
-    // $entry_type = apply_filters( 'widget_is_top_visible', $instance['entry_type'] );
     //ウィジェットモード（全ての新着記事を表示するか、カテゴリ別に表示するか）
     $widget_mode = apply_filters( 'widget_mode', empty($instance['widget_mode']) ? 'all' : $instance['widget_mode'] );
     //タイトル名を取得
@@ -44,15 +36,15 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
     //表示タイプのデフォルト設定
     if ( !$entry_type ) $entry_type = 'default';
     $g_entry_type = $entry_type;
-     ?>
-    <?php //classにwidgetと一意となるクラス名を追加する ?>
-    <?php if ( //「表示モード」が「全ての新着記事」のとき
+
+    //classにwidgetと一意となるクラス名を追加する
+    if ( //「表示モード」が「全ての新着記事」のとき
                ( ($widget_mode == 'all') && ($is_top_visible || !is_home()) ) ||
                //「表示モード」が「カテゴリ別新着記事」のとき
-               ( ($widget_mode == 'category') && get_category_ids() ) ): ?>
-    <?php echo $args['before_widget']; ?>
-      <?php echo $args['before_title']; ?>
-      <?php if ($title_new) {
+               ( ($widget_mode == 'category') && get_category_ids() ) ):
+      echo $args['before_widget'];
+      echo $args['before_title'];
+      if ($title_new) {
         echo $title_new;//タイトルが設定されている場合は使用する
       } else {
         if ( $widget_mode == 'all' ) {//全ての表示モードの時は
@@ -62,19 +54,16 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
         }
         //echo '新着記事';
       }
-        ?>
-      <?php echo $args['after_title']; ?>
-      <?php
-        //新着記事表示用の処理を書くところだけど
-        //コード量も多く、インデントが深くなり読みづらくなるので
-        //テンプレートファイル側に書く
-        if ( $entry_type == 'default' ) {
-          get_template_part('new-entries');
-        }else{
-          get_template_part('new-entries-large');
-        }
-         ?>
-    <?php echo $args['after_widget']; ?>
+      echo $args['after_title'];
+      //新着記事表示用の処理を書くところだけど
+      //コード量も多く、インデントが深くなり読みづらくなるので
+      //テンプレートファイル側に書く
+      if ( $entry_type == 'default' ) {
+        get_template_part('new-entries');
+      }else{
+        get_template_part('new-entries-large');
+      }
+      echo $args['after_widget']; ?>
     <?php endif; ?>
   <?php
   }

@@ -12,14 +12,6 @@ class RecentCommentsWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
-    // //タイトル名を取得
-    // $title = apply_filters( 'widget_recent_comment_title', $instance['title'] );
-    // //コメント表示数
-    // $count = apply_filters( 'widget_recent_comment_count', $instance['count'] );
-    // //コメント文字数
-    // $str_count = apply_filters( 'widget_recent_comment_str_count', $instance['str_count'] );
-    // //管理者除外するか
-    // $author_not_in = apply_filters( 'widget_recent_comment_author_not_in', $instance['author_not_in'] );
 
     //タイトル名を取得
     $title = apply_filters( 'widget_recent_comment_title', empty($instance['title']) ? "最近のコメント" : $instance['title'] );

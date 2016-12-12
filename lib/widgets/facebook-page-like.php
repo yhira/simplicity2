@@ -22,17 +22,15 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
     //Facebookスクリプトを利用するか
     global $g_facebook_sdk;
     $g_facebook_sdk = true;
-     ?>
-      <?php //classにwidgetと一意となるクラス名を追加する ?>
-      <?php if ( is_singular() ): //投稿・固定ページのトップ表示 ?>
-      <?php echo $args['before_widget']; ?>
-        <?php if ($title) {
-          echo $args['before_title'].$title.$args['after_title'];//タイトルが設定されている場合は使用する
-        }
-          ?>
-        <?php get_template_part('facebook-page-like'); ?>
-      <?php echo $args['after_widget']; ?>
-    <?php endif;//is_singular ?>
+    //classにwidgetと一意となるクラス名を追加する
+    if ( is_singular() ): //投稿・固定ページのトップ表示
+      echo $args['before_widget'];
+      if ($title) {
+        echo $args['before_title'].$title.$args['after_title'];//タイトルが設定されている場合は使用する
+      }
+      get_template_part('facebook-page-like');
+      echo $args['after_widget'];
+    endif;//is_singular ?>
     <?php
   }
   function update($new_instance, $old_instance) {

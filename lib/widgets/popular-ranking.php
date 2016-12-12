@@ -62,38 +62,35 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
     //除外ID
     global $g_exclude_ids;
     $g_exclude_ids = $exclude_ids;
-  ?>
-    <?php if ( $widget_mode == 'all' || //モードがウィジェットモードが「すべての人気記事表示」の時
-               is_single() || is_category() )://投稿ページとカテゴリーページのとき ?>
-      <?php
+    if ( $widget_mode == 'all' || //モードがウィジェットモードが「すべての人気記事表示」の時
+               is_single() || is_category() )://投稿ページとカテゴリーページのとき
       $before_widget = $args['before_widget'];
       if ($is_ranking_visible) {
         $before_widget = str_replace('widget_popular_ranking', 'widget_popular_ranking ranking_list', $before_widget);
       }
-      echo $before_widget; ?>
-        <?php echo $args['before_title']; ?>
-        <?php if ($title_popular) {
-          echo $title_popular;
+      echo $before_widget;
+      echo $args['before_title'];
+      if ($title_popular) {
+        echo $title_popular;
+      } else {
+        if ( $widget_mode == 'all' ) {//全ての表示モードの時は
+          echo '人気記事';
         } else {
-          if ( $widget_mode == 'all' ) {//全ての表示モードの時は
-            echo '人気記事';
-          } else {
-            echo 'カテゴリー別人気記事';
-          }
+          echo 'カテゴリー別人気記事';
         }
-          ?>
-        <?php echo $args['after_title']; ?>
-        <?php //PV順
-        if ( $entry_type == 'default' ) {
-          get_template_part('popular-posts-entries');
-        } else {
-          get_template_part('popular-posts-entries-large');
-        } ?>
-        <?php if ($range_visible) {
-          echo get_range_tag($range);
-        } ?>
-      <?php echo $args['after_widget']; ?>
-    <?php endif; ?>
+      }
+      echo $args['after_title'];
+      //PV順
+      if ( $entry_type == 'default' ) {
+        get_template_part('popular-posts-entries');
+      } else {
+        get_template_part('popular-posts-entries-large');
+      }
+      if ($range_visible) {
+        echo get_range_tag($range);
+      }
+      echo $args['after_widget'];
+    endif; //$widget_mode ?>
   <?php
   }
   function update($new_instance, $old_instance) {
