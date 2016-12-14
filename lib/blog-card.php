@@ -303,7 +303,7 @@ function get_simplicity_cache_dir(){
   return WP_CONTENT_DIR.'/uploads/simplicity-cache';
 }
 
-//外部サイトからブログカードサムネイル用のbase64テキストを取得する
+//外部サイトからブログカードサムネイルを取得する
 if ( !function_exists( 'fetch_card_image' ) ):
 function fetch_card_image($image){
   if ( WP_Filesystem() ) {//WP_Filesystemの初期化
@@ -370,7 +370,8 @@ function url_to_external_ogp_blog_card_tag($url){
   $url_hash = 'sp_bcc_'.md5( $url );
   $error_title = $url;//'This page is error.';
   $title = $error_title;
-  $mshot = is_ssl() ? 'https://s0.wordpress.com/mshots/v1/' : 'http://s.wordpress.com/mshots/v1/';
+  $mshot = 'https://s0.wordpress.com/mshots/v1/';
+  // : 'http://s.wordpress.com/mshots/v1/';
   //$mshot = 'http://capture.heartrails.com/100x100/shorten?';
   $error_image = $mshot.urlencode($url);
   //$error_image = get_template_directory_uri() . '/images/no-image.png';
@@ -394,6 +395,10 @@ function url_to_external_ogp_blog_card_tag($url){
     } else {
       //キャッシュ画像の取得
       $res = fetch_card_image($ogp->image);
+      // echo('<pre>');
+      // var_dump($res);
+      // echo('</pre>');
+
       if ( $res ) {
         $ogp->image = $res;
       }
@@ -430,13 +435,14 @@ function url_to_external_ogp_blog_card_tag($url){
 
     $error_rel_nofollow = null;
   }
+  //var_dump($image);
 
   //ドメイン名を取得
   $domain = get_domain_name(isset($ogp->url) ? punycode_decode($ogp->url) : punycode_decode($url));
 
 
   //og:imageが相対パスのとき
-  if(!$image || (strpos($image, '//') === false) || (strpos($image, 'https:') === false)){    // //OGPのURL情報があるか
+  if(!$image || (strpos($image, '//') === false) || ((is_ssl() || is_amp()) && (strpos($image, 'https:') === false))){    // //OGPのURL情報があるか
     //相対パスの時はエラー用の画像を表示
     $image = $error_image;
   }
@@ -485,8 +491,9 @@ function url_to_external_ogp_blog_card_tag($url){
     $site_logo_tag = '<div class="blog-card-site">'.$favicon_tag.$site_logo_tag.'</div>';
   }
 
-  if ( $image ) {//サムネイルが存在しない場合
-    $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" height="100" width="100"'.get_noimage_sizes_attr().' />';
+  //サムネイルを取得できた場合
+  if ( $image ) {
+    $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" height="100" width="100" />';
   }
   //取得した情報からブログカードのHTMLタグを作成
   $tag = '<div class="blog-card external-blog-card'.$thumbnail_class.$wide_class.' cf"><div class="blog-card-thumbnail"><a href="'.$url.'" class="blog-card-thumbnail-link"'.$target.$nofollow.'>'.$thumbnail.'</a></div><div class="blog-card-content"><div class="blog-card-title"><a href="'.$url.'" class="blog-card-title-link"'.$target.$nofollow.'>'.$title.'</a></div><div class="blog-card-excerpt">'.$excerpt.'</div></div><div class="blog-card-footer">'.$site_logo_tag.$hatebu_tag.'</div></div>';
