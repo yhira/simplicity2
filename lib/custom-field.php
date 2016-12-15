@@ -24,6 +24,9 @@ function add_custom_boxes(){
     add_meta_box( 'amp_setting_in_page','AMP設定', 'view_amp_custom_box', 'post', 'side' );
   }
 
+  //更新タイプ
+  add_meta_box( 'update_type_setting_in_page', '更新タイプ', 'view_update_type_custom_box', 'post', 'side' );
+
 }
 
 ///////////////////////////////////////
@@ -377,4 +380,58 @@ function save_amp_custom_data(){
 //投稿のAMPページが生成に設定されているか
 function is_amp_single_page_enable(){
   return !get_post_meta(get_the_ID(), 'is_noamp', true);
+}
+
+/*管理画面が開いたときに実行*/
+//add_action( 'admin_menu', 'add_update_level_custom_box' );
+
+/* カスタムフィールドを投稿画面に追加 */
+// function add_update_level_custom_box() {
+//     //ページ編集画面にカスタムメタボックスを追加
+//     add_meta_box( 'update_level', '更新レベル', 'html_update_level_custom_box', 'post', 'side', 'high' );
+//}
+
+/* 投稿画面に表示するフォームのHTMLソース */
+function view_update_type_custom_box() {
+    $post = $_GET ? $_GET['post'] : null;
+    $update_level = get_post_meta( $post, 'update_level' );
+    $level = $update_level ? $update_level[0] : null;
+    echo '<div style="padding-top: 3px; overflow: hidden;">';
+    echo '<div style="width: 100px; float: left;"><input name="update_level" type="radio" value="high" ';
+    if( $level=="" || $level=="high" ) echo ' checked="checked"';
+    echo ' />通常更新</div><div style=""><input name="update_level" type="radio" value="low" ';
+    if( $level=="low" ) echo ' checked="checked"';
+    echo '/>更新日を変更しない<br /></div>';
+    echo '<p class="howto" style="margin-top:1em;">更新日時を変更するかどうかを設定します。誤字修正などで更新日を変更したくない場合は「更新日を変更しない」にチェックを入れてください。</p>';
+    echo '</div>';
+}
+
+
+/*更新ボタンが押されたときに実行*/
+add_action( 'save_post', 'save_update_type_custom_data' );
+/* 設定したカスタムフィールドの値をDBに書き込む記述 */
+function save_update_type_custom_data( $post_id ) {
+    $mydata = $_POST ? $_POST['update_level'] : null;
+    if( "" == get_post_meta( $post_id, 'update_level' )) {
+        /* update_levelというキーでデータが保存されていなかった場合、新しく保存 */
+        add_post_meta( $post_id, 'update_level', $mydata, true ) ;
+    } elseif( $mydata != get_post_meta( $post_id, 'update_level' )) {
+        /* update_levelというキーのデータと、現在のデータが不一致の場合、更新 */
+        update_post_meta( $post_id, 'update_level', $mydata ) ;
+    } elseif( "" == $mydata ) {
+        /* 現在のデータが無い場合、update_levelというキーの値を削除 */
+        delete_post_meta( $post_id, 'update_level' ) ;
+    }
+}
+
+/* 「更新」以外は更新日時を変更しない */
+add_filter( 'wp_insert_post_data', 'simplicity_insert_post_data', 10, 2 );
+function simplicity_insert_post_data( $data, $postarr ){
+  //$update_level = $_POST ? $_POST['update_level'] : null;
+  $mydata = $_POST ? $_POST['update_level'] : null;
+  if( $mydata == "low" ){
+    unset( $data["post_modified"] );
+    unset( $data["post_modified_gmt"] );
+  }
+  return $data;
 }
