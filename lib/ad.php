@@ -99,8 +99,8 @@ function is_ads_sidebar_enable(){
              !is_404() && //404ページじゃないとき
              ( !is_home() || is_ads_top_page_visible() ) &&//トップページは「トップページ広告が許可」されている時だけ表示
              !is_mobile_menu_type_slide_in() &&//スライドイン表示でないとき
-             (!is_mobile() || is_singular()) &&//投稿・固定ページ以外のモバイルページでは表示しない
-             !is_bbpress_page() //bbPressが生成したページでないとき
+             (!is_mobile() || is_single()) &&//投稿ページ以外のモバイルページでは表示しない（固定ページは2つ縦に並んで表示される可能性があるので投稿ページのみ）
+             (!is_mobile() || !is_bbpress_page()) //bbPressが生成したページのモバイルページでは表示しない（PCページでbbPressページ以外のとき）
     ) {
       return true;
     }
