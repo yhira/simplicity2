@@ -3552,6 +3552,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 40,
   ) ) );
 
+  //REST APIを有効
+  $wp_customize->add_setting('rest_api_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'rest_api_enable', array(
+    'settings' => 'rest_api_enable',
+    'label' =>'REST APIを有効',
+    'description' => is_tips_visible() ? 'Wordpress4.7空追加されたREST APIを有効にします。' : '',
+    'section' => 'other_section',
+    'type' => 'checkbox',
+    'priority' => 42,
+  ));
+
   //外部サイトデータ取得時にSSL検証を行う
   $wp_customize->add_setting('ssl_verification_enable', array(
     'default' => true,
@@ -4650,6 +4664,11 @@ function get_ogp_home_image(){
 //フォローボタンに色をつけるかどうか
 function is_colored_follow_btns(){
   return get_theme_mod( 'colored_follow_btns', false );
+}
+
+//REST APIは有効か
+function is_rest_api_enable(){
+  return get_theme_mod( 'rest_api_enable', false );
 }
 
 //外部サイトデータを取得時にSSL検証を行うか

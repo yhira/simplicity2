@@ -18,7 +18,7 @@ if ( has_amp_page() ): ?>
 <link rel="amphtml" href="<?php echo get_amp_permalink(); ?>">
 <?php endif ?>
 <?php //Wordpressのバージョンが4.1以下のとき
-if ( floatval(get_bloginfo('version')) < 4.1 ):
+if ( get_wordpress_version() < 4.1 ):
   get_template_part('header-title-tag');
 endif; ?>
 <?php get_template_part('header-seo');//SEOの設定テンプレート?>
