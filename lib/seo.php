@@ -37,8 +37,6 @@ function simplicity_wp_title( $title ) {
   return $title;
 }
 endif;
-//Wordpress4.4以上
-//add_filter( 'pre_get_document_title', 'simplicity_wp_title');
 //Wordpress4.4未満
 add_filter( 'wp_title', 'simplicity_wp_title');
 
