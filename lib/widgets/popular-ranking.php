@@ -32,6 +32,8 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
     $is_ranking_visible = apply_filters( 'is_ranking_visible', empty($instance['is_ranking_visible']) ? "" : $instance['is_ranking_visible'], $instance );
     //除外ID
     $exclude_ids = apply_filters( 'exclude_ids', empty($instance['exclude_ids']) ? "" : $instance['exclude_ids'], $instance );
+    //除外カテゴリID
+    $exclude_category_ids = apply_filters( 'exclude_category_ids', empty($instance['exclude_category_ids']) ? "" : $instance['exclude_category_ids'], $instance );
 
     //後で使用するテンプレートファイルへの受け渡し
     //ウィジェットモード
@@ -62,6 +64,9 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
     //除外ID
     global $g_exclude_ids;
     $g_exclude_ids = $exclude_ids;
+    //除外カテゴリーID
+    global $g_exclude_category_ids;
+    $g_exclude_category_ids = $exclude_category_ids;
   ?>
     <?php if ( $widget_mode == 'all' || //モードがウィジェットモードが「すべての人気記事表示」の時
                is_single() || is_category() )://投稿ページとカテゴリーページのとき ?>
@@ -108,6 +113,7 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
     $instance['range_visible'] = $new_instance['range_visible'];
     $instance['is_ranking_visible'] = strip_tags($new_instance['is_ranking_visible']);
     $instance['exclude_ids'] = strip_tags($new_instance['exclude_ids']);
+    $instance['exclude_category_ids'] = strip_tags($new_instance['exclude_category_ids']);
       return $instance;
   }
   function form($instance) {
@@ -123,6 +129,7 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
         'range_visible' => null,
         'is_ranking_visible' => null,
         'exclude_ids' => null,
+        'exclude_category_ids' => null,
       );
     }
     $widget_mode = esc_attr($instance['widget_mode']);
@@ -135,6 +142,8 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
     $range_visible = esc_attr($instance['range_visible']);
     $is_ranking_visible = esc_attr($instance['is_ranking_visible']);
     $exclude_ids = esc_attr($instance['exclude_ids']);
+    if (isset($instance['exclude_category_ids']))
+      $exclude_category_ids = esc_attr($instance['exclude_category_ids']);
     ?>
 
     <?php //ウィジェットモード（全てか、カテゴリ別か） ?>
@@ -211,6 +220,13 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
        <?php echo('除外する投稿ID（カンマ区切りで指定）'); ?>
        </label>
        <input class="widefat" id="<?php echo $this->get_field_id('exclude_ids'); ?>" name="<?php echo $this->get_field_name('exclude_ids'); ?>" type="text" value="<?php echo $exclude_ids; ?>" />
+    </p>
+    <?php //除外するカテゴリID（カンマ区切りで指定） ?>
+    <p>
+       <label for="<?php echo $this->get_field_id('exclude_category_ids'); ?>">
+       <?php echo('除外するカテゴリID（カンマ区切りで指定）'); ?>
+       </label>
+       <input class="widefat" id="<?php echo $this->get_field_id('exclude_category_ids'); ?>" name="<?php echo $this->get_field_name('exclude_category_ids'); ?>" type="text" value="<?php echo $exclude_category_ids; ?>" />
     </p>
     <?php
   }

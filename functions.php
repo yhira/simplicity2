@@ -1142,3 +1142,16 @@ function get_noimage_sizes_attr(){
   $sizes = ' srcset="'.get_template_directory_uri().'/images/no-image.png 100w" width="100" height="100" sizes="(max-width: 100px) 100vw, 100px"';
   return $sizes;
 }
+
+//配列内の数値をマイナスにする
+function minusize_number_in_array($number_array){
+  if (empty($number_array)) {
+    return null;
+  }
+  $number_array = str_replace(' ', '', $number_array);
+  $numbers = explode(',', $number_array);
+  foreach($numbers as &$value){
+    $value = intval($value) * -1;
+  }
+  return implode(',', $numbers);
+}

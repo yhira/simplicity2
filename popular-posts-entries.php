@@ -6,6 +6,12 @@ global $g_is_views_visible;//閲覧数を表示するかどうか
 global $g_range;//集計期間
 global $g_widget_item;//このテンプレートを利用するウイジェットアイテム
 global $g_exclude_ids;//除外ID
+global $g_exclude_category_ids;//除外カテゴリID
+// $exclude_category_ids = '';
+// if (!empty($g_exclude_category_ids)) {
+//   $exclude_category_ids = ','.minusize_number_in_array($g_exclude_category_ids);
+// }
+// var_dump($exclude_category_ids);
 //「Simplicity同カテゴリーの人気エントリー」ウイジェットを使用している時だけカテゴリを絞る
 $now_id = null;
 $post_type = $g_is_pages_include ? null : 'post_type="post"&';
@@ -27,6 +33,16 @@ if ($g_widget_item == 'SimplicityPopularPostsCategoryWidgetItem' &&
     $now_id = $cat_now->cat_ID;
   }
 endif;
+//var_dump($g_exclude_category_ids);
+$exclude_category_ids = minusize_number_in_array($g_exclude_category_ids);
+if ($now_id) {
+  if ($exclude_category_ids) {
+    $now_id = $now_id.','.$exclude_category_ids;
+  }
+} else {
+  $now_id = $exclude_category_ids;
+}
+//var_dump($now_id);
 //デバッグ用
 //echo 'IDs:'.$now_id.'<br />';
 //echo 'RANGE:'.$g_range;
@@ -49,6 +65,15 @@ if ( is_wpp_enable() ):
   'stats_comments=0&
   stats_views='.($g_is_views_visible ? 1 : 0).'';
   wpp_get_mostpopular($args);
-endif; ?>
+endif;
+//グローバル変数のリセット
+$g_widget_mode = null;
+$g_entry_count = null;
+$g_entry_type = null;
+$g_is_pages_include = null;
+$g_is_views_visible = null;
+$g_range = null;
+$g_widget_item = null;
+$g_exclude_ids = null; ?>
 <div class="clear"></div>
 

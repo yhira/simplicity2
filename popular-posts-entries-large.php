@@ -9,6 +9,12 @@ global $g_is_views_visible;//閲覧数を表示するかどうか
 global $g_range;//集計期間
 global $g_widget_item;//このテンプレートを利用するウイジェットアイテム
 global $g_exclude_ids;//除外ID
+global $g_exclude_category_ids;//除外カテゴリID
+$exclude_category_ids = null;
+if (!empty($g_exclude_category_ids)) {
+  $exclude_category_ids = ','.minusize_number_in_array($g_exclude_category_ids);
+}
+//var_dump($exclude_category_ids);
 ?>
 <div class="popular-entrys popular-entrys-large
 <?php if ( $g_entry_type == 'large_thumb_on' &&
@@ -52,7 +58,7 @@ if ( is_wpp_enable() ):
   order_by=views&
   thumbnail_width='.$thumbnail_width.'&
   thumbnail_height='.$thumbnail_height.'&
-  cat="'.$now_id.'"&
+  cat="'.$now_id.$exclude_category_ids.'"&
   pid="'.$g_exclude_ids.'"&
   wpp_start=""&
   wpp_end=""&'.
@@ -62,6 +68,16 @@ if ( is_wpp_enable() ):
   stats_comments=0&
   stats_views='.($g_is_views_visible ? 1 : 0).'';
   wpp_get_mostpopular($args);
-endif; ?>
+endif;
+//グローバル変数のリセット
+$g_widget_mode = null;
+$g_entry_count = null;
+$g_entry_type = null;
+$g_is_pages_include = null;
+$g_is_views_visible = null;
+$g_range = null;
+$g_widget_item = null;
+$g_exclude_ids = null;
+ ?>
 </div>
 <div class="clear"></div>
