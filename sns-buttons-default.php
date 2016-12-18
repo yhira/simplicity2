@@ -29,7 +29,7 @@
     <?php endif; ?>
     <?php if ( is_line_btn_visible() )://LINEボタンを表示するか ?>
     <li class="line-btn">
-      <a href="//line.me/R/msg/text/?<?php the_title(); ?>%0D%0A<?php the_permalink(); ?>" target="blank" class="line-btn-link" rel="nofollow">
+      <a href="//lineit.line.me/share/ui?url=<?php the_permalink(); ?>" target="blank" class="line-btn-link" rel="nofollow">
           <img src="<?php echo get_template_directory_uri().'/images/line-btn.png'; ?>" alt="" class="line-btn-img"><img src="<?php echo get_template_directory_uri().'/images/line-btn-mini.png'; ?>" alt="" class="line-btn-img-mini">
         </a>
     </li>

@@ -121,11 +121,11 @@
     <li class="balloon-btn line-balloon-btn">
       <span class="balloon-btn-set">
         <span class="arrow-box">
-          <a href="//line.me/R/msg/text/?<?php the_title(); ?>%0D%0A<?php the_permalink(); ?>" target="blank" class="arrow-box-link line-arrow-box-link" rel="nofollow">
+          <a href="//lineit.line.me/share/ui?url=<?php the_permalink(); ?>" target="blank" class="arrow-box-link line-arrow-box-link" rel="nofollow">
             LINE!
           </a>
         </span>
-        <a href="//line.me/R/msg/text/?<?php the_title(); ?>%0D%0A<?php the_permalink(); ?>" target="blank" class="balloon-btn-link line-balloon-btn-link" rel="nofollow">
+        <a href="//lineit.line.me/share/ui?url=<?php the_permalink(); ?>" target="blank" class="balloon-btn-link line-balloon-btn-link" rel="nofollow">
           <span class="icon-line"></span>
         </a>
       </span>

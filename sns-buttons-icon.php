@@ -61,7 +61,7 @@ $viral_class = is_share_button_type_mobile_viral() || is_amp() ? ' sns-group-vir
              ?></span></a></li>
     <?php endif; ?>
     <?php if ( is_line_btn_visible() )://LINEボタンを表示するか ?>
-    	<li class="line-btn-icon"><a href="//line.me/R/msg/text/?<?php echo strip_tags( get_the_title() ); ?>%0D%0A<?php the_permalink(); ?>" class="btn-icon-link line-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-line"></span></a></li>
+    	<li class="line-btn-icon"><a href="//lineit.line.me/share/ui?url=<?php the_permalink(); ?>" class="btn-icon-link line-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-line"></span></a></li>
     <?php endif; ?>
     <?php if ( is_evernote_btn_visible() )://Evernoteボタンを表示するか ?>
     <li class="evernote-btn-icon">
