@@ -25,7 +25,7 @@ function add_custom_boxes(){
   }
 
   //更新タイプ
-  add_meta_box( 'update_type_setting_in_page', '更新タイプ', 'view_update_type_custom_box', 'post', 'side' );
+  add_meta_box( 'update_type_setting_in_page', '更新日の変更', 'view_update_type_custom_box', 'post', 'side' );
 
 }
 
@@ -393,16 +393,16 @@ function is_amp_single_page_enable(){
 
 /* 投稿画面に表示するフォームのHTMLソース */
 function view_update_type_custom_box() {
-    $post = $_GET ? $_GET['post'] : null;
+    $post = isset($_GET['post']) ? $_GET['post'] : null;
     $update_level = get_post_meta( $post, 'update_level' );
     $level = $update_level ? $update_level[0] : null;
     echo '<div style="padding-top: 3px; overflow: hidden;">';
     echo '<div style="width: 100px; float: left;"><input name="update_level" type="radio" value="high" ';
     if( $level=="" || $level=="high" ) echo ' checked="checked"';
-    echo ' />通常更新</div><div style=""><input name="update_level" type="radio" value="low" ';
+    echo ' />変更する</div><div style=""><input name="update_level" type="radio" value="low" ';
     if( $level=="low" ) echo ' checked="checked"';
-    echo '/>更新日を変更しない<br /></div>';
-    echo '<p class="howto" style="margin-top:1em;">更新日時を変更するかどうかを設定します。誤字修正などで更新日を変更したくない場合は「更新日を変更しない」にチェックを入れてください。</p>';
+    echo '/>変更しない<br /></div>';
+    echo '<p class="howto" style="margin-top:1em;">更新日時を変更するかどうかを設定します。誤字修正などで更新日を変更したくない場合は「変更しない」にチェックを入れてください。</p>';
     echo '</div>';
 }
 
@@ -411,7 +411,7 @@ function view_update_type_custom_box() {
 add_action( 'save_post', 'save_update_type_custom_data' );
 /* 設定したカスタムフィールドの値をDBに書き込む記述 */
 function save_update_type_custom_data( $post_id ) {
-    $mydata = $_POST ? $_POST['update_level'] : null;
+    $mydata = isset($_POST['update_level']) ? $_POST['update_level'] : null;
     if( "" == get_post_meta( $post_id, 'update_level' )) {
         /* update_levelというキーでデータが保存されていなかった場合、新しく保存 */
         add_post_meta( $post_id, 'update_level', $mydata, true ) ;
@@ -425,13 +425,13 @@ function save_update_type_custom_data( $post_id ) {
 }
 
 /* 「更新」以外は更新日時を変更しない */
-add_filter( 'wp_insert_post_data', 'simplicity_insert_post_data', 10, 2 );
 function simplicity_insert_post_data( $data, $postarr ){
   //$update_level = $_POST ? $_POST['update_level'] : null;
-  $mydata = $_POST ? $_POST['update_level'] : null;
+  $mydata = isset($_POST['update_level']) ? $_POST['update_level'] : null;
   if( $mydata == "low" ){
     unset( $data["post_modified"] );
     unset( $data["post_modified_gmt"] );
   }
   return $data;
 }
+add_filter( 'wp_insert_post_data', 'simplicity_insert_post_data', 10, 2 );
