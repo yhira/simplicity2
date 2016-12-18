@@ -1751,7 +1751,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'line_btn_visible', array(
     'settings' => 'line_btn_visible',
-    'label' =>'LINEボタンの表示（モバイル時）',
+    'label' =>'LINEボタンの表示',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 70,

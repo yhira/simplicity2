@@ -996,9 +996,3 @@ if ( $header_image && !is_mobile() ): ?>
   background-image:url('<?php echo $header_image; ?>');
 }
 <?php endif; //$header_image ?>
-<?php if (!is_mobile()): ?>
-.line-btn,
-.line-balloon-btn{
-  display: none;
-}
-<?php endif ?>
