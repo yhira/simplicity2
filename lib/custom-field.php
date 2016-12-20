@@ -26,6 +26,7 @@ function add_custom_boxes(){
 
   //更新タイプ
   add_meta_box( 'update_type_setting_in_page', '更新日の変更', 'view_update_type_custom_box', 'post', 'side' );
+  add_meta_box( 'update_type_setting_in_page', '更新日の変更', 'view_update_type_custom_box', 'page', 'side' );
 
 }
 
