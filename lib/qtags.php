@@ -19,6 +19,7 @@ function add_quicktags_to_text_editor() {
       QTags.addButton('qt-keyboard-key','キーボード','<span class="keyboard-key">','</span>');
       QTags.addButton('qt-information','補足説明(i)','<div class="information">','</div>');
       QTags.addButton('qt-question','補足説明(?)','<div class="question">','</div>');
+      QTags.addButton('qt-alert','補足説明(!)','<div class="alert">','</div>');
       QTags.addButton('qt-sp-primary','primary','<div class="sp-primary">','</div>');
       QTags.addButton('qt-sp-success','success','<div class="sp-success">','</div>');
       QTags.addButton('qt-sp-info','info','<div class="sp-info">','</div>');
@@ -92,6 +93,11 @@ function initialize_tinymce_styles($init_array) {
       'title' => '補足情報(?)ボックス',
       'block' => 'div',
       'classes' => 'question'
+    ),
+    array(
+      'title' => '補足情報(!)ボックス',
+      'block' => 'div',
+      'classes' => 'alert'
     ),
     array(
       'title' => 'primaryボックス',
