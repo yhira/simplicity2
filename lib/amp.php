@@ -57,6 +57,8 @@ function convert_content_for_amp($the_content){
 
   //Amazon商品リンクのhttp URLをhttpへ
   $the_content = str_replace('http://rcm-jp.amazon.co.jp/', 'https://rcm-fe.amazon-adsystem.com/', $the_content);
+  $the_content = str_replace('"//rcm-fe.amazon-adsystem.com/', '"https://rcm-fe.amazon-adsystem.com/', $the_content);
+  $the_content = str_replace("'//rcm-fe.amazon-adsystem.com/", "'https://rcm-fe.amazon-adsystem.com/", $the_content);
   //Amazonデフォルトの埋め込みタグを置換する
   $pattern = '/<iframe([^>]+?)(src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?").*?><\/iframe>/is';
   $append = '<amp-iframe$1$2 width="120" height="240"frameborder="0">'.$amp_placeholder.'</amp-iframe>';
@@ -86,6 +88,10 @@ function convert_content_for_amp($the_content){
   //onclick属性を取り除く
   $the_content = preg_replace('/ *?onclick=["][^"]*?["]/i', '', $the_content);
   $the_content = preg_replace('/ *?onclick=[\'][^\']*?[\']/i', '', $the_content);
+
+  //marginwidth属性を取り除く
+  $the_content = preg_replace('/ *?marginwidth=["][^"]*?["]/i', '', $the_content);
+  $the_content = preg_replace('/ *?marginwidth=[\'][^\']*?[\']/i', '', $the_content);
 
   //FONTタグを取り除く
   $the_content = preg_replace('/<font[^>]+?>/i', '', $the_content);
