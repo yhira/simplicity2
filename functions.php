@@ -75,7 +75,12 @@ add_filter('widget_pc_ad_text', 'do_shortcode');
 add_filter('widget_pc_double_ad1_text', 'do_shortcode');
 add_filter('widget_pc_double_ad2_text', 'do_shortcode');
 
-
+//generator を削除
+remove_action('wp_head', 'wp_generator');
+//EditURI を削除
+remove_action('wp_head', 'rsd_link');
+//wlwmanifest を削除
+remove_action('wp_head', 'wlwmanifest_link');
 
 //カスタム背景
 $custom_background_defaults = array(
