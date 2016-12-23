@@ -3560,7 +3560,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'rest_api_enable', array(
     'settings' => 'rest_api_enable',
     'label' =>'REST APIを有効',
-    'description' => is_tips_visible() ? 'Wordpress4.7空追加されたREST APIを有効にします。' : '',
+    'description' => is_tips_visible() ? 'Wordpress4.7から追加されたREST APIを有効にします。' : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 42,
