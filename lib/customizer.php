@@ -5274,6 +5274,7 @@ function get_copylight_credit($should_show_date = true){
   return '&copy; '.$year.' '.$site_tag;
 }
 //ライセンス表記の取得
+if ( !function_exists( 'get_site_license' ) ):
 function get_site_license(){
   $site_license = get_theme_mod( 'site_license', 'copyright' );
   $site_link = ' <a href="'.home_url().'">'.get_bloginfo('name').'</a>';
@@ -5313,6 +5314,7 @@ function get_site_license(){
       return get_copylight_credit(true);//(c)表記の短縮形（日付付）
   }
 }
+endif;
 
 //ローカルでレスポンシブテストのリンクを表示するか
 function is_responsive_test_visible(){
