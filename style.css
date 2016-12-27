@@ -2409,7 +2409,10 @@ div.fb-like-mobile{
 
 #sidebar .blog-card,
 #sidebar .hover-internal-blog-card,
-#sidebar .hover-external-blog-card {
+#sidebar .hover-external-blog-card,
+#footer .blog-card,
+#footer .hover-internal-blog-card,
+#footer .hover-external-blog-card {
   width: 100%;
   min-width: initial;
 }
