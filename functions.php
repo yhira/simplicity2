@@ -1085,12 +1085,7 @@ function defer_async_scripts( $tag, $handle, $src ) {
     // 'jquery-migrate',
   );
   $async_scripts = array(
-<<<<<<< HEAD
     'holder-js',
-=======
-    // 'jquery-core',
-    // 'jquery-migrate',
->>>>>>> 8a9f55253384864f6ea24c72de865b3ea0c8e463
     'comment-reply',
     'lity-js',
     'lightbox-js',
