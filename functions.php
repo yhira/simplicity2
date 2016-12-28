@@ -1144,8 +1144,11 @@ function url_to_local($url){
 }
 
 //images/no-image.pngを使用するimgタグに出力するサイズ関係の属性
-function get_noimage_sizes_attr(){
-  $sizes = ' srcset="'.get_template_directory_uri().'/images/no-image.png 100w" width="100" height="100" sizes="(max-width: 100px) 100vw, 100px"';
+function get_noimage_sizes_attr($image = null){
+  if (!$image) {
+    $image = get_template_directory_uri().'/images/no-image.png';
+  }
+  $sizes = ' srcset="'.$image.' 100w" width="100" height="100" sizes="(max-width: 100px) 100vw, 100px"';
   return $sizes;
 }
 
