@@ -76,7 +76,7 @@ endif; ?>
       <div id="body">
         <div id="body-in">
 
-          <?php get_template_part('before-main'); //メインカラーの手前に挿入するテンプレート（3カラム作成カスタマイズ時などに） ?>
+          <?php get_template_part('before-main'); //メインカラムの手前に挿入するテンプレート（3カラム作成カスタマイズ時などに） ?>
 
           <!-- main -->
           <main itemscope itemprop="mainContentOfPage">

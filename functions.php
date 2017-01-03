@@ -871,6 +871,9 @@ function is_entry_card_style(){
 //bodyタグに追加するクラス名
 if ( !function_exists( 'body_class_names' ) ):
 function body_class_names($classes) {
+  if (!is_singular()) {
+    return $classes;
+  }
   if ( is_page_type_default() ) {
     //デフォルトは何もしない
   } elseif ( is_page_type_column1_narrow() ) {
