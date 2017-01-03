@@ -1167,3 +1167,19 @@ if (!is_rest_api_enable() && (get_wordpress_version() >= 4.7)) {
 function get_wordpress_version(){
   return floatval(get_bloginfo('version'));
 }
+
+//レンダリングブロックしているJavascriptの読み込みを遅らせる
+if ( !function_exists( 'move_scripts_head_to_footer' ) ):
+function move_scripts_head_to_footer(){
+  //ヘッダーのスクリプトを取り除く
+  remove_action('wp_head', 'wp_print_scripts');
+  remove_action('wp_head', 'wp_print_head_scripts', 9);
+  remove_action('wp_head', 'wp_enqueue_scripts', 1);
+
+  //フッターにスクリプトを移動する
+  add_action('wp_footer', 'wp_print_scripts', 5);
+  add_action('wp_footer', 'wp_print_head_scripts', 5);
+  add_action('wp_footer', 'wp_enqueue_scripts', 5);
+}
+endif;
+add_action( 'wp_enqueue_scripts', 'move_scripts_head_to_footer' );
