@@ -16,10 +16,7 @@ if ( is_list_style_large_cards() ||
       <span class="post-date"><span class="fa fa-clock-o fa-fw"></span><span class="published"><?php the_time( get_theme_text_date_format() ) ;?></span></span>
       <?php endif; //is_create_date_visible?>
 
-      <?php if ( is_category_visible() && //カテゴリを表示する場合
-                 get_the_category() ): //投稿ページの場合?>
-      <span class="category"><span class="fa fa-folder fa-fw"></span><?php the_category('<span class="category-separator">, </span>') ?></span>
-      <?php endif; //is_category_visible?>
+      <?php get_template_part('category-link');//カテゴリーリンク?>
 
       <?php //インデクスにタグを表示したい場合コメントアウト
       //the_tags( '<span class="tag"><span class="fa fa-tags fa-fw"></span>', ', ', '</span>'); ?>

@@ -15,7 +15,7 @@ function move_scripts_head_to_footer(){
   add_action('wp_footer', 'wp_enqueue_scripts', 5);
 }
 endif;
-add_action( 'wp_enqueue_scripts', 'move_scripts_head_to_footer' );
+//add_action( 'wp_enqueue_scripts', 'move_scripts_head_to_footer' );
 
 //スクリプトのasyncやdeferの設定
 if ( !function_exists( 'defer_async_scripts' ) ):

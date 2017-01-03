@@ -18,10 +18,8 @@
     </h1>
     <p class="post-meta">
       <?php get_template_part('datetime') //投稿日と更新日?>
-      <?php if ( is_category_visible() && //カテゴリを表示する場合
-                 get_the_category() ): //投稿ページの場合?>
-      <span class="category"><span class="fa fa-folder fa-fw"></span><?php the_category(', ') ?></span>
-      <?php endif; //is_category_visible?>
+
+      <?php get_template_part('category-link');//カテゴリーリンク?>
 
       <?php //コメント数
       if ( is_comments_visible() && is_comment_count_visible() ):
