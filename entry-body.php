@@ -101,7 +101,7 @@
     <p class="footer-post-meta">
 
       <?php if (is_tag_visible()): ?>
-      <span class="post-tag"><?php the_tags('<span class="fa fa-tags fa-fw"></span>',', '); ?></span>
+      <span class="post-tag"><?php the_tags('<span class="fa fa-tags fa-fw"></span>','<span class="tag-separator">, </span>'); ?></span>
       <?php endif; ?>
 
       <?php if ( is_single() ) get_template_part('author-link') //投稿者リンク?>
