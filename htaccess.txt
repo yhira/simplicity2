@@ -5,13 +5,13 @@
 #
 # [参考ページ]
 # .htaccess の見直しでWebページ高速化｜Thought is free
-# http://thk.kanzae.net/net/itc/t1544/
+# http://thk.kanzae.net/net/itc/t2286/
 ##############################################################
 
 # ETags(Configure entity tags) を無視する設定
-<IfModule mod_headers.c>
+<ifModule mod_headers.c>
     Header unset ETag
-</IfModule>
+</ifModule>
 FileETag None
 
 # Enable Keep-Alive を設定
@@ -21,24 +21,28 @@ FileETag None
 
 # MIME Type 追加
 <IfModule mime_module>
+    AddType text/cache-manifest .appcache
     AddType image/x-icon .ico
     AddType image/svg+xml .svg
     AddType application/x-font-ttf .ttf
     AddType application/x-font-woff .woff
+    AddType application/x-font-woff2 .woff2
     AddType application/x-font-opentype .otf
     AddType application/vnd.ms-fontobject .eot
 </IfModule>
 
 # プロクシキャッシュの設定（画像とフォントをキャッシュ）
 <IfModule mod_headers.c>
-<FilesMatch "\.(ico|jpe?g|png|gif|svg|swf|pdf|ttf|woff|otf|eot)$">
-    Header set Cache-Control "max-age=604800, public"
-</FilesMatch>
+    <FilesMatch "\.(ico|jpe?g|png|gif|svg|swf|pdf|ttf|woff|woff2|otf|eot)$">
+        Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
+    # プロキシサーバーが間違ったコンテンツを配布しないようにする
+    Header append Vary Accept-Encoding env=!dont-vary
 </IfModule>
 
 # ブラウザキャッシュの設定
 <IfModule mod_headers.c>
-<IfModule mod_expires.c>
+<ifModule mod_expires.c>
     ExpiresActive On
 
     # キャッシュ初期化（1秒に設定）
@@ -58,6 +62,7 @@ FileETag None
     ExpiresByType application/x-shockwave-flash "access plus 1 weeks"
     ExpiresByType application/x-font-ttf "access plus 1 year"
     ExpiresByType application/x-font-woff "access plus 1 year"
+    ExpiresByType application/x-font-woff2 "access plus 1 year"
     ExpiresByType application/x-font-opentype "access plus 1 year"
     ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
 </IfModule>
@@ -73,9 +78,7 @@ FileETag None
     BrowserMatch \bMSIE\s(7|8) !no-gzip !gzip-only-text/html
 
     # 画像など圧縮済みのコンテンツは再圧縮しない
-    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|ico)$ no-gzip dont-vary
-    # プロクシサーバーが間違ったコンテンツを配布しないようにする
-    Header append Vary Accept-Encoding env=!dont-vary
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|ico|eot|woff|woff2)$ no-gzip dont-vary
 
     AddOutputFilterByType DEFLATE text/plain
     AddOutputFilterByType DEFLATE text/html
@@ -91,7 +94,5 @@ FileETag None
     AddOutputFilterByType DEFLATE application/x-javascript
     AddOutputFilterByType DEFLATE application/x-httpd-php
     AddOutputFilterByType DEFLATE application/x-font-ttf
-    AddOutputFilterByType DEFLATE application/x-font-woff
     AddOutputFilterByType DEFLATE application/x-font-opentype
-    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
 </IfModule>
