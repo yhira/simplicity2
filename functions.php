@@ -1117,7 +1117,7 @@ function get_noimage_sizes_attr($image = null){
   return $sizes;
 }
 
-//REST APIを無効にする主婦
+//REST APIを無効にする
 function disable_rest_api(){
  return new WP_Error( 'disabled', array( 'status' => rest_authorization_required_code() ) );
 }

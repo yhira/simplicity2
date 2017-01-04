@@ -3554,7 +3554,7 @@ function theme_customize_register($wp_customize) {
 
   //REST APIを有効
   $wp_customize->add_setting('rest_api_enable', array(
-    'default' => false,
+    'default' => true,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'rest_api_enable', array(
@@ -4668,7 +4668,7 @@ function is_colored_follow_btns(){
 
 //REST APIは有効か
 function is_rest_api_enable(){
-  return get_theme_mod( 'rest_api_enable', false );
+  return get_theme_mod( 'rest_api_enable', true );
 }
 
 //外部サイトデータを取得時にSSL検証を行うか
