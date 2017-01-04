@@ -350,7 +350,7 @@ function add_widget_before_1st_h2($the_content) {
   return $the_content;
 }
 endif;
-add_filter('the_content','add_widget_before_1st_h2', 999999);
+add_filter('the_content','add_widget_before_1st_h2');
 
 
 /////////////////////////////////////

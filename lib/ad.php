@@ -37,7 +37,7 @@ function add_ads_before_1st_h2($the_content) {
   return $the_content;
 }
 endif;
-add_filter('the_content', 'add_ads_before_1st_h2', 999999);
+add_filter('the_content', 'add_ads_before_1st_h2');
 
 
 function get_all_post_count_in_publish(){
