@@ -27,7 +27,13 @@ function url_to_blog_card_tag($url){
   $no_image = $mshot.urlencode($url);
 
   $title = $post_data->post_title;//タイトルの取得
-  $date = mysql2date('Y-m-d H:i', $post_data->post_date);//投稿日の取得
+  $date = null;
+  if (is_blog_card_date_type_post_date()) {
+    $date = mysql2date('Y-m-d H:i', $post_data->post_date);//投稿日の取得
+  } else {
+    $date = mysql2date('Y-m-d H:i', $post_data->post_modified);//更新日の取得
+  }
+
   $excerpt = get_content_excerpt($post_data->post_content, get_excerpt_length());
   //抜粋の取得
   if ( is_wordpress_excerpt() && $exce ) {//Wordpress固有の抜粋のとき
@@ -80,7 +86,7 @@ function url_to_blog_card_tag($url){
 
 
   $date_tag = '';
-  if ( is_blog_card_date_visible() ) {
+  if ( !is_blog_card_date_type_none() ) {//日付を表示するとき
     $date_tag = '<div class="blog-card-date">'.$date.'</div>';
   }
   //サムネイルの取得（要100×100のサムネイル設定）

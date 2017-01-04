@@ -2513,16 +2513,35 @@ function theme_customize_register($wp_customize) {
     'priority' => 700,
   ));
 
-  //日付を表示
-  $wp_customize->add_setting('blog_card_date_visible', array(
-    'sanitize_callback' => 'sanitize_check',
+  // //日付を表示
+  // $wp_customize->add_setting('blog_card_date_visible', array(
+  //   'sanitize_callback' => 'sanitize_check',
+  // ));
+  // $wp_customize->add_control( 'blog_card_date_visible', array(
+  //   'settings' => 'blog_card_date_visible',
+  //   'label' =>'投稿日を表示',
+  //   'description' => is_tips_visible() ? '投稿日を表示するか。' : '',
+  //   'section' => 'blog_card_section',
+  //   'type' => 'checkbox',
+  //   'priority' => 800,
+  // ));
+
+  //日付表示
+  $wp_customize->add_setting('blog_card_date_type', array(
+    'default' => 'post_date',
+    'sanitize_callback' => 'sanitize_text',
   ));
-  $wp_customize->add_control( 'blog_card_date_visible', array(
-    'settings' => 'blog_card_date_visible',
-    'label' =>'投稿日を表示',
-    'description' => is_tips_visible() ? '投稿日を表示するか。' : '',
+  $wp_customize->add_control( 'blog_card_date_type', array(
+    'settings' => 'blog_card_date_type',
+    'label' =>'日付表示',
+    'description' => is_tips_visible() ? '内部ブログカードの日付表示設定です。' : '',
     'section' => 'blog_card_section',
-    'type' => 'checkbox',
+    'type' => 'radio',
+    'choices'    => array(
+      'none' => '表示しない',
+      'post_date' => '投稿日を表示（デフォルト）',
+      'update_date' => '更新日を表示',
+    ),
     'priority' => 800,
   ));
 
@@ -4829,6 +4848,27 @@ function is_blog_card_hatena_visible(){
 function is_blog_card_date_visible(){
   return get_theme_mod( 'blog_card_date_visible', false );
 }
+
+//ブログカードの日付表示を取得
+function get_blog_card_date_type(){
+  return get_theme_mod( 'blog_card_date_type', 'post_date' );
+}
+
+//内部ブログカードの日付を表示しないか
+function is_blog_card_date_type_none(){
+  return get_blog_card_date_type() == 'none';
+}
+
+//内部ブログカードの日付に投稿日を表示するか
+function is_blog_card_date_type_post_date(){
+  return get_blog_card_date_type() == 'post_date';
+}
+
+//内部ブログカードの日付に更新日を表示するか
+function is_blog_card_date_type_update_date(){
+  return get_blog_card_date_type() == 'update_date';
+}
+
 
 //内部ブログカードのカラム幅いっぱいにするか
 function is_blog_card_width_auto(){
