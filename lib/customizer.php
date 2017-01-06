@@ -1078,7 +1078,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'post_navi_visible', array(
     'settings' => 'post_navi_visible',
     'label' =>'[前ページ] [次ページ] ナビの表示',
-    'description' => is_tips_visible() ? 'ページ送りナビを表示するか。' : '',
+    'description' => is_tips_visible() ? '投稿にページ送りナビを表示するか。※固定ページには表示されません。' : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 52,
