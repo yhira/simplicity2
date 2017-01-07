@@ -1045,10 +1045,12 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 ** Font Awesome対策
 ************************************/
 #main .information,
-#main .question{padding:10px;}
+#main .question,
+#main .alert{padding:10px;}
 
 #main .information::before,
-#main .question::before{
+#main .question::before,
+#main .alert::before{
   display: none;
 }
 
