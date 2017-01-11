@@ -10,15 +10,31 @@ get_template_part('header-ogp');//Facebook OGP用のタグテンプレート?>
 <?php if ( is_twitter_cards_enable() ) //Twitterカードタグ挿入がオンのとき
 get_template_part('header-twitter-card');//Twitterカード用のタグテンプレート?>
 <script async src="https://cdn.ampproject.org/v0.js"></script>
-<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-<script async custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"></script>
-<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-<script async custom-element="amp-vine" src="https://cdn.ampproject.org/v0/amp-vine-0.1.js"></script>
-<script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
-<script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
-<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
-<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+<?php
+//広告（AdSense）タグを記入
+ob_start();//バッファリング
+get_template_part('ad-amp');//広告貼り付け用に作成したテンプレート
+$ad_template = ob_get_clean();
+$the_content = convert_content_for_amp(get_the_content()).$ad_template;
+$elements = array(
+  'amp-analytics' => 'amp-analytics-0.1.js',
+  'amp-facebook' => 'amp-facebook-0.1.js',
+  'amp-youtube' => 'amp-youtube-0.1.js',
+  'amp-vine' => 'amp-vine-0.1.js',
+  'amp-twitter' => 'amp-twitter-0.1.js',
+  'amp-instagram' => 'amp-instagram-0.1.js',
+  'amp-social-share' => 'amp-social-share-0.1.js',
+  'amp-ad' => 'amp-ad-0.1.js',
+  'amp-iframe' => 'amp-iframe-0.1.js',
+);
+//var_dump($the_content);
+foreach( $elements as $key => $val ) {
+  if( strpos($the_content, '<'.$key) !== false ) {
+    echo '<script async custom-element="'.$key.'" src="https://cdn.ampproject.org/v0/'.$val.'"></script>'.PHP_EOL;
+
+  }
+}
+ ?>
 <?php //JSON-LDの読み込み
 get_template_part('json-ld'); ?>
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
