@@ -93,6 +93,10 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ *?marginwidth=["][^"]*?["]/i', '', $the_content);
   $the_content = preg_replace('/ *?marginwidth=[\'][^\']*?[\']/i', '', $the_content);
 
+  // marginheight属性を取り除く
+  $the_content = preg_replace('/ *? marginheight=["][^"]*?["]/i', '', $the_content);
+  $the_content = preg_replace('/ *? marginheight=[\'][^\']*?[\']/i', '', $the_content);
+
   //FONTタグを取り除く
   $the_content = preg_replace('/<font[^>]+?>/i', '', $the_content);
   $the_content = preg_replace('/<\/font>/i', '', $the_content);
