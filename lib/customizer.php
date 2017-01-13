@@ -2346,7 +2346,7 @@ function theme_customize_register($wp_customize) {
 
   //Twitterカードタイプ
   $wp_customize->add_setting('analytics_tracking_type', array(
-    'default' => 'ga',
+    'default' => 'analytics',
     'sanitize_callback' => 'sanitize_text',
   ));
   $wp_customize->add_control( 'analytics_tracking_type', array(
@@ -5149,7 +5149,7 @@ function get_tracking_id(){
 
 //Google Analyticsトラッキングタイプの取得
 function get_analytics_tracking_type(){
-  return get_theme_mod( 'analytics_tracking_type', 'ga' );
+  return get_theme_mod( 'analytics_tracking_type', 'analytics' );
 }
 
 //Analyticsトラッキングタイプがga.jsか
