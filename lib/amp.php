@@ -60,13 +60,14 @@ function convert_content_for_amp($the_content){
   $the_content = str_replace('"//rcm-fe.amazon-adsystem.com/', '"https://rcm-fe.amazon-adsystem.com/', $the_content);
   $the_content = str_replace("'//rcm-fe.amazon-adsystem.com/", "'https://rcm-fe.amazon-adsystem.com/", $the_content);
   //Amazonデフォルトの埋め込みタグを置換する
+  /*
   $pattern = '/<iframe([^>]+?)(src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?").*?><\/iframe>/is';
   $append = '<amp-iframe$1$2 width="120" height="240"frameborder="0">'.$amp_placeholder.'</amp-iframe>';
-  /*
-  $pattern = '/(<p>)?<iframe([^>]+?)src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?t=([^&]+)[^"]+?asins=([^&]+)[^"]*?".*?><\/iframe>(<\/p>)?/is';
-  $amazon_url = 'http://www.amazon.co.jp/exec/obidos/ASIN/$4/$3/ref=nosim/';
-  $append = PHP_EOL.'<p><a href="'.$amazon_url.'">'.$amazon_url.'</a></p>'.PHP_EOL;
   */
+  $pattern = '/(<p>)?<iframe([^>]+?)(src="https?:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?t=([^&]+)[^"]+?asins=([^&]+)[^"]*?").*?><\/iframe>(<\/p>)?/is';
+  $amazon_url = 'https://www.amazon.co.jp/exec/obidos/ASIN/$5/$4/ref=nosim/';
+  $append = PHP_EOL.'<p><amp-iframe$2$3 width="120" height="240"frameborder="0">'.$amp_placeholder.'</amp-iframe><br><a href="'.$amazon_url.'" class="aa-link"></a></p>'.PHP_EOL;
+
   //$append = url_to_external_ogp_blog_card_tag($amazon_url);
   //$the_content = preg_replace($pattern, htmlspecialchars($append), $the_content);
   $the_content = preg_replace($pattern, $append, $the_content);
