@@ -15,7 +15,14 @@ get_template_part('header-twitter-card');//Twitterカード用のタグテンプ
 ob_start();//バッファリング
 get_template_part('ad-amp');//広告貼り付け用に作成したテンプレート
 $ad_template = ob_get_clean();
-$the_content = convert_content_for_amp(get_the_content()).$ad_template;
+while(have_posts()): the_post();
+  //$the_content = convert_content_for_amp(get_the_content()).$ad_template;
+  //以下の処理はthe_contentで取得しないとプラグインやフックなどの処理後のHTMLが取得できなかったので（get_the_contentではダメだった）
+  ob_start();//バッファリング
+  the_content();//広告貼り付け用に作成したテンプレート
+  $the_content = ob_get_clean();
+  $the_content = $the_content.$ad_template;
+endwhile;
 $elements = array(
   'amp-analytics' => 'amp-analytics-0.1.js',
   'amp-facebook' => 'amp-facebook-0.1.js',
