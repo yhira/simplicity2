@@ -131,3 +131,11 @@ if ( !is_mobile() ) {
   }
 }
 
+if ( !function_exists( 'get_site_screenshot_url' ) ):
+function get_site_screenshot_url($url){
+  $mshot = 'https://s0.wordpress.com/mshots/v1/';
+  //$mshot = 'http://s.wordpress.com/mshots/v1/';
+  //$mshot = 'http://capture.heartrails.com/100x100/shorten?';
+  return $mshot.urlencode($url).'?w=134';
+}
+endif;

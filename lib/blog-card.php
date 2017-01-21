@@ -23,8 +23,7 @@ function url_to_blog_card_tag($url){
   $post_data = get_post($id);
   setup_postdata($post_data);
   $exce = $post_data->post_excerpt;
-  $mshot = 'https://s0.wordpress.com/mshots/v1/';
-  $no_image = $mshot.urlencode($url);
+  $no_image = get_site_screenshot_url($url);
 
   $title = $post_data->post_title;//タイトルの取得
   $date = null;
@@ -379,10 +378,7 @@ function url_to_external_ogp_blog_card_tag($url){
   $url_hash = 'sp_bcc_'.md5( $url );
   $error_title = $url;//'This page is error.';
   $title = $error_title;
-  $mshot = 'https://s0.wordpress.com/mshots/v1/';
-  // : 'http://s.wordpress.com/mshots/v1/';
-  //$mshot = 'http://capture.heartrails.com/100x100/shorten?';
-  $error_image = $mshot.urlencode($url);
+  $error_image = get_site_screenshot_url($url);
   //$error_image = get_template_directory_uri() . '/images/no-image.png';
   $image = $error_image;
   $excerpt = '';
