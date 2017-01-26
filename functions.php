@@ -1129,3 +1129,62 @@ if (!is_rest_api_enable() && (get_wordpress_version() >= 4.7)) {
 function get_wordpress_version(){
   return floatval(get_bloginfo('version'));
 }
+
+//投稿内容をSSL化する
+if ( !function_exists( 'chagne_http_to_https' ) ):
+function chagne_html_to_https($the_content){
+  //httpとhttpsURLの取得
+  if (strpos(site_url(), 'https://') !== false) {
+    $http_url = str_replace('https://', 'http://', site_url());
+    $https_url = site_url();
+  } else {
+    $http_url = site_url();
+    $https_url = str_replace('http://', 'https://', site_url());
+  }
+  //投稿本文の内部リンクを置換
+  $the_content = str_replace($http_url, $https_url, $the_content);
+
+  //AmazonアソシエイトのSSL化
+  $search  = 'http://ecx.images-amazon.com';
+  $replace = 'https://images-fe.ssl-images-amazon.com';
+  $the_content = str_replace($search, $replace, $the_content);
+
+
+  //バリューコマースのSSL化
+  $search  = 'http://ck.jp.ap.valuecommerce.com';
+  $replace = '//ck.jp.ap.valuecommerce.com';
+  $the_content = str_replace($search, $replace, $the_content);
+  $search  = 'http://ad.jp.ap.valuecommerce.com';
+  $replace = '//ad.jp.ap.valuecommerce.com';
+  $the_content = str_replace($search, $replace, $the_content);
+
+  //もしもアフィリエイトのSSL化
+  $search  = 'http://c.af.moshimo.com';
+  $replace = '//af.moshimo.com';
+  $the_content = str_replace($search, $replace, $the_content);
+  $search  = 'http://i.af.moshimo.com';
+  $replace = '//i.moshimo.com';
+  $the_content = str_replace($search, $replace, $the_content);
+  $search  = 'http://image.moshimo.com';
+  $replace = '//image.moshimo.com';
+  $the_content = str_replace($search, $replace, $the_content);
+
+  //A8.netのSSL化
+  $search  = 'http://px.a8.net';
+  $replace = 'https://px.a8.net';
+  $the_content = str_replace($search, $replace, $the_content);
+
+  //アクセストレードのSSL化
+  $search  = 'http://h.accesstrade.net';
+  $replace = 'https://h.accesstrade.net';
+  $the_content = str_replace($search, $replace, $the_content);
+
+  // //のSSL化
+  // $search  = '';
+  // $replace = '';
+  // $the_content = str_replace($search, $replace, $the_content);
+
+  return $the_content;
+}
+endif;
+//add_filter('the_content', 'chagne_html_to_https', 1);
