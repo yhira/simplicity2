@@ -1132,7 +1132,7 @@ function get_wordpress_version(){
 
 //投稿内容をSSL化する
 if ( !function_exists( 'chagne_http_to_https' ) ):
-function chagne_html_to_https($the_content){
+function chagne_site_url_html_to_https($the_content){
   //httpとhttpsURLの取得
   if (strpos(site_url(), 'https://') !== false) {
     $http_url = str_replace('https://', 'http://', site_url());
@@ -1187,4 +1187,4 @@ function chagne_html_to_https($the_content){
   return $the_content;
 }
 endif;
-//add_filter('the_content', 'chagne_html_to_https', 1);
+//add_filter('the_content', 'chagne_site_url_html_to_https', 1);
