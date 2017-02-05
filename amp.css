@@ -22,6 +22,9 @@ amp-img {
   max-width: 100%;
 }
 
+
+amp-img[width|="0"],
+amp-img[height|="0"],
 amp-img[width|="1"],
 amp-img[height|="1"] {
   display: inline-block;
