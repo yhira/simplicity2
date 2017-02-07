@@ -5256,7 +5256,8 @@ function get_amp_test_tool(){
 //AMPバリデーターの取得
 function get_amp_test_tool_url($url){
   $test_url = null;
-  $encoded_url = urlencode($url);
+  $encoded_url = str_replace('&amp;', '&', $url);
+  $encoded_url = urlencode($encoded_url);
   if (get_amp_test_tool() == 'google_amp_test') {
     $test_url = 'https://search.google.com/search-console/amp?url='.$encoded_url;
   } elseif (get_amp_test_tool() == 'the_amp_validator') {

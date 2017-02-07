@@ -30,6 +30,10 @@ amp-img[height|="1"] {
   display: inline-block;
 }
 
+amp-img[src*="ad.jp.ap.valuecommerce.com"]{
+  display: none;
+}
+
 figure{
   margin: 0;
 }
