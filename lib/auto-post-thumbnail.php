@@ -32,18 +32,6 @@ function fetch_thumbnail_image($matches, $key, $post_content, $post_id){
     return null;
   }
 
-  // //ファイルをアップロードディレクトリに移動
-  // $new_file = $uploads['path'] . "/$filename";
-
-  // $file_path = str_replace(site_url(), ABSPATH, $imageUrl);
-  // $file_path = str_replace('//', '/', $file_path);
-  // $file_path = str_replace('\\', '/', $file_path);
-  // // header('Content-Type: text/plain; charset=utf-8');
-  // // var_dump($file_path);
-  // //画像URLにサイトURLが含まれていないとき
-  // if ( ( strpos($imageUrl, site_url()) === false ) ||
-  //      ( !file_exists($file_path) ) ) {//ファイルが存在していないとき
-
     //ユニック（一意）ファイル名を生成
     $filename = wp_unique_filename( $uploads['path'], $filename );
 
@@ -114,102 +102,95 @@ function fetch_thumbnail_image($matches, $key, $post_content, $post_id){
 }
 
 //投稿内の最初の画像をアイキャッチに設定する（Auto Post Thumnailプラグイン的な機能）
-function auto_post_thumbnail_image() {
+function auto_post_thumbnail_image($post_id) {
   global $wpdb;
   global $post;
-  //$postが空の場合は終了
-  if ( isset($post) && isset($post->ID) ) {
-    $post_id = $post->ID;
 
-    //アイキャッチが既に設定されているかチェック
-    if (get_post_meta($post_id, '_thumbnail_id', true) || get_post_meta($post_id, 'skip_post_thumb', true)) {
-        return;
+  if (!$post_id) {
+    $post_id = $post->id;
+  }
+
+  //アイキャッチが既に設定されているかチェック
+  if (get_post_meta($post_id, '_thumbnail_id', true) || get_post_meta($post_id, 'skip_post_thumb', true)) {
+      return;
+  }
+
+  $post = $wpdb->get_results("SELECT * FROM {$wpdb->posts} WHERE id = $post_id");
+
+  //正規表現にマッチしたイメージのリストを格納する変数の初期化
+  $matches = array();
+
+  //投稿本文からすべての画像を取得
+  preg_match_all('/<\s*img [^\>]*src\s*=\s*[\""\']?([^\""\'>]*).+?\/?>/i', $post[0]->post_content, $matches);
+  //var_dump($matches);
+
+  //YouTubeのサムネイルを取得（画像がなかった場合）
+  if (empty($matches[0])) {
+    preg_match('%(?:youtube\.com/(?:user/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $post[0]->post_content, $match);
+    if (!empty($match[1])) {
+      $matches=array(); $matches[0]=$matches[1]=array('http://img.youtube.com/vi/'.$match[1].'/mqdefault.jpg');
     }
+  }
 
-    $post = $wpdb->get_results("SELECT * FROM {$wpdb->posts} WHERE id = $post_id");
+  if (count($matches)) {
+    foreach ($matches[0] as $key => $image) {
+      $thumb_id = null;
+      //画像がイメージギャラリーにあったなら、サムネイルIDをCSSクラスに追加（イメージタグからIDを探す）
+      preg_match('/wp-image-([\d]*)/i', $image, $thumb_id);
+      if ( isset($thumb_id[1]) )
+        $thumb_id = $thumb_id[1];
 
-    //正規表現にマッチしたイメージのリストを格納する変数の初期化
-    $matches = array();
+      //サムネイルが見つからなかったら、データベースから探す
+      if (!$thumb_id &&
+         //画像のパスにサイト名が含まれているとき
+         ( strpos($image, site_url()) !== false ) ) {
+        //$image = substr($image, strpos($image, '"')+1);
+        preg_match('/src *= *"([^"]+)/i', $image, $m);
+        $image = $m[1];
+        if ( isset($m[1]) ) {
+          // header('Content-Type: text/plain; charset=utf-8');//追加
+          // var_dump($path_parts);//追加
+          // var_dump($image);//追加
 
-    //投稿本文からすべての画像を取得
-    preg_match_all('/<\s*img [^\>]*src\s*=\s*[\""\']?([^\""\'>]*).+?\/?>/i', $post[0]->post_content, $matches);
-    //var_dump($matches);
+          //wp_postsテーブルからguidがファイルパスのものを検索してIDを取得
+          $result = $wpdb->get_results("SELECT ID FROM {$wpdb->posts} WHERE guid = '".$image."'");
+          //IDをサムネイルをIDにセットする
+          if ( isset($result[0]) )
+            $thumb_id = $result[0]->ID;
+        }
 
-    //YouTubeのサムネイルを取得（画像がなかった場合）
-    if (empty($matches[0])) {
-      preg_match('%(?:youtube\.com/(?:user/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $post[0]->post_content, $match);
-      if (!empty($match[1])) {
-        $matches=array(); $matches[0]=$matches[1]=array('http://img.youtube.com/vi/'.$match[1].'/mqdefault.jpg');
-      }
-    }
-
-    if (count($matches)) {
-      foreach ($matches[0] as $key => $image) {
-        $thumb_id = null;
-        //画像がイメージギャラリーにあったなら、サムネイルIDをCSSクラスに追加（イメージタグからIDを探す）
-        preg_match('/wp-image-([\d]*)/i', $image, $thumb_id);
-        if ( isset($thumb_id[1]) )
-          $thumb_id = $thumb_id[1];
-
-        //header('Content-Type: text/plain; charset=utf-8');
-        // var_dump($image);
-
-        //サムネイルが見つからなかったら、データベースから探す
-        if (!$thumb_id &&
-           //画像のパスにサイト名が含まれているとき
-           ( strpos($image, site_url()) !== false ) ) {
-          //$image = substr($image, strpos($image, '"')+1);
-          preg_match('/src *= *"([^"]+)/i', $image, $m);
-          $image = $m[1];
-          if ( isset($m[1]) ) {
-            // header('Content-Type: text/plain; charset=utf-8');//追加
-            // var_dump($path_parts);//追加
-            // var_dump($image);//追加
-
+        //サムネイルなどで存在しないときはフルサイズのものをセットする
+        if ( !$thumb_id ) {
+          //ファイルパスの分割
+          $path_parts = pathinfo($image);
+          //サムネイルの追加文字列(-680x400など)を取得
+          preg_match('/-\d+x\d+$/i', $path_parts["filename"], $m);
+          //画像のアドレスにサイト名が入っていてサムネイル文字列が入っているとき
+          if ( isset($m[0]) ) {
+            //サムネイルの追加文字列(-680x400など)をファイル名から削除
+            $new_filename = str_replace($m[0], '', $path_parts["filename"]);
+            //新しいファイル名を利用してファイルパスを結語
+            $new_filepath = $path_parts["dirname"].'/'.$new_filename.'.'.$path_parts["extension"];
             //wp_postsテーブルからguidがファイルパスのものを検索してIDを取得
-            $result = $wpdb->get_results("SELECT ID FROM {$wpdb->posts} WHERE guid = '".$image."'");
+            $result = $wpdb->get_results("SELECT ID FROM {$wpdb->posts} WHERE guid = '".$new_filepath."'");
             //IDをサムネイルをIDにセットする
             if ( isset($result[0]) )
               $thumb_id = $result[0]->ID;
           }
-
-          //サムネイルなどで存在しないときはフルサイズのものをセットする
-          if ( !$thumb_id ) {
-            //ファイルパスの分割
-            $path_parts = pathinfo($image);
-            //サムネイルの追加文字列(-680x400など)を取得
-            preg_match('/-\d+x\d+$/i', $path_parts["filename"], $m);
-            //画像のアドレスにサイト名が入っていてサムネイル文字列が入っているとき
-            if ( isset($m[0]) ) {
-              //サムネイルの追加文字列(-680x400など)をファイル名から削除
-              $new_filename = str_replace($m[0], '', $path_parts["filename"]);
-              //新しいファイル名を利用してファイルパスを結語
-              $new_filepath = $path_parts["dirname"].'/'.$new_filename.'.'.$path_parts["extension"];
-              //wp_postsテーブルからguidがファイルパスのものを検索してIDを取得
-              $result = $wpdb->get_results("SELECT ID FROM {$wpdb->posts} WHERE guid = '".$new_filepath."'");
-              //IDをサムネイルをIDにセットする
-              if ( isset($result[0]) )
-                $thumb_id = $result[0]->ID;
-              // header('Content-Type: text/plain; charset=utf-8');
-              // var_dump($path_parts);
-              // var_dump($new_filepath);
-              // var_dump($thumb_id);
-            }
-          }
         }
+      }
 
 
-        //それでもサムネイルIDが見つからなかったら、画像をURLから取得する
-        if (!$thumb_id) {
-          $thumb_id = fetch_thumbnail_image($matches, $key, $post[0]->post_content, $post_id);
-        }
+      //それでもサムネイルIDが見つからなかったら、画像をURLから取得する
+      if (!$thumb_id) {
+        $thumb_id = apt_generate_post_thumb($matches, $key, $post[0]->post_content, $post_id);
+      }
 
-        //$thumb_id = 627;
-        //サムネイルの取得に成功したらPost Metaをアップデート
-        if ($thumb_id) {
-          update_post_meta( $post_id, '_thumbnail_id', $thumb_id );
-          break;
-        }
+      //$thumb_id = 627;
+      //サムネイルの取得に成功したらPost Metaをアップデート
+      if ($thumb_id) {
+        update_post_meta( $post_id, '_thumbnail_id', $thumb_id );
+        break;
       }
     }
   }
@@ -223,4 +204,5 @@ if ( is_auto_post_thumbnail_enable() ) {
   add_action('pending_to_publish', 'auto_post_thumbnail_image');
   add_action('future_to_publish', 'auto_post_thumbnail_image');
   add_action('xmlrpc_publish_post', 'auto_post_thumbnail_image');
+  //add_action('publish_post', 'auto_post_thumbnail_image');
 }
