@@ -1176,12 +1176,15 @@ function chagne_site_url_html_to_https($the_content){
   $search  = 'http://px.a8.net';
   $replace = 'https://px.a8.net';
   $the_content = str_replace($search, $replace, $the_content);
-  $search  = 'http://www14.a8.net/0.gif';
-  $replace = 'https://www14.a8.net/0.gif';
-  $the_content = str_replace($search, $replace, $the_content);
-  $search  = 'http://www16.a8.net/0.gif';
-  $replace = 'https://www16.a8.net/0.gif';
-  $the_content = str_replace($search, $replace, $the_content);
+  // $search  = 'http://www14.a8.net/0.gif';
+  // $replace = 'https://www14.a8.net/0.gif';
+  // $the_content = str_replace($search, $replace, $the_content);
+  // $search  = 'http://www16.a8.net/0.gif';
+  // $replace = 'https://www16.a8.net/0.gif';
+  // $the_content = str_replace($search, $replace, $the_content);
+  $search  = '{http://www(\d+).a8.net/0.gif}';
+  $replace = "https://www$1.a8.net/0.gif";
+  $the_content = preg_replace($search, $replace, $the_content);
 
   //アクセストレードのSSL対応
   $search  = 'http://h.accesstrade.net';
