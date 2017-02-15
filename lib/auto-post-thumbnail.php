@@ -110,10 +110,19 @@ function auto_post_thumbnail_image($post_id) {
     $post_id = $post->id;
   }
 
+  if (is_object($post_id) && isset($post_id->ID)) {
+    $post_id = $post_id->ID;
+  }
+
   //アイキャッチが既に設定されているかチェック
   if (get_post_meta($post_id, '_thumbnail_id', true) || get_post_meta($post_id, 'skip_post_thumb', true)) {
       return;
   }
+
+  // var_dump($post_id);
+  // if (!$post_id || !$wpdb || !$wpdb->posts) {
+  //   return;
+  // }
 
   $post = $wpdb->get_results("SELECT * FROM {$wpdb->posts} WHERE id = $post_id");
 
