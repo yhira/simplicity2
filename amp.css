@@ -1230,3 +1230,15 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
   display: inline-block;
   vertical-align: text-bottom;
 }
+
+/************************************
+** Crayon Syntax HighlighterのAMPスタイル
+************************************/
+.crayon-plain-wrap,
+.crayon-nums {
+  display: none;
+}
+
+.crayon-code{
+  background-color: #eee;
+}

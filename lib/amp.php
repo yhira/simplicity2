@@ -47,6 +47,8 @@ function convert_content_for_amp($the_content){
     return $the_content;
   }
 
+
+
   //iframe用のplaceholderタグ（amp-iframeの呼び出し位置エラー対策）
   $amp_placeholder = '<amp-img layout="fill" src="'.get_template_directory_uri().'/images/transparence.png'.'" placeholder>';
 
@@ -366,3 +368,12 @@ function get_image_width_and_height($image_url){
     return $res;
   }
 }
+
+
+// function remove_crayon_syntax_highlighter() {
+//   if (is_amp_enable()) {
+//   //Crayon Syntax HighlighterはAMPページで適用しない
+//   remove_filter('the_posts', 'CrayonWP::the_posts', 100);
+//   }
+// }
+// add_action( 'wp_loaded','remove_crayon_syntax_highlighter' );
