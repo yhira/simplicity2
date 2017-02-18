@@ -1234,11 +1234,11 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 /************************************
 ** Crayon Syntax HighlighterのAMPスタイル
 ************************************/
-.crayon-plain-wrap,
+/*.crayon-plain-wrap,
 .crayon-nums {
   display: none;
 }
 
 .crayon-code{
   background-color: #eee;
-}
+}*/

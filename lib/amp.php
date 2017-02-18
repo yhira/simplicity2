@@ -369,11 +369,11 @@ function get_image_width_and_height($image_url){
   }
 }
 
-
-// function remove_crayon_syntax_highlighter() {
-//   if (is_amp_enable()) {
-//   //Crayon Syntax HighlighterはAMPページで適用しない
-//   remove_filter('the_posts', 'CrayonWP::the_posts', 100);
-//   }
-// }
-// add_action( 'wp_loaded','remove_crayon_syntax_highlighter' );
+//AMPページではCrayon Syntax Highlighterを表示しない
+function remove_crayon_syntax_highlighter() {
+  if (isset($_GET['amp']) && $_GET['amp'] === '1') {
+    //Crayon Syntax HighlighterはAMPページで適用しない
+    remove_filter('the_posts', 'CrayonWP::the_posts', 100);
+  }
+}
+add_action( 'wp_loaded','remove_crayon_syntax_highlighter' );
