@@ -192,7 +192,7 @@ function auto_post_thumbnail_image($post_id) {
 
       //それでもサムネイルIDが見つからなかったら、画像をURLから取得する
       if (!$thumb_id) {
-        $thumb_id = apt_generate_post_thumb($matches, $key, $post[0]->post_content, $post_id);
+        $thumb_id = fetch_thumbnail_image($matches, $key, $post[0]->post_content, $post_id);
       }
 
       //$thumb_id = 627;
