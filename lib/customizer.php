@@ -1757,17 +1757,17 @@ function theme_customize_register($wp_customize) {
     'priority' => 70,
   ));
 
-  //Evernoteボタン表示
-  $wp_customize->add_setting('evernote_btn_visible', array(
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'evernote_btn_visible', array(
-    'settings' => 'evernote_btn_visible',
-    'label' =>'Evernoteボタンの表示',
-    'section' => 'sns_section',
-    'type' => 'checkbox',
-    'priority' => 71,
-  ));
+  // //Evernoteボタン表示
+  // $wp_customize->add_setting('evernote_btn_visible', array(
+  //   'sanitize_callback' => 'sanitize_check',
+  // ));
+  // $wp_customize->add_control( 'evernote_btn_visible', array(
+  //   'settings' => 'evernote_btn_visible',
+  //   'label' =>'Evernoteボタンの表示',
+  //   'section' => 'sns_section',
+  //   'type' => 'checkbox',
+  //   'priority' => 71,
+  // ));
 
   //Push7ボタン表示
   $wp_customize->add_setting('push7_btn_visible', array(
@@ -4496,7 +4496,8 @@ function is_line_btn_visible(){
 
 //Evernoteボタンを表示するかどうか
 function is_evernote_btn_visible(){
-  return get_theme_mod( 'evernote_btn_visible', false );
+  return false;
+  //return get_theme_mod( 'evernote_btn_visible', false );
 }
 
 //feedlyボタンを表示するかどうか
