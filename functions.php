@@ -1224,8 +1224,10 @@ function chagne_site_url_html_to_https($the_content){
   return $the_content;
 }
 endif;
-// add_filter('the_content', 'chagne_site_url_html_to_https', 1);
-// add_filter('widget_text', 'chagne_site_url_html_to_https', 1);
-// add_filter('widget_text_pc_text', 'chagne_site_url_html_to_https', 1);
-// add_filter('widget_text_mobile_text', 'chagne_site_url_html_to_https', 1);
-// add_filter('comment_text', 'chagne_site_url_html_to_https', 1);
+if (is_easy_ssl_enable()) {
+  add_filter('the_content', 'chagne_site_url_html_to_https', 1);
+  add_filter('widget_text', 'chagne_site_url_html_to_https', 1);
+  add_filter('widget_text_pc_text', 'chagne_site_url_html_to_https', 1);
+  add_filter('widget_text_mobile_text', 'chagne_site_url_html_to_https', 1);
+  add_filter('comment_text', 'chagne_site_url_html_to_https', 1);
+}

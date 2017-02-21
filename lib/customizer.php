@@ -3585,6 +3585,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 42,
   ));
 
+  //内部URLをSSL対応（簡易版）
+  $wp_customize->add_setting('easy_ssl_enable', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'easy_ssl_enable', array(
+    'settings' => 'easy_ssl_enable',
+    'label' =>'内部URLをSSL対応（簡易版）',
+    'description' => is_tips_visible() ? 'サイトの内部リンクや、非SSLの画像・URLなど、HTTPS化する必要があるURLをSSL対応させて表示させます。（※全てのURLに対応しているわけではありません）' : '',
+    'section' => 'other_section',
+    'type' => 'checkbox',
+    'priority' => 43,
+  ));
+
   //外部サイトデータ取得時にSSL検証を行う
   $wp_customize->add_setting('ssl_verification_enable', array(
     'default' => true,
@@ -4689,6 +4703,11 @@ function is_colored_follow_btns(){
 //REST APIは有効か
 function is_rest_api_enable(){
   return get_theme_mod( 'rest_api_enable', true );
+}
+
+//内部URLのSSL対応
+function is_easy_ssl_enable(){
+  return get_theme_mod( 'easy_ssl_enable', false );
 }
 
 //外部サイトデータを取得時にSSL検証を行うか
