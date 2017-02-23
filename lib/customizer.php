@@ -5305,6 +5305,12 @@ function is_wpp_enable(){
   return function_exists('wpp_get_mostpopular');
 }
 
+//Jetpackがインストールされているかどうか
+function is_jetpack_stats_module_active(){
+  return class_exists( 'jetpack' ) &&
+    Jetpack::is_module_active( 'stats' );
+}
+
 //日本語のスラッグを有効にするかどうか
 function is_japanese_slug_enable(){
   return get_theme_mod( 'japanese_slug_enable', false );
