@@ -40,14 +40,6 @@ div#sidebar{
   background-color: #333;
 }
 
-div#sidebar a{
-  color: #fff;
-}
-
-div#sidebar a:hover{
-  color: red;
-}
-
 div#sidebar #s{
   background-color: #fff;
 }

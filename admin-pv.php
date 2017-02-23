@@ -38,11 +38,12 @@
         $views_daily = $jetpack_views[0]['views'];
       }
     }
+
     echo '<span class="all">全体:<span class="pv-count">', $views_all, '</span></span>';
     echo '<span class="monthly">月:<span class="pv-count">', $views_monthly, '</span></span>';
     echo '<span class="weekly">週:<span class="pv-count">', $views_weekly, '</span></span>';
     echo '<span class="daily">日:<span class="pv-count">', $views_daily, '</span></span>';
-    if (is_jetpack_stats_module_active() && !is_wpp_enable()) {
+    if (is_admin_pv_type_jetpack()) {
       echo '<span class="jp-page"><a href="'.admin_url().'admin.php?page=stats&view=post&post='.get_the_ID().'"title="Jetpackの統計" target="_blank"><span class="fa fa-bar-chart"></span></a></span>';
     }
   ?>
