@@ -1,7 +1,7 @@
 <?php //管理者のみにPV表示 ?>
 <?php if ( is_admin_pv_visible() &&
            is_user_logged_in() &&
-           (is_wpp_enable() || (is_jetpack_stats_module_active() && is_singular())) &&
+           (is_admin_pv_type_wpp() || (is_admin_pv_type_jetpack() && is_singular())) &&
            !(is_front_page() && is_page()) ): ?>
   <div class="admin-pv">
   <?php //全体、月別、週別、日別のPV表示
@@ -9,12 +9,17 @@
     $views_monthly = 0;
     $views_weekly = 0;
     $views_daily = 0;
-    if (is_wpp_enable()) {//Wordpress Popular Posts利用時
+
+    //Wordpress Popular Posts利用時
+    if (is_admin_pv_type_wpp()) {
       $views_all = wpp_get_views ( get_the_ID(), 'all' );
       $views_monthly = wpp_get_views ( get_the_ID(), 'monthly' );
       $views_weekly = wpp_get_views ( get_the_ID(), 'weekly' );
       $views_daily = wpp_get_views ( get_the_ID(), 'daily' );
-    } elseif (is_jetpack_stats_module_active()) {//Jetpack利用時
+    }
+
+    //Jetpack利用時
+    if (is_admin_pv_type_jetpack()) {
 
       $jetpack_views = stats_get_csv('postviews', array('days' => -1, 'limit' => 1, 'post_id' => $post->ID ));
       if (isset($jetpack_views[0]['views'])) {

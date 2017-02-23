@@ -3473,18 +3473,47 @@ function theme_customize_register($wp_customize) {
     'priority' => 400,
   ));
 
-  //管理者のみにPV表示
-  $wp_customize->add_setting('admin_pv_visible', array(
-    'sanitize_callback' => 'sanitize_check',
+  //管理者用PV表
+  $wp_customize->add_setting('admin_pv_type', array(
+    'default'    => 'none',
+    'sanitize_callback' => 'sanitize_text',
   ));
-  $wp_customize->add_control( 'admin_pv_visible', array(
-    'settings' => 'admin_pv_visible',
-    'label' =>'管理者のみにPV表示',
-    'description' => is_tips_visible() ? 'ログインユーザーのみにPVを表示します。（※要Wordpress Popular Postsプラグインのインストール）' : '',
+  $caption_add = null;
+  if (is_admin_pv_type_none()) {
+    $caption_add = 'Wordpress Popular Posts、もしくはJetpackプラグインのインストールが必要です。インストールしたらカスタマイザー画面を再読み込みしてください。';
+  }
+  if (is_admin_pv_type_wpp() && !is_admin_pv_type_jetpack()) {
+    $caption_add = 'Jetpackの統計機能を利用してPV表示もできます。Jetpackを利用した場合、一覧に表示されず表示も遅いですが、ページ解析画面へのリンクが付加されます。';
+  }
+  if (is_admin_pv_type_jetpack() && !is_admin_pv_type_wpp()) {
+    $caption_add = 'Wordpress Popular Postsを利用してPV表示もできます。WPPを利用した場合、表示は早く、一覧ページでも表示されます。ただし、ページ解析画面へのリンクは付加されません。';
+  }
+  $radio_items = array();
+  $radio_items += array('none' => '表示しない');
+  if ( is_wpp_enable() ) $radio_items += array('wordpress_popular_posts' => 'Wordpress Popular Postsで表示（高速。一覧にも表示）');
+  if ( is_jetpack_stats_module_active() ) $radio_items += array('jetpack' => 'Jetpackで表示（遅い。ページアクセス管理画面へのリンク付き）');
+  $wp_customize->add_control( 'admin_pv_type', array(
+    'settings' => 'admin_pv_type',
+    'label' => '管理者用PV表示',
+    'description' => is_tips_visible() ? 'ログインユーザーのみにPVを表示します。'.$caption_add : '',
     'section' => 'admin_section',
-    'type' => 'checkbox',
-    'priority' => 500,
+    'type' => 'radio',
+    'choices'    => $radio_items,
+    'priority'=> 500,
   ));
+
+  // //管理者のみにPV表示
+  // $wp_customize->add_setting('admin_pv_visible', array(
+  //   'sanitize_callback' => 'sanitize_check',
+  // ));
+  // $wp_customize->add_control( 'admin_pv_visible', array(
+  //   'settings' => 'admin_pv_visible',
+  //   'label' =>'管理者のみにPV表示',
+  //   'description' => is_tips_visible() ? 'ログインユーザーのみにPVを表示します。（※要Wordpress Popular Postsプラグインのインストール）' : '',
+  //   'section' => 'admin_section',
+  //   'type' => 'checkbox',
+  //   'priority' => 500,
+  // ));
 
   //Windows Live Writerで編集を表示
   $wp_customize->add_setting('wlw_link_visible', array(
@@ -5147,9 +5176,32 @@ function is_confirmation_before_publish(){
   return get_theme_mod( 'confirmation_before_publish', false );
 }
 
+//管理者用PV表示タイプの取得
+function get_admin_pv_type(){
+  return get_theme_mod( 'admin_pv_type', 'none' );
+}
+
+//管理者用PV表示タイプは「表示しない」か
+function is_admin_pv_type_none(){
+  return get_admin_pv_type() == 'none';
+}
+
+//管理者用PV表示タイプは「Wordpress Popular Posts」か
+function is_admin_pv_type_wpp(){
+  return is_wpp_enable() &&
+    get_admin_pv_type() == 'wordpress_popular_posts';
+}
+
+//管理者用PV表示タイプは「Jetpack」か
+function is_admin_pv_type_jetpack(){
+  return is_jetpack_stats_module_active() &&
+    get_admin_pv_type() == 'jetpack';
+}
+
 //管理者にPV表示
 function is_admin_pv_visible(){
-  return get_theme_mod( 'admin_pv_visible', false );
+  return !is_admin_pv_type_none();
+  //return get_theme_mod( 'admin_pv_visible', false );
 }
 
 //テーマでファビコンを設定するかどうか
