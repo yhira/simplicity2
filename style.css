@@ -1865,7 +1865,7 @@ div.vdh-mask{
 ************************************/
 .hover-image {
   display: inline-block;
-  margin: 16px 0;
+  /*margin: 16px 0;*/
   text-align: left;
   opacity: .99;
   overflow: hidden;
