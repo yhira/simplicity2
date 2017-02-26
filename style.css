@@ -2796,7 +2796,7 @@ a.arrow-box-link{
 }
 
 a.evernote-arrow-box-link{
-  font-family: 'Boogaloo', cursive;
+  /*font-family: 'Boogaloo', cursive;*/
   font-weight:normal;
 }
 
@@ -2935,7 +2935,7 @@ a.comments-balloon-btn-link .fa-comment{position: relative;top:-3px;}
 /************************************
 ** Google FontsのBoogalooをダウンロードしたものの呼び出し
 ************************************/
-@font-face{ /* for IE */
+/*@font-face{ /* for IE */
   font-family: Boogaloo;
   src:url('webfonts/boogaloo/Boogaloo-Regular.ttf');
 }
@@ -2943,7 +2943,7 @@ a.comments-balloon-btn-link .fa-comment{position: relative;top:-3px;}
 @font-face { /* for non IE */
  font-family: Boogaloo;
  src: url('webfonts/boogaloo/Boogaloo-Regular.ttf') format("truetype");
-}
+}*/
 
 /************************************
 ** バイラルボタン
