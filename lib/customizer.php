@@ -288,7 +288,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'header_height', array(
     'settings' => 'header_height',
     'label' => 'ヘッダーの高さpx（デフォルト：100）',
-    'description' => is_tips_visible() ? '画面トップからグローバルメニューまでの高さです。（※ヘッダー画像の設定をする前に高さの設定推奨）' : '',
+    'description' => is_tips_visible() ? '画面トップからグローバルメニューまでの高さです。（※ヘッダー画像設定をする前に高さの設定推奨。変更した場合はカスタマイズ画面を再読み込みしてください）' : '',
     'section' => 'header_image',
     'type' => 'number',
     'priority' => 20,
