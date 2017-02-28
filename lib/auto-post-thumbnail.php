@@ -106,6 +106,8 @@ function auto_post_thumbnail_image($post_id) {
   global $wpdb;
   global $post;
 
+  //$tmp_post = $post;
+
   if (!$post_id) {
     $post_id = $post->id;
   }
@@ -124,18 +126,18 @@ function auto_post_thumbnail_image($post_id) {
   //   return;
   // }
 
-  $post = $wpdb->get_results("SELECT * FROM {$wpdb->posts} WHERE id = $post_id");
+  $the_post = $wpdb->get_results("SELECT * FROM {$wpdb->posts} WHERE id = $post_id");
 
   //正規表現にマッチしたイメージのリストを格納する変数の初期化
   $matches = array();
 
   //投稿本文からすべての画像を取得
-  preg_match_all('/<\s*img [^\>]*src\s*=\s*[\""\']?([^\""\'>]*).+?\/?>/i', $post[0]->post_content, $matches);
+  preg_match_all('/<\s*img [^\>]*src\s*=\s*[\""\']?([^\""\'>]*).+?\/?>/i', $the_post[0]->post_content, $matches);
   //var_dump($matches);
 
   //YouTubeのサムネイルを取得（画像がなかった場合）
   if (empty($matches[0])) {
-    preg_match('%(?:youtube\.com/(?:user/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $post[0]->post_content, $match);
+    preg_match('%(?:youtube\.com/(?:user/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $the_post[0]->post_content, $match);
     if (!empty($match[1])) {
       $matches=array(); $matches[0]=$matches[1]=array('http://img.youtube.com/vi/'.$match[1].'/mqdefault.jpg');
     }
@@ -192,7 +194,7 @@ function auto_post_thumbnail_image($post_id) {
 
       //それでもサムネイルIDが見つからなかったら、画像をURLから取得する
       if (!$thumb_id) {
-        $thumb_id = fetch_thumbnail_image($matches, $key, $post[0]->post_content, $post_id);
+        $thumb_id = fetch_thumbnail_image($matches, $key, $the_post[0]->post_content, $post_id);
       }
 
       //$thumb_id = 627;
@@ -203,6 +205,7 @@ function auto_post_thumbnail_image($post_id) {
       }
     }
   }
+  //$post = $tmp_post;
 }
 if ( is_auto_post_thumbnail_enable() ) {
   //新しい投稿で自動設定する場合
