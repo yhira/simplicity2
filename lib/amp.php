@@ -216,7 +216,7 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/<img(.+?)\/?>/is', '<amp-img$1></amp-img>', $the_content);
 
   // Twitterをamp-twitterに置換する（埋め込みコード）
-  $pattern = '/<blockquote class="twitter-tweet".*?>.+?<a href="https:\/\/twitter.com\/.*?\/status\/(.*?)">.+?<\/blockquote>.*?<script async src="\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/is';
+  $pattern = '/<blockquote class="twitter-tweet".*?>.+?<a href="https:\/\/twitter.com\/.*?\/status\/(.*?)">.+?<\/blockquote>.*?<script async src="\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>(<\/p>)?/is';
   $append = '<p><amp-twitter width=592 height=472 layout="responsive" data-tweetid="$1"></amp-twitter></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
@@ -272,9 +272,15 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace($pattern, $append, $the_content);
 
   //スクリプトを除去する
+  $pattern = '/<p><script.+?<\/script><\/p>/i';
+  $append = '';
+  $the_content = preg_replace($pattern, $append, $the_content);
   $pattern = '/<script.+?<\/script>/is';
   $append = '';
   $the_content = preg_replace($pattern, $append, $the_content);
+  // echo('<pre>');
+  // var_dump(htmlspecialchars($the_content));
+  // echo('</pre>');
 
   return $the_content;
 }
