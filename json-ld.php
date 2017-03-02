@@ -20,8 +20,14 @@
 // アイキャッチ画像URLを取得
 $image_id = get_post_thumbnail_id();
 $image = wp_get_attachment_image_src($image_id, true);
-if ($image) {
+$image_url = null;
+if (isset($image[0])) {
   $image_url = $image[0];
+}
+$image_file = url_to_local($image_url);
+//var_dump($image_file);
+if ($image && file_exists($image_file)) {
+  $image_url = $image_url;
   $size = get_image_width_and_height($image_url);
   $width = $size ? $size['width'] : 800;
   $height = $size ? $size['height'] : 800;
@@ -55,7 +61,8 @@ if ($image) {
 
 <?php
 $image_url = get_amp_logo_url();
-if ($image_url) {//ロゴ画像がある場合
+$image_file = url_to_local($image_url);
+if ($image_url && file_exists($image_file)) {//ロゴ画像がある場合
   $size = get_image_width_and_height($image_url);
   $width = $size ? $size['width'] : 600;
   $height = $size ? $size['height'] : 60;
