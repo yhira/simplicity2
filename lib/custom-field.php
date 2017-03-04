@@ -155,6 +155,8 @@ function view_seo_custom_box(){
   echo '>リンクをフォローしない（nofollow）</label>';
   echo '<p class="howto" style="margin-top:0;">検索エンジンがこのページ上のリンクをフォローしないようにメタタグを設定します。</p>';
 
+  //SEO設定ページへのリンク
+  echo '<p><a href="https://wp-simplicity.com/singular-seo-settings/" target="_blank">SEO項目の設定方法</a></p>';
 }
 
 add_action('save_post', 'save_seo_custom_data');
@@ -361,7 +363,7 @@ function view_amp_custom_box(){
   echo '<label><input type="checkbox" name="is_noamp"';
   if( $is_noamp ){echo " checked";}
   echo '>AMPページを生成しない</label>';
-  echo '<p class="howto" style="margin-top:0;">AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョンページ、スクリプト動作が必要なページ等ではチェックすることをおすすめします。</p>';
+  echo '<p class="howto" style="margin-top:0;">AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョンページ、スクリプト動作が必要なページ等ではチェックすることをおすすめします。<a href="https://wp-simplicity.com/no-amp-page-settings/" target="_blank">機能説明</a></p>';
 
 }
 
