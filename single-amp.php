@@ -115,7 +115,7 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
 <body <?php body_class('amp'); ?> itemscope itemtype="http://schema.org/WebPage">
 <?php //Google Analyticsコード（ログインユーザーはカウントしない）
 if ( !is_user_logged_in() && get_tracking_id() ): ?>
-<amp-pixel src="//ssl.google-analytics.com/collect?v=1&amp;tid=<?php echo get_tracking_id() ?>&amp;t=pageview&amp;cid=<?php echo mt_rand(0, 99999999); ?>&amp;dt=<?php the_title() ?>[AMP]&amp;dl=<?php echo get_amp_permalink() ?>&amp;z=<?php echo mt_rand(0, 99999999); ?>"></amp-pixel>
+<amp-pixel src="//ssl.google-analytics.com/collect?v=1&amp;tid=<?php echo get_tracking_id() ?>&amp;t=pageview&amp;cid=<?php echo mt_rand(0, 99999999); ?>&amp;dt=<?php the_title() ?>【AMP】&amp;dl=<?php echo get_amp_permalink() ?>&amp;z=<?php echo mt_rand(0, 99999999); ?>"></amp-pixel>
 <?php endif ?>
   <div id="container">
     <!-- header -->
