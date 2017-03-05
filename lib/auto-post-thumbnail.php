@@ -121,6 +121,10 @@ function auto_post_thumbnail_image($post_id) {
       return;
   }
 
+  if (has_post_thumbnail()) {
+      return;
+  }
+
   // var_dump($post_id);
   // if (!$post_id || !$wpdb || !$wpdb->posts) {
   //   return;
