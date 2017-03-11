@@ -92,6 +92,10 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ *?onclick=["][^"]*?["]/i', '', $the_content);
   $the_content = preg_replace('/ *?onclick=[\'][^\']*?[\']/i', '', $the_content);
 
+  //onload属性を取り除く
+  $the_content = preg_replace('/ *?onload=["][^"]*?["]/i', '', $the_content);
+  $the_content = preg_replace('/ *?onload=[\'][^\']*?[\']/i', '', $the_content);
+
   //marginwidth属性を取り除く
   $the_content = preg_replace('/ *?marginwidth=["][^"]*?["]/i', '', $the_content);
   $the_content = preg_replace('/ *?marginwidth=[\'][^\']*?[\']/i', '', $the_content);
