@@ -397,8 +397,8 @@ function is_amp_single_page_enable(){
 
 /* 投稿画面に表示するフォームのHTMLソース */
 function view_update_type_custom_box() {
-    $post = isset($_GET['post']) ? $_GET['post'] : null;
-    $update_level = get_post_meta( $post, 'update_level' );
+    $the_post = isset($_GET['post']) ? $_GET['post'] : null;
+    $update_level = get_post_meta( $the_post, 'update_level' );
     $level = $update_level ? $update_level[0] : null;
     echo '<div style="padding-top: 3px; overflow: hidden;">';
     echo '<div style="width: 100px; float: left;"><input name="update_level" type="radio" value="high" ';
