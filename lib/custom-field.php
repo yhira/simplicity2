@@ -35,8 +35,6 @@ function add_custom_boxes(){
 // コメント設定
 ///////////////////////////////////////
 function view_comment_custom_box(){
-  global $post;
-
   $is_comment_form_freeze = get_post_meta(get_the_ID(),'is_comment_form_freeze', true);
   $comment_form_freeze_message = get_post_meta(get_the_ID(),'comment_form_freeze_message', true);
 
@@ -85,8 +83,6 @@ function get_comment_form_freeze_message(){
 // AdSenseの設定
 ///////////////////////////////////////
 function view_ad_custom_box(){
-  global $post;
-
   $is_ads_removed_in_page = get_post_meta(get_the_ID(),'is_ads_removed_in_page', true);
 
   echo '<label><input type="checkbox" name="is_ads_removed_in_page"';
@@ -116,8 +112,6 @@ function is_ads_removed_in_page(){
 // SEO設定
 ///////////////////////////////////////
 function view_seo_custom_box(){
-  global $post;
-
   $seo_title = get_post_meta(get_the_ID(),'seo_title', true);
   $seo_title = htmlspecialchars($seo_title);
   $meta_description = get_post_meta(get_the_ID(),'meta_description', true);
@@ -244,7 +238,6 @@ function get_meta_robots_tag(){
 // ページ設定
 ///////////////////////////////////////
 function view_page_custom_box(){
-  global $post;
   $page_type = get_post_meta(get_the_ID(),'page_type', true);
 
   //ページタイプ
@@ -349,8 +342,6 @@ function get_main_column_width(){
 // AMP設定
 ///////////////////////////////////////
 function view_amp_custom_box(){
-  global $post;
-
   //$is_noamp = '';
   $is_noamp = get_post_meta(get_the_ID(),'is_noamp', true);
   // //初期値が空文字のとき「AMPを有効にする」のデフォルト値をonにする（無効にする場合のnullの場合は何もしない）

@@ -91,4 +91,4 @@ if ( !have_comments() ) {//コメントがないとき
 }
 }
 endif;
-  add_action( 'comment_form_after', 'simplicity_comment_form_after' );
+add_action( 'comment_form_after', 'simplicity_comment_form_after' );
