@@ -37,7 +37,8 @@ img{
   box-sizing: border-box;
 }
 
-figure{
+figure,
+main figure{
   margin: 0;
 }
 
