@@ -19,7 +19,7 @@ function url_to_blog_card_tag($url){
   $id = url_to_postid( $url );//IDを取得（URLから投稿ID変換）
   if ( !$id ) return;//IDを取得できない場合はループを飛ばす
 
-  global $post;
+  //global $post;
   $post_data = get_post($id);
   setup_postdata($post_data);
   $exce = $post_data->post_excerpt;
