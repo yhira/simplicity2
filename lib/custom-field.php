@@ -54,19 +54,19 @@ add_action('save_post', 'save_comment_custom_data');
 function save_comment_custom_data(){
   $id = get_the_ID();
   //コメント凍結
-  $is_comment_form_freeze = null;
-  if ( isset( $_POST['is_comment_form_freeze'] ) )
+  if ( isset( $_POST['is_comment_form_freeze'] ) ){
     $is_comment_form_freeze = $_POST['is_comment_form_freeze'];
-  $is_comment_form_freeze_key = 'is_comment_form_freeze';
-  add_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze, true);
-  update_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze);
+    $is_comment_form_freeze_key = 'is_comment_form_freeze';
+    add_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze, true);
+    update_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze);
+  }
   //コメント凍結メッセージ
-  $comment_form_freeze_message = null;
-  if ( isset( $_POST['comment_form_freeze_message'] ) )
+  if ( isset( $_POST['comment_form_freeze_message'] ) ){
     $comment_form_freeze_message = $_POST['comment_form_freeze_message'];
-  $comment_form_freeze_message_key = 'comment_form_freeze_message';
-  add_post_meta($id, $comment_form_freeze_message_key, $comment_form_freeze_message, true);
-  update_post_meta($id, $comment_form_freeze_message_key, $comment_form_freeze_message);
+    $comment_form_freeze_message_key = 'comment_form_freeze_message';
+    add_post_meta($id, $comment_form_freeze_message_key, $comment_form_freeze_message, true);
+    update_post_meta($id, $comment_form_freeze_message_key, $comment_form_freeze_message);
+  }
 }
 
 //コメント欄を凍結するか
@@ -95,12 +95,12 @@ add_action('save_post', 'save_ad_custom_data');
 function save_ad_custom_data(){
   $id = get_the_ID();
   //広告の除外
-  $is_ads_removed_in_page = null;
-  if ( isset( $_POST['is_ads_removed_in_page'] ) )
+  if ( isset( $_POST['is_ads_removed_in_page'] ) ){
     $is_ads_removed_in_page = $_POST['is_ads_removed_in_page'];
-  $is_ads_removed_in_page_key = 'is_ads_removed_in_page';
-  add_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page, true);
-  update_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page);
+    $is_ads_removed_in_page_key = 'is_ads_removed_in_page';
+    add_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page, true);
+    update_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page);
+  }
 }
 
 //広告を除外しているか
@@ -157,40 +157,40 @@ add_action('save_post', 'save_seo_custom_data');
 function save_seo_custom_data(){
   $id = get_the_ID();
   //タイトル
-  $seo_title = null;
-  if ( isset( $_POST['seo_title'] ) )
+  if ( isset( $_POST['seo_title'] ) ){
     $seo_title = $_POST['seo_title'];
-  $seo_title_key = 'seo_title';
-  add_post_meta($id, $seo_title_key, $seo_title, true);
-  update_post_meta($id, $seo_title_key, $seo_title);
+    $seo_title_key = 'seo_title';
+    add_post_meta($id, $seo_title_key, $seo_title, true);
+    update_post_meta($id, $seo_title_key, $seo_title);
+  }
   //メタディスクリプション
-  $meta_description = null;
-  if ( isset( $_POST['meta_description'] ) )
+  if ( isset( $_POST['meta_description'] ) ){
     $meta_description = $_POST['meta_description'];
-  $meta_description_key = 'meta_description';
-  add_post_meta($id, $meta_description_key, $meta_description, true);
-  update_post_meta($id, $meta_description_key, $meta_description);
+    $meta_description_key = 'meta_description';
+    add_post_meta($id, $meta_description_key, $meta_description, true);
+    update_post_meta($id, $meta_description_key, $meta_description);
+  }
   //メタキーワード
-  $meta_keywords = null;
-  if ( isset( $_POST['meta_keywords'] ) )
+  if ( isset( $_POST['meta_keywords'] ) ){
     $meta_keywords = $_POST['meta_keywords'];
-  $meta_keywords_key = 'meta_keywords';
-  add_post_meta($id, $meta_keywords_key, $meta_keywords, true);
-  update_post_meta($id, $meta_keywords_key, $meta_keywords);
+    $meta_keywords_key = 'meta_keywords';
+    add_post_meta($id, $meta_keywords_key, $meta_keywords, true);
+    update_post_meta($id, $meta_keywords_key, $meta_keywords);
+  }
   //noindex
-  $is_noindex = null;
-  if ( isset( $_POST['is_noindex'] ) )
+  if ( isset( $_POST['is_noindex'] ) ){
     $is_noindex = $_POST['is_noindex'];
-  $is_noindex_key = 'is_noindex';
-  add_post_meta($id, $is_noindex_key, $is_noindex, true);
-  update_post_meta($id, $is_noindex_key, $is_noindex);
+    $is_noindex_key = 'is_noindex';
+    add_post_meta($id, $is_noindex_key, $is_noindex, true);
+    update_post_meta($id, $is_noindex_key, $is_noindex);
+  }
   //nofollow
-  $is_nofollow = null;
-  if ( isset( $_POST['is_nofollow'] ) )
+  if ( isset( $_POST['is_nofollow'] ) ){
     $is_nofollow = $_POST['is_nofollow'];
-  $is_nofollow_key = 'is_nofollow';
-  add_post_meta($id, $is_nofollow_key, $is_nofollow, true);
-  update_post_meta($id, $is_nofollow_key, $is_nofollow);
+    $is_nofollow_key = 'is_nofollow';
+    add_post_meta($id, $is_nofollow_key, $is_nofollow, true);
+    update_post_meta($id, $is_nofollow_key, $is_nofollow);
+  }
 }
 
 //SEO向けのタイトルを取得
@@ -272,12 +272,12 @@ add_action('save_post', 'save_page_custom_data');
 function save_page_custom_data(){
   $id = get_the_ID();
   //ページタイプ
-  $page_type = null;
-  if ( isset( $_POST['page_type'] ) )
+  if ( isset( $_POST['page_type'] ) ){
     $page_type = $_POST['page_type'];
-  $page_type_key = 'page_type';
-  add_post_meta($id, $page_type_key, $page_type, true);
-  update_post_meta($id, $page_type_key, $page_type);
+    $page_type_key = 'page_type';
+    add_post_meta($id, $page_type_key, $page_type, true);
+    update_post_meta($id, $page_type_key, $page_type);
+  }
 }
 
 //ページタイプの取得
@@ -363,12 +363,12 @@ function save_amp_custom_data(){
   $id = get_the_ID();
 
   //AMPを有効化するか
-  $is_noamp = null;
-  if ( isset( $_POST['is_noamp'] ) )
+  if ( isset( $_POST['is_noamp'] ) ){
     $is_noamp = $_POST['is_noamp'];
-  $is_noamp_key = 'is_noamp';
-  add_post_meta($id, $is_noamp_key, $is_noamp, true);
-  update_post_meta($id, $is_noamp_key, $is_noamp);
+    $is_noamp_key = 'is_noamp';
+    add_post_meta($id, $is_noamp_key, $is_noamp, true);
+    update_post_meta($id, $is_noamp_key, $is_noamp);
+  }
 }
 
 
