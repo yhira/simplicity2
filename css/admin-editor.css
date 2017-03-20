@@ -1,5 +1,6 @@
 /*ビジュアルエディターのスタイル*/
 @import url('extension.css');
+@import url('../webfonts/css/font-awesome.min.css');
 
 body.mceContentBody {
   font: 16px 'Lucida Grande','Hiragino Kaku Gothic ProN',
