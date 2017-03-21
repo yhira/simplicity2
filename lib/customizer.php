@@ -4078,9 +4078,11 @@ function is_page_breadcrumb_visible(){
 }
 
 //一覧リストのスタイル取得
+if ( !function_exists( 'get_list_style' ) ):
 function get_list_style(){
   return get_theme_mod( 'list_style', 'cards');
 }
+endif;
 
 //モバイルで1ページに表示する最大投稿数
 function get_posts_per_page_mobile(){
