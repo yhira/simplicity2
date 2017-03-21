@@ -57,6 +57,10 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/<noscript>/i', '', $the_content);
   $the_content = preg_replace('/<\/noscript>/i', '', $the_content);
 
+  //fontタグの削除
+  $the_content = preg_replace('/<font[^>]*?>/i', '', $the_content);
+  $the_content = preg_replace('/<\/font>/i', '', $the_content);
+
   //Amazon商品リンクのhttp URLをhttpへ
   $the_content = str_replace('http://rcm-jp.amazon.co.jp/', 'https://rcm-fe.amazon-adsystem.com/', $the_content);
   $the_content = str_replace('"//rcm-fe.amazon-adsystem.com/', '"https://rcm-fe.amazon-adsystem.com/', $the_content);
