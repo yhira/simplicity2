@@ -3046,6 +3046,20 @@ function theme_customize_register($wp_customize) {
     ) ) );
   endif;
 
+  //AMP用Analyticsコード
+  $wp_customize->add_setting('amp_tracking_id', array(
+    'default' => '',
+    'sanitize_callback' => 'sanitize_text',
+  ));
+  $wp_customize->add_control( 'amp_tracking_id', array(
+    'settings' => 'amp_tracking_id',
+    'label' =>'AMP用AnalyticsトラッキングID',
+    'description' => is_tips_visible() ? 'AMPページ用のGoogle AnalyticsトラッキングIDを新たに設定します。この項目に設定をするとAMPページの集計は別になります。この項目を設定しないで空欄の場合は、「アクセス解析」項目にゃるAnalyticsトラッキングIDを用いて通常ページと併せて集計します。' : '',
+    'section' => 'amp_section',
+    'type' => 'text',
+    'priority'=> 25,
+  ));
+
   //AMP用のロゴ画像
   $wp_customize->add_setting( 'amp_logo_url', array(
     'sanitize_callback' => 'sanitize_file_url',
@@ -5006,6 +5020,12 @@ function is_amp_enable(){
 function get_amp_adsense_code(){
   return htmlspecialchars_decode(get_theme_mod( 'amp_adsense_code', null ));
 }
+
+//AMP用Analytics虎菌がIDの取得
+function get_amp_tracking_id(){
+  return get_theme_mod( 'amp_tracking_id', null );
+}
+
 
 //AMP用ロゴのURLを取得取得
 function get_amp_logo_url(){

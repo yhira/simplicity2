@@ -24,7 +24,7 @@ while(have_posts()): the_post();
   $the_content = $the_content.$ad_template;
 endwhile;
 $elements = array(
-  'amp-analytics' => 'amp-analytics-0.1.js',
+  //'amp-analytics' => 'amp-analytics-0.1.js',
   'amp-facebook' => 'amp-facebook-0.1.js',
   'amp-youtube' => 'amp-youtube-0.1.js',
   'amp-vine' => 'amp-vine-0.1.js',
@@ -40,6 +40,10 @@ foreach( $elements as $key => $val ) {
     echo '<script async custom-element="'.$key.'" src="https://cdn.ampproject.org/v0/'.$val.'"></script>'.PHP_EOL;
 
   }
+}
+//AMP Analytics用のライブラリ
+if ( !is_user_logged_in() && (get_tracking_id() || get_amp_tracking_id()) )  {
+  echo '<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>'.PHP_EOL;
 }
  ?>
 <?php //JSON-LDの読み込み
@@ -114,9 +118,31 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
 </head>
 <body <?php body_class('amp'); ?> itemscope itemtype="http://schema.org/WebPage">
 <?php //Google Analyticsコード（ログインユーザーはカウントしない）
-if ( !is_user_logged_in() && get_tracking_id() ): ?>
-<amp-pixel src="//ssl.google-analytics.com/collect?v=1&amp;tid=<?php echo get_tracking_id() ?>&amp;t=pageview&amp;cid=<?php echo mt_rand(0, 99999999); ?>&amp;dt=<?php the_title() ?>[AMP]&amp;dl=<?php echo get_amp_permalink() ?>&amp;z=<?php echo mt_rand(0, 99999999); ?>"></amp-pixel>
-<?php endif ?>
+//var_dump(get_amp_tracking_id());
+if ( !is_user_logged_in() ) {
+  //AMP用Analyticsトラッキングコードを設定している場合
+  if ( get_amp_tracking_id() ) { ?>
+  <amp-analytics type="googleanalytics" id="analytics1">
+  <script type="application/json">
+  {
+    "vars": {
+      "account": "<?php echo get_amp_tracking_id() ?>"
+    },
+    "triggers": {
+      "trackPageview": {
+        "on": "visible",
+        "request": "pageview"
+      }
+    }
+  }
+  </script>
+  </amp-analytics>
+ <?php //AMP用Analyticsトラッキングコードを設定しておらず通常ステージ用の場合
+ } elseif ( get_tracking_id() ) { ?>
+  <amp-pixel src="//ssl.google-analytics.com/collect?v=1&amp;tid=<?php echo get_tracking_id() ?>&amp;t=pageview&amp;cid=<?php echo mt_rand(0, 99999999); ?>&amp;dt=<?php the_title() ?>[AMP]&amp;dl=<?php echo get_amp_permalink() ?>&amp;z=<?php echo mt_rand(0, 99999999); ?>"></amp-pixel>
+  <?php
+  }
+}//AMP Analytics終了 ?>
   <div id="container">
     <!-- header -->
     <header itemscope itemtype="http://schema.org/WPHeader">
