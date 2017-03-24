@@ -882,15 +882,15 @@ function theme_customize_register($wp_customize) {
     'priority' => 9,
   ));
 
-  //コメント数の表示
+  //コメントボタンの表示
   $wp_customize->add_setting('comment_count_visible', array(
     'default' => false,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'comment_count_visible', array(
     'settings' => 'comment_count_visible',
-    'label' =>'コメント数の表示',
-    'description' => is_tips_visible() ? 'コメント数リンクを表示するか。（※コメントの設定でコメントを表示にしていないと表示されません。）' : '',
+    'label' =>'コメントボタンの表示',
+    'description' => is_tips_visible() ? 'コメントボタンリンクを表示するか。（※コメントの設定でコメントを表示にしていないと表示されません。）' : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 9.5,
