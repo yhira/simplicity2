@@ -22,7 +22,7 @@
       <?php get_template_part('category-link');//カテゴリーリンク?>
 
       <?php //コメント数
-      if ( is_comments_visible() && is_comment_count_visible() ):
+      if ( is_comments_visible() && is_comment_count_visible() && is_comment_open() ):
         $comment_count_anchor = ( get_comments_number() > 0 ) ? '#comments' : '#reply-title'; ?>
         <span class="comments">
           <span class="fa fa-comment"></span>

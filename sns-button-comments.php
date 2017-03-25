@@ -1,4 +1,4 @@
-<?php if ( is_comments_btn_visible() && is_single() )://コメントボタンを表示するか
+<?php if ( is_comments_btn_visible() && is_comment_open() && is_single() )://コメントボタンを表示するか
 //コメントがある場合は、コメント一覧に、ない場合はコメント投稿欄に飛ばすためのアンカー
 $comment_count_anchor = ( get_comments_number() > 0 ) ? '#comments' : '#reply-title'; ?>
 <li class="balloon-btn comments-balloon-btn">

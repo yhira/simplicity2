@@ -1231,3 +1231,14 @@ if (is_easy_ssl_enable()) {
   add_filter('widget_text_mobile_text', 'chagne_site_url_html_to_https', 1);
   add_filter('comment_text', 'chagne_site_url_html_to_https', 1);
 }
+
+//コメントが許可されているか
+if ( !function_exists( 'is_comment_open' ) ):
+function is_comment_open(){
+  global $post;
+  if ( isset($post->comment_status) ) {
+    return $post->comment_status == 'open';
+  }
+  return false;
+}
+endif;

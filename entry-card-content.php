@@ -22,7 +22,8 @@ if ( is_list_style_large_cards() ||
       //the_tags( '<span class="tag"><span class="fa fa-tags fa-fw"></span>', ', ', '</span>'); ?>
 
       <?php //コメント数を表示するか
-      if ( is_comments_visible() && is_list_comment_count_visible() ):
+      //var_dump(get_comment_open());
+      if ( is_comments_visible() && is_list_comment_count_visible() && is_comment_open() ):
         $comment_count_anchor = ( get_comments_number() > 0 ) ? '#comments' : '#reply-title'; ?>
         <span class="comments">
           <span class="fa fa-comment"></span>
