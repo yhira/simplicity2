@@ -954,6 +954,7 @@ function theme_customize_register($wp_customize) {
 
   //本文先頭にアイキャッチを表示
   $wp_customize->add_setting('eye_catch_visible', array(
+    'default' => true,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'eye_catch_visible', array(
@@ -3908,7 +3909,7 @@ function is_edit_visible(){
 
 //先頭のアイキャッチを表示するかどうか
 function is_eye_catch_visible(){
-  return get_theme_mod( 'eye_catch_visible', false );
+  return get_theme_mod( 'eye_catch_visible', true );
 }
 
 //先頭のアイキャッチキャプションを表示するかどうか
