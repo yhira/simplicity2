@@ -151,14 +151,7 @@ if ( !is_user_logged_in() ) {
           <div id="h-top">
 
             <div class="alignleft top-title-catchphrase">
-              <p id="site-title" itemscope itemtype="http://schema.org/Organization">
-                <?php
-                $site_title = '<a href="'.home_url('/').'">'.get_bloginfo('name').'</a>';
-                echo $site_title ?>
-              </p>
-              <p id="site-description">
-                <?php echo get_bloginfo('description') ?>
-              </p>
+              <?php get_template_part_amp('header-logo');?>
             </div>
 
             <div class="alignright top-sns-follows">
