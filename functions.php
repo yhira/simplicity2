@@ -144,6 +144,15 @@ function get_the_custom_excerpt($content, $length = 70, $is_card = false) {
   global $post;
   //SEO設定のディスクリプション取得
   $description = get_meta_description_blogcard_snippet($post->ID);
+  //SEO設定のディスクリプションがない場合は「All in One SEO Packの値」を取得
+  if (!$description) {
+    if (class_exists( 'All_in_One_SEO_Pack' )) {
+      $aioseop_description = get_post_meta($post->ID, '_aioseop_description', true);
+      if ($aioseop_description) {
+        $description = $aioseop_description;
+      }
+    }
+  }
   //SEO設定のディスクリプションがない場合は「抜粋」を取得
   if (!$description) {
     $description = $post->post_excerpt;
