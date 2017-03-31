@@ -3273,7 +3273,7 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
   border-top-right-radius: 4px;
 }
 
-@media only screen and ( max-width: 640px ) {
+@media only screen and ( max-width: 500px ) {
   .pagination li.first,
   .pagination li.last {
     /* screen readers only */
@@ -3285,9 +3285,8 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
   .pagination li.previous a { border-left-width: 1px; }
 }
 
-@media only screen and ( max-width: 500px ) {
+@media only screen and ( max-width: 310px ) {
   .pagination li {
-    /* screen readers only */
     position: absolute;
     top: -9999px;
     left: -9999px;
