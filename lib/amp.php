@@ -286,6 +286,18 @@ function convert_content_for_amp($the_content){
   $pattern = '/<script.+?<\/script>/is';
   $append = '';
   $the_content = preg_replace($pattern, $append, $the_content);
+
+  //空のamp-imgタグは削除
+  $pattern = '{<amp-img></amp-img>}i';
+  $append = '';
+  $the_content = preg_replace($pattern, $append, $the_content);
+
+
+  //空のpタグは削除
+  $pattern = '{<p></p>}i';
+  $append = '';
+  $the_content = preg_replace($pattern, $append, $the_content);
+
   // echo('<pre>');
   // var_dump(htmlspecialchars($the_content));
   // echo('</pre>');
