@@ -107,6 +107,8 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
       $css_all .= $css_child;
     }
   }
+  //!importantの除去
+  $css_all = preg_replace('/!important/i', '', $css_all);
 
   //CSSの縮小化
   $css_all = minify_css($css_all);
