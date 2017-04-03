@@ -112,7 +112,7 @@
     </p>
   </footer>
   </article><!-- .article -->
-  <?php if ( is_list_style_bodies() ): //本文リストスタイルの時?>
+  <?php if ( is_list_style_bodies() && !is_singular() ): //本文リストスタイルの時?>
   <hr class="sep" />
   <?php endif; ?>
 </div><!-- .post -->
