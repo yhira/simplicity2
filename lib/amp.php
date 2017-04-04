@@ -144,35 +144,35 @@ function convert_content_for_amp($the_content){
       $sizes_attr = null;
 
       //src属性の取得（画像URLの取得）
-      $src_res = preg_match('/src="([^"]+?)"/is', $match, $srcs);
+      $src_res = preg_match('/src=["\']([^"\']+?)["\']/is', $match, $srcs);
       if ($src_res) {
         $src_attr = ' '.$srcs[0];//src属性を作成
         $url = $srcs[1];//srcの値（URL）を取得する
       }
 
       //width属性の取得
-      $width_res = preg_match('/width="([^"]*?)"/is', $match, $widths);
+      $width_res = preg_match('/width=["\']([^"\']*?)["\']/is', $match, $widths);
       if ($width_res) {
         $width_attr = ' '.$widths[0];//width属性を作成
         $width_value = $widths[1];//widthの値（幅）を取得する
       }
 
       //height属性の取得
-      $height_res = preg_match('/height="([^"]*?)"/is', $match, $heights);
+      $height_res = preg_match('/height=["\']([^"\']*?)["\']/is', $match, $heights);
       if ($height_res) {
         $height_attr = ' '.$heights[0];//height属性を作成
         $height_value = $heights[1];//heightの値（高さ）を取得する
       }
 
       //alt属性の取得
-      $alt_res = preg_match('/alt="([^"]*?)"/is', $match, $alts);
+      $alt_res = preg_match('/alt=["\']([^"\']*?)["\']/is', $match, $alts);
       if ($alt_res) {
         $alt_attr = ' '.$alts[0];//alt属性を作成
         $alt_value = $alts[1];//altの値を取得する
       }
 
       //title属性の取得
-      $title_res = preg_match('/title="([^"]*?)"/is', $match, $titles);
+      $title_res = preg_match('/title=["\']([^"\']*?)["\']/is', $match, $titles);
       if ($title_res) {
         $title_attr = ' '.$titles[0];//title属性を作成
         $title_value = $titles[1];//titleの値を取得する
