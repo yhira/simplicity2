@@ -96,7 +96,7 @@ $viral_class = is_share_button_type_mobile_viral() || is_amp() ? ' sns-group-vir
               }
              ?></span></a></li>
     <?php endif; //is_feedly_btn_visible?>
-    <?php if ( is_comments_btn_visible() && is_single() )://コメント数ボタンを表示するか ?>
+    <?php if ( is_comments_btn_visible() && is_comment_open() && is_single() )://コメント数ボタンを表示するか ?>
     <li class="comments-btn-icon">
     <a href="#reply-title" class="btn-icon-link comments-btn-icon-link" rel="nofollow"><span class="social-icon fa fa-comment"></span><span class="social-count comments-count"><?php echo get_comments_number(); ?></span></a></li>
     <?php endif; //is_comments_visible?>
