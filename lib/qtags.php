@@ -8,6 +8,7 @@ function add_quicktags_to_text_editor() {
   //スクリプトキューにquicktagsが保存されているかチェック
   if (wp_script_is('quicktags')){?>
     <script>
+      QTags.addButton('qt-pre','pre','<pre>','</pre>');
       QTags.addButton('qt-bold','太字','<span class="bold">','</span>');
       QTags.addButton('qt-red','赤字','<span class="red">','</span>');
       QTags.addButton('qt-bold-red','太い赤字','<span class="bold-red">','</span>');
