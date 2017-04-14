@@ -228,6 +228,11 @@ function convert_content_for_amp($the_content){
   $append = '<p><amp-twitter width=592 height=472 layout="responsive" data-tweetid="$1"></amp-twitter></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
+  // JetpackによるFacebook埋め込みをamp-facebookに置換する（埋め込みコード）
+  $pattern = '/<fb:post href="([^"]+?)"><\/fb:post>/is';
+  $append = '<amp-facebook width=324 height=438 layout="responsive" data-href="$1"></amp-facebook>';
+  $the_content = preg_replace($pattern, $append, $the_content);
+
   // vineをamp-vineに置換する
   $pattern = '/<iframe[^>]+?src="https:\/\/vine.co\/v\/(.+?)\/embed\/simple".+?><\/iframe>/is';
   $append = '<p><amp-vine data-vineid="$1" width="592" height="592" layout="responsive"></amp-vine></p>';
