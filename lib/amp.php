@@ -74,6 +74,9 @@ function convert_content_for_amp($the_content){
   $amazon_url = 'https://www.amazon.co.jp/exec/obidos/ASIN/$4/$3/ref=nosim/';
   $append = PHP_EOL.'<amp-iframe$1$2 width="120" height="240" frameborder="0">'.$amp_placeholder.'</amp-iframe><br><a href="'.$amazon_url.'" class="aa-link"></a>'.PHP_EOL;
 
+  //YouTube iframeのsrc属性のhttp URLをhttpsへ
+  $the_content = str_replace('http://www.youtube.com/', 'https://www.youtube.com/', $the_content);
+
   //$append = url_to_external_ogp_blog_card_tag($amazon_url);
   //$the_content = preg_replace($pattern, htmlspecialchars($append), $the_content);
   $the_content = preg_replace($pattern, $append, $the_content);
@@ -104,9 +107,13 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ *?marginwidth=["][^"]*?["]/i', '', $the_content);
   $the_content = preg_replace('/ *?marginwidth=[\'][^\']*?[\']/i', '', $the_content);
 
-  // marginheight属性を取り除く
+  //marginheight属性を取り除く
   $the_content = preg_replace('/ *? marginheight=["][^"]*?["]/i', '', $the_content);
   $the_content = preg_replace('/ *? marginheight=[\'][^\']*?[\']/i', '', $the_content);
+
+  //type属性を取り除く
+  $the_content = preg_replace('/ *? type=["][^"]*?["]/i', '', $the_content);
+  $the_content = preg_replace('/ *? type=[\'][^\']*?[\']/i', '', $the_content);
 
   //FONTタグを取り除く
   $the_content = preg_replace('/<font[^>]+?>/i', '', $the_content);
@@ -255,14 +262,11 @@ function convert_content_for_amp($the_content){
   $append = '<amp-facebook layout="responsive" data-href="$1" width="500" height="450"></amp-facebook>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
-
-
-  //Facebook動画埋め込み対策
-  $the_content = preg_replace('/ +allowTransparency(=["][^"]*?["])?/i', '', $the_content);
-  $the_content = preg_replace('/ +allowFullScreen(=["][^"]*?["])?/i', '', $the_content);
-  //TED動画埋め込み対策
-  $the_content = preg_replace('/ webkitAllowFullScreen(=["][^"]*?["])?/i', '', $the_content);
-  $the_content = preg_replace('/ mozallowfullscreen(=["][^"]*?["])?/i', '', $the_content);
+  //iframe埋め込み対策
+  $the_content = preg_replace('/ +allowTransparency(=["\'][^"\']*?["\'])?/i', '', $the_content);
+  $the_content = preg_replace('/ +allowFullScreen(=["\'][^"\']*?["\'])?/i', '', $the_content);
+  $the_content = preg_replace('/ +webkitAllowFullScreen(=["\'][^"\']*?["\'])?/i', '', $the_content);
+  $the_content = preg_replace('/ +mozallowfullscreen(=["\'][^"\']*?["\'])?/i', '', $the_content);
 
   //タイトルつきiframeでhttpを呼び出している場合は通常リンクに修正
   $pattern = '/<iframe[^>]+?src="(http:\/\/[^"]+?)"[^>]+?title="([^"]+?)"[^>]+?><\/iframe>/is';
