@@ -76,6 +76,8 @@ function convert_content_for_amp($the_content){
 
   //YouTube iframeのsrc属性のhttp URLをhttpsへ
   $the_content = str_replace('http://www.youtube.com/', 'https://www.youtube.com/', $the_content);
+  //JetpackがYouTubeのURLに余計なクエリを付け加えるのを取り除く
+  $the_content = preg_replace('{(https://www.youtube.com/embed/\w+)[^"\']+}i', '$1', $the_content);
 
   //$append = url_to_external_ogp_blog_card_tag($amazon_url);
   //$the_content = preg_replace($pattern, htmlspecialchars($append), $the_content);
