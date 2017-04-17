@@ -408,6 +408,7 @@ hr.sep {
   background-color:#fff;
   border-radius: 4px;
   margin-bottom: 30px;
+  position: relative;
 }
 
 #sidebar {

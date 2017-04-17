@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/*スキン【チョコレート】のモバイル用スタイル*/
+/************************************
+** レイアウト
+************************************/
+div#sidebar {
+  padding: 15px 10px;
+}
+
+/************************************
+** メインメニュー
+************************************/
+#navi ul, #navi ul.sub-menu, #navi ul.children {
+  background-color: #e6bfab;
+}
+
+#navi ul li a {
+  border-bottom: 2px dotted #f0e9e2;
+  color: #6a3906;
+  background-color: #e6bfab;
+}
+
+/************************************
+** アンカー
+************************************/
+#new-entries a, #popular-entries a, .wpp-list a, .entry-read a, .related-entry-read a, .article-list .entry-title a, .entry h2 a {
+  color: #f56993;
+}
+
+/************************************
+** #main内
+************************************/
+.article h2 {
+  margin-left: -10px !important;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.entry-snippet, .entry-read, .related-entry-snippet, .related-entry-read {
+  display: none;
+}
+
+.entry h2 a {
+  color: #f56993;
+}
+
+.entry h2 a:before, .related-entry h4 a:before, a.new-entry-title:before {
+  display: inline-block;
+  width: 1.28571429em;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-align: center;
+  content: "\f138";
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

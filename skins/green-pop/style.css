@@ -1,0 +1,370 @@
+@charset "UTF-8";
+
+/*
+  Name: Green Pop
+  Priority: 3.3
+
+  by 第0版 http://zero.edition.jp/
+*/
+
+
+/*************************************************************************************************************************
+ 全体
+*************************************************************************************************************************/
+body{
+	background-image: url(./images/bg.png);
+	background-position: left top;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+/*************************************************************************************************************************
+ グローバルナビメニュー
+*************************************************************************************************************************/
+#navi{
+	border-bottom: 1px dotted #A5D4AD;
+	background-color: rgba( 255, 255, 255, 0.5 );
+}
+
+#navi ul li a:hover{
+	background-color: #A5D4AD;
+}
+
+#navi ul.sub-menu{
+	background-color: #EBF5EC;
+}
+
+#navi ul.sub-menu li a:hover {
+	background-color: #A5D4AD;
+}
+
+/*************************************************************************************************************************
+ 記事共通
+*************************************************************************************************************************/
+#main{
+	border-left: 1px dotted #A5D4AD;
+	border-right: 1px dotted #A5D4AD;
+}
+
+div#main:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #A5D4AD;
+	font-size: 60px;
+	position: absolute;
+	top: -30px;
+	left: -27px;
+}
+
+div#main:after{
+	font-family: 'FontAwesome';
+	content: '\f08d';
+	color: #FFF;
+	font-size: 30px;
+	position: absolute;
+	top: -15px;
+	left: -11px;
+	-webkit-transform:rotate(315deg);
+	-moz-transform:rotate(3155deg);
+	transform:rotate(315deg);
+}
+
+/*************************************************************************************************************************
+ 記事一覧
+*************************************************************************************************************************/
+#main .entry{
+	border: none !important;
+}
+
+h2 a.entry-title:before{
+	font-family: 'FontAwesome';
+	content: '\f1bb';
+	color: #A5D4AD;
+	margin-right: 10px;
+}
+
+h2 a.entry-title:hover:before{
+	color: #D04255;
+}
+
+/*************************************************************************************************************************
+ 個別記事見出し
+*************************************************************************************************************************/
+.article h1{
+	background-color: #EBF5EC;
+  font-size: 24px;
+  margin: 30px -29px 20px;
+  padding: 10px 10px 10px 40px;
+  position: relative
+}
+
+.article h1:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #A5D4AD;
+	font-size: 52px;
+	position: absolute;
+	left: -22px;
+}
+
+.article h1:after{
+	font-family: 'FontAwesome';
+	content: '\f1bb';
+	color: #FFF;
+	font-size: 25px;
+	position: absolute;
+	top: 11px;
+	left: -10px;
+}
+
+.article h2{
+	font-size: 22px !important;
+	margin: 20px -29px;
+	padding: 10px 10px 2px 40px;
+	border: none;
+	border-bottom: 1px solid #A5D4AD;
+	position: relative;
+}
+
+.article h2:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #A5D4AD;
+	font-size: 40px;
+	position: absolute;
+	left: -17px;
+}
+
+.article h2:after{
+	font-family: 'FontAwesome';
+	content: '\f06c';
+	color: #FFF;
+	font-size: 23px;
+	position: absolute;
+	top: 10px;
+	left: -12px;
+}
+
+.article h3{
+	font-size: 20px;
+	margin: 20px -29px;
+	padding: 10px 10px 1px 40px;
+	border: none;
+	border-bottom: 1px dashed #A5D4AD;
+	position: relative;
+}
+
+.article h3:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #FFF;
+	font-size: 35px;
+	position: absolute;
+	left: -15px;
+}
+
+.article h3:after{
+	font-family: 'FontAwesome';
+	content: '\f10c';
+	color: #A5D4AD;
+	font-size: 35px;
+	position: absolute;
+	top: 10px;
+	left: -15px;
+}
+
+.article h4{
+	font-size: 18px;
+	margin: 20px 0px;
+	padding: 0px 10px;
+	border: none;
+	position: relative;
+}
+
+.article h4:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #A5D4AD;
+	font-size: 20px;
+	position: absolute;
+	left: -38px;
+}
+
+/*************************************************************************************************************************
+ 投稿日・カテゴリ
+*************************************************************************************************************************/
+.post-meta{
+	border-color: #A5D4AD;
+}
+
+/*************************************************************************************************************************
+ 続きを読む
+*************************************************************************************************************************/
+a.entry-read-link:before,
+.related-entry-read a:before{
+	font-family: 'FontAwesome';
+	content: '\f01d';
+	margin-right: 5px;
+}
+
+a.entry-read-link,
+.related-entry-read a{
+	background-color: #EBF5EC;
+	border: 1px solid #EBF5EC;
+}
+
+a:hover.entry-read-link,
+.related-entry-read a:hover{
+	background-color: #A5D4AD;
+	border: 1px solid #A5D4AD;
+}
+
+/*************************************************************************************************************************
+ 関連記事
+*************************************************************************************************************************/
+#related-entries h2{
+	font-size: 22px;
+	position: relative;
+}
+
+#related-entries h2:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #A5D4AD;
+	font-size: 40px;
+	position: absolute;
+	left: -46px;
+}
+
+#related-entries h2:after{
+	font-family: 'FontAwesome';
+	content: '\f06c';
+	color: #FFF;
+	font-size: 23px;
+	position: absolute;
+	left: -41px;
+}
+
+/*************************************************************************************************************************
+ コメント
+*************************************************************************************************************************/
+#reply-title{
+	font-size: 22px;
+	position: relative;
+}
+
+#reply-title:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #A5D4AD;
+	font-size: 40px;
+	position: absolute;
+	left: -46px;
+}
+
+#reply-title:after{
+	font-family: 'FontAwesome';
+	content: '\f06c';
+	color: #FFF;
+	font-size: 23px;
+	position: absolute;
+	left: -41px;
+}
+
+/*************************************************************************************************************************
+ ナビゲーション
+*************************************************************************************************************************/
+.navigation a:hover{
+  background: #EBF5EC;
+}
+
+/*************************************************************************************************************************
+ ページネーション
+*************************************************************************************************************************/
+.pagination a:hover{
+	background-color: #A5D4AD;
+}
+
+.pagination li{
+	border-bottom: 1px solid #A5D4AD;
+}
+
+.pagination li.first{
+	position: relative;
+}
+
+.pagination li.first:before{
+	font-family: 'FontAwesome';
+	content: '\f06c';
+	color: #A5D4AD;
+	font-size: 20px;
+	position: absolute;
+	left: -14px;
+	bottom: -10.3px;
+}
+
+.pagination li.last{
+	position: relative;
+}
+
+.pagination li.last:after{
+	font-family: 'FontAwesome';
+	content: '\f06c';
+	color: #A5D4AD;
+	font-size: 20px;
+	position: absolute;
+	right: -14px;
+	bottom: -10.3px;
+}
+
+.pagination li:not([class*="current"]) a:hover{
+	background-color: #A5D4AD;
+}
+
+.pagination li.current a{
+	background-color: #EBF5EC;
+}
+
+
+/*************************************************************************************************************************
+ サイドバー
+*************************************************************************************************************************/
+#sidebar aside h3{
+	border-bottom: 1px dotted #FDEFF5;
+	position: relative;
+}
+
+#sidebar aside h3:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #FFF;
+	font-size: 30px;
+	position: absolute;
+	left: -28px;
+}
+
+#sidebar aside h3:after{
+	font-family: 'FontAwesome';
+	content: '\f1db';
+	color: #A5D4AD;
+	font-size: 30px;
+	position: absolute;
+	top: 0px;
+	left: -28px;
+}
+
+/*************************************************************************************************************************
+ フッター
+*************************************************************************************************************************/
+#footer{
+	border-top: 1px dotted #A5D4AD;
+}
+
+#footer a{
+	color: #6C9BD2;
+}
+
+#copyright a{
+	color: #6C9BD2;
+	text-decoration: underline;
+}

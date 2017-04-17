@@ -115,6 +115,16 @@ function simplicity_scripts() {
     wp_enqueue_style( 'narrow-style',  get_template_directory_uri() . '/css/narrow.css', array('simplicity-style') );
 
     ///////////////////////////////////////////
+    //設定されたスキンがある場合responsive.cssを読み込む
+    ///////////////////////////////////////////
+    $responsive_style_url = str_replace('style.css', 'responsive.css', get_skin_file());
+    $responsive_style_file = url_to_local($responsive_style_url);
+    if ( get_skin_file() && file_exists($responsive_style_file) ) {
+     wp_enqueue_style( 'responsive-skin-style', $responsive_style_url, array('simplicity-style', 'skin-style') );
+    }
+
+
+    ///////////////////////////////////////////
     //YouTubeなどiframe関係のmedia.css
     ///////////////////////////////////////////
     wp_enqueue_style( 'media-style',  get_template_directory_uri() . '/css/media.css', array('simplicity-style') );
@@ -143,8 +153,10 @@ function simplicity_scripts() {
     ///////////////////////////////////////////
     //設定されたスキンがある場合mobile.cssを読み込む
     ///////////////////////////////////////////
-    if ( get_skin_file() ) {
-      wp_enqueue_style( 'mobile-skin-style',  str_replace('style.css', 'mobile.css', get_skin_file()), array('simplicity-style', 'skin-style', 'mobile-style') );
+    $mobile_style_url = str_replace('style.css', 'mobile.css', get_skin_file());
+    $mobile_style_file = url_to_local($mobile_style_url);
+    if ( get_skin_file() && file_exists($mobile_style_file) ) {
+      wp_enqueue_style( 'mobile-skin-style', $mobile_style_url, array('simplicity-style', 'skin-style', 'mobile-style') );
     }
 
     ///////////////////////////////////////////

@@ -1,0 +1,290 @@
+@charset "UTF-8";
+/*
+  Name: チョコレート
+  Priority: 4.2
+  Author: Aoi
+  Author URI: http://neko-life.com/
+*/
+/************************************
+** 基本設定（General Setting）
+************************************/
+body {
+  background: #f0e9e2 url("images/bd-body.png") 0 0 repeat;
+}
+
+/************************************
+** 見出し（H1-6）
+************************************/
+.article h2 {
+  margin: 40px -10px 20px -29px;
+  padding: 25px 30px;
+  border-left: 6px solid #6a3906;
+  background-color: #f9f6f3;
+  font-size: 26px;
+}
+
+.article h3, #comment-area h3, #related-entries h3 {
+  padding: 10px 0;
+  border-bottom: 5px solid #d2b89a;
+  font-size: 23px;
+}
+
+.article h4 {
+  border-bottom: 5px dotted #f0e9e2;
+}
+
+/************************************
+** アンカー
+************************************/
+a {
+  color: #f56993;
+}
+a:hover {
+  color: #895628;
+}
+
+.related-entry-read a {
+  padding: 2px 10px;
+  color: #111;
+  background-color: #f0e9e2;
+  font-size: 0.8em;
+  text-decoration: none;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+.related-entry-read a:hover {
+  color: #fff;
+  background-color: #f56993;
+}
+
+.entry-read {
+  margin-bottom: 10px;
+}
+.entry-read a.entry-read-link {
+  padding: 1px 10px !important;
+  color: #fff;
+  background-color: #f56993;
+  font-size: 0.8em;
+  text-decoration: none;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+.entry-read a.entry-read-link:hover {
+  background-color: #895628;
+}
+
+/************************************
+** その他（Other）
+************************************/
+.category-description {
+  border: 2px solid #d2b89a;
+  background-color: #f7f7f7;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+}
+
+/************************************
+** ヘッダー(header)
+************************************/
+#header, #header-in {
+  background-color: #6a3906;
+}
+
+#site-title a, #site-description {
+  color: #fff;
+}
+
+/************************************
+** メニュー（menu）
+************************************/
+#navi {
+  padding: 8px 0 12px 0;
+  background: linear-gradient(-135deg, #e6bfab 4px, rgba(0, 0, 0, 0) 0%) 0 4px, linear-gradient(135deg, #e6bfab 4px, #f0e9e2 0%) 0 4px;
+  background-color: #e6bfab;
+  background-repeat: repeat-x !important;
+  background-position: left bottom !important;
+  background-size: 8px 8px;
+}
+
+@media screen and (max-width: 740px) {
+  #navi {
+    padding: 0;
+  }
+
+  #navi-in {
+    padding: 8px 0 12px 0;
+    background: linear-gradient(-135deg, #e6bfab 4px, rgba(0, 0, 0, 0) 0%) 0 4px, linear-gradient(135deg, #e6bfab 4px, #f0e9e2 0%) 0 4px;
+    background-color: #e6bfab;
+    background-repeat: repeat-x !important;
+    background-position: left bottom !important;
+    background-size: 8px 8px;
+  }
+}
+#navi ul {
+  border: none;
+  background-color: #e6bfab;
+}
+
+#navi .menu {
+  border-radius: 0;
+}
+
+#navi ul li a {
+  margin: 0 8px;
+  color: #6a3906;
+}
+
+#navi .menu > li > a {
+  padding: 0.5em 0.7em;
+}
+
+#navi ul li a:hover {
+  color: #f56993;
+  background-color: #fff;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#navi ul.sub-menu, #navi ul.children {
+  border: none;
+  padding-bottom: 8px;
+}
+
+/************************************
+** サーチフォーム（Search Form）
+************************************/
+#s {
+  border-color: #aaa;
+  background-color: #fff;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+}
+
+/************************************
+** メインカラム（#main、記事、固定ページなど）
+************************************/
+.post-meta {
+  background-color: #f9f6f3;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+/************************************
+** index.phpのリスト
+************************************/
+#main .entry {
+  overflow: visible;
+}
+
+.entry-thumb img, .related-entry-thumb img, #new-entries ul li img, #popular-entries ul li img, #prev-next img, #new-entries .new-entrys-large .new-entry img {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/************************************
+** 前の記事へ、次の記事へ
+************************************/
+.navigation a i {
+  color: #e6bfab;
+}
+
+.navigation a:hover {
+  background: #f9f6f3;
+}
+.navigation a:hover i {
+  color: #f56993;
+}
+
+/************************************
+** ページャー、ページナビゲーション
+************************************/
+a.page-numbers, .pager .current {
+  margin: 0 1px;
+  padding: 2px 8px;
+  border: solid 1px #e6bfab;
+  border-radius: 5px;
+  background-color: #e6bfab;
+}
+
+.pager .current {
+  border: solid 1px #e6bfab;
+  color: #000;
+  background-color: #e6bfab;
+}
+
+.pager a {
+  color: #000;
+  background: #fff;
+  text-decoration: none;
+}
+
+.pager a:hover {
+  border: solid 1px #e6bfab;
+  color: #fff;
+  background-color: #f56993;
+}
+
+/************************************
+//** サイドバー（Sidebar）・ウィジェットなど
+//************************************/
+#sidebar {
+  padding: 0 8px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  background-color: #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+#sidebar h4 {
+  margin: 20px 0 10px 0;
+  padding: 5px 0 5px 8px;
+  color: #fff;
+  background-color: #6a3906;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+/************************************
+** フッター(footer)
+************************************/
+#footer {
+  padding: 0;
+  background: #6a3906;
+}
+
+#footer-in {
+  padding: 5px 0;
+  background-color: #6a3906;
+}
+
+/************************************
+** TOPへ戻るボタン（Go to top）
+************************************/
+#page-top a, #mobile-menu a {
+  color: #6a3906;
+  background-color: #e6bfab;
+}
+
+#page-top a:hover, #mobile-menu a:hover {
+  border: none;
+  color: #fff;
+  background-color: #f56993;
+}
+
+/************************************
+** SNSシェアボタン
+************************************/
+/*SNSボタン*/
+ul.snsp li a {
+  color: #f56993;
+}

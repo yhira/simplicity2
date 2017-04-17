@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+@media screen and (max-width:740px){
+  div#main:before,
+  div#main:after{
+    display: none;
+  }
+
+  .article h1{
+    font-size: 24px;
+    margin: 20px 0px 20px 12px;
+    padding: 10px 5px 10px 35px;
+  }
+
+  div .article h2{
+    font-size: 22px;
+    margin: 20px 0px 20px 10px;
+    padding: 10px 5px 2px 30px;
+    border: none;
+    border-bottom: 1px solid #F4B4D0;
+    position: relative;
+  }
+
+  .article h2:before{
+    font-family: 'FontAwesome';
+    content: '\f111';
+    color: #F4B4D0;
+    font-size: 40px;
+    position:absolute;
+    left: -15px;
+  }
+
+  .article h2:after{
+    font-family: 'FontAwesome';
+    content: '\f069';
+    color: #FFF;
+    font-size: 23px;
+    position:absolute;
+    top: 10px;
+    left: -8.5px;
+  }
+
+  .article h3{
+    font-size: 20px;
+    margin: 20px 0px 20px 10px;
+    padding: 10px 5px 1px 25px;
+    border: none;
+    border-bottom: 1px dashed #F4B4D0;
+    position: relative;
+  }
+
+  .article h3:before{
+    font-family: 'FontAwesome';
+    content: '\f111';
+    color: #FFF;
+    font-size: 35px;
+    position:absolute;
+    top: 10px;
+    left: -15px;
+  }
+
+  .article h3:after{
+    font-family: 'FontAwesome';
+    content: '\f10c';
+    color: #F4B4D0;
+    font-size: 35px;
+    position:absolute;
+    top: 10px;
+    left: -15px;
+  }
+
+  .article h4{
+    font-size: 18px;
+    margin: 20px 0px 20px 5px;
+    padding: 0px 5px 1px 25px;
+    border: none;
+    position: relative;
+  }
+
+  .article h4:before{
+    font-family: 'FontAwesome';
+    content: '\f111';
+    color: #F4B4D0;
+    font-size: 20px;
+    position:absolute;
+    left: -5px;
+  }
+
+  .article h5{
+    font-size: 16px;
+    margin: 20px 0px;
+    padding: 0px 10px;
+    border: none;
+  }
+
+  .article h6{
+    font-size: 14px;
+    margin: 20px 0px;
+    padding: 0px 10px;
+    border: none;
+  }
+
+
+}

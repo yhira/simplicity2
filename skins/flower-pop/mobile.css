@@ -1,0 +1,393 @@
+/*
+  Flower Pop by 第0版 http://zero.edition.jp/
+*/
+
+
+/*************************************************************************************************************************
+ グローバルナビゲーション
+*************************************************************************************************************************/
+#navi ul,
+#navi ul.sub-menu,
+#navi ul.children{
+	background: none;
+}
+
+#navi ul li a{
+	color: #333;
+	background: none;
+	background-color: #FCF7FC;
+	border: none;
+	border-radius: 5px;
+}
+
+#navi ul li a:hover{
+	color: #333;
+	background-color: #F4B4D0;
+	-webkit-tap-highlight-color: #F4B4D0;
+}
+
+#navi ul.sub-menu{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#navi ul.sub-menu li{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+
+/*************************************************************************************************************************
+ ヘッダー
+*************************************************************************************************************************/
+#site-description{
+	margin-left: 20px;
+}
+
+/*************************************************************************************************************************
+ 記事一覧
+*************************************************************************************************************************/
+#main .entry{
+	border: none !important;
+}
+
+/*************************************************************************************************************************
+ 記事共通
+*************************************************************************************************************************/
+#main{
+	border: none;
+	border-left: 1px dotted #F4B4D0;
+	border-right: 1px dotted #F4B4D0;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background-color: rgba( 255, 255, 255, 0.95 );
+	margin: 0px auto;
+	padding-top: 20px !important;
+	position: relative;
+}
+
+div#main:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #F4B4D0;
+	font-size: 60px;
+	position: absolute;
+	top: -30px;
+	left: -27px;
+}
+
+div#main:after{
+	content: none;
+}
+
+/*************************************************************************************************************************
+ パンくずリスト
+*************************************************************************************************************************/
+#breadcrumb{
+	margin-left: 15px;
+}
+
+
+/*************************************************************************************************************************
+ 個別記事見出し
+*************************************************************************************************************************/
+.article h1{
+	font-size: 24px;
+	margin: 20px 0px 20px 12px;
+	padding: 10px 5px 10px 35px;
+	position: relative;
+	background-color: #FCF7FC;
+}
+
+.article h1:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #F4B4D0;
+	font-size: 53px;
+	position:absolute;
+	top: 11px;
+	left: -20px;
+}
+
+.article h1:after{
+	font-family: 'FontAwesome';
+	content: '\f004';
+	color: #FFF;
+	font-size: 25px;
+	position:absolute;
+	top: 12px;
+	left: -10px;
+}
+
+.article h2{
+	font-size: 22px;
+	margin: 20px 0px 20px 10px;
+	padding: 10px 5px 2px 30px;
+	border: none;
+	border-bottom: 1px solid #F4B4D0;
+	position: relative;
+}
+
+.article h2:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #F4B4D0;
+	font-size: 40px;
+	position:absolute;
+	left: -15px;
+}
+
+.article h2:after{
+	font-family: 'FontAwesome';
+	content: '\f069';
+	color: #FFF;
+	font-size: 23px;
+	position:absolute;
+	top: 10px;
+	left: -8.5px;
+}
+
+.article h3{
+	font-size: 20px;
+	margin: 20px 0px 20px 10px;
+	padding: 10px 5px 1px 25px;
+	border: none;
+	border-bottom: 1px dashed #F4B4D0;
+	position: relative;
+}
+
+.article h3:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #FFF;
+	font-size: 35px;
+	position:absolute;
+	top: 10px;
+	left: -15px;
+}
+
+.article h3:after{
+	font-family: 'FontAwesome';
+	content: '\f10c';
+	color: #F4B4D0;
+	font-size: 35px;
+	position:absolute;
+	top: 10px;
+	left: -15px;
+}
+
+.article h4{
+	font-size: 18px;
+	margin: 20px 0px 20px 5px;
+	padding: 0px 5px 1px 25px;
+	border: none;
+	position: relative;
+}
+
+.article h4:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #F4B4D0;
+	font-size: 20px;
+	position:absolute;
+	left: -5px;
+}
+
+.article h5{
+	font-size: 16px;
+	margin: 20px 0px;
+	padding: 0px 10px;
+	border: none;
+}
+
+.article h6{
+	font-size: 14px;
+	margin: 20px 0px;
+	padding: 0px 10px;
+	border: none;
+}
+
+/*************************************************************************************************************************
+ 引用
+*************************************************************************************************************************/
+@media screen and (max-width: 639px){
+blockquote{
+	padding: 20px 10px;
+}
+
+blockquote:before{
+	display: inherit;
+	color: #FFF;
+}
+
+blockquote:after{
+	display: inherit;
+	color: #FFF;
+}
+}
+
+/*************************************************************************************************************************
+ 続きを読む
+*************************************************************************************************************************/
+.entry-read,
+.related-entry-read{
+	width: 100%;
+	text-align: right;
+	margin: 10px auto;
+}
+
+a.entry-read-link,
+.related-entry-read a{
+	padding: 5px 10px;
+	color: #555;
+	text-decoration: none;
+	background-color: #FDEFF5;
+	border: 1px solid #FDEFF5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+a:hover.entry-read-link,
+.related-entry-read a:hover{
+	background-color: #F4B4D0;
+	-webkit-tap-highlight-color: #F4B4D0;
+}
+
+a:active.entry-read-link,
+.related-entry-read a:active{
+	background-color: #F4B4D0;
+	border: 1px solid #F4B4D0;
+}
+
+/*************************************************************************************************************************
+ SNS
+*************************************************************************************************************************/
+.social-icon,
+.social-count{
+	color: inherit;
+	font-size: inherit;
+}
+
+ul.snsp a{
+	color: #FFF;
+}
+
+/*************************************************************************************************************************
+ 関連記事
+*************************************************************************************************************************/
+#related-entries h2{
+	font-size: 22px;
+	margin: 20px 0px 20px 10px;
+	padding: 10px 5px 2px 30px;
+	border: none;
+	position: relative;
+}
+
+#related-entries h2:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #F4B4D0;
+	font-size: 40px;
+	position:absolute;
+	left: -15px;
+}
+
+#related-entries h2:after{
+	font-family: 'FontAwesome';
+	content: '\f069';
+	color: #FFF;
+	font-size: 23px;
+	position:absolute;
+	left: -8.5px;
+}
+
+/*************************************************************************************************************************
+ コメント
+*************************************************************************************************************************/
+#reply-title{
+	font-size: 22px;
+	margin: 20px 0px 20px 10px;
+	padding: 10px 5px 2px 30px;
+	border: none;
+	position: relative;
+}
+
+#reply-title:before{
+	font-family: 'FontAwesome';
+	content: '\f111';
+	color: #F4B4D0;
+	font-size: 40px;
+	position:absolute;
+	left: -15px;
+}
+
+#reply-title:after{
+	font-family: 'FontAwesome';
+	content: '\f069';
+	color: #FFF;
+	font-size: 23px;
+	position:absolute;
+	left: -8.5px;
+}
+
+/*************************************************************************************************************************
+ ページネーション
+*************************************************************************************************************************/
+.pagination li.first{
+	position: relative;
+}
+
+.pagination li.first:before{
+	font-family: 'FontAwesome';
+	content: '\f069';
+	color: #F4B4D0;
+	font-size: 20px;
+	position: absolute;
+	left: -14px;
+	bottom: -10.3px;
+}
+
+.pagination li.last{
+	position: relative;
+}
+.pagination li.last:after{
+	font-family: 'FontAwesome';
+	content: '\f069';
+	color: #F4B4D0;
+	font-size: 20px;
+	position: absolute;
+	right: -14px;
+	bottom: -10.3px;
+}
+
+.pagination li:not([class*="current"]) a:hover{
+	background-color: #F4B4D0;
+	-webkit-tap-highlight-color: #F4B4D0;
+}
+
+.pagination li:not([class*="current"]) a:active{
+	background-color: #F4B4D0;
+	-webkit-tap-highlight-color: #F4B4D0;
+}
+
+
+/*************************************************************************************************************************
+ サイドバー
+*************************************************************************************************************************/
+#sidebar aside h3{
+	padding-left: 10px;
+}
+
+/*************************************************************************************************************************
+ トップに戻る
+*************************************************************************************************************************/
+#page-top a{
+	border-radius: 5px;
+	background-color: #FCF7FC;
+	color: #555;
+}
+
