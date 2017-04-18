@@ -56,10 +56,10 @@ function save_comment_custom_data(){
   //コメント凍結
   if ( isset( $_POST['is_comment_form_freeze'] ) ){
     $is_comment_form_freeze = $_POST['is_comment_form_freeze'];
-    $is_comment_form_freeze_key = 'is_comment_form_freeze';
-    add_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze, true);
-    update_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze);
   }
+  $is_comment_form_freeze_key = 'is_comment_form_freeze';
+  add_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze, true);
+  update_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze);
   //コメント凍結メッセージ
   if ( isset( $_POST['comment_form_freeze_message'] ) ){
     $comment_form_freeze_message = $_POST['comment_form_freeze_message'];
@@ -97,10 +97,10 @@ function save_ad_custom_data(){
   //広告の除外
   if ( isset( $_POST['is_ads_removed_in_page'] ) ){
     $is_ads_removed_in_page = $_POST['is_ads_removed_in_page'];
-    $is_ads_removed_in_page_key = 'is_ads_removed_in_page';
-    add_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page, true);
-    update_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page);
   }
+  $is_ads_removed_in_page_key = 'is_ads_removed_in_page';
+  add_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page, true);
+  update_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page);
 }
 
 //広告を除外しているか
@@ -365,10 +365,10 @@ function save_amp_custom_data(){
   //AMPを有効化するか
   if ( isset( $_POST['is_noamp'] ) ){
     $is_noamp = $_POST['is_noamp'];
-    $is_noamp_key = 'is_noamp';
-    add_post_meta($id, $is_noamp_key, $is_noamp, true);
-    update_post_meta($id, $is_noamp_key, $is_noamp);
   }
+  $is_noamp_key = 'is_noamp';
+  add_post_meta($id, $is_noamp_key, $is_noamp, true);
+  update_post_meta($id, $is_noamp_key, $is_noamp);
 }
 
 
