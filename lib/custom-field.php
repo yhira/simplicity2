@@ -54,6 +54,7 @@ add_action('save_post', 'save_comment_custom_data');
 function save_comment_custom_data(){
   $id = get_the_ID();
   //コメント凍結
+  $is_comment_form_freeze = null;
   if ( isset( $_POST['is_comment_form_freeze'] ) ){
     $is_comment_form_freeze = $_POST['is_comment_form_freeze'];
   }
@@ -95,6 +96,7 @@ add_action('save_post', 'save_ad_custom_data');
 function save_ad_custom_data(){
   $id = get_the_ID();
   //広告の除外
+  $is_ads_removed_in_page = null;
   if ( isset( $_POST['is_ads_removed_in_page'] ) ){
     $is_ads_removed_in_page = $_POST['is_ads_removed_in_page'];
   }
@@ -363,6 +365,7 @@ function save_amp_custom_data(){
   $id = get_the_ID();
 
   //AMPを有効化するか
+  $is_noamp = null;
   if ( isset( $_POST['is_noamp'] ) ){
     $is_noamp = $_POST['is_noamp'];
   }

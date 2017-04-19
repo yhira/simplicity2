@@ -70,3 +70,7 @@ div.sidr ul li ul li.sidr-class-active{
 #sidebar.sidr .blog-card-excerpt{
   color: #ccc;
 }
+
+#sidebar.sidr .blog-card-title{
+  color: #fff;
+}

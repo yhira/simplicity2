@@ -428,20 +428,20 @@ jQuery(function(){
 ///////////////////////////////////
 // Facebookページいいねエリアのリサイズ（Androidブラウザ対応用）
 ///////////////////////////////////
-function adjast_article_like_arrow_box() {
-  var w = jQuery('#main').width();
-  jQuery('#main .article-like-arrow-box').css('width', (w - 114) + 'px');
-  w = jQuery('#sidebar').width();
-  jQuery('#sidebar .article-like-arrow-box').css('width', (w - 114) + 'px');
-  //console.log(w);
-}
-jQuery(window).resize(function() {
-  adjast_article_like_arrow_box()
-});
+// function adjast_article_like_arrow_box() {
+//   var w = jQuery('#main').width();
+//   jQuery('#main .article-like-arrow-box').css('width', (w - 114) + 'px');
+//   w = jQuery('#sidebar').width();
+//   jQuery('#sidebar .article-like-arrow-box').css('width', (w - 114) + 'px');
+//   //console.log(w);
+// }
+// jQuery(window).resize(function() {
+//   adjast_article_like_arrow_box()
+// });
 
-jQuery(document).ready(function() {
-  adjast_article_like_arrow_box()
-});
+// jQuery(document).ready(function() {
+//   adjast_article_like_arrow_box()
+// });
 
 // ///////////////////////////////////
 // // Twitterのツイート数取得関数を呼び出す
