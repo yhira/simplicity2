@@ -16,7 +16,6 @@ body{
 	background-size: cover;
 	background-attachment: fixed;
 }
-
 /*************************************************************************************************************************
  グローバルナビメニュー
 *************************************************************************************************************************/
@@ -25,16 +24,46 @@ body{
 	background-color: rgba( 255, 255, 255, 0.5 );
 }
 
+#navi .sub-menu li,
+#navi .children li{
+	height: 44px;
+}
+
+#navi ul{
+	background: none;
+	border: none;
+}
+
+#navi ul li{
+	padding: 5px;
+}
+
+#navi ul li a{
+	padding: 10px;
+}
+
 #navi ul li a:hover{
 	background-color: #9FD9F6;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 #navi ul.sub-menu{
+	border: none;
 	background-color: #EAF6FD;
+	opacity: 0.95;
 }
 
 #navi ul.sub-menu li a:hover {
 	background-color: #9FD9F6;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#navi-in{
+	width: 1000px;
 }
 
 /*************************************************************************************************************************
@@ -357,6 +386,8 @@ a:hover.entry-read-link,
 *************************************************************************************************************************/
 #footer{
 	border-top: 1px dotted #9FD9F6;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
 }
 
 #footer a{
@@ -366,4 +397,10 @@ a:hover.entry-read-link,
 #copyright a{
 	color: #6C9BD2;
 	text-decoration: underline;
+}
+
+#page-top a {
+	color: #333;
+  background-color: #eee;
+  border-radius: 5px;
 }

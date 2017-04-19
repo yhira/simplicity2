@@ -2,6 +2,39 @@
 
 
 @media screen and (max-width:740px){
+  #navi ul,
+  #navi ul.sub-menu,
+  #navi ul.children{
+    background: none;
+  }
+
+  #navi ul li a{
+    color: #333;
+    background: none;
+    background-color: #EBF5EC;
+    border: none;
+    border-radius: 5px;
+  }
+
+  #navi ul li a:hover{
+    color: #333;
+    background-color: #A5D4AD;
+    -webkit-tap-highlight-color: #A5D4AD;
+  }
+
+  #navi ul.sub-menu{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #navi ul.sub-menu li{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+
   div#main:before,
   div#main:after{
     display: none;

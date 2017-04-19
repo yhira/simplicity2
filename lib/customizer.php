@@ -5413,7 +5413,7 @@ function get_copylight_credit($should_show_date = true){
   }
   //サイト名とリンク
   $site_tag = ' <a href="'.home_url().'">'.get_bloginfo('name').'</a>';
-  return '&copy; '.$year.' '.$site_tag;
+  return '&copy; '.$year.' '.$site_tag.'.';
 }
 //ライセンス表記の取得
 if ( !function_exists( 'get_site_license' ) ):
@@ -5421,40 +5421,46 @@ function get_site_license(){
   $site_license = get_theme_mod( 'site_license', 'copyright' );
   $site_link = ' <a href="'.home_url().'">'.get_bloginfo('name').'</a>';
   $cc_desc = ' Some Rights Reserved.';
+  $crldit = null;
   switch ( $site_license ) {
     case "cc_by":
-      return '<a href="http://creativecommons.org/licenses/by/2.1/jp/" rel="nofollow license">CC BY</a>'.$site_link.$cc_desc;
+      $crldit = '<a href="http://creativecommons.org/licenses/by/2.1/jp/" rel="nofollow license">CC BY</a>'.$site_link.$cc_desc;
       break;
     case "cc_by_sa":
-      return '<a href="http://creativecommons.org/licenses/by-sa/2.1/jp/" rel="nofollow license">CC BY-SA</a>'.$site_link.$cc_desc;
+      $crldit = '<a href="http://creativecommons.org/licenses/by-sa/2.1/jp/" rel="nofollow license">CC BY-SA</a>'.$site_link.$cc_desc;
       break;
     case "cc_by_nd":
-      return '<a href="http://creativecommons.org/licenses/by-nd/2.1/jp/" rel="nofollow license">CC BY-ND</a>'.$site_link.$cc_desc;
+      $crldit = '<a href="http://creativecommons.org/licenses/by-nd/2.1/jp/" rel="nofollow license">CC BY-ND</a>'.$site_link.$cc_desc;
       break;
     case "cc_by_nc":
-      return '<a href="http://creativecommons.org/licenses/by-nc/2.1/jp/" rel="nofollow license">CC BY-NC</a>'.$site_link.$cc_desc;
+      $crldit = '<a href="http://creativecommons.org/licenses/by-nc/2.1/jp/" rel="nofollow license">CC BY-NC</a>'.$site_link.$cc_desc;
       break;
     case "cc_by_nc_sa":
-      return '<a href="http://creativecommons.org/licenses/by-nc-sa/2.1/jp/" rel="nofollow license">CC BY-NC-SA</a>'.$site_link.$cc_desc;
+      $crldit = '<a href="http://creativecommons.org/licenses/by-nc-sa/2.1/jp/" rel="nofollow license">CC BY-NC-SA</a>'.$site_link.$cc_desc;
       break;
     case "cc_by_nc_nd":
-      return '<a href="http://creativecommons.org/licenses/by-nc-nd/2.1/jp/" rel="nofollow license">CC BY-NC-ND</a>'.$site_link.$cc_desc;
+      $crldit = '<a href="http://creativecommons.org/licenses/by-nc-nd/2.1/jp/" rel="nofollow license">CC BY-NC-ND</a>'.$site_link.$cc_desc;
       break;
     case "cc0":
-      return '<a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="nofollow license">CC0</a>'.$site_link.' No Rights Reserved.';
+      $crldit = '<a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="nofollow license">CC0</a>'.$site_link.' No Rights Reserved.';
       break;
     case "pd":
-      return '<a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="nofollow license">Public Domain</a>'.$site_link.' No Rights Reserved.';
+      $crldit = '<a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="nofollow license">Public Domain</a>'.$site_link.' No Rights Reserved.';
       break;
     case "copyright_abridged":
-      return get_copylight_credit(false);//(c)表記の短縮形（簡易版）
+      $crldit = get_copylight_credit(false);//(c)表記の短縮形（簡易版）
       break;
     case "copyright_backward":
-      return 'Copyright&copy; '.$site_link.' All Rights Reserved.';
+      $crldit = 'Copyright&copy; '.$site_link.' All Rights Reserved.';
       break;
     default:
-      return get_copylight_credit(true);//(c)表記の短縮形（日付付）
+      $crldit = get_copylight_credit(true);//(c)表記の短縮形（日付付）
   }
+  $skin_url = str_replace('\\', '/', get_skin_file());
+  if (preg_match('{(skins/flower-pop/style\.css|skins/sky-pop/style\.css|skins/green-pop/style\.css)$}i', $skin_url)) {
+    $crldit = $crldit.' Skin <a href="http://zero.edition.jp/" rel="nofollow" target="_blank">第0版</a>.';
+  }
+  return $crldit;
 }
 endif;
 
