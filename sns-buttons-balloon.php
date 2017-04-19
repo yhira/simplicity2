@@ -27,7 +27,7 @@
          ?></span>
           </a>
         </span>
-        <a href="//twitter.com/share?text=<?php echo urlencode( get_the_title() ); ?>&amp;url=<?php echo urlencode( get_the_permalink() ) ?><?php echo get_twitter_via_param(); //ツイートにTwitter ID ?><?php echo get_twitter_related_param();//ツイート後にフォローを促す ?>" target="blank" class="balloon-btn-link twitter-balloon-btn-link" rel="nofollow">
+        <a href="//twitter.com/intent/tweet?text=<?php echo urlencode( get_the_title() ); ?>&amp;url=<?php echo urlencode( get_the_permalink() ) ?><?php echo get_twitter_via_param(); //ツイートにTwitter ID ?><?php echo get_twitter_related_param();//ツイート後にフォローを促す ?>" target="blank" class="balloon-btn-link twitter-balloon-btn-link" rel="nofollow">
           <span class="icon-twitter"></span>
         </a>
       </span>

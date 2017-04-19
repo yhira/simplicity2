@@ -8,7 +8,7 @@
   <ul class="snsb clearfix">
     <?php get_template_part('sns-button-twitter'); ?>
     <?php if ( false && is_twitter_btn_visible() )://Twitterボタンを表示するか ?>
-    <li class="twitter-btn"><a href="//twitter.com/share" class="twitter-share-button" data-via="<?php echo is_twitter_id_include() ? get_twitter_follow_id() : '' ;//ツイートにメンションを含める ?>" data-url="<?php the_permalink(); ?>" data-text="<?php the_title(); ?>" data-count="<?php echo ($g_is_small ? 'horizontal' : 'vertical') ?>" data-related="<?php echo is_twitter_related_follow_enable() ? get_twitter_follow_id() : '' ;//ツイート後にフォローを促す ?>">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    <li class="twitter-btn"><a href="//twitter.com/intent/tweet" class="twitter-share-button" data-via="<?php echo is_twitter_id_include() ? get_twitter_follow_id() : '' ;//ツイートにメンションを含める ?>" data-url="<?php the_permalink(); ?>" data-text="<?php the_title(); ?>" data-count="<?php echo ($g_is_small ? 'horizontal' : 'vertical') ?>" data-related="<?php echo is_twitter_related_follow_enable() ? get_twitter_follow_id() : '' ;//ツイート後にフォローを促す ?>">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
     </li>
     <?php endif; ?>
     <?php if ( is_facebook_btn_visible() )://Facebookボタンを表示するか ?><li class="facebook-btn"><div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="<?php echo ($g_is_small ? 'button_count' : 'box_count') ?>" data-action="like" data-show-faces="false" data-share="true"></div></li>
