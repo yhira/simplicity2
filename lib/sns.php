@@ -11,6 +11,7 @@ function get_encoded_title($title){
 }
 
 //はてブURL
+if ( !function_exists( 'get_hatebu_url' ) ):
 function get_hatebu_url($url){
   if (strpos($url, 'https://') === 0) {
     $u = preg_replace('/https:\/\//', 's/', $url);
@@ -19,6 +20,8 @@ function get_hatebu_url($url){
   }
   return '//b.hatena.ne.jp/entry/'.$u;
 }
+endif;
+
 
 //Twitter IDを含めるURLパラメータを取得
 function get_twitter_via_param(){
@@ -95,9 +98,12 @@ function fetch_push7_info(){
 endif;
 
 //不具合対策用のfeedlyの購読者数取得の別名
+if ( !function_exists( 'get_feedly_count' ) ):
 function get_feedly_count(){
   return fetch_feedly_count();
 }
+endif;
+
 
 //Google＋カウントの取得
 if ( !function_exists( 'fetch_google_plus_count' ) ):
@@ -215,3 +221,15 @@ function scc_feedly_exists(){
 function scc_push7_exists(){
   return function_exists('scc_get_follow_push7');
 }
+
+
+//LINEのURLを取得
+if ( !function_exists( 'get_line_share_url' ) ):
+function get_line_share_url(){
+  if (wp_is_mobile()) {
+    return '//line.me/R/msg/text/?'.get_the_title().'%0D%0A'.get_permalink();
+  } else {
+    return '//lineit.line.me/share/ui?url='.get_the_permalink();
+  }
+}
+endif;
