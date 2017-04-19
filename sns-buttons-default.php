@@ -27,9 +27,9 @@
 <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="//widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
     </li>
     <?php endif; ?>
-    <?php if ( is_line_btn_visible() )://LINEボタンを表示するか ?>
+    <?php if ( is_line_btn_visible() )://LINEボタンを表示するか?>
     <li class="line-btn">
-      <a href="//lineit.line.me/share/ui?url=<?php the_permalink(); ?>" target="blank" class="line-btn-link" rel="nofollow">
+      <a href="<?php echo get_line_share_url(); ?>" target="blank" class="line-btn-link" rel="nofollow">
           <img src="<?php echo get_template_directory_uri().'/images/line-btn.png'; ?>" alt="" class="line-btn-img"><img src="<?php echo get_template_directory_uri().'/images/line-btn-mini.png'; ?>" alt="" class="line-btn-img-mini">
         </a>
     </li>

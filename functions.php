@@ -1251,3 +1251,14 @@ function is_comment_open(){
   return false;
 }
 endif;
+
+//LINEのURLを取得
+if ( !function_exists( 'get_line_share_url' ) ):
+function get_line_share_url(){
+  if (wp_is_mobile()) {
+    return '//line.me/R/msg/text/?'.get_the_title().'%0D%0A'.get_permalink();
+  } else {
+    return '//lineit.line.me/share/ui?url='.get_the_permalink();
+  }
+}
+endif;
