@@ -223,7 +223,7 @@ function scc_push7_exists(){
 }
 
 
-//LINEのURLを取得
+//LINEのシェアURLを取得
 if ( !function_exists( 'get_line_share_url' ) ):
 function get_line_share_url(){
   // if (wp_is_mobile()) {
@@ -232,5 +232,15 @@ function get_line_share_url(){
   //   return '//lineit.line.me/share/ui?url='.get_the_permalink();
   // }
   return '//lineit.line.me/share/ui?url='.get_the_permalink();
+}
+endif;
+
+//TwitterのシェアURLを取得
+if ( !function_exists( 'get_twitter_share_url' ) ):
+function get_twitter_share_url(){
+  return 'https://twitter.com/intent/tweet?text='.urlencode( get_the_title() ).'&amp;url='.
+  urlencode( get_the_permalink() ).
+  get_twitter_via_param(). //ツイートにメンションを含める
+  get_twitter_related_param();//ツイート後にフォローを促す
 }
 endif;
