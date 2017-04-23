@@ -3055,7 +3055,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'amp_tracking_id', array(
     'settings' => 'amp_tracking_id',
     'label' =>'AMP用AnalyticsトラッキングID',
-    'description' => is_tips_visible() ? 'AMPページ用のGoogle AnalyticsトラッキングIDを新たに設定します。この項目に設定をするとAMPページの集計は別になります。この項目を設定しないで空欄の場合は、「アクセス解析」項目にゃるAnalyticsトラッキングIDを用いて通常ページと併せて集計します。<a href="https://wp-simplicity.com/google-analytics-settings-for-amp/" target="_blank">設定方法</a>' : '',
+    'description' => is_tips_visible() ? 'AMPページ用のGoogle AnalyticsトラッキングIDを新たに設定します。この項目に設定をするとAMPページの集計は別になります。この項目を設定しないで空欄の場合は、「アクセス解析」項目にあるAnalyticsトラッキングIDを用いて通常ページと併せて集計します。<a href="https://wp-simplicity.com/google-analytics-settings-for-amp/" target="_blank">設定方法</a>' : '',
     'section' => 'amp_section',
     'type' => 'text',
     'priority'=> 25,
