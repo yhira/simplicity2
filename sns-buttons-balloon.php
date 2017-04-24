@@ -125,7 +125,7 @@
             LINE!
           </a>
         </span>
-        <a href="//lineit.line.me/share/ui?url=<?php the_permalink(); ?>" target="blank" class="balloon-btn-link line-balloon-btn-link" rel="nofollow">
+        <a href="<?php echo get_line_share_url(); ?>" target="blank" class="balloon-btn-link line-balloon-btn-link" rel="nofollow">
           <span class="icon-line"></span>
         </a>
       </span>
