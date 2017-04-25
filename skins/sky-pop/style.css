@@ -357,8 +357,27 @@ a:hover.entry-read-link,
 /*************************************************************************************************************************
  サイドバー
 *************************************************************************************************************************/
+#sidebar{
+	margin: 0px;
+	padding: 0px 15px;	/* 何かの設定の際にサイドバーが並ばなくなったら15pxの値を小さくしてください */
+	background-color: rgba( 255, 255, 255, 0.95 );
+}
+
+#sidebar .widget{
+	margin-bottom: 20px;
+}
+
+#sidebar aside{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
 #sidebar aside h3{
-	border-bottom: 1px dotted #FDEFF5;
+	margin-top: 10px;
+	padding-left: 5px;
+	border-bottom: 1px dotted #EAF6FD;
+	font-size: 20px;
 	position: relative;
 }
 
