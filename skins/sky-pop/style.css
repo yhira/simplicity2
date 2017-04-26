@@ -197,7 +197,7 @@ h2 a.entry-title:hover:before{
 	color: #9FD9F6;
 	font-size: 35px;
 	position: absolute;
-	top: 10px;
+	top: 8px;
 	left: -15px;
 }
 
@@ -396,12 +396,16 @@ a:hover.entry-read-link,
 	color: #9FD9F6;
 	font-size: 30px;
 	position: absolute;
-	top: 0px;
+	top: -2px;
 	left: -28px;
 }
 
 #sidebar-widget{
 	overflow: initial;
+}
+
+#sidebar.sidr aside h3{
+	padding-left: 0;
 }
 
 #sidebar.sidr aside h3::before,
