@@ -140,4 +140,13 @@
     left: -5px;
   }
 
+  #sidebar aside h3{
+    padding-left: 20px;
+  }
+
+  #sidebar aside h3::before,
+  #sidebar aside h3::after{
+    left: -12px;
+    top: -2px;
+  }
 }

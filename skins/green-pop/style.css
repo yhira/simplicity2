@@ -406,6 +406,11 @@ a:hover.entry-read-link,
 	overflow: initial;
 }
 
+#sidebar.sidr aside h3::before,
+#sidebar.sidr aside h3::after{
+	display: none;
+}
+
 
 /*************************************************************************************************************************
  フッター
