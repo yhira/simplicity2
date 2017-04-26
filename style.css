@@ -3193,11 +3193,11 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
   width: calc(100% - 70px);
   background-color: #fff;
 }
-
+/*
 #cse-search-box input[type="submit"]{
   height: 32px;
 }
-
+*/
 #cse-search-box input {
   display: inline-block;
   -webkit-box-sizing: border-box;
