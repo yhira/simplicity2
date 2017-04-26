@@ -1237,7 +1237,7 @@ input[type="reset"],
 input[type="button"] {
   display: inline-block;
   margin-bottom: 20px;
-  padding: 6px 12px;
+  padding: 8px 14px;
   border: 1px solid #777;
   border-radius: 3px;
   background: #fff;
