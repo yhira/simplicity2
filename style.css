@@ -2961,12 +2961,12 @@ a.comments-balloon-btn-link .fa-comment{position: relative;top:-3px;}
 /************************************
 ** Google FontsのBoogalooをダウンロードしたものの呼び出し
 ************************************/
-/*@font-face{ /* for IE */
+/*@font-face{
   font-family: Boogaloo;
   src:url('webfonts/boogaloo/Boogaloo-Regular.ttf');
 }
 
-@font-face { /* for non IE */
+@font-face {
  font-family: Boogaloo;
  src: url('webfonts/boogaloo/Boogaloo-Regular.ttf') format("truetype");
 }*/
