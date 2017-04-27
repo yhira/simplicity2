@@ -26,7 +26,7 @@ query_posts( $args ); //クエリの作成
 
   <div class="new-entry-thumb">
   <?php if ( has_post_thumbnail() ): // サムネイルを持っているときの処理 ?>
-    <a href="<?php the_permalink(); ?>" class="new-entry-image" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'thumb320', array('alt' => get_the_title()) ); ?></a>
+    <a href="<?php the_permalink(); ?>" class="new-entry-image" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'thumb320', array('alt' => '') ); ?></a>
   <?php else: // サムネイルを持っていないときの処理 ?>
     <a href="<?php the_permalink(); ?>" class="new-entry-image"><img src="<?php echo get_template_directory_uri(); ?>/images/no-image-320.png" alt="NO IMAGE" class="no-image new-list-no-image" /></a>
   <?php endif; ?>
