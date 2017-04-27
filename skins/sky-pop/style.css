@@ -436,3 +436,7 @@ a:hover.entry-read-link,
   background-color: #eee;
   border-radius: 5px;
 }
+
+#footer-widget{
+	color: #333;
+}
