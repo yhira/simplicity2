@@ -533,10 +533,6 @@ if ( is_list_style_tile_thumb_cards() ): ?>
   padding:0 5px;
 }
 
-.entry .post-meta .category{
-  display:none;
-}
-
 .entry h2{
   padding:0 5px;
   word-wrap:break-word;
