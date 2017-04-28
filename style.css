@@ -44,7 +44,7 @@ main figure{
 
 .article{
   font-size:16px;
-  line-height:170%;
+  line-height:1.7;
 }
 
 /*記事・カテゴリ中の画像を要素内に収める*/
@@ -70,7 +70,7 @@ main figure{
 ** 見出し（H1-6）
 ************************************/
 h1, h2, h3, h4, h5, h6{
-  line-height:130%;
+  line-height:1.3;
   color:#333;
 }
 
@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6{
   margin-top:30px;
   margin-bottom:20px;
   font-size: 30px;
-  line-height:117%;
+  line-height:1.17;
 }
 
 #archive-title{
@@ -198,7 +198,7 @@ blockquote:before {
   font-family: serif;
   font-size: 600%;
   left: 0;
-  line-height: 1em;
+  line-height: 1;
   position: absolute;
   top: 0;
 }
@@ -297,7 +297,7 @@ dd{
 .article ol,
 .article ul,
 .article dl{
-  line-height:150%;
+  line-height:1.5;
 }
 
 .article > ol,
@@ -445,7 +445,7 @@ hr.sep {
   margin-top:16px;
   margin-bottom:10px;
   font-size: 30px;
-  line-height: 100%;
+  line-height: 1;
 }
 
 #site-title a{
@@ -458,8 +458,7 @@ hr.sep {
 #site-description{
   color: #777;
   margin:0;
-  /*padding:10 0;*//*様子を見る*/
-  line-height:140%;
+  line-height:1.4;
   font-size:15px;
   margin-right:20px;
   margin-bottom:10px;
@@ -750,7 +749,7 @@ hr.sep {
 
 .entry-snippet{
   margin:0 0 5px 0;
-  line-height:150%;
+  line-height:1.5;
   color:#555;
 }
 
@@ -1008,7 +1007,7 @@ a.page-numbers,
 ** 関連記事（Relation）
 ************************************/
 .related-entry{
-  line-height:150%;
+  line-height:1.5;
   margin-bottom:20px;
   margin-right:10px;
   clear: both;
@@ -1374,7 +1373,7 @@ input[type="button"]:active {
 .widget_new_entries,
 .widget_new_popular,
 .widget_popular_ranking{
-  line-height:150%;
+  line-height:1.5;
 }
 
 .widget_new_entries h4,
@@ -1434,7 +1433,7 @@ span.wpp-views{
 .widget_popular_ranking .popular-entrys-large .popular-entry,
 .widget_popular_ranking .popular-entrys-large .wpp-list li{
   margin-bottom:15px;
-  line-height:120%;
+  line-height:1.2;
   position:relative;
   display:block;
   max-width: 440px;/*これを書いておかないと、タイトル部分がはみ出す*/
@@ -1602,7 +1601,7 @@ span.wpp-views{
   cursor:pointer;
   text-align:center;
   background-color: #aaa;
-  line-height:100%;
+  line-height: 1;
   border-radius: 4px;
   font-size:11px;
 }
@@ -1690,7 +1689,7 @@ span.wpp-views{
   display:block;
   cursor:pointer;
   text-align:center;
-  line-height:100%;
+  line-height: 1;
   border-radius: 3px;
   position:absolute;
   right: 7px;
@@ -2005,7 +2004,7 @@ div.fb-like-mobile{
   float: none;
   padding: 10px;
   font-size: 18px;
-  line-height: 1.3em;
+  line-height: 1.3;
   height: 100px;
   overflow: hidden;
   background-color: #fff;
@@ -2020,7 +2019,7 @@ div.fb-like-mobile{
   color: #ccc;
   font-size: 50px;
   font-family: FontAwesome;
-  line-height: 100%;
+  line-height: 1;
 }
 .article-like-button {
   background-color: #f3f3f3;
@@ -2030,12 +2029,6 @@ div.fb-like-mobile{
   float: right;
   padding-top: 27px;
   box-sizing: border-box;
-/*  display: -webkit-flex;
-  display:         flex;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-justify-content: center;
-          justify-content: center;*/
 }
 
 .article-like-button iframe{
@@ -2087,7 +2080,7 @@ div.fb-like-mobile{
 #sidebar .article-like-body{
   font-size: 0.8em;
   padding: 5px;
-  line-height: 1.1em;
+  line-height: 1.1;
   margin-right: 0;
   height: 70px;
 }
@@ -2255,13 +2248,13 @@ div.fb-like-mobile{
 
 #sidebar .blog-card-title{
   font-size: 14px;
-  line-height: 120%;
+  line-height: 1.2;
 }
 
 #sidebar .blog-card-excerpt,
 #sidebar .blog-card-footer{
   font-size: 11px;
-  line-height: 120%;
+  line-height: 1.2;
 }
 
 
@@ -2305,7 +2298,7 @@ div.fb-like-mobile{
 
 .blog-card-content{
   margin-left:110px;
-  line-height:120%;
+  line-height:1.2;
   margin-bottom: 0.5em;
 }
 .blog-card-title{
@@ -2392,13 +2385,13 @@ div.fb-like-mobile{
 
   .blog-card-title a{
     font-size: 14px;
-    line-height: 120%;
+    line-height: 1.2;
   }
 
   .blog-card-excerpt,
   .blog-card-footer{
     font-size: 11px;
-    line-height: 120%;
+    line-height: 1.2;
   }
 
   #main .blog-card,
@@ -2632,28 +2625,9 @@ ul.snsp li{
 
 ul.snsp li a{
   font-size:19px;
-  line-height:170%;
+  line-height: 1.7;
   text-decoration:none;
 }
-
-/*ul.snsp li.push7-page a span {
-  font-size: 26px;
-  background-color: transparent;
-  width: 30px;
-  height: 30px;
-  background-color: #666;
-  padding: 2px 2px 3px;
-  color: #fff;
-  position: relative;
-  top: -4px;
-}
-
-ul.snsp li.push7-page a{
-  text-align: center;
-  border-radius: 4px;
-  display: inline-block;
-  position: relative;
-}*/
 
 /*Facebookコメント欄が表示されない不具合修正*/
 .fb-like iframe {
@@ -3114,7 +3088,7 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
 
 .bbp-reply-content{
   font-size: 16px;
-  line-height: 170%;
+  line-height: 1.7;
 }
 
 .bbp-forum-title{
@@ -3179,7 +3153,7 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
   .article #bbpress-forums .bbp-body div.bbp-reply-author{
     padding-left: 0;
     margin-top: 10px;
-    line-height: 130%;
+    line-height: 1.3;
   }
 
   .article #bbpress-forums div.bbp-reply-author img.avatar{
@@ -3389,7 +3363,7 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
 ** アイキャッチ
 ************************************/
 .eye-catch{
-  line-height: 100%;
+  line-height: 1;
   margin-left: 0;
 }
 
@@ -3607,14 +3581,14 @@ dl.recent-comments dd .recent-comment-content{
 .hover-card .entry-tile h2,
 .hover-card .blog-card-title {
   font-size: 16px;
-  line-height: 110%;
+  line-height: 1.1;
   text-decoration: none;
   font-weight: bold;
 }
 
 .hover-card .related-entry-thumbnail h3{
   font-size: 16px;
-  line-height: 110%;
+  line-height: 1.1;
   font-weight: normal;
 }
 

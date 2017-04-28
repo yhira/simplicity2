@@ -152,7 +152,7 @@ div#sidebar{
 }
 
 .article ol, .article ul, .article dl{
-  line-height:165%;
+  line-height:1.65;
 }
 
 .snsb li{
