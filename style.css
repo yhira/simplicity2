@@ -1188,7 +1188,6 @@ textarea {
   font-size: 16px;
   line-height: 1.42857;
   padding: 6px 12px;
-  -webkit-transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   width: 100%;
   box-sizing: border-box;
@@ -1793,8 +1792,6 @@ border-right:#ddd 1px solid;
 #prev-next #prev, #prev-next #prev::before, #prev-next #prev::after,
 #prev-next #next, #prev-next #next::before, #prev-next #next::after {
   box-sizing: border-box;
-/*  -webkit-transition: all .3s;
-  transition: all .3s;*/
 }
 
 #prev-next #next-title{
@@ -3381,7 +3378,6 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
 }
 
 .widget_archive .years ul {
-  -webkit-transition: .3s ease;
   transition: .3s ease;
   margin: 0;
   margin-bottom: 1em;
