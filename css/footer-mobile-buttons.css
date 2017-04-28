@@ -175,17 +175,9 @@ div#sidebar{
   float: left;
   width: 500px;
   font-family: arial;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-box-flex: 1;
 }
-
-/*@media screen and (max-width:440px){
-  #footer-mobile-buttons a{
-    width: 80px;
-  }
-}*/
 
 #footer-mobile-buttons a:hover{
   background-color: #eee;
@@ -255,8 +247,6 @@ a#footer-button-home{
   top: 55px;
   width: 100%;
   padding: 5px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: none;
   z-index: 20;

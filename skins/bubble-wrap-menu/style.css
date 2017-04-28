@@ -15,8 +15,6 @@
   line-height: 1;
   display: block;
   position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #navi {
@@ -120,8 +118,6 @@
   }
   #navi ul li a {
     width: 100%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
   #navi ul li.last > a,
