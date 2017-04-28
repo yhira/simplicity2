@@ -465,8 +465,6 @@ hr{
   clear:both;
   min-height:145px;
   min-width: 300px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -711,23 +709,16 @@ hr{
 }
 
 .sns-group-viral ul.snsb{
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .sns-group-viral ul.snsb li{
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 23.5%;
   margin-right: 0.5%;
 }
 
 .sns-group-viral ul.snsb li a{
-  /*width: 150px;*/
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   height: 40px;

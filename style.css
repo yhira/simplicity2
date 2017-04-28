@@ -24,16 +24,12 @@ body {
   font-family:
       'Hiragino Kaku Gothic ProN',
       Meiryo, Helvetica, Arial, sans-serif;
-      /* Helvetica, Arial,はZenfone2Laserという端末の不具合対策
-         https://goo.gl/IwQZvd */
   font-size:16px;
   -webkit-text-size-adjust: 100%;
 }
 
 img{
   border-width:0px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -2243,8 +2239,6 @@ div.fb-like-mobile{
   clear:both;
   min-height:145px;
   min-width: 300px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -2974,23 +2968,16 @@ a.comments-balloon-btn-link .fa-comment{position: relative;top:-3px;}
 ** バイラルボタン
 ************************************/
 .sns-group-viral ul.snsb{
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .sns-group-viral ul.snsb li{
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 24%;
   margin-right: 1%;
 }
 
 .sns-group-viral ul.snsb li a{
-  /*width: 150px;*/
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   height: 45px;
@@ -3192,15 +3179,9 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
   width: calc(100% - 70px);
   background-color: #fff;
 }
-/*
-#cse-search-box input[type="submit"]{
-  height: 32px;
-}
-*/
+
 #cse-search-box input {
   display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 34px;
   color: #333;
