@@ -352,7 +352,7 @@ span.search-excerpt {
 }
 
 hr.sep {
-  background-image: -moz-linear-gradient(left center , rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(left center , rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   border: 0 none;
   height: 1px;
   position: relative;
@@ -1898,7 +1898,6 @@ div.vdh-mask{
 
 .hover-image:before {
   content: '';
-  background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
   width: 100%;
   height: 50%;
