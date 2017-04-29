@@ -89,9 +89,9 @@ function url_to_blog_card_tag($url){
     $date_tag = '<div class="blog-card-date">'.$date.'</div>';
   }
   //サムネイルの取得（要100×100のサムネイル設定）
-  $thumbnail = get_the_post_thumbnail($id, 'thumb100', array('class' => 'blog-card-thumb-image', 'alt' => $title));
+  $thumbnail = get_the_post_thumbnail($id, 'thumb100', array('class' => 'blog-card-thumb-image', 'alt' => ''));
   if ( !$thumbnail ) {//サムネイルが存在しない場合
-    $thumbnail = '<img src="'.$no_image.'" alt="'.$title.'" class="blog-card-thumb-image"'.get_noimage_sizes_attr($no_image).' />';
+    $thumbnail = '<img src="'.$no_image.'" alt="" class="blog-card-thumb-image"'.get_noimage_sizes_attr($no_image).' />';
     //$thumbnail = '<img src="'.get_template_directory_uri().'/images/no-image.png" alt="'.$title.'" class="blog-card-thumb-image"'.get_noimage_sizes_attr().' />';
   }
   //取得した情報からブログカードのHTMLタグを作成
