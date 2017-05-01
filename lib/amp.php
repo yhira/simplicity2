@@ -176,14 +176,18 @@ function convert_content_for_amp($the_content){
       }
 
       //alt属性の取得
-      $alt_res = preg_match('/alt=["\']([^"\']*?)["\']/is', $match, $alts);
+      $alt_res = preg_match('/alt=["]([^"]*?)["]/is', $match, $alts);
+      if (!$alt_res)
+        $alt_res = preg_match("/alt=[']([^']*?)[']/is", $match, $alts);
       if ($alt_res) {
         $alt_attr = ' '.$alts[0];//alt属性を作成
         $alt_value = $alts[1];//altの値を取得する
       }
 
       //title属性の取得
-      $title_res = preg_match('/title=["\']([^"\']*?)["\']/is', $match, $titles);
+      $title_res = preg_match('/title=["]([^"]*?)["]/is', $match, $titles);
+      if (!$title_res)
+        $title_res = preg_match("/title=[']([^']*?)[']/is", $match, $titles);
       if ($title_res) {
         $title_attr = ' '.$titles[0];//title属性を作成
         $title_value = $titles[1];//titleの値を取得する
