@@ -231,7 +231,7 @@ function get_line_share_url(){
   // } else {
   //   return '//lineit.line.me/share/ui?url='.get_the_permalink();
   // }
-  return '//lineit.line.me/share/ui?url='.get_the_permalink();
+  return '//timeline.line.me/social-plugin/share?url='.urlencode(get_the_permalink());
 }
 endif;
 
