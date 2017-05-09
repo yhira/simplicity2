@@ -158,7 +158,7 @@ function get_the_custom_excerpt($content, $length = 70, $is_card = false) {
     $description = $post->post_excerpt;
   }
   if (is_wordpress_excerpt() && $description ) {//Wordpress固有の抜粋文を使用するとき
-    $description = htmlentities($description);
+    $description = htmlspecialchars($description);
     return  $description;
   } else {//Simplicity固有の抜粋文を使用するとき
     return get_content_excerpt($content, $length);
