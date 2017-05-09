@@ -1252,3 +1252,16 @@ function is_comment_open(){
   return false;
 }
 endif;
+
+//配列内の数値をマイナスにする
+function minusize_number_in_array($number_array){
+  if (empty($number_array)) {
+    return null;
+  }
+  $number_array = str_replace(' ', '', $number_array);
+  $numbers = explode(',', $number_array);
+  foreach($numbers as &$value){
+    $value = intval($value) * -1;
+  }
+  return implode(',', $numbers);
+}
