@@ -1253,15 +1253,26 @@ function is_comment_open(){
 }
 endif;
 
-//配列内の数値をマイナスにする
-function minusize_number_in_array($number_array){
-  if (empty($number_array)) {
-    return null;
-  }
-  $number_array = str_replace(' ', '', $number_array);
-  $numbers = explode(',', $number_array);
-  foreach($numbers as &$value){
-    $value = intval($value) * -1;
-  }
-  return implode(',', $numbers);
+//ビジュアルエディターでrel="noopener noreferrer"自動付加の解除
+if ( !function_exists( 'tinymce_allow_unsafe_link_target' ) ):
+function tinymce_allow_unsafe_link_target( $mce_init ) {
+ $mce_init['allow_unsafe_link_target']=true;
+ return $mce_init;
+}
+endif;
+if (!is_rel_noopener_noreferrer_enable()) {
+  add_filter('tiny_mce_before_init','tinymce_allow_unsafe_link_target');
+}
+
+
+//本文からnoopener noreferrerを取り除く
+if ( !function_exists( 'remove_noopener_and_noreferrer' ) ):
+function remove_noopener_and_noreferrer($the_content){
+  $the_content = str_replace(' rel="nofollow noopener noreferrer"', ' rel="nofollow"', $the_content);
+  $the_content = str_replace(' rel="noopener noreferrer"', '', $the_content);
+  return $the_content;
+}
+endif;
+if (!is_rel_noopener_noreferrer_enable()) {
+  add_filter('the_content', 'remove_noopener_and_noreferrer', 999999);
 }

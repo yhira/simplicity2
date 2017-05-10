@@ -3629,6 +3629,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 42,
   ));
 
+  //rel="noopener noreferrer"を有効
+  $wp_customize->add_setting('rel_noopener_noreferrer_enable', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'rel_noopener_noreferrer_enable', array(
+    'settings' => 'rel_noopener_noreferrer_enable',
+    'label' =>'rel="noopener noreferrer"を有効',
+    'description' => is_tips_visible() ? 'Wordpress4.7.4から「target="_blank"」の付いた外部リンクに対して「rel="noopener noreferrer"」属性を自動付加するかどうか。' : '',
+    'section' => 'other_section',
+    'type' => 'checkbox',
+    'priority' => 42.5,
+  ));
+
   //内部URLをSSL対応（簡易版）
   $wp_customize->add_setting('easy_ssl_enable', array(
     'default' => false,
@@ -4749,6 +4763,11 @@ function is_colored_follow_btns(){
 //REST APIは有効か
 function is_rest_api_enable(){
   return get_theme_mod( 'rest_api_enable', true );
+}
+
+//rel="noopener noreferrer"属性の自動付加を有効にするか
+function is_rel_noopener_noreferrer_enable(){
+  return get_theme_mod( 'rel_noopener_noreferrer_enable', true );
 }
 
 //内部URLのSSL対応
