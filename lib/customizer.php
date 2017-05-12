@@ -3623,7 +3623,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'rest_api_enable', array(
     'settings' => 'rest_api_enable',
     'label' =>'REST APIを有効',
-    'description' => is_tips_visible() ? 'Wordpress4.7から追加されたREST APIを有効にします。<br><a href="https://wp-simplicity.com/simplicity-rest-api/" target="_blank">機能説明</a>' : '',
+    'description' => is_tips_visible() ? 'Wordpress4.7から追加されたREST APIを有効にします。<a href="https://wp-simplicity.com/simplicity-rest-api/" target="_blank">機能説明</a>' : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 42,
@@ -3651,7 +3651,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'easy_ssl_enable', array(
     'settings' => 'easy_ssl_enable',
     'label' =>'内部URLをSSL対応（簡易版）',
-    'description' => is_tips_visible() ? 'サイトの内部リンクや、非SSLの画像・URLなど、HTTPS化する必要があるURLをSSL対応させて表示させます。（※全てのURLに対応しているわけではありません）<br><a href="https://wp-simplicity.com/simplicity-ssl/" target="_blank">機能説明</a>' : '',
+    'description' => is_tips_visible() ? 'サイトの内部リンクや、非SSLの画像・URLなど、HTTPS化する必要があるURLをSSL対応させて表示させます。（※全てのURLに対応しているわけではありません）<a href="https://wp-simplicity.com/simplicity-ssl/" target="_blank">機能説明</a>' : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 43,
