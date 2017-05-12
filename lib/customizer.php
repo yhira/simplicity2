@@ -3637,7 +3637,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'rel_noopener_noreferrer_enable', array(
     'settings' => 'rel_noopener_noreferrer_enable',
     'label' =>'rel="noopener noreferrer"を有効',
-    'description' => is_tips_visible() ? 'Wordpress4.7.4から「target="_blank"」の付いた外部リンクに対して「rel="noopener noreferrer"」属性を自動付加するかどうか。' : '',
+    'description' => is_tips_visible() ? 'Wordpress4.7.4から「target="_blank"」の付いた外部リンクに対して「rel="noopener noreferrer"」属性を自動付加するかどうか。<a href="https://wp-simplicity.com/rel-noopener-noreferrer/" target="_blank">機能説明</a>' : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 42.5,
