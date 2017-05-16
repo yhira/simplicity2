@@ -182,17 +182,18 @@ function save_seo_custom_data(){
   //noindex
   if ( isset( $_POST['is_noindex'] ) ){
     $is_noindex = $_POST['is_noindex'];
-    $is_noindex_key = 'is_noindex';
-    add_post_meta($id, $is_noindex_key, $is_noindex, true);
-    update_post_meta($id, $is_noindex_key, $is_noindex);
   }
+  $is_noindex_key = 'is_noindex';
+  add_post_meta($id, $is_noindex_key, $is_noindex, true);
+  update_post_meta($id, $is_noindex_key, $is_noindex);
+
   //nofollow
   if ( isset( $_POST['is_nofollow'] ) ){
     $is_nofollow = $_POST['is_nofollow'];
-    $is_nofollow_key = 'is_nofollow';
-    add_post_meta($id, $is_nofollow_key, $is_nofollow, true);
-    update_post_meta($id, $is_nofollow_key, $is_nofollow);
   }
+  $is_nofollow_key = 'is_nofollow';
+  add_post_meta($id, $is_nofollow_key, $is_nofollow, true);
+  update_post_meta($id, $is_nofollow_key, $is_nofollow);
 }
 
 //SEO向けのタイトルを取得
