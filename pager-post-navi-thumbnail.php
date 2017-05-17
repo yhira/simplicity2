@@ -7,7 +7,7 @@ if( $prevpost or $nextpost ){ //前の記事、次の記事いずれか存在し
 ?>
 <?php
 function get_post_navi_thumbnail($id){
-  $thumb = get_the_post_thumbnail( $id, 'thumb100', array('alt' => get_the_title( $id )) );
+  $thumb = get_the_post_thumbnail( $id, 'thumb100', array('alt' => '') );
   if ( !$thumb ) {
     $thumb = '<img src="'.get_template_directory_uri().'/images/no-image.png" alt="NO IMAGE" class="no-image post-navi-no-image" />';
   }
