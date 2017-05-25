@@ -1098,6 +1098,7 @@ endif;
 add_filter('wp_theme_editor_filetypes', 'add_js_to_wp_theme_editor_filetypes');
 
 //サイトアドレスが含まれているか
+if ( !function_exists( 'includes_site_url' ) ):
 function includes_site_url($url){
   //URLにサイトアドレスが含まれていない場合
   if (strpos($url, site_url()) === false) {
@@ -1106,8 +1107,10 @@ function includes_site_url($url){
     return true;
   }
 }
+endif;
 
 //内部URLをローカルパスに変更
+if ( !function_exists( 'url_to_local' ) ):
 function url_to_local($url){
   //URLにサイトアドレスが含まれていない場合
   if (!includes_site_url($url)) {
@@ -1117,8 +1120,10 @@ function url_to_local($url){
   $path = str_replace('\\', '/', $path);
   return $path;
 }
+endif;
 
 //images/no-image.pngを使用するimgタグに出力するサイズ関係の属性
+if ( !function_exists( 'get_noimage_sizes_attr' ) ):
 function get_noimage_sizes_attr($image = null){
   if (!$image) {
     $image = get_template_directory_uri().'/images/no-image.png';
@@ -1126,19 +1131,26 @@ function get_noimage_sizes_attr($image = null){
   $sizes = ' srcset="'.$image.' 100w" width="100" height="100" sizes="(max-width: 100px) 100vw, 100px"';
   return $sizes;
 }
+endif;
+
 
 //REST APIを無効にする
+if ( !function_exists( 'disable_rest_api' ) ):
 function disable_rest_api(){
  return new WP_Error( 'disabled', array( 'status' => rest_authorization_required_code() ) );
 }
+endif;
 if (!is_rest_api_enable() && (get_wordpress_version() >= 4.7)) {
   add_filter( 'rest_authentication_errors', 'disable_rest_api' );
 }
 
 //Wordpressのバージョンを少数で取得する
+if ( !function_exists( 'get_wordpress_version' ) ):
 function get_wordpress_version(){
   return floatval(get_bloginfo('version'));
 }
+endif;
+
 
 //投稿内容をSSL対応する
 if ( !function_exists( 'chagne_http_to_https' ) ):
