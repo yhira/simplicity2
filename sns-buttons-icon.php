@@ -40,7 +40,7 @@ $viral_class = is_share_button_type_mobile_viral() || is_amp() ? ' sns-group-vir
              ?></span></a></li>
     <?php endif; ?>
     <?php if ( is_hatena_btn_visible() )://はてなボタンを表示するか ?>
-    <li class="hatena-btn-icon"><a href="//b.hatena.ne.jp/entry/<?php echo get_encoded_url(get_permalink()) ?>" class="btn-icon-link hatena-bookmark-button hatena-btn-icon-link" data-hatena-bookmark-layout="simple" title="<?php the_title(); ?>" rel="nofollow"><span class="social-icon icon-hatena"></span><span class="social-count hatebu-count"><?php
+    <li class="hatena-btn-icon"><a href="<?php echo get_hatebu_url(get_permalink()); ?>" class="btn-icon-link hatena-bookmark-button hatena-btn-icon-link" data-hatena-bookmark-layout="simple" title="<?php the_title(); ?>" rel="nofollow"><span class="social-icon icon-hatena"></span><span class="social-count hatebu-count"><?php
               if ( scc_hatebu_exists() ) {//SNS Count Cache関数があるか
                 echo scc_get_share_hatebu();
               } else {
@@ -48,7 +48,6 @@ $viral_class = is_share_button_type_mobile_viral() || is_amp() ? ' sns-group-vir
                 echo '<span class="fa fa-spinner fa-pulse"></span>';
               }
              ?></span></a></li>
-  	<!-- <li class="hatena-btn-icon"><a href="//b.hatena.ne.jp/add?mode=confirm&amp;url=<?php echo get_encoded_url(get_permalink()) ?>&amp;title=<?php echo get_encoded_title( trim(wp_title( '', false)) ); ?>" class="btn-icon-link hatena-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-hatena"></span><span class="social-count hatebu-count"><span class="fa fa-spinner fa-pulse"></span></span></a></li> -->
     <?php endif; ?>
     <?php if ( is_pocket_btn_visible() )://pocketボタンを表示するか ?>
   	<li class="pocket-btn-icon"><a href="//getpocket.com/edit?url=<?php the_permalink() ?>" class="btn-icon-link pocket-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-pocket"></span><span class="social-count pocket-count"><?php
