@@ -3781,6 +3781,7 @@ function remove_protocol($url){
 //スキンファイルを取得
 //スキンファイルを設定している場合はスタイルシート名（パス/style.css）を返す
 //設定していない場合は偽（空文字）を返す
+if ( !function_exists( 'get_skin_file' ) ):
 function get_skin_file(){
   $file_path = get_theme_mod( 'skin_file', null );
   if ( $file_path ) {
@@ -3796,6 +3797,8 @@ function get_skin_file(){
     return $file_path;
   }
 }
+endif;
+
 
 //カスタムレイアウト設定の値を取得
 function get_layout_options(){
