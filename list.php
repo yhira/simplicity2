@@ -12,28 +12,7 @@
 //アーカイブのタイトル
 ////////////////////////////
 if (!is_home() && !is_search()) { ?>
-  <h1 id="archive-title">「
-    <?php if( is_category() ) { ?>
-    <?php single_cat_title(); ?>
-    <?php } elseif( is_tag() ) { ?>
-    <?php single_tag_title(); ?>
-    <?php } elseif( is_tax() ) { ?>
-    <?php single_term_title(); ?>
-    <?php } elseif (is_day()) { ?>
-    <?php echo get_the_time( get_theme_text_ymd_format() );//年月日のフォーマットを取得 ?>
-    <?php } elseif (is_month()) { ?>
-    <?php echo get_the_time( get_theme_text_ym_format() );//年と月のフォーマットを取得 ?>
-    <?php } elseif (is_year()) { ?>
-    <?php echo get_the_time( get_theme_text_y_format() );//年のフォーマットを取得 ?>
-    <?php } elseif (is_author()) { ?>
-    <?php echo esc_html(get_queried_object()->display_name); ?>
-    <?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-    Archives
-    <?php } else { ?>
-    Archives
-    <?php } ?>
-  」<?php echo get_theme_text_list();//「一覧」部分の取得 ?>
-  </h1>
+  <h1 id="archive-title"><?php echo get_archive_chapter_text(); ?></h1>
 <?php } ?>
 
 

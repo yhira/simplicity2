@@ -1286,3 +1286,35 @@ endif;
 if (!is_rel_noopener_noreferrer_enable()) {
   add_filter('the_content', 'remove_noopener_and_noreferrer', 999999);
 }
+
+//アーカイブタイトルの取得
+if ( !function_exists( 'get_archive_chapter_text' ) ):
+function get_archive_chapter_text(){
+  $chapter_text = null;
+  $chapter_text = '<span class="archive-title-pb">「</span><span class="archive-title-text">';
+  if( is_category() ) {
+    $chapter_text .= single_cat_title( '', false );
+  } elseif( is_tag() ) {
+    $chapter_text .= single_tag_title( '', false );
+  } elseif( is_tax() ) {
+    $chapter_text .= single_term_title( '', false );
+  } elseif (is_day()) {
+    //年月日のフォーマットを取得
+    $chapter_text .= get_the_time( get_theme_text_ymd_format() );
+  } elseif (is_month()) {
+    //年と月のフォーマットを取得
+    $chapter_text .= get_the_time( get_theme_text_ym_format() );
+  } elseif (is_year()) {
+    //年のフォーマットを取得
+    $chapter_text .= get_the_time( get_theme_text_y_format() );
+  } elseif (is_author()) {
+    $chapter_text .= esc_html(get_queried_object()->display_name);
+  } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {
+    $chapter_text .= 'Archives';
+  } else {
+    $chapter_text .= 'Archives';
+  }
+  $chapter_text .= '</span><span class="archive-title-pa">」</span><span class="archive-title-list-text">'.get_theme_text_list().'</span>';
+  return $chapter_text;
+}
+endif;
