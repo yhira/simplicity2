@@ -1288,33 +1288,46 @@ if (!is_rel_noopener_noreferrer_enable()) {
 }
 
 //アーカイブタイトルの取得
+if ( !function_exists( 'get_archive_chapter_title' ) ):
+function get_archive_chapter_title(){
+  $chapter_title = null;
+  if( is_category() ) {//カテゴリページの場合
+    $chapter_title .= single_cat_title( '', false );
+  } elseif( is_tag() ) {//タグページの場合
+    $chapter_title .= single_tag_title( '', false );
+  } elseif( is_tax() ) {//タクソノミページの場合
+    $chapter_title .= single_term_title( '', false );
+  } elseif (is_day()) {
+    //年月日のフォーマットを取得
+    $chapter_title .= get_the_time( get_theme_text_ymd_format() );
+  } elseif (is_month()) {
+    //年と月のフォーマットを取得
+    $chapter_title .= get_the_time( get_theme_text_ym_format() );
+  } elseif (is_year()) {
+    //年のフォーマットを取得
+    $chapter_title .= get_the_time( get_theme_text_y_format() );
+  } elseif (is_author()) {//著書ページの場合
+    $chapter_title .= esc_html(get_queried_object()->display_name);
+  } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {
+    $chapter_title .= 'Archives';
+  } else {
+    $chapter_title .= 'Archives';
+  }
+  return $chapter_title;
+}
+endif;
+
+//アーカイブ見出しの取得
 if ( !function_exists( 'get_archive_chapter_text' ) ):
 function get_archive_chapter_text(){
   $chapter_text = null;
-  $chapter_text = '<span class="archive-title-pb">「</span><span class="archive-title-text">';
-  if( is_category() ) {
-    $chapter_text .= single_cat_title( '', false );
-  } elseif( is_tag() ) {
-    $chapter_text .= single_tag_title( '', false );
-  } elseif( is_tax() ) {
-    $chapter_text .= single_term_title( '', false );
-  } elseif (is_day()) {
-    //年月日のフォーマットを取得
-    $chapter_text .= get_the_time( get_theme_text_ymd_format() );
-  } elseif (is_month()) {
-    //年と月のフォーマットを取得
-    $chapter_text .= get_the_time( get_theme_text_ym_format() );
-  } elseif (is_year()) {
-    //年のフォーマットを取得
-    $chapter_text .= get_the_time( get_theme_text_y_format() );
-  } elseif (is_author()) {
-    $chapter_text .= esc_html(get_queried_object()->display_name);
-  } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {
-    $chapter_text .= 'Archives';
-  } else {
-    $chapter_text .= 'Archives';
-  }
+  //アーカイブタイトル前
+  $chapter_text .= '<span class="archive-title-pb">「</span><span class="archive-title-text">';
+  //アーカイブタイトルの取得
+  $chapter_text .= get_archive_chapter_title();
+  //アーカイブタイトル後
   $chapter_text .= '</span><span class="archive-title-pa">」</span><span class="archive-title-list-text">'.get_theme_text_list().'</span>';
+  //返り値として返す
   return $chapter_text;
 }
 endif;
