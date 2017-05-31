@@ -1145,11 +1145,9 @@ if (!is_rest_api_enable() && (get_wordpress_version() >= 4.7)) {
 }
 
 //Wordpressのバージョンを少数で取得する
-if ( !function_exists( 'get_wordpress_version' ) ):
 function get_wordpress_version(){
   return floatval(get_bloginfo('version'));
 }
-endif;
 
 
 //投稿内容をSSL対応する
