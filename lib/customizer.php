@@ -5480,7 +5480,7 @@ function get_site_license(){
   }
   $skin_url = str_replace('\\', '/', get_skin_file());
   if (preg_match('{(skins/flower-pop/style\.css|skins/sky-pop/style\.css|skins/green-pop/style\.css)$}i', $skin_url)) {
-    $crldit = $crldit.' Skin <a href="http://zero.edition.jp/" rel="nofollow" target="_blank">第0版</a>.';
+    $crldit = $crldit.' Skin <a href="https://0edition.net/" rel="nofollow" target="_blank">第0版</a>.';
   }
   return $crldit;
 }
