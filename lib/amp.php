@@ -61,10 +61,15 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/<font[^>]*?>/i', '', $the_content);
   $the_content = preg_replace('/<\/font>/i', '', $the_content);
 
-  //Amazon商品リンクのhttp URLをhttpへ
+  //Amazon商品リンクのhttp URLをhttpsへ
   $the_content = str_replace('http://rcm-jp.amazon.co.jp/', 'https://rcm-fe.amazon-adsystem.com/', $the_content);
   $the_content = str_replace('"//rcm-fe.amazon-adsystem.com/', '"https://rcm-fe.amazon-adsystem.com/', $the_content);
   $the_content = str_replace("'//rcm-fe.amazon-adsystem.com/", "'https://rcm-fe.amazon-adsystem.com/", $the_content);
+  //Amazon商品画像のURLをhttpsへ
+  $the_content = str_replace('http://ecx.images-amazon.com', 'https://images-fe.ssl-images-amazon.com', $the_content);
+  //楽天商品画像のURLをhttpsへ
+  $the_content = str_replace('http://thumbnail.image.rakuten.co.jp', 'https://thumbnail.image.rakuten.co.jp', $the_content);
+
   //Amazonデフォルトの埋め込みタグを置換する
   /*
   $pattern = '/<iframe([^>]+?)(src="https:\/\/rcm-fe.amazon-adsystem.com\/[^"]+?").*?><\/iframe>/is';
@@ -123,14 +128,14 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/<font[^>]+?>/i', '', $the_content);
   $the_content = preg_replace('/<\/font>/i', '', $the_content);
 
-  //カエレバ・ヨメレバのAmazon商品画像にwidthとhightを追加する
-  $the_content = preg_replace('/ src="(http:)?\/\/ecx.images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="http://ecx.images-amazon.com', $the_content);
-  //カエレバ・ヨメレバのAmazon商品画像にwidthとhightを追加する（SSL用）
-  $the_content = preg_replace('/ src="(https:)?\/\/images-fe.ssl-images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="https://images-fe.ssl-images-amazon.com', $the_content);
-  //カエレバ・ヨメレバの楽天商品画像にwidthとhightを追加する
-  $the_content = preg_replace('/ src="(http:)?\/\/thumbnail.image.rakuten.co.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="http://thumbnail.image.rakuten.co.jp', $the_content);
-  //カエレバ・ヨメレバのYahoo!ショッピング商品画像にwidthとhightを追加する
-  $the_content = preg_replace('/ src="(http:)?\/\/item.shopping.c.yimg.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="http://item.shopping.c.yimg.jp', $the_content);
+  // //カエレバ・ヨメレバのAmazon商品画像にwidthとhightを追加する
+  // $the_content = preg_replace('/ src="(http:)?\/\/ecx.images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="http://ecx.images-amazon.com', $the_content);
+  // //カエレバ・ヨメレバのAmazon商品画像にwidthとhightを追加する（SSL用）
+  // $the_content = preg_replace('/ src="(https:)?\/\/images-fe.ssl-images-amazon.com/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="https://images-fe.ssl-images-amazon.com', $the_content);
+  // //カエレバ・ヨメレバの楽天商品画像にwidthとhightを追加する
+  // $the_content = preg_replace('/ src="(http:)?\/\/thumbnail.image.rakuten.co.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="http://thumbnail.image.rakuten.co.jp', $the_content);
+  // //カエレバ・ヨメレバのYahoo!ショッピング商品画像にwidthとhightを追加する
+  // $the_content = preg_replace('/ src="(http:)?\/\/item.shopping.c.yimg.jp/i', ' width="75" height="75" sizes="(max-width: 75px) 100vw, 75px" src="http://item.shopping.c.yimg.jp', $the_content);
 
   //アプリーチの画像対応
   $the_content = preg_replace('/<img([^>]+?src="[^"]+?(mzstatic\.com|phobos\.apple\.com|googleusercontent\.com|ggpht\.com)[^"]+?[^>\/]+)\/?>/is', '<amp-img$1 width="75" height="75" sizes="(max-width: 75px) 100vw, 75px"></amp-img>', $the_content);
@@ -138,6 +143,8 @@ function convert_content_for_amp($the_content){
 
   //imgタグをamp-imgタグに変更する
   $res = preg_match_all('/<img(.+?)\/?>/is', $the_content, $m);
+  //var_dump($res);
+  //var_dump($m);
   if ($res) {//画像タグがある場合
 
     foreach ($m[0] as $match) {
@@ -153,6 +160,7 @@ function convert_content_for_amp($the_content){
       $title_attr = null;
       $title_value = null;
       $sizes_attr = null;
+      //var_dump(htmlspecialchars($match));
 
       //src属性の取得（画像URLの取得）
       $src_res = preg_match('/src=["\']([^"\']+?)["\']/is', $match, $srcs);
@@ -206,10 +214,24 @@ function convert_content_for_amp($the_content){
         } else {
           //外部サイトにある画像の場合
           $class_attr = ' class="external-content-img"';
-          $width_value = 300;
-          $width_attr = ' width="300"';//width属性を作成
-          $height_value = 300;
-          $height_attr = ' height="300"';//height属性を作成
+          //var_dump($url);
+          if (
+            strpos($url,'//images-fe.ssl-images-amazon.com') !== false ||
+            strpos($url,'//thumbnail.image.rakuten.co.jp') !== false ||
+            strpos($url,'//item.shopping.c.yimg.jp') !== false
+          ) {
+            //Amazon・楽天・Yahoo!ショッピング商品画像にwidthとheightの属性がない場合
+            $width_value = 75;
+            $width_attr = ' width="75"';//width属性を作成
+            $height_value = 75;
+            $height_attr = ' height="75"';//height属性を作成
+          } else {
+            $width_value = 300;
+            $width_attr = ' width="300"';//width属性を作成
+            $height_value = 300;
+            $height_attr = ' height="300"';//height属性を作成
+          }
+
         }
       }
 
