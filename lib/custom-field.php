@@ -159,6 +159,7 @@ add_action('save_post', 'save_seo_custom_data');
 function save_seo_custom_data(){
   $id = get_the_ID();
   //タイトル
+  $seo_title = null;
   if ( isset( $_POST['seo_title'] ) ){
     $seo_title = $_POST['seo_title'];
     $seo_title_key = 'seo_title';
@@ -166,6 +167,7 @@ function save_seo_custom_data(){
     update_post_meta($id, $seo_title_key, $seo_title);
   }
   //メタディスクリプション
+  $meta_description = null;
   if ( isset( $_POST['meta_description'] ) ){
     $meta_description = $_POST['meta_description'];
     $meta_description_key = 'meta_description';
@@ -173,6 +175,7 @@ function save_seo_custom_data(){
     update_post_meta($id, $meta_description_key, $meta_description);
   }
   //メタキーワード
+  $meta_keywords = null;
   if ( isset( $_POST['meta_keywords'] ) ){
     $meta_keywords = $_POST['meta_keywords'];
     $meta_keywords_key = 'meta_keywords';
@@ -180,6 +183,7 @@ function save_seo_custom_data(){
     update_post_meta($id, $meta_keywords_key, $meta_keywords);
   }
   //noindex
+  $is_noindex = null;
   if ( isset( $_POST['is_noindex'] ) ){
     $is_noindex = $_POST['is_noindex'];
   }
@@ -188,6 +192,7 @@ function save_seo_custom_data(){
   update_post_meta($id, $is_noindex_key, $is_noindex);
 
   //nofollow
+  $is_nofollow = null;
   if ( isset( $_POST['is_nofollow'] ) ){
     $is_nofollow = $_POST['is_nofollow'];
   }
