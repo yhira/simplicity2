@@ -351,7 +351,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'header_height_mobile', array(
     'settings' => 'header_height_mobile',
-    'label' => 'ヘッダーの高さpx（デフォルト：0）',
+    'label' => 'モバイルヘッダーの高さpx（デフォルト：0）',
     'description' => is_tips_visible() ? 'モバイルでの画面トップからグローバルメニューまでの高さです。（※0にするとデフォルト設定になります）' : '',
     'section' => 'header_image',
     'type' => 'number',
