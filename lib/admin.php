@@ -247,3 +247,56 @@ function add_insert_html_button_plugin( $plugin_array ) {
 }
 endif;
 add_filter( 'mce_external_plugins', 'add_insert_html_button_plugin' );
+
+
+//投稿管理画面のカテゴリー選択にフィルタリング機能を付ける
+if ( !function_exists( 'add_category_filter_form' ) ):
+function add_category_filter_form() {
+?>
+<script type="text/javascript">
+jQuery(function($) {
+  function catFilter( header, list ) {
+    var form  = $('<form>').attr({'class':'filterform', 'action':'#'}).css({'position':'absolute', 'top':'38px'}),
+        input = $('<input>').attr({'class':'filterinput', 'type':'text', 'placeholder':'カテゴリー検索' });
+    $(form).append(input).appendTo(header);
+    $(header).css({'padding-top':'42px'});
+    $(input).change(function() {
+      var filter = $(this).val();
+      if( filter ) {
+        //ラベルテキストから検索文字の見つからなかった場合は非表示
+        $(list).find('label').filter(
+          function (index) {
+          //console.log($(this).prop('tagName'));
+          //console.log($(this).text().toLowerCase());
+          //console.log(filter.toLowerCase());
+            return $(this).text().toLowerCase()
+                     .indexOf(filter.toLowerCase()) == -1;
+          }
+        ).hide();
+        //ラベルテキストから検索文字の見つかった場合は表示
+        $(list).find('label').filter(
+          function (index) {
+            return $(this).text().toLowerCase()
+                     .indexOf(filter.toLowerCase()) != -1;
+          }
+        ).show();
+      } else {
+        $(list).find('label').show();
+      }
+      return false;
+    })
+    .keyup(function() {
+      $(this).change();
+    });
+  }
+
+  $(function() {
+    catFilter( $('#category-all'), $('#categorychecklist') );
+  });
+});
+</script>
+<?php
+}
+endif;
+add_action( 'admin_head-post-new.php', 'add_category_filter_form' );
+add_action( 'admin_head-post.php', 'add_category_filter_form' );
