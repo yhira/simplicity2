@@ -32,7 +32,11 @@ function add_quicktags_to_text_editor() {
   }
 }
 endif;
-add_action( 'admin_print_footer_scripts', 'add_quicktags_to_text_editor' );
+//管理画面のウィジェットページでは表示しない
+if ( is_admin() && ($pagenow != 'widgets.php') ) {
+  add_action( 'admin_print_footer_scripts', 'add_quicktags_to_text_editor' );
+}
+
 
 //TinyMCE追加用のスタイルを初期化
 //http://com4tis.net/tinymce-advanced-post-custom/
