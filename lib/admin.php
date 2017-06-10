@@ -255,6 +255,12 @@ function add_category_filter_form() {
 ?>
 <script type="text/javascript">
 jQuery(function($) {
+  function zenToHan(text) {
+    return text.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+          return String.fromCharCode(s.charCodeAt(0) - 65248);
+      });
+  }
+
   function catFilter( header, list ) {
     var form  = $('<form>').attr({'class':'filterform', 'action':'#'}).css({'position':'absolute', 'top':'38px'}),
         input = $('<input>').attr({'class':'filterinput', 'type':'text', 'placeholder':'カテゴリー検索' });
@@ -262,6 +268,10 @@ jQuery(function($) {
     $(header).css({'padding-top':'42px'});
     $(input).change(function() {
       var filter = $(this).val();
+      filter = zenToHan(filter).toLowerCase();
+      // filter = filter.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+      //     return String.fromCharCode(s.charCodeAt(0) - 65248);
+      // });
       if( filter ) {
         //ラベルテキストから検索文字の見つからなかった場合は非表示
         $(list).find('label').filter(
@@ -269,15 +279,15 @@ jQuery(function($) {
           //console.log($(this).prop('tagName'));
           //console.log($(this).text().toLowerCase());
           //console.log(filter.toLowerCase());
-            return $(this).text().toLowerCase()
-                     .indexOf(filter.toLowerCase()) == -1;
+            var labelText = zenToHan($(this).text()).toLowerCase();
+            return labelText.indexOf(filter) == -1;
           }
         ).hide();
         //ラベルテキストから検索文字の見つかった場合は表示
         $(list).find('label').filter(
           function (index) {
-            return $(this).text().toLowerCase()
-                     .indexOf(filter.toLowerCase()) != -1;
+            var labelText = zenToHan($(this).text()).toLowerCase();
+            return labelText.indexOf(filter) != -1;
           }
         ).show();
       } else {
