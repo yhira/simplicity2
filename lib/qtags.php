@@ -33,7 +33,7 @@ function add_quicktags_to_text_editor() {
 }
 endif;
 //管理画面のウィジェットページでは表示しない
-if ( is_admin() && ($pagenow != 'widgets.php') ) {
+if ( is_admin() && (($pagenow != 'widgets.php') && ($pagenow != 'customize.php')) ) {
   add_action( 'admin_print_footer_scripts', 'add_quicktags_to_text_editor' );
 }
 

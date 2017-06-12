@@ -269,9 +269,6 @@ jQuery(function($) {
     $(input).change(function() {
       var filter = $(this).val();
       filter = zenToHan(filter).toLowerCase();
-      // filter = filter.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
-      //     return String.fromCharCode(s.charCodeAt(0) - 65248);
-      // });
       if( filter ) {
         //ラベルテキストから検索文字の見つからなかった場合は非表示
         $(list).find('label').filter(
