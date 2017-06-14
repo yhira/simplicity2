@@ -36,6 +36,9 @@ require_once('widgets/recent-comments.php');
 //Facebook保存ボタンウイジェット
 require_once('widgets/facebook-save-button.php');
 
+//クラシックテキストウイジェット
+require_once('widgets/classic-text.php');
+
 //集計単位の文字列取得
 function get_range_tag($range){
   switch ($range) {

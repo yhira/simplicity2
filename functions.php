@@ -1331,3 +1331,11 @@ function get_archive_chapter_text(){
   return $chapter_text;
 }
 endif;
+
+//remove_filter('widget_text_content', 'wpautop');
+
+// add_filter( 'widget_display_callback', 'clean_widget_display_callback', 10, 3 );
+// function clean_widget_display_callback( $instance, $widget, $args ) {
+//     $instance['filter'] = false;
+//     return $instance;
+// }
