@@ -54,13 +54,14 @@ if ( !function_exists( 'simplicity_title_parts' ) ):
 function simplicity_title_parts( $title ){
   $site_name = trim( get_bloginfo('name') );
   $title['tagline'] = '';
-  if(is_front_page()):
+
+  if(is_front_page()): //フロントページ
     $title['title'] = $site_name;
     $title['site'] = '';
     if ( is_catch_phrase_to_frontpage_title() )://キャッチフレーズを追加する場合
       $title['tagline'] = trim( get_bloginfo('description') );
     endif;
-  elseif(is_singular()):
+  elseif(is_singular()): //投稿・固定ページ
     $title['title'] = trim( get_the_title() );
     //SEO向けのタイトルが設定されているとき
     if (get_seo_title_singular_page()) {

@@ -268,6 +268,14 @@
  エントリーカードのモバイル表示
  ***********************************/
 @media screen and (max-width:500px){
+  .entry-card h2,
+  .entry-card h2 a.entry-title,
+  .related-entry h3,
+  .related-entry h3 a {
+    line-height: 110%;
+    font-size: 17px ;
+  }
+
   /* サムネイル回り込み */
   .entry-card .entry-thumb,
   .related-entry .related-entry-thumb {
@@ -276,9 +284,9 @@
     padding: 0;
   }
 
-  .entry-card h2 a{
+/*  .entry-card h2 a{
     font-size: 17px;
-  }
+  }*/
 
   .entry-card-content,
   .related-entry-content{
@@ -324,13 +332,13 @@
  ***********************************/
 @media screen and (max-width:359px){
   /* 記事タイトルfont調整 */
-  .entry-card h2,
+/*  .entry-card h2,
   .entry-card h2 a.entry-title,
   .related-entry h3,
   .related-entry h3 a {
     line-height: 100%;
     font-size: 17px ;
-  }
+  }*/
 
   /* サムネイル回り込み */
   .entry-card .entry-thumb,

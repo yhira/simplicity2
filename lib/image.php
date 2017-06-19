@@ -54,7 +54,7 @@ function add_lightbox_property( $content ) {
 
   //Aタグを正規表現で置換
   $content = preg_replace(
-    '/<a([^>]+?(\.jpe?g|\.png|\.gif)[\'\"][^>]*?)>\s*(<img[^>]+?>)\s*<\/a>/i',//Aタグの正規表現
+    '/<a([^>]+?(\.jpe?g|\.png|\.gif)[\'\"][^>]*?)>[\s\w\W\d]*?(<img[^>]+?>)[\s\w\W\d]*?<\/a>/i',//Aタグの正規表現
     '<a${1} data-lightbox="image-set">${3}</a>',//置換する
     $content );//投稿本文（置換する文章）
 
@@ -85,7 +85,7 @@ function add_lity_property( $content ) {
   $google_map_reg = '\\/\/[mapsw]+\.google\.[^\/]+?\/maps\?q=[^"]+';
   //Aタグを正規表現で置換
   $content = preg_replace(
-    '/<a([^>]+?('.$img_reg.'|'.$youtube_reg.'|'.$viemo_reg.'|'.$google_map_reg.')[\'\"][^>]*?)>\s*(.+?)\s*<\/a>/i',//Aタグの正規表現
+    '/<a([^>]+?('.$img_reg.'|'.$youtube_reg.'|'.$viemo_reg.'|'.$google_map_reg.')[\'\"][^>]*?)>([\s\w\W\d]+?)<\/a>/i',//Aタグの正規表現
     '<a${1} data-lity="">${3}</a>',//置換する
     $content );//投稿本文（置換する文章）
   return $content;
