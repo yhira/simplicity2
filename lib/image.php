@@ -7,7 +7,7 @@ function add_image_tag_placeholders( $content ) {
     return $content;
   }
   //プレビューやフィードモバイルなどで遅延させない
-  if( is_feed() || is_preview() || is_mobile() )
+  if( is_feed() || is_preview() || is_mobile() || is_admin() )
       return $content;
 
   //既に適用させているところは処理しない
@@ -54,7 +54,7 @@ function add_lightbox_property( $content ) {
 
   //Aタグを正規表現で置換
   $content = preg_replace(
-    '/<a([^>]+?(\.jpe?g|\.png|\.gif)[\'\"][^>]*?)>[\s\w\W\d]*?(<img[^>]+?>)[\s\w\W\d]*?<\/a>/i',//Aタグの正規表現
+    '/<a([^>]+?(\.jpe?g|\.png|\.gif)[\'\"][^>]*?)>([\s\w\W\d]+?)<\/a>/i',//Aタグの正規表現
     '<a${1} data-lightbox="image-set">${3}</a>',//置換する
     $content );//投稿本文（置換する文章）
 
