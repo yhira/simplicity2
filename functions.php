@@ -1134,14 +1134,29 @@ function get_noimage_sizes_attr($image = null){
 endif;
 
 
-//REST APIを無効にする
-if ( !function_exists( 'disable_rest_api' ) ):
-function disable_rest_api(){
- return new WP_Error( 'disabled', array( 'status' => rest_authorization_required_code() ) );
+//特定のプラグインを除外してREST APIを無効にする
+if ( !function_exists( 'simplicity_deny_restapi_except_plugins' ) ):
+function simplicity_deny_restapi_except_plugins( $result, $wp_rest_server, $request ){
+    $namespaces = $request->get_route();
+
+    //oembedの除外
+    if( strpos( $namespaces, 'oembed/' ) === 1 ){
+        return $result;
+    }
+    //Jetpackの除外
+    if( strpos( $namespaces, 'jetpack/' ) === 1 ){
+        return $result;
+    }
+    //Contact Form7の除外
+    if( strpos( $namespaces, 'contact-form-7/' ) === 1 ){
+        return $result;
+    }
+
+    return new WP_Error( 'rest_disabled', __( 'The REST API on this site has been disabled.' ), array( 'status' => rest_authorization_required_code() ) );
 }
 endif;
 if (!is_rest_api_enable() && (get_wordpress_version() >= 4.7)) {
-  add_filter( 'rest_authentication_errors', 'disable_rest_api' );
+  add_filter( 'rest_pre_dispatch', 'simplicity_deny_restapi_except_plugins', 10, 3 );
 }
 
 //Wordpressのバージョンを少数で取得する
