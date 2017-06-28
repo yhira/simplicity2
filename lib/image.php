@@ -106,6 +106,26 @@ add_action( 'wp_enqueue_scripts', 'deregister_thickbox_files' );
 if ( !function_exists( 'wrap_hover_image' ) ):
 function wrap_hover_image($the_content) {
   if ( is_singular() ) {
+    //余計なpタグを取り除く
+    $res = preg_match_all('/<p>.+?<\/p>/is', $the_content, $m);
+    if ($res) {//pタグがある場合
+
+      foreach ($m[0] as $match) {
+        //imgタグがある場合pタグを取り除く
+        $img_res = preg_match('/<img/is', $match, $imgs);
+        if ( $img_res ) {
+          $no_p = str_replace('<p>', '', $match);
+          $no_p = str_replace('</p>', '', $no_p);
+
+          //var_dump(htmlspecialchars($no_p));
+
+          $the_content = str_replace($match, $no_p, $the_content);
+        }
+
+      }
+    }
+
+
     $hover_image_admin_class = null;
     if ( is_user_logged_in() ) {
       $hover_image_admin_class = ' hover-image-admin';
