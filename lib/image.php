@@ -106,7 +106,7 @@ add_action( 'wp_enqueue_scripts', 'deregister_thickbox_files' );
 if ( !function_exists( 'wrap_hover_image' ) ):
 function wrap_hover_image($the_content) {
   if ( is_singular() ) {
-    //余計なpタグを取り除く
+    // //余計なpタグを取り除く
     $res = preg_match_all('/<p>.+?<\/p>/is', $the_content, $m);
     if ($res) {//pタグがある場合
 
@@ -119,11 +119,32 @@ function wrap_hover_image($the_content) {
 
           //var_dump(htmlspecialchars($no_p));
 
-          $the_content = str_replace($match, $no_p, $the_content);
+          $the_content = str_replace($match, '<div class="imgs-wrap">'.$no_p.'</div>', $the_content);
         }
 
       }
     }
+
+/*
+    $hover_image_admin_class = null;
+    if ( is_user_logged_in() ) {
+      $hover_image_admin_class = ' hover-image-admin';
+    }
+    //
+    $res = preg_match_all('/<img.+?alt=[\'"]([^\'"]+?)[\'"].+?>/is', $the_content, $m);
+    if ($res) {//
+
+      foreach ($m[0] as $match) {
+        //var_dump(htmlspecialchars($match));
+        //
+        $the_content = preg_replace(
+          '{'.preg_quote($match).'}',
+          '<div class="hover-image'.$hover_image_admin_class.'">'.$match.'<div class="details"><span class="info">${1}</span></div></div>',
+            $the_content);
+      }
+
+    }
+*/
 
 
     $hover_image_admin_class = null;
@@ -132,6 +153,7 @@ function wrap_hover_image($the_content) {
     }
     //$the_content = preg_replace('/<\/?p>/i', '', $the_content);
     //Alt属性値のある画像タグをラッパー付きのタグで置換する
+
     $the_content = preg_replace(
       '/(<p>)?(((<a[^>]+?>)?<img.+?alt=[\'"]([^\'"]+?)[\'"].+?>)(<\/a>)?)(<\/p>)?/i',
       '<div class="hover-image'.$hover_image_admin_class.'">${2}<div class="details"><span class="info">${5}</span></div></div>',

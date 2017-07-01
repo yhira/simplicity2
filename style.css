@@ -1877,6 +1877,10 @@ div.vdh-mask{
 /************************************
 ** Alt属性値を画像ホバー時にキャプション表示する
 ************************************/
+.imgs-wrap{
+  margin: 16px 0;
+}
+
 .hover-image {
   display: inline-block;
   /*margin: 16px 0;*/
