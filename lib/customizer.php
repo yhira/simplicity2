@@ -44,8 +44,8 @@ function theme_customize_register($wp_customize) {
   //色設定項目の書き換え
   /////////////////////////////
   $wp_customize->add_section( 'colors', array(
-    'title' =>'色',
-    'description' => is_tips_visible() ? 'テーマで使用している色を変更します。' : '',
+    'title' => __('色', 'simplicity2'),
+    'description' => is_tips_visible() ? __('テーマで使用している色を変更します。', 'simplicity2') : '',
     'priority' => 20,
   ));
 
@@ -55,8 +55,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
   ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-    'label' => __( 'リンク色', 'colors' ),
-    'description' => is_tips_visible() ? '通常のリンク色です。（デフォルト色：#2098a8）' : '',
+    'label' => __( 'リンク色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __('通常のリンク色です。（デフォルト色：#2098a8）', 'simplicity2') : '',
     'section' => 'colors',
     'settings' => 'link_color',
     'priority' => 15,
@@ -68,8 +68,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
   ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
-    'label' => __( 'リンクホバー色', 'colors' ),
-    'description' => is_tips_visible() ? 'マウスカーソルが乗ったときのリンク色です。（デフォルト色：#cc0033）' : '',
+    'label' => __( 'リンクホバー色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __('マウスカーソルが乗ったときのリンク色です。（デフォルト色：#cc0033）', 'simplicity2') : '',
     'section' => 'colors',
     'settings' => 'link_hover_color',
     'priority' => 20,
@@ -81,8 +81,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
   ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_outer_background_color', array(
-    'label' => __( 'ヘッダー外側背景色', 'colors' ),
-    'description' => is_tips_visible() ? '画面幅いっぱいに広がるヘッダーの背景色です。（デフォルト色：transparent）' : '',
+    'label' => __( 'ヘッダー外側背景色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '画面幅いっぱいに広がるヘッダーの背景色です。（デフォルト色：transparent）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'header_outer_background_color',
     'priority' => 25,
@@ -94,8 +94,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_inner_background_color', array(
-    'label' => __( 'ヘッダー内側背景色', 'colors' ),
-    'description' => is_tips_visible() ? 'ヘッダー内側の背景色です。（デフォルト色：transparent）' : '',
+    'label' => __( 'ヘッダー内側背景色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ヘッダー内側の背景色です。（デフォルト色：transparent）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'header_inner_background_color',
     'priority' => 26,
@@ -107,8 +107,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_title_color', array(
-    'label' => __( 'サイトタイトル色', 'colors' ),
-    'description' => is_tips_visible() ? 'サイトタイトルの文字色です。（デフォルト色：#222222）' : '',
+    'label' => __( 'サイトタイトル色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトタイトルの文字色です。（デフォルト色：#222222）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'site_title_color',
     'priority' => 30,
@@ -120,8 +120,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_description_color', array(
-    'label' => __( 'サイト概要色', 'colors' ),
-    'description' => is_tips_visible() ? 'サイトキャッチフレーズの文字色です。（デフォルト色：#777777）' : '',
+    'label' => __( 'サイト概要色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトキャッチフレーズの文字色です。（デフォルト色：#777777）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'site_description_color',
     'priority' => 40,
@@ -133,8 +133,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'mobile_background_color', array(
-    'label' => __( 'モバイル時ヘッダー背景色', 'colors' ),
-    'description' => is_tips_visible() ? '画面幅いっぱいに広がるモバイルヘッダーの背景色です。（デフォルト色：transparent）' : '',
+    'label' => __( 'モバイル時ヘッダー背景色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '画面幅いっぱいに広がるモバイルヘッダーの背景色です。（デフォルト色：transparent）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'mobile_background_color',
     'priority' => 50,
@@ -146,8 +146,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'mobile_site_title_color', array(
-    'label' => __( 'モバイルサイトタイトル色', 'colors' ),
-    'description' => is_tips_visible() ? 'モバイル時のサイトタイトルの文字色です。（デフォルト色：#222222）' : '',
+    'label' => __( 'モバイルサイトタイトル色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'モバイル時のサイトタイトルの文字色です。（デフォルト色：#222222）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'mobile_site_title_color',
     'priority' => 60,
@@ -159,8 +159,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'mobile_site_description_color', array(
-    'label' => __( 'モバイルサイト概要色', 'colors' ),
-    'description' => is_tips_visible() ? 'モバイル時のサイトキャッチフレーズの文字色です。（デフォルト色：#777777）' : '',
+    'label' => __( 'モバイルサイト概要色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'モバイル時のサイトキャッチフレーズの文字色です。（デフォルト色：#777777）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'mobile_site_description_color',
     'priority' => 70,
@@ -172,8 +172,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navi_color', array(
-    'label' => __( 'グローバルナビ色', 'colors' ),
-    'description' => is_tips_visible() ? 'グローバルナビ（メインメニュー）の背景色です。（デフォルト色：#f7f7f7）' : '',
+    'label' => __( 'グローバルナビ色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'グローバルナビ（メインメニュー）の背景色です。（デフォルト色：#f7f7f7）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'navi_color',
     'priority' => 80,
@@ -185,8 +185,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navi_link_color', array(
-    'label' => __( 'グローバルナビリンク色', 'colors' ),
-    'description' => is_tips_visible() ? 'グローバルナビリンクの文字色です。（デフォルト色：#111111）' : '',
+    'label' => __( 'グローバルナビリンク色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'グローバルナビリンクの文字色です。（デフォルト色：#111111）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'navi_link_color',
     'priority' => 90,
@@ -198,8 +198,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navi_link_hover_color', array(
-    'label' => __( 'グローバルナビリンクホバー色', 'colors' ),
-    'description' => is_tips_visible() ? 'マウスカーソルが乗ったときのメニュー項目の背景色です。（デフォルト色：#dddddd）' : '',
+    'label' => __( 'グローバルナビリンクホバー色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'マウスカーソルが乗ったときのメニュー項目の背景色です。（デフォルト色：#dddddd）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'navi_link_hover_color',
     'priority' => 100,
@@ -211,8 +211,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_button_color', array(
-    'label' => __( 'メニューボタン色', 'colors' ),
-    'description' => is_tips_visible() ? 'モバイル用メニュー表示ボタンのアイコン色です。（デフォルト色：#333333）' : '',
+    'label' => __( 'メニューボタン色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'モバイル用メニュー表示ボタンのアイコン色です。（デフォルト色：#333333）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'menu_button_color',
     'priority' => 102,
@@ -224,8 +224,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_button_background_color', array(
-    'label' => __( 'メニューボタン背景色', 'colors' ),
-    'description' => is_tips_visible() ? 'モバイル用メニュー表示ボタンの背景色です。（デフォルト色：transparent）' : '',
+    'label' => __( 'メニューボタン背景色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'モバイル用メニュー表示ボタンの背景色です。（デフォルト色：transparent）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'menu_button_background_color',
     'priority' => 104,
@@ -237,8 +237,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'go_to_top_button_color', array(
-    'label' => __( 'トップへ戻るボタン色', 'colors' ),
-    'description' => is_tips_visible() ? 'トップに戻るボタンのアイコン色です。（デフォルト色：#ffffff）' : '',
+    'label' => __( 'トップへ戻るボタン色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'トップに戻るボタンのアイコン色です。（デフォルト色：#ffffff）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'go_to_top_button_color',
     'priority' => 110,
@@ -250,8 +250,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'go_to_top_button_background_color', array(
-    'label' => __( 'トップへ戻るボタン背景色', 'colors' ),
-    'description' => is_tips_visible() ? 'トップに戻るボタンの背景色です。（デフォルト色：#aaaaaa）' : '',
+    'label' => __( 'トップへ戻るボタン背景色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'トップに戻るボタンの背景色です。（デフォルト色：#aaaaaa）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'go_to_top_button_background_color',
     'priority' => 112,
@@ -263,8 +263,8 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
-    'label' => __( 'フッター色', 'colors' ),
-    'description' => is_tips_visible() ? 'フッター部分の背景色です。（デフォルト色：#555555）' : '',
+    'label' => __( 'フッター色', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'フッター部分の背景色です。（デフォルト色：#555555）', 'simplicity2' ) : '',
     'section' => 'colors',
     'settings' => 'footer_color',
     'priority' => 120,
@@ -275,8 +275,8 @@ function theme_customize_register($wp_customize) {
   //ヘッダー設定項目の書き換え
   /////////////////////////////
   $wp_customize->add_section( 'header_image', array(
-    'title' =>'ヘッダー',
-    'description' => is_tips_visible() ? 'ヘッダーで使用する画像や、ロゴ、グローバルナビの幅に関する設定です。' : '',
+    'title' => __( 'ヘッダー', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ヘッダーで使用する画像や、ロゴ、グローバルナビの幅に関する設定です。', 'simplicity2' ) : '',
     'priority' => 30,
   ));
 
@@ -287,8 +287,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'header_height', array(
     'settings' => 'header_height',
-    'label' => 'ヘッダーの高さpx（デフォルト：100）',
-    'description' => is_tips_visible() ? '画面トップからグローバルメニューまでの高さです。（※ヘッダー画像設定をする前に高さの設定推奨。変更した場合はカスタマイズ画面を再読み込みしてください）' : '',
+    'label' => __( 'ヘッダーの高さpx（デフォルト：100）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '画面トップからグローバルメニューまでの高さです。（※ヘッダー画像設定をする前に高さの設定推奨。変更した場合はカスタマイズ画面を再読み込みしてください）', 'simplicity2' ) : '',
     'section' => 'header_image',
     'type' => 'number',
     'priority' => 20,
@@ -300,8 +300,8 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_logo_url', array(
     'settings' => 'header_logo_url',
-    'label' =>'ロゴ画像',
-    'description' => is_tips_visible() ? 'タイトルテキストの代わりとなるロゴ設定します。（※表示させるには「ロゴを画像にする」を有効にする必要あり）' : '',
+    'label' => __( 'ロゴ画像', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'タイトルテキストの代わりとなるロゴ設定します。（※表示させるには「ロゴを画像にする」を有効にする必要あり）', 'simplicity2' ) : '',
     'section' => 'header_image',
     'priority' => 30,
   ) ) );
@@ -312,8 +312,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'header_logo_enable', array(
     'settings' => 'header_logo_enable',
-    'label' =>'ロゴを画像にする',
-    'description' => is_tips_visible() ? 'タイトルロゴを画像にするか。' : '',
+    'label' => __( 'ロゴを画像にする', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'タイトルロゴを画像にするか。', 'simplicity2' ) : '',
     'section' => 'header_image',
     'type' => 'checkbox',
     'priority' => 40,
@@ -325,8 +325,8 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_outer_background_image', array(
     'settings' => 'header_outer_background_image',
-    'label' =>'ヘッダー外側背景画像',
-    'description' => is_tips_visible() ? '画面幅いっぱいに広がるヘッダー画像を設定します。（※画像の高さは高めに設定しておいてください）<br><a href="https://wp-simplicity.com/how-to-set-big-header-image/" target="_blank">ヘッダー画像の設定方法</a>' : '',
+    'label' => __( 'ヘッダー外側背景画像', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '画面幅いっぱいに広がるヘッダー画像を設定します。（※画像の高さは高めに設定しておいてください）<br><a href="https://wp-simplicity.com/how-to-set-big-header-image/" target="_blank">ヘッダー画像の設定方法</a>', 'simplicity2' ) : '',
     'section' => 'header_image',
     'priority' => 50,
   ) ) );
@@ -337,8 +337,8 @@ function theme_customize_register($wp_customize) {
     ));
   $wp_customize->add_control( 'layout_option_navi_wide', array(
     'settings' => 'layout_option_navi_wide',
-    'label' =>'グローバルナビを横幅いっぱいにする',
-    'description' => is_tips_visible() ? 'グローバルナビを画面幅いっぱいに広げて「ヘッダー外側背景画像」に合わせるか。（※「色→グローバルナビ色」の設定も併せて行う必要があるかもしれません）<br><a href="https://wp-simplicity.com/how-to-set-big-header-image/" target="_blank">ヘッダー画像の設定方法設定方法</a>' : '',
+    'label' => __( 'グローバルナビを横幅いっぱいにする', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'グローバルナビを画面幅いっぱいに広げて「ヘッダー外側背景画像」に合わせるか。（※「色→グローバルナビ色」の設定も併せて行う必要があるかもしれません）<br><a href="https://wp-simplicity.com/how-to-set-big-header-image/" target="_blank">ヘッダー画像の設定方法設定方法</a>', 'simplicity2' ) : '',
     'section' => 'header_image',
     'type' => 'checkbox',
     'priority' => 55,
@@ -351,8 +351,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'header_height_mobile', array(
     'settings' => 'header_height_mobile',
-    'label' => 'モバイルヘッダーの高さpx（デフォルト：0）',
-    'description' => is_tips_visible() ? 'モバイルでの画面トップからグローバルメニューまでの高さです。（※0にするとデフォルト設定になります）' : '',
+    'label' => __( 'モバイルヘッダーの高さpx（デフォルト：0）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'モバイルでの画面トップからグローバルメニューまでの高さです。（※0にするとデフォルト設定になります）', 'simplicity2' ) : '',
     'section' => 'header_image',
     'type' => 'number',
     'priority' => 57,
@@ -364,9 +364,9 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'mobile_header_background_image', array(
     'settings' => 'mobile_header_background_image',
-    'label' =>'モバイルヘッダー背景画像',
-    'description' => is_tips_visible() ? '画面幅いっぱいに広がるモバイルヘッダー画像を設定します。（※画像の高さは高めに設定しておいてください）<a href="https://wp-simplicity.com/how-to-set-big-header-image/" target="_blank" class="example-setting">設定例</a>
-' : '',
+    'label' => __( 'モバイルヘッダー背景画像', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '画面幅いっぱいに広がるモバイルヘッダー画像を設定します。（※画像の高さは高めに設定しておいてください）<a href="https://wp-simplicity.com/how-to-set-big-header-image/" target="_blank" class="example-setting">設定例</a>
+', 'simplicity2' ) : '',
     'section' => 'header_image',
     'priority' => 60,
   ) ) );
@@ -376,8 +376,8 @@ function theme_customize_register($wp_customize) {
   //スキン設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'skin_section', array(
-    'title'          =>'スキン',
-    'description' => is_tips_visible() ? 'Simplicityの外観を手軽に変更します。詳細は、<a href="https://wp-simplicity.com/skin/" target="_blank" class="example-setting">スキンの使い方</a>を参照してください。<br>パーツスキンに関しては<a href="https://wp-simplicity.com/skin-parts/" target="_blank">パーツスキンの使い方</a>を参照してください。' : '',
+    'title'          => __( 'スキン', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Simplicityの外観を手軽に変更します。詳細は、<a href="https://wp-simplicity.com/skin/" target="_blank" class="example-setting">スキンの使い方</a>を参照してください。<br>パーツスキンに関しては<a href="https://wp-simplicity.com/skin-parts/" target="_blank">パーツスキンの使い方</a>を参照してください。', 'simplicity2' ) : '',
     'priority'       => 88,
   ));
 
@@ -388,15 +388,15 @@ function theme_customize_register($wp_customize) {
   ));
   $skins = get_skin_files();//スキンファイル情報の取得
   $radio_items = array(
-    '' => '選択しない（デフォルト）' ,//デフォルト値
+    '' => __( '選択しない（デフォルト）' , 'simplicity2' ),//デフォルト値
   );
   foreach ($skins as $skin) {
     $radio_items += array($skin['path'] => $skin['name']);
   }
   $wp_customize->add_control( 'skin_file', array(
     'settings' => 'skin_file',
-    'label' =>'スキン選択',
-    'description' => is_tips_visible() ? '手軽にデザインを変更することができます。[P]マークがついているものは、フォルダ内のCSSファイルを結合して適用表示するパーツスキンです。※スキンで設定されたスタイルは親テーマ・子テーマで設定されたものより優先されます。' : '',
+    'label' => __( 'スキン選択', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '手軽にデザインを変更することができます。[P]マークがついているものは、フォルダ内のCSSファイルを結合して適用表示するパーツスキンです。※スキンで設定されたスタイルは親テーマ・子テーマで設定されたものより優先されます。', 'simplicity2' ) : '',
     'section' => 'skin_section',
     'type' => 'radio',
     'choices'    => $radio_items,
@@ -407,8 +407,8 @@ function theme_customize_register($wp_customize) {
   //レイアウト（全体）設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'layout_section', array(
-    'title'          =>'レイアウト（全体・リスト）',
-    'description' => is_tips_visible() ? 'サイト全体や一覧リストページのレイアウトに関する設定です。' : '',
+    'title'       => __( 'レイアウト（全体・リスト）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイト全体や一覧リストページのレイアウトに関する設定です。', 'simplicity2' ) : '',
     'priority'       => 89,
   ));
 
@@ -418,8 +418,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'responsive_enable', array(
     'settings' => 'responsive_enable',
-    'label' =>'完全レスポンシブ表示を有効',
-    'description' => is_tips_visible() ? 'パソコンとモバイルでシームレスな完全なレスポンシブデザイン表示になります。' : '',
+    'label' => __( '完全レスポンシブ表示を有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'パソコンとモバイルでシームレスな完全なレスポンシブデザイン表示になります。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 1,
@@ -433,8 +433,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'responsive_pc_sidebar_enable', array(
     'settings' => 'responsive_pc_sidebar_enable',
-    'label' =>'PCでサイドバーをレスポンシブ表示',
-    'description' => is_tips_visible() ? 'PC表示時にサイドバーをレスポンシブ表示するか。オフにするとレスポンシブ表示されません。（※完全レスポンシブ機能がオフの時のみ有効な設定）' : '',
+    'label' => __( 'PCでサイドバーをレスポンシブ表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'PC表示時にサイドバーをレスポンシブ表示するか。オフにするとレスポンシブ表示されません。（※完全レスポンシブ機能がオフの時のみ有効な設定）', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 5,
@@ -447,8 +447,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'title_center', array(
     'settings' => 'title_center',
-    'label' => 'サイトタイトルの中央寄せ',
-    'description' => is_tips_visible() ? 'サイトのタイトルをヘッダーの中央にするか。（※トップのフォローボタンは表示されなくなります）' : '',
+    'label' => __( 'サイトタイトルの中央寄せ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトのタイトルをヘッダーの中央にするか。（※トップのフォローボタンは表示されなくなります）', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 10
@@ -461,8 +461,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'navi_visible', array(
     'settings' => 'navi_visible',
-    'label' =>'グローバルナビを表示',
-    'description' => is_tips_visible() ? 'グローバルナビ（メインメニュー）を表示させたくないときはオフにしてください。' : '',
+    'label' => __( 'グローバルナビを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'グローバルナビ（メインメニュー）を表示させたくないときはオフにしてください。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 20
@@ -475,22 +475,22 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'list_style', array(
     'settings' => 'list_style',
-    'label' =>'一覧リストのスタイル',
-    'description' => is_tips_visible() ? '一覧（インデックス）ページの表示スタイル設定。' : '',
+    'label' => __( '一覧リストのスタイル', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '一覧（インデックス）ページの表示スタイル設定。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'radio',
     'choices'    => array(
-      'cards' => 'エントリーカード（デフォルト）',
-      'large_cards' => '大きなエントリーカード',
-      'large_card_just_for_first' => '最初だけ大きなエントリーカード',
-      'bodies' => '本文表示',
-      'body_just_for_first' => '最初だけ本文表示',
-      'bodies' => '本文表示',
-      'large_thumb' => 'サムネイル大',
-      'tile_thumb_2columns' => 'タイル2列',
-      'tile_thumb_3columns' => 'タイル3列',
-      'tile_thumb_2columns_raw' => 'タイル2列 画像縦横比保存（要再生成）',
-      'tile_thumb_3columns_raw' => 'タイル3列 画像縦横比保存（要再生成）',
+      'cards' => __( 'エントリーカード（デフォルト）', 'simplicity2' ),
+      'large_cards' => __( '大きなエントリーカード', 'simplicity2' ),
+      'large_card_just_for_first' => __( '最初だけ大きなエントリーカード', 'simplicity2' ),
+      'bodies' => __( '本文表示', 'simplicity2' ),
+      'body_just_for_first' => __( '最初だけ本文表示', 'simplicity2' ),
+      'bodies' => __( '本文表示', 'simplicity2' ),
+      'large_thumb' => __( 'サムネイル大', 'simplicity2' ),
+      'tile_thumb_2columns' => __( 'タイル2列', 'simplicity2' ),
+      'tile_thumb_3columns' => __( 'タイル3列', 'simplicity2' ),
+      'tile_thumb_2columns_raw' => __( 'タイル2列 画像縦横比保存（要再生成）', 'simplicity2' ),
+      'tile_thumb_3columns_raw' => __( 'タイル3列 画像縦横比保存（要再生成）', 'simplicity2' ),
     ),
     'priority' => 40,
   ));
@@ -501,8 +501,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'page_include_in_list', array(
     'settings' => 'page_include_in_list',
-    'label' =>'固定ページも一覧リストに含める',
-    'description' => is_tips_visible() ? '固定ページを一覧リスト（インデックス）に含めるか。' : '',
+    'label' => __( '固定ページも一覧リストに含める', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '固定ページを一覧リスト（インデックス）に含めるか。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 50,
@@ -514,8 +514,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'wraped_entry_card', array(
     'settings' => 'wraped_entry_card',
-    'label' =>'エントリーカード全体をリンク化',
-    'description' => is_tips_visible() ? 'インデックスリスト・関連記事のエントリーカードやブログカード全体をAタグで囲ってリンク化するか。<br><a href="https://wp-simplicity.com/linked-entry-card/" target="_blank">機能説明</a>' : '',
+    'label' => __( 'エントリーカード全体をリンク化', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'インデックスリスト・関連記事のエントリーカードやブログカード全体をAタグで囲ってリンク化するか。<br><a href="https://wp-simplicity.com/linked-entry-card/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 55,
@@ -528,8 +528,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'thumbnail_visible', array(
     'settings' => 'thumbnail_visible',
-    'label' =>'サムネイル表示',
-    'description' => is_tips_visible() ? 'サムネイルを表示するか。（※テキスト主体ページなどではオフ）' : '',
+    'label' => __( 'サムネイル表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サムネイルを表示するか。（※テキスト主体ページなどではオフ）', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 60,
@@ -542,14 +542,14 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'thumbnail_radius', array(
     'settings' => 'thumbnail_radius',
-    'label' =>'サムネイルの角の丸め具合',
-    'description' => is_tips_visible() ? 'サムネイル角のスタイル。' : '',
+    'label' => __( 'サムネイルの角の丸め具合', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サムネイル角のスタイル。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'radio',
     'choices'    => array(
-      'default' => '丸めない（デフォルト）',
-      'radius_10px' => '角を丸める',
-      'circle' => '円形にする',
+      'default' => __( '丸めない（デフォルト）', 'simplicity2' ),
+      'radius_10px' => __( '角を丸める', 'simplicity2' ),
+      'circle' => __( '円形にする', 'simplicity2' ),
     ),
     'priority' => 70,
   ));
@@ -561,8 +561,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'excerpt_length', array(
     'settings' => 'excerpt_length',
-    'label' =>'抜粋文字数（デフォルト：70）',
-    'description' => is_tips_visible() ? 'インデックスリストや関連記事、ブログカードで表示される抜粋文字の文字数を設定します。' : '',
+    'label' => __( '抜粋文字数（デフォルト：70）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'インデックスリストや関連記事、ブログカードで表示される抜粋文字の文字数を設定します。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'number',
     'priority' => 80,
@@ -575,8 +575,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'excerpt_more', array(
     'settings' => 'excerpt_more',
-    'label' =>'抜粋の末尾文字（デフォルト：...）',
-    'description' => is_tips_visible() ? '抜粋文の末尾に付属する文字列を設定します。' : '',
+    'label' => __( '抜粋の末尾文字（デフォルト：...）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '抜粋文の末尾に付属する文字列を設定します。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'text',
     'priority' => 90,
@@ -589,8 +589,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'wordpress_excerpt', array(
     'settings' => 'wordpress_excerpt',
-    'label' =>'抜粋に「メタディスクリプション」項目を利用',
-    'description' => is_tips_visible() ? '記事一覧・ブログカードのスニペットに投稿管理画面の「SEO設定」項目にある「メタディスクリプション」テキストを使用します。「メタディスクリプション」が入力されていない場合は「抜粋」が使用されます。（※双方とも未入力の場合は記事本文冒頭の抜粋文）' : '',
+    'label' => __( '抜粋に「メタディスクリプション」項目を利用', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '記事一覧・ブログカードのスニペットに投稿管理画面の「SEO設定」項目にある「メタディスクリプション」テキストを使用します。「メタディスクリプション」が入力されていない場合は「抜粋」が使用されます。（※双方とも未入力の場合は記事本文冒頭の抜粋文）', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 100,
@@ -602,8 +602,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'sidebar_width_336', array(
     'settings' => 'sidebar_width_336',
-    'label' =>'サイドバーの幅を336pxに（デフォルト300px）',
-    'description' => is_tips_visible() ? 'サイドバーを「レクタングル（大）」幅に設定します。（※ヘッダー画像を既に設定している場合は要再設定）' : '',
+    'label' => __( 'サイドバーの幅を336pxに（デフォルト300px）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイドバーを「レクタングル（大）」幅に設定します。（※ヘッダー画像を既に設定している場合は要再設定）', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 110,
@@ -615,8 +615,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'sidebar_background_white', array(
     'settings' => 'sidebar_background_white',
-    'label' =>'サイドバーの背景を白色に',
-    'description' => is_tips_visible() ? 'サイドバーの背景色を白色に設定します。（※背景画像などを設定して、サイドバーが見づらくなったときなどに）' : '',
+    'label' => __( 'サイドバーの背景を白色に', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイドバーの背景色を白色に設定します。（※背景画像などを設定して、サイドバーが見づらくなったときなどに）', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 115,
@@ -628,8 +628,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'sidebar_left', array(
     'settings' => 'sidebar_left',
-    'label' =>'サイドバーを左側に表示',
-    'description' => is_tips_visible() ? 'サイドバーを左側に表示するようにレイアウトを変更します。' : '',
+    'label' => __( 'サイドバーを左側に表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイドバーを左側に表示するようにレイアウトを変更します。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 120,
@@ -642,15 +642,15 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'search_box_style', array(
     'settings' => 'search_box_style',
-    'label' =>'検索ボックスのスタイル',
-    'description' => is_tips_visible() ? '検索ボックスのデザイン設定。<a href="https://wp-simplicity.com/searchform-style/" target="_blank" class="example-setting">設定方法</a>' : '',
+    'label' => __( '検索ボックスのスタイル', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '検索ボックスのデザイン設定。<a href="https://wp-simplicity.com/searchform-style/" target="_blank" class="example-setting">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'radio',
     'choices'    => array(
-      'white_rect' => 'ホワイト四角（デフォルト）',
-      'white_circle' => 'ホワイト丸型',
-      'gray_rect' => 'グレー四角',
-      'gray_circle' => 'グレー丸型',
+      'white_rect' => __( 'ホワイト四角（デフォルト）', 'simplicity2' ),
+      'white_circle' => __( 'ホワイト丸型', 'simplicity2' ),
+      'gray_rect' => __( 'グレー四角', 'simplicity2' ),
+      'gray_circle' => __( 'グレー丸型', 'simplicity2' ),
     ),
     'priority' => 130,
   ));
@@ -662,13 +662,13 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'list_pager_type', array(
     'settings' => 'list_pager_type',
-    'label' =>'ページネーションタイプ',
-    'description' => is_tips_visible() ? 'インデックス一覧リストのページ送りのタイプ設定です。' : '',
+    'label' => __( 'ページネーションタイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'インデックス一覧リストのページ送りのタイプ設定です。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'radio',
     'choices'    => array(
-      'responsive' => 'レスポンシブ（デフォルト）',
-      'old_pager' => '旧ページネーション',
+      'responsive' => __( 'レスポンシブ（デフォルト）', 'simplicity2' ),
+      'old_pager' => __( '旧ページネーション', 'simplicity2' ),
     ),
     'priority' => 135,
   ));
@@ -679,8 +679,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'footer_transparent', array(
     'settings' => 'footer_transparent',
-    'label' =>'フッターを背景色と同じにする',
-    'description' => is_tips_visible() ? 'フッターを透過色にして背景を表示します。' : '',
+    'label' => __( 'フッターを背景色と同じにする', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'フッターを透過色にして背景を表示します。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 140,
@@ -693,8 +693,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'menu_button_icon_font', array(
     'settings' => 'menu_button_icon_font',
-    'label' =>'メニューボタンのアイコン（デフォルト：fa-bars）',
-    'description' => is_tips_visible() ? 'メニュー表示ボタンのアイコンフォントを設定します。アコーディオンツリーメニューのアイコンは変更できません。（※設定用のコードはFont Awesomeから取得します）<a href="https://wp-simplicity.com/button-icon-font-change/" target="_blank" class="example-setting">設定方法</a>' : '',
+    'label' => __( 'メニューボタンのアイコン（デフォルト：fa-bars）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'メニュー表示ボタンのアイコンフォントを設定します。アコーディオンツリーメニューのアイコンは変更できません。（※設定用のコードはFont Awesomeから取得します）<a href="https://wp-simplicity.com/button-icon-font-change/" target="_blank" class="example-setting">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'text',
     'priority' => 140,
@@ -707,8 +707,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'go_to_top_button_visible', array(
     'settings' => 'go_to_top_button_visible',
-    'label' =>'トップへ戻るボタンの表示',
-    'description' => is_tips_visible() ? 'トップへ戻るボタンを表示するか。' : '',
+    'label' => __( 'トップへ戻るボタンの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'トップへ戻るボタンを表示するか。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 150,
@@ -721,8 +721,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'go_to_top_button_icon_font', array(
     'settings' => 'go_to_top_button_icon_font',
-    'label' =>'トップへ戻るボタンのアイコン（デフォルト：fa-angle-double-up）',
-    'description' => is_tips_visible() ? 'トップへ戻るボタンのアイコンフォントを設定します。（※設定用のコードはFont Awesomeから取得します）<a href="https://wp-simplicity.com/button-icon-font-change/" target="_blank" class="example-setting">設定方法</a>' : '',
+    'label' => __( 'トップへ戻るボタンのアイコン（デフォルト：fa-angle-double-up）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'トップへ戻るボタンのアイコンフォントを設定します。（※設定用のコードはFont Awesomeから取得します）<a href="https://wp-simplicity.com/button-icon-font-change/" target="_blank" class="example-setting">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'text',
     'priority' => 160,
@@ -734,8 +734,8 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'go_to_top_button_image', array(
     'settings' => 'go_to_top_button_image',
-    'label' =>'トップへ戻るボタンに画像を指定',
-    'description' => is_tips_visible() ? 'こちらに画像が指定されている場合は、アイコンフォントが画像に入れ替わります。' : '',
+    'label' => __( 'トップへ戻るボタンに画像を指定', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'こちらに画像が指定されている場合は、アイコンフォントが画像に入れ替わります。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'priority' => 170,
   ) ) );
@@ -747,8 +747,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'calendar_border_visible', array(
     'settings' => 'calendar_border_visible',
-    'label' =>'カレンダーに枠線を表示',
-    'description' => is_tips_visible() ? 'カレンダーウィジェットに枠線を表示します。' : '',
+    'label' => __( 'カレンダーに枠線を表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'カレンダーウィジェットに枠線を表示します。', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 180,
@@ -760,8 +760,8 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, '404_image', array(
     'settings' => '404_image',
-    'label' => '404イメージ',
-    'description' => is_tips_visible() ? '404ページに表示するイメージを設定してください。<br><a href="https://wp-simplicity.com/simplicity-404-page/" target="_blank">設定方法</a>' : '',
+    'label' => __( '404イメージ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '404ページに表示するイメージを設定してください。<br><a href="https://wp-simplicity.com/simplicity-404-page/" target="_blank">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'priority' => 200,
   ) ) );

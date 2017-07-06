@@ -81,4 +81,3 @@ endif; ?>
           <!-- main -->
           <main itemscope itemprop="mainContentOfPage">
             <div id="main" itemscope itemtype="http://schema.org/Blog">
-
