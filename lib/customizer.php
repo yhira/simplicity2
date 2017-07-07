@@ -771,8 +771,8 @@ function theme_customize_register($wp_customize) {
   //レイアウト（ページ）設定項目の追加
    /////////////////////////////
   $wp_customize->add_section( 'layout_singular_section', array(
-    'title'          =>'レイアウト（投稿・固定ページ）',
-    'description' => is_tips_visible() ? '投稿・固定ページのレイアウトに関する設定です。' : '',
+    'title' => __( 'レイアウト（投稿・固定ページ）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿・固定ページのレイアウトに関する設定です。', 'simplicity2' ) : '',
     'priority'       => 89.5,
   ));
 
@@ -783,17 +783,17 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'article_font_size', array(
     'settings' => 'article_font_size',
-    'label' =>'本文文字サイズ（全角文字数）',
-    'description' => is_tips_visible() ? 'パソコン表示時の本文文字サイズを設定します。' : '',
+    'label' => __( '本文文字サイズ（全角文字数）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'パソコン表示時の本文文字サイズを設定します。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'radio',
     'choices'    => array(
-      '14' => '14px（1行48文字くらい）',
-      '15' => '15px（1行45文字くらい）',
-      '16' => '16px（1行42文字くらい：デフォルト）',
-      '17' => '17px（1行40文字くらい）',
-      '18' => '18px（1行37文字くらい）',
-      '19' => '19px（1行35文字くらい）',
+      '14' => __( '14px（1行48文字くらい）', 'simplicity2' ),
+      '15' => __( '15px（1行45文字くらい）', 'simplicity2' ),
+      '16' => __( '16px（1行42文字くらい：デフォルト）', 'simplicity2' ),
+      '17' => __( '17px（1行40文字くらい）', 'simplicity2' ),
+      '18' => __( '18px（1行37文字くらい）', 'simplicity2' ),
+      '19' => __( '19px（1行35文字くらい）', 'simplicity2' ),
     ),
     'priority' => 3,
   ));
@@ -805,8 +805,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'word_wrap_break_word', array(
     'settings' => 'word_wrap_break_word',
-    'label' =>'長い単語を必要に応じて改行する',
-    'description' => is_tips_visible() ? '必要に応じて長い単語やURLを要素からはみ出さないように改行します。ただし、この機能を有効にすると単語の途中で改行されることもあります。' : '',
+    'label' => __( '長い単語を必要に応じて改行する', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '必要に応じて長い単語やURLを要素からはみ出さないように改行します。ただし、この機能を有効にすると単語の途中で改行されることもあります。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 6,
@@ -819,8 +819,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'br_visible_with_mobile', array(
     'settings' => 'br_visible_with_mobile',
-    'label' =>'モバイルで<br>を表示',
-    'description' => is_tips_visible() ? '画面幅の狭いモバイル端末でbr改行を表示するか。' : '',
+    'label' => __( 'モバイルで<br>を表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '画面幅の狭いモバイル端末でbr改行を表示するか。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 7,
@@ -833,8 +833,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'create_date_visible', array(
     'settings' => 'create_date_visible',
-    'label' =>'投稿日の表示',
-    'description' => is_tips_visible() ? '投稿日を表示するか。（※一覧リストにも表示されます。）（※非表示にするとGoogle Search Consoleで構造化データエラーが出る可能性があります。）' : '',
+    'label' => __( '投稿日の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿日を表示するか。（※一覧リストにも表示されます。）（※非表示にするとGoogle Search Consoleで構造化データエラーが出る可能性があります。）', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 7,
@@ -847,8 +847,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'human_time_diff_visible', array(
     'settings' => 'human_time_diff_visible',
-    'label' =>'投稿日と現在との時間差を表示',
-    'description' => is_tips_visible() ? '現在から投稿日を差し引いた人間の感覚的な時間差を表示します。' : '',
+    'label' => __( '投稿日と現在との時間差を表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '現在から投稿日を差し引いた人間の感覚的な時間差を表示します。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 7.1,
@@ -861,8 +861,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'update_date_visible', array(
     'settings' => 'update_date_visible',
-    'label' =>'更新日の表示',
-    'description' => is_tips_visible() ? '更新日を表示するか。（※非表示にするとGoogle Search Consoleで構造化データエラーが出る可能性があります。）' : '',
+    'label' => __( '更新日の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '更新日を表示するか。（※非表示にするとGoogle Search Consoleで構造化データエラーが出る可能性があります。）', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 8,
@@ -875,8 +875,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'category_visible', array(
     'settings' => 'category_visible',
-    'label' =>'カテゴリ情報の表示',
-    'description' => is_tips_visible() ? 'カテゴリ情報を表示するか。（※一覧リストにも表示されます）' : '',
+    'label' => __( 'カテゴリ情報の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'カテゴリ情報を表示するか。（※一覧リストにも表示されます）', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 9,
@@ -889,8 +889,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'comment_count_visible', array(
     'settings' => 'comment_count_visible',
-    'label' =>'コメント数の表示',
-    'description' => is_tips_visible() ? 'コメント数リンクを表示するか。（※コメントの設定でコメントを表示にしていないと表示されません。）' : '',
+    'label' => __( 'コメント数の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメント数リンクを表示するか。（※コメントの設定でコメントを表示にしていないと表示されません。）' , 'simplicity2' ): '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 9.5,
@@ -903,8 +903,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'tag_visible', array(
     'settings' => 'tag_visible',
-    'label' =>'タグ情報の表示',
-    'description' => is_tips_visible() ? '本文フッター部分にあるタグ情報を表示するか。' : '',
+    'label' => __( 'タグ情報の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '本文フッター部分にあるタグ情報を表示するか。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 10,
@@ -917,8 +917,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'author_visible', array(
     'settings' => 'author_visible',
-    'label' =>'投稿者情報の表示',
-    'description' => is_tips_visible() ? '本文フッター部分にある投稿者情報を表示するか。（※構造化データに必要な情報が含まれているのでオフにすると、Google Search Consoleの構造化データエラーが出ます。）' : '',
+    'label' => __( '投稿者情報の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '本文フッター部分にある投稿者情報を表示するか。（※構造化データに必要な情報が含まれているのでオフにすると、Google Search Consoleの構造化データエラーが出ます。）', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 20,
@@ -931,8 +931,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'twitter_follow_id_author_visible', array(
     'settings' => 'twitter_follow_id_author_visible',
-    'label' =>'投稿者情報をTwitter IDに',
-    'description' => is_tips_visible() ? '投稿者にTwitterのIDリンクを表示します。（※SNS設定でTwitter ID設定がされている必要があります。）' : '',
+    'label' => __( '投稿者情報をTwitter IDに', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿者にTwitterのIDリンクを表示します。（※SNS設定でTwitter ID設定がされている必要があります。）', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 21,
@@ -945,8 +945,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'edit_visible', array(
     'settings' => 'edit_visible',
-    'label' =>'編集リンクの表示',
-    'description' => is_tips_visible() ? '投稿・固定ページの管理画面に直接アクセスするための編集リンクを表示するか。' : '',
+    'label' => __( '編集リンクの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿・固定ページの管理画面に直接アクセスするための編集リンクを表示するか。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 30,
@@ -959,8 +959,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'eye_catch_visible', array(
     'settings' => 'eye_catch_visible',
-    'label' =>'本文先頭にアイキャッチ画像を表示',
-    'description' => is_tips_visible() ? '投稿・固定ページ管理画面で設定したアイキャッチを自動で本文トップに挿入するか。' : '',
+    'label' => __( '本文先頭にアイキャッチ画像を表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿・固定ページ管理画面で設定したアイキャッチを自動で本文トップに挿入するか。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 32,
@@ -972,8 +972,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'eye_catch_caption_visible', array(
     'settings' => 'eye_catch_caption_visible',
-    'label' =>'先頭のアイキャッチにキャプションを表示',
-    'description' => is_tips_visible() ? '先頭のアイキャッチにキャプションが設定されているとき表示するか。（※「本文先頭にアイキャッチ画像を表示」設定が有効の場合のみ）' : '',
+    'label' => __( '先頭のアイキャッチにキャプションを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '先頭のアイキャッチにキャプションが設定されているとき表示するか。（※「本文先頭にアイキャッチ画像を表示」設定が有効の場合のみ）', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 33,
@@ -985,8 +985,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blockquote_wide', array(
     'settings' => 'blockquote_wide',
-    'label' =>'引用部分の幅を広げる',
-    'description' => is_tips_visible() ? '引用部分の横幅を広げ表示エリアを増やします。<a href="https://wp-simplicity.com/blockquote-css/" target="_blank" class="example-setting">詳細</a>' : '',
+    'label' => __( '引用部分の幅を広げる', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '引用部分の横幅を広げ表示エリアを増やします。<a href="https://wp-simplicity.com/blockquote-css/" target="_blank" class="example-setting">詳細</a>', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 35,
@@ -999,8 +999,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'scrollable_table_enable', array(
     'settings' => 'scrollable_table_enable',
-    'label' =>'大きな表は横スクロール',
-    'description' => is_tips_visible() ? '横幅の大きな表（TABLE）は、横スクロール表示するようにして、モバイル端末などでも画面の横揺れを防ぎます。' : '',
+    'label' => __( '大きな表は横スクロール', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '横幅の大きな表（TABLE）は、横スクロール表示するようにして、モバイル端末などでも画面の横揺れを防ぎます。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 35.5,
@@ -1013,8 +1013,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'related_entry_visible', array(
     'settings' => 'related_entry_visible',
-    'label' =>'関連記事の表示',
-    'description' => is_tips_visible() ? '本文下の関連記事を表示するか。' : '',
+    'label' => __( '関連記事の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '本文下の関連記事を表示するか。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 36,
@@ -1027,14 +1027,14 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'related_entry_type', array(
     'settings' => 'related_entry_type',
-    'label' =>'関連記事表示タイプ',
-    'description' => is_tips_visible() ? '関連記事の表示スタイルの設定です。' : '',
+    'label' => __( '関連記事表示タイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '関連記事の表示スタイルの設定です。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'radio',
     'choices'    => array(
-      'default' => 'デフォルト（推奨表示数3-10）',
-      'thumbnail' => 'サムネイル3列（推奨表示数3, 6, 9）',
-      'thumbnail4' => 'サムネイル4列（推奨表示数4, 8, 12）',
+      'default'    => __( 'デフォルト（推奨表示数3-10）', 'simplicity2' ),
+      'thumbnail'  => __( 'サムネイル3列（推奨表示数3, 6, 9）', 'simplicity2' ),
+      'thumbnail4' => __( 'サムネイル4列（推奨表示数4, 8, 12）', 'simplicity2' ),
     ),
     'priority' => 40,
   ));
@@ -1046,13 +1046,13 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'related_entry_association', array(
     'settings' => 'related_entry_association',
-    'label' =>'関連記事の関連付け',
-    'description' => is_tips_visible() ? '関連記事をカテゴリに関連付けるか、タグに関連付けるか。' : '',
+    'label' => __( '関連記事の関連付け', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '関連記事をカテゴリに関連付けるか、タグに関連付けるか。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'radio',
     'choices'    => array(
-      'category' => 'カテゴリに関連付け（デフォルト）',
-      'tag' => 'タグに関連付け',
+      'category' => __( 'カテゴリに関連付け（デフォルト）', 'simplicity2' ),
+      'tag'      => __( 'タグに関連付け', 'simplicity2' ),
     ),
     'priority' => 45,
   ));
@@ -1064,8 +1064,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'related_entry_count', array(
     'settings' => 'related_entry_count',
-    'label' =>'関連記事表示数（デフォルト：10）',
-    'description' => is_tips_visible() ? '関連記事の表示数を設定します。' : '',
+    'label' => __( '関連記事表示数（デフォルト：10）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '関連記事の表示数を設定します。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'number',
     'priority' => 50,
@@ -1078,8 +1078,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'post_navi_visible', array(
     'settings' => 'post_navi_visible',
-    'label' =>'[前ページ] [次ページ] ナビの表示',
-    'description' => is_tips_visible() ? '投稿にページ送りナビを表示するか。※固定ページには表示されません。' : '',
+    'label' => __( '[前ページ] [次ページ] ナビの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿にページ送りナビを表示するか。※固定ページには表示されません。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 52,
@@ -1092,13 +1092,13 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'post_navi_type', array(
     'settings' => 'post_navi_type',
-    'label' =>'[前ページ] [次ページ] ナビタイプ',
-    'description' => is_tips_visible() ? 'ページ送りナビの表示スタイルの設定です。' : '',
+    'label' => __( '[前ページ] [次ページ] ナビタイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ページ送りナビの表示スタイルの設定です。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'radio',
     'choices'    => array(
-      'default' => 'デフォルト',
-      'thumbnail' => 'サムネイル付き',
+      'default'   => __( 'デフォルト', 'simplicity2' ),
+      'thumbnail' => __( 'サムネイル付き', 'simplicity2' ),
     ),
     'priority' => 53,
   ));
@@ -1110,8 +1110,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'page_breadcrumb_visible', array(
     'settings' => 'page_breadcrumb_visible',
-    'label' =>'固定ページにパンくずリストを表示',
-    'description' => is_tips_visible() ? '固定ページにページの親子関係を利用したパンくずリストを表示するか。' : '',
+    'label' => __( '固定ページにパンくずリストを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '固定ページにページの親子関係を利用したパンくずリストを表示するか。', 'simplicity2' ) : '',
     'section' => 'layout_singular_section',
     'type' => 'checkbox',
     'priority' => 62,
@@ -1121,8 +1121,8 @@ function theme_customize_register($wp_customize) {
   //レイアウト（モバイル）設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'layout_mobile_section', array(
-    'title'          =>'レイアウト（モバイル）',
-    'description' => is_tips_visible() ? 'モバイルのレイアウトに関する設定です。' : '',
+    'title' => __( 'レイアウト（モバイル）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'モバイルのレイアウトに関する設定です。', 'simplicity2' ) : '',
     'priority'       => 89.6,
   ));
 
@@ -1133,8 +1133,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'tablet_mobile', array(
     'settings' => 'tablet_mobile',
-    'label' =>'タブレットはモバイル表示',
-    'description' => is_tips_visible() ? 'タブレット端末をモバイルとして表示するか。' : '',
+    'label' => __( 'タブレットはモバイル表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'タブレット端末をモバイルとして表示するか。', 'simplicity2' ) : '',
     'section' => 'layout_mobile_section',
     'type' => 'checkbox',
     'priority' => 100,
@@ -1143,15 +1143,15 @@ function theme_customize_register($wp_customize) {
   //モバイルメニュータイプ
   $radio_items = array();
   $radio_items += array(
-    'accordion' => 'アコーディオン（デフォルト）',
-    'accordion_tree' => 'アコーディオンツリー',
-    'modal' => 'モーダルメニュー'
+    'accordion' => __( 'アコーディオン（デフォルト）', 'simplicity2' ),
+    'accordion_tree' => __( 'アコーディオンツリー', 'simplicity2' ),
+    'modal' => __( 'モーダルメニュー', 'simplicity2' )
   );
   if ( !is_responsive_enable() ) $radio_items += array(
-    'slide_in_light_top' => 'スライドインライト（ボタン上）',
-    'slide_in_light_bottom' => 'スライドインライト（ボタン下）',
-    'slide_in_dark_top' => 'スライドインダーク（ボタン上）',
-    'slide_in_dark_bottom' => 'スライドインダーク（ボタン下）',
+    'slide_in_light_top' => __( 'スライドインライト（ボタン上）', 'simplicity2' ),
+    'slide_in_light_bottom' => __( 'スライドインライト（ボタン下）', 'simplicity2' ),
+    'slide_in_dark_top' => __( 'スライドインダーク（ボタン上）', 'simplicity2' ),
+    'slide_in_dark_bottom' => __( 'スライドインダーク（ボタン下）', 'simplicity2' ),
   );
   $wp_customize->add_setting('mobile_menu_type', array(
     'default' => 'accordion',
@@ -1159,8 +1159,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'mobile_menu_type', array(
     'settings' => 'mobile_menu_type',
-    'label' =>'モバイルメニュータイプ',
-    'description' => is_tips_visible() ? 'モバイル時、メニューボタンを押したときのスタイルです。（※スライドイン機能は「完全レスポンシブ」機能がオンの時は利用できません）' : '',
+    'label' => __( 'モバイルメニュータイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'モバイル時、メニューボタンを押したときのスタイルです。（※スライドイン機能は「完全レスポンシブ」機能がオンの時は利用できません）', 'simplicity2' ) : '',
     'section' => 'layout_mobile_section',
     'type' => 'radio',
     'choices'    => $radio_items,
@@ -1174,8 +1174,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'mobile_menu_japanese', array(
     'settings' => 'mobile_menu_japanese',
-    'label' =>'スライドインメニューを日本語表示',
-    'description' => is_tips_visible() ? 'スライドインメニューを日本語で表示するか。（※モバイルメニュータイプをスライドイン選択しているとき。' : '',
+    'label' => __( 'スライドインメニューを日本語表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'スライドインメニューを日本語で表示するか。（※モバイルメニュータイプをスライドイン選択しているとき。', 'simplicity2' ) : '',
     'section' => 'layout_mobile_section',
     'type' => 'checkbox',
     'priority' => 300
@@ -1188,8 +1188,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'posts_per_page_mobile', array(
     'settings' => 'posts_per_page_mobile',
-    'label' =>'モバイルで1ページに表示する最大投稿数（デフォルト：10）',
-    'description' => is_tips_visible() ? 'モバイルのインデックスリストに表示される最大投稿数を設定します。' : '',
+    'label' => __( 'モバイルで1ページに表示する最大投稿数（デフォルト：10）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'モバイルのインデックスリストに表示される最大投稿数を設定します。', 'simplicity2' ) : '',
     'section' => 'layout_mobile_section',
     'type' => 'number',
     'priority' => 400,
@@ -1202,17 +1202,17 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'article_mobile_font_size', array(
     'settings' => 'article_mobile_font_size',
-    'label' =>'モバイル本文文字サイズ',
-    'description' => is_tips_visible() ? '主にスマホ表示時の本文文字サイズを設定します。' : '',
+    'label' => __( 'モバイル本文文字サイズ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '主にスマホ表示時の本文文字サイズを設定します。', 'simplicity2' ) : '',
     'section' => 'layout_mobile_section',
     'type' => 'radio',
     'choices'    => array(
-      '14' => '14px',
-      '15' => '15px',
-      '16' => '16px（デフォルト）',
-      '17' => '17px',
-      '18' => '18px',
-      '19' => '19px',
+      '14' => __( '14px', 'simplicity2' ),
+      '15' => __( '15px', 'simplicity2' ),
+      '16' => __( '16px（デフォルト）', 'simplicity2' ),
+      '17' => __( '17px', 'simplicity2' ),
+      '18' => __( '18px', 'simplicity2' ),
+      '19' => __( '19px', 'simplicity2' ),
     ),
     'priority' => 500,
   ));
@@ -1222,8 +1222,8 @@ function theme_customize_register($wp_customize) {
   //画像設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'image_section', array(
-    'title'          =>'画像',
-    'description' => is_tips_visible() ? '投稿・固定ページの本文で使用されている画像に関する設定です。' : '',
+    'title'          => __( '画像', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿・固定ページの本文で使用されている画像に関する設定です。', 'simplicity2' ) : '',
     'priority'       => 89.7,
   ));
 
@@ -1234,8 +1234,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'auto_post_thumbnail_enable', array(
     'settings' => 'auto_post_thumbnail_enable',
-    'label' =>'アイキャッチを自動設定',
-    'description' => is_tips_visible() ? '本文に最初に出てくる画像を利用してアイキャッチを自動設定するか。（※サーバーのphp.iniのallow_url_fopenがOffの時は外部サーバーから画像を取得できない可能性があります。）' : '',
+    'label' => __( 'アイキャッチを自動設定', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '本文に最初に出てくる画像を利用してアイキャッチを自動設定するか。（※サーバーのphp.iniのallow_url_fopenがOffの時は外部サーバーから画像を取得できない可能性があります。）', 'simplicity2' ) : '',
     'section' => 'image_section',
     'type' => 'checkbox',
     'priority' => 5,
@@ -1247,8 +1247,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'lazy_load_enable', array(
     'settings' => 'lazy_load_enable',
-    'label' =>'Lazy Loadを有効（画像の遅延読み込み）',
-    'description' => is_tips_visible() ? 'Lazy Loadを利用して本文にある画像を、表示するタイミングで読み込みます。（※サーバーの負荷対策）' : '',
+    'label' => __( 'Lazy Loadを有効（画像の遅延読み込み）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Lazy Loadを利用して本文にある画像を、表示するタイミングで読み込みます。（※サーバーの負荷対策）', 'simplicity2' ) : '',
     'section' => 'image_section',
     'type' => 'checkbox',
     'priority' => 10,
@@ -1261,8 +1261,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'lazy_load_effect_enable', array(
     'settings' => 'lazy_load_effect_enable',
-    'label' =>'Lazy Loadのエフェクトを有効',
-    'description' => is_tips_visible() ? 'フェイドインエフェクトを有効にするか。' : '',
+    'label' => __( 'Lazy Loadのエフェクトを有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'フェイドインエフェクトを有効にするか。', 'simplicity2' ) : '',
     'section' => 'image_section',
     'type' => 'checkbox',
     'priority' => 20,
@@ -1275,8 +1275,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'lazy_load_threshold', array(
     'settings' => 'lazy_load_threshold',
-    'label' =>'Lazy Loadで読み込むタイミング',
-    'description' => is_tips_visible() ? 'ページスクロールのどのタイミングで画像を読み込むかを設定します。' : '',
+    'label' => __( 'Lazy Loadで読み込むタイミング', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ページスクロールのどのタイミングで画像を読み込むかを設定します。', 'simplicity2' ) : '',
     'section' => 'image_section',
     'type' => 'radio',
     'choices'    => array(
@@ -1296,8 +1296,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'lightbox_type', array(
     'settings' => 'lightbox_type',
-    'label' =>'画像リンク拡大効果のタイプ',
-    'description' => is_tips_visible() ? 'ライトボックス（画像拡大効果）のタイプを指定します。それぞれは、jQueryライブラリ名です。詳細はリンク先を参照してください。<a href="http://nelog.jp/lightbox-jquery" target="_blank">Lightbox</a>、<a href="http://nelog.jp/lity-js" target="_blank">Lity</a>' : '',
+    'label' => __( '画像リンク拡大効果のタイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ライトボックス（画像拡大効果）のタイプを指定します。それぞれは、jQueryライブラリ名です。詳細はリンク先を参照してください。<a href="http://nelog.jp/lightbox-jquery" target="_blank">Lightbox</a>、<a href="http://nelog.jp/lity-js" target="_blank">Lity</a>', 'simplicity2' ) : '',
     'section' => 'image_section',
     'type' => 'radio',
     'choices'    => array(
@@ -1315,8 +1315,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'image_effect', array(
     'settings' => 'image_effect',
-    'label' =>'画像効果',
-    'description' => is_tips_visible() ? '本文画像の枠線の設定です。' : '',
+    'label' => __( '画像効果', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '本文画像の枠線の設定です。', 'simplicity2' ) : '',
     'section' => 'image_section',
     'type' => 'radio',
     'choices'    => array(
@@ -1334,8 +1334,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'lightbox_type', array(
     'settings' => 'lightbox_type',
-    'label' =>'画像リンク拡大効果のタイプ',
-    'description' => is_tips_visible() ? 'ライトボックス（画像拡大効果）のタイプを指定します。それぞれは、jQueryライブラリ名です。詳細はリンク先を参照してください。<a href="http://nelog.jp/lightbox-jquery" target="_blank">Lightbox</a>、<a href="http://nelog.jp/lity-js" target="_blank">Lity</a>' : '',
+    'label' => __( '画像リンク拡大効果のタイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ライトボックス（画像拡大効果）のタイプを指定します。それぞれは、jQueryライブラリ名です。詳細はリンク先を参照してください。<a href="http://nelog.jp/lightbox-jquery" target="_blank">Lightbox</a>、<a href="http://nelog.jp/lity-js" target="_blank">Lity</a>', 'simplicity2' ) : '',
     'section' => 'image_section',
     'type' => 'radio',
     'choices'    => array(
@@ -1353,8 +1353,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'alt_caption_type', array(
     'settings' => 'alt_caption_type',
-    'label' =>'Alt属性値をキャプション表示',
-    'description' => is_tips_visible() ? '画像の上にマウスホバーするとAlt属性値を利用してキャプションを表示するかどうかを設定します。<br><a href="https://wp-simplicity.com/alt-caption/" target="_blank">機能説明</a>' : '',
+    'label' => __( 'Alt属性値をキャプション表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '画像の上にマウスホバーするとAlt属性値を利用してキャプションを表示するかどうかを設定します。<br><a href="https://wp-simplicity.com/alt-caption/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'image_section',
     'type' => 'radio',
     'choices'    => array(
@@ -1372,8 +1372,8 @@ function theme_customize_register($wp_customize) {
   // ));
   // $wp_customize->add_control( 'alt_hover_effect_enable', array(
   //   'settings' => 'alt_hover_effect_enable',
-  //   'label' =>'ホバーでAlt属性値をキャプション表示',
-  //   'description' => is_tips_visible() ? '画像にマウスホバーした時にAlt属性値をキャプション表示するか。' : '',
+  //   'label' => __( 'ホバーでAlt属性値をキャプション表示', 'simplicity2' ),
+  //   'description' => is_tips_visible() ? __( '画像にマウスホバーした時にAlt属性値をキャプション表示するか。', 'simplicity2' ) : '',
   //   'section' => 'image_section',
   //   'type' => 'checkbox',
   //   'priority' => 70,
@@ -1384,8 +1384,8 @@ function theme_customize_register($wp_customize) {
   //SEO設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'seo_section', array(
-    'title'          =>'SEO',
-    'description' => is_tips_visible() ? 'SEOに関する設定です。（※既にプラグインを使用している場合は設定をオフにしてください）' : '',
+    'title'          => __( 'SEO', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'SEOに関する設定です。（※既にプラグインを使用している場合は設定をオフにしてください）', 'simplicity2' ) : '',
     'priority'       => 90,
   ));
 
@@ -1396,8 +1396,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'add_catch_phrase_to_frontpage_title', array(
     'settings' => 'add_catch_phrase_to_frontpage_title',
-    'label' =>'フロントページタイトル後にキャッチフレーズを付加',
-    'description' => is_tips_visible() ? '「サイト名｜キャッチフレーズ」のようなタイトルになります。' : '',
+    'label' => __( 'フロントページタイトル後にキャッチフレーズを付加', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '「サイト名｜キャッチフレーズ」のようなタイトルになります。', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'checkbox',
     'priority' => 50,
@@ -1410,8 +1410,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'add_site_name_to_singular_title', array(
     'settings' => 'add_site_name_to_singular_title',
-    'label' =>'投稿・固定ページタイトル後にサイト名を付加',
-    'description' => is_tips_visible() ? '「投稿・固定ページタイトル｜サイト名」のようなタイトルになります。' : '',
+    'label' => __( '投稿・固定ページタイトル後にサイト名を付加', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '「投稿・固定ページタイトル｜サイト名」のようなタイトルになります。', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'checkbox',
     'priority' => 75,
@@ -1424,8 +1424,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'top_page_meta_description', array(
     'settings' => 'top_page_meta_description',
-    'label' =>'トップページのメタディスクリプション',
-    'description' => is_tips_visible() ? 'トップページの一覧のみに表示されるメタディスクリプションを設定してください。（※無記入で表示されません。固定ページをトップにしている場合は固定ページのものが表示されます。）' : '',
+    'label' => __( 'トップページのメタディスクリプション', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'トップページの一覧のみに表示されるメタディスクリプションを設定してください。（※無記入で表示されません。固定ページをトップにしている場合は固定ページのものが表示されます。）', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'text',
     'priority' => 80,
@@ -1439,8 +1439,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'top_page_meta_keyword', array(
     'settings' => 'top_page_meta_keyword',
-    'label' =>'トップページのメタキーワード',
-    'description' => is_tips_visible() ? 'トップページの一覧のみに表示されるメタキーワードを設定してください。（※無記入で表示されません。固定ページをトップにしている場合は表示されません。）' : '',
+    'label' => __( 'トップページのメタキーワード', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'トップページの一覧のみに表示されるメタキーワードを設定してください。（※無記入で表示されません。固定ページをトップにしている場合は表示されません。）', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'text',
     'priority' => 90,
@@ -1453,8 +1453,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'rel_next_prev_link_enable', array(
     'settings' => 'rel_next_prev_link_enable',
-    'label' =>'分割ページにrel="next"/"prev"タグの追加',
-    'description' => is_tips_visible() ? '「投稿・固定ページの分割ページ（マルチページ）」と「トップページ一覧やカテゴリ等の分割ページ」のみにrel="next"/"prev"タグを追加します。' : '',
+    'label' => __( '分割ページにrel="next"/"prev"タグの追加', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '「投稿・固定ページの分割ページ（マルチページ）」と「トップページ一覧やカテゴリ等の分割ページ」のみにrel="next"/"prev"タグを追加します。', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'checkbox',
     'priority' => 95,
@@ -1467,8 +1467,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'paged_category_page_noindex', array(
     'settings' => 'paged_category_page_noindex',
-    'label' => 'カテゴリページの2ページ目以降をnoindexとする',
-    'description' => is_tips_visible() ? 'カテゴリページの2ページ目以降は検索エンジンのインデックスから除外します。' : '',
+    'label' => __( 'カテゴリページの2ページ目以降をnoindexとする', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'カテゴリページの2ページ目以降は検索エンジンのインデックスから除外します。', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'checkbox',
     'priority' => 97,
@@ -1481,8 +1481,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'seo_date_type', array(
     'settings' => 'seo_date_type',
-    'label' =>'検索エンジンに伝える日付',
-    'description' => is_tips_visible() ? '検索エンジンに伝える日時を「公開日」にするか「更新日」にするか。（※投稿・固定ページのみ）' : '',
+    'label' => __( '検索エンジンに伝える日付', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '検索エンジンに伝える日時を「公開日」にするか「更新日」にするか。（※投稿・固定ページのみ）', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'radio',
     'choices'    => array(
@@ -1500,8 +1500,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'meta_description_insert', array(
     'settings' => 'meta_description_insert',
-    'label' =>'投稿ページにメタディスクリプションを挿入',
-    'description' => is_tips_visible() ? '投稿ページのメタタグに説明文を挿入するか。（※抜粋があるときはそれを使用、ない場合は冒頭の抽出文）' : '',
+    'label' => __( '投稿ページにメタディスクリプションを挿入', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿ページのメタタグに説明文を挿入するか。（※抜粋があるときはそれを使用、ない場合は冒頭の抽出文）', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'checkbox',
     'priority' => 200,
@@ -1514,8 +1514,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'meta_keywords_insert', array(
     'settings' => 'meta_keywords_insert',
-    'label' =>'投稿ページにメタキーワードを挿入',
-    'description' => is_tips_visible() ? '投稿ページのメタタグにキーワードを挿入するか。（※投稿のカテゴリ情報を使用）' : '',
+    'label' => __( '投稿ページにメタキーワードを挿入', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿ページのメタタグにキーワードを挿入するか。（※投稿のカテゴリ情報を使用）', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'checkbox',
     'priority' => 300,
@@ -1528,8 +1528,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'meta_description_insert_to_category', array(
     'settings' => 'meta_description_insert_to_category',
-    'label' =>'カテゴリページにメタディスクリプションを挿入',
-    'description' => is_tips_visible() ? 'カテゴリーページのメタタグに説明文を挿入するか。（※カテゴリ設定の説明文を使用、ない場合は自動設定）' : '',
+    'label' => __( 'カテゴリページにメタディスクリプションを挿入', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'カテゴリーページのメタタグに説明文を挿入するか。（※カテゴリ設定の説明文を使用、ない場合は自動設定）', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'checkbox',
     'priority' => 400,
@@ -1542,8 +1542,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'meta_keywords_insert_to_category', array(
     'settings' => 'meta_keywords_insert_to_category',
-    'label' =>'カテゴリページにメタキーワードを挿入',
-    'description' => is_tips_visible() ? 'カテゴリーページのメタタグにキーワードを挿入するか。（※カテゴリ情報から挿入）' : '',
+    'label' => __( 'カテゴリページにメタキーワードを挿入', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'カテゴリーページのメタタグにキーワードを挿入するか。（※カテゴリ情報から挿入）', 'simplicity2' ) : '',
     'section' => 'seo_section',
     'type' => 'checkbox',
     'priority' => 500,
@@ -1553,8 +1553,8 @@ function theme_customize_register($wp_customize) {
   //SNS設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'sns_section', array(
-    'title'          =>'SNS',
-    'description' => is_tips_visible() ? 'ソーシャルサービスのシェアボタンやフォローボタンに関する設定です。<br><a href="https://wp-simplicity.com/sns-settings/" target="_blank" class="example-setting">SNSの設定詳細</a>' : '',
+    'title'          => __( 'SNS', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ソーシャルサービスのシェアボタンやフォローボタンに関する設定です。<br><a href="https://wp-simplicity.com/sns-settings/" target="_blank" class="example-setting">SNSの設定詳細</a>', 'simplicity2' ) : '',
     'priority'       => 91,
   ));
 
@@ -1565,8 +1565,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'all_sns_share_btns_visible', array(
     'settings' => 'all_sns_share_btns_visible',
-    'label' =>'全シェアボタンの表示',
-    'description' => is_tips_visible() ? '全てのシェアボタンの表示を切り替えます。' : '',
+    'label' => __( '全シェアボタンの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '全てのシェアボタンの表示を切り替えます。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 0,
@@ -1579,8 +1579,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'all_share_count_visible', array(
     'settings' => 'all_share_count_visible',
-    'label' =>'全シェア数の表示',
-    'description' => is_tips_visible() ? '全てのシェアカウント表示を切り替えます。（※シェアボタンがSNSサービス固有ボタンであるときは無効）' : '',
+    'label' => __( '全シェア数の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '全てのシェアカウント表示を切り替えます。（※シェアボタンがSNSサービス固有ボタンであるときは無効）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 0.5,
@@ -1593,8 +1593,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'share_button_type', array(
     'settings' => 'share_button_type',
-    'label' =>'シェアボタンのタイプ（PC）',
-    'description' => is_tips_visible() ? 'パソコンで表示したときのシェアボタンスタイル。' : '',
+    'label' => __( 'シェアボタンのタイプ（PC）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'パソコンで表示したときのシェアボタンスタイル。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'radio',
     'choices'    => array(
@@ -1614,8 +1614,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'share_button_type_mobile', array(
     'settings' => 'share_button_type_mobile',
-    'label' =>'シェアボタンのタイプ（モバイル）',
-    'description' => is_tips_visible() ? 'モバイルで表示したときのシェアボタンスタイル。' : '',
+    'label' => __( 'シェアボタンのタイプ（モバイル）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'モバイルで表示したときのシェアボタンスタイル。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'radio',
     'choices'    => array(
@@ -1632,8 +1632,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'top_share_btns_visible', array(
     'settings' => 'top_share_btns_visible',
-    'label' =>'タイトル下にシェアボタンを表示',
-    'description' => is_tips_visible() ? '投稿ページでタイトル下にシェアボタンを表示するか。' : '',
+    'label' => __( 'タイトル下にシェアボタンを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿ページでタイトル下にシェアボタンを表示するか。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 3,
@@ -1645,8 +1645,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'obsequence_share_btns_visible', array(
     'settings' => 'obsequence_share_btns_visible',
-    'label' =>'サイドに追従シェアボタンを表示',
-    'description' => is_tips_visible() ? '投稿ページでサイドに追従するにシェアボタンを表示するか。' : '',
+    'label' => __( 'サイドに追従シェアボタンを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿ページでサイドに追従するにシェアボタンを表示するか。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 5,
@@ -1659,8 +1659,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'bottom_share_btns_visible', array(
     'settings' => 'bottom_share_btns_visible',
-    'label' =>'本文下シェアボタンを表示',
-    'description' => is_tips_visible() ? '投稿ページ本文下にあるシェアボタンを表示するか。' : '',
+    'label' => __( '本文下シェアボタンを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿ページ本文下にあるシェアボタンを表示するか。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 6,
@@ -1673,8 +1673,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'share_message_label', array(
     'settings' => 'share_message_label',
-    'label' =>'シェアメッセージ',
-    'description' => is_tips_visible() ? 'シェアボタン用のラベルを設定します。（※無記入で非表示）' : '',
+    'label' => __( 'シェアメッセージ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'シェアボタン用のラベルを設定します。（※無記入で非表示）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 10,
@@ -1687,7 +1687,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'twitter_btn_visible', array(
     'settings' => 'twitter_btn_visible',
-    'label' =>'Twitter「ツイート」ボタンの表示',
+    'label' => __( 'Twitter「ツイート」ボタンの表示', 'simplicity2' ),
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 20,
@@ -1700,7 +1700,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'facebook_btn_visible', array(
     'settings' => 'facebook_btn_visible',
-    'label' =>'Facebook「いいね！」ボタンの表示',
+    'label' => __( 'Facebook「いいね！」ボタンの表示', 'simplicity2' ),
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 30,
@@ -1713,7 +1713,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'google_plus_btn_visible', array(
     'settings' => 'google_plus_btn_visible',
-    'label' =>'Google＋「+1」ボタンの表示',
+    'label' => __( 'Google＋「+1」ボタンの表示', 'simplicity2' ),
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 40,
@@ -1726,7 +1726,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'hatena_btn_visible', array(
     'settings' => 'hatena_btn_visible',
-    'label' =>'はてな「はてブ」ボタンの表示',
+    'label' => __( 'はてな「はてブ」ボタンの表示', 'simplicity2' ),
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 50,
@@ -1739,7 +1739,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'pocket_btn_visible', array(
     'settings' => 'pocket_btn_visible',
-    'label' =>'pocket「あとで読む」ボタンの表示',
+    'label' => __( 'pocket「あとで読む」ボタンの表示', 'simplicity2' ),
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 60,
@@ -1752,7 +1752,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'line_btn_visible', array(
     'settings' => 'line_btn_visible',
-    'label' =>'LINEボタンの表示',
+    'label' => __( 'LINEボタンの表示', 'simplicity2' ),
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 70,
@@ -1764,7 +1764,7 @@ function theme_customize_register($wp_customize) {
   // ));
   // $wp_customize->add_control( 'evernote_btn_visible', array(
   //   'settings' => 'evernote_btn_visible',
-  //   'label' =>'Evernoteボタンの表示',
+  //   'label' => __( 'Evernoteボタンの表示', 'simplicity2' ),
   //   'section' => 'sns_section',
   //   'type' => 'checkbox',
   //   'priority' => 71,
@@ -1776,8 +1776,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'push7_btn_visible', array(
     'settings' => 'push7_btn_visible',
-    'label' =>'Push7ボタンの表示',
-    'description' => is_tips_visible() ? '※フォローボタンの設定でAPPNO入力をしないと反映されません。' : '',
+    'label' => __( 'Push7ボタンの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '※フォローボタンの設定でAPPNO入力をしないと反映されません。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 71.5,
@@ -1789,7 +1789,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'feedly_btn_visible', array(
     'settings' => 'feedly_btn_visible',
-    'label' =>'feedlyボタンの表示',
+    'label' => __( 'feedlyボタンの表示', 'simplicity2' ),
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 72,
@@ -1801,7 +1801,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'comments_btn_visible', array(
     'settings' => 'comments_btn_visible',
-    'label' =>'コメントボタンの表示',
+    'label' => __( 'コメントボタンの表示', 'simplicity2' ),
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 72.5,
@@ -1813,7 +1813,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'pinterest_btn_visible', array(
     'settings' => 'pinterest_btn_visible',
-    'label' =>'画像にPinterestピンを表示',
+    'label' => __( '画像にPinterestピンを表示', 'simplicity2' ),
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 73,
@@ -1825,8 +1825,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'twitter_count_visible', array(
     'settings' => 'twitter_count_visible',
-    'label' =>'ツイート数を表示',
-    'description' => is_tips_visible() ? '<a href="http://jsoon.digitiminimi.com/">count.jsoon</a>サービスを利用してツイート数を表示します。（※<a href="https://wp-simplicity.com/count-jsoon/" target="_blank">要登録作業</a>）' : '',
+    'label' => __( 'ツイート数を表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '<a href="http://jsoon.digitiminimi.com/">count.jsoon</a>サービスを利用してツイート数を表示します。（※<a href="https://wp-simplicity.com/count-jsoon/" target="_blank">要登録作業</a>）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 73.5,
@@ -1838,8 +1838,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'twitter_id_include', array(
     'settings' => 'twitter_id_include',
-    'label' =>'ツイートにメンションを含める',
-    'description' => is_tips_visible() ? 'ツイートに「@Twitter_idより」をツイートに含めるか。（※要フォローID登録）' : '',
+    'label' => __( 'ツイートにメンションを含める', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ツイートに「@Twitter_idより」をツイートに含めるか。（※要フォローID登録）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 74,
@@ -1851,8 +1851,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'twitter_related_follow_enable', array(
     'settings' => 'twitter_related_follow_enable',
-    'label' =>'ツイート後にフォローを促す',
-    'description' => is_tips_visible() ? 'ツイート後にフォローボタンを表示して閲覧者にアカウントのフォローを促すか。（※要フォローID登録）' : '',
+    'label' => __( 'ツイート後にフォローを促す', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ツイート後にフォローボタンを表示して閲覧者にアカウントのフォローを促すか。（※要フォローID登録）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 74.5,
@@ -1866,8 +1866,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'all_sns_follow_btns_visible', array(
     'settings' => 'all_sns_follow_btns_visible',
-    'label' =>'全フォローボタンの表示',
-    'description' => is_tips_visible() ? '全てのフォローボタンの表示を切り替えます。' : '',
+    'label' => __( '全フォローボタンの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '全てのフォローボタンの表示を切り替えます。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 75,
@@ -1880,8 +1880,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'top_follows_visible', array(
     'settings' => 'top_follows_visible',
-    'label' =>'ページトップフォローボタンの表示',
-    'description' => is_tips_visible() ? 'サイトヘッダー部分のフォローボタンを表示するか。' : '',
+    'label' => __( 'ページトップフォローボタンの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトヘッダー部分のフォローボタンを表示するか。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 76,
@@ -1894,8 +1894,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'body_bottom_follows_visible', array(
     'settings' => 'body_bottom_follows_visible',
-    'label' =>'本文下フォローボタンの表示',
-    'description' => is_tips_visible() ? '投稿・固定ページ本文下のフォローボタンを表示するか。' : '',
+    'label' => __( '本文下フォローボタンの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿・固定ページ本文下のフォローボタンを表示するか。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 77,
@@ -1908,8 +1908,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'follow_message_label', array(
     'settings' => 'follow_message_label',
-    'label' =>'フォローメッセージ',
-    'description' => is_tips_visible() ? 'フォローボタンのラベルを設定します。（※無記入で非表示）' : '',
+    'label' => __( 'フォローメッセージ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'フォローボタンのラベルを設定します。（※無記入で非表示）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 80,
@@ -1921,8 +1921,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'twitter_follow_id', array(
     'settings' => 'twitter_follow_id',
-    'label' =>'twitter.com/XXXXXXX',
-    'description' => is_tips_visible() ? 'TwitterページURLのXXXXXXX部分を入力してください。＠は不要です。' : '',
+    'label' => __( 'twitter.com/XXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'TwitterページURLのXXXXXXX部分を入力してください。＠は不要です。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 90,
@@ -1934,8 +1934,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'facebook_follow_id', array(
     'settings' => 'facebook_follow_id',
-    'label' =>'facebook.com/XXXXXXX',
-    'description' => is_tips_visible() ? 'FacebookページURLのXXXXXXX部分を入力してください。' : '',
+    'label' => __( 'facebook.com/XXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'FacebookページURLのXXXXXXX部分を入力してください。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 100,
@@ -1947,8 +1947,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'google_plus_follow_id', array(
     'settings' => 'google_plus_follow_id',
-    'label' =>'plus.google.com/XXXXXXX',
-    'description' => is_tips_visible() ? 'Google+ページURLのXXXXXXX部分を入力してください。' : '',
+    'label' => __( 'plus.google.com/XXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Google+ページURLのXXXXXXX部分を入力してください。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 110,
@@ -1960,8 +1960,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'hatebu_follow_id', array(
     'settings' => 'hatebu_follow_id',
-    'label' =>'b.hatena.ne.jp/XXXXXXX',
-    'description' => is_tips_visible() ? 'はてブページURLのXXXXXXX部分を入力してください。' : '',
+    'label' => __( 'b.hatena.ne.jp/XXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'はてブページURLのXXXXXXX部分を入力してください。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 113,
@@ -1973,8 +1973,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'instagram_follow_id', array(
     'settings' => 'instagram_follow_id',
-    'label' =>'instagram.com/XXXXXXX',
-    'description' => is_tips_visible() ? 'InstagramページURLのXXXXXXX部分を入力してください。' : '',
+    'label' => __( 'instagram.com/XXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'InstagramページURLのXXXXXXX部分を入力してください。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 115,
@@ -1986,8 +1986,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'pinterest_follow_id', array(
     'settings' => 'pinterest_follow_id',
-    'label' =>'pinterest.com/XXXXXXX',
-    'description' => is_tips_visible() ? 'PinterestページURLのXXXXXXX部分を入力してください。' : '',
+    'label' => __( 'pinterest.com/XXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'PinterestページURLのXXXXXXX部分を入力してください。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 116,
@@ -1999,8 +1999,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'youtube_follow_page_id', array(
     'settings' => 'youtube_follow_page_id',
-    'label' =>'youtube.com/XXXX/XXXXXXX',
-    'description' => is_tips_visible() ? 'YouTubeページURL（youtube.com/<span style="color: red;">XXXX/XXXXXXXXXX</span>）の<span style="color: red;">XXXX/XXXXXXXXXX</span>部分を入力してください。例：user/XXXXXXX、channel/XXXXXXX、c/XXXXXXX。' : '',
+    'label' => __( 'youtube.com/XXXX/XXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'YouTubeページURL（youtube.com/<span style="color: red;">XXXX/XXXXXXXXXX</span>）の<span style="color: red;">XXXX/XXXXXXXXXX</span>部分を入力してください。例：user/XXXXXXX、channel/XXXXXXX、c/XXXXXXX。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 117,
@@ -2012,8 +2012,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'flickr_follow_id', array(
     'settings' => 'flickr_follow_id',
-    'label' =>'flickr.com/photos/XXXXXXXXXX',
-    'description' => is_tips_visible() ? 'FlickrページURLのXXXXXXX部分を入力してください。' : '',
+    'label' => __( 'flickr.com/photos/XXXXXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'FlickrページURLのXXXXXXX部分を入力してください。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 117.4,
@@ -2025,8 +2025,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'line_at_follow_id', array(
     'settings' => 'line_at_follow_id',
-    'label' =>'line.naver.jp/ti/p/XXXXXXXXXX',
-    'description' => is_tips_visible() ? 'LINE@ページURLのXXXXXXX部分を入力してください。<span style="color: red;">@が必要な場合は@もし入力してください。</span>' : '',
+    'label' => __( 'line.naver.jp/ti/p/XXXXXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'LINE@ページURLのXXXXXXX部分を入力してください。<span style="color: red;">@が必要な場合は@もし入力してください。</span>', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 117.5,
@@ -2038,8 +2038,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'push7_follow_app_no', array(
     'settings' => 'push7_follow_app_no',
-    'label' =>'Push7のAPPNO',
-    'description' => is_tips_visible() ? 'Push7でタグに出力されるAPPNOを入力してください。<a href="https://wp-simplicity.com/push7/" target="_blank">設定方法</a>' : '',
+    'label' => __( 'Push7のAPPNO', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Push7でタグに出力されるAPPNOを入力してください。<a href="https://wp-simplicity.com/push7/" target="_blank">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 119,
@@ -2052,8 +2052,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'feedly_follow_btn_visible', array(
     'settings' => 'feedly_follow_btn_visible',
-    'label' =>'feedlyの表示',
-    'description' => is_tips_visible() ? 'feedlyフォローアイコンを表示するか。' : '',
+    'label' => __( 'feedlyの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'feedlyフォローアイコンを表示するか。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 120,
@@ -2066,8 +2066,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'rss_follow_btn_visible', array(
     'settings' => 'rss_follow_btn_visible',
-    'label' =>'RSSの表示',
-    'description' => is_tips_visible() ? 'RSSフォローアイコンを表示するか。' : '',
+    'label' => __( 'RSSの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'RSSフォローアイコンを表示するか。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 130,
@@ -2080,8 +2080,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'twitter_cards_enable', array(
     'settings' => 'twitter_cards_enable',
-    'label' =>'Twitterカードタグを挿入',
-    'description' => is_tips_visible() ? 'Twitterカード用のタグをHTMLに埋め込むか。（※プラグインで設定している場合はオフ）<a href="https://wp-simplicity.com/twitter-cards/" target="_blank" class="example-setting">Twitter Cards登録方法</a>' : '',
+    'label' => __( 'Twitterカードタグを挿入', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Twitterカード用のタグをHTMLに埋め込むか。（※プラグインで設定している場合はオフ）<a href="https://wp-simplicity.com/twitter-cards/" target="_blank" class="example-setting">Twitter Cards登録方法</a>', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 133,
@@ -2094,8 +2094,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'twitter_card_type', array(
     'settings' => 'twitter_card_type',
-    'label' =>'Twitterカードタイプ',
-    'description' => is_tips_visible() ? 'Twitterカードの表示タイプの設定。' : '',
+    'label' => __( 'Twitterカードタイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Twitterカードの表示タイプの設定。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'radio',
     'choices'    => array(
@@ -2113,8 +2113,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'facebook_ogp_enable', array(
     'settings' => 'facebook_ogp_enable',
-    'label' =>'FacebookOGPタグを挿入',
-    'description' => is_tips_visible() ? 'Facebook OGP用のタグをHTMLに埋め込むか。（※プラグインで設定している場合はオフ）' : '',
+    'label' => __( 'FacebookOGPタグを挿入', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Facebook OGP用のタグをHTMLに埋め込むか。（※プラグインで設定している場合はオフ）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 135,
@@ -2127,7 +2127,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'fb_admins', array(
     'settings' => 'fb_admins',
     'label' =>'FacebookOGP管理者ID（fb:admins）' ,
-    'description' => is_tips_visible() ? 'Facebookの管理者IDを入力してください。（※要Facebookユーザー登録）' : '',
+    'description' => is_tips_visible() ? __( 'Facebookの管理者IDを入力してください。（※要Facebookユーザー登録）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 140,
@@ -2139,8 +2139,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'fb_app_id', array(
     'settings' => 'fb_app_id',
-    'label' =>'FacebookOGPアプリID（fb:app_id）',
-    'description' => is_tips_visible() ? 'FacebookのアプリIDを入力してください。（※要Facebookユーザー登録）' : '',
+    'label' => __( 'FacebookOGPアプリID（fb:app_id）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'FacebookのアプリIDを入力してください。（※要Facebookユーザー登録）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
     'priority' => 150,
@@ -2152,8 +2152,8 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ogp_home_image', array(
     'settings' => 'ogp_home_image',
-    'label' =>'OGPやTwitterカードのホームイメージ',
-    'description' => is_tips_visible() ? 'SNSカード用のデフォルトのイメージを設定します。トップやアーカイブなどのインデックスページで利用されます。（※最低600 × 315px以上推奨）' : '',
+    'label' => __( 'OGPやTwitterカードのホームイメージ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'SNSカード用のデフォルトのイメージを設定します。トップやアーカイブなどのインデックスページで利用されます。（※最低600 × 315px以上推奨）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'priority' => 155,
   ) ) );
@@ -2164,8 +2164,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'colored_follow_btns', array(
     'settings' => 'colored_follow_btns',
-    'label' =>'フォローボタンに色をつける',
-    'description' => is_tips_visible() ? 'フォローボタンを各種ソーシャルサービスのテーマカラーにするか。' : '',
+    'label' => __( 'フォローボタンに色をつける', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'フォローボタンを各種ソーシャルサービスのテーマカラーにするか。', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 170,
@@ -2175,8 +2175,8 @@ function theme_customize_register($wp_customize) {
   //広告設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'ads_section', array(
-    'title'          =>'広告',
-    'description' => is_tips_visible() ? '広告の表示や配置に関する設定です。<br><a href="https://wp-simplicity.com/ads-settings/" target="_blank" class="example-setting">広告の設定詳細</a>' : '',
+    'title'          => __( '広告', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '広告の表示や配置に関する設定です。<br><a href="https://wp-simplicity.com/ads-settings/" target="_blank" class="example-setting">広告の設定詳細</a>', 'simplicity2' ) : '',
     'priority'       => 97,
   ));
 
@@ -2187,8 +2187,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'ads_visible', array(
     'settings' => 'ads_visible',
-    'label' => '全ての広告を表示',
-    'description' => is_tips_visible() ? '全ての広告表示を切り替えます。 （※チェックを外すと全ての広告が非表示に）' : '',
+    'label' => __( '全ての広告を表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '全ての広告表示を切り替えます。 （※チェックを外すと全ての広告が非表示に）', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'checkbox',
     'priority'=> 10,
@@ -2207,8 +2207,8 @@ function theme_customize_register($wp_customize) {
   //$label = ( is_responsive_enable() ? 'レスポンシブ広告位置の設定' :  '記事下以外の広告位置');
   $wp_customize->add_control( 'ads_position', array(
     'settings' => 'ads_position',
-    'label' => '広告位置',
-    'description' => is_tips_visible() ? '広告の配置を設定します。（※「完全レスポンシブ機能」がオンのときは、配置が変わります）' : '',
+    'label' => __( '広告位置', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '広告の配置を設定します。（※「完全レスポンシブ機能」がオンのときは、配置が変わります）', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'radio',
     'choices'    => $radio_items,
@@ -2222,8 +2222,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'ads_label', array(
     'settings' => 'ads_label',
-    'label' =>'広告のラベル',
-    'description' => is_tips_visible() ? '広告のラベルを設定します。アドセンス推奨は「スポンサーリンク」か「広告」。' : '',
+    'label' => __( '広告のラベル', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '広告のラベルを設定します。アドセンス推奨は「スポンサーリンク」か「広告」。', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'text',
     'priority'=> 30,
@@ -2236,8 +2236,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'ads_top_page_visible', array(
     'settings' => 'ads_top_page_visible',
-    'label' =>'トップページに広告を表示する',
-    'description' => is_tips_visible() ? 'サイトトップページに広告を表示するか。' : '',
+    'label' => __( 'トップページに広告を表示する', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトトップページに広告を表示するか。', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'checkbox',
     'priority'=> 30,
@@ -2249,8 +2249,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'ads_center', array(
     'settings' => 'ads_center',
-    'label' =>'広告を中央表示',
-    'description' => is_tips_visible() ? '広告を親要素の中心に表示するか。' : '',
+    'label' => __( '広告を中央表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '広告を親要素の中心に表示するか。', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'checkbox',
     'priority'=> 40,
@@ -2262,8 +2262,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'ads_vatical_rectangle', array(
     'settings' => 'ads_vatical_rectangle',
-    'label' =>'PC表示のダブルレクタングルを縦型に',
-    'description' => is_tips_visible() ? '横並びのダブルレクタングルを縦並びにするか。' : '',
+    'label' => __( 'PC表示のダブルレクタングルを縦型に', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '横並びのダブルレクタングルを縦並びにするか。', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'checkbox',
     'priority'=> 500,
@@ -2275,8 +2275,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'ads_performance_visible', array(
     'settings' => 'ads_performance_visible',
-    'label' =>'パフォーマンス追求広告の表示',
-    'description' => is_tips_visible() ? '広告が3つ表示されていないページにできる限り表示するか。ウィジェットページに設定用のウィジェットが表示されます。【重要】グローバルナビでサブメニュー表示している人は、メニューがかぶるとアドセンスポリシー違反になるので非推奨 <a href="https://wp-simplicity.com/adsense-performance/" target="_blank" class="example-setting">設定方法</a>' : '',
+    'label' => __( 'パフォーマンス追求広告の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '広告が3つ表示されていないページにできる限り表示するか。ウィジェットページに設定用のウィジェットが表示されます。【重要】グローバルナビでサブメニュー表示している人は、メニューがかぶるとアドセンスポリシー違反になるので非推奨 <a href="https://wp-simplicity.com/adsense-performance/" target="_blank" class="example-setting">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'checkbox',
     'priority'=> 600,
@@ -2288,8 +2288,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'custum_ad_space', array(
     'settings' => '',
-    'label' =>'PCトップ広告をカスタムサイズ広告に',
-    'description' => is_tips_visible() ? '一覧リストのトップ広告にビックバナー（728px）以外の広告を入れるときはオン。' : '',
+    'label' => __( 'PCトップ広告をカスタムサイズ広告に', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '一覧リストのトップ広告にビックバナー（728px）以外の広告を入れるときはオン。', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'checkbox',
     'priority'=> 700,
@@ -2302,8 +2302,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'exclude_article_ids', array(
     'settings' => 'exclude_article_ids',
-    'label' =>'広告除外記事のID',
-    'description' => is_tips_visible() ? '広告を非表示にする投稿・固定ページのIDを,（カンマ）区切りで指定してください。例：111,222,3333<br><a href="https://wp-simplicity.com/ban-ads/" target="_blank" class="example-setting">設定方法</a>' : '',
+    'label' => __( '広告除外記事のID', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '広告を非表示にする投稿・固定ページのIDを,（カンマ）区切りで指定してください。例：111,222,3333<br><a href="https://wp-simplicity.com/ban-ads/" target="_blank" class="example-setting">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'text',
     'priority'=> 800,
@@ -2316,8 +2316,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'exclude_category_ids', array(
     'settings' => 'exclude_category_ids',
-    'label' =>'広告除外カテゴリのID',
-    'description' => is_tips_visible() ? '広告を非表示にするカテゴリのIDを,（カンマ）区切りで指定してください。例：1,7,22<br><a href="https://wp-simplicity.com/ban-ads/" target="_blank" class="example-setting">設定方法</a>' : '',
+    'label' => __( '広告除外カテゴリのID', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '広告を非表示にするカテゴリのIDを,（カンマ）区切りで指定してください。例：1,7,22<br><a href="https://wp-simplicity.com/ban-ads/" target="_blank" class="example-setting">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'ads_section',
     'type' => 'text',
     'priority'=> 900,
@@ -2326,8 +2326,8 @@ function theme_customize_register($wp_customize) {
 
   //アクセス解析設定項目の追加
   $wp_customize->add_section( 'ana_section', array(
-    'title'          =>'アクセス解析（Analyticsなど）',
-    'description' => is_tips_visible() ? 'Google Analyticsや、Google Search Consoleに関する設定です。' : '',
+    'title'          => __( 'アクセス解析（Analyticsなど）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Google Analyticsや、Google Search Consoleに関する設定です。', 'simplicity2' ) : '',
     'priority'       => 96,
   ));
 
@@ -2338,8 +2338,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'tracking_id', array(
     'settings' => 'tracking_id',
-    'label' =>'Google AnalyticsトラッキングID（UA-xxxxxxxx-x）',
-    'description' => is_tips_visible() ? 'Google AnalyticsからIDを取得して入力してください。（※プラグインとの二重登録注意）<a href="https://wp-simplicity.com/access-analyse-settings/" target="_blank" class="example-setting">設定方法</a>' : '',
+    'label' => __( 'Google AnalyticsトラッキングID（UA-xxxxxxxx-x）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Google AnalyticsからIDを取得して入力してください。（※プラグインとの二重登録注意）<a href="https://wp-simplicity.com/access-analyse-settings/" target="_blank" class="example-setting">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'ana_section',
     'type' => 'text',
     'priority'=> 10,
@@ -2352,8 +2352,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'analytics_tracking_type', array(
     'settings' => 'analytics_tracking_type',
-    'label' =>'Google Analytics トラッキングタイプ',
-    'description' => is_tips_visible() ? 'Google Analyticsのトラッキング方法の設定です。' : '',
+    'label' => __( 'Google Analytics トラッキングタイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Google Analyticsのトラッキング方法の設定です。', 'simplicity2' ) : '',
     'section' => 'ana_section',
     'type' => 'radio',
     'choices'    => array(
@@ -2371,8 +2371,8 @@ function theme_customize_register($wp_customize) {
   // ));
   // $wp_customize->add_control( 'analytics_interest', array(
   //   'settings' => 'analytics_interest',
-  //   'label' =>'ユーザー属性とインタレストカテゴリレポートに対応',
-  //   'description' => is_tips_visible() ? 'Googleアナリティクスでユーザーの年齢や興味に関するデータを収集します。（※要Analyticsで設定の有効化）<a href="https://wp-simplicity.com/google-analytics-interest-settings/" target="_blank" class="example-setting">設定方法</a>' : '',
+  //   'label' => __( 'ユーザー属性とインタレストカテゴリレポートに対応', 'simplicity2' ),
+  //   'description' => is_tips_visible() ? __( 'Googleアナリティクスでユーザーの年齢や興味に関するデータを収集します。（※要Analyticsで設定の有効化）<a href="https://wp-simplicity.com/google-analytics-interest-settings/" target="_blank" class="example-setting">設定方法</a>', 'simplicity2' ) : '',
   //   'section' => 'ana_section',
   //   'type' => 'checkbox',
   //   'priority'=> 20,
@@ -2385,8 +2385,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'ptengin_tracking_id', array(
     'settings' => 'ptengin_tracking_id',
-    'label' =>'PtengineのID',
-    'description' => is_tips_visible() ? 'Ptengineで解析を行います。PtengineからIDを取得して入力してください。（※プラグインとの二重登録注意）<a href="https://wp-simplicity.com/ptengin/" target="_blank" class="example-setting">設定方法</a>' : '',
+    'label' => __( 'PtengineのID', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Ptengineで解析を行います。PtengineからIDを取得して入力してください。（※プラグインとの二重登録注意）<a href="https://wp-simplicity.com/ptengin/" target="_blank" class="example-setting">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'ana_section',
     'type' => 'text',
     'priority'=> 25,
@@ -2399,9 +2399,9 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'webmaster_tool_id', array(
     'settings' => 'webmaster_tool_id',
-    'label' =>'Google Search ConsoleのID',
-    'description' => is_tips_visible() ? 'Google Search Console（旧ウェブマスターツール）のサイト認証IDを入力してください。<a href="https://wp-simplicity.com/webmaster-tool-setting/" target="_blank" class="example-setting">設定方法</a>
-' : '',
+    'label' => __( 'Google Search ConsoleのID', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Google Search Console（旧ウェブマスターツール）のサイト認証IDを入力してください。<a href="https://wp-simplicity.com/webmaster-tool-setting/" target="_blank" class="example-setting">設定方法</a>
+', 'simplicity2' ) : '',
     'section' => 'ana_section',
     'section' => 'ana_section',
     'type' => 'text',
@@ -2412,8 +2412,8 @@ function theme_customize_register($wp_customize) {
   //ブログカード設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'blog_card_section', array(
-    'title'          =>'ブログカード（内部リンク）',
-    'description' => is_tips_visible() ? '内部リンクブログカードに関する設定です。<br><a href="https://wp-simplicity.com/how-to-use-blogcard/" target="_blank" class="example-setting">ブログカードの利用方法</a>' : '',
+    'title'          => __( 'ブログカード（内部リンク）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '内部リンクブログカードに関する設定です。<br><a href="https://wp-simplicity.com/how-to-use-blogcard/" target="_blank" class="example-setting">ブログカードの利用方法</a>', 'simplicity2' ) : '',
     'priority'       => 98,
   ));
 
@@ -2424,8 +2424,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_enable', array(
     'settings' => 'blog_card_enable',
-    'label' =>'ブログカード有効',
-    'description' => is_tips_visible() ? 'サイト内のURL（内部リンク）を入力するとブログカードとして表示します。' : '',
+    'label' => __( 'ブログカード有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイト内のURL（内部リンク）を入力するとブログカードとして表示します。', 'simplicity2' ) : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 100,
@@ -2438,8 +2438,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_comment_internal_enable', array(
     'settings' => 'blog_card_comment_internal_enable',
-    'label' =>'コメントでブログカードを有効',
-    'description' => is_tips_visible() ? 'コメント欄で内部ブログカードを利用します。内部ブログカードなのでnofollowは付加されません。<br><a href="https://wp-simplicity.com/comment-internal-blog-caard/" target="_blank">機能説明</a>' : '',
+    'label' => __( 'コメントでブログカードを有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメント欄で内部ブログカードを利用します。内部ブログカードなのでnofollowは付加されません。<br><a href="https://wp-simplicity.com/comment-internal-blog-caard/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 200,
@@ -2451,8 +2451,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_thumbnail_right', array(
     'settings' => 'blog_card_thumbnail_right',
-    'label' =>'サムネイルを右側にする',
-    'description' => is_tips_visible() ? 'ブログカードのサムネイルを右側に表示するか。' : '',
+    'label' => __( 'サムネイルを右側にする', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ブログカードのサムネイルを右側に表示するか。', 'simplicity2' ) : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 400,
@@ -2465,8 +2465,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_target_blank', array(
     'settings' => 'blog_card_target_blank',
-    'label' =>'新しいタブで開く',
-    'description' => is_tips_visible() ? 'ブログカードのリンクをクリックした時に新しいタブで開くか。' : '',
+    'label' => __( '新しいタブで開く', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ブログカードのリンクをクリックした時に新しいタブで開くか。', 'simplicity2' ) : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 500,
@@ -2479,8 +2479,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_site_logo_visible', array(
     'settings' => 'blog_card_site_logo_visible',
-    'label' =>'サイトロゴを表示',
-    'description' => is_tips_visible() ? 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。' : '',
+    'label' => __( 'サイトロゴを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。', 'simplicity2' ) : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 600,
@@ -2493,8 +2493,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_site_logo_link_enable', array(
     'settings' => 'blog_card_site_logo_link_enable',
-    'label' =>'サイトロゴリンク有効',
-    'description' => is_tips_visible() ? 'サイトドメインにトップURLへのリンクを貼るかどうか。' : '',
+    'label' => __( 'サイトロゴリンク有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトドメインにトップURLへのリンクを貼るかどうか。', 'simplicity2' ) : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 650,
@@ -2507,8 +2507,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_hatena_visible', array(
     'settings' => 'blog_card_hatena_visible',
-    'label' =>'はてブ数を表示',
-    'description' => is_tips_visible() ? 'はてなブックマーク数を表示するか。' : '',
+    'label' => __( 'はてブ数を表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'はてなブックマーク数を表示するか。', 'simplicity2' ) : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 700,
@@ -2520,8 +2520,8 @@ function theme_customize_register($wp_customize) {
   // ));
   // $wp_customize->add_control( 'blog_card_date_visible', array(
   //   'settings' => 'blog_card_date_visible',
-  //   'label' =>'投稿日を表示',
-  //   'description' => is_tips_visible() ? '投稿日を表示するか。' : '',
+  //   'label' => __( '投稿日を表示', 'simplicity2' ),
+  //   'description' => is_tips_visible() ? __( '投稿日を表示するか。', 'simplicity2' ) : '',
   //   'section' => 'blog_card_section',
   //   'type' => 'checkbox',
   //   'priority' => 800,
@@ -2534,8 +2534,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_date_type', array(
     'settings' => 'blog_card_date_type',
-    'label' =>'日付表示',
-    'description' => is_tips_visible() ? '内部ブログカードの日付表示設定です。' : '',
+    'label' => __( '日付表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '内部ブログカードの日付表示設定です。', 'simplicity2' ) : '',
     'section' => 'blog_card_section',
     'type' => 'radio',
     'choices'    => array(
@@ -2552,8 +2552,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_width_auto', array(
     'settings' => 'blog_card_width_auto',
-    'label' =>'カード幅を広げる',
-    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。' : '',
+    'label' => __( 'カード幅を広げる', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。', 'simplicity2' ) : '',
     'section' => 'blog_card_section',
     'type' => 'checkbox',
     'priority' => 900,
@@ -2563,8 +2563,8 @@ function theme_customize_register($wp_customize) {
   //外部ブログカード設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'blog_card_external_section', array(
-    'title'          =>'ブログカード（外部リンク）',
-    'description' => is_tips_visible() ? '外部リンクブログカードに関する設定です。<br>ブログカード自体の使い方は<a href="https://wp-simplicity.com/how-to-use-blogcard/" target="_blank" class="example-setting">ブログカードの利用方法</a>を。<br>外部リンクブログカードに関する設定は<a href="https://wp-simplicity.com/external-blog-card/" target="_blank">外部ブログカードの設定</a>を参照してください。' : '',
+    'title'          => __( 'ブログカード（外部リンク）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '外部リンクブログカードに関する設定です。<br>ブログカード自体の使い方は<a href="https://wp-simplicity.com/how-to-use-blogcard/" target="_blank" class="example-setting">ブログカードの利用方法</a>を。<br>外部リンクブログカードに関する設定は<a href="https://wp-simplicity.com/external-blog-card/" target="_blank">外部ブログカードの設定</a>を参照してください。', 'simplicity2' ) : '',
     'priority'       => 98.1,
   ));
 
@@ -2575,8 +2575,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_enable', array(
     'settings' => 'blog_card_external_enable',
-    'label' =>'ブログカード有効',
-    'description' => is_tips_visible() ? '投稿時に外部リンクURLのみを記入するとブログカードを表示します。' : '',
+    'label' => __( 'ブログカード有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿時に外部リンクURLのみを記入するとブログカードを表示します。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 100,
@@ -2589,8 +2589,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_comment_external_enable', array(
     'settings' => 'blog_card_comment_external_enable',
-    'label' =>'コメントでブログカードを有効',
-    'description' => is_tips_visible() ? 'コメント欄で外部ブログカードを利用します。外部ブログカードなのでリンクにはnofollowが付加されます。※外部ブログカードタイプがEmbedlyの場合はnofollowはつきませんので注意が必要です（はてなブログカードはiframe）。<br><a href="https://wp-simplicity.com/comment-external-blog-caard/" target="_blank">機能説明</a>' : '',
+    'label' => __( 'コメントでブログカードを有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメント欄で外部ブログカードを利用します。外部ブログカードなのでリンクにはnofollowが付加されます。※外部ブログカードタイプがEmbedlyの場合はnofollowはつきませんので注意が必要です（はてなブログカードはiframe）。<br><a href="https://wp-simplicity.com/comment-external-blog-caard/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 200,
@@ -2603,8 +2603,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_type', array(
     'settings' => 'blog_card_external_type',
-    'label' =>'外部ブログカードタイプ',
-    'description' => is_tips_visible() ? '外部リンク用のブログカードのタイプ設定です。「はてなカード」と「Embedlyカード」は以降の細かな設定はできません。' : '',
+    'label' => __( '外部ブログカードタイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '外部リンク用のブログカードのタイプ設定です。「はてなカード」と「Embedlyカード」は以降の細かな設定はできません。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'radio',
     'choices'    => array(
@@ -2621,8 +2621,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_thumbnail_right', array(
     'settings' => 'blog_card_external_thumbnail_right',
-    'label' =>'サムネイルを右側にする',
-    'description' => is_tips_visible() ? 'ブログカードのサムネイルを右側に表示するか。' : '',
+    'label' => __( 'サムネイルを右側にする', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ブログカードのサムネイルを右側に表示するか。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 300,
@@ -2635,8 +2635,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_target_blank', array(
     'settings' => 'blog_card_external_target_blank',
-    'label' =>'新しいタブで開く',
-    'description' => is_tips_visible() ? 'ブログカードのリンクをクリックした時に新しいタブで開くか。' : '',
+    'label' => __( '新しいタブで開く', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ブログカードのリンクをクリックした時に新しいタブで開くか。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 400,
@@ -2649,8 +2649,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_target_blank', array(
     'settings' => 'blog_card_external_target_blank',
-    'label' =>'新しいタブで開く',
-    'description' => is_tips_visible() ? 'ブログカードのリンクをクリックした時に新しいタブで開くか。' : '',
+    'label' => __( '新しいタブで開く', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ブログカードのリンクをクリックした時に新しいタブで開くか。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 500,
@@ -2663,8 +2663,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_site_logo_visible', array(
     'settings' => 'blog_card_external_site_logo_visible',
-    'label' =>'サイトロゴを表示',
-    'description' => is_tips_visible() ? 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。' : '',
+    'label' => __( 'サイトロゴを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 600,
@@ -2677,8 +2677,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_site_logo_link_enable', array(
     'settings' => 'blog_card_external_site_logo_link_enable',
-    'label' =>'サイトロゴリンク有効',
-    'description' => is_tips_visible() ? 'サイトドメインにトップURLへのリンクを貼るかどうか。' : '',
+    'label' => __( 'サイトロゴリンク有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトドメインにトップURLへのリンクを貼るかどうか。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 650,
@@ -2691,8 +2691,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_hatena_visible', array(
     'settings' => 'blog_card_external_hatena_visible',
-    'label' =>'はてブ数を表示',
-    'description' => is_tips_visible() ? 'はてなブックマーク数を表示するか。' : '',
+    'label' => __( 'はてブ数を表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'はてなブックマーク数を表示するか。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 700,
@@ -2704,8 +2704,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_width_auto', array(
     'settings' => 'blog_card_external_width_auto',
-    'label' =>'カード幅を広げる',
-    'description' => is_tips_visible() ? 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。' : '',
+    'label' => __( 'カード幅を広げる', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'カード幅はデフォルトで500pxですが、横幅をさらに広げます。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 900,
@@ -2718,8 +2718,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_cache_days', array(
     'settings' => 'blog_card_external_cache_days',
-    'label' => '外部ブログカードキャッシュ保存日数',
-    'description' => is_tips_visible() ? '外部リンクカードが「ブログカード」になっている時のOGP情報キャッシュを保存する期間を設定します。設定範囲は7～365日です。短くすると、キャッシュの更新は早いですが表示速度が遅くなったり、先方のサーバーに負荷がかかります。' : '',
+    'label' => __( '外部ブログカードキャッシュ保存日数', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '外部リンクカードが「ブログカード」になっている時のOGP情報キャッシュを保存する期間を設定します。設定範囲は7～365日です。短くすると、キャッシュの更新は早いですが表示速度が遅くなったり、先方のサーバーに負荷がかかります。', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'number',
     'priority'=> 1100,
@@ -2731,8 +2731,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'blog_card_external_cache_refresh_mode', array(
     'settings' => 'blog_card_external_cache_refresh_mode',
-    'label' =>'キャッシュ更新モード',
-    'description' => is_tips_visible() ? '「キャッシュ更新モード」を有効にして管理者（ログインユーザー）によって外部ブログカードが表示されているページを閲覧したときに、OGPキャッシュが更新されます。更新が済んだら無効などに戻すなどして使用してください。<br><a href="https://wp-simplicity.com/refresh-external-blog-card/" target="_blank">キャッシュの更新方法</a>' : '',
+    'label' => __( 'キャッシュ更新モード', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '「キャッシュ更新モード」を有効にして管理者（ログインユーザー）によって外部ブログカードが表示されているページを閲覧したときに、OGPキャッシュが更新されます。更新が済んだら無効などに戻すなどして使用してください。<br><a href="https://wp-simplicity.com/refresh-external-blog-card/" target="_blank">キャッシュの更新方法</a>', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 1200,
@@ -2743,8 +2743,8 @@ function theme_customize_register($wp_customize) {
   //ソースコード設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'source_code_section', array(
-    'title'          =>'ソースコード',
-    'description' => is_tips_visible() ? 'ソースコードのハイライト表示の設定です。ハイライト表示には、<a href="https://highlightjs.org/" target="_blank">highlight.js</a>を利用しています。詳しくは、<a href="https://wp-simplicity.com/highlight-js/" target="_blank">ハイライト設定</a>を参照してください。' : '',
+    'title'          => __( 'ソースコード', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ソースコードのハイライト表示の設定です。ハイライト表示には、<a href="https://highlightjs.org/" target="_blank">highlight.js</a>を利用しています。詳しくは、<a href="https://wp-simplicity.com/highlight-js/" target="_blank">ハイライト設定</a>を参照してください。', 'simplicity2' ) : '',
     'priority'       => 98.2,
   ));
 
@@ -2754,8 +2754,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'code_highlight_enable', array(
     'settings' => 'code_highlight_enable',
-    'label' => 'ソースコードをハイライト表示',
-    'description' => is_tips_visible() ? 'preタグで囲まれたソースコードをハイライト表示します。' : '',
+    'label' => __( 'ソースコードをハイライト表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'preタグで囲まれたソースコードをハイライト表示します。', 'simplicity2' ) : '',
     'section' => 'source_code_section',
     'type' => 'checkbox',
     'priority' => 100,
@@ -2768,8 +2768,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'code_highlight_style', array(
     'settings' => 'code_highlight_style',
-    'label' => 'ハイライトスタイル',
-    'description' => is_tips_visible() ? 'ソースコードのハイライトテーマです。スタイリについては、<a href="https://highlightjs.org/static/demo/" target="_blank">highlight.js demo</a>を参照してください。' : '',
+    'label' => __( 'ハイライトスタイル', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ソースコードのハイライトテーマです。スタイリについては、<a href="https://highlightjs.org/static/demo/" target="_blank">highlight.js demo</a>を参照してください。', 'simplicity2' ) : '',
     'section' => 'source_code_section',
     'type' => 'select',
     'choices'    => array(
@@ -2930,8 +2930,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'code_highlight_css_selector', array(
     'settings' => 'code_highlight_css_selector',
-    'label' => 'ハイライトするCSSセレクタ',
-    'description' => is_tips_visible() ? 'ソースコードをハイライトするCSSセレクターを細かく設定できます。よくわからない場合は変更しないでください。' : '',
+    'label' => __( 'ハイライトするCSSセレクタ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ソースコードをハイライトするCSSセレクターを細かく設定できます。よくわからない場合は変更しないでください。', 'simplicity2' ) : '',
     'section' => 'source_code_section',
     'type' => 'text',
     'priority'=> 300,
@@ -2942,8 +2942,8 @@ function theme_customize_register($wp_customize) {
   //コメント項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'comment_section', array(
-    'title'          =>'コメント',
-    'description' => is_tips_visible() ? 'コメント表示欄・入力欄に関する設定です。' : '',
+    'title'          => __( 'コメント', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメント表示欄・入力欄に関する設定です。', 'simplicity2' ) : '',
     'priority'       => 98.3,
   ));
 
@@ -2954,8 +2954,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'comments_visible', array(
     'settings' => 'comments_visible',
-    'label' =>'コメントの表示',
-    'description' => is_tips_visible() ? 'コメントを表示するか。' : '',
+    'label' => __( 'コメントの表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメントを表示するか。', 'simplicity2' ) : '',
     'section' => 'comment_section',
     'type' => 'checkbox',
     'priority' => 10,
@@ -2968,8 +2968,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'comment_display_type', array(
     'settings' => 'comment_display_type',
-    'label' =>'コメント表示タイプ',
-    'description' => is_tips_visible() ? 'コメントの表示スタイルを設定します。' : '',
+    'label' => __( 'コメント表示タイプ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメントの表示スタイルを設定します。', 'simplicity2' ) : '',
     'section' => 'comment_section',
     'type' => 'radio',
     'choices'    => array(
@@ -2987,8 +2987,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'list_comment_count_visible', array(
     'settings' => 'list_comment_count_visible',
-    'label' =>'インデックスリストにコメント数を表示',
-    'description' => is_tips_visible() ? 'エントリーの一覧リストにコメント数を表示するか。（※コメントの設定でコメントを表示にしていないと表示されません。）' : '',
+    'label' => __( 'インデックスリストにコメント数を表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'エントリーの一覧リストにコメント数を表示するか。（※コメントの設定でコメントを表示にしていないと表示されません。）', 'simplicity2' ) : '',
     'section' => 'comment_section',
     'type' => 'checkbox',
     'priority' => 200,
@@ -3001,8 +3001,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'comment_textarea_expand', array(
     'settings' => 'comment_textarea_expand',
-    'label' =>'コメント欄を文章量に応じて伸縮',
-    'description' => is_tips_visible() ? 'コメント入力フォームを文章量に応じて伸縮させるか。' : '',
+    'label' => __( 'コメント欄を文章量に応じて伸縮', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメント入力フォームを文章量に応じて伸縮させるか。', 'simplicity2' ) : '',
     'section' => 'comment_section',
     'type' => 'checkbox',
     'priority' => 300,
@@ -3012,8 +3012,8 @@ function theme_customize_register($wp_customize) {
   //AMP項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'amp_section', array(
-    'title'          =>'AMP（β機能）',
-    'description' => is_tips_visible() ? 'AMP（Accelerated Mobile Pages）に関する設定です。投稿ページをモバイル上で高速表示させるための仕組みです。<a href="https://wp-simplicity.com/simplicity-amp/" target="_blank">設定方法</a>' : '',
+    'title'          => __( 'AMP（β機能）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'AMP（Accelerated Mobile Pages）に関する設定です。投稿ページをモバイル上で高速表示させるための仕組みです。<a href="https://wp-simplicity.com/simplicity-amp/" target="_blank">設定方法</a>', 'simplicity2' ) : '',
     'priority'       => 98.4,
   ));
 
@@ -3024,8 +3024,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'amp_enable', array(
     'settings' => 'amp_enable',
-    'label' =>'AMPの有効化',
-    'description' => is_tips_visible() ? 'AMP機能を有効化して投稿ページのモバイル表示高速化を行うかどうか。' : '',
+    'label' => __( 'AMPの有効化', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'AMP機能を有効化して投稿ページのモバイル表示高速化を行うかどうか。', 'simplicity2' ) : '',
     'section' => 'amp_section',
     'type' => 'checkbox',
     'priority' => 10,
@@ -3041,7 +3041,7 @@ function theme_customize_register($wp_customize) {
     $wp_customize->add_control( new SP_Customizer_Textarea_Control( $wp_customize, 'amp_adsense_code', array(
       'settings'  => 'amp_adsense_code',
       'label'     => 'AMP用AdSenseコード',
-    'description' => is_tips_visible() ? 'AMP用のAdSenseコードを入力します。ここに入力をしていない場合は、ウィジェット設定の「広告 300×250」のIDを利用してアドセンスが表示されます。双方とも入力されている場合は、こちらのコードが優先されます。<a href="https://wp-simplicity.com/amp-adsense/" target="_blank">コード設定方法</a>' : '',
+    'description' => is_tips_visible() ? __( 'AMP用のAdSenseコードを入力します。ここに入力をしていない場合は、ウィジェット設定の「広告 300×250」のIDを利用してアドセンスが表示されます。双方とも入力されている場合は、こちらのコードが優先されます。<a href="https://wp-simplicity.com/amp-adsense/" target="_blank">コード設定方法</a>', 'simplicity2' ) : '',
       'section'   => 'amp_section',
       'priority' => 20,
     ) ) );
@@ -3054,8 +3054,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'amp_tracking_id', array(
     'settings' => 'amp_tracking_id',
-    'label' =>'AMP用AnalyticsトラッキングID',
-    'description' => is_tips_visible() ? 'AMPページ用のGoogle AnalyticsトラッキングIDを新たに設定します。この項目に設定をするとAMPページの集計は別になります。この項目を設定しないで空欄の場合は、「アクセス解析」項目にあるAnalyticsトラッキングIDを用いて通常ページと併せて集計します。<a href="https://wp-simplicity.com/google-analytics-settings-for-amp/" target="_blank">設定方法</a>' : '',
+    'label' => __( 'AMP用AnalyticsトラッキングID', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'AMPページ用のGoogle AnalyticsトラッキングIDを新たに設定します。この項目に設定をするとAMPページの集計は別になります。この項目を設定しないで空欄の場合は、「アクセス解析」項目にあるAnalyticsトラッキングIDを用いて通常ページと併せて集計します。<a href="https://wp-simplicity.com/google-analytics-settings-for-amp/" target="_blank">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'amp_section',
     'type' => 'text',
     'priority'=> 25,
@@ -3067,8 +3067,8 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'amp_logo_url', array(
     'settings' => 'amp_logo_url',
-    'label' =>'AMP用のロゴ画像',
-    'description' => is_tips_visible() ? 'Google検索結果に表示されるAMP用のロゴ画像を設定します。ロゴのサイズは幅600px、高さ60px以下にしてください。設定していない場合は、デフォルトの画像が使用されます（images/no-amp-logo.png）。' : '',
+    'label' => __( 'AMP用のロゴ画像', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Google検索結果に表示されるAMP用のロゴ画像を設定します。ロゴのサイズは幅600px、高さ60px以下にしてください。設定していない場合は、デフォルトの画像が使用されます（images/no-amp-logo.png）。', 'simplicity2' ) : '',
     'section' => 'amp_section',
     'priority' => 30,
   ) ) );
@@ -3080,8 +3080,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'amp_link_visible', array(
     'settings' => 'amp_link_visible',
-    'label' => 'AMPと通常ページ間の移動リンクを表示',
-    'description' => is_tips_visible() ? 'ログインユーザーに「AMP」と「通常ページ」を手軽に移動できるリンクを表示します。 <a href="https://wp-simplicity.com/simplicity-amp-test/" target="_blank">機能説明</a>' : '',
+    'label' => __( 'AMPと通常ページ間の移動リンクを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ログインユーザーに「AMP」と「通常ページ」を手軽に移動できるリンクを表示します。 <a href="https://wp-simplicity.com/simplicity-amp-test/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'amp_section',
     'type' => 'checkbox',
     'priority'=> 40,
@@ -3094,8 +3094,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'amp_test_link_visible', array(
     'settings' => 'amp_test_link_visible',
-    'label' => 'AMPテスト リンクを表示',
-    'description' => is_tips_visible() ? 'ログインユーザーに「AMPテスト」リンクを表示します。リンクをクリックすると、AMPページをバリデーターでチェックを行います。 <a href="https://wp-simplicity.com/simplicity-amp-test/" target="_blank">機能説明</a>' : '',
+    'label' => __( 'AMPテスト リンクを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ログインユーザーに「AMPテスト」リンクを表示します。リンクをクリックすると、AMPページをバリデーターでチェックを行います。 <a href="https://wp-simplicity.com/simplicity-amp-test/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'amp_section',
     'type' => 'checkbox',
     'priority'=> 40,
@@ -3108,8 +3108,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'amp_test_tool', array(
     'settings' => 'amp_test_tool',
-    'label' => 'AMPバリデーター',
-    'description' => is_tips_visible() ? '「AMPテスト」を行うテストツール（バリデーター）を選択します。 <a href="https://wp-simplicity.com/simplicity-amp-test/" target="_blank">機能説明</a>' : '',
+    'label' => __( 'AMPバリデーター', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '「AMPテスト」を行うテストツール（バリデーター）を選択します。 <a href="https://wp-simplicity.com/simplicity-amp-test/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'amp_section',
     'type' => 'radio',
     'choices'    => array(
@@ -3127,8 +3127,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'noamp_category_ids', array(
     'settings' => 'noamp_category_ids',
-    'label' =>'AMPページを生成しないカテゴリID',
-    'description' => is_tips_visible() ? 'AMPページを生成しないカテゴリのIDを,（カンマ）区切りで指定してください。例：1,7,22<br><a href="https://wp-simplicity.com/no-amp-page-settings/" target="_blank">設定方法</a>' : '',
+    'label' => __( 'AMPページを生成しないカテゴリID', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'AMPページを生成しないカテゴリのIDを,（カンマ）区切りで指定してください。例：1,7,22<br><a href="https://wp-simplicity.com/no-amp-page-settings/" target="_blank">設定方法</a>', 'simplicity2' ) : '',
     'section' => 'amp_section',
     'type' => 'text',
     'priority'=> 60,
@@ -3141,8 +3141,8 @@ function theme_customize_register($wp_customize) {
   // ));
   // $wp_customize->add_control( 'adsense', array(
   //   'settings' => 'adsense',
-  //   'label' =>'AdSenseコード（data-ad-client）',
-  //   'description' => is_tips_visible() ? 'AdSenseのコードにあるdata-ad-clientコードを入力してください（例：ca-pub-XXXXXXXXXXXXXXXX）。' : '',
+  //   'label' => __( 'AdSenseコード（data-ad-client）', 'simplicity2' ),
+  //   'description' => is_tips_visible() ? __( 'AdSenseのコードにあるdata-ad-clientコードを入力してください（例：ca-pub-XXXXXXXXXXXXXXXX）。', 'simplicity2' ) : '',
   //   'section' => 'amp_section',
   //   'type' => 'text',
   //   'priority'=> 20,
@@ -3153,8 +3153,8 @@ function theme_customize_register($wp_customize) {
   //テーマテキスト設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'theme_text_section', array(
-    'title'          =>'テーマ内テキスト',
-    'description' => is_tips_visible() ? 'テーマ内で使用されている定型文を変更することができます。' : '',
+    'title'          => __( 'テーマ内テキスト', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'テーマ内で使用されている定型文を変更することができます。', 'simplicity2' ) : '',
     'priority'       => 98.5,
   ));
 
@@ -3165,8 +3165,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_breadcrumbs_home', array(
     'settings' => 'theme_text_breadcrumbs_home',
-    'label' =>'パンくずリストのホームを変更',
-    'description' => is_tips_visible() ? 'パンくずリストの「ホーム」のテキストを変更します。設定は、投稿と固定ページ両方のパンくずリストに反映されます。。' : '',
+    'label' => __( 'パンくずリストのホームを変更', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'パンくずリストの「ホーム」のテキストを変更します。設定は、投稿と固定ページ両方のパンくずリストに反映されます。。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 50,
@@ -3179,8 +3179,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_related_entry', array(
     'settings' => 'theme_text_related_entry',
-    'label' =>'関連記事タイトルを変更',
-    'description' => is_tips_visible() ? '関連記事のH3見出しを変更します。' : '',
+    'label' => __( '関連記事タイトルを変更', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '関連記事のH3見出しを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 100,
@@ -3193,8 +3193,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_comments', array(
     'settings' => 'theme_text_comments',
-    'label' =>'コメントタイトルを変更',
-    'description' => is_tips_visible() ? 'コメント欄ののH3見出しを変更します。' : '',
+    'label' => __( 'コメントタイトルを変更', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメント欄ののH3見出しを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 200,
@@ -3207,8 +3207,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_comment_reply_title', array(
     'settings' => 'theme_text_comment_reply_title',
-    'label' =>'返信コメントタイトルを変更',
-    'description' => is_tips_visible() ? 'コメントを促すテキスト変更します。' : '',
+    'label' => __( '返信コメントタイトルを変更', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメントを促すテキスト変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 300,
@@ -3221,8 +3221,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_comment_submit_label', array(
     'settings' => 'theme_text_comment_submit_label',
-    'label' =>'コメントサブミットラベルを変更',
-    'description' => is_tips_visible() ? 'コメント送信ボタンテキスト変更します。' : '',
+    'label' => __( 'コメントサブミットラベルを変更', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメント送信ボタンテキスト変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 400,
@@ -3230,13 +3230,13 @@ function theme_customize_register($wp_customize) {
 
   //サブミットラベルを変更
   $wp_customize->add_setting('theme_text_comment_freeze_label', array(
-    'default' => 'コメントの入力は終了しました。',
+    'default' => __( 'コメントの入力は終了しました。', 'simplicity2' ),
     'sanitize_callback' => 'sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_comment_freeze_label', array(
     'settings' => 'theme_text_comment_freeze_label',
-    'label' => 'コメント入力凍結時のメッセージ',
-    'description' => is_tips_visible() ? 'コメント入力欄を非表示にした時のメッセージを変更します。' : '',
+    'label' => __( 'コメント入力凍結時のメッセージ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'コメント入力欄を非表示にした時のメッセージを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 420,
@@ -3249,8 +3249,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_comment_anonymous_name', array(
     'settings' => 'theme_text_comment_anonymous_name',
-    'label' =>'匿名のユーザー名を変更',
-    'description' => is_tips_visible() ? '匿名でコメント投稿するユーザーのデフォルト名を変更します。' : '',
+    'label' => __( '匿名のユーザー名を変更', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '匿名でコメント投稿するユーザーのデフォルト名を変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 450,
@@ -3263,8 +3263,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_read_entry', array(
     'settings' => 'theme_text_read_entry',
-    'label' =>'「記事を読む」の変更',
-    'description' => is_tips_visible() ? '一覧リストの「記事を読む」リンクのテキストを変更します。' : '',
+    'label' => __( '「記事を読む」の変更', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '一覧リストの「記事を読む」リンクのテキストを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 500,
@@ -3277,8 +3277,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_read_more', array(
     'settings' => 'theme_text_read_more',
-    'label' =>'「続きを読む」の変更',
-    'description' => is_tips_visible() ? 'moreタグ以降の「続きを読む」リンクのテキストを変更します。' : '',
+    'label' => __( '「続きを読む」の変更', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'moreタグ以降の「続きを読む」リンクのテキストを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 600,
@@ -3291,8 +3291,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_list', array(
     'settings' => 'theme_text_list',
-    'label' =>'リストタイトルの「一覧」を変更',
-    'description' => is_tips_visible() ? 'インデックスリストのタイトルに含まれる「一覧」部分を変更します。' : '',
+    'label' => __( 'リストタイトルの「一覧」を変更', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'インデックスリストのタイトルに含まれる「一覧」部分を変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 700,
@@ -3305,8 +3305,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_date_format', array(
     'settings' => 'theme_text_date_format',
-    'label' =>'日付表示のフォーマット',
-    'description' => is_tips_visible() ? '投稿日や更新日の日付表示フォーマットを変更します。' : '',
+    'label' => __( '日付表示のフォーマット', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿日や更新日の日付表示フォーマットを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 750,
@@ -3319,8 +3319,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_ymd_format', array(
     'settings' => 'theme_text_ymd_format',
-    'label' =>'一覧：年月日のフォーマット',
-    'description' => is_tips_visible() ? 'インデクスリストの年月日表示フォーマットを変更します。' : '',
+    'label' => __( '一覧：年月日のフォーマット', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'インデクスリストの年月日表示フォーマットを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 800,
@@ -3333,8 +3333,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_ym_format', array(
     'settings' => 'theme_text_ym_format',
-    'label' =>'一覧：年月のフォーマット',
-    'description' => is_tips_visible() ? 'インデクスリストの年月表示フォーマットを変更します。' : '',
+    'label' => __( '一覧：年月のフォーマット', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'インデクスリストの年月表示フォーマットを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 900,
@@ -3347,8 +3347,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_y_format', array(
     'settings' => 'theme_text_y_format',
-    'label' =>'一覧：年のフォーマット',
-    'description' => is_tips_visible() ? 'インデクスリストの年表示フォーマットを変更します。' : '',
+    'label' => __( '一覧：年のフォーマット', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'インデクスリストの年表示フォーマットを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 1000,
@@ -3361,8 +3361,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_search_placeholder', array(
     'settings' => 'theme_text_search_placeholder',
-    'label' =>'検索ボックスのプレースホルダー',
-    'description' => is_tips_visible() ? '検索ボックスに表示されるテキスト変更します。' : '',
+    'label' => __( '検索ボックスのプレースホルダー', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '検索ボックスに表示されるテキスト変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 1100,
@@ -3375,8 +3375,8 @@ function theme_customize_register($wp_customize) {
   // ));
   // $wp_customize->add_control( 'theme_text_related_not_found_message', array(
   //   'settings' => 'theme_text_related_not_found_message',
-  //   'label' =>'関連記事が見つからなかった時のメッセージ',
-  //   'description' => is_tips_visible() ? '関連記事が見つからなかった場合に表示されるテキスト変更します。' : '',
+  //   'label' => __( '関連記事が見つからなかった時のメッセージ', 'simplicity2' ),
+  //   'description' => is_tips_visible() ? __( '関連記事が見つからなかった場合に表示されるテキスト変更します。', 'simplicity2' ) : '',
   //   'section' => 'theme_text_section',
   //   'type' => 'text',
   //   'priority'=> 1125,
@@ -3389,8 +3389,8 @@ function theme_customize_register($wp_customize) {
   // ));
   // $wp_customize->add_control( 'theme_text_not_found_title', array(
   //   'settings' => 'theme_text_not_found_title',
-  //   'label' =>'見つからなかった時のタイトル',
-  //   'description' => is_tips_visible() ? '404ページのタイトルを変更します。' : '',
+  //   'label' => __( '見つからなかった時のタイトル', 'simplicity2' ),
+  //   'description' => is_tips_visible() ? __( '404ページのタイトルを変更します。', 'simplicity2' ) : '',
   //   'section' => 'theme_text_section',
   //   'type' => 'text',
   //   'priority'=> 1150,
@@ -3403,8 +3403,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'theme_text_not_found_message', array(
     'settings' => 'theme_text_not_found_message',
-    'label' =>'見つからなかった時のメッセージ',
-    'description' => is_tips_visible() ? '記事が見つからなかった時に表示されるテキスト変更します。' : '',
+    'label' => __( '見つからなかった時のメッセージ', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '記事が見つからなかった時に表示されるテキスト変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 1200,
@@ -3415,8 +3415,8 @@ function theme_customize_register($wp_customize) {
   //管理者機能設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'admin_section', array(
-    'title'          =>'管理者機能',
-    'description' => is_tips_visible() ? '管理画面やアドミンバー（管理バー）に独自機能を追加する設定です。' : '',
+    'title'          => __( '管理者機能', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '管理画面やアドミンバー（管理バー）に独自機能を追加する設定です。', 'simplicity2' ) : '',
     'priority'       => 98.7,
   ));
 
@@ -3427,8 +3427,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'admin_editor_enable', array(
     'settings' => 'admin_editor_enable',
-    'label' =>'ビジュアルエディターにSimplicityスタイルを適用',
-    'description' => is_tips_visible() ? '投稿管理画面のビジュアルエディターの表示をSimplicityデフォルトのようにします。（※子テーマなどにカスタマイズしたスタイルは適用されません。）' : '',
+    'label' => __( 'ビジュアルエディターにSimplicityスタイルを適用', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿管理画面のビジュアルエディターの表示をSimplicityデフォルトのようにします。（※子テーマなどにカスタマイズしたスタイルは適用されません。）', 'simplicity2' ) : '',
     'section' => 'admin_section',
     'type' => 'checkbox',
     'priority' => 50,
@@ -3441,8 +3441,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'admin_bar_menu_visible', array(
     'settings' => 'admin_bar_menu_visible',
-    'label' =>'アドミンバーに独自管理メニューを表示',
-    'description' => is_tips_visible() ? '管理バーにSimplicity独自のメニューを表示するか。' : '',
+    'label' => __( 'アドミンバーに独自管理メニューを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '管理バーにSimplicity独自のメニューを表示するか。', 'simplicity2' ) : '',
     'section' => 'admin_section',
     'type' => 'checkbox',
     'priority' => 100,
@@ -3455,8 +3455,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'admin_original_login_logo_enable', array(
     'settings' => 'admin_original_login_logo_enable',
-    'label' =>'ログイン画面のロゴをカスタマイズで設定したロゴにする',
-    'description' => is_tips_visible() ? 'テーマカスタマイザーで設定したロゴをログイン画面で表示するか。' : '',
+    'label' => __( 'ログイン画面のロゴをカスタマイズで設定したロゴにする', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'テーマカスタマイザーで設定したロゴをログイン画面で表示するか。', 'simplicity2' ) : '',
     'section' => 'admin_section',
     'type' => 'checkbox',
     'priority' => 200,
@@ -3468,8 +3468,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'admin_initial_media_disp_type_in_entry', array(
     'settings' => 'admin_initial_media_disp_type_in_entry',
-    'label' =>'メディアを挿入の初期表示を「この投稿へのアップロード」にする',
-    'description' => is_tips_visible() ? '投稿管理画面からメディアを表示したときに、その投稿に含まれている画像のみを表示します。' : '',
+    'label' => __( 'メディアを挿入の初期表示を「この投稿へのアップロード」にする', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿管理画面からメディアを表示したときに、その投稿に含まれている画像のみを表示します。', 'simplicity2' ) : '',
     'section' => 'admin_section',
     'type' => 'checkbox',
     'priority' => 300,
@@ -3481,8 +3481,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'confirmation_before_publish', array(
     'settings' => 'confirmation_before_publish',
-    'label' =>'ページ公開前に確認アラートを出す',
-    'description' => is_tips_visible() ? '投稿・固定ページを公開前に確認ダイアログを表示します。' : '',
+    'label' => __( 'ページ公開前に確認アラートを出す', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿・固定ページを公開前に確認ダイアログを表示します。', 'simplicity2' ) : '',
     'section' => 'admin_section',
     'type' => 'checkbox',
     'priority' => 400,
@@ -3509,7 +3509,7 @@ function theme_customize_register($wp_customize) {
   if ( is_jetpack_stats_module_active() ) $radio_items += array('jetpack' => 'Jetpackで表示（遅い。ページアクセス管理画面へのリンク付き）');
   $wp_customize->add_control( 'admin_pv_type', array(
     'settings' => 'admin_pv_type',
-    'label' => '管理者用PV表示',
+    'label' => __( '管理者用PV表示', 'simplicity2' ),
     'description' => is_tips_visible() ? 'ログインユーザーのみにPVを表示します。<a href="https://wp-simplicity.com/simplicity-admin-pv/" target="_blank">機能説明</a>'.$caption_add : '',
     'section' => 'admin_section',
     'type' => 'radio',
@@ -3523,8 +3523,8 @@ function theme_customize_register($wp_customize) {
   // ));
   // $wp_customize->add_control( 'admin_pv_visible', array(
   //   'settings' => 'admin_pv_visible',
-  //   'label' =>'管理者のみにPV表示',
-  //   'description' => is_tips_visible() ? 'ログインユーザーのみにPVを表示します。（※要Wordpress Popular Postsプラグインのインストール）' : '',
+  //   'label' => __( '管理者のみにPV表示', 'simplicity2' ),
+  //   'description' => is_tips_visible() ? __( 'ログインユーザーのみにPVを表示します。（※要Wordpress Popular Postsプラグインのインストール）', 'simplicity2' ) : '',
   //   'section' => 'admin_section',
   //   'type' => 'checkbox',
   //   'priority' => 500,
@@ -3536,8 +3536,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'wlw_link_visible', array(
     'settings' => 'wlw_link_visible',
-    'label' => '「WLWで編集」リンクを表示',
-    'description' => is_tips_visible() ? 'ログインユーザーにWindows Live Writer用の編集リンクを表示します。（※Windows Live Writerユーザーで、「WLW Post Downloader Plugin」のインストールが必須）' : '',
+    'label' => __( '「WLWで編集」リンクを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ログインユーザーにWindows Live Writer用の編集リンクを表示します。（※Windows Live Writerユーザーで、「WLW Post Downloader Plugin」のインストールが必須）', 'simplicity2' ) : '',
     'section' => 'admin_section',
     'type' => 'checkbox',
     'priority'=> 600,
@@ -3547,8 +3547,8 @@ function theme_customize_register($wp_customize) {
   //その他項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'other_section', array(
-    'title'          =>'その他',
-    'description' => is_tips_visible() ? 'ファビコンや、アップルタッチアイコン、その他の設定がまとめてあります。' : '',
+    'title'          => __( 'その他', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ファビコンや、アップルタッチアイコン、その他の設定がまとめてあります。', 'simplicity2' ) : '',
     'priority'       => 99,
   ));
 
@@ -3559,8 +3559,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'tips_visible', array(
     'settings' => 'tips_visible',
-    'label' =>'Tips（項目の説明）の表示',
-    'description' => is_tips_visible() ? 'テーマカスタマイザーのそれぞれの項目に関する詳細な説明を表示するか。' : '',
+    'label' => __( 'Tips（項目の説明）の表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'テーマカスタマイザーのそれぞれの項目に関する詳細な説明を表示するか。', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 5,
@@ -3573,7 +3573,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'favicon_enable', array(
     'settings' => 'favicon_enable',
-    'label' =>'ファビコンを有効',
+    'label' => __( 'ファビコンを有効', 'simplicity2' ),
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority'=> 10,
@@ -3585,8 +3585,8 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'favicon_url', array(
     'settings' => 'favicon_url',
-    'label' => 'ファビコン',
-    'description' => is_tips_visible() ? 'メディアからファビコンを設定できます。' : '',
+    'label' => __( 'ファビコン', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'メディアからファビコンを設定できます。', 'simplicity2' ) : '',
     'section' => 'other_section',
     'priority' => 20,
   ) ) );
@@ -3597,7 +3597,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'apple_touch_icon_enable', array(
     'settings' => 'apple_touch_icon_enable',
-    'label' => 'アップルタッチアイコンを有効',
+    'label' => __( 'アップルタッチアイコンを有効', 'simplicity2' ),
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority'=> 30,
@@ -3609,8 +3609,8 @@ function theme_customize_register($wp_customize) {
   ) );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'apple_touch_icon_url', array(
     'settings' => 'apple_touch_icon_url',
-    'label' =>'アップルタッチアイコン',
-    'description' => is_tips_visible() ? 'メディアからアップルタッチアイコンを設定できます。（※.png推奨）' : '',
+    'label' => __( 'アップルタッチアイコン', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'メディアからアップルタッチアイコンを設定できます。（※.png推奨）', 'simplicity2' ) : '',
     'section' => 'other_section',
     'priority' => 40,
   ) ) );
@@ -3622,8 +3622,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'rest_api_enable', array(
     'settings' => 'rest_api_enable',
-    'label' =>'REST APIを有効',
-    'description' => is_tips_visible() ? 'Wordpress4.7から追加されたREST APIを有効するか。（※無効にすると動かなくなるプラグインがあるのでWordpressに詳しくない場合は有効のまま利用してください）<a href="https://wp-simplicity.com/simplicity-rest-api/" target="_blank">機能説明</a>' : '',
+    'label' => __( 'REST APIを有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Wordpress4.7から追加されたREST APIを有効するか。（※無効にすると動かなくなるプラグインがあるのでWordpressに詳しくない場合は有効のまま利用してください）<a href="https://wp-simplicity.com/simplicity-rest-api/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 42,
@@ -3636,8 +3636,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'rel_noopener_noreferrer_enable', array(
     'settings' => 'rel_noopener_noreferrer_enable',
-    'label' =>'rel="noopener noreferrer"を有効',
-    'description' => is_tips_visible() ? 'Wordpress4.7.4から「target="_blank"」の付いた外部リンクに対して「rel="noopener noreferrer"」属性を自動付加するかどうか。<a href="https://wp-simplicity.com/rel-noopener-noreferrer/" target="_blank">機能説明</a>' : '',
+    'label' => __( 'rel="noopener noreferrer"を有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'Wordpress4.7.4から「target="_blank"」の付いた外部リンクに対して「rel="noopener noreferrer"」属性を自動付加するかどうか。<a href="https://wp-simplicity.com/rel-noopener-noreferrer/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 42.5,
@@ -3650,8 +3650,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'easy_ssl_enable', array(
     'settings' => 'easy_ssl_enable',
-    'label' =>'内部URLをSSL対応（簡易版）',
-    'description' => is_tips_visible() ? 'サイトの内部リンクや、非SSLの画像・URLなど、HTTPS化する必要があるURLをSSL対応させて表示させます。（※全てのURLに対応しているわけではありません）<a href="https://wp-simplicity.com/simplicity-ssl/" target="_blank">機能説明</a>' : '',
+    'label' => __( '内部URLをSSL対応（簡易版）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトの内部リンクや、非SSLの画像・URLなど、HTTPS化する必要があるURLをSSL対応させて表示させます。（※全てのURLに対応しているわけではありません）<a href="https://wp-simplicity.com/simplicity-ssl/" target="_blank">機能説明</a>', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 43,
@@ -3664,8 +3664,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'ssl_verification_enable', array(
     'settings' => 'ssl_verification_enable',
-    'label' =>'外部サイトデータ取得時にSSL検証を行う',
-    'description' => is_tips_visible() ? 'wp_remote_getで外部サイトデータを取得時に、SSL検証を有効にします。' : '',
+    'label' => __( '外部サイトデータ取得時にSSL検証を行う', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'wp_remote_getで外部サイトデータを取得時に、SSL検証を有効にします。', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 43,
@@ -3678,8 +3678,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'auto_update_enable', array(
     'settings' => 'auto_update_enable',
-    'label' => 'オートアップデートを有効',
-    'description' => is_tips_visible() ? 'テーマのオートアップデート機能を有効にするか。親テーマをカスタマイズしている場合は、オフにしておいたほうがいいかも。（※オフにするとセキュリティー問題があったときも自動通知されません。）' : '',
+    'label' => __( 'オートアップデートを有効', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'テーマのオートアップデート機能を有効にするか。親テーマをカスタマイズしている場合は、オフにしておいたほうがいいかも。（※オフにするとセキュリティー問題があったときも自動通知されません。）', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority'=> 45,
@@ -3692,8 +3692,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'external_custom_css_enable', array(
     'settings' => 'external_custom_css_enable',
-    'label' => 'カスタマイザーのスタイル変更を外部CSSに書き出す（非推奨）',
-    'description' => is_tips_visible() ? 'ヘッダーに埋め込まれるテーマカスタマイザーのスタイルシートを外部CSSファイルに書き出してから読み込みます。（※使用による不具合についてはサポートできません）' : '',
+    'label' => __( 'カスタマイザーのスタイル変更を外部CSSに書き出す（非推奨）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ヘッダーに埋め込まれるテーマカスタマイザーのスタイルシートを外部CSSファイルに書き出してから読み込みます。（※使用による不具合についてはサポートできません）', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority'=> 47,
@@ -3705,8 +3705,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'japanese_slug_enable', array(
     'settings' => 'japanese_slug_enable',
-    'label' =>'日本語のスラッグを有効にする',
-    'description' => is_tips_visible() ? '投稿・固定ページのパーマリンクに日本語を使用するか。' : '',
+    'label' => __( '日本語のスラッグを有効にする', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿・固定ページのパーマリンクに日本語を使用するか。', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 80,
@@ -3719,22 +3719,22 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'site_license', array(
     'settings' => 'site_license',
-    'label' =>'ライセンス',
-    'description' => is_tips_visible() ? 'サイトのライセンスを設定します。' : '',
+    'label' => __( 'ライセンス', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイトのライセンスを設定します。', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'radio',
     'choices'    => array(
-      'copyright' => '©（デフォルト）',
-      'copyright_abridged' => '©（日付なし）',
-      'copyright_backward' => 'Copyright©（表記を書く）',
-      'cc_by' => 'CC-表示',
-      'cc_by_sa' => 'CC-表示-継承',
-      'cc_by_nd' => 'CC-表示-改変禁止',
-      'cc_by_nc' => 'CC-表示-非営利',
-      'cc_by_nc_sa' => 'CC-表示-非営利-継承',
-      'cc_by_nc_nd' => 'CC-表示-非営利-改変禁止',
-      'cc0' => 'CC0',
-      'pd' => 'パブリックドメイン',
+      'copyright' => __( '©（デフォルト）', 'simplicity2' ),
+      'copyright_abridged' => __( '©（日付なし）', 'simplicity2' ),
+      'copyright_backward' => __( 'Copyright©（表記を書く）', 'simplicity2' ),
+      'cc_by' => __( 'CC-表示', 'simplicity2' ),
+      'cc_by_sa' => __( 'CC-表示-継承', 'simplicity2' ),
+      'cc_by_nd' => __( 'CC-表示-改変禁止', 'simplicity2' ),
+      'cc_by_nc' => __( 'CC-表示-非営利', 'simplicity2' ),
+      'cc_by_nc_sa' => __( 'CC-表示-非営利-継承', 'simplicity2' ),
+      'cc_by_nc_nd' => __( 'CC-表示-非営利-改変禁止', 'simplicity2' ),
+      'cc0' => __( 'CC0', 'simplicity2' ),
+      'pd' => __( 'パブリックドメイン', 'simplicity2' ),
     ),
     'priority' => 1000,
   ));
@@ -3746,8 +3746,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'responsive_test_visible', array(
     'settings' => 'responsive_test_visible',
-    'label' =>'ローカルでのレスポンシブテストを表示',
-    'description' => is_tips_visible() ? 'ローカル環境でテスト時のみサイトフッター部分にレスポンシブテスト用のリンクを表示します。' : '',
+    'label' => __( 'ローカルでのレスポンシブテストを表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ローカル環境でテスト時のみサイトフッター部分にレスポンシブテスト用のリンクを表示します。', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 2000,
@@ -3760,8 +3760,8 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'page_cache_enable', array(
     'settings' => 'page_cache_enable',
-    'label' =>'ページキャッシュモード',
-    'description' => is_tips_visible() ? '※通常は利用非推奨。ページキャシュプラグインと併わせて利用して高速化を図るためのモードです。尚、この機能をオンにすると不具合があるかもしれません。ですが基本的にノーサポートです。この機能は．自分の力で何とかできる場合にのみご利用ください。' : '',
+    'label' => __( 'ページキャッシュモード', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '※通常は利用非推奨。ページキャシュプラグインと併わせて利用して高速化を図るためのモードです。尚、この機能をオンにすると不具合があるかもしれません。ですが基本的にノーサポートです。この機能は、自分の力で何とかできる場合にのみご利用ください。', 'simplicity2' ) : '',
     'section' => 'other_section',
     'type' => 'checkbox',
     'priority' => 3000,

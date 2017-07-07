@@ -1357,3 +1357,8 @@ endif;
 //     $instance['filter'] = false;
 //     return $instance;
 // }
+
+// function set_english_locale( $lang ) {
+//   return 'en';
+// }
+// add_filter( 'locale', 'set_english_locale' );

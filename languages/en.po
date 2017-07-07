@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-07-06 15:49+0900\n"
-"PO-Revision-Date: 2017-07-06 15:50+0900\n"
+"POT-Creation-Date: 2017-07-06 20:59+0900\n"
+"PO-Revision-Date: 2017-07-06 21:00+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -32,66 +32,569 @@ msgstr ""
 msgid "リンク色"
 msgstr ""
 
+#: lib/customizer.php:59
+msgid "通常のリンク色です。（デフォルト色：#2098a8）"
+msgstr ""
+
 #: lib/customizer.php:71
 msgid "リンクホバー色"
+msgstr ""
+
+#: lib/customizer.php:72
+msgid ""
+"マウスカーソルが乗ったときのリンク色です。（デフォルト色：#cc0033）"
 msgstr ""
 
 #: lib/customizer.php:84
 msgid "ヘッダー外側背景色"
 msgstr ""
 
+#: lib/customizer.php:85
+msgid ""
+"画面幅いっぱいに広がるヘッダーの背景色です。（デフォルト色："
+"transparent）"
+msgstr ""
+
 #: lib/customizer.php:97
 msgid "ヘッダー内側背景色"
+msgstr ""
+
+#: lib/customizer.php:98
+msgid "ヘッダー内側の背景色です。（デフォルト色：transparent）"
 msgstr ""
 
 #: lib/customizer.php:110
 msgid "サイトタイトル色"
 msgstr ""
 
+#: lib/customizer.php:111
+msgid "サイトタイトルの文字色です。（デフォルト色：#222222）"
+msgstr ""
+
 #: lib/customizer.php:123
 msgid "サイト概要色"
+msgstr ""
+
+#: lib/customizer.php:124
+msgid "サイトキャッチフレーズの文字色です。（デフォルト色：#777777）"
 msgstr ""
 
 #: lib/customizer.php:136
 msgid "モバイル時ヘッダー背景色"
 msgstr ""
 
+#: lib/customizer.php:137
+msgid ""
+"画面幅いっぱいに広がるモバイルヘッダーの背景色です。（デフォルト色："
+"transparent）"
+msgstr ""
+
 #: lib/customizer.php:149
 msgid "モバイルサイトタイトル色"
+msgstr ""
+
+#: lib/customizer.php:150
+msgid "モバイル時のサイトタイトルの文字色です。（デフォルト色：#222222）"
 msgstr ""
 
 #: lib/customizer.php:162
 msgid "モバイルサイト概要色"
 msgstr ""
 
+#: lib/customizer.php:163
+msgid ""
+"モバイル時のサイトキャッチフレーズの文字色です。（デフォルト色："
+"#777777）"
+msgstr ""
+
 #: lib/customizer.php:175
 msgid "グローバルナビ色"
+msgstr ""
+
+#: lib/customizer.php:176
+msgid ""
+"グローバルナビ（メインメニュー）の背景色です。（デフォルト色：#f7f7f7）"
 msgstr ""
 
 #: lib/customizer.php:188
 msgid "グローバルナビリンク色"
 msgstr ""
 
+#: lib/customizer.php:189
+msgid "グローバルナビリンクの文字色です。（デフォルト色：#111111）"
+msgstr ""
+
 #: lib/customizer.php:201
 msgid "グローバルナビリンクホバー色"
+msgstr ""
+
+#: lib/customizer.php:202
+msgid ""
+"マウスカーソルが乗ったときのメニュー項目の背景色です。（デフォルト色："
+"#dddddd）"
 msgstr ""
 
 #: lib/customizer.php:214
 msgid "メニューボタン色"
 msgstr ""
 
+#: lib/customizer.php:215
+msgid ""
+"モバイル用メニュー表示ボタンのアイコン色です。（デフォルト色：#333333）"
+msgstr ""
+
 #: lib/customizer.php:227
 msgid "メニューボタン背景色"
+msgstr ""
+
+#: lib/customizer.php:228
+msgid ""
+"モバイル用メニュー表示ボタンの背景色です。（デフォルト色：transparent）"
 msgstr ""
 
 #: lib/customizer.php:240
 msgid "トップへ戻るボタン色"
 msgstr ""
 
+#: lib/customizer.php:241
+msgid "トップに戻るボタンのアイコン色です。（デフォルト色：#ffffff）"
+msgstr ""
+
 #: lib/customizer.php:253
 msgid "トップへ戻るボタン背景色"
 msgstr ""
 
+#: lib/customizer.php:254
+msgid "トップに戻るボタンの背景色です。（デフォルト色：#aaaaaa）"
+msgstr ""
+
 #: lib/customizer.php:266
 msgid "フッター色"
+msgstr ""
+
+#: lib/customizer.php:267
+msgid "フッター部分の背景色です。（デフォルト色：#555555）"
+msgstr ""
+
+#: lib/customizer.php:278
+msgid "ヘッダー"
+msgstr ""
+
+#: lib/customizer.php:279
+msgid ""
+"ヘッダーで使用する画像や、ロゴ、グローバルナビの幅に関する設定です。"
+msgstr ""
+
+#: lib/customizer.php:290
+msgid "ヘッダーの高さpx（デフォルト：100）"
+msgstr ""
+
+#: lib/customizer.php:291
+msgid ""
+"画面トップからグローバルメニューまでの高さです。（※ヘッダー画像設定をす"
+"る前に高さの設定推奨。変更した場合はカスタマイズ画面を再読み込みしてくだ"
+"さい）"
+msgstr ""
+
+#: lib/customizer.php:303
+msgid "ロゴ画像"
+msgstr ""
+
+#: lib/customizer.php:304
+msgid ""
+"タイトルテキストの代わりとなるロゴ設定します。（※表示させるには「ロゴを"
+"画像にする」を有効にする必要あり）"
+msgstr ""
+
+#: lib/customizer.php:315
+msgid "ロゴを画像にする"
+msgstr ""
+
+#: lib/customizer.php:316
+msgid "タイトルロゴを画像にするか。"
+msgstr ""
+
+#: lib/customizer.php:328
+msgid "ヘッダー外側背景画像"
+msgstr ""
+
+#: lib/customizer.php:329
+msgid ""
+"画面幅いっぱいに広がるヘッダー画像を設定します。（※画像の高さは高めに設"
+"定しておいてください）<br><a href=\"https://wp-simplicity.com/how-to-"
+"set-big-header-image/\" target=\"_blank\">ヘッダー画像の設定方法</a>"
+msgstr ""
+
+#: lib/customizer.php:340
+msgid "グローバルナビを横幅いっぱいにする"
+msgstr ""
+
+#: lib/customizer.php:341
+msgid ""
+"グローバルナビを画面幅いっぱいに広げて「ヘッダー外側背景画像」に合わせる"
+"か。（※「色→グローバルナビ色」の設定も併せて行う必要があるかもしれませ"
+"ん）<br><a href=\"https://wp-simplicity.com/how-to-set-big-header-image/"
+"\" target=\"_blank\">ヘッダー画像の設定方法設定方法</a>"
+msgstr ""
+
+#: lib/customizer.php:354
+msgid "モバイルヘッダーの高さpx（デフォルト：0）"
+msgstr ""
+
+#: lib/customizer.php:355
+msgid ""
+"モバイルでの画面トップからグローバルメニューまでの高さです。（※0にすると"
+"デフォルト設定になります）"
+msgstr ""
+
+#: lib/customizer.php:367
+msgid "モバイルヘッダー背景画像"
+msgstr ""
+
+#: lib/customizer.php:368
+msgid ""
+"画面幅いっぱいに広がるモバイルヘッダー画像を設定します。（※画像の高さは"
+"高めに設定しておいてください）<a href=\"https://wp-simplicity.com/how-"
+"to-set-big-header-image/\" target=\"_blank\" class=\"example-setting\">"
+"設定例</a>\n"
+msgstr ""
+
+#: lib/customizer.php:379
+msgid "スキン"
+msgstr ""
+
+#: lib/customizer.php:380
+msgid ""
+"Simplicityの外観を手軽に変更します。詳細は、<a href=\"https://wp-"
+"simplicity.com/skin/\" target=\"_blank\" class=\"example-setting\">スキ"
+"ンの使い方</a>を参照してください。<br>パーツスキンに関しては<a href="
+"\"https://wp-simplicity.com/skin-parts/\" target=\"_blank\">パーツスキン"
+"の使い方</a>を参照してください。"
+msgstr ""
+
+#: lib/customizer.php:391
+msgid "選択しない（デフォルト）"
+msgstr ""
+
+#: lib/customizer.php:398
+msgid "スキン選択"
+msgstr ""
+
+#: lib/customizer.php:399
+msgid ""
+"手軽にデザインを変更することができます。[P]マークがついているものは、"
+"フォルダ内のCSSファイルを結合して適用表示するパーツスキンです。※スキンで"
+"設定されたスタイルは親テーマ・子テーマで設定されたものより優先されます。"
+msgstr ""
+
+#: lib/customizer.php:410
+msgid "レイアウト（全体・リスト）"
+msgstr ""
+
+#: lib/customizer.php:411
+msgid "サイト全体や一覧リストページのレイアウトに関する設定です。"
+msgstr ""
+
+#: lib/customizer.php:421
+msgid "完全レスポンシブ表示を有効"
+msgstr ""
+
+#: lib/customizer.php:422
+msgid ""
+"パソコンとモバイルでシームレスな完全なレスポンシブデザイン表示になりま"
+"す。"
+msgstr ""
+
+#: lib/customizer.php:436
+msgid "PCでサイドバーをレスポンシブ表示"
+msgstr ""
+
+#: lib/customizer.php:437
+msgid ""
+"PC表示時にサイドバーをレスポンシブ表示するか。オフにするとレスポンシブ表"
+"示されません。（※完全レスポンシブ機能がオフの時のみ有効な設定）"
+msgstr ""
+
+#: lib/customizer.php:450
+msgid "サイトタイトルの中央寄せ"
+msgstr ""
+
+#: lib/customizer.php:451
+msgid ""
+"サイトのタイトルをヘッダーの中央にするか。（※トップのフォローボタンは表"
+"示されなくなります）"
+msgstr ""
+
+#: lib/customizer.php:464
+msgid "グローバルナビを表示"
+msgstr ""
+
+#: lib/customizer.php:465
+msgid ""
+"グローバルナビ（メインメニュー）を表示させたくないときはオフにしてくださ"
+"い。"
+msgstr ""
+
+#: lib/customizer.php:478
+msgid "一覧リストのスタイル"
+msgstr ""
+
+#: lib/customizer.php:479
+msgid "一覧（インデックス）ページの表示スタイル設定。"
+msgstr ""
+
+#: lib/customizer.php:483
+msgid "エントリーカード（デフォルト）"
+msgstr ""
+
+#: lib/customizer.php:484
+msgid "大きなエントリーカード"
+msgstr ""
+
+#: lib/customizer.php:485
+msgid "最初だけ大きなエントリーカード"
+msgstr ""
+
+#: lib/customizer.php:486 lib/customizer.php:488
+msgid "本文表示"
+msgstr ""
+
+#: lib/customizer.php:487
+msgid "最初だけ本文表示"
+msgstr ""
+
+#: lib/customizer.php:489
+msgid "サムネイル大"
+msgstr ""
+
+#: lib/customizer.php:490
+msgid "タイル2列"
+msgstr ""
+
+#: lib/customizer.php:491
+msgid "タイル3列"
+msgstr ""
+
+#: lib/customizer.php:492
+msgid "タイル2列 画像縦横比保存（要再生成）"
+msgstr ""
+
+#: lib/customizer.php:493
+msgid "タイル3列 画像縦横比保存（要再生成）"
+msgstr ""
+
+#: lib/customizer.php:504
+msgid "固定ページも一覧リストに含める"
+msgstr ""
+
+#: lib/customizer.php:505
+msgid "固定ページを一覧リスト（インデックス）に含めるか。"
+msgstr ""
+
+#: lib/customizer.php:517
+msgid "エントリーカード全体をリンク化"
+msgstr ""
+
+#: lib/customizer.php:518
+msgid ""
+"インデックスリスト・関連記事のエントリーカードやブログカード全体をAタグ"
+"で囲ってリンク化するか。<br><a href=\"https://wp-simplicity.com/linked-"
+"entry-card/\" target=\"_blank\">機能説明</a>"
+msgstr ""
+
+#: lib/customizer.php:531
+msgid "サムネイル表示"
+msgstr ""
+
+#: lib/customizer.php:532
+msgid "サムネイルを表示するか。（※テキスト主体ページなどではオフ）"
+msgstr ""
+
+#: lib/customizer.php:545
+msgid "サムネイルの角の丸め具合"
+msgstr ""
+
+#: lib/customizer.php:546
+msgid "サムネイル角のスタイル。"
+msgstr ""
+
+#: lib/customizer.php:550
+msgid "丸めない（デフォルト）"
+msgstr ""
+
+#: lib/customizer.php:551
+msgid "角を丸める"
+msgstr ""
+
+#: lib/customizer.php:552
+msgid "円形にする"
+msgstr ""
+
+#: lib/customizer.php:564
+msgid "抜粋文字数（デフォルト：70）"
+msgstr ""
+
+#: lib/customizer.php:565
+msgid ""
+"インデックスリストや関連記事、ブログカードで表示される抜粋文字の文字数を"
+"設定します。"
+msgstr ""
+
+#: lib/customizer.php:578
+msgid "抜粋の末尾文字（デフォルト：...）"
+msgstr ""
+
+#: lib/customizer.php:579
+msgid "抜粋文の末尾に付属する文字列を設定します。"
+msgstr ""
+
+#: lib/customizer.php:592
+msgid "抜粋に「メタディスクリプション」項目を利用"
+msgstr ""
+
+#: lib/customizer.php:593
+msgid ""
+"記事一覧・ブログカードのスニペットに投稿管理画面の「SEO設定」項目にある"
+"「メタディスクリプション」テキストを使用します。「メタディスクリプショ"
+"ン」が入力されていない場合は「抜粋」が使用されます。（※双方とも未入力の"
+"場合は記事本文冒頭の抜粋文）"
+msgstr ""
+
+#: lib/customizer.php:605
+msgid "サイドバーの幅を336pxに（デフォルト300px）"
+msgstr ""
+
+#: lib/customizer.php:606
+msgid ""
+"サイドバーを「レクタングル（大）」幅に設定します。（※ヘッダー画像を既に"
+"設定している場合は要再設定）"
+msgstr ""
+
+#: lib/customizer.php:618
+msgid "サイドバーの背景を白色に"
+msgstr ""
+
+#: lib/customizer.php:619
+msgid ""
+"サイドバーの背景色を白色に設定します。（※背景画像などを設定して、サイド"
+"バーが見づらくなったときなどに）"
+msgstr ""
+
+#: lib/customizer.php:631
+msgid "サイドバーを左側に表示"
+msgstr ""
+
+#: lib/customizer.php:632
+msgid "サイドバーを左側に表示するようにレイアウトを変更します。"
+msgstr ""
+
+#: lib/customizer.php:645
+msgid "検索ボックスのスタイル"
+msgstr ""
+
+#: lib/customizer.php:646
+msgid ""
+"検索ボックスのデザイン設定。<a href=\"https://wp-simplicity.com/"
+"searchform-style/\" target=\"_blank\" class=\"example-setting\">設定方法"
+"</a>"
+msgstr ""
+
+#: lib/customizer.php:650
+msgid "ホワイト四角（デフォルト）"
+msgstr ""
+
+#: lib/customizer.php:651
+msgid "ホワイト丸型"
+msgstr ""
+
+#: lib/customizer.php:652
+msgid "グレー四角"
+msgstr ""
+
+#: lib/customizer.php:653
+msgid "グレー丸型"
+msgstr ""
+
+#: lib/customizer.php:665
+msgid "ページネーションタイプ"
+msgstr ""
+
+#: lib/customizer.php:666
+msgid "インデックス一覧リストのページ送りのタイプ設定です。"
+msgstr ""
+
+#: lib/customizer.php:670
+msgid "レスポンシブ（デフォルト）"
+msgstr ""
+
+#: lib/customizer.php:671
+msgid "旧ページネーション"
+msgstr ""
+
+#: lib/customizer.php:682
+msgid "フッターを背景色と同じにする"
+msgstr ""
+
+#: lib/customizer.php:683
+msgid "フッターを透過色にして背景を表示します。"
+msgstr ""
+
+#: lib/customizer.php:696
+msgid "メニューボタンのアイコン（デフォルト：fa-bars）"
+msgstr ""
+
+#: lib/customizer.php:697
+msgid ""
+"メニュー表示ボタンのアイコンフォントを設定します。アコーディオンツリーメ"
+"ニューのアイコンは変更できません。（※設定用のコードはFont Awesomeから取"
+"得します）<a href=\"https://wp-simplicity.com/button-icon-font-change/"
+"\" target=\"_blank\" class=\"example-setting\">設定方法</a>"
+msgstr ""
+
+#: lib/customizer.php:710
+msgid "トップへ戻るボタンの表示"
+msgstr ""
+
+#: lib/customizer.php:711
+msgid "トップへ戻るボタンを表示するか。"
+msgstr ""
+
+#: lib/customizer.php:724
+msgid "トップへ戻るボタンのアイコン（デフォルト：fa-angle-double-up）"
+msgstr ""
+
+#: lib/customizer.php:725
+msgid ""
+"トップへ戻るボタンのアイコンフォントを設定します。（※設定用のコードは"
+"Font Awesomeから取得します）<a href=\"https://wp-simplicity.com/button-"
+"icon-font-change/\" target=\"_blank\" class=\"example-setting\">設定方法"
+"</a>"
+msgstr ""
+
+#: lib/customizer.php:737
+msgid "トップへ戻るボタンに画像を指定"
+msgstr ""
+
+#: lib/customizer.php:738
+msgid ""
+"こちらに画像が指定されている場合は、アイコンフォントが画像に入れ替わりま"
+"す。"
+msgstr ""
+
+#: lib/customizer.php:750
+msgid "カレンダーに枠線を表示"
+msgstr ""
+
+#: lib/customizer.php:751
+msgid "カレンダーウィジェットに枠線を表示します。"
+msgstr ""
+
+#: lib/customizer.php:763
+msgid "404イメージ"
+msgstr ""
+
+#: lib/customizer.php:764
+msgid ""
+"404ページに表示するイメージを設定してください。<br><a href=\"https://wp-"
+"simplicity.com/simplicity-404-page/\" target=\"_blank\">設定方法</a>"
 msgstr ""
