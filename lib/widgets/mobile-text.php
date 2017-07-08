@@ -6,8 +6,8 @@ class MobileTextWidgetItem extends WP_Widget {
   function __construct() {
     parent::__construct(
       'mobile_text',
-      '[S] モバイル用テキストウィジェット',
-      array('description' => 'モバイルのみで表示されるSimplicity用のテキストウィジェットです。')
+      __( '[S] モバイル用テキストウィジェット', 'simplicity2' ),
+      array('description' => __( 'モバイルのみで表示されるSimplicity用のテキストウィジェットです。', 'simplicity2' ))
     );//ウイジェット名
   }
   function widget($args, $instance) {
@@ -50,14 +50,14 @@ class MobileTextWidgetItem extends WP_Widget {
     <?php //タイトル入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('title_mobile_text'); ?>">
-      タイトル
+      <?php _e( 'タイトル', 'simplicity2' ) ?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('title_mobile_text'); ?>" name="<?php echo $this->get_field_name('title_mobile_text'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
     <?php //テキスト入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('text_mobile_text'); ?>">
-      テキスト
+      <?php _e( 'テキスト', 'simplicity2' ) ?>
       </label>
       <textarea class="widefat" id="<?php echo $this->get_field_id('text_mobile_text'); ?>" name="<?php echo $this->get_field_name('text_mobile_text'); ?>" cols="20" rows="16"><?php echo $text; ?></textarea>
     </p>

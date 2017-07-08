@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-07-08 00:23+0900\n"
-"PO-Revision-Date: 2017-07-08 00:28+0900\n"
+"POT-Creation-Date: 2017-07-08 19:11+0900\n"
+"PO-Revision-Date: 2017-07-08 19:12+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -1801,14 +1801,12 @@ msgid "投稿・固定ページ本文下のフォローボタンを表示する�
 msgstr "To view the follow button under the fixed-page full text of posts?"
 
 #: lib/customizer.php:1892 lib/customizer.php:4565
-#, fuzzy
 msgid "フォローする"
-msgstr "Follow Us"
+msgstr "Follow Me"
 
 #: lib/customizer.php:1897
-#, fuzzy
 msgid "フォローメッセージ"
-msgstr "Follow up messages"
+msgstr "Follow message"
 
 #: lib/customizer.php:1898
 #, fuzzy
@@ -1816,7 +1814,6 @@ msgid "フォローボタンのラベルを設定します。（※無記入で�
 msgstr "Sets the label for the follow button. (* In rectifying non-display)"
 
 #: lib/customizer.php:1910
-#, fuzzy
 msgid "twitter.com/XXXXXXX"
 msgstr "twitter.com/XXXXXXX"
 
@@ -1827,7 +1824,6 @@ msgstr ""
 "Please enter the XXXXXXX portion of the Twitter page URL. @ Is required."
 
 #: lib/customizer.php:1923
-#, fuzzy
 msgid "facebook.com/XXXXXXX"
 msgstr "facebook.com/XXXXXXX"
 
@@ -1837,7 +1833,6 @@ msgid "FacebookページURLのXXXXXXX部分を入力してください。"
 msgstr "Please enter the XXXXXXX portion of the Facebook page URL."
 
 #: lib/customizer.php:1936
-#, fuzzy
 msgid "plus.google.com/XXXXXXX"
 msgstr "plus.google.com/XXXXXXX"
 
@@ -1847,7 +1842,6 @@ msgid "Google+ページURLのXXXXXXX部分を入力してください。"
 msgstr "Please enter the XXXXXXX portion of the Google + page URL."
 
 #: lib/customizer.php:1949
-#, fuzzy
 msgid "b.hatena.ne.jp/XXXXXXX"
 msgstr "b.hatena.ne.jp/XXXXXXX"
 
@@ -1867,7 +1861,6 @@ msgid "InstagramページURLのXXXXXXX部分を入力してください。"
 msgstr "Please enter the XXXXXXX of Instagram page URL."
 
 #: lib/customizer.php:1975
-#, fuzzy
 msgid "pinterest.com/XXXXXXX"
 msgstr "pinterest.com/XXXXXXX"
 
@@ -1877,7 +1870,6 @@ msgid "PinterestページURLのXXXXXXX部分を入力してください。"
 msgstr "Please enter the XXXXXXX of Pinterest page URL."
 
 #: lib/customizer.php:1988
-#, fuzzy
 msgid "youtube.com/XXXX/XXXXXXX"
 msgstr "youtube.com/XXXX/XXXXXXX"
 
@@ -1893,7 +1885,6 @@ msgstr ""
 "channel/XXXXXXX, c/XXXXXXX."
 
 #: lib/customizer.php:2001
-#, fuzzy
 msgid "flickr.com/photos/XXXXXXXXXX"
 msgstr "flickr.com/photos/XXXXXXXXXX"
 
@@ -1903,7 +1894,6 @@ msgid "FlickrページURLのXXXXXXX部分を入力してください。"
 msgstr "Please enter the XXXXXXX part of the Flickr page."
 
 #: lib/customizer.php:2014
-#, fuzzy
 msgid "line.naver.jp/ti/p/XXXXXXXXXX"
 msgstr "line.naver.jp/ti/p/XXXXXXXXXX"
 
@@ -1917,7 +1907,6 @@ msgstr ""
 "\"color: red;\">@ Required @ if you enter. </span>"
 
 #: lib/customizer.php:2027
-#, fuzzy
 msgid "Push7のAPPNO"
 msgstr "Push7 APPNO"
 
@@ -2529,7 +2518,6 @@ msgstr ""
 "refresh-external-blog-card/\" target=\"_blank\">How to update cache</a>"
 
 #: lib/customizer.php:2706
-#, fuzzy
 msgid "ソースコード"
 msgstr "Source code"
 
@@ -2587,9 +2575,8 @@ msgstr ""
 "do not change."
 
 #: lib/customizer.php:2905 lib/customizer.php:3137 lib/customizer.php:5053
-#, fuzzy
 msgid "コメント"
-msgstr "Your review"
+msgstr "Comments"
 
 #: lib/customizer.php:2906
 #, fuzzy
@@ -2607,7 +2594,6 @@ msgid "コメントを表示するか。"
 msgstr "To display the comment?"
 
 #: lib/customizer.php:2931
-#, fuzzy
 msgid "コメント表示タイプ"
 msgstr "Comment display type"
 
@@ -2621,9 +2607,8 @@ msgid "シンプルスレッド表示"
 msgstr ""
 
 #: lib/customizer.php:2938
-#, fuzzy
 msgid "某スレッド掲示板風"
-msgstr "One thread Bulletin Board style"
+msgstr "Like 2ch"
 
 #: lib/customizer.php:2950
 #, fuzzy
@@ -2816,9 +2801,8 @@ msgstr ""
 "amp-page-settings/\" target=\"_blank\">How to set up</a>"
 
 #: lib/customizer.php:3102
-#, fuzzy
 msgid "テーマ内テキスト"
-msgstr "Subject text"
+msgstr "Texts in theme"
 
 #: lib/customizer.php:3103
 #, fuzzy
@@ -3207,7 +3191,7 @@ msgstr ""
 
 #: lib/customizer.php:3483
 msgid "その他"
-msgstr "Other"
+msgstr "Others"
 
 #: lib/customizer.php:3484
 #, fuzzy
@@ -3358,7 +3342,6 @@ msgid "投稿・固定ページのパーマリンクに日本語を使用する�
 msgstr "Permalink for posts and static pages with the Japan language?"
 
 #: lib/customizer.php:3655
-#, fuzzy
 msgid "ライセンス"
 msgstr "License"
 
@@ -3467,3 +3450,186 @@ msgstr "0 edition"
 #, fuzzy, php-format
 msgid "「%s」の記事一覧です。"
 msgstr "lists the article '%s'."
+
+#: lib/widgets/classic-text.php:8
+msgid ""
+"テキストエディターのみの旧タイプのテキストウィジェット（Wordpress4.8以前のビ"
+"ジュアルエディターのないテキストウィジェット）。"
+msgstr ""
+
+#: lib/widgets/classic-text.php:10
+msgid "[S] クラシックテキストウィジェット"
+msgstr "[S] Clasic text widget"
+
+#: lib/widgets/facebook-page-like.php:9
+msgid "[S] Facebookページ「いいね！」"
+msgstr "[S] Facebook 'LIKE!\" Button"
+
+#: lib/widgets/facebook-page-like.php:10
+msgid ""
+"投稿・個別ページのアイキャッチを利用したFacebookページへの「いいね！」ボタン"
+"を表示するSimplicity用ウィジェットです。（※「Facebookページ」のみで利用できま"
+"す。「個人ページ」で設定されている場合は利用できません）"
+msgstr ""
+
+#: lib/widgets/facebook-page-like.php:64
+#, php-format
+msgid ""
+"この記事をお届けした<br>%sの最新ニュース情報を、<br><span style=\"color: "
+"#F27C8E;font-weight: bold;font-size: 1.1em;\">いいね</span>してチェックしよ"
+"う！"
+msgstr ""
+
+#: lib/widgets/facebook-save-button.php:9
+#, fuzzy
+#| msgid "[S] クラシックテキストウィジェット"
+msgid "[S] 「Facebookに保存する」ボタンウィジェット"
+msgstr "[S] Clasic text widget"
+
+#: lib/widgets/facebook-save-button.php:10
+msgid ""
+"「Facebookに保存する」ボタンを利用して、訪問者にページをストック機能を利用し"
+"てもらうためのウィジェットです。（※投稿・固定ページでしか利用できません）"
+msgstr ""
+
+#: lib/widgets/mobile-ad.php:9
+#, fuzzy
+#| msgid "[S] クラシックテキストウィジェット"
+msgid "[S] モバイル用広告ウィジェット"
+msgstr "[S] Clasic text widget"
+
+#: lib/widgets/mobile-ad.php:10
+msgid ""
+"モバイルのみで表示されるSimplicity用の広告ウィジェットです。（※アドセンスの場"
+"合は広告コードのみを記入してください。）"
+msgstr ""
+
+#: lib/widgets/mobile-text.php:9
+#, fuzzy
+#| msgid "[S] クラシックテキストウィジェット"
+msgid "[S] モバイル用テキストウィジェット"
+msgstr "[S] Clasic text widget"
+
+#: lib/widgets/mobile-text.php:10
+#, fuzzy
+msgid "モバイルのみで表示されるSimplicity用のテキストウィジェットです。"
+msgstr "When you view your mobile share button style."
+
+#: lib/widgets/new-entries.php:9
+msgid "[S] 新着記事"
+msgstr ""
+
+#: lib/widgets/new-entries.php:10
+msgid "新着記事リストを表示するSimplicityウィジェットです。"
+msgstr ""
+
+#: lib/widgets/new-entries.php:18 lib/widgets/new-entries.php:51
+#: lib/widgets/new-popular.php:16 lib/widgets/new-popular.php:100
+msgid "新着記事"
+msgstr ""
+
+#: lib/widgets/new-entries.php:53
+msgid "カテゴリー別新着記事"
+msgstr ""
+
+#: lib/widgets/new-popular.php:9
+msgid "[S] 新着・人気記事"
+msgstr ""
+
+#: lib/widgets/new-popular.php:10
+msgid ""
+"トップページで「人気記事」リストを、それ以外のページで「新着記事」リストを表"
+"示するSimplicityウィジェットです。（※要Wordpress Popular Postsプラグイン）"
+msgstr ""
+
+#: lib/widgets/new-popular.php:17 lib/widgets/new-popular.php:71
+#: lib/widgets/popular-ranking.php:18 lib/widgets/popular-ranking.php:84
+msgid "人気記事"
+msgstr ""
+
+#: lib/widgets/pc-ad.php:9
+#, fuzzy
+#| msgid "[S] クラシックテキストウィジェット"
+msgid "[S] パソコン用広告ウィジェット"
+msgstr "[S] Clasic text widget"
+
+#: lib/widgets/pc-ad.php:10
+msgid ""
+"パソコンのみで表示されるSimplicity用の広告ウィジェットです。（※アドセンスの場"
+"合は広告コードのみを記入してください。）"
+msgstr ""
+
+#: lib/widgets/pc-double-ads.php:9
+#, fuzzy
+#| msgid "[S] クラシックテキストウィジェット"
+msgid "[S] パソコン用広告ダブルレクタングルウィジェット"
+msgstr "[S] Clasic text widget"
+
+#: lib/widgets/pc-double-ads.php:10
+msgid ""
+"パソコンのみで表示されるSimplicity用のダブルレクタングル広告ウィジェットで"
+"す。（※アドセンスの場合は広告コードのみを記入してください。）"
+msgstr ""
+
+#: lib/widgets/pc-text.php:9
+#, fuzzy
+#| msgid "[S] クラシックテキストウィジェット"
+msgid "[S] パソコン用テキストウィジェット"
+msgstr "[S] Clasic text widget"
+
+#: lib/widgets/pc-text.php:10
+#, fuzzy
+msgid "パソコンのみで表示されるSimplicity用のテキストウィジェットです。"
+msgstr "Share button style when viewed on your computer."
+
+#: lib/widgets/popular-ranking.php:9
+msgid "[S] 人気記事"
+msgstr ""
+
+#: lib/widgets/popular-ranking.php:10
+msgid ""
+"人気記事リストを表示するSimplicityウィジェットです。（※要Wordpress Popular "
+"Postsプラグイン）"
+msgstr ""
+
+#: lib/widgets/popular-ranking.php:86
+msgid "カテゴリー別人気記事"
+msgstr ""
+
+#: lib/widgets/recent-comments.php:9
+#, fuzzy
+#| msgid "コメント"
+msgid "[S] 最近のコメント"
+msgstr "Comments"
+
+#: lib/widgets/recent-comments.php:10
+msgid "最近投稿されたコメントを表示するウィジェットです。"
+msgstr ""
+
+#: lib/widgets/recent-comments.php:17 lib/widgets/recent-comments.php:33
+#, fuzzy
+#| msgid "コメント"
+msgid "最近のコメント"
+msgstr "Comments"
+
+#: lib/widgets/recent-comments.php:81
+#, fuzzy
+#| msgid "コメント"
+msgid "コメントなし"
+msgstr "Comments"
+
+#: lib/widgets/sns-follow-buttons.php:9
+#, fuzzy
+msgid "[S] SNSフォローボタン"
+msgstr "View all follow button"
+
+#: lib/widgets/sns-follow-buttons.php:10
+#, fuzzy
+msgid ""
+"SNSサービスのフォローアイコンボタンを表示するSimplicityウィジェットです。"
+msgstr "RSS follow icon display?"
+
+#: lib/widgets/sns-follow-buttons.php:21
+#, fuzzy
+msgid "SNSフォローボタン"
+msgstr "View all follow button"

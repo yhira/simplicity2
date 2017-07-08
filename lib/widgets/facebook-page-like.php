@@ -6,8 +6,8 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
   function __construct() {
     parent::__construct(
       'facebook_page_like',
-      '[S] Facebookページ「いいね！」', //ウイジェット名
-      array('description' => '投稿・個別ページのアイキャッチを利用したFacebookページへの「いいね！」ボタンを表示するSimplicity用ウィジェットです。（※「Facebookページ」のみで利用できます。「個人ページ」で設定されている場合は利用できません）')
+      __( '[S] Facebookページ「いいね！」', 'simplicity2' ), //ウイジェット名
+      array('description' => __( '投稿・個別ページのアイキャッチを利用したFacebookページへの「いいね！」ボタンを表示するSimplicity用ウィジェットです。（※「Facebookページ」のみで利用できます。「個人ページ」で設定されている場合は利用できません）', 'simplicity2' ))
     );
   }
   function widget($args, $instance) {
@@ -52,7 +52,7 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
     <?php //タイトル入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('title_facebook_page_like'); ?>">
-      タイトル（未入力で非表示）
+      <?php _e( 'タイトル（未入力で非表示）', 'simplicity2' ) ?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('title_facebook_page_like'); ?>" name="<?php echo $this->get_field_name('title_facebook_page_like'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
@@ -61,7 +61,7 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
       <label for="<?php echo $this->get_field_id('text_facebook_page_like'); ?>">メッセージ
       <?php
         if ( !$text ) {
-          $text = 'この記事をお届けした<br>'.get_bloginfo('name').'の最新ニュース情報を、<br><span style="color: #F27C8E;font-weight: bold;font-size: 1.1em;">いいね</span>してチェックしよう！';
+          $text = sprintf( __( 'この記事をお届けした<br>%sの最新ニュース情報を、<br><span style="color: #F27C8E;font-weight: bold;font-size: 1.1em;">いいね</span>してチェックしよう！', 'simplicity2' ), get_bloginfo('name') );
         }?>
       </label>
       <textarea class="widefat" id="<?php echo $this->get_field_id('text_facebook_page_like'); ?>" name="<?php echo $this->get_field_name('text_facebook_page_like'); ?>" cols="20" rows="16"><?php echo $text; ?></textarea>
