@@ -43,16 +43,16 @@ require_once('widgets/classic-text.php');
 function get_range_tag($range){
   switch ($range) {
     case 'daily':
-      return '<div class="wpp-range">（集計単位：1日）</div>';
+      return '<div class="wpp-range">'.__( '（集計単位：1日）', 'simplicity2' ).'</div>';
       break;
     case 'weekly':
-      return '<div class="wpp-range">（集計単位：1週間）</div>';
+      return '<div class="wpp-range">'.__( '（集計単位：1週間）', 'simplicity2' ).'</div>';
       break;
     case 'monthly':
-      return '<div class="wpp-range">（集計単位：1ヶ月）</div>';
+      return '<div class="wpp-range">'.__( '（集計単位：1ヶ月）', 'simplicity2' ).'</div>';
       break;
     default:
-       return '<div class="wpp-range">（集計単位：全期間）</div>';
+       return '<div class="wpp-range">'.__( '（集計単位：全期間）', 'simplicity2' ).'</div>';
   }
 }
 
