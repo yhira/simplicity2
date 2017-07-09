@@ -13,7 +13,7 @@
 
               <?php get_template_part('edit-link') //編集リンク?>
 
-              <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
+              <?php wlw_edit_post_link(__( 'WLWで編集', 'simplicity2' ), '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
             </p>
 
             <?php get_template_part('admin-pv');//管理者のみにPV表示?>
@@ -78,7 +78,7 @@
 
             <?php get_template_part('edit-link') //編集リンク?>
 
-            <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
+            <?php wlw_edit_post_link(__( 'WLWで編集', 'simplicity2' ), '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
           </p>
         </footer>
         </article><!-- .article -->

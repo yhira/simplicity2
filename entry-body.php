@@ -34,17 +34,17 @@
 
       <?php //AMPページへ
       if (is_user_logged_in() && is_amp_link_visible() && has_amp_page() ): ?>
-        <span class="amp-view"><span class="fa icon-amp-logo2 fa-fw"></span><a href="<?php echo get_amp_permalink().'#development=1'; ?>">AMP</a></span>
+        <span class="amp-view"><span class="fa icon-amp-logo2 fa-fw"></span><a href="<?php echo get_amp_permalink().'#development=1'; ?>"><?php _e( 'AMP', 'simplicity2' ) ?></a></span>
       <?php endif ?>
 
       <?php //AMPテストへ
       if (is_user_logged_in() && is_amp_test_link_visible() && has_amp_page() ): ?>
-        <span class="amp-test"><span class="fa icon-amp-logo2 fa-fw"></span><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank">テスト</a></span>
+        <span class="amp-test"><span class="fa icon-amp-logo2 fa-fw"></span><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank"><?php _e( 'テスト', 'simplicity2' ) ?></a></span>
       <?php endif ?>
 
       <?php if ( is_single() ) get_template_part('edit-link'); //編集リンク?>
 
-      <?php wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
+      <?php wlw_edit_post_link(__( 'WLWで編集', 'simplicity2' ), '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
 
     </p>
 
@@ -108,7 +108,7 @@
 
       <?php if ( is_single() ) get_template_part('edit-link') //編集リンク?>
 
-      <?php if ( is_single() ) wlw_edit_post_link('WLWで編集', '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
+      <?php if ( is_single() ) wlw_edit_post_link(__( 'WLWで編集', 'simplicity2' ), '<span class="wlw-edit"><span class="fa fa-pencil-square-o fa-fw"></span>', '</span>'); ?>
     </p>
   </footer>
   </article><!-- .article -->

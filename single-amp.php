@@ -190,12 +190,12 @@ if ( !is_user_logged_in() ) {
 
         <?php //通常ページへ
         if (is_user_logged_in() && is_amp_link_visible() ): ?>
-        <span class="view-amp"><amp-img src="<?php echo get_template_directory_uri(); ?>/images/file-text-o.svg" width="12" height="12" class="fa fa-svg fa-fw"></amp-img><a href="<?php echo the_permalink(); ?>">通常ページ</a></span>
+        <span class="view-amp"><amp-img src="<?php echo get_template_directory_uri(); ?>/images/file-text-o.svg" width="12" height="12" class="fa fa-svg fa-fw"></amp-img><a href="<?php echo the_permalink(); ?>"><?php _e( '通常ページ', 'simplicity2' ) ?></a></span>
         <?php endif ?>
 
         <?php //AMPテストへ
         if (is_user_logged_in() && is_amp_test_link_visible() ): ?>
-        <span class="view-amp"><amp-img src="<?php echo get_template_directory_uri(); ?>/images/amp-logo2.svg" width="12" height="12" class="fa fa-svg fa-fw"></amp-img><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank">テスト</a></span>
+        <span class="view-amp"><amp-img src="<?php echo get_template_directory_uri(); ?>/images/amp-logo2.svg" width="12" height="12" class="fa fa-svg fa-fw"></amp-img><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank"><?php _e( 'テスト', 'simplicity2' ) ?></a></span>
         <?php endif ?>
       </p>
 
