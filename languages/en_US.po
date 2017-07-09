@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-07-09 13:59+0900\n"
-"PO-Revision-Date: 2017-07-09 14:03+0900\n"
+"POT-Creation-Date: 2017-07-09 22:12+0900\n"
+"PO-Revision-Date: 2017-07-09 22:54+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Poedit 2.0.2\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: __\n"
+"X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: .git\n"
 
@@ -22,7 +22,7 @@ msgstr "All"
 
 #: admin-pv.php:43
 msgid "月"
-msgstr " Month"
+msgstr "Month"
 
 #: admin-pv.php:44
 msgid "週"
@@ -36,9 +36,23 @@ msgstr "Day"
 msgid "Jetpackの統計"
 msgstr "Jetpack statistics"
 
+#: button-go-to-top.php:8
+#, fuzzy
+#| msgid "トップへ戻るボタン色"
+msgid "トップへ戻る"
+msgstr "Back to top Button background color"
+
 #: edit-link.php:2 lib/comment.php:55
 msgid "編集"
 msgstr "Edit"
+
+#: entry-body.php:37
+msgid "AMP"
+msgstr "AMP"
+
+#: entry-body.php:42 single-amp.php:198
+msgid "テスト"
+msgstr "Test"
 
 #: entry-body.php:47 entry-body.php:111 page.php:16 page.php:81
 msgid "WLWで編集"
@@ -101,9 +115,12 @@ msgid "公開"
 msgstr "Publish"
 
 #: lib/admin.php:161
-#, fuzzy
 msgid "記事を公開してもよろしいですか？"
-msgstr "Are you sure to publish the article?"
+msgstr "Are you sure to publish the page?"
+
+#: lib/admin.php:268
+msgid "カテゴリー検索"
+msgstr "Category Search"
 
 #: lib/comment.php:9 lib/customizer.php:3193 lib/customizer.php:5068
 #: lib/customizer.php:5069
@@ -115,6 +132,10 @@ msgid "名前:"
 msgstr "Name:"
 
 #: lib/comment.php:39
+msgid "投稿日："
+msgstr "Posted:"
+
+#: lib/comment.php:39
 #, fuzzy
 msgid "Y/m/d(D)"
 msgstr "Y / m / d (D)"
@@ -124,9 +145,14 @@ msgstr "Y / m / d (D)"
 msgid "H:i:s"
 msgstr "H: i: s"
 
+#: lib/comment.php:58
+#, fuzzy
+msgid "あなたのコメントは現在承認待ちです。"
+msgstr "Your comment is currently pending approval."
+
 #: lib/custom-field.php:9
 msgid "コメントの設定"
-msgstr "Comment setting"
+msgstr "Comment Setting"
 
 #: lib/custom-field.php:11 lib/custom-field.php:12 lib/custom-field.php:13
 msgid "広告の設定"
@@ -142,7 +168,7 @@ msgstr "Page Settings"
 
 #: lib/custom-field.php:24
 msgid "AMP設定"
-msgstr "AMP settings"
+msgstr "AMP Settings"
 
 #: lib/custom-field.php:28 lib/custom-field.php:29
 #, fuzzy
@@ -150,9 +176,8 @@ msgid "更新日の変更"
 msgstr "Changing the renewal date"
 
 #: lib/custom-field.php:43
-#, fuzzy
 msgid "コメントの凍結"
-msgstr "Frozen comments"
+msgstr "Allow comments"
 
 #: lib/custom-field.php:44
 #, fuzzy
@@ -160,9 +185,8 @@ msgid "コメントフォームを非表示にし以降は書き込めないよ�
 msgstr "Hide the comment form so that it can not be written after that."
 
 #: lib/custom-field.php:46
-#, fuzzy
 msgid "凍結時のメッセージ"
-msgstr "Message when freezing"
+msgstr "Message when comments allowimg"
 
 #: lib/custom-field.php:50
 #, fuzzy
@@ -174,7 +198,6 @@ msgstr ""
 "one is displayed."
 
 #: lib/custom-field.php:91
-#, fuzzy
 msgid "広告の除外"
 msgstr "Ad exclusion"
 
@@ -194,7 +217,7 @@ msgstr "SEO title"
 #: lib/custom-field.php:128
 #, fuzzy
 msgid "タイトルを入力してください。"
-msgstr "Please enter a Slide title"
+msgstr "Enter SEO title"
 
 #: lib/custom-field.php:129
 #, fuzzy
@@ -278,16 +301,16 @@ msgstr ""
 "page."
 
 #: lib/custom-field.php:155
-#, fuzzy
 msgid "SEO項目の設定方法"
 msgstr "How to set SEO items"
 
 #: lib/custom-field.php:252
-#, fuzzy
 msgid "ページタイプ"
 msgstr "Page Type"
 
 #: lib/custom-field.php:257 lib/customizer.php:1100 lib/customizer.php:2936
+#: lib/widgets/new-entries.php:122 lib/widgets/new-popular.php:184
+#: lib/widgets/popular-ranking.php:175
 msgid "デフォルト"
 msgstr "Default"
 
@@ -317,26 +340,18 @@ msgstr ""
 "the landing page (LP) etc."
 
 #: lib/custom-field.php:364
-#, fuzzy
 msgid "AMPページを生成しない"
 msgstr "Do not generate AMP page"
 
 #: lib/custom-field.php:365
-#, fuzzy
-#| msgid ""
-#| "インデックスリスト・関連記事のエントリーカードやブログカード全体をAタグで"
-#| "囲ってリンク化するか。<br><a href=\"https://wp-simplicity.com/linked-"
-#| "entry-card/\" target=\"_blank\">機能説明</a>"
 msgid ""
 "AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョン"
 "ページ、スクリプト動作が必要なページ等ではチェックすることをおすすめします。"
 "<a href=\"https://wp-simplicity.com/no-amp-page-settings/\" target=\"_blank"
 "\">機能説明</a>"
 msgstr ""
-"Do not generate AMP pages, only normal pages. We recommend checking on "
-"Affiliate's conversion page, pages requiring script action, etc. <a href="
-"\"https://wp-simplicity.com/no-amp-page-settings/\" target=\"_blank"
-"\">Feature Description</a>"
+"Do not generate AMP pages, only posts. We recommend checking on Affiliate's "
+"conversion page, pages requiring script action, etc."
 
 #: lib/custom-field.php:406
 msgid "変更する"
@@ -901,7 +916,6 @@ msgid "レスポンシブ（デフォルト）"
 msgstr "Responsive (default)"
 
 #: lib/customizer.php:671
-#, fuzzy
 msgid "旧ページネーション"
 msgstr "Old pagination"
 
@@ -916,7 +930,6 @@ msgid "フッターを透過色にして背景を表示します。"
 msgstr "Display the background with the footer in transparent color."
 
 #: lib/customizer.php:696
-#, fuzzy
 msgid "メニューボタンのアイコン（デフォルト：fa-bars）"
 msgstr "Menu button icon (default: fa-bars)"
 
@@ -944,9 +957,8 @@ msgid "トップへ戻るボタンを表示するか。"
 msgstr "Do you want to display the back to top button?"
 
 #: lib/customizer.php:724
-#, fuzzy
 msgid "トップへ戻るボタンのアイコン（デフォルト：fa-angle-double-up）"
-msgstr "Back to top Button icon (Default: fa-angle-double-up)"
+msgstr "Back to top button icon (default: fa-angle-double-up)"
 
 #: lib/customizer.php:725
 #, fuzzy
@@ -999,15 +1011,12 @@ msgid "レイアウト（投稿・固定ページ）"
 msgstr "Layout (Post / Page)"
 
 #: lib/customizer.php:775
-#, fuzzy
-#| msgid "サイト全体や一覧リストページのレイアウトに関する設定です。"
 msgid "投稿・固定ページのレイアウトに関する設定です。"
-msgstr "Settings related to posting / fixed page layout."
+msgstr "Settings related to \"posts / Pages\" layout."
 
 #: lib/customizer.php:786
-#, fuzzy
 msgid "本文文字サイズ（全角文字数）"
-msgstr "Body text size (double-byte characters)"
+msgstr "Main column font size"
 
 #: lib/customizer.php:787
 #, fuzzy
@@ -1289,8 +1298,6 @@ msgid "関連記事をカテゴリに関連付けるか、タグに関連付け�
 msgstr "Do you associate related articles with categories or with tags?"
 
 #: lib/customizer.php:1054
-#, fuzzy
-#| msgid "ヘッダーの高さpx（デフォルト：100）"
 msgid "カテゴリに関連付け（デフォルト）"
 msgstr "Associate with category (default)"
 
@@ -1300,9 +1307,8 @@ msgid "タグに関連付け"
 msgstr "Associate with tag"
 
 #: lib/customizer.php:1067
-#, fuzzy
 msgid "関連記事表示数（デフォルト：10）"
-msgstr "Number of related articles displayed (default: 10)"
+msgstr "Related posts count (default: 10)"
 
 #: lib/customizer.php:1068
 #, fuzzy
@@ -1588,7 +1594,6 @@ msgid "Lity（軽い）"
 msgstr "Lity (light)"
 
 #: lib/customizer.php:1318
-#, fuzzy
 msgid "画像効果"
 msgstr "Image effect"
 
@@ -1638,9 +1643,8 @@ msgid "管理者のみ（ログインユーザーのみ）"
 msgstr "Admin only (logged-in user only)"
 
 #: lib/customizer.php:1363
-#, fuzzy
 msgid "全てのユーザー"
-msgstr "All Authors"
+msgstr "All users"
 
 #: lib/customizer.php:1373
 msgid "SEO"
@@ -1678,7 +1682,6 @@ msgid "「投稿・固定ページタイトル｜サイト名」のようなタ�
 msgstr "It becomes a title like \"post · fixed page title | site name\"."
 
 #: lib/customizer.php:1413
-#, fuzzy
 msgid "トップページのメタディスクリプション"
 msgstr "Top page meta description"
 
@@ -1694,7 +1697,6 @@ msgstr ""
 "of fixed page are displayed.)"
 
 #: lib/customizer.php:1428
-#, fuzzy
 msgid "トップページのメタキーワード"
 msgstr "Top page meta keyword"
 
@@ -1708,9 +1710,8 @@ msgstr ""
 "not displayed with blanks, it is not displayed when fixed page is top.)"
 
 #: lib/customizer.php:1442
-#, fuzzy
 msgid "分割ページにrel=\"next\"/\"prev\"タグの追加"
-msgstr "Add rel = \"next\" / \"prev\" tag on split page"
+msgstr "Add rel=\"next\"/\"prev\" tag on split page"
 
 #: lib/customizer.php:1443
 #, fuzzy
@@ -1749,25 +1750,20 @@ msgstr ""
 "date\"? (* Post · fixed page only)"
 
 #: lib/customizer.php:1475
-#, fuzzy
 msgid "公開日"
-msgstr "Publication date"
+msgstr "Post date"
 
 #: lib/customizer.php:1476
-#, fuzzy
 msgid "更新日"
-msgstr "Date on which the data is updated"
+msgstr "Update date"
 
 #: lib/customizer.php:1477
-#, fuzzy
 msgid "更新日（更新したら更新日だけを表示）β版"
-msgstr "Update date (only update date displayed when updating) beta version"
+msgstr "Update date (only display updated day) beta"
 
 #: lib/customizer.php:1489
-#, fuzzy
-#| msgid "抜粋に「メタディスクリプション」項目を利用"
 msgid "投稿ページにメタディスクリプションを挿入"
-msgstr "Insert meta description on posting page"
+msgstr "Insert meta description on posts"
 
 #: lib/customizer.php:1490
 #, fuzzy
@@ -1779,9 +1775,8 @@ msgstr ""
 "(* If there is an extract, use it, if not, extract sentence at the beginning)"
 
 #: lib/customizer.php:1503
-#, fuzzy
 msgid "投稿ページにメタキーワードを挿入"
-msgstr "Insert meta keyword on post page"
+msgstr "Insert meta keyword on posts"
 
 #: lib/customizer.php:1504
 #, fuzzy
@@ -1792,8 +1787,6 @@ msgstr ""
 "category information of posts)"
 
 #: lib/customizer.php:1517
-#, fuzzy
-#| msgid "抜粋に「メタディスクリプション」項目を利用"
 msgid "カテゴリページにメタディスクリプションを挿入"
 msgstr "Insert meta description in category page"
 
@@ -1807,7 +1800,6 @@ msgstr ""
 "(* Use descriptive text of category setting, automatic setting if not)"
 
 #: lib/customizer.php:1531
-#, fuzzy
 msgid "カテゴリページにメタキーワードを挿入"
 msgstr "Insert meta keyword in category page"
 
@@ -1820,9 +1812,8 @@ msgstr ""
 "Insert from category information)"
 
 #: lib/customizer.php:1542
-#, fuzzy
 msgid "SNS"
-msgstr "Social networking services"
+msgstr "SNS"
 
 #: lib/customizer.php:1543
 #, fuzzy
@@ -1900,12 +1891,10 @@ msgid "デフォルト（アイコン）"
 msgstr "Default (icon)"
 
 #: lib/customizer.php:1609
-#, fuzzy
 msgid "バイラルタイプ"
 msgstr "Viral type (high speed)"
 
 #: lib/customizer.php:1610
-#, fuzzy
 msgid "バイラル白タイプ"
 msgstr "Viral white type (high speed)"
 
@@ -1956,24 +1945,20 @@ msgid "シェアボタン用のラベルを設定します。（※無記入で�
 msgstr "Sets the label for the share button. (※ blank and hidden)"
 
 #: lib/customizer.php:1676
-#, fuzzy
 msgid "Twitter「ツイート」ボタンの表示"
-msgstr "Twitter \"tweet\" button display"
+msgstr "Tweet button display"
 
 #: lib/customizer.php:1689
-#, fuzzy
 msgid "Facebook「いいね！」ボタンの表示"
-msgstr "Show Facebook Like Like! Button"
+msgstr "Facebook Like! button display"
 
 #: lib/customizer.php:1702
-#, fuzzy
 msgid "Google＋「+1」ボタンの表示"
-msgstr "Show Google   \"  1\" button"
+msgstr "Google+1 button display"
 
 #: lib/customizer.php:1715
-#, fuzzy
 msgid "はてな「はてブ」ボタンの表示"
-msgstr "Display of Hatena \"Habu\" button"
+msgstr "Hatena button display"
 
 #: lib/customizer.php:1728
 #, fuzzy
@@ -1981,14 +1966,12 @@ msgid "pocket「あとで読む」ボタンの表示"
 msgstr "Pocket Display of \"read later\" button"
 
 #: lib/customizer.php:1741
-#, fuzzy
 msgid "LINEボタンの表示"
-msgstr "Display of LINE button"
+msgstr "LINE button display"
 
 #: lib/customizer.php:1765
-#, fuzzy
 msgid "Push7ボタンの表示"
-msgstr "Display of Push 7 button"
+msgstr "Push 7 button display"
 
 #: lib/customizer.php:1766
 #, fuzzy
@@ -1998,24 +1981,20 @@ msgstr ""
 "the follow button."
 
 #: lib/customizer.php:1778
-#, fuzzy
 msgid "feedlyボタンの表示"
-msgstr "Display of feedly button"
+msgstr "Feedly button display"
 
 #: lib/customizer.php:1790
-#, fuzzy
 msgid "コメントボタンの表示"
-msgstr "Display of comment button"
+msgstr "Comment button display"
 
 #: lib/customizer.php:1802
-#, fuzzy
 msgid "画像にPinterestピンを表示"
-msgstr "Display Pinterest pin on image"
+msgstr "Pinterest pin display"
 
 #: lib/customizer.php:1814
-#, fuzzy
 msgid "ツイート数を表示"
-msgstr "Number of tweets to show:"
+msgstr "Tweet count display"
 
 #: lib/customizer.php:1815
 #, fuzzy
@@ -2030,7 +2009,6 @@ msgstr ""
 "\">Required registration work</a> )"
 
 #: lib/customizer.php:1827
-#, fuzzy
 msgid "ツイートにメンションを含める"
 msgstr "Include mentions in tweets"
 
@@ -2043,7 +2021,6 @@ msgstr ""
 "required registration)"
 
 #: lib/customizer.php:1840
-#, fuzzy
 msgid "ツイート後にフォローを促す"
 msgstr "Urge follow up after tweet"
 
@@ -2057,9 +2034,8 @@ msgstr ""
 "after tweet? (* Follow-up ID required registration)"
 
 #: lib/customizer.php:1855
-#, fuzzy
 msgid "全フォローボタンの表示"
-msgstr "Show all follow buttons"
+msgstr "All follow buttons display"
 
 #: lib/customizer.php:1856
 #, fuzzy
@@ -2067,9 +2043,8 @@ msgid "全てのフォローボタンの表示を切り替えます。"
 msgstr "Toggle display of all follow buttons."
 
 #: lib/customizer.php:1869
-#, fuzzy
 msgid "ページトップフォローボタンの表示"
-msgstr "Display Page Top Follow Button"
+msgstr "Page top follow buttons display"
 
 #: lib/customizer.php:1870
 #, fuzzy
@@ -2077,9 +2052,8 @@ msgid "サイトヘッダー部分のフォローボタンを表示するか。"
 msgstr "Do you want to display the follow button in the site header part?"
 
 #: lib/customizer.php:1883
-#, fuzzy
 msgid "本文下フォローボタンの表示"
-msgstr "Display of follow-up button in body below"
+msgstr "Page bottom follow buttons display"
 
 #: lib/customizer.php:1884
 #, fuzzy
@@ -2106,37 +2080,33 @@ msgid "twitter.com/XXXXXXX"
 msgstr "twitter.com/XXXXXXX"
 
 #: lib/customizer.php:1911
-#, fuzzy
 msgid "TwitterページURLのXXXXXXX部分を入力してください。＠は不要です。"
 msgstr ""
-"Please enter the XXXXXXX part of the Twitter page URL. @ Is unnecessary."
+"Please enter the XXXXXXX part of your Twitter page URL. @ is unnecessary."
 
 #: lib/customizer.php:1923
 msgid "facebook.com/XXXXXXX"
 msgstr "facebook.com/XXXXXXX"
 
 #: lib/customizer.php:1924
-#, fuzzy
 msgid "FacebookページURLのXXXXXXX部分を入力してください。"
-msgstr "Please enter the XXXXXXX part of the Facebook Page URL."
+msgstr "Please enter the XXXXXXX part of your Facebook Page URL."
 
 #: lib/customizer.php:1936
 msgid "plus.google.com/XXXXXXX"
 msgstr "plus.google.com/XXXXXXX"
 
 #: lib/customizer.php:1937
-#, fuzzy
 msgid "Google+ページURLのXXXXXXX部分を入力してください。"
-msgstr "Please enter the XXXXXXX part of the Google  page URL."
+msgstr "Please enter the XXXXXXX part of your Google page URL."
 
 #: lib/customizer.php:1949
 msgid "b.hatena.ne.jp/XXXXXXX"
 msgstr "b.hatena.ne.jp/XXXXXXX"
 
 #: lib/customizer.php:1950
-#, fuzzy
 msgid "はてブページURLのXXXXXXX部分を入力してください。"
-msgstr "Please enter the XXXXXXX part of the Homepage URL."
+msgstr "Please enter the XXXXXXX part of your Hatena bookmark page URL."
 
 #: lib/customizer.php:1962
 msgid "instagram.com/XXXXXXX"
@@ -2207,9 +2177,8 @@ msgstr ""
 "simplicity.com/push7/\" target=\"_blank\">Setting method</a>"
 
 #: lib/customizer.php:2041
-#, fuzzy
 msgid "feedlyの表示"
-msgstr "Display of feedly"
+msgstr "Feedly display"
 
 #: lib/customizer.php:2042
 #, fuzzy
@@ -2217,9 +2186,8 @@ msgid "feedlyフォローアイコンを表示するか。"
 msgstr "Do you want to display the feedly follow icon?"
 
 #: lib/customizer.php:2055
-#, fuzzy
 msgid "RSSの表示"
-msgstr "Display RSS"
+msgstr "RSS display"
 
 #: lib/customizer.php:2056
 #, fuzzy
@@ -2308,10 +2276,8 @@ msgstr ""
 "top and archive. (※ minimum 600 × 315px or more is recommended)"
 
 #: lib/customizer.php:2153
-#, fuzzy
-#| msgid "メニューボタン色"
 msgid "フォローボタンに色をつける"
-msgstr "Color the follow button"
+msgstr "Colored follow buttons"
 
 #: lib/customizer.php:2154
 #, fuzzy
@@ -2336,9 +2302,8 @@ msgstr ""
 "\">Advertisement setting details</a>"
 
 #: lib/customizer.php:2176
-#, fuzzy
 msgid "全ての広告を表示"
-msgstr "Show all ads"
+msgstr "All ads display"
 
 #: lib/customizer.php:2177
 #, fuzzy
@@ -2441,9 +2406,8 @@ msgstr ""
 "top ad in the list."
 
 #: lib/customizer.php:2291
-#, fuzzy
 msgid "広告除外記事のID"
-msgstr "Ad exclusion article ID"
+msgstr "Ad exclusion post IDs"
 
 #: lib/customizer.php:2292
 #, fuzzy
@@ -2457,9 +2421,8 @@ msgstr ""
 "ban-ads/\" target=\"_blank\" class=\"example-setting\">Setting method</a>"
 
 #: lib/customizer.php:2305
-#, fuzzy
 msgid "広告除外カテゴリのID"
-msgstr "Ad exclusion category ID"
+msgstr "Ad exclusion category IDs"
 
 #: lib/customizer.php:2306
 #, fuzzy
@@ -2528,7 +2491,6 @@ msgid ""
 msgstr "Analytics.js (Universal Analytics   User attributes, Interest support)"
 
 #: lib/customizer.php:2361
-#, fuzzy
 msgid "PtengineのID"
 msgstr "Ptengine ID"
 
@@ -2560,10 +2522,8 @@ msgstr ""
 "\" target=\"_blank\" class=\"example-setting\">Setting method</a>"
 
 #: lib/customizer.php:2388
-#, fuzzy
-#| msgid "エントリーカード（デフォルト）"
 msgid "ブログカード（内部リンク）"
-msgstr "Blog card (internal link)"
+msgstr "Blog Card (Internal Link)"
 
 #: lib/customizer.php:2389
 #, fuzzy
@@ -2577,9 +2537,8 @@ msgstr ""
 "\"example-setting\">How to use blog card</a>"
 
 #: lib/customizer.php:2400 lib/customizer.php:2538
-#, fuzzy
 msgid "ブログカード有効"
-msgstr "Blog card valid"
+msgstr "Blog card enable"
 
 #: lib/customizer.php:2401
 #, fuzzy
@@ -2589,9 +2548,8 @@ msgstr ""
 "a blog card."
 
 #: lib/customizer.php:2414 lib/customizer.php:2552
-#, fuzzy
 msgid "コメントでブログカードを有効"
-msgstr "Blog card valid with comments"
+msgstr "Blog card enable in comments"
 
 #: lib/customizer.php:2415
 #, fuzzy
@@ -2620,7 +2578,6 @@ msgid "ブログカードのサムネイルを右側に表示するか。"
 msgstr "Do you display thumbnails of blog cards on the right side?"
 
 #: lib/customizer.php:2441 lib/customizer.php:2598 lib/customizer.php:2612
-#, fuzzy
 msgid "新しいタブで開く"
 msgstr "Open in new tab"
 
@@ -2630,9 +2587,8 @@ msgid "ブログカードのリンクをクリックした時に新しいタブ�
 msgstr "Do you open in a new tab when you click on the blog card link?"
 
 #: lib/customizer.php:2455 lib/customizer.php:2626
-#, fuzzy
 msgid "サイトロゴを表示"
-msgstr "displays the voucher site logo"
+msgstr "Site logo display"
 
 #: lib/customizer.php:2456 lib/customizer.php:2627
 #, fuzzy
@@ -2645,9 +2601,8 @@ msgstr ""
 "setting item."
 
 #: lib/customizer.php:2469 lib/customizer.php:2640
-#, fuzzy
 msgid "サイトロゴリンク有効"
-msgstr "Site logo link valid"
+msgstr "Site logo link enable"
 
 #: lib/customizer.php:2470 lib/customizer.php:2641
 #, fuzzy
@@ -2655,9 +2610,8 @@ msgid "サイトドメインにトップURLへのリンクを貼るかどうか�
 msgstr "Whether to put a link to the top URL in the site domain."
 
 #: lib/customizer.php:2483 lib/customizer.php:2654
-#, fuzzy
 msgid "はてブ数を表示"
-msgstr "Show number of horses"
+msgstr "Hatena bookmark count display"
 
 #: lib/customizer.php:2484 lib/customizer.php:2655
 #, fuzzy
@@ -2665,7 +2619,6 @@ msgid "はてなブックマーク数を表示するか。"
 msgstr "Do you want to display the number of hatena bookmarks?"
 
 #: lib/customizer.php:2497
-#, fuzzy
 msgid "日付表示"
 msgstr "Date display"
 
@@ -2701,7 +2654,7 @@ msgstr "Card width is 500px by default, but widen the width further."
 
 #: lib/customizer.php:2526
 msgid "ブログカード（外部リンク）"
-msgstr "Blog card (external link)"
+msgstr "Blog Card (External Link)"
 
 #: lib/customizer.php:2527
 #, fuzzy
@@ -2761,18 +2714,14 @@ msgstr ""
 "\"Embedly card\" can not be set after the detailed setting."
 
 #: lib/customizer.php:2571
-#, fuzzy
-#| msgid "エントリーカード（デフォルト）"
 msgid "ブログカード（独自キャッシュ）"
 msgstr "Blog card (proprietary cache)"
 
 #: lib/customizer.php:2572
-#, fuzzy
 msgid "はてなカード"
 msgstr "Hatena card"
 
 #: lib/customizer.php:2573
-#, fuzzy
 msgid "Embedlyカード"
 msgstr "Embedly Card"
 
@@ -2794,7 +2743,6 @@ msgstr ""
 "load on the other server will be loaded."
 
 #: lib/customizer.php:2694
-#, fuzzy
 msgid "キャッシュ更新モード"
 msgstr "Cache update mode"
 
@@ -2815,7 +2763,7 @@ msgstr ""
 
 #: lib/customizer.php:2706
 msgid "ソースコード"
-msgstr "Source code"
+msgstr "Source Code"
 
 #: lib/customizer.php:2707
 #, fuzzy
@@ -2831,7 +2779,6 @@ msgstr ""
 "\" target=\"_blank\">Highlight setting</a> ."
 
 #: lib/customizer.php:2717
-#, fuzzy
 msgid "ソースコードをハイライト表示"
 msgstr "Highlight source code"
 
@@ -2841,8 +2788,6 @@ msgid "preタグで囲まれたソースコードをハイライト表示しま�
 msgstr "Highlight the source code enclosed by the pre tag."
 
 #: lib/customizer.php:2731
-#, fuzzy
-#| msgid "一覧リストのスタイル"
 msgid "ハイライトスタイル"
 msgstr "Highlight style"
 
@@ -2858,7 +2803,6 @@ msgstr ""
 "highlightjs.org/static/demo/\" target=\"_blank\">highlight.js demo</a> ."
 
 #: lib/customizer.php:2893
-#, fuzzy
 msgid "ハイライトするCSSセレクタ"
 msgstr "Highlight CSS selector"
 
@@ -2881,9 +2825,8 @@ msgid "コメント表示欄・入力欄に関する設定です。"
 msgstr "It is a setting related to comment display field · input field."
 
 #: lib/customizer.php:2917
-#, fuzzy
 msgid "コメントの表示"
-msgstr "Show Note"
+msgstr "Commens display"
 
 #: lib/customizer.php:2918
 #, fuzzy
@@ -2900,7 +2843,6 @@ msgid "コメントの表示スタイルを設定します。"
 msgstr "Sets the display style of comments."
 
 #: lib/customizer.php:2937
-#, fuzzy
 msgid "シンプルスレッド表示"
 msgstr "Simple thread display"
 
@@ -2909,9 +2851,8 @@ msgid "某スレッド掲示板風"
 msgstr "Like 2ch"
 
 #: lib/customizer.php:2950
-#, fuzzy
 msgid "インデックスリストにコメント数を表示"
-msgstr "Display number of comments in index list"
+msgstr "Comment count display in index"
 
 #: lib/customizer.php:2951
 #, fuzzy
@@ -2950,9 +2891,8 @@ msgstr ""
 "wp-simplicity.com/simplicity-amp/\" target=\"_blank\">Setting method</a>"
 
 #: lib/customizer.php:2987
-#, fuzzy
 msgid "AMPの有効化"
-msgstr "Activate AMP"
+msgstr "AMP enable"
 
 #: lib/customizer.php:2988
 #, fuzzy
@@ -2975,7 +2915,6 @@ msgstr ""
 "com/amp-adsense/\" target=\"_blank\">Code setting method</a>"
 
 #: lib/customizer.php:3017
-#, fuzzy
 msgid "AMP用AnalyticsトラッキングID"
 msgstr "Analytics tracking ID for AMP"
 
@@ -2995,8 +2934,6 @@ msgstr ""
 "com/google-analytics-settings-for-amp/\" target=\"_blank\">Setting method</a>"
 
 #: lib/customizer.php:3030
-#, fuzzy
-#| msgid "ロゴ画像"
 msgid "AMP用のロゴ画像"
 msgstr "Logo image for AMP"
 
@@ -3052,9 +2989,8 @@ msgstr ""
 "simplicity-amp-test/\" target=\"_blank\">Feature Description</a>"
 
 #: lib/customizer.php:3071
-#, fuzzy
 msgid "AMPバリデーター"
-msgstr "AMP validator"
+msgstr "AMP Validator"
 
 #: lib/customizer.php:3072
 #, fuzzy
@@ -3085,7 +3021,6 @@ msgid "AMPBench"
 msgstr "AMPBench"
 
 #: lib/customizer.php:3090
-#, fuzzy
 msgid "AMPページを生成しないカテゴリID"
 msgstr "Category ID not generating AMP page"
 
@@ -3128,9 +3063,8 @@ msgstr ""
 "the breadcrumbs list for both posts and fixed pages. ."
 
 #: lib/customizer.php:3123 lib/customizer.php:4998
-#, fuzzy
 msgid "関連記事"
-msgstr "Enclose the entry card and blog card as a whole in A tag."
+msgstr "Related Posts"
 
 #: lib/customizer.php:3128
 #, fuzzy
@@ -3172,12 +3106,10 @@ msgid "コメントを促すテキスト変更します。"
 msgstr "Change the text prompting for comment."
 
 #: lib/customizer.php:3165 lib/customizer.php:5063
-#, fuzzy
 msgid "コメントを送信"
 msgstr "Post comment"
 
 #: lib/customizer.php:3170
-#, fuzzy
 msgid "コメントサブミットラベルを変更"
 msgstr "Change comment submit label"
 
@@ -3204,7 +3136,6 @@ msgid "コメント入力欄を非表示にした時のメッセージを変更�
 msgstr "Change the message when hiding the comment input field."
 
 #: lib/customizer.php:3198
-#, fuzzy
 msgid "匿名のユーザー名を変更"
 msgstr "Change anonymous user name"
 
@@ -3228,7 +3159,6 @@ msgid "一覧リストの「記事を読む」リンクのテキストを変更�
 msgstr "Change the text of the \"Read article\" link in the list."
 
 #: lib/customizer.php:3221 lib/customizer.php:5089
-#, fuzzy
 msgid "続きを読む"
 msgstr "Read more"
 
@@ -3319,12 +3249,10 @@ msgid "インデクスリストの年表示フォーマットを変更します�
 msgstr "Change the year display format of the index list."
 
 #: lib/customizer.php:3305 lib/customizer.php:5119
-#, fuzzy
 msgid "ブログ内を検索"
 msgstr "Search in the blog"
 
 #: lib/customizer.php:3310
-#, fuzzy
 msgid "検索ボックスのプレースホルダー"
 msgstr "Search box placeholder"
 
@@ -3349,9 +3277,8 @@ msgid "記事が見つからなかった時に表示されるテキスト変更�
 msgstr "Change the text displayed when the article was not found."
 
 #: lib/customizer.php:3364
-#, fuzzy
 msgid "管理者機能"
-msgstr "Administrator function"
+msgstr "Admin Settings"
 
 #: lib/customizer.php:3365
 #, fuzzy
@@ -3464,9 +3391,8 @@ msgstr ""
 "Displayed in Jetpack (slow, with link to page access management screen)"
 
 #: lib/customizer.php:3458
-#, fuzzy
 msgid "管理者用PV表示"
-msgstr "Administrator PV display"
+msgstr "Admin PV display"
 
 #: lib/customizer.php:3459
 #, fuzzy
@@ -3482,9 +3408,8 @@ msgstr ""
 "simplicity-admin-pv/\" target=\"_blank\">Feature Description</a>"
 
 #: lib/customizer.php:3472
-#, fuzzy
 msgid "「WLWで編集」リンクを表示"
-msgstr "Show \"Edit with WLW\" link"
+msgstr "\"Edit by WLW\" link display"
 
 #: lib/customizer.php:3473
 #, fuzzy
@@ -3517,9 +3442,8 @@ msgstr ""
 "customizer?"
 
 #: lib/customizer.php:3509
-#, fuzzy
 msgid "ファビコンを有効"
-msgstr "Effective favicon"
+msgstr "Favicon enable"
 
 #: lib/customizer.php:3521
 msgid "ファビコン"
@@ -3531,12 +3455,10 @@ msgid "メディアからファビコンを設定できます。"
 msgstr "You can set the favicon from the media."
 
 #: lib/customizer.php:3533
-#, fuzzy
 msgid "アップルタッチアイコンを有効"
-msgstr "Enable Apple touch icon"
+msgstr "Apple touch icon enable"
 
 #: lib/customizer.php:3545
-#, fuzzy
 msgid "アップルタッチアイコン"
 msgstr "Apple touch icon"
 
@@ -3546,9 +3468,8 @@ msgid "メディアからアップルタッチアイコンを設定できます�
 msgstr "You can set the Apple Touch icon from the media. (* .png recommended)"
 
 #: lib/customizer.php:3558
-#, fuzzy
 msgid "REST APIを有効"
-msgstr "Enable REST API"
+msgstr "REST API enable"
 
 #: lib/customizer.php:3559
 #, fuzzy
@@ -3609,9 +3530,8 @@ msgstr ""
 "When acquiring external site data with wp_remote_get, enable SSL validation."
 
 #: lib/customizer.php:3614
-#, fuzzy
 msgid "オートアップデートを有効"
-msgstr "Enable auto update"
+msgstr "Auto update enable"
 
 #: lib/customizer.php:3615
 #, fuzzy
@@ -3639,9 +3559,8 @@ msgstr ""
 "external CSS file and load it. (It can not support about trouble due to ※)"
 
 #: lib/customizer.php:3641
-#, fuzzy
 msgid "日本語のスラッグを有効にする"
-msgstr "Enable Japanese slug"
+msgstr "Japanese slug enable"
 
 #: lib/customizer.php:3642
 #, fuzzy
@@ -3667,39 +3586,32 @@ msgid "©（日付なし）"
 msgstr "© (no date)"
 
 #: lib/customizer.php:3662
-#, fuzzy
 msgid "Copyright©（表記を書く）"
-msgstr "Copyright © (write a notation)"
+msgstr "Copyright ©"
 
 #: lib/customizer.php:3663
-#, fuzzy
 msgid "CC-表示"
-msgstr "CC - display"
+msgstr "CC BY"
 
 #: lib/customizer.php:3664
-#, fuzzy
 msgid "CC-表示-継承"
-msgstr "CC - display - inheritance"
+msgstr "CC BY-SA"
 
 #: lib/customizer.php:3665
-#, fuzzy
 msgid "CC-表示-改変禁止"
-msgstr "CC - display - no modification"
+msgstr "CC BY-ND"
 
 #: lib/customizer.php:3666
-#, fuzzy
 msgid "CC-表示-非営利"
-msgstr "CC - Display - Not for Profit"
+msgstr "CC BY-NC"
 
 #: lib/customizer.php:3667
-#, fuzzy
 msgid "CC-表示-非営利-継承"
-msgstr "CC - Display - Nonprofit - Inherited"
+msgstr "CC BY-NC-SA"
 
 #: lib/customizer.php:3668
-#, fuzzy
 msgid "CC-表示-非営利-改変禁止"
-msgstr "CC - Display - Noncommercial - No modification allowed"
+msgstr "CC BY-NC-ND"
 
 #: lib/customizer.php:3669
 msgid "CC0"
@@ -3710,9 +3622,8 @@ msgid "パブリックドメイン"
 msgstr "Public domain"
 
 #: lib/customizer.php:3682
-#, fuzzy
 msgid "ローカルでのレスポンシブテストを表示"
-msgstr "Show local responsive test"
+msgstr "Local responsive test enable"
 
 #: lib/customizer.php:3683
 #, fuzzy
@@ -3726,7 +3637,6 @@ msgstr ""
 "displayed in the site footer part."
 
 #: lib/customizer.php:3696
-#, fuzzy
 msgid "ページキャッシュモード"
 msgstr "Page cache mode"
 
@@ -3744,7 +3654,6 @@ msgstr ""
 "can do it by your own power."
 
 #: lib/customizer.php:5124
-#, fuzzy
 msgid "ページが見つかりませんでした"
 msgstr "Page not found"
 
@@ -3782,9 +3691,8 @@ msgid "黄色アンダーラインマーカー"
 msgstr "Yellow Underline Marker"
 
 #: lib/qtags.php:78
-#, fuzzy
 msgid "打ち消し線"
-msgstr "Deleted text (strikethrough)"
+msgstr "STRIKE"
 
 #: lib/qtags.php:83
 msgid "バッジ"
@@ -3836,9 +3744,8 @@ msgid "サイドバーのウィジットエリアです。"
 msgstr "It is the widget area of ​​the sidebar."
 
 #: lib/widget-areas.php:20
-#, fuzzy
 msgid "スクロール追従領域"
-msgstr "Scroll following region"
+msgstr "Scroll Following Area"
 
 #: lib/widget-areas.php:22
 #, fuzzy
@@ -3934,9 +3841,8 @@ msgstr ""
 "possible.)"
 
 #: lib/widget-areas.php:97
-#, fuzzy
 msgid "投稿パンくずリスト上"
-msgstr "Post on breadcrumbs list"
+msgstr "Over Breadcrumbs"
 
 #: lib/widget-areas.php:99
 #, fuzzy
@@ -3947,9 +3853,8 @@ msgstr ""
 "displayed unless it is set."
 
 #: lib/widget-areas.php:107
-#, fuzzy
 msgid "投稿タイトル上"
-msgstr "Post on title"
+msgstr "Over Post Title"
 
 #: lib/widget-areas.php:109
 #, fuzzy
@@ -3958,9 +3863,8 @@ msgstr ""
 "Widget displayed on posting title. It will not be displayed unless it is set."
 
 #: lib/widget-areas.php:118
-#, fuzzy
 msgid "投稿本文上"
-msgstr "On the submission body"
+msgstr "Post Content Top"
 
 #: lib/widget-areas.php:120
 #, fuzzy
@@ -3970,9 +3874,8 @@ msgstr ""
 "unless it is set."
 
 #: lib/widget-areas.php:129
-#, fuzzy
 msgid "投稿本文中"
-msgstr "In the submission text"
+msgstr "Post Content Middle"
 
 #: lib/widget-areas.php:131
 #, fuzzy
@@ -3986,9 +3889,8 @@ msgstr ""
 "will not be displayed unless it is set."
 
 #: lib/widget-areas.php:140
-#, fuzzy
 msgid "投稿本文下"
-msgstr "Under the submission text"
+msgstr "Post Content Bottom"
 
 #: lib/widget-areas.php:142
 #, fuzzy
@@ -3998,9 +3900,8 @@ msgstr ""
 "unless it is set."
 
 #: lib/widget-areas.php:151
-#, fuzzy
 msgid "投稿SNSボタン上"
-msgstr "Post on SNS Button"
+msgstr "Over Post SNS Buttons"
 
 #: lib/widget-areas.php:153
 #, fuzzy
@@ -4013,9 +3914,8 @@ msgstr ""
 "be displayed unless it is set."
 
 #: lib/widget-areas.php:162
-#, fuzzy
 msgid "投稿SNSボタン下"
-msgstr "Post SNS Button Bottom"
+msgstr "Under Post SNS Buttons"
 
 #: lib/widget-areas.php:164
 #, fuzzy
@@ -4027,9 +3927,8 @@ msgstr ""
 "the post. It will not be displayed unless it is set."
 
 #: lib/widget-areas.php:173
-#, fuzzy
 msgid "投稿関連記事下"
-msgstr "Post related articles below"
+msgstr "Under Related Posts"
 
 #: lib/widget-areas.php:175
 #, fuzzy
@@ -4041,9 +3940,8 @@ msgstr ""
 "will not be displayed unless it is set."
 
 #: lib/widget-areas.php:184
-#, fuzzy
 msgid "固定ページ本文上"
-msgstr "Fixed page top"
+msgstr "Page Content Top"
 
 #: lib/widget-areas.php:186
 #, fuzzy
@@ -4053,9 +3951,8 @@ msgstr ""
 "it is set."
 
 #: lib/widget-areas.php:195
-#, fuzzy
 msgid "固定ページ本文中"
-msgstr "Fixed page in text"
+msgstr "Page Content Middle"
 
 #: lib/widget-areas.php:197
 #, fuzzy
@@ -4069,9 +3966,8 @@ msgstr ""
 "It will not be displayed unless it is set."
 
 #: lib/widget-areas.php:206
-#, fuzzy
 msgid "固定ページ本文下"
-msgstr "Fixed page Bottom text"
+msgstr "Page Content Bottom"
 
 #: lib/widget-areas.php:208
 #, fuzzy
@@ -4081,9 +3977,8 @@ msgstr ""
 "unless it is set."
 
 #: lib/widget-areas.php:217
-#, fuzzy
 msgid "固定ページSNSボタン上"
-msgstr "Fixed page SNS button on"
+msgstr "Over Page SNS Buttons"
 
 #: lib/widget-areas.php:219
 #, fuzzy
@@ -4096,9 +3991,8 @@ msgstr ""
 "be displayed unless it is set."
 
 #: lib/widget-areas.php:228
-#, fuzzy
 msgid "固定ページSNSボタン下"
-msgstr "Fixed Page SNS Button Beneath"
+msgstr "Under Page SNS Buttons"
 
 #: lib/widget-areas.php:230
 #, fuzzy
@@ -4217,6 +4111,21 @@ msgstr ""
 msgid "[S] クラシックテキストウィジェット"
 msgstr "[S] Clasic Text"
 
+#: lib/widgets/classic-text.php:50
+#, fuzzy
+#| msgid "SEOタイトル"
+msgid "タイトル："
+msgstr "Over Post Title"
+
+#: lib/widgets/classic-text.php:53
+#, fuzzy
+msgid "内容："
+msgstr "What :"
+
+#: lib/widgets/classic-text.php:56
+msgid "自動的に段落を追加する"
+msgstr "Automatically add paragraphs"
+
 #: lib/widgets/facebook-page-like.php:9
 msgid "[S] Facebookページ「いいね！」"
 msgstr "[S] Facebook 'LIKE!\" Button"
@@ -4231,6 +4140,11 @@ msgstr ""
 "This is a widget for Simplicity which displays \"Like\" button to Facebook "
 "page using posting / individual page eye catch. (* It can be used only on "
 "\"Facebook page\", it can not be used if it is set with \"personal page\")"
+
+#: lib/widgets/facebook-page-like.php:55
+#, fuzzy
+msgid "タイトル（未入力で非表示）"
+msgstr "Title (hidden not shown)"
 
 #: lib/widgets/facebook-page-like.php:64
 #, fuzzy, php-format
@@ -4268,6 +4182,21 @@ msgstr ""
 "It is an ad widget for Simplicity displayed on mobile only. (In the case of "
 "Adsense, fill in only the advertisement code.)"
 
+#: lib/widgets/mobile-ad.php:70 lib/widgets/pc-ad.php:67
+#, fuzzy
+msgid "左マージンのピクセル数（－指定で左に移動）"
+msgstr "Number of pixels of the left margin (move to the left by specifying -)"
+
+#: lib/widgets/mobile-ad.php:80 lib/widgets/pc-ad.php:77
+#: lib/widgets/pc-double-ads.php:72
+msgid "広告除外設定の適用"
+msgstr "Apply ad exclusion settings"
+
+#: lib/widgets/mobile-ad.php:82 lib/widgets/pc-ad.php:79
+#: lib/widgets/pc-double-ads.php:74
+msgid "カスタマイザーの広告除外設定を適用する"
+msgstr "Apply customizer ad exclusion settings"
+
 #: lib/widgets/mobile-text.php:9
 msgid "[S] モバイル用テキストウィジェット"
 msgstr "[S] Mobile Text"
@@ -4276,6 +4205,15 @@ msgstr "[S] Mobile Text"
 #, fuzzy
 msgid "モバイルのみで表示されるSimplicity用のテキストウィジェットです。"
 msgstr "It is a text widget for Simplicity displayed on mobile only."
+
+#: lib/widgets/mobile-text.php:53 lib/widgets/pc-text.php:54
+#: lib/widgets/recent-comments.php:113
+msgid "タイトル"
+msgstr "Title"
+
+#: lib/widgets/mobile-text.php:60 lib/widgets/pc-text.php:61
+msgid "テキスト"
+msgstr "Text"
 
 #: lib/widgets/new-entries.php:9
 msgid "[S] 新着記事"
@@ -4294,6 +4232,52 @@ msgstr "New posts"
 #: lib/widgets/new-entries.php:53
 msgid "カテゴリー別新着記事"
 msgstr "New posts by category"
+
+#: lib/widgets/new-entries.php:98 lib/widgets/popular-ranking.php:152
+msgid "表示モード"
+msgstr "Display mode"
+
+#: lib/widgets/new-entries.php:106 lib/widgets/new-popular.php:161
+msgid "新着記事のタイトル"
+msgstr "New posts title"
+
+#: lib/widgets/new-entries.php:113 lib/widgets/new-popular.php:175
+#: lib/widgets/popular-ranking.php:166
+#, fuzzy
+#| msgid "関連記事表示数（デフォルト：10）"
+msgid "表示数（半角数字、デフォルト：5）"
+msgstr "Display number (Half-width number, default: 5)"
+
+#: lib/widgets/new-entries.php:120 lib/widgets/new-popular.php:182
+#: lib/widgets/popular-ranking.php:173
+#, fuzzy
+msgid "表示タイプ"
+msgstr "Display Type:"
+
+#: lib/widgets/new-entries.php:123 lib/widgets/new-popular.php:185
+#: lib/widgets/popular-ranking.php:176
+msgid "大きなサムネイル"
+msgstr "Large thumbnail"
+
+#: lib/widgets/new-entries.php:124 lib/widgets/new-popular.php:186
+#: lib/widgets/popular-ranking.php:177
+msgid "タイトルを重ねた大きなサムネイル"
+msgstr "Large thumbnails with overlapping titles"
+
+#: lib/widgets/new-entries.php:130
+msgid "トップページでの表示"
+msgstr "Display on the top page"
+
+#: lib/widgets/new-entries.php:132
+#, fuzzy
+msgid ""
+"表示する<br>※新着順のインデックスリストが表示されるトップでも表示する場合は"
+"チェックしてください。<br>※「表示モード」が「全ての新着記事」のときのみ有効な"
+"機能です。"
+msgstr ""
+"Display ※ Please check if you want to display even the top where newly "
+"arrived index list is displayed. <br> * This function is valid only when "
+"\"Display mode\" is \"All new arrivals\"."
 
 #: lib/widgets/new-popular.php:9
 msgid "[S] 新着・人気記事"
@@ -4314,6 +4298,81 @@ msgstr ""
 msgid "人気記事"
 msgstr "Popular Posts"
 
+#: lib/widgets/new-popular.php:168 lib/widgets/popular-ranking.php:159
+msgid "人気記事のタイトル"
+msgstr "Popular posts title"
+
+#: lib/widgets/new-popular.php:191
+#, fuzzy
+msgid "固定ページの表示（人気記事のみ）"
+msgstr "Display of fixed pages (popular articles only)"
+
+#: lib/widgets/new-popular.php:193 lib/widgets/popular-ranking.php:184
+msgid "ランキングに固定ページを含める"
+msgstr "Include pages in ranking"
+
+#: lib/widgets/new-popular.php:198
+#, fuzzy
+#| msgid "（集計単位：1日）"
+msgid "集計単位（人気記事のみ）"
+msgstr "Total unit (popular articles only)"
+
+#: lib/widgets/new-popular.php:200 lib/widgets/popular-ranking.php:191
+msgid "1日"
+msgstr "1 day"
+
+#: lib/widgets/new-popular.php:201 lib/widgets/popular-ranking.php:192
+msgid "1週間"
+msgstr "1 week"
+
+#: lib/widgets/new-popular.php:202 lib/widgets/popular-ranking.php:193
+#, fuzzy
+#| msgid "月"
+msgid "1ヶ月"
+msgstr "a month "
+
+#: lib/widgets/new-popular.php:203 lib/widgets/popular-ranking.php:194
+msgid "全期間"
+msgstr "All"
+
+#: lib/widgets/new-popular.php:208
+#, fuzzy
+msgid "集計期間の表示（人気記事のみ）"
+msgstr "Display of totaling period (popular articles only)"
+
+#: lib/widgets/new-popular.php:215
+#, fuzzy
+msgid "閲覧数の表示（人気記事のみ）"
+msgstr "View number of views (popular articles only)"
+
+#: lib/widgets/new-popular.php:217 lib/widgets/popular-ranking.php:206
+#: lib/widgets/popular-ranking.php:208
+msgid "閲覧数の表示"
+msgstr "Ranking display"
+
+#: lib/widgets/new-popular.php:222
+#, fuzzy
+msgid "ランキング順位の表示（人気記事のみ）"
+msgstr "Display of ranking order (popular articles only)"
+
+#: lib/widgets/new-popular.php:224 lib/widgets/popular-ranking.php:213
+#: lib/widgets/popular-ranking.php:215
+msgid "ランキング順位の表示"
+msgstr "Ranking display"
+
+#: lib/widgets/new-popular.php:229
+#, fuzzy
+msgid "除外する投稿ID（カンマ区切りで指定。※Popular Posts使用時のみ）"
+msgstr ""
+"Post ID to be excluded (separated by comma. * When using Popular Posts only)"
+
+#: lib/widgets/new-popular.php:236
+#, fuzzy
+msgid "除外するカテゴリID（カンマ区切りで指定。※Popular Posts使用時のみ）"
+msgstr ""
+"Category ID to be excluded (separated by comma. * When using Popular Posts "
+"only)"
+
 #: lib/widgets/pc-ad.php:9
 msgid "[S] パソコン用広告ウィジェット"
 msgstr "[S] PC Ad Widget"
@@ -4326,6 +4385,10 @@ msgid ""
 msgstr ""
 "It is an ad widget for Simplicity which is displayed only on a personal "
 "computer. (In the case of Adsense, fill in only the advertisement code.)"
+
+#: lib/widgets/pc-ad.php:61
+msgid "広告タグ"
+msgstr "Ad code"
 
 #: lib/widgets/pc-double-ads.php:9
 msgid "[S] パソコン用広告ダブルレクタングルウィジェット"
@@ -4340,6 +4403,16 @@ msgstr ""
 "It is a double rectangle ad widget for Simplicity which is displayed only on "
 "a personal computer. (In the case of Adsense, fill in only the advertisement "
 "code.)"
+
+#: lib/widgets/pc-double-ads.php:58
+#, fuzzy
+msgid "広告タグ（左）"
+msgstr "Ad tag (left)"
+
+#: lib/widgets/pc-double-ads.php:65
+#, fuzzy
+msgid "広告タグ（右）"
+msgstr "Ad tag (right)"
 
 #: lib/widgets/pc-text.php:9
 msgid "[S] パソコン用テキストウィジェット"
@@ -4369,6 +4442,46 @@ msgstr ""
 msgid "カテゴリー別人気記事"
 msgstr "Popular posts by category"
 
+#: lib/widgets/popular-ranking.php:154
+#, fuzzy
+msgid "全ての人気記事（全ページで表示）"
+msgstr "All popular articles (displayed on all pages)"
+
+#: lib/widgets/popular-ranking.php:155
+#, fuzzy
+msgid "カテゴリ別人気記事（投稿・カテゴリで表示）"
+msgstr "Popular articles by category (displayed in posts and categories)"
+
+#: lib/widgets/popular-ranking.php:182
+msgid "固定ページの表示"
+msgstr "Pages display"
+
+#: lib/widgets/popular-ranking.php:189
+#, fuzzy
+#| msgid "（集計単位：1日）"
+msgid "集計単位"
+msgstr "Total unit"
+
+#: lib/widgets/popular-ranking.php:199
+#, fuzzy
+msgid "集計期間の表示"
+msgstr "Display of the aggregation period"
+
+#: lib/widgets/popular-ranking.php:201
+#, fuzzy
+msgid "集計単位の表示"
+msgstr "Display of aggregate unit"
+
+#: lib/widgets/popular-ranking.php:220
+#, fuzzy
+msgid "除外する投稿ID（カンマ区切りで指定）"
+msgstr "Excluded post ID (specified by comma separator)"
+
+#: lib/widgets/popular-ranking.php:227
+#, fuzzy
+msgid "除外するカテゴリID（カンマ区切りで指定）"
+msgstr "Category ID to be excluded (specified as a comma-separated list)"
+
 #: lib/widgets/recent-comments.php:9
 msgid "[S] 最近のコメント"
 msgstr "[S] Recent Comments"
@@ -4386,6 +4499,28 @@ msgstr "Recent Comments"
 msgid "コメントなし"
 msgstr "No Comments"
 
+#: lib/widgets/recent-comments.php:120
+#, fuzzy
+#| msgid "最近のコメント"
+msgid "表示するコメント数"
+msgstr "Number of comments to display"
+
+#: lib/widgets/recent-comments.php:127
+#, fuzzy
+#| msgid "コメント"
+msgid "コメント文字数"
+msgstr "Number of comment characters"
+
+#: lib/widgets/recent-comments.php:134
+#, fuzzy
+msgid "管理者の除外"
+msgstr "Exclude administrators"
+
+#: lib/widgets/recent-comments.php:136
+#, fuzzy
+msgid "管理者のコメントを表示しない"
+msgstr "Do not display administrator's comment"
+
 #: lib/widgets/sns-follow-buttons.php:9
 msgid "[S] SNSフォローボタン"
 msgstr "[S] SNS Follow Buttons"
@@ -4399,4 +4534,71 @@ msgstr ""
 
 #: lib/widgets/sns-follow-buttons.php:21
 msgid "SNSフォローボタン"
-msgstr "SNS Follow Buttons"
+msgstr "SNS follow Buttons"
+
+#: lib/widgets/sns-follow-buttons.php:43
+msgid "SNSフォローボタンのタイトル"
+msgstr "SNS follow button title"
+
+#: single-amp.php:193
+msgid "通常ページ"
+msgstr "Normal page"
+
+#: sns-button-twitter.php:18
+msgid "ツイート"
+msgstr "Tweet"
+
+#: sns-buttons-default.php:22
+msgid "このエントリーをはてなブックマークに追加"
+msgstr "Add this entry to Hatena Bookmark"
+
+#: sns-pages.php:9
+msgid "Twitterをフォロー"
+msgstr "Follow Twitter"
+
+#: sns-pages.php:10
+msgid "Facebookをフォロー"
+msgstr "Follow facebook"
+
+#: sns-pages.php:11
+msgid "Google＋をフォロー"
+msgstr "Follow Google+"
+
+#: sns-pages.php:12
+msgid "はてブをフォロー"
+msgstr "Follow Hatena Bookmark"
+
+#: sns-pages.php:13
+msgid "Instagramをフォロー"
+msgstr "Follow Instagram"
+
+#: sns-pages.php:14
+msgid "Pinterestをフォロー"
+msgstr "Follow Pinterest"
+
+#: sns-pages.php:15
+msgid "YouTubeをフォロー"
+msgstr "Follow YouTube"
+
+#: sns-pages.php:16
+msgid "Flickrをフォロー"
+msgstr "Follow Flickr"
+
+#: sns-pages.php:17
+#, fuzzy
+#| msgid "フォローする"
+msgid "LINE@をフォロー"
+msgstr "Follow LINE @"
+
+#: sns-pages.php:20
+msgid "Push7で更新情報を購読"
+msgstr "Subscribe to Push 7"
+
+#: sns-pages.php:21
+#, fuzzy
+msgid "feedlyで更新情報を購読"
+msgstr "Subscribe to updates with feedly"
+
+#: sns-pages.php:22
+msgid "RSSで更新情報をフォロー"
+msgstr "Subscribe to RSS"

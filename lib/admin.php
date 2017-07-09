@@ -265,7 +265,7 @@ jQuery(function($) {
 
   function catFilter( header, list ) {
     var form  = $('<form>').attr({'class':'filterform', 'action':'#'}).css({'position':'absolute', 'top':'38px'}),
-        input = $('<input>').attr({'class':'filterinput', 'type':'text', 'placeholder':<?php _e( 'カテゴリー検索', 'simplicity2' ) ?> });
+        input = $('<input>').attr({'class':'filterinput', 'type':'text', 'placeholder':'<?php _e( 'カテゴリー検索', 'simplicity2' ) ?>' });
     $(form).append(input).appendTo(header);
     $(header).css({'padding-top':'42px'});
     $(input).change(function() {
