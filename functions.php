@@ -1358,7 +1358,24 @@ endif;
 //     return $instance;
 // }
 
-// function set_english_locale( $lang ) {
+// //英語の言語設定を全てenにする
+// if ( !function_exists( 'set_simplicity_english_locale' ) ):
+// function set_simplicity_english_locale( $lang ) {
+//   // if (preg_match('/^en/', $lang)) {
+//   //   return 'en';
+//   // }
 //   return 'en';
 // }
-// add_filter( 'locale', 'set_english_locale' );
+// endif;
+
+// add_filter( 'locale', 'set_simplicity_english_locale' );
+
+// function load_textdomain_mofile_in_english($mofile, $domain){
+//   if ($domain == 'simplicity2') {
+//     var_dump($mofile);
+//   }
+//   //var_dump($mofile);
+//   //return $mofile;
+//   return get_template_directory() . '/languages/en.mo';
+// }
+// add_filter( 'load_textdomain_mofile', 'load_textdomain_mofile_in_english', 10 ,2 );
