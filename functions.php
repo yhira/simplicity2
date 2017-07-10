@@ -1,7 +1,15 @@
 <?php
 require_once(ABSPATH . 'wp-admin/includes/file.php');//WP_Filesystemの使用
+//-----------------------------------
+//Wordpressマルチ言語化の設定
+global $locale;
+//言語の最初の文字がenだったら全てen.moを呼び出す
+if (preg_match('/^en/', $locale)) {
+  $locale = 'en';
+}
 //Simplicityの多言語化
 load_theme_textdomain( 'simplicity2', get_template_directory() . '/languages' );
+//-----------------------------------
 include 'lib/php-html-css-js-minifier.php'; //縮小化ライブラリ
 include 'lib/customizer.php';//テーマカスタマイザー関係の関数
 include 'lib/amp.php';       //AMP関係の関数

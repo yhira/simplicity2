@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-07-09 22:12+0900\n"
-"PO-Revision-Date: 2017-07-10 20:13+0900\n"
+"PO-Revision-Date: 2017-07-11 01:09+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -134,14 +134,12 @@ msgid "投稿日："
 msgstr "Posted:"
 
 #: lib/comment.php:39
-#, fuzzy
 msgid "Y/m/d(D)"
-msgstr "Y / m / d (D)"
+msgstr "F j, Y (D)"
 
 #: lib/comment.php:39
-#, fuzzy
 msgid "H:i:s"
-msgstr "H: i: s"
+msgstr "g:i a"
 
 #: lib/comment.php:58
 msgid "あなたのコメントは現在承認待ちです。"
@@ -1020,9 +1018,8 @@ msgstr ""
 "extend beyond the element."
 
 #: lib/customizer.php:822
-#, fuzzy
 msgid "モバイルで<br>を表示"
-msgstr "Show on mobile"
+msgstr "Display br tag on mobile"
 
 #: lib/customizer.php:823
 #, fuzzy
@@ -2267,7 +2264,7 @@ msgstr ""
 
 #: lib/customizer.php:2225
 msgid "トップページに広告を表示する"
-msgstr "Display ads on the fronおお page"
+msgstr "Display ads on the front page"
 
 #: lib/customizer.php:2226
 #, fuzzy
@@ -2959,7 +2956,7 @@ msgstr ""
 
 #: lib/customizer.php:3102
 msgid "テーマ内テキスト"
-msgstr "Texts in theme"
+msgstr "Texts in Theme"
 
 #: lib/customizer.php:3103
 #, fuzzy
@@ -2971,7 +2968,6 @@ msgid "ホーム"
 msgstr "Home"
 
 #: lib/customizer.php:3114
-#, fuzzy
 msgid "パンくずリストのホームを変更"
 msgstr "Change breadcrumb home"
 
@@ -2989,9 +2985,8 @@ msgid "関連記事"
 msgstr "Related Posts"
 
 #: lib/customizer.php:3128
-#, fuzzy
 msgid "関連記事タイトルを変更"
-msgstr "Change related article title"
+msgstr "Change related posts title"
 
 #: lib/customizer.php:3129
 #, fuzzy
@@ -2999,8 +2994,6 @@ msgid "関連記事のH3見出しを変更します。"
 msgstr "Change the H3 heading of related articles."
 
 #: lib/customizer.php:3142
-#, fuzzy
-#| msgid "サイトタイトル色"
 msgid "コメントタイトルを変更"
 msgstr "Change comment title"
 
@@ -3011,13 +3004,10 @@ msgid "コメント欄ののH3見出しを変更します。"
 msgstr "Change the H3 heading in the comment column."
 
 #: lib/customizer.php:3151 lib/customizer.php:5058
-#, fuzzy
 msgid "コメントをどうぞ"
 msgstr "Leave a Reply"
 
 #: lib/customizer.php:3156
-#, fuzzy
-#| msgid "サイトタイトル色"
 msgid "返信コメントタイトルを変更"
 msgstr "Change reply comment title"
 
@@ -3082,7 +3072,7 @@ msgstr "Change the text of the \"Read article\" link in the list."
 
 #: lib/customizer.php:3221 lib/customizer.php:5089
 msgid "続きを読む"
-msgstr "Read more"
+msgstr "Read More"
 
 #: lib/customizer.php:3226
 #, fuzzy
@@ -3116,7 +3106,6 @@ msgid "Y/n/j"
 msgstr "Y/m/d"
 
 #: lib/customizer.php:3254
-#, fuzzy
 msgid "日付表示のフォーマット"
 msgstr "Date display format"
 
@@ -3131,9 +3120,8 @@ msgid "Y年m月d日"
 msgstr "Year/month/date"
 
 #: lib/customizer.php:3268
-#, fuzzy
 msgid "一覧：年月日のフォーマット"
-msgstr "List: date format"
+msgstr "Index: Year, month, day format"
 
 #: lib/customizer.php:3269
 #, fuzzy
@@ -3146,9 +3134,8 @@ msgid "Y年m月"
 msgstr "Y year m month"
 
 #: lib/customizer.php:3282
-#, fuzzy
 msgid "一覧：年月のフォーマット"
-msgstr "List: date format"
+msgstr "Index: Year, month format"
 
 #: lib/customizer.php:3283
 #, fuzzy
@@ -3161,9 +3148,8 @@ msgid "Y年"
 msgstr "Y"
 
 #: lib/customizer.php:3296
-#, fuzzy
 msgid "一覧：年のフォーマット"
-msgstr "List: Year format"
+msgstr "Index: Year format"
 
 #: lib/customizer.php:3297
 #, fuzzy
@@ -3189,9 +3175,8 @@ msgid "記事は見つかりませんでした。"
 msgstr "No articles found."
 
 #: lib/customizer.php:3352
-#, fuzzy
 msgid "見つからなかった時のメッセージ"
-msgstr "Message when I could not find it"
+msgstr "Message when not find"
 
 #: lib/customizer.php:3353
 #, fuzzy
@@ -3210,7 +3195,6 @@ msgstr ""
 "bar (management bar)."
 
 #: lib/customizer.php:3376
-#, fuzzy
 msgid "ビジュアルエディターにSimplicityスタイルを適用"
 msgstr "Apply Simplicity style to visual editor"
 
@@ -3225,9 +3209,8 @@ msgstr ""
 "applicable.)"
 
 #: lib/customizer.php:3390
-#, fuzzy
 msgid "アドミンバーに独自管理メニューを表示"
-msgstr "Admin bar displays its own management menu"
+msgstr "Admin bar management menu display"
 
 #: lib/customizer.php:3391
 #, fuzzy
@@ -3261,9 +3244,8 @@ msgstr ""
 "included in that post are displayed."
 
 #: lib/customizer.php:3430
-#, fuzzy
 msgid "ページ公開前に確認アラートを出す"
-msgstr "Give a confirmation alert before publishing the page"
+msgstr "Confirm before page publication"
 
 #: lib/customizer.php:3431
 #, fuzzy
@@ -3317,17 +3299,10 @@ msgid "管理者用PV表示"
 msgstr "Admin PV display"
 
 #: lib/customizer.php:3459
-#, fuzzy
-#| msgid ""
-#| "インデックスリスト・関連記事のエントリーカードやブログカード全体をAタグで"
-#| "囲ってリンク化するか。<br><a href=\"https://wp-simplicity.com/linked-"
-#| "entry-card/\" target=\"_blank\">機能説明</a>"
 msgid ""
 "ログインユーザーのみにPVを表示します。<a href=\"https://wp-simplicity.com/"
 "simplicity-admin-pv/\" target=\"_blank\">機能説明</a>"
-msgstr ""
-"Display PV only for logged-in user. <a href=\"https://wp-simplicity.com/"
-"simplicity-admin-pv/\" target=\"_blank\">Feature Description</a>"
+msgstr "Display PV only for logged-in users."
 
 #: lib/customizer.php:3472
 msgid "「WLWで編集」リンクを表示"
@@ -3495,9 +3470,8 @@ msgid "ライセンス"
 msgstr "License"
 
 #: lib/customizer.php:3656
-#, fuzzy
 msgid "サイトのライセンスを設定します。"
-msgstr "Set the site license."
+msgstr "Set this site license."
 
 #: lib/customizer.php:3660
 msgid "©（デフォルト）"
@@ -3661,9 +3635,8 @@ msgid "サイドバーウイジェット"
 msgstr "Sidebar"
 
 #: lib/widget-areas.php:11
-#, fuzzy
 msgid "サイドバーのウィジットエリアです。"
-msgstr "It is the widget area of ​​the sidebar."
+msgstr "Widget area of sidebar."
 
 #: lib/widget-areas.php:20
 msgid "スクロール追従領域"
@@ -3973,34 +3946,30 @@ msgid "フッター左"
 msgstr "Footer Left"
 
 #: lib/widget-areas.php:274
-#, fuzzy
 msgid "フッター左側のウィジットエリアです。"
-msgstr "This is the widget area on the left side of the footer."
+msgstr "This is a widget area on the left side of the footer."
 
 #: lib/widget-areas.php:284
 msgid "フッター中"
 msgstr "Footer Center"
 
 #: lib/widget-areas.php:285
-#, fuzzy
 msgid "フッター中間のウィジットエリアです。"
-msgstr "It is a widget area in the middle of the footer."
+msgstr "This is a widget area on the center of the footer."
 
 #: lib/widget-areas.php:294
 msgid "フッター右"
 msgstr "Footer Right"
 
 #: lib/widget-areas.php:296
-#, fuzzy
 msgid "フッター右側フッター中のウィジットエリアです。"
-msgstr "Footer This is the widget area in the right footer."
+msgstr "This is a widget area on the right side of the footer."
 
 #: lib/widget-areas.php:305
 msgid "404ページ"
 msgstr "404 Page"
 
 #: lib/widget-areas.php:307
-#, fuzzy
 msgid "404ページをカスタマイズするためのウィジットエリアです。"
 msgstr "Widget area for customizing 404 pages."
 
@@ -4169,7 +4138,6 @@ msgstr "Display number (Half-width number, default: 5)"
 
 #: lib/widgets/new-entries.php:120 lib/widgets/new-popular.php:182
 #: lib/widgets/popular-ranking.php:173
-#, fuzzy
 msgid "表示タイプ"
 msgstr "Display Type:"
 
@@ -4222,9 +4190,8 @@ msgid "人気記事のタイトル"
 msgstr "Popular posts title"
 
 #: lib/widgets/new-popular.php:191
-#, fuzzy
 msgid "固定ページの表示（人気記事のみ）"
-msgstr "Display of fixed pages (popular articles only)"
+msgstr "Pages display (popular posts widget only)"
 
 #: lib/widgets/new-popular.php:193 lib/widgets/popular-ranking.php:184
 msgid "ランキングに固定ページを含める"
