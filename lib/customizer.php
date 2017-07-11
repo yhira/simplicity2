@@ -1175,7 +1175,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'mobile_menu_japanese', array(
     'settings' => 'mobile_menu_japanese',
     'label' => __( 'スライドインメニューを日本語表示', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( 'スライドインメニューを日本語で表示するか。（※モバイルメニュータイプをスライドイン選択しているとき。', 'simplicity2' ) : '',
+    'description' => is_tips_visible() ? __( 'スライドインメニューを日本語で表示するか。（※モバイルメニュータイプをスライドイン選択しているとき。）', 'simplicity2' ) : '',
     'section' => 'layout_mobile_section',
     'type' => 'checkbox',
     'priority' => 300

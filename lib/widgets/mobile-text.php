@@ -6,7 +6,7 @@ class MobileTextWidgetItem extends WP_Widget {
   function __construct() {
     parent::__construct(
       'mobile_text',
-      __( '[S] モバイル用テキストウィジェット', 'simplicity2' ),
+      __( '[S] モバイル用テキスト', 'simplicity2' ),
       array('description' => __( 'モバイルのみで表示されるSimplicity用のテキストウィジェットです。', 'simplicity2' ))
     );//ウイジェット名
   }

@@ -6,7 +6,7 @@ class PcDoubleAdsWidgetItem extends WP_Widget {
   function __construct() {
     parent::__construct(
       'pc_double_ads', //ウイジェット名
-      __( '[S] パソコン用広告ダブルレクタングルウィジェット', 'simplicity2' ),
+      __( '[S] PC用広告ダブルレクタングル', 'simplicity2' ),
       array('description' => __( 'パソコンのみで表示されるSimplicity用のダブルレクタングル広告ウィジェットです。（※アドセンスの場合は広告コードのみを記入してください。）', 'simplicity2' ))
     );
   }

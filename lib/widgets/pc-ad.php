@@ -6,7 +6,7 @@ class PcAdWidgetItem extends WP_Widget {
   function __construct() {
     parent::__construct(
       'pc_ad', //ウイジェット名
-      __( '[S] パソコン用広告ウィジェット', 'simplicity2' ),
+      __( '[S] PC用広告', 'simplicity2' ),
       array('description' => __( 'パソコンのみで表示されるSimplicity用の広告ウィジェットです。（※アドセンスの場合は広告コードのみを記入してください。）', 'simplicity2' ))
     );
   }

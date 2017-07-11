@@ -6,7 +6,7 @@ class PcTextWidgetItem extends WP_Widget {
   function __construct() {
      parent::__construct(
       'pc_text',
-      __( '[S] パソコン用テキストウィジェット', 'simplicity2' ),//ウイジェット名
+      __( '[S] PC用テキスト', 'simplicity2' ),//ウイジェット名
       array('description' => __( 'パソコンのみで表示されるSimplicity用のテキストウィジェットです。', 'simplicity2' ))
     );
   }

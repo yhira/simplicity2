@@ -6,7 +6,7 @@ class MobileAdWidgetItem extends WP_Widget {
   function __construct() {
     parent::__construct(
       'mobile_ad',
-      __( '[S] モバイル用広告ウィジェット', 'simplicity2' ), //ウイジェット名
+      __( '[S] モバイル用広告', 'simplicity2' ), //ウイジェット名
       array('description' => __( 'モバイルのみで表示されるSimplicity用の広告ウィジェットです。（※アドセンスの場合は広告コードのみを記入してください。）', 'simplicity2' ))
     );
   }
