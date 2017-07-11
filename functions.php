@@ -4,7 +4,8 @@ require_once(ABSPATH . 'wp-admin/includes/file.php');//WP_Filesystemの使用
 //Wordpressマルチ言語化の設定
 global $locale;
 //言語の最初の文字がenだったら全てen.moを呼び出す
-if (preg_match('/^en/', $locale)) {
+//if (preg_match('/en/', $locale)) {
+if (strpos($locale,'en') !== false) {
   $locale = 'en';
 }
 //Simplicityの多言語化
