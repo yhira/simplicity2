@@ -31,7 +31,7 @@ class MobileAdWidgetItem extends WP_Widget {
        ( is_ads_visible() || !$is_exclude_ads_enable ) //広告表示がオンのとき
      ):
      echo $args['before_widget']; ?>
-      <div class="ad-space"<?php echo $margin_left_tag; ?>>
+      <div class="ad-space ad-widget"<?php echo $margin_left_tag; ?>>
         <div class="ad-label"><?php echo get_ads_label() ?></div>
         <div class="ad-responsive ad-mobile adsense-300"><?php echo $ad; ?></div>
       </div>

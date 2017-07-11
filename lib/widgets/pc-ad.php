@@ -28,7 +28,7 @@ class PcAdWidgetItem extends WP_Widget {
     if ( !is_mobile() && !is_404() && //PCかつ404ページでないとき
       ( is_ads_visible() || !$is_exclude_ads_enable )  ):
       echo $args['before_widget']; ?>
-      <div class="ad-space"<?php echo $margin_left_tag; ?>>
+      <div class="ad-space ad-widget"<?php echo $margin_left_tag; ?>>
         <div class="ad-label"><?php echo get_ads_label() ?></div>
         <div class="ad-responsive ad-pc adsense-336"><?php echo $ad; ?></div>
       </div>

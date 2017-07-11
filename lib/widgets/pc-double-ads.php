@@ -23,7 +23,7 @@ class PcDoubleAdsWidgetItem extends WP_Widget {
     if ( !is_mobile() && !is_404() && //PCかつ404ページでないとき
       ( is_ads_visible() || !$is_exclude_ads_enable )  ):
       echo $args['before_widget']; ?>
-      <div class="ad-article-bottom ad-space">
+      <div class="ad-article-bottom ad-space ad-widget">
         <div class="ad-label"><?php echo get_ads_label() ?></div>
         <div class="ad-left ad-pc adsense-336"><?php echo $ad1;?></div>
         <div class="ad-right ad-pc adsense-336"><?php echo $ad2;?></div>
