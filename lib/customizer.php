@@ -2624,7 +2624,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'blog_card_external_site_logo_visible', array(
     'settings' => 'blog_card_external_site_logo_visible',
     'label' => __( 'サイトロゴを表示', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。', 'simplicity2' ) : '',
+    'description' => is_tips_visible() ? __( 'サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設定をしてないとロゴは表示されません。）', 'simplicity2' ) : '',
     'section' => 'blog_card_external_section',
     'type' => 'checkbox',
     'priority' => 600,
@@ -2729,7 +2729,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'code_highlight_style', array(
     'settings' => 'code_highlight_style',
     'label' => __( 'ハイライトスタイル', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( 'ソースコードのハイライトテーマです。スタイリについては、<a href="https://highlightjs.org/static/demo/" target="_blank">highlight.js demo</a>を参照してください。', 'simplicity2' ) : '',
+    'description' => is_tips_visible() ? __( 'ソースコードのハイライトテーマです。スタイルについては、<a href="https://highlightjs.org/static/demo/" target="_blank">highlight.js demo</a>を参照してください。', 'simplicity2' ) : '',
     'section' => 'source_code_section',
     'type' => 'select',
     'choices'    => array(
@@ -3112,7 +3112,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'theme_text_breadcrumbs_home', array(
     'settings' => 'theme_text_breadcrumbs_home',
     'label' => __( 'パンくずリストのホームを変更', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( 'パンくずリストの「ホーム」のテキストを変更します。設定は、投稿と固定ページ両方のパンくずリストに反映されます。。', 'simplicity2' ) : '',
+    'description' => is_tips_visible() ? __( 'パンくずリストの「ホーム」のテキストを変更します。設定は、投稿と固定ページ両方のパンくずリストに反映されます。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 50,
