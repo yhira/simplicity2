@@ -127,7 +127,7 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
     <?php if ( $widget_mode == 'all' || $widget_mode == null ): ?>
     <p>
       <label for="<?php echo $this->get_field_id('is_top_visible'); ?>">
-        <?php _e( 'トップページでの表示', 'simplicity2' ) ?>
+        <?php _e( '全てのページで表示', 'simplicity2' ) ?>
       </label><br />
       <input class="widefat" id="<?php echo $this->get_field_id('is_top_visible'); ?>" name="<?php echo $this->get_field_name('is_top_visible'); ?>" type="checkbox" value="on"<?php echo ($is_top_visible ? ' checked="checked"' : ''); ?> /><?php _e( '表示する<br>※新着順のインデックスリストが表示されるトップでも表示する場合はチェックしてください。<br>※「表示モード」が「全ての新着記事」のときのみ有効な機能です。', 'simplicity2' ) ?>
     </p>

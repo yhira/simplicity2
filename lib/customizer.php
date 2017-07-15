@@ -2067,7 +2067,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'twitter_cards_enable', array(
     'settings' => 'twitter_cards_enable',
     'label' => __( 'Twitterカードタグを挿入', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( 'Twitterカード用のタグをHTMLに埋め込むか。（※プラグインで設定している場合はオフ）<a href="https://wp-simplicity.com/twitter-cards/" target="_blank" class="example-setting">Twitter Cards登録方法</a>', 'simplicity2' ) : '',
+    'description' => is_tips_visible() ? __( 'Twitterカード用のタグをHTMLに埋め込むか。（※プラグインで設定している場合は無効にしてください）<a href="https://wp-simplicity.com/twitter-cards/" target="_blank" class="example-setting">Twitter Cards登録方法</a>', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'checkbox',
     'priority' => 133,
