@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-07-15 16:49+0900\n"
-"PO-Revision-Date: 2017-07-15 17:40+0900\n"
+"PO-Revision-Date: 2017-07-16 21:54+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -86,7 +86,7 @@ msgstr "Media"
 
 #: lib/admin.php:95
 msgid "テーマ"
-msgstr "Theme"
+msgstr "Themes"
 
 #: lib/admin.php:102
 msgid "カスタマイズ"
@@ -350,7 +350,7 @@ msgstr "Link color"
 
 #: lib/customizer.php:59
 msgid "通常のリンク色です。（デフォルト色：#2098a8）"
-msgstr "Standard link color.(default:#2098a8)"
+msgstr "Standard link color.(default: #2098a8)"
 
 #: lib/customizer.php:71
 msgid "リンクホバー色"
@@ -358,7 +358,7 @@ msgstr "Link hover color"
 
 #: lib/customizer.php:72
 msgid "マウスカーソルが乗ったときのリンク色です。（デフォルト色：#cc0033）"
-msgstr "Link color when the mouse cursor is on.(default:#cc0033)"
+msgstr "Link color when a mouse cursor is on.(default: #cc0033)"
 
 #: lib/customizer.php:84
 msgid "ヘッダー外側背景色"
@@ -377,7 +377,7 @@ msgstr "Inside header background color"
 
 #: lib/customizer.php:98
 msgid "ヘッダー内側の背景色です。（デフォルト色：transparent）"
-msgstr "Background color inside the header.(default:transparent)"
+msgstr "Background color inside the header.(default: transparent)"
 
 #: lib/customizer.php:110
 msgid "サイトタイトル色"
@@ -385,7 +385,7 @@ msgstr "Site title color"
 
 #: lib/customizer.php:111
 msgid "サイトタイトルの文字色です。（デフォルト色：#222222）"
-msgstr "Text color of the site title.(default:#222222)"
+msgstr "Text color of this site title.(default: #222222)"
 
 #: lib/customizer.php:123
 msgid "サイト概要色"
@@ -393,7 +393,7 @@ msgstr "Tagline color"
 
 #: lib/customizer.php:124
 msgid "サイトキャッチフレーズの文字色です。（デフォルト色：#777777）"
-msgstr "Text color of the site catch phrase..(default:#777777)"
+msgstr "Text color of this site tagline.(default: #777777)"
 
 #: lib/customizer.php:136
 msgid "モバイル時ヘッダー背景色"
@@ -413,7 +413,7 @@ msgstr "Mobile site title color"
 
 #: lib/customizer.php:150
 msgid "モバイル時のサイトタイトルの文字色です。（デフォルト色：#222222）"
-msgstr "Site title text color on mobile.(default:#222222)"
+msgstr "Site title text color on mobile.(default: #222222)"
 
 #: lib/customizer.php:162
 msgid "モバイルサイト概要色"
@@ -422,7 +422,7 @@ msgstr "Mobile site tagline color"
 #: lib/customizer.php:163
 msgid ""
 "モバイル時のサイトキャッチフレーズの文字色です。（デフォルト色：#777777）"
-msgstr "Text color of the site tagline on mobile.(default:#777777)"
+msgstr "Text color of the site tagline on mobile.(default: #777777)"
 
 #: lib/customizer.php:175
 msgid "グローバルナビ色"
@@ -430,7 +430,7 @@ msgstr "Global navigation color"
 
 #: lib/customizer.php:176
 msgid "グローバルナビ（メインメニュー）の背景色です。（デフォルト色：#f7f7f7）"
-msgstr "Background color of Global Navi (Main Menu).(default:#cc0033)"
+msgstr "Background color of Global Navi (Main Menu).(default: #cc0033)"
 
 #: lib/customizer.php:188
 msgid "グローバルナビリンク色"
@@ -438,7 +438,7 @@ msgstr "Global navigation link color"
 
 #: lib/customizer.php:189
 msgid "グローバルナビリンクの文字色です。（デフォルト色：#111111）"
-msgstr "Link color of Global Navi.(default:#111111)"
+msgstr "Link color of Global Navi.(default: #111111)"
 
 #: lib/customizer.php:201
 msgid "グローバルナビリンクホバー色"
@@ -449,7 +449,7 @@ msgid ""
 "マウスカーソルが乗ったときのメニュー項目の背景色です。（デフォルト色："
 "#dddddd）"
 msgstr ""
-"Background color of the menu item when the mouse cursor is on.(default:"
+"Background color of the menu items when a mouse cursor is on.(default: "
 "#dddddd)"
 
 #: lib/customizer.php:214
@@ -458,7 +458,7 @@ msgstr "Menu button color"
 
 #: lib/customizer.php:215
 msgid "モバイル用メニュー表示ボタンのアイコン色です。（デフォルト色：#333333）"
-msgstr "Icon color of the menu display button for mobile.(default:#333333)"
+msgstr "Icon color of menu display button for mobile.(default: #333333)"
 
 #: lib/customizer.php:227
 msgid "メニューボタン背景色"
@@ -467,7 +467,7 @@ msgstr "Menu button background color"
 #: lib/customizer.php:228
 msgid "モバイル用メニュー表示ボタンの背景色です。（デフォルト色：transparent）"
 msgstr ""
-"Background color of menu display button for mobile.(default:#transparent)"
+"Background color of menu display button for mobile.(default: #transparent)"
 
 #: lib/customizer.php:240
 msgid "トップへ戻るボタン色"
@@ -475,7 +475,7 @@ msgstr "Back to top Button color"
 
 #: lib/customizer.php:241
 msgid "トップに戻るボタンのアイコン色です。（デフォルト色：#ffffff）"
-msgstr "Icon color of back button to top.(default:#ffffff)"
+msgstr "Icon color of \"Back to top\" button.(default: #ffffff)"
 
 #: lib/customizer.php:253
 msgid "トップへ戻るボタン背景色"
@@ -483,7 +483,7 @@ msgstr "Back to top Button background color"
 
 #: lib/customizer.php:254
 msgid "トップに戻るボタンの背景色です。（デフォルト色：#aaaaaa）"
-msgstr "Background color of back button to top.(default:#aaaaaa)"
+msgstr "Background color of \"Back to top\" button.(default: #aaaaaa)"
 
 #: lib/customizer.php:266
 msgid "フッター色"
@@ -491,7 +491,7 @@ msgstr "Footer color"
 
 #: lib/customizer.php:267
 msgid "フッター部分の背景色です。（デフォルト色：#555555）"
-msgstr "Background color of the footer part.(default:#555555)"
+msgstr "Background color of the footer part.(default: #555555)"
 
 #: lib/customizer.php:278
 msgid "ヘッダー"
@@ -503,7 +503,7 @@ msgstr "Images used in the header, logo, global navigation settings."
 
 #: lib/customizer.php:290
 msgid "ヘッダーの高さpx（デフォルト：100）"
-msgstr "Header height (default:100px)"
+msgstr "Header height (default: 100px)"
 
 #: lib/customizer.php:291
 msgid ""
@@ -523,15 +523,15 @@ msgid ""
 "する」を有効にする必要あり）"
 msgstr ""
 "Set the logo as an alternative to the title text. (*It is necessary to "
-"enable \"Make logo as image\" to display)"
+"enable \"Set logo as image\" to display)"
 
 #: lib/customizer.php:315
 msgid "ロゴを画像にする"
-msgstr "Make logo as image"
+msgstr "Set logo as image"
 
 #: lib/customizer.php:316
 msgid "タイトルロゴを画像にするか。"
-msgstr "Change the site title to logo image."
+msgstr "Change this site title to the logo image."
 
 #: lib/customizer.php:328
 msgid "ヘッダー外側背景画像"
@@ -542,11 +542,11 @@ msgid ""
 "画面幅いっぱいに広がるヘッダー画像を設定します。（※画像の高さは高めに設定して"
 "おいてください）<br><a href=\"https://wp-simplicity.com/how-to-set-big-"
 "header-image/\" target=\"_blank\">ヘッダー画像の設定方法</a>"
-msgstr "Set a header image that spreads to the full screen width."
+msgstr "Set the header image that spreads to the full browser width."
 
 #: lib/customizer.php:340
 msgid "グローバルナビを横幅いっぱいにする"
-msgstr "Make Global Navi full width"
+msgstr "Set Global Navi full width"
 
 #: lib/customizer.php:341
 msgid ""
@@ -555,13 +555,13 @@ msgid ""
 "href=\"https://wp-simplicity.com/how-to-set-big-header-image/\" target="
 "\"_blank\">ヘッダー画像の設定方法設定方法</a>"
 msgstr ""
-"Expand the Global Navi to the full screen width and match it with \"Outside "
+"Expand the Global Navi to the full browser width and match it with \"Outside "
 "header background image\". (It is necessary to set  \"colors -> Global "
 "navigation color\")"
 
 #: lib/customizer.php:354
 msgid "モバイルヘッダーの高さpx（デフォルト：0）"
-msgstr "Mobile header height.(default:0px)"
+msgstr "Mobile header height.(default: 0px)"
 
 #: lib/customizer.php:355
 msgid ""
@@ -580,7 +580,7 @@ msgid ""
 "画面幅いっぱいに広がるモバイルヘッダー画像を設定します。（※画像の高さは高めに"
 "設定しておいてください）<a href=\"https://wp-simplicity.com/how-to-set-big-"
 "header-image/\" target=\"_blank\" class=\"example-setting\">設定例</a>\n"
-msgstr "Set a mobile header image that spreads to the full screen width.\n"
+msgstr "Set the mobile header image that spreads to the full browser width.\n"
 
 #: lib/customizer.php:379
 msgid "スキン"
@@ -593,7 +593,7 @@ msgid ""
 "参照してください。<br>パーツスキンに関しては<a href=\"https://wp-simplicity."
 "com/skin-parts/\" target=\"_blank\">パーツスキンの使い方</a>を参照してくださ"
 "い。"
-msgstr "Easily change the appearance of Simplicity."
+msgstr "Easily change the site appearance of Simplicity."
 
 #: lib/customizer.php:391
 msgid "選択しない（デフォルト）"
@@ -609,8 +609,8 @@ msgid ""
 "内のCSSファイルを結合して適用表示するパーツスキンです。※スキンで設定されたス"
 "タイルは親テーマ・子テーマで設定されたものより優先されます。"
 msgstr ""
-"You can easily change the design. What is marked with [P] is a part skin "
-"that combines CSS files in a part skin folder and applies it."
+"You can easily change the site design. What is marked with [P] is a part "
+"skin that combines CSS files in a part skin folder and applies it."
 
 #: lib/customizer.php:410
 msgid "レイアウト（全体・リスト）"
@@ -638,8 +638,8 @@ msgid ""
 "PC表示時にサイドバーをレスポンシブ表示するか。オフにするとレスポンシブ表示さ"
 "れません。（※完全レスポンシブ機能がオフの時のみ有効な設定）"
 msgstr ""
-"Whether to display the sidebar responsively when displaying PC. If it is "
-"off, it will not be displayed responsively.(*Valid setting only when "
+"Whether to display the site sidebar responsively when displaying PC. If it "
+"is off, it will not be displayed responsively.(*Valid setting only when "
 "\"Complete responsive display\" is off)"
 
 #: lib/customizer.php:450
@@ -654,7 +654,7 @@ msgstr "Place the site title in the center."
 
 #: lib/customizer.php:464
 msgid "グローバルナビを表示"
-msgstr "Display of Global Navi"
+msgstr "Global Navi display"
 
 #: lib/customizer.php:465
 msgid ""
@@ -668,11 +668,11 @@ msgstr "List style"
 
 #: lib/customizer.php:479
 msgid "一覧（インデックス）ページの表示スタイル設定。"
-msgstr "Display style setting of list page (index page)."
+msgstr "Display style setting of index pages."
 
 #: lib/customizer.php:483
 msgid "エントリーカード（デフォルト）"
-msgstr "Entry Card (default)"
+msgstr "Entry card (default)"
 
 #: lib/customizer.php:484
 msgid "大きなエントリーカード"
@@ -714,22 +714,22 @@ msgstr ""
 
 #: lib/customizer.php:504
 msgid "固定ページも一覧リストに含める"
-msgstr "Include pages in the index list"
+msgstr "Include pages in index pages"
 
 #: lib/customizer.php:505
 msgid "固定ページを一覧リスト（インデックス）に含めるか。"
-msgstr "Do you want to include pages in archives list."
+msgstr "Whether to include pages on index pages."
 
 #: lib/customizer.php:517
 msgid "エントリーカード全体をリンク化"
-msgstr "Link the whole entry card"
+msgstr "Enclose every entry card in a link"
 
 #: lib/customizer.php:518
 msgid ""
 "インデックスリスト・関連記事のエントリーカードやブログカード全体をAタグで囲っ"
 "てリンク化するか。<br><a href=\"https://wp-simplicity.com/linked-entry-card/"
 "\" target=\"_blank\">機能説明</a>"
-msgstr "Enclose the entry card and blog card as a whole in A tag."
+msgstr "Enclose all entry cards and blog cards in a tag."
 
 #: lib/customizer.php:531
 msgid "サムネイル表示"
@@ -737,7 +737,7 @@ msgstr "Thumbnail display"
 
 #: lib/customizer.php:532
 msgid "サムネイルを表示するか。（※テキスト主体ページなどではオフ）"
-msgstr "Display thumbnails of entry cards."
+msgstr "Display all thumbnails of entry cards."
 
 #: lib/customizer.php:545
 msgid "サムネイルの角の丸め具合"
@@ -757,19 +757,19 @@ msgstr "Raund corners"
 
 #: lib/customizer.php:552
 msgid "円形にする"
-msgstr "To circle"
+msgstr "Circle"
 
 #: lib/customizer.php:564
 msgid "抜粋文字数（デフォルト：70）"
-msgstr "Number of excerpt characters (default: 70)"
+msgstr "Excerpt character count (default: 70)"
 
 #: lib/customizer.php:565
 msgid ""
 "インデックスリストや関連記事、ブログカードで表示される抜粋文字の文字数を設定"
 "します。"
 msgstr ""
-"Sets the number of characters of excerpt characters displayed in index "
-"lists, related articles, and blog cards."
+"It is the number of excerpt characters for entry cards, related posts, blog "
+"cards."
 
 #: lib/customizer.php:573 lib/customizer.php:3877
 msgid "..."
@@ -781,11 +781,11 @@ msgstr "End character of excerpt (default: ...)"
 
 #: lib/customizer.php:579
 msgid "抜粋文の末尾に付属する文字列を設定します。"
-msgstr "Set a character string attached to the end of the excerpt statement."
+msgstr "Set the character string attached to the end of excerpt statements."
 
 #: lib/customizer.php:592
 msgid "抜粋に「メタディスクリプション」項目を利用"
-msgstr "Use \"Meta description\" text in excerpt"
+msgstr "Use \"Meta Description\" instead of excerpt"
 
 #: lib/customizer.php:593
 msgid ""
@@ -794,7 +794,7 @@ msgid ""
 "れていない場合は「抜粋」が使用されます。（※双方とも未入力の場合は記事本文冒頭"
 "の抜粋文）"
 msgstr ""
-"Use \"Meta description\" text in entry card snipet and blogcard snipet."
+"Use \"Meta description\" text in entry card snipet and blogcard snipet etc."
 
 #: lib/customizer.php:605
 msgid "サイドバーの幅を336pxに（デフォルト300px）"
@@ -805,26 +805,26 @@ msgid ""
 "サイドバーを「レクタングル（大）」幅に設定します。（※ヘッダー画像を既に設定し"
 "ている場合は要再設定）"
 msgstr ""
-"Set the sidebar to \"Rectangle (Large)\" width. (Required if you have "
+"Set the site sidebar to \"Large Rectangle\" width. (Required if you have "
 "already set header image)"
 
 #: lib/customizer.php:618
 msgid "サイドバーの背景を白色に"
-msgstr "Sidebar background white"
+msgstr "Sidebar background to white"
 
 #: lib/customizer.php:619
 msgid ""
 "サイドバーの背景色を白色に設定します。（※背景画像などを設定して、サイドバーが"
 "見づらくなったときなどに）"
-msgstr "Set the background color of the sidebar to white."
+msgstr "Set the site background color of the sidebar to white."
 
 #: lib/customizer.php:631
 msgid "サイドバーを左側に表示"
-msgstr "Sidebar on left"
+msgstr "Left sidebar enable"
 
 #: lib/customizer.php:632
 msgid "サイドバーを左側に表示するようにレイアウトを変更します。"
-msgstr "Sidebar is displayed on the left."
+msgstr "Display the site sidebar on the left side."
 
 #: lib/customizer.php:645
 msgid "検索ボックスのスタイル"
@@ -834,7 +834,7 @@ msgstr "Search box style"
 msgid ""
 "検索ボックスのデザイン設定。<a href=\"https://wp-simplicity.com/searchform-"
 "style/\" target=\"_blank\" class=\"example-setting\">設定方法</a>"
-msgstr "Design setting of search box."
+msgstr "Design setting of search form."
 
 #: lib/customizer.php:650
 msgid "ホワイト四角（デフォルト）"
@@ -892,7 +892,7 @@ msgstr ""
 
 #: lib/customizer.php:710
 msgid "トップへ戻るボタンの表示"
-msgstr "\"Back to the top\" button display"
+msgstr "\"Back to top\" button display"
 
 #: lib/customizer.php:711
 msgid "トップへ戻るボタンを表示するか。"
@@ -900,7 +900,7 @@ msgstr "Display \"back to top\" button."
 
 #: lib/customizer.php:724
 msgid "トップへ戻るボタンのアイコン（デフォルト：fa-angle-double-up）"
-msgstr "Back to top button icon (default: fa-angle-double-up)"
+msgstr "\"Back to top\" button icon (default: fa-angle-double-up)"
 
 #: lib/customizer.php:725
 msgid ""
@@ -908,7 +908,7 @@ msgid ""
 "Awesomeから取得します）<a href=\"https://wp-simplicity.com/button-icon-font-"
 "change/\" target=\"_blank\" class=\"example-setting\">設定方法</a>"
 msgstr ""
-"Set \"Back to Top\" Button Icon font. (※ code for setting is acquired from "
+"Set \"Back to Top\" button Icon font. (※ code for setting is acquired from "
 "Font Awesome)"
 
 #: lib/customizer.php:737
@@ -919,11 +919,12 @@ msgstr "\"Back to Top\" button image"
 msgid ""
 "こちらに画像が指定されている場合は、アイコンフォントが画像に入れ替わります。"
 msgstr ""
-"If an image is setting here, the iconic font will be replaced with the image."
+"If an image is setting here, the \"Back to top\" icon font will be replaced "
+"with the image."
 
 #: lib/customizer.php:750
 msgid "カレンダーに枠線を表示"
-msgstr "Display border line on calendar"
+msgstr "Display border on calendar"
 
 #: lib/customizer.php:751
 msgid "カレンダーウィジェットに枠線を表示します。"
@@ -941,11 +942,11 @@ msgstr "Set the image to be displayed on page 404. "
 
 #: lib/customizer.php:774
 msgid "レイアウト（投稿・固定ページ）"
-msgstr "Layout (Post / Page)"
+msgstr "Layout (Posts / Pages)"
 
 #: lib/customizer.php:775
 msgid "投稿・固定ページのレイアウトに関する設定です。"
-msgstr "Settings related to \"posts / Pages\" layout."
+msgstr "Settings related to \"Posts / Pages\" layout."
 
 #: lib/customizer.php:786
 msgid "本文文字サイズ（全角文字数）"
@@ -953,7 +954,7 @@ msgstr "Main column font size"
 
 #: lib/customizer.php:787
 msgid "パソコン表示時の本文文字サイズを設定します。"
-msgstr "Contents font size when displaying on a PC."
+msgstr "Content font size when displaying on a PC."
 
 #: lib/customizer.php:791
 msgid "14px（1行48文字くらい）"
@@ -1039,7 +1040,9 @@ msgstr "Category links display"
 
 #: lib/customizer.php:879
 msgid "カテゴリ情報を表示するか。（※一覧リストにも表示されます）"
-msgstr "Display category link. (* It is also displayed in index pages.)"
+msgstr ""
+"Display category links on post pages. (* It is also displayed in index "
+"pages.)"
 
 #: lib/customizer.php:892
 msgid "コメント数の表示"
@@ -1057,7 +1060,7 @@ msgstr "Tag links display"
 
 #: lib/customizer.php:907
 msgid "本文フッター部分にあるタグ情報を表示するか。"
-msgstr "Display tag link in content bottom."
+msgstr "Display tag links in content bottom."
 
 #: lib/customizer.php:920
 msgid "投稿者情報の表示"
@@ -1093,27 +1096,27 @@ msgstr "Display \"Edit\" link on posts / pages."
 
 #: lib/customizer.php:962
 msgid "本文先頭にアイキャッチ画像を表示"
-msgstr "Featured Image display at the top of the content"
+msgstr "Featured Image display"
 
 #: lib/customizer.php:963
 msgid ""
 "投稿・固定ページ管理画面で設定したアイキャッチを自動で本文トップに挿入する"
 "か。"
-msgstr "Automatically insert Featured Image at \"posts / pages\" admin page."
+msgstr "Automatically insert Featured Image on \"post / page\" page top."
 
 #: lib/customizer.php:975
 msgid "先頭のアイキャッチにキャプションを表示"
-msgstr "Display caption on top Featured Image"
+msgstr "Featured Image caption display"
 
 #: lib/customizer.php:976
 msgid ""
 "先頭のアイキャッチにキャプションが設定されているとき表示するか。（※「本文先頭"
 "にアイキャッチ画像を表示」設定が有効の場合のみ）"
-msgstr "Display caption when a caption is set in Featured Image."
+msgstr "Display caption when a caption is set in a Featured Image."
 
 #: lib/customizer.php:988
 msgid "引用部分の幅を広げる"
-msgstr "Increase width of blockquote"
+msgstr "Wide blockquote"
 
 #: lib/customizer.php:989
 msgid ""
@@ -1123,7 +1126,7 @@ msgstr "Increase the display area by expanding the width of quoted parts."
 
 #: lib/customizer.php:1002
 msgid "大きな表は横スクロール"
-msgstr "Big table to scrollable"
+msgstr "Scrollable table"
 
 #: lib/customizer.php:1003
 msgid ""
@@ -1135,11 +1138,11 @@ msgstr ""
 
 #: lib/customizer.php:1016
 msgid "関連記事の表示"
-msgstr "Related post display"
+msgstr "Related posts display"
 
 #: lib/customizer.php:1017
 msgid "本文下の関連記事を表示するか。"
-msgstr "Display related posts below the contents."
+msgstr "Display related posts under a entry content."
 
 #: lib/customizer.php:1030
 msgid "関連記事表示タイプ"
@@ -1163,11 +1166,11 @@ msgstr "Thumbnail 4 columns (Recommended: 4, 8, 12)"
 
 #: lib/customizer.php:1049
 msgid "関連記事の関連付け"
-msgstr "Associate related posts"
+msgstr "Related posts association"
 
 #: lib/customizer.php:1050
 msgid "関連記事をカテゴリに関連付けるか、タグに関連付けるか。"
-msgstr "Associate related posts with categories or with tags?"
+msgstr "Associate related posts with categories or tags?"
 
 #: lib/customizer.php:1054
 msgid "カテゴリに関連付け（デフォルト）"
@@ -1191,7 +1194,8 @@ msgstr "[Previ] [Next] navigation display"
 
 #: lib/customizer.php:1082
 msgid "投稿にページ送りナビを表示するか。※固定ページには表示されません。"
-msgstr "Display page feed navigation on posts. * It is not displayed on pages."
+msgstr ""
+"Display page feed navigation on post pages. * It is not displayed on pages."
 
 #: lib/customizer.php:1095
 msgid "[前ページ] [次ページ] ナビタイプ"
@@ -1199,7 +1203,7 @@ msgstr "[Previ] [Next] navigation type"
 
 #: lib/customizer.php:1096
 msgid "ページ送りナビの表示スタイルの設定です。"
-msgstr "It is setting of the display style of page feed navigation."
+msgstr "It is display style setting of page feed navigation."
 
 #: lib/customizer.php:1101
 msgid "サムネイル付き"
@@ -1207,11 +1211,11 @@ msgstr "With thumbnail"
 
 #: lib/customizer.php:1113
 msgid "固定ページにパンくずリストを表示"
-msgstr "Display breadcrumbs on pages"
+msgstr "Breadcrumbs display (Pages)"
 
 #: lib/customizer.php:1114
 msgid "固定ページにページの親子関係を利用したパンくずリストを表示するか。"
-msgstr "Display breadcrumbs on pages. using the parent-child relationship."
+msgstr "Display breadcrumbs on pages. using a parent-child relationship."
 
 #: lib/customizer.php:1124
 msgid "レイアウト（モバイル）"
@@ -1219,15 +1223,15 @@ msgstr "Layout (Mobile)"
 
 #: lib/customizer.php:1125
 msgid "モバイルのレイアウトに関する設定です。"
-msgstr "It is a setting related to mobile layout."
+msgstr "It is a settings related to mobile layout."
 
 #: lib/customizer.php:1136
 msgid "タブレットはモバイル表示"
-msgstr "Mobile display by tablet"
+msgstr "Tablet display as mobile site"
 
 #: lib/customizer.php:1137
 msgid "タブレット端末をモバイルとして表示するか。"
-msgstr "Display tablet devices as mobile?"
+msgstr "Be same display between smartphone and tablet."
 
 #: lib/customizer.php:1146
 msgid "アコーディオン（デフォルト）"
@@ -1259,15 +1263,15 @@ msgstr "Slide in menu dark (bottom)"
 
 #: lib/customizer.php:1162
 msgid "モバイルメニュータイプ"
-msgstr "Mobile Menu Type"
+msgstr "Mobile menu type"
 
 #: lib/customizer.php:1163
 msgid ""
 "モバイル時、メニューボタンを押したときのスタイルです。（※スライドイン機能は"
 "「完全レスポンシブ」機能がオンの時は利用できません）"
 msgstr ""
-"The style when you press the mobile menu button. (* Slide in menu can not be "
-"used when \"Complete Responsive\" is on)"
+"Select the type of mobile menu. (* Slide in menu can not be used when "
+"\"Complete Responsive\" is on)"
 
 #: lib/customizer.php:1177
 msgid "スライドインメニューを日本語表示"
@@ -1283,11 +1287,11 @@ msgstr ""
 
 #: lib/customizer.php:1191
 msgid "モバイルで1ページに表示する最大投稿数（デフォルト：10）"
-msgstr "Blog pages show at most on mobile (default: 10)"
+msgstr "Blog pages show on mobile (default: 10)"
 
 #: lib/customizer.php:1192
 msgid "モバイルのインデックスリストに表示される最大投稿数を設定します。"
-msgstr "Post count displayed on mobile Index page."
+msgstr "Post count displayed on a mobile Index page."
 
 #: lib/customizer.php:1205
 msgid "モバイル本文文字サイズ"
@@ -1295,7 +1299,7 @@ msgstr "Mobile content font size"
 
 #: lib/customizer.php:1206
 msgid "主にスマホ表示時の本文文字サイズを設定します。"
-msgstr "set the main column font size when displaying smartphones."
+msgstr "Set the main column font size when displaying smartphones."
 
 #: lib/customizer.php:1210
 msgid "14px"
@@ -1331,7 +1335,7 @@ msgstr "This is a image settings displayed in \"posts / pages\"."
 
 #: lib/customizer.php:1237
 msgid "アイキャッチを自動設定"
-msgstr "Automatically set Featured Image"
+msgstr "Automatically Featured Image"
 
 #: lib/customizer.php:1238
 msgid ""
@@ -1339,12 +1343,11 @@ msgid ""
 "php.iniのallow_url_fopenがOffの時は外部サーバーから画像を取得できない可能性が"
 "あります。）"
 msgstr ""
-"Automatically set Featured Image by using a first image in pageeeeeeeeeee "
-"content."
+"Automatically set Featured Image by using a first image in a page content."
 
 #: lib/customizer.php:1250
 msgid "Lazy Loadを有効（画像の遅延読み込み）"
-msgstr "Enable Lazy Load (delayed loading of images)"
+msgstr "Lazy Load enable"
 
 #: lib/customizer.php:1251
 msgid ""
@@ -1363,15 +1366,15 @@ msgstr "Enable fade-in effect."
 
 #: lib/customizer.php:1278
 msgid "Lazy Loadで読み込むタイミング"
-msgstr "When to load with Lazy Load"
+msgstr "Lazy Load timing"
 
 #: lib/customizer.php:1279
 msgid "ページスクロールのどのタイミングで画像を読み込むかを設定します。"
-msgstr "Sets the timing of page scrolling to read images."
+msgstr "Set the timing of page scrolling to load images."
 
 #: lib/customizer.php:1283
 msgid "スクロール表示と同時"
-msgstr "When it appears on the screen"
+msgstr "On the screen"
 
 #: lib/customizer.php:1284
 msgid "200px手前"
@@ -1400,8 +1403,10 @@ msgid ""
 "lightbox-jquery\" target=\"_blank\">Lightbox</a>、<a href=\"http://nelog.jp/"
 "lity-js\" target=\"_blank\">Lity</a>"
 msgstr ""
-"Set the type of light box (image zoom effect). Each is a jQuery library "
-"name. For details, please refer to the link destination."
+"Set the type of light box. Each is a jQuery library name. For details, "
+"please refer to the link destination. <a href=\"http://nelog.jp/lightbox-"
+"jquery\" target=\"_blank\">Lightbox</a>, <a href=\"http://nelog.jp/lity-js\" "
+"target=\"_blank\">Lity</a>"
 
 #: lib/customizer.php:1304 lib/customizer.php:1342
 msgid "拡大効果なし"
@@ -1417,11 +1422,11 @@ msgstr "Lity (light)"
 
 #: lib/customizer.php:1318
 msgid "画像効果"
-msgstr "Image effect"
+msgstr "Image display effect"
 
 #: lib/customizer.php:1319
 msgid "本文画像の枠線の設定です。"
-msgstr "setting of border line of images in page content."
+msgstr "Setting of border line of images in page content."
 
 #: lib/customizer.php:1323
 msgid "なし（デフォルト）"
@@ -1437,7 +1442,7 @@ msgstr "Shadow"
 
 #: lib/customizer.php:1356
 msgid "Alt属性値をキャプション表示"
-msgstr "Display Alt attribute value as caption"
+msgstr "Alt attribute display"
 
 #: lib/customizer.php:1357
 msgid ""
@@ -1445,16 +1450,16 @@ msgid ""
 "を設定します。<br><a href=\"https://wp-simplicity.com/alt-caption/\" target="
 "\"_blank\">機能説明</a>"
 msgstr ""
-"When hovering over a image with mouse hover, it sets whether or not to "
-"display a caption using the image's Alt attribute value."
+"When hovering over a image with mouse hover, it display a caption using the "
+"image's Alt attribute value."
 
 #: lib/customizer.php:1361
 msgid "表示しない（デフォルト）"
-msgstr "Do not display (default)"
+msgstr "No display (default)"
 
 #: lib/customizer.php:1362
 msgid "管理者のみ（ログインユーザーのみ）"
-msgstr "Admin only (logged-in user only)"
+msgstr "Admin only (logged-in users only)"
 
 #: lib/customizer.php:1363
 msgid "全てのユーザー"
@@ -1474,7 +1479,7 @@ msgstr ""
 
 #: lib/customizer.php:1385
 msgid "フロントページタイトル後にキャッチフレーズを付加"
-msgstr "Add a tagline after the front page title"
+msgstr "Add tagline after front page title"
 
 #: lib/customizer.php:1386
 msgid "「サイト名｜キャッチフレーズ」のようなタイトルになります。"
@@ -1482,15 +1487,15 @@ msgstr "It will be a title like \"Site Title | Tagline\"."
 
 #: lib/customizer.php:1399
 msgid "投稿・固定ページタイトル後にサイト名を付加"
-msgstr "Add site name to page title"
+msgstr "Add site name after page title"
 
 #: lib/customizer.php:1400
 msgid "「投稿・固定ページタイトル｜サイト名」のようなタイトルになります。"
-msgstr "It will be a title like \"Post / Page Title | Site Title\"."
+msgstr "It will be a title like \"Page Title | Site Name\"."
 
 #: lib/customizer.php:1413
 msgid "トップページのメタディスクリプション"
-msgstr "Top page meta description"
+msgstr "Front page meta description"
 
 #: lib/customizer.php:1414
 msgid ""
@@ -1498,31 +1503,30 @@ msgid ""
 "（※無記入で表示されません。固定ページをトップにしている場合は固定ページのもの"
 "が表示されます。）"
 msgstr ""
-"Set a meta description displayed on the front page. (* It is not displayed "
-"with blanks. When a page is set as the front, the meta description set on "
-"the page is displayed.)"
+"Set the meta description displayed on the site front page. (* It is not "
+"displayed with blanks.)"
 
 #: lib/customizer.php:1428
 msgid "トップページのメタキーワード"
-msgstr "Top page meta keyword"
+msgstr "Front page meta keyword"
 
 #: lib/customizer.php:1429
 msgid ""
 "トップページの一覧のみに表示されるメタキーワードを設定してください。（※無記入"
 "で表示されません。固定ページをトップにしている場合は表示されません。）"
 msgstr ""
-"Set meta keywords displayed on front page. (* It is not displayed with "
-"blanks, it is not displayed when a page is front.)"
+"Set the meta keywords displayed on front page. (* It is not displayed with "
+"blanks,)"
 
 #: lib/customizer.php:1442
 msgid "分割ページにrel=\"next\"/\"prev\"タグの追加"
-msgstr "Add rel=\"next\"/\"prev\" tag on split page"
+msgstr "Add [rel=\"next\"/\"prev\"] tag on split page"
 
 #: lib/customizer.php:1443
 msgid ""
 "「投稿・固定ページの分割ページ（マルチページ）」と「トップページ一覧やカテゴ"
 "リ等の分割ページ」のみにrel=\"next\"/\"prev\"タグを追加します。"
-msgstr "Add \"rel =\" next \"/\" prev \"tag to multi-page."
+msgstr "Add [rel=\"next\"/\"prev\"] tag to multi-page."
 
 #: lib/customizer.php:1456
 msgid "カテゴリページの2ページ目以降をnoindexとする"
@@ -1543,8 +1547,8 @@ msgid ""
 "検索エンジンに伝える日時を「公開日」にするか「更新日」にするか。（※投稿・固定"
 "ページのみ）"
 msgstr ""
-"Send the search engines \"posted date\" or \"update date\". (* Posts / Pages "
-"only)"
+"Acquaint search engines \"posted date\" or \"updated date\". (* Posts / "
+"Pages only)"
 
 #: lib/customizer.php:1475
 msgid "公開日"
@@ -1560,7 +1564,7 @@ msgstr "Update date (only display updated day) beta"
 
 #: lib/customizer.php:1489
 msgid "投稿ページにメタディスクリプションを挿入"
-msgstr "Insert meta description on posts"
+msgstr "Insert meta description (posts)"
 
 #: lib/customizer.php:1490
 msgid ""
@@ -1570,7 +1574,7 @@ msgstr "Insert a meta description tag in a post page."
 
 #: lib/customizer.php:1503
 msgid "投稿ページにメタキーワードを挿入"
-msgstr "Insert meta keyword on posts"
+msgstr "Insert meta keyword (posts)"
 
 #: lib/customizer.php:1504
 msgid ""
@@ -1579,7 +1583,7 @@ msgstr "Insert a meta keywords tag in a post page."
 
 #: lib/customizer.php:1517
 msgid "カテゴリページにメタディスクリプションを挿入"
-msgstr "Insert meta description in category page"
+msgstr "Insert meta description (category pages)"
 
 #: lib/customizer.php:1518
 msgid ""
@@ -1589,7 +1593,7 @@ msgstr "Insert a meta description tag in a category page."
 
 #: lib/customizer.php:1531
 msgid "カテゴリページにメタキーワードを挿入"
-msgstr "Insert meta keyword in category page"
+msgstr "Insert meta keyword (category pages)"
 
 #: lib/customizer.php:1532
 msgid ""
