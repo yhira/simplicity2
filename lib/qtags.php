@@ -9,24 +9,23 @@ function add_quicktags_to_text_editor() {
   if (wp_script_is('quicktags')){?>
     <script>
       QTags.addButton('qt-pre','pre','<pre>','</pre>');
-      QTags.addButton('qt-bold',__( '太字', 'simplicity2' ),'<span class="bold">','</span>');
-      QTags.addButton('qt-red',__( '赤字', 'simplicity2' ),'<span class="red">','</span>');
-      QTags.addButton('qt-bold-red',__( '太い赤字', 'simplicity2' ),'<span class="bold-red">','</span>');
-      QTags.addButton('qt-red-under',__( '赤アンダーライン', 'simplicity2' ),'<span class="red-under">','</span>');
-      QTags.addButton('qt-marker',__( '黄色マーカー', 'simplicity2' ),'<span class="marker">','</span>');
-      QTags.addButton('qt-marker-under',__( '黄色アンダーラインマーカー', 'simplicity2' ),'<span class="marker-under">','</span>');
-      QTags.addButton('qt-strike',__( '打ち消し線', 'simplicity2' ),'<span class="strike">','</span>');
-      QTags.addButton('qt-ref',__( 'バッジ', 'simplicity2' ),'<span class="ref">','</span>');
-      QTags.addButton('qt-keyboard-key',__( 'キーボード', 'simplicity2' ),'<span class="keyboard-key">','</span>');
-      QTags.addButton('qt-information',__( '補足説明(i)', 'simplicity2' ),'<div class="information">','</div>');
-      QTags.addButton('qt-question',__( '補足説明(?)', 'simplicity2' ),'<div class="question">','</div>');
-      QTags.addButton('qt-alert',__( '補足説明(!)', 'simplicity2' ),'<div class="alert">','</div>');
-      QTags.addButton('qt-sp-primary',__( 'primary', 'simplicity2' ),'<div class="sp-primary">','</div>');
-      QTags.addButton('qt-sp-success',__( 'success', 'simplicity2' ),'<div class="sp-success">','</div>');
+      QTags.addButton('qt-bold','<?php _e( '太字', 'simplicity2' ) ?>','<span class="bold">','</span>');
+      QTags.addButton('qt-red','<?php _e( '赤字', 'simplicity2' ); ?>','<span class="red">','</span>');
+      QTags.addButton('qt-bold-red','<?php _e( '太い赤字', 'simplicity2' ); ?>','<span class="bold-red">','</span>');
+      QTags.addButton('qt-red-under','<?php _e( '赤アンダーライン', 'simplicity2' ); ?>','<span class="red-under">','</span>');
+      QTags.addButton('qt-marker','<?php _e( '黄色マーカー', 'simplicity2' ); ?>','<span class="marker">','</span>');
+      QTags.addButton('qt-marker-under','<?php _e( '黄色アンダーラインマーカー', 'simplicity2' ); ?>','<span class="marker-under">','</span>');
+      QTags.addButton('qt-strike','<?php _e( '打ち消し線', 'simplicity2' ); ?>','<span class="strike">','</span>');
+      QTags.addButton('qt-ref','<?php _e( 'バッジ', 'simplicity2' ); ?>','<span class="ref">','</span>');
+      QTags.addButton('qt-keyboard-key','<?php _e( 'キーボード', 'simplicity2' ); ?>','<span class="keyboard-key">','</span>');
+      QTags.addButton('qt-information','<?php _e( '補足情報(i)', 'simplicity2' ); ?>','<div class="information">','</div>');
+      QTags.addButton('qt-question','<?php _e( '補足情報(?)', 'simplicity2' ); ?>','<div class="question">','</div>');
+      QTags.addButton('qt-alert','<?php _e( '補足情報(!)', 'simplicity2' ); ?>','<div class="alert">','</div>');
+      QTags.addButton('qt-sp-primary','<?php _e( 'primary', 'simplicity2' ); ?>','<div class="sp-primary">','</div>');
+      QTags.addButton('qt-sp-success','<?php _e( 'success', 'simplicity2' ); ?>','<div class="sp-success">','</div>');
       QTags.addButton('qt-sp-info','info','<div class="sp-info">','</div>');
-      QTags.addButton('qt-sp-warning',__( 'warning', 'simplicity2' ),'<div class="sp-warning">','</div>');
-      QTags.addButton('qt-sp-danger',__( 'danger', 'simplicity2' ),'<div class="sp-danger">','</div>');
-      QTags.addButton('qt-bold','','<div class="bold">','</div>');
+      QTags.addButton('qt-sp-warning','<?php _e( 'warning', 'simplicity2' ); ?>','<div class="sp-warning">','</div>');
+      QTags.addButton('qt-sp-danger','<?php _e( 'danger', 'simplicity2' ); ?>','<div class="sp-danger">','</div>');
     </script>
   <?php
   }
@@ -90,17 +89,17 @@ function initialize_tinymce_styles($init_array) {
       'classes' => 'keyboard-key'
     ),
     array(
-      'title' => __( '補足情報(i)ボックス', 'simplicity2' ),
+      'title' => __( '補足情報(i)', 'simplicity2' ),
       'block' => 'div',
       'classes' => 'information'
     ),
     array(
-      'title' => __( '補足情報(?)ボックス', 'simplicity2' ),
+      'title' => __( '補足情報(?)', 'simplicity2' ),
       'block' => 'div',
       'classes' => 'question'
     ),
     array(
-      'title' => __( '補足情報(!)ボックス', 'simplicity2' ),
+      'title' => __( '補足情報(!)', 'simplicity2' ),
       'block' => 'div',
       'classes' => 'alert'
     ),

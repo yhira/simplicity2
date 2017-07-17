@@ -1349,11 +1349,11 @@ if ( !function_exists( 'get_archive_chapter_text' ) ):
 function get_archive_chapter_text(){
   $chapter_text = null;
   //アーカイブタイトル前
-  $chapter_text .= '<span class="archive-title-pb">「</span><span class="archive-title-text">';
+  $chapter_text .= '<span class="archive-title-pb">'.__( '「', 'simplicity2' ).'</span><span class="archive-title-text">';
   //アーカイブタイトルの取得
   $chapter_text .= get_archive_chapter_title();
   //アーカイブタイトル後
-  $chapter_text .= '</span><span class="archive-title-pa">」</span><span class="archive-title-list-text">'.get_theme_text_list().'</span>';
+  $chapter_text .= '</span><span class="archive-title-pa">'.__( '」', 'simplicity2' ).'</span><span class="archive-title-list-text">'.get_theme_text_list().'</span>';
   //返り値として返す
   return $chapter_text;
 }

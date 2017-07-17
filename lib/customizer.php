@@ -2112,7 +2112,7 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'fb_admins', array(
     'settings' => 'fb_admins',
-    'label' =>'FacebookOGP管理者ID（fb:admins）' ,
+    'label' => __( 'Facebook OGP 管理者ID（fb:admins）', 'simplicity2' ) ,
     'description' => is_tips_visible() ? __( 'Facebookの管理者IDを入力してください。（※要Facebookユーザー登録）', 'simplicity2' ) : '',
     'section' => 'sns_section',
     'type' => 'text',
@@ -2186,10 +2186,12 @@ function theme_customize_register($wp_customize) {
     'sanitize_callback' => 'sanitize_text',
   ));
   $radio_items = array();
-  if ( !is_responsive_enable() ) $radio_items += array('under_relations' => '関連記事下（デフォルト）');
-  $radio_items += array('sidebar_top' => 'サイドバートップ',
-      'in_content' => '本文記事中（H2見出し手前）');
-  if ( is_ads_performance_visible() && !is_responsive_enable() ) $radio_items += array('content_top'=>'コンテンツ上部にバナー表示');
+  if ( !is_responsive_enable() ) $radio_items += array('under_relations' => __( '関連記事下（デフォルト）', 'simplicity2' ));
+  $radio_items += array(
+      'sidebar_top' => __( 'サイドバートップ', 'simplicity2' ),
+      'in_content' => __( '本文記事中（H2見出し手前）', 'simplicity2' )
+  );
+  if ( is_ads_performance_visible() && !is_responsive_enable() ) $radio_items += array('content_top' => __( 'コンテンツ上部にバナー表示', 'simplicity2' ));
   //$label = ( is_responsive_enable() ? 'レスポンシブ広告位置の設定' :  '記事下以外の広告位置');
   $wp_customize->add_control( 'ads_position', array(
     'settings' => 'ads_position',
@@ -3000,7 +3002,7 @@ function theme_customize_register($wp_customize) {
   if(class_exists('SP_Customizer_Textarea_Control')):
     $wp_customize->add_control( new SP_Customizer_Textarea_Control( $wp_customize, 'amp_adsense_code', array(
       'settings'  => 'amp_adsense_code',
-      'label'     => 'AMP用AdSenseコード',
+      'label'     => __( 'AMP用AdSenseコード', 'simplicity2' ),
     'description' => is_tips_visible() ? __( 'AMP用のAdSenseコードを入力します。ここに入力をしていない場合は、ウィジェット設定の「広告 300×250」のIDを利用してアドセンスが表示されます。双方とも入力されている場合は、こちらのコードが優先されます。<a href="https://wp-simplicity.com/amp-adsense/" target="_blank">コード設定方法</a>', 'simplicity2' ) : '',
       'section'   => 'amp_section',
       'priority' => 20,
@@ -3126,7 +3128,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'theme_text_related_entry', array(
     'settings' => 'theme_text_related_entry',
     'label' => __( '関連記事タイトルを変更', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( '関連記事のH3見出しを変更します。', 'simplicity2' ) : '',
+    'description' => is_tips_visible() ? __( '関連記事のH2見出しを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 100,
@@ -3140,7 +3142,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'theme_text_comments', array(
     'settings' => 'theme_text_comments',
     'label' => __( 'コメントタイトルを変更', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( 'コメント欄ののH3見出しを変更します。', 'simplicity2' ) : '',
+    'description' => is_tips_visible() ? __( 'コメント欄ののH2見出しを変更します。', 'simplicity2' ) : '',
     'section' => 'theme_text_section',
     'type' => 'text',
     'priority'=> 200,
