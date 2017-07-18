@@ -6,8 +6,8 @@ class PcDoubleAdsWidgetItem extends WP_Widget {
   function __construct() {
     parent::__construct(
       'pc_double_ads', //ウイジェット名
-      '[S] パソコン用広告ダブルレクタングルウィジェット',
-      array('description' => 'パソコンのみで表示されるSimplicity用のダブルレクタングル広告ウィジェットです。（※アドセンスの場合は広告コードのみを記入してください。）')
+      __( '[S] PC用広告ダブルレクタングル', 'simplicity2' ),
+      array('description' => __( 'パソコンのみで表示されるSimplicity用のダブルレクタングル広告ウィジェットです。（※アドセンスの場合は広告コードのみを記入してください。）', 'simplicity2' ))
     );
   }
   function widget($args, $instance) {
@@ -55,23 +55,23 @@ class PcDoubleAdsWidgetItem extends WP_Widget {
 <?php //広告入力フォーム ?>
 <p>
   <label for="<?php echo $this->get_field_id('ad1_text'); ?>">
-    広告タグ（左）
+    <?php _e( '広告タグ（左）', 'simplicity2' ) ?>
   </label>
   <textarea class="widefat" id="<?php echo $this->get_field_id('ad1_text'); ?>" name="<?php echo $this->get_field_name('ad1_text'); ?>" cols="20" rows="16"><?php echo $ad1; ?></textarea>
 </p>
 <?php //広告入力フォーム ?>
 <p>
   <label for="<?php echo $this->get_field_id('ad2_text'); ?>">
-    広告タグ（右）
+    <?php _e( '広告タグ（右）', 'simplicity2' ) ?>
   </label>
   <textarea class="widefat" id="<?php echo $this->get_field_id('ad2_text'); ?>" name="<?php echo $this->get_field_name('ad2_text'); ?>" cols="20" rows="16"><?php echo $ad2; ?></textarea>
 </p>
 <?php //広告除外設定を適用するか ?>
 <p>
   <label for="<?php echo $this->get_field_id('is_exclude_ads_enable'); ?>">
-  <?php echo('広告除外設定の適用'); ?>
+    <?php _e( '広告除外設定の適用', 'simplicity2' ) ?>
   </label><br />
-  <input class="widefat" id="<?php echo $this->get_field_id('is_exclude_ads_enable'); ?>" name="<?php echo $this->get_field_name('is_exclude_ads_enable'); ?>" type="checkbox" value="on"<?php echo ($is_exclude_ads_enable ? ' checked="checked"' : ''); ?> />カスタマイザーの広告除外設定を適用する
+  <input class="widefat" id="<?php echo $this->get_field_id('is_exclude_ads_enable'); ?>" name="<?php echo $this->get_field_name('is_exclude_ads_enable'); ?>" type="checkbox" value="on"<?php echo ($is_exclude_ads_enable ? ' checked="checked"' : ''); ?> /><?php _e( 'カスタマイザーの広告除外設定を適用する', 'simplicity2' ) ?>
 </p>
 <?php
   }

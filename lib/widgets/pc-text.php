@@ -6,8 +6,8 @@ class PcTextWidgetItem extends WP_Widget {
   function __construct() {
      parent::__construct(
       'pc_text',
-      '[S] パソコン用テキストウィジェット',//ウイジェット名
-      array('description' => 'パソコンのみで表示されるSimplicity用のテキストウィジェットです。')
+      __( '[S] PC用テキスト', 'simplicity2' ),//ウイジェット名
+      array('description' => __( 'パソコンのみで表示されるSimplicity用のテキストウィジェットです。', 'simplicity2' ))
     );
   }
   function widget($args, $instance) {
@@ -51,14 +51,14 @@ class PcTextWidgetItem extends WP_Widget {
     <?php //タイトル入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('title_pc_text'); ?>">
-      タイトル
+        <?php _e( 'タイトル', 'simplicity2' ) ?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('title_pc_text'); ?>" name="<?php echo $this->get_field_name('title_pc_text'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
     <?php //テキスト入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('text_pc_text'); ?>">
-      テキスト
+        <?php _e( 'テキスト', 'simplicity2' ) ?>
       </label>
       <textarea class="widefat" id="<?php echo $this->get_field_id('text_pc_text'); ?>" name="<?php echo $this->get_field_name('text_pc_text'); ?>" cols="20" rows="16"><?php echo $text; ?></textarea>
     </p>

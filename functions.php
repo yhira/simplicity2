@@ -1,5 +1,16 @@
 <?php
 require_once(ABSPATH . 'wp-admin/includes/file.php');//WP_Filesystemの使用
+//-----------------------------------
+//Wordpressマルチ言語化の設定
+global $locale;
+//言語の最初の文字がenだったら全てen.moを呼び出す
+//if (preg_match('/en/', $locale)) {
+if (strpos($locale,'en') !== false) {
+  $locale = 'en';
+}
+//Simplicityの多言語化
+load_theme_textdomain( 'simplicity2', get_template_directory() . '/languages' );
+//-----------------------------------
 include 'lib/php-html-css-js-minifier.php'; //縮小化ライブラリ
 include 'lib/customizer.php';//テーマカスタマイザー関係の関数
 include 'lib/amp.php';       //AMP関係の関数
@@ -93,8 +104,6 @@ add_theme_support( 'custom-background', $custom_background_defaults );
 //<link rel='https://api.w.org/' href='http:/xxxx/wordpress/wp-json/' />
 remove_action( 'wp_head', 'rest_output_link_wp_head' );
 
-//Simplicityの多言語化
-load_theme_textdomain( 'simplicity2', get_template_directory() . '/languages' );
 
 // // Webサイト全体の画像をResponsive images機能の対象から外す
 // add_filter( 'wp_calculate_image_srcset', '__return_false' );
@@ -1340,11 +1349,11 @@ if ( !function_exists( 'get_archive_chapter_text' ) ):
 function get_archive_chapter_text(){
   $chapter_text = null;
   //アーカイブタイトル前
-  $chapter_text .= '<span class="archive-title-pb">「</span><span class="archive-title-text">';
+  $chapter_text .= '<span class="archive-title-pb">'.__( '「', 'simplicity2' ).'</span><span class="archive-title-text">';
   //アーカイブタイトルの取得
   $chapter_text .= get_archive_chapter_title();
   //アーカイブタイトル後
-  $chapter_text .= '</span><span class="archive-title-pa">」</span><span class="archive-title-list-text">'.get_theme_text_list().'</span>';
+  $chapter_text .= '</span><span class="archive-title-pa">'.__( '」', 'simplicity2' ).'</span><span class="archive-title-list-text">'.get_theme_text_list().'</span>';
   //返り値として返す
   return $chapter_text;
 }
@@ -1358,7 +1367,24 @@ endif;
 //     return $instance;
 // }
 
-// function set_english_locale( $lang ) {
+// //英語の言語設定を全てenにする
+// if ( !function_exists( 'set_simplicity_english_locale' ) ):
+// function set_simplicity_english_locale( $lang ) {
+//   // if (preg_match('/^en/', $lang)) {
+//   //   return 'en';
+//   // }
 //   return 'en';
 // }
-// add_filter( 'locale', 'set_english_locale' );
+// endif;
+
+// add_filter( 'locale', 'set_simplicity_english_locale' );
+
+// function load_textdomain_mofile_in_english($mofile, $domain){
+//   if ($domain == 'simplicity2') {
+//     var_dump($mofile);
+//   }
+//   //var_dump($mofile);
+//   //return $mofile;
+//   return get_template_directory() . '/languages/en.mo';
+// }
+// add_filter( 'load_textdomain_mofile', 'load_textdomain_mofile_in_english', 10 ,2 );

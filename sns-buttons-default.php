@@ -19,7 +19,7 @@
     </li>
     <?php endif;?>
     <?php if ( is_hatena_btn_visible() )://はてなボタンを表示するか ?>
-    <li class="hatena-btn"> <a href="//b.hatena.ne.jp/entry/<?php the_permalink(); ?>" class="hatena-bookmark-button" data-hatena-bookmark-title="<?php the_title(); ?>｜<?php bloginfo('name'); ?>" data-hatena-bookmark-layout="<?php echo ($g_is_small ? 'standard' : 'vertical-large') ?>" title="このエントリーをはてなブックマークに追加"><img src="//b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" style="border: none;" /></a><script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" async="async"></script>
+    <li class="hatena-btn"> <a href="//b.hatena.ne.jp/entry/<?php the_permalink(); ?>" class="hatena-bookmark-button" data-hatena-bookmark-title="<?php the_title(); ?>｜<?php bloginfo('name'); ?>" data-hatena-bookmark-layout="<?php echo ($g_is_small ? 'standard' : 'vertical-large') ?>"><img src="//b.st-hatena.com/images/entry-button/button-only.gif" alt="<?php _e( 'このエントリーをはてなブックマークに追加', 'simplicity2' ) ?>" style="border: none;" /></a><script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" async="async"></script>
     </li>
     <?php endif; ?>
     <?php if ( is_pocket_btn_visible() )://pocketボタンを表示するか ?>

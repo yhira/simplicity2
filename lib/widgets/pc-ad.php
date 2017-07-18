@@ -6,8 +6,8 @@ class PcAdWidgetItem extends WP_Widget {
   function __construct() {
     parent::__construct(
       'pc_ad', //ウイジェット名
-      '[S] パソコン用広告ウィジェット',
-      array('description' => 'パソコンのみで表示されるSimplicity用の広告ウィジェットです。（※アドセンスの場合は広告コードのみを記入してください。）')
+      __( '[S] PC用広告', 'simplicity2' ),
+      array('description' => __( 'パソコンのみで表示されるSimplicity用の広告ウィジェットです。（※アドセンスの場合は広告コードのみを記入してください。）', 'simplicity2' ))
     );
   }
   function widget($args, $instance) {
@@ -58,13 +58,13 @@ class PcAdWidgetItem extends WP_Widget {
 <?php //広告入力フォーム ?>
 <p>
   <label for="<?php echo $this->get_field_id('ad_text'); ?>">
-    広告タグ
+    <?php _e( '広告タグ', 'simplicity2' ) ?>
   </label>
   <textarea class="widefat" id="<?php echo $this->get_field_id('ad_text'); ?>" name="<?php echo $this->get_field_name('ad_text'); ?>" cols="20" rows="16"><?php echo $ad; ?></textarea>
 </p>
 <p>
   <label for="<?php echo $this->get_field_id('margin_left_px'); ?>">
-    左マージンのピクセル数（－指定で左に移動）
+    <?php _e( '左マージンのピクセル数（－指定で左に移動）', 'simplicity2' ) ?>
   </label>
   <?php if ( empty($margin_left_px) ){
     $margin_left_px = 0;
@@ -74,9 +74,9 @@ class PcAdWidgetItem extends WP_Widget {
 <?php //広告除外設定を適用するか ?>
 <p>
   <label for="<?php echo $this->get_field_id('is_exclude_ads_enable'); ?>">
-  <?php echo('広告除外設定の適用'); ?>
+    <?php _e( '広告除外設定の適用', 'simplicity2' ) ?>
   </label><br />
-  <input class="widefat" id="<?php echo $this->get_field_id('is_exclude_ads_enable'); ?>" name="<?php echo $this->get_field_name('is_exclude_ads_enable'); ?>" type="checkbox" value="on"<?php echo ($is_exclude_ads_enable ? ' checked="checked"' : ''); ?> />カスタマイザーの広告除外設定を適用する
+  <input class="widefat" id="<?php echo $this->get_field_id('is_exclude_ads_enable'); ?>" name="<?php echo $this->get_field_name('is_exclude_ads_enable'); ?>" type="checkbox" value="on"<?php echo ($is_exclude_ads_enable ? ' checked="checked"' : ''); ?> /><?php _e( 'カスタマイザーの広告除外設定を適用する', 'simplicity2' ) ?>
 </p>
 <?php
   }

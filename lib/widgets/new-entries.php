@@ -6,8 +6,8 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
   function __construct() {
     parent::__construct(
       'new_entries',
-      '[S] 新着記事',
-      array('description' => '新着記事リストを表示するSimplicityウィジェットです。')
+      __( '[S] 新着記事', 'simplicity2' ),
+      array('description' => __( '新着記事リストを表示するSimplicityウィジェットです。', 'simplicity2' ))
     );//ウイジェット名
   }
   function widget($args, $instance) {
@@ -15,7 +15,7 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
     //ウィジェットモード（全ての新着記事を表示するか、カテゴリ別に表示するか）
     $widget_mode = apply_filters( 'widget_mode', empty($instance['widget_mode']) ? 'all' : $instance['widget_mode'] );
     //タイトル名を取得
-    $title_new = apply_filters( 'widget_title_new', empty($instance['title_new']) ? '新着記事' : $instance['title_new'] );
+    $title_new = apply_filters( 'widget_title_new', empty($instance['title_new']) ? __( '新着記事', 'simplicity2' ) : $instance['title_new'] );
     //表示数を取得
     $entry_count = apply_filters( 'widget_entry_count', empty($instance['entry_count']) ? 5 : $instance['entry_count'] );
     $is_top_visible = apply_filters( 'widget_is_top_visible', empty($instance['is_top_visible']) ? false : $instance['is_top_visible'] );
@@ -48,9 +48,9 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
         echo $title_new;//タイトルが設定されている場合は使用する
       } else {
         if ( $widget_mode == 'all' ) {//全ての表示モードの時は
-          echo '新着記事';
+          echo __( '新着記事', 'simplicity2' );
         } else {
-          echo 'カテゴリー別新着記事';
+          echo __( 'カテゴリー別新着記事', 'simplicity2' );
         }
         //echo '新着記事';
       }
@@ -95,41 +95,41 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
     <?php //ウィジェットモード（全てか、カテゴリ別か） ?>
     <p>
       <label for="<?php echo $this->get_field_id('widget_mode'); ?>">
-      <?php echo('表示モード'); ?>
+        <?php _e( '表示モード', 'simplicity2' ) ?>
       </label><br />
-      <input class="widefat" id="<?php echo $this->get_field_id('widget_mode'); ?>" name="<?php echo $this->get_field_name('widget_mode'); ?>"  type="radio" value="all" <?php echo ( ($widget_mode == 'all' || !$widget_mode ) ? ' checked="checked"' : ""); ?> />全ての新着記事（全ページで表示）<br />
-      <input class="widefat" id="<?php echo $this->get_field_id('widget_mode'); ?>" name="<?php echo $this->get_field_name('widget_mode'); ?>"  type="radio" value="category"<?php echo ($widget_mode == 'category' ? ' checked="checked"' : ""); ?> />カテゴリ別新着記事（投稿・カテゴリで表示）<br />
+      <input class="widefat" id="<?php echo $this->get_field_id('widget_mode'); ?>" name="<?php echo $this->get_field_name('widget_mode'); ?>"  type="radio" value="all" <?php echo ( ($widget_mode == 'all' || !$widget_mode ) ? ' checked="checked"' : ""); ?> /><?php _e( '全ての新着記事（全ページで表示）', 'simplicity2' ) ?><br />
+      <input class="widefat" id="<?php echo $this->get_field_id('widget_mode'); ?>" name="<?php echo $this->get_field_name('widget_mode'); ?>"  type="radio" value="category"<?php echo ($widget_mode == 'category' ? ' checked="checked"' : ""); ?> /><?php _e( 'カテゴリ別新着記事（投稿・カテゴリで表示）', 'simplicity2' ) ?><br />
     </p>
     <?php //タイトル入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('title_new'); ?>">
-      <?php echo('新着記事のタイトル'); ?>
+        <?php _e( '新着記事のタイトル', 'simplicity2' ) ?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('title_new'); ?>" name="<?php echo $this->get_field_name('title_new'); ?>" type="text" value="<?php echo $title_new; ?>" />
     </p>
     <?php //表示数入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('entry_count'); ?>">
-      <?php echo('表示数（半角数字、デフォルト：5）'); ?>
+        <?php _e( '表示数（半角数字、デフォルト：5）', 'simplicity2' ) ?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('entry_count'); ?>" name="<?php echo $this->get_field_name('entry_count'); ?>" type="text" value="<?php echo $entry_count; ?>" />
     </p>
     <?php //表示タイプフォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('entry_type'); ?>">
-      <?php echo('表示タイプ'); ?>
+        <?php _e( '表示タイプ', 'simplicity2' ) ?>
       </label><br />
-      <input class="widefat" id="<?php echo $this->get_field_id('entry_type'); ?>" name="<?php echo $this->get_field_name('entry_type'); ?>"  type="radio" value="default" <?php echo ( ($entry_type == 'default' || !$entry_type ) ? ' checked="checked"' : ""); ?> />デフォルト<br />
-      <input class="widefat" id="<?php echo $this->get_field_id('entry_type'); ?>" name="<?php echo $this->get_field_name('entry_type'); ?>"  type="radio" value="large_thumb"<?php echo ($entry_type == 'large_thumb' ? ' checked="checked"' : ""); ?> />大きなサムネイル<br />
-      <input class="widefat" id="<?php echo $this->get_field_id('entry_type'); ?>" name="<?php echo $this->get_field_name('entry_type'); ?>"  type="radio" value="large_thumb_on"<?php echo ($entry_type == 'large_thumb_on' ? ' checked="checked"' : ""); ?> />タイトルを重ねた大きなサムネイル<br />
+      <input class="widefat" id="<?php echo $this->get_field_id('entry_type'); ?>" name="<?php echo $this->get_field_name('entry_type'); ?>"  type="radio" value="default" <?php echo ( ($entry_type == 'default' || !$entry_type ) ? ' checked="checked"' : ""); ?> /><?php _e( 'デフォルト', 'simplicity2' ) ?><br />
+      <input class="widefat" id="<?php echo $this->get_field_id('entry_type'); ?>" name="<?php echo $this->get_field_name('entry_type'); ?>"  type="radio" value="large_thumb"<?php echo ($entry_type == 'large_thumb' ? ' checked="checked"' : ""); ?> /><?php _e( '大きなサムネイル', 'simplicity2' ) ?><br />
+      <input class="widefat" id="<?php echo $this->get_field_id('entry_type'); ?>" name="<?php echo $this->get_field_name('entry_type'); ?>"  type="radio" value="large_thumb_on"<?php echo ($entry_type == 'large_thumb_on' ? ' checked="checked"' : ""); ?> /><?php _e( 'タイトルを重ねた大きなサムネイル', 'simplicity2' ) ?><br />
     </p>
     <?php //TOPページ表示 ?>
     <?php if ( $widget_mode == 'all' || $widget_mode == null ): ?>
     <p>
       <label for="<?php echo $this->get_field_id('is_top_visible'); ?>">
-      <?php echo('トップページでの表示'); ?>
+        <?php _e( '全てのページで表示', 'simplicity2' ) ?>
       </label><br />
-      <input class="widefat" id="<?php echo $this->get_field_id('is_top_visible'); ?>" name="<?php echo $this->get_field_name('is_top_visible'); ?>" type="checkbox" value="on"<?php echo ($is_top_visible ? ' checked="checked"' : ''); ?> />表示する<br>※新着順のインデックスリストが表示されるトップでも表示する場合はチェックしてください。<br>※「表示モード」が「全ての新着記事」のときのみ有効な機能です。
+      <input class="widefat" id="<?php echo $this->get_field_id('is_top_visible'); ?>" name="<?php echo $this->get_field_name('is_top_visible'); ?>" type="checkbox" value="on"<?php echo ($is_top_visible ? ' checked="checked"' : ''); ?> /><?php _e( '表示する<br>※新着順のインデックスリストが表示されるトップでも表示する場合はチェックしてください。<br>※「表示モード」が「全ての新着記事」のときのみ有効な機能です。', 'simplicity2' ) ?>
     </p>
     <?php endif ?>
 

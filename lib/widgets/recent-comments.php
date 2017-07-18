@@ -6,15 +6,15 @@ class RecentCommentsWidgetItem extends WP_Widget {
   function __construct() {
      parent::__construct(
       'recent_comments',
-      '[S] 最近のコメント',//ウイジェット名
-      array('description' => '最近投稿されたコメントを表示するウィジェットです。')
+      __( '[S] 最近のコメント', 'simplicity2' ),//ウイジェット名
+      array('description' => __( '最近投稿されたコメントを表示するウィジェットです。', 'simplicity2' ))
     );
   }
   function widget($args, $instance) {
     extract( $args );
 
     //タイトル名を取得
-    $title = apply_filters( 'widget_recent_comment_title', empty($instance['title']) ? "最近のコメント" : $instance['title'] );
+    $title = apply_filters( 'widget_recent_comment_title', empty($instance['title']) ? __( '最近のコメント', 'simplicity2' ) : $instance['title'] );
     //コメント表示数
     $count = apply_filters( 'widget_recent_comment_count', empty($instance['count']) ? 5 : absint( $instance['count'] ) );
     //コメント文字数
@@ -30,7 +30,7 @@ class RecentCommentsWidgetItem extends WP_Widget {
         if ($title) {
           echo $title;//タイトルが設定されている場合は使用する
         } else {
-          echo '最近のコメント';
+          echo __( '最近のコメント', 'simplicity2' );
         }
         echo $args['after_title'];
         ?>
@@ -78,7 +78,7 @@ class RecentCommentsWidgetItem extends WP_Widget {
               echo '</dd>';
             }
           } else {
-            echo 'コメントなし';
+            echo __( 'コメントなし', 'simplicity2' );
           }
           ?>
         </dl>
@@ -110,30 +110,30 @@ class RecentCommentsWidgetItem extends WP_Widget {
     <?php //タイトル入力フォーム ?>
     <p>
       <label for="<?php echo $this->get_field_id('title'); ?>">
-      タイトル
+      <?php _e( 'タイトル', 'simplicity2' ) ?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
     <?php //表示するコメント数 ?>
     <p>
       <label for="<?php echo $this->get_field_id('count'); ?>">
-        表示するコメント数
+        <?php _e( '表示するコメント数', 'simplicity2' ) ?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" type="number" min="3" max="30" value="<?php echo $count; ?>" />
     </p>
     <?php //コメント文字数 ?>
     <p>
       <label for="<?php echo $this->get_field_id('str_count'); ?>">
-        コメント文字数
+        <?php _e( 'コメント文字数', 'simplicity2' ) ?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id('str_count'); ?>" name="<?php echo $this->get_field_name('str_count'); ?>" type="number" min="30" value="<?php echo $str_count; ?>" />
     </p>
     <?php //管理者の除外 ?>
     <p>
       <label for="<?php echo $this->get_field_id('author_not_in'); ?>">
-        管理者の除外
+        <?php _e( '管理者の除外', 'simplicity2' ) ?>
       </label><br />
-      <input class="widefat" id="<?php echo $this->get_field_id('author_not_in'); ?>" name="<?php echo $this->get_field_name('author_not_in'); ?>" type="checkbox" value="on"<?php echo ($author_not_in ? ' checked="checked"' : ''); ?> />管理者のコメントを表示しない
+      <input class="widefat" id="<?php echo $this->get_field_id('author_not_in'); ?>" name="<?php echo $this->get_field_name('author_not_in'); ?>" type="checkbox" value="on"<?php echo ($author_not_in ? ' checked="checked"' : ''); ?> /><?php _e( '管理者のコメントを表示しない', 'simplicity2' ) ?>
     </p>
     <?php
   }

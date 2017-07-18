@@ -6,28 +6,28 @@
 add_action('admin_menu', 'add_custom_boxes');
 function add_custom_boxes(){
   //コメントボックス
-  add_meta_box( 'comment_setting_in_page','コメントの設定', 'view_comment_custom_box', 'post', 'side' );
+  add_meta_box( 'comment_setting_in_page',__( 'コメントの設定', 'simplicity2' ), 'view_comment_custom_box', 'post', 'side' );
   //広告ボックス
-  add_meta_box( 'ad_setting_in_page','広告の設定', 'view_ad_custom_box', 'post', 'side' );
-  add_meta_box( 'ad_setting_in_page','広告の設定', 'view_ad_custom_box', 'page', 'side' );
-  add_meta_box( 'ad_setting_in_page','広告の設定', 'view_ad_custom_box', 'topic', 'side' );
+  add_meta_box( 'ad_setting_in_page',__( '広告の設定', 'simplicity2' ), 'view_ad_custom_box', 'post', 'side' );
+  add_meta_box( 'ad_setting_in_page',__( '広告の設定', 'simplicity2' ), 'view_ad_custom_box', 'page', 'side' );
+  add_meta_box( 'ad_setting_in_page',__( '広告の設定', 'simplicity2' ), 'view_ad_custom_box', 'topic', 'side' );
   //SEOボックス
-  add_meta_box( 'seo_setting_in_page','SEO設定', 'view_seo_custom_box', 'post', 'normal', 'high' );
-  add_meta_box( 'seo_setting_in_page','SEO設定', 'view_seo_custom_box', 'page', 'normal', 'high' );
-  add_meta_box( 'seo_setting_in_page','SEO設定', 'view_seo_custom_box', 'topic', 'normal', 'high' );
+  add_meta_box( 'seo_setting_in_page',__( 'SEO設定', 'simplicity2' ), 'view_seo_custom_box', 'post', 'normal', 'high' );
+  add_meta_box( 'seo_setting_in_page',__( 'SEO設定', 'simplicity2' ), 'view_seo_custom_box', 'page', 'normal', 'high' );
+  add_meta_box( 'seo_setting_in_page',__( 'SEO設定', 'simplicity2' ), 'view_seo_custom_box', 'topic', 'normal', 'high' );
   //ページ設定
-  add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'post', 'side' );
-  add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'page', 'side' );
-  add_meta_box( 'page_setting_in_page','ページ設定', 'view_page_custom_box', 'topic', 'side' );
+  add_meta_box( 'page_setting_in_page',__( 'ページ設定', 'simplicity2' ), 'view_page_custom_box', 'post', 'side' );
+  add_meta_box( 'page_setting_in_page',__( 'ページ設定', 'simplicity2' ), 'view_page_custom_box', 'page', 'side' );
+  add_meta_box( 'page_setting_in_page',__( 'ページ設定', 'simplicity2' ), 'view_page_custom_box', 'topic', 'side' );
   if (is_amp_enable()) {
     //AMP設定
-    add_meta_box( 'amp_setting_in_page','AMP設定', 'view_amp_custom_box', 'post', 'side' );
+    add_meta_box( 'amp_setting_in_page',__( 'AMP設定', 'simplicity2' ), 'view_amp_custom_box', 'post', 'side' );
   }
 
   //更新タイプ
-  add_meta_box( 'update_type_setting_in_page', '更新日の変更', 'view_update_type_custom_box', 'post', 'side' );
-  add_meta_box( 'update_type_setting_in_page', '更新日の変更', 'view_update_type_custom_box', 'page', 'side' );
-  //add_meta_box( 'update_type_setting_in_page', '更新日の変更', 'view_update_type_custom_box', 'custom_post_type', 'side' );
+  add_meta_box( 'update_type_setting_in_page', __( '更新日の変更', 'simplicity2' ), 'view_update_type_custom_box', 'post', 'side' );
+  add_meta_box( 'update_type_setting_in_page', __( '更新日の変更', 'simplicity2' ), 'view_update_type_custom_box', 'page', 'side' );
+  //add_meta_box( 'update_type_setting_in_page', __( '更新日の変更', 'simplicity2' ), 'view_update_type_custom_box', 'custom_post_type', 'side' );
 
 }
 
@@ -40,14 +40,14 @@ function view_comment_custom_box(){
 
   echo '<label><input type="checkbox" name="is_comment_form_freeze"';
   if( $is_comment_form_freeze ){echo " checked";}
-  echo '>コメントの凍結</label>';
-  echo '<p class="howto">コメントフォームを非表示にし以降は書き込めないようにします。</p>';
+  echo '>'.__( 'コメントの凍結', 'simplicity2' ).'</label>';
+  echo '<p class="howto">'.__( 'コメントフォームを非表示にし以降は書き込めないようにします。', 'simplicity2' ).'</p>';
 
-  echo '<label>凍結時のメッセージ</label>';
+  echo '<label>'.__( '凍結時のメッセージ', 'simplicity2' ).'</label>';
   echo '<input type="text" name="comment_form_freeze_message"';
   if( $comment_form_freeze_message ){echo ' value="'.$comment_form_freeze_message.'"';}
   echo ' style="width: 100%">';
-  echo '<p class="howto">コメント凍結時に表示するメッセージです。未入力の場合はデフォルトのものが表示されます。</p>';
+  echo '<p class="howto">'.__( 'コメント凍結時に表示するメッセージです。未入力の場合はデフォルトのものが表示されます。', 'simplicity2' ).'</p>';
 }
 
 add_action('save_post', 'save_comment_custom_data');
@@ -88,8 +88,8 @@ function view_ad_custom_box(){
 
   echo '<label><input type="checkbox" name="is_ads_removed_in_page"';
   if( $is_ads_removed_in_page ){echo " checked";}
-  echo '>広告の除外</label>';
-  echo '<p class="howto">ページ上の広告（AdSenseなど）をページ上から取り除きます。テーマカスタマイザーの「広告」項目からカテゴリごとの設定も行えます。</p>';
+  echo '>'.__( '広告の除外', 'simplicity2' ).'</label>';
+  echo '<p class="howto">'.__( 'ページ上の広告（AdSenseなど）をページ上から取り除きます。テーマカスタマイザーの「広告」項目からカテゴリごとの設定も行えます。', 'simplicity2' ).'</p>';
 }
 
 add_action('save_post', 'save_ad_custom_data');
@@ -124,35 +124,35 @@ function view_seo_custom_box(){
   $is_nofollow = get_post_meta(get_the_ID(),'is_nofollow', true);
 
   //タイトル
-  echo '<label style="font-weight:bold;margin-bottom:5px;">SEOタイトル</label>';
-  echo '<input type="text" style="width:100%" placeholder="タイトルを入力してください。" name="seo_title" value="'.$seo_title.'" />';
-  echo '<p class="howto" style="margin-top:0;">検索エンジンに表示させたいタイトルを入力してください。記事のタイトルより、こちらに入力したテキストが優先的にタイトルタグ(&lt;title&gt;)に挿入されます。一般的に日本語の場合は、32文字以内が最適とされています。（※ページやインデックスの見出し部分には「記事のタイトル」が利用されます）</p>';
+  echo '<label style="font-weight:bold;margin-bottom:5px;">'.__( 'SEOタイトル', 'simplicity2' ).'</label>';
+  echo '<input type="text" style="width:100%" placeholder="'.__( 'タイトルを入力してください。', 'simplicity2' ).'" name="seo_title" value="'.$seo_title.'" />';
+  echo '<p class="howto" style="margin-top:0;">'.__( '検索エンジンに表示させたいタイトルを入力してください。記事のタイトルより、こちらに入力したテキストが優先的にタイトルタグ(&lt;title&gt;)に挿入されます。一般的に日本語の場合は、32文字以内が最適とされています。（※ページやインデックスの見出し部分には「記事のタイトル」が利用されます）', 'simplicity2' ).'</p>';
 
 
   //メタディスクリプション
-  echo '<label style="font-weight:bold;margin-bottom:5px;">メタディスクリプション</label>';
-  echo '<textarea style="width:100%" placeholder="記事の説明文を入力してください。" name="meta_description" rows="3">'.$meta_description.'</textarea>';
-  echo '<p class="howto" style="margin-top:0;">記事の説明を入力してください。日本語では、およそ120文字前後の入力をおすすめします。スマホではそのうちの約50文字が表示されます。こちらに入力したメタディスクリプションはブログカードのスニペット（抜粋文部分）にも利用されます。こちらに入力しない場合は、「抜粋」に入力したものがメタディスクリプションとして挿入されます。</p>';
+  echo '<label style="font-weight:bold;margin-bottom:5px;">'.__( 'メタディスクリプション', 'simplicity2' ).'</label>';
+  echo '<textarea style="width:100%" placeholder="'.__( '記事の説明文を入力してください。', 'simplicity2' ).'" name="meta_description" rows="3">'.$meta_description.'</textarea>';
+  echo '<p class="howto" style="margin-top:0;">'.__( '記事の説明を入力してください。日本語では、およそ120文字前後の入力をおすすめします。スマホではそのうちの約50文字が表示されます。こちらに入力したメタディスクリプションはブログカードのスニペット（抜粋文部分）にも利用されます。こちらに入力しない場合は、「抜粋」に入力したものがメタディスクリプションとして挿入されます。', 'simplicity2' ).'</p>';
 
   //メタキーワード
-  echo '<label style="font-weight:bold;margin-bottom:5px;">メタキーワード</label>';
-  echo '<input type="text" style="width:100%" placeholder="記事の関連キーワードを半角カンマ区切りで入力してください。" name="meta_keywords" value="'.$meta_keywords.'" />';
-  echo '<p class="howto" style="margin-top:0;">記事に関連するキーワードを,（カンマ）区切りで入力してください。入力しない場合は、カテゴリ名などから自動で設定されます。</p>';
+  echo '<label style="font-weight:bold;margin-bottom:5px;">'.__( 'メタキーワード', 'simplicity2' ).'</label>';
+  echo '<input type="text" style="width:100%" placeholder="'.__( '記事の関連キーワードを半角カンマ区切りで入力してください。', 'simplicity2' ).'" name="meta_keywords" value="'.$meta_keywords.'" />';
+  echo '<p class="howto" style="margin-top:0;">'.__( '記事に関連するキーワードを,（カンマ）区切りで入力してください。入力しない場合は、カテゴリ名などから自動で設定されます。', 'simplicity2' ).'</p>';
 
   //noindex
   echo '<label><input type="checkbox" name="is_noindex"';
   if( $is_noindex ){echo " checked";}
-  echo '>インデックスしない（noindex）</label>';
-  echo '<p class="howto" style="margin-top:0;">このページが検索エンジンにインデックスされないようにメタタグを設定します。</p>';
+  echo '>'.__( 'インデックスしない（noindex）', 'simplicity2' ).'</label>';
+  echo '<p class="howto" style="margin-top:0;">'.__( 'このページが検索エンジンにインデックスされないようにメタタグを設定します。', 'simplicity2' ).'</p>';
 
   //nofollow
   echo '<label><input type="checkbox" name="is_nofollow"';
   if( $is_nofollow ){echo " checked";}
-  echo '>リンクをフォローしない（nofollow）</label>';
-  echo '<p class="howto" style="margin-top:0;">検索エンジンがこのページ上のリンクをフォローしないようにメタタグを設定します。</p>';
+  echo '>'.__( 'リンクをフォローしない（nofollow）', 'simplicity2' ).'</label>';
+  echo '<p class="howto" style="margin-top:0;">'.__( '検索エンジンがこのページ上のリンクをフォローしないようにメタタグを設定します。', 'simplicity2' ).'</p>';
 
   //SEO設定ページへのリンク
-  echo '<p><a href="https://wp-simplicity.com/singular-seo-settings/" target="_blank">SEO項目の設定方法</a></p>';
+  echo '<p><a href="https://wp-simplicity.com/singular-seo-settings/" target="_blank">'.__( 'SEO項目の設定方法', 'simplicity2' ).'</a></p>';
 }
 
 add_action('save_post', 'save_seo_custom_data');
@@ -249,30 +249,30 @@ function view_page_custom_box(){
   $page_type = get_post_meta(get_the_ID(),'page_type', true);
 
   //ページタイプ
-  echo '<label>ページタイプ</label><br>';
+  echo '<label>'.__( 'ページタイプ', 'simplicity2' ).'</label><br>';
   echo '<select name="page_type">';
   //デフォルト
   echo '<option value="default"';
   if( $page_type == 'default' ){echo ' selected';}
-  echo '>デフォルト</option>';
+  echo '>'.__( 'デフォルト', 'simplicity2' ).'</option>';
   //1カラム（狭い）
   echo '<option value="column1_narrow"';
   if( $page_type == 'column1_narrow' ){echo ' selected';}
-  echo '>1カラム（狭い）</option>';
+  echo '>'.__( '1カラム（狭い）', 'simplicity2' ).'</option>';
   //1カラム（広い）
   echo '<option value="column1_wide"';
   if( $page_type == 'column1_wide' ){echo ' selected';}
-  echo '>1カラム（広い）</option>';
+  echo '>'.__( '1カラム（広い）', 'simplicity2' ).'</option>';
   //本文のみ（狭い）
   echo '<option value="content_only_narrow"';
   if( $page_type == 'content_only_narrow' ){echo ' selected';}
-  echo '>本文のみ（狭い）</option>';
+  echo '>'.__( '本文のみ（狭い）', 'simplicity2' ).'</option>';
   //本文のみ（広い）
   echo '<option value="content_only_wide"';
   if( $page_type == 'content_only_wide' ){echo ' selected';}
-  echo '>本文のみ（広い）</option>';
+  echo '>'.__( '本文のみ（広い）', 'simplicity2' ).'</option>';
   echo '</select>';
-  echo '<p class="howto">このページの表示状態を設定します。「本文のみ」表示はランディングページ（LP）などにどうぞ。</p>';
+  echo '<p class="howto">'.__( 'このページの表示状態を設定します。「本文のみ」表示はランディングページ（LP）などにどうぞ。', 'simplicity2' ).'</p>';
 
 }
 
@@ -361,8 +361,8 @@ function view_amp_custom_box(){
   //AMP
   echo '<label><input type="checkbox" name="is_noamp"';
   if( $is_noamp ){echo " checked";}
-  echo '>AMPページを生成しない</label>';
-  echo '<p class="howto" style="margin-top:0;">AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョンページ、スクリプト動作が必要なページ等ではチェックすることをおすすめします。<a href="https://wp-simplicity.com/no-amp-page-settings/" target="_blank">機能説明</a></p>';
+  echo '>'.__( 'AMPページを生成しない', 'simplicity2' ).'</label>';
+  echo '<p class="howto" style="margin-top:0;">'.__( 'AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョンページ、スクリプト動作が必要なページ等ではチェックすることをおすすめします。<a href="https://wp-simplicity.com/no-amp-page-settings/" target="_blank">機能説明</a>', 'simplicity2' ).'</p>';
 
 }
 
@@ -403,10 +403,10 @@ function view_update_type_custom_box() {
     echo '<div style="padding-top: 3px; overflow: hidden;">';
     echo '<div style="width: 100px; float: left;"><input name="update_level" type="radio" value="high" ';
     if( $level=="" || $level=="high" ) echo ' checked="checked"';
-    echo ' />変更する</div><div style=""><input name="update_level" type="radio" value="low" ';
+    echo ' />'.__( '変更する', 'simplicity2' ).'</div><div style=""><input name="update_level" type="radio" value="low" ';
     if( $level=="low" ) echo ' checked="checked"';
-    echo '/>変更しない<br /></div>';
-    echo '<p class="howto" style="margin-top:1em;">更新日時を変更するかどうかを設定します。誤字修正などで更新日を変更したくない場合は「変更しない」にチェックを入れてください。</p>';
+    echo '/>'.__( '変更しない', 'simplicity2' ).'<br /></div>';
+    echo '<p class="howto" style="margin-top:1em;">'.__( '更新日時を変更するかどうかを設定します。誤字修正などで更新日を変更したくない場合は「変更しない」にチェックを入れてください。', 'simplicity2' ).'</p>';
     echo '</div>';
 }
 

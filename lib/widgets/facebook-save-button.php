@@ -6,8 +6,8 @@ class FacebookSaveButtonWidgetItem extends WP_Widget {
   function __construct() {
      parent::__construct(
       'facebook_save_button',
-      '[S] 「Facebookに保存する」ボタンウィジェット',//ウイジェット名
-      array('description' => '「Facebookに保存する」ボタンを利用して、訪問者にページをストック機能を利用してもらうためのウィジェットです。（※投稿・固定ページでしか利用できません）')
+      __( '[S] 「Facebookに保存する」ボタンウィジェット', 'simplicity2' ),//ウイジェット名
+      array('description' => __( '「Facebookに保存する」ボタンを利用して、訪問者にページをストック機能を利用してもらうためのウィジェットです。（※投稿・固定ページでしか利用できません）', 'simplicity2' ))
     );
   }
   function widget($args, $instance) {

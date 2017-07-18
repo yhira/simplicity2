@@ -15,7 +15,7 @@
     <a href="<?php echo get_twitter_share_url(); ?>" target="blank" class="balloon-btn-link twitter-balloon-btn-link twitter-balloon-btn-link-default" rel="nofollow">
       <span class="fa fa-twitter"></span>
       <?php if ( is_share_button_type_default() ): ?>
-        <span class="tweet-label">ツイート</span>
+        <span class="tweet-label"><?php _e( 'ツイート', 'simplicity2' ) ?></span>
       <?php endif ?>
     </a>
   </div>

@@ -39,12 +39,12 @@
       }
     }
 
-    echo '<span class="all">全体:<span class="pv-count">', $views_all, '</span></span>';
-    echo '<span class="monthly">月:<span class="pv-count">', $views_monthly, '</span></span>';
-    echo '<span class="weekly">週:<span class="pv-count">', $views_weekly, '</span></span>';
-    echo '<span class="daily">日:<span class="pv-count">', $views_daily, '</span></span>';
+    echo '<span class="all">'.__( '全体', 'simplicity2' ).':<span class="pv-count">', $views_all, '</span></span>';
+    echo '<span class="monthly">'.__( '月', 'simplicity2' ).':<span class="pv-count">', $views_monthly, '</span></span>';
+    echo '<span class="weekly">'.__( '週', 'simplicity2' ).':<span class="pv-count">', $views_weekly, '</span></span>';
+    echo '<span class="daily">'.__( '日', 'simplicity2' ).':<span class="pv-count">', $views_daily, '</span></span>';
     if (is_admin_pv_type_jetpack()) {
-      echo '<span class="jp-page"><a href="'.admin_url().'admin.php?page=stats&view=post&post='.get_the_ID().'"title="Jetpackの統計" target="_blank"><span class="fa fa-bar-chart"></span></a></span>';
+      echo '<span class="jp-page"><a href="'.admin_url().'admin.php?page=stats&view=post&post='.get_the_ID().'"title="'.__( 'Jetpackの統計', 'simplicity2' ).'" target="_blank"><span class="fa fa-bar-chart"></span></a></span>';
     }
   ?>
   </div>

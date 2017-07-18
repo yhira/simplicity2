@@ -20,7 +20,7 @@ if ( is_initial_media_disp_type_in_entry() ){
 
 //投稿記事一覧にアイキャッチ画像を表示
 function customize_admin_manage_posts_columns($columns) {
-    $columns['thumbnail'] = 'アイキャッチ';
+    $columns['thumbnail'] = __( 'アイキャッチ', 'simplicity2' );
     return $columns;
 }
 function customize_admin_add_column($column_name, $post_id) {
@@ -52,7 +52,7 @@ function customize_admin_bar_menu($wp_admin_bar){
   //バーにメニューを追加
   $title = sprintf(
       '<span class="ab-label">%s</span>',
-      '管理メニュー'//親メニューラベル
+      __( '管理メニュー', 'simplicity2' )//親メニューラベル
   );
   $wp_admin_bar->add_menu(array(
       'id'    => 'dashboard_menu',
@@ -64,70 +64,70 @@ function customize_admin_bar_menu($wp_admin_bar){
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-dashboard', // 子メニューID
       'meta'   => array(),
-      'title'  => 'ダッシュボード', // ラベル
+      'title'  => __( 'ダッシュボード', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/') // ページURL
   ));
   $wp_admin_bar->add_menu(array(
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-singles', // 子メニューID
       'meta'   => array(),
-      'title'  => '投稿一覧', // ラベル
+      'title'  => __( '投稿一覧', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/edit.php') // ページURL
   ));
   $wp_admin_bar->add_menu(array(
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-pages', // 子メニューID
       'meta'   => array(),
-      'title'  => '固定ページ一覧', // ラベル
+      'title'  => __( '固定ページ一覧', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/edit.php?post_type=page') // ページURL
   ));
   $wp_admin_bar->add_menu(array(
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-medias', // 子メニューID
       'meta'   => array(),
-      'title'  => 'メディア一覧', // ラベル
+      'title'  => __( 'メディア一覧', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/upload.php') // ページURL
   ));
   $wp_admin_bar->add_menu(array(
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-themes', // 子メニューID
       'meta'   => array(),
-      'title'  => 'テーマ', // ラベル
+      'title'  => __( 'テーマ', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/themes.php') // ページURL
   ));
   $wp_admin_bar->add_menu(array(
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-customize', // 子メニューID
       'meta'   => array(),
-      'title'  => 'カスタマイズ', // ラベル
+      'title'  => __( 'カスタマイズ', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/customize.php?return=' . esc_url(site_url('/wp-admin/themes.php'))) // ページURL
   ));
   $wp_admin_bar->add_menu(array(
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-widget', // 子メニューID
       'meta'   => array(),
-      'title'  => 'ウィジェット', // ラベル
+      'title'  => __( 'ウィジェット', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/widgets.php') // ページURL
   ));
   $wp_admin_bar->add_menu(array(
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-nav-menus', // 子メニューID
       'meta'   => array(),
-      'title'  => 'メニュー', // ラベル
+      'title'  => __( 'メニュー', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/nav-menus.php') // ページURL
   ));
   $wp_admin_bar->add_menu(array(
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-theme-editor', // 子メニューID
       'meta'   => array(),
-      'title'  => 'テーマの編集', // ラベル
+      'title'  => __( 'テーマの編集', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/theme-editor.php') // ページURL
   ));
   $wp_admin_bar->add_menu(array(
       'parent' => 'dashboard_menu', // 親メニューID
       'id'     => 'dashboard_menu-plugins', // 子メニューID
       'meta'   => array(),
-      'title'  => 'プラグイン一覧', // ラベル
+      'title'  => __( 'プラグイン一覧', 'simplicity2' ), // ラベル
       'href'   => site_url('/wp-admin/plugins.php') // ページURL
   ));
 }
@@ -157,17 +157,19 @@ add_filter('pre_option_link_manager_enabled','__return_true');
 
 //記事公開前に確認アラートを出す
 function publish_confirm_admin_print_scripts() {
+    $post_text = __( '公開', 'simplicity2' );
+    $confirm_text = __( '記事を公開してもよろしいですか？', 'simplicity2' );
     echo <<< EOM
 <script type="text/javascript">
 <!--
 window.onload = function() {
     var id = document.getElementById('publish');
-    if (id.value.indexOf("公開", 0) != -1) {
+    if (id.value.indexOf("$post_text", 0) != -1) {
         id.onclick = publish_confirm;
     }
 }
 function publish_confirm() {
-    if (window.confirm("記事を公開してもよろしいですか？")) {
+    if (window.confirm("$confirm_text")) {
         return true;
     } else {
         var elements = document.getElementsByTagName('span');
@@ -263,7 +265,7 @@ jQuery(function($) {
 
   function catFilter( header, list ) {
     var form  = $('<form>').attr({'class':'filterform', 'action':'#'}).css({'position':'absolute', 'top':'38px'}),
-        input = $('<input>').attr({'class':'filterinput', 'type':'text', 'placeholder':'カテゴリー検索' });
+        input = $('<input>').attr({'class':'filterinput', 'type':'text', 'placeholder':'<?php _e( 'カテゴリー検索', 'simplicity2' ) ?>' });
     $(form).append(input).appendTo(header);
     $(header).css({'padding-top':'42px'});
     $(input).change(function() {
