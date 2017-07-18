@@ -97,8 +97,8 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
       <label for="<?php echo $this->get_field_id('widget_mode'); ?>">
         <?php _e( '表示モード', 'simplicity2' ) ?>
       </label><br />
-      <input class="widefat" id="<?php echo $this->get_field_id('widget_mode'); ?>" name="<?php echo $this->get_field_name('widget_mode'); ?>"  type="radio" value="all" <?php echo ( ($widget_mode == 'all' || !$widget_mode ) ? ' checked="checked"' : ""); ?> />全ての新着記事（全ページで表示）<br />
-      <input class="widefat" id="<?php echo $this->get_field_id('widget_mode'); ?>" name="<?php echo $this->get_field_name('widget_mode'); ?>"  type="radio" value="category"<?php echo ($widget_mode == 'category' ? ' checked="checked"' : ""); ?> />カテゴリ別新着記事（投稿・カテゴリで表示）<br />
+      <input class="widefat" id="<?php echo $this->get_field_id('widget_mode'); ?>" name="<?php echo $this->get_field_name('widget_mode'); ?>"  type="radio" value="all" <?php echo ( ($widget_mode == 'all' || !$widget_mode ) ? ' checked="checked"' : ""); ?> /><?php _e( '全ての新着記事（全ページで表示）', 'simplicity2' ) ?><br />
+      <input class="widefat" id="<?php echo $this->get_field_id('widget_mode'); ?>" name="<?php echo $this->get_field_name('widget_mode'); ?>"  type="radio" value="category"<?php echo ($widget_mode == 'category' ? ' checked="checked"' : ""); ?> /><?php _e( 'カテゴリ別新着記事（投稿・カテゴリで表示）', 'simplicity2' ) ?><br />
     </p>
     <?php //タイトル入力フォーム ?>
     <p>

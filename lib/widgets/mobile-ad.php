@@ -61,7 +61,7 @@ class MobileAdWidgetItem extends WP_Widget {
 <?php //広告入力フォーム ?>
 <p>
   <label for="<?php echo $this->get_field_id('ad_text'); ?>">
-    広告タグ
+    <?php _e( '広告タグ', 'simplicity2' ) ?>
   </label>
   <textarea class="widefat" id="<?php echo $this->get_field_id('ad_text'); ?>" name="<?php echo $this->get_field_name('ad_text'); ?>" cols="20" rows="16"><?php echo $ad; ?></textarea>
 </p>

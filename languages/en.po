@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-07-17 20:44+0900\n"
-"PO-Revision-Date: 2017-07-17 20:52+0900\n"
+"POT-Creation-Date: 2017-07-18 15:26+0900\n"
+"PO-Revision-Date: 2017-07-18 15:27+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -960,7 +960,7 @@ msgstr "Main column font size"
 
 #: lib/customizer.php:787
 msgid "パソコン表示時の本文文字サイズを設定します。"
-msgstr "Content font size when displaying on a PC."
+msgstr "Content font size when displaying on PC."
 
 #: lib/customizer.php:791
 msgid "14px（1行48文字くらい）"
@@ -1297,7 +1297,7 @@ msgstr "Blog pages show on mobile (default: 10)"
 
 #: lib/customizer.php:1192
 msgid "モバイルのインデックスリストに表示される最大投稿数を設定します。"
-msgstr "Post count displayed on a mobile Index page."
+msgstr "Post count displayed on mobile Index page."
 
 #: lib/customizer.php:1205
 msgid "モバイル本文文字サイズ"
@@ -1644,7 +1644,7 @@ msgstr "Share button type (PC)"
 
 #: lib/customizer.php:1583
 msgid "パソコンで表示したときのシェアボタンスタイル。"
-msgstr "Share buttons style when displayed on a PC."
+msgstr "Share buttons style when displayed on PC."
 
 #: lib/customizer.php:1587
 msgid "デフォルト（サービス固有のボタン）"
@@ -1672,7 +1672,7 @@ msgstr "Share button type (Mobile)"
 
 #: lib/customizer.php:1604
 msgid "モバイルで表示したときのシェアボタンスタイル。"
-msgstr "Share buttons style when displayed on a mobile"
+msgstr "Share buttons style when displayed on mobile"
 
 #: lib/customizer.php:1608
 msgid "デフォルト（アイコン）"
@@ -3174,7 +3174,7 @@ msgstr "0 edition"
 #: lib/customizer.php:5452 lib/customizer.php:5468
 #, php-format
 msgid "「%s」の記事一覧です。"
-msgstr "It is an article list of \"%s\"."
+msgstr "Articles of \"%s\"."
 
 #: lib/qtags.php:12 lib/qtags.php:47
 msgid "太字"
@@ -3281,8 +3281,8 @@ msgid ""
 "サイドバーで下にスクロールすると追いかけてくるエリアです。※モバイルでは表示さ"
 "れません。（ここにGoogle AdSenseを貼るのはポリシー違反です。）"
 msgstr ""
-"Scroll down the page to see the sidebar area to follow. ※ It is not "
-"displayed on mobile. (It is a policy violation to paste Google AdSense here.)"
+"Sidebar bottom area. ※ It is not displayed on mobile. (It is a policy "
+"violation to paste Google AdSense here.)"
 
 #: lib/widget-areas.php:31
 msgid "広告 336x280"
@@ -3339,8 +3339,7 @@ msgid ""
 msgstr ""
 "Display only customized size ads at the top of PC display page where only "
 "two ads are displayed. Input recommendation of 680 × 150 etc. using \"Text\" "
-"widget. It is not displayed even if it is set in the case of complete "
-"responsiveness."
+"widget."
 
 #: lib/widget-areas.php:72
 msgid "広告 320x100"
@@ -3356,8 +3355,7 @@ msgid ""
 msgstr ""
 "Display large mobile banner at the top of mobile page where only two ads are "
 "displayed. A \"320 x 100 large mobile banner\" input is recommended using "
-"the \"text\" widget. It is not displayed even if it is set in the case of "
-"complete responsiveness."
+"the \"text\" widget."
 
 #: lib/widget-areas.php:97
 msgid "投稿パンくずリスト上"
@@ -3366,9 +3364,7 @@ msgstr "Over Breadcrumbs"
 #: lib/widget-areas.php:99
 msgid ""
 "投稿のパンくずリスト上に表示されるウイジェット。設定しないと表示されません。"
-msgstr ""
-"Widget displayed on the breadcrumbs of postt. It will not be displayed "
-"unless it is set."
+msgstr "Widget area displayed above a breadcrumbs on a post."
 
 #: lib/widget-areas.php:107
 msgid "投稿タイトル上"
@@ -3376,8 +3372,7 @@ msgstr "Over Post Title"
 
 #: lib/widget-areas.php:109
 msgid "投稿タイトル上に表示されるウイジェット。設定しないと表示されません。"
-msgstr ""
-"Widget displayed on posting title. It will not be displayed unless it is set."
+msgstr "Widget area displayed above a post title."
 
 #: lib/widget-areas.php:118
 msgid "投稿本文上"
@@ -3385,9 +3380,7 @@ msgstr "Post Content Top"
 
 #: lib/widget-areas.php:120
 msgid "投稿本文上に表示されるウイジェット。設定しないと表示されません。"
-msgstr ""
-"Widget to be displayed over a post content. It will not be displayed unless "
-"it is set."
+msgstr "Widget area displayed on a post content top."
 
 #: lib/widget-areas.php:129
 msgid "投稿本文中"
@@ -3398,10 +3391,7 @@ msgid ""
 "投稿本文中に表示されるウイジェット。文中最初のH2タグの手前に表示されます。広"
 "告が表示されている場合は、広告の下に表示されます。設定しないと表示されませ"
 "ん。"
-msgstr ""
-"Widget displayed in a post content It is displayed before the first H2 tag "
-"in the sentence. If your ad is showing, it will appear below the ad. It will "
-"not be displayed unless it is set."
+msgstr "Widget area displayed in a post content."
 
 #: lib/widget-areas.php:140
 msgid "投稿本文下"
@@ -3409,9 +3399,7 @@ msgstr "Post Content Bottom"
 
 #: lib/widget-areas.php:142
 msgid "投稿本文下に表示されるウイジェット。設定しないと表示されません。"
-msgstr ""
-"Widget to be displayed under a post content. It will not be displayed unless "
-"it is set."
+msgstr "Widget area displayed on a post content bottom."
 
 #: lib/widget-areas.php:151
 msgid "投稿SNSボタン上"
@@ -3421,9 +3409,7 @@ msgstr "Over Post SNS Buttons"
 msgid ""
 "投稿のメインカラムの一番下となるSNSボタンの上に表示されるウイジェット。広告を"
 "表示している場合は、広告の下になります。設定しないと表示されません。"
-msgstr ""
-"Widget displayed over the SNS buttons at the bottom of a post. It will not "
-"be displayed unless it is set."
+msgstr "Widget area displayed above SNS buttons at the bottom of a post."
 
 #: lib/widget-areas.php:162
 msgid "投稿SNSボタン下"
@@ -3433,9 +3419,7 @@ msgstr "Under Post SNS Buttons"
 msgid ""
 "投稿のメインカラムの一番下となるSNSボタンの下に表示されるウイジェット。設定し"
 "ないと表示されません。"
-msgstr ""
-"Widget displayed under the SNS buttons at the bottom of a post. It will not "
-"be displayed unless it is set."
+msgstr "Widget area displayed below the SNS buttons at the bottom of a post."
 
 #: lib/widget-areas.php:173
 msgid "投稿関連記事下"
@@ -3445,9 +3429,7 @@ msgstr "Under Related Posts"
 msgid ""
 "関連記事の下（広告を表示している場合はその下）に表示されるウイジェット。設定"
 "しないと表示されません。"
-msgstr ""
-"Widget displayed under related posts. It will not be displayed unless it is "
-"set."
+msgstr "Widget area displayed below a related posts."
 
 #: lib/widget-areas.php:184
 msgid "固定ページ本文上"
@@ -3455,9 +3437,7 @@ msgstr "Page Content Top"
 
 #: lib/widget-areas.php:186
 msgid "固定ページ本文上に表示されるウイジェット。設定しないと表示されません。"
-msgstr ""
-"Widget to be displayed over a page content. It will not be displayed unless "
-"it is set."
+msgstr "Widget area displayed above a page content."
 
 #: lib/widget-areas.php:195
 msgid "固定ページ本文中"
@@ -3469,8 +3449,8 @@ msgid ""
 "す。広告が表示されている場合は、広告の下に表示されます。設定しないと表示され"
 "ません。"
 msgstr ""
-"Widget to be displayed in a page content. It is displayed before the first "
-"H2 tag in the sentence. It will not be displayed unless it is set."
+"Widget area displayed in a page content. It is displayed before the first H2 "
+"tag in the content."
 
 #: lib/widget-areas.php:206
 msgid "固定ページ本文下"
@@ -3478,9 +3458,7 @@ msgstr "Page Content Bottom"
 
 #: lib/widget-areas.php:208
 msgid "固定ページ本文下に表示されるウイジェット。設定しないと表示されません。"
-msgstr ""
-"Widget to be displayed undera page content. It will not be displayed unless "
-"it is set."
+msgstr "Widget area displayed below a page content. "
 
 #: lib/widget-areas.php:217
 msgid "固定ページSNSボタン上"
@@ -3490,9 +3468,7 @@ msgstr "Over Page SNS Buttons"
 msgid ""
 "固定ページのメインカラムの一番下となるSNSボタンの上に表示されるウイジェット。"
 "広告を表示している場合は、広告の下になります。設定しないと表示されません。"
-msgstr ""
-"Widget displayed over the SNS buttons at the bottom of a page. It will not "
-"be displayed unless it is set."
+msgstr "Widget area displayed above SNS buttons at the bottom of a page."
 
 #: lib/widget-areas.php:228
 msgid "固定ページSNSボタン下"
@@ -3502,9 +3478,7 @@ msgstr "Under Page SNS Buttons"
 msgid ""
 "固定ページのメインカラムの一番下となるSNSボタンの下に表示されるウイジェット。"
 "設定しないと表示されません。"
-msgstr ""
-"Widget displayed under the SNS buttons at the bottom of a page. It will not "
-"be displayed unless it is set."
+msgstr "Widget area displayed below SNS buttons at the bottom of a page."
 
 #: lib/widget-areas.php:239
 msgid "インデックスリストトップ"
@@ -3514,9 +3488,7 @@ msgstr "Index Top"
 msgid ""
 "インデックスリストのトップに表示されるウイジェット。広告が表示されているとき"
 "は広告の下に表示されます。設定しないと表示されません。"
-msgstr ""
-"Widget to be displayed at the top of the index page. It will not be "
-"displayed unless it is set."
+msgstr "Widget area displayed at the top of a index page."
 
 #: lib/widget-areas.php:250
 msgid "インデックスリストミドル"
@@ -3527,9 +3499,7 @@ msgid ""
 "インデックスリストの3つ目下に表示されるウイジェット。「一覧リストのスタイル」"
 "が「サムネイルカード」の時のみの機能です。広告が表示されているときは広告の下"
 "に表示されます。設定しないと表示されません。"
-msgstr ""
-"Widget to be displayed at the middle of the index page. It will not be "
-"displayed unless it is set."
+msgstr "Widget area displayed at the middle of a index page."
 
 #: lib/widget-areas.php:261
 msgid "インデックスリストボトム"
@@ -3539,9 +3509,7 @@ msgstr "Index Bottom"
 msgid ""
 "インデックスリストのボトムに表示されるウイジェット。広告が表示されているとき"
 "は広告の下に表示されます。設定しないと表示されません。"
-msgstr ""
-"Widget to be displayed at the bottom of the index list.It will not be "
-"displayed unless it is set."
+msgstr "Widget area displayed at the bottom of a index page."
 
 #: lib/widget-areas.php:272
 msgid "フッター左"
@@ -3549,7 +3517,7 @@ msgstr "Footer Left"
 
 #: lib/widget-areas.php:274
 msgid "フッター左側のウィジットエリアです。"
-msgstr "This is a widget area on the left side of the footer."
+msgstr "Widget area displayed at the left of this site footer."
 
 #: lib/widget-areas.php:284
 msgid "フッター中"
@@ -3557,7 +3525,7 @@ msgstr "Footer Center"
 
 #: lib/widget-areas.php:285
 msgid "フッター中間のウィジットエリアです。"
-msgstr "This is a widget area on the center of the footer."
+msgstr "Widget area displayed at the center of this site footer."
 
 #: lib/widget-areas.php:294
 msgid "フッター右"
@@ -3565,7 +3533,7 @@ msgstr "Footer Right"
 
 #: lib/widget-areas.php:296
 msgid "フッター右側フッター中のウィジットエリアです。"
-msgstr "This is a widget area on the right side of the footer."
+msgstr "Widget area displayed at the right of this site footer."
 
 #: lib/widget-areas.php:305
 msgid "404ページ"
@@ -3622,20 +3590,21 @@ msgid ""
 "投稿・個別ページのアイキャッチを利用したFacebookページへの「いいね！」ボタン"
 "を表示するSimplicity用ウィジェットです。（※「Facebookページ」のみで利用できま"
 "す。「個人ページ」で設定されている場合は利用できません）"
-msgstr ""
-"This is a widget for Simplicity which displays \"Like\" button to Facebook "
-"page. (* It can be used only on \"Facebook page\".)"
+msgstr "Facebook page widget. (* It can be used only on \"Facebook page\".)"
 
 #: lib/widgets/facebook-page-like.php:55
 msgid "タイトル（未入力で非表示）"
 msgstr "Title"
 
-#: lib/widgets/facebook-page-like.php:64
+#: lib/widgets/facebook-page-like.php:62
+msgid "メッセージ"
+msgstr "Message"
+
+#: lib/widgets/facebook-page-like.php:65
 #, php-format
 msgid ""
-"この記事をお届けした<br>%sの最新ニュース情報を、<br><span style=\"color: "
-"#F27C8E;font-weight: bold;font-size: 1.1em;\">いいね</span>してチェックしよ"
-"う！"
+"この記事をお届けした<br>%sの最新ニュース情報を、<br><span class=\"bold-red\">"
+"いいね</span>してチェックしよう！"
 msgstr ""
 
 #: lib/widgets/facebook-save-button.php:9
@@ -3646,7 +3615,7 @@ msgstr "[S] Save to Facebook Button"
 msgid ""
 "「Facebookに保存する」ボタンを利用して、訪問者にページをストック機能を利用し"
 "てもらうためのウィジェットです。（※投稿・固定ページでしか利用できません）"
-msgstr "It is a widget by using \"Save to Facebook\" button."
+msgstr "This is a widget by using \"Save to Facebook\" button."
 
 #: lib/widgets/mobile-ad.php:9
 msgid "[S] モバイル用広告"
@@ -3656,9 +3625,11 @@ msgstr "[S] Ad for Mobile"
 msgid ""
 "モバイルのみで表示されるSimplicity用の広告ウィジェットです。（※アドセンスの場"
 "合は広告コードのみを記入してください。）"
-msgstr ""
-"It is an ad widget for Simplicity displayed on mobile only. (* In the case "
-"of Adsense, fill in only your ad code.)"
+msgstr "Ad widget displayed on mobile only."
+
+#: lib/widgets/mobile-ad.php:64 lib/widgets/pc-ad.php:61
+msgid "広告タグ"
+msgstr "Ad code"
 
 #: lib/widgets/mobile-ad.php:70 lib/widgets/pc-ad.php:67
 msgid "左マージンのピクセル数（－指定で左に移動）"
@@ -3680,7 +3651,7 @@ msgstr "[S] Text for Mobile"
 
 #: lib/widgets/mobile-text.php:10
 msgid "モバイルのみで表示されるSimplicity用のテキストウィジェットです。"
-msgstr "It is a text widget for Simplicity displayed on mobile only."
+msgstr "Text widget displayed on mobile only."
 
 #: lib/widgets/mobile-text.php:53 lib/widgets/pc-text.php:54
 #: lib/widgets/recent-comments.php:113
@@ -3697,7 +3668,7 @@ msgstr "[S] New Posts"
 
 #: lib/widgets/new-entries.php:10
 msgid "新着記事リストを表示するSimplicityウィジェットです。"
-msgstr "A Simplicity widget that displays a list of new posts."
+msgstr "New entryl list."
 
 #: lib/widgets/new-entries.php:18 lib/widgets/new-entries.php:51
 #: lib/widgets/new-popular.php:16 lib/widgets/new-popular.php:100
@@ -3712,19 +3683,27 @@ msgstr "New posts by category"
 msgid "表示モード"
 msgstr "Display mode"
 
+#: lib/widgets/new-entries.php:100
+msgid "全ての新着記事（全ページで表示）"
+msgstr "All New posts (displayed on all pages)"
+
+#: lib/widgets/new-entries.php:101
+msgid "カテゴリ別新着記事（投稿・カテゴリで表示）"
+msgstr "New posts by category (displayed on posts and categories)"
+
 #: lib/widgets/new-entries.php:106 lib/widgets/new-popular.php:161
 msgid "新着記事のタイトル"
-msgstr "New Posts Title"
+msgstr "New posts title"
 
 #: lib/widgets/new-entries.php:113 lib/widgets/new-popular.php:175
 #: lib/widgets/popular-ranking.php:166
 msgid "表示数（半角数字、デフォルト：5）"
-msgstr "Display Count (default: 5)"
+msgstr "Display count (default: 5)"
 
 #: lib/widgets/new-entries.php:120 lib/widgets/new-popular.php:182
 #: lib/widgets/popular-ranking.php:173
 msgid "表示タイプ"
-msgstr "Display Type:"
+msgstr "Display type:"
 
 #: lib/widgets/new-entries.php:123 lib/widgets/new-popular.php:185
 #: lib/widgets/popular-ranking.php:176
@@ -3734,11 +3713,11 @@ msgstr "Large thumbnail"
 #: lib/widgets/new-entries.php:124 lib/widgets/new-popular.php:186
 #: lib/widgets/popular-ranking.php:177
 msgid "タイトルを重ねた大きなサムネイル"
-msgstr "Large thumbnails with overlapping titles"
+msgstr "Large thumbnails with overlapping title"
 
 #: lib/widgets/new-entries.php:130
 msgid "全てのページで表示"
-msgstr "Display on All Pages"
+msgstr "Display on all pages"
 
 #: lib/widgets/new-entries.php:132
 msgid ""
@@ -3758,8 +3737,7 @@ msgid ""
 "トップページで「人気記事」リストを、それ以外のページで「新着記事」リストを表"
 "示するSimplicityウィジェットです。（※要Wordpress Popular Postsプラグイン）"
 msgstr ""
-"It is a Simplicity widget that displays a \"popular posts\" on index page "
-"and a \"new posts\" on other pages. (* Wordpress Popular Posts plugin "
+"\"popular posts\" or \"new posts\" widget. (* Wordpress Popular Posts plugin "
 "required)"
 
 #: lib/widgets/new-popular.php:17 lib/widgets/new-popular.php:71
@@ -3769,11 +3747,11 @@ msgstr "Popular Posts"
 
 #: lib/widgets/new-popular.php:168 lib/widgets/popular-ranking.php:159
 msgid "人気記事のタイトル"
-msgstr "Popular Posts Title"
+msgstr "Popular posts title"
 
 #: lib/widgets/new-popular.php:191
 msgid "固定ページの表示（人気記事のみ）"
-msgstr "Pages Display (popular posts only)"
+msgstr "Pages display (popular posts only)"
 
 #: lib/widgets/new-popular.php:193 lib/widgets/popular-ranking.php:184
 msgid "ランキングに固定ページを含める"
@@ -3803,6 +3781,10 @@ msgstr "All"
 msgid "集計期間の表示（人気記事のみ）"
 msgstr "Display of Aggregation Period (popular posts only)"
 
+#: lib/widgets/new-popular.php:210 lib/widgets/popular-ranking.php:201
+msgid "集計単位の表示"
+msgstr "Aggregation period display"
+
 #: lib/widgets/new-popular.php:215
 msgid "閲覧数の表示（人気記事のみ）"
 msgstr "PV Display (popular posts only)"
@@ -3810,7 +3792,7 @@ msgstr "PV Display (popular posts only)"
 #: lib/widgets/new-popular.php:217 lib/widgets/popular-ranking.php:206
 #: lib/widgets/popular-ranking.php:208
 msgid "閲覧数の表示"
-msgstr "Ranking display"
+msgstr "PV display"
 
 #: lib/widgets/new-popular.php:222
 msgid "ランキング順位の表示（人気記事のみ）"
@@ -3838,13 +3820,7 @@ msgstr "[S] Ad for PC"
 msgid ""
 "パソコンのみで表示されるSimplicity用の広告ウィジェットです。（※アドセンスの場"
 "合は広告コードのみを記入してください。）"
-msgstr ""
-"It is an ad widget which is displayed only on a PC. (In the case of Adsense, "
-"fill in only your ad code.)"
-
-#: lib/widgets/pc-ad.php:61
-msgid "広告タグ"
-msgstr "Ad code"
+msgstr "Ad widget displayed only on PC."
 
 #: lib/widgets/pc-double-ads.php:9
 msgid "[S] PC用広告ダブルレクタングル"
@@ -3854,9 +3830,7 @@ msgstr "[S] Double rectangle Ads for PC"
 msgid ""
 "パソコンのみで表示されるSimplicity用のダブルレクタングル広告ウィジェットで"
 "す。（※アドセンスの場合は広告コードのみを記入してください。）"
-msgstr ""
-"It is a double rectangle ads widget which is displayed only on a PC. (In the "
-"case of Adsense, fill in only your ad code.)"
+msgstr "Double rectangle ads widget displayed only on PC."
 
 #: lib/widgets/pc-double-ads.php:58
 msgid "広告タグ（左）"
@@ -3872,7 +3846,7 @@ msgstr "[S] Text for PC"
 
 #: lib/widgets/pc-text.php:10
 msgid "パソコンのみで表示されるSimplicity用のテキストウィジェットです。"
-msgstr "It is a text widget which is displayed only on a PC."
+msgstr "Text widget displayed only on PC."
 
 #: lib/widgets/popular-ranking.php:9
 msgid "[S] 人気記事"
@@ -3883,8 +3857,7 @@ msgid ""
 "人気記事リストを表示するSimplicityウィジェットです。（※要Wordpress Popular "
 "Postsプラグイン）"
 msgstr ""
-"Simplicity widget that displays popular posts ranking. (※ Wordpress Popular "
-"Posts plugin required)"
+"Popular posts ranking list. (* Wordpress Popular Posts plugin required)"
 
 #: lib/widgets/popular-ranking.php:86
 msgid "カテゴリー別人気記事"
@@ -3910,10 +3883,6 @@ msgstr "Aggregation Period"
 msgid "集計期間の表示"
 msgstr "Aggregation period display"
 
-#: lib/widgets/popular-ranking.php:201
-msgid "集計単位の表示"
-msgstr "Aggregation period display"
-
 #: lib/widgets/popular-ranking.php:220
 msgid "除外する投稿ID（カンマ区切りで指定）"
 msgstr "Excluded post IDs (specified by comma)"
@@ -3928,7 +3897,7 @@ msgstr "[S] Recent Comments"
 
 #: lib/widgets/recent-comments.php:10
 msgid "最近投稿されたコメントを表示するウィジェットです。"
-msgstr "This is a widget that displays recently posted comments."
+msgstr "Recently posted comments widget."
 
 #: lib/widgets/recent-comments.php:17 lib/widgets/recent-comments.php:33
 msgid "最近のコメント"
@@ -3961,7 +3930,7 @@ msgstr "[S] SNS Follow Buttons"
 #: lib/widgets/sns-follow-buttons.php:10
 msgid ""
 "SNSサービスのフォローアイコンボタンを表示するSimplicityウィジェットです。"
-msgstr "This is a widget that displays follow icon buttons of SNS service."
+msgstr "Follow icon buttons of SNS service."
 
 #: lib/widgets/sns-follow-buttons.php:21
 msgid "SNSフォローボタン"

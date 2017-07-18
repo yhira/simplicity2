@@ -207,7 +207,7 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
       <label for="<?php echo $this->get_field_id('range_visible'); ?>">
         <?php _e( '集計期間の表示（人気記事のみ）', 'simplicity2' ) ?>
       </label><br />
-      <input class="widefat" id="<?php echo $this->get_field_id('range_visible'); ?>" name="<?php echo $this->get_field_name('range_visible'); ?>" type="checkbox" value="on"<?php echo ($range_visible ? ' checked="checked"' : ''); ?> />集計単位の表示
+      <input class="widefat" id="<?php echo $this->get_field_id('range_visible'); ?>" name="<?php echo $this->get_field_name('range_visible'); ?>" type="checkbox" value="on"<?php echo ($range_visible ? ' checked="checked"' : ''); ?> /><?php _e( '集計単位の表示', 'simplicity2' ) ?>
     </p>
     <?php //閲覧数の表示 ?>
     <p>

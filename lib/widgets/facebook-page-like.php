@@ -58,10 +58,11 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
     </p>
     <?php //テキスト入力フォーム ?>
     <p>
-      <label for="<?php echo $this->get_field_id('text_facebook_page_like'); ?>">メッセージ
+      <label for="<?php echo $this->get_field_id('text_facebook_page_like'); ?>">
+        <?php _e( 'メッセージ', 'simplicity2' ) ?>
       <?php
         if ( !$text ) {
-          $text = sprintf( __( 'この記事をお届けした<br>%sの最新ニュース情報を、<br><span style="color: #F27C8E;font-weight: bold;font-size: 1.1em;">いいね</span>してチェックしよう！', 'simplicity2' ), get_bloginfo('name') );
+          $text = sprintf( __( 'この記事をお届けした<br>%sの最新ニュース情報を、<br><span class="bold-red">いいね</span>してチェックしよう！', 'simplicity2' ), get_bloginfo('name') );
         }?>
       </label>
       <textarea class="widefat" id="<?php echo $this->get_field_id('text_facebook_page_like'); ?>" name="<?php echo $this->get_field_name('text_facebook_page_like'); ?>" cols="20" rows="16"><?php echo $text; ?></textarea>
