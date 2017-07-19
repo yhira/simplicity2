@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-07-18 15:26+0900\n"
-"PO-Revision-Date: 2017-07-18 15:27+0900\n"
+"PO-Revision-Date: 2017-07-18 16:21+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -3673,7 +3673,7 @@ msgstr "New entryl list."
 #: lib/widgets/new-entries.php:18 lib/widgets/new-entries.php:51
 #: lib/widgets/new-popular.php:16 lib/widgets/new-popular.php:100
 msgid "新着記事"
-msgstr "New posts"
+msgstr "New Posts"
 
 #: lib/widgets/new-entries.php:53
 msgid "カテゴリー別新着記事"
