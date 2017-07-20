@@ -2720,6 +2720,10 @@ ul.snsp li.flickr-page a span:hover{
   background-color:#1d1d1b;
 }
 
+ul.snsp li.github-page a span:hover{
+  background-color:#24292e;
+}
+
 ul.snsp li.feedly-page a span:hover{
   background-color:#87bd33;
 }

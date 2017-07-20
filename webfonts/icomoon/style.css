@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?igeqk7');
-  src:  url('fonts/icomoon.eot?igeqk7#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?igeqk7') format('truetype'),
-    url('fonts/icomoon.woff?igeqk7') format('woff'),
-    url('fonts/icomoon.svg?igeqk7#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?hd9e6o');
+  src:  url('fonts/icomoon.eot?hd9e6o#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?hd9e6o') format('truetype'),
+    url('fonts/icomoon.woff?hd9e6o') format('woff'),
+    url('fonts/icomoon.svg?hd9e6o#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -42,45 +42,59 @@
 }
 .icon-facebook-logo:before {
   content: "\e92d";
+  color: #fff;
 }
 .icon-feedly-logo:before {
   content: "\e92e";
+  color: #fff;
 }
 .icon-flickr-logo:before {
   content: "\e92f";
+  color: #fff;
 }
 .icon-google-plus-logo:before {
   content: "\e930";
+  color: #fff;
 }
 .icon-hatebu-logo:before {
   content: "\e931";
+  color: #fff;
 }
 .icon-instagram-logo:before {
   content: "\e932";
+  color: rgba(255, 255, 255, 0.97);
 }
 .icon-instagram-logo-new:before {
   content: "\e933";
+  color: #fff;
 }
 .icon-instagram-logo-new-sq:before {
   content: "\e934";
+  color: rgba(255, 255, 255, 0.97);
 }
 .icon-line-logo:before {
   content: "\e935";
+  color: #fff;
 }
 .icon-pinterest-logo:before {
   content: "\e936";
+  color: #fff;
 }
 .icon-push7-logo:before {
   content: "\e937";
+  color: #fff;
 }
 .icon-rss-logo:before {
   content: "\e938";
+  color: #fff;
 }
 .icon-twitter-logo:before {
   content: "\e939";
+  color: #fff;
 }
 .icon-youtube-logo:before {
   content: "\e93a";
+  color: #fff;
 }
 .icon-line-sq:before {
   content: "\e905";
@@ -220,4 +234,6 @@
 .icon-instagram-new:before {
   content: "\ea92";
 }
-
+.icon-github-logo:before {
+  content: "\eab0";
+}

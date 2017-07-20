@@ -242,6 +242,10 @@ ul.snsp li.flickr-page a span{
   background-color: #1d1d1b;
 }
 
+ul.snsp li.github-page a span{
+  background-color: #24292e;
+}
+
 ul.snsp li.line-page a span{
   background-color: #00c300;
 }

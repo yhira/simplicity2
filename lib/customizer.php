@@ -2018,6 +2018,19 @@ function theme_customize_register($wp_customize) {
     'priority' => 117.5,
   ));
 
+  //GitHub
+  $wp_customize->add_setting('github_follow_id', array(
+    'sanitize_callback' => 'sanitize_text',
+  ));
+  $wp_customize->add_control( 'github_follow_id', array(
+    'settings' => 'github_follow_id',
+    'label' => __( 'github.com/XXXXXXXXXX', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'GitHubページURLのXXXXXXX部分を入力してください。', 'simplicity2' ) : '',
+    'section' => 'sns_section',
+    'type' => 'text',
+    'priority' => 118,
+  ));
+
   //Push7購読ボタン
   $wp_customize->add_setting('push7_follow_app_no', array(
     'sanitize_callback' => 'sanitize_text',
@@ -4639,6 +4652,11 @@ function get_flickr_follow_id(){
 //LINE@フォローボタンのIDを取得
 function get_line_at_follow_id(){
   return get_theme_mod( 'line_at_follow_id', null );
+}
+
+//GitHubフォローボタンのIDを取得
+function get_github_follow_id(){
+  return get_theme_mod( 'github_follow_id', null );
 }
 
 //Push7フォローボタンのIDを取得

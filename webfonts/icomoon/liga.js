@@ -29,6 +29,8 @@
             'brand5': '&#xea8b;',
             'instagram': '&#xea92;',
             'brand12': '&#xea92;',
+            'github': '&#xeab0;',
+            'brand40': '&#xeab0;',
           '0': 0
         };
         delete icons['0'];
