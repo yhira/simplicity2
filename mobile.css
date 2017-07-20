@@ -87,7 +87,7 @@ div#sidebar{
   font-size: medium;
   padding: 10px;
   color: #fff;
-  background: #777;
+  /*background: #777;*/
   overflow: hidden;
 }
 
@@ -95,7 +95,7 @@ div#sidebar{
 #navi ul.children{
   position: relative;
   width: auto;
-  background-color: #777;
+  /*background-color: #777;*/
   border-width: 0;
 }
 
