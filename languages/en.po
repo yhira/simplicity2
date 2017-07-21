@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-07-20 17:56+0900\n"
-"PO-Revision-Date: 2017-07-20 17:59+0900\n"
+"POT-Creation-Date: 2017-07-21 19:01+0900\n"
+"PO-Revision-Date: 2017-07-21 19:01+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -57,7 +57,7 @@ msgid "WLWで編集"
 msgstr "Edit by WLW"
 
 #: functions.php:1167
-msgid "The REST API on this site has been disabled."
+msgid "REST APIへのアクセスは拒否されました。"
 msgstr "The REST API on this site has been disabled."
 
 #: functions.php:1352
@@ -4011,6 +4011,9 @@ msgstr "Subscribe to feedly"
 #: sns-pages.php:23
 msgid "RSSで更新情報をフォロー"
 msgstr "Subscribe to RSS"
+
+#~ msgid "The REST API on this site has been disabled."
+#~ msgstr "The REST API on this site has been disabled."
 
 #~ msgid "トップページでの表示"
 #~ msgstr "Display on Front Page"

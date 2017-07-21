@@ -1164,7 +1164,7 @@ function simplicity_deny_restapi_except_plugins( $result, $wp_rest_server, $requ
         return $result;
     }
 
-    return new WP_Error( 'rest_disabled', __( 'The REST API on this site has been disabled.' ), array( 'status' => rest_authorization_required_code() ) );
+    return new WP_Error( 'rest_disabled', __( 'The REST API on this site has been disabled.', 'simplicity2' ), array( 'status' => rest_authorization_required_code() ) );
 }
 endif;
 if (!is_rest_api_enable() && (get_wordpress_version() >= 4.7)) {
@@ -1360,31 +1360,3 @@ function get_archive_chapter_text(){
 endif;
 
 //remove_filter('widget_text_content', 'wpautop');
-
-// add_filter( 'widget_display_callback', 'clean_widget_display_callback', 10, 3 );
-// function clean_widget_display_callback( $instance, $widget, $args ) {
-//     $instance['filter'] = false;
-//     return $instance;
-// }
-
-// //英語の言語設定を全てenにする
-// if ( !function_exists( 'set_simplicity_english_locale' ) ):
-// function set_simplicity_english_locale( $lang ) {
-//   // if (preg_match('/^en/', $lang)) {
-//   //   return 'en';
-//   // }
-//   return 'en';
-// }
-// endif;
-
-// add_filter( 'locale', 'set_simplicity_english_locale' );
-
-// function load_textdomain_mofile_in_english($mofile, $domain){
-//   if ($domain == 'simplicity2') {
-//     var_dump($mofile);
-//   }
-//   //var_dump($mofile);
-//   //return $mofile;
-//   return get_template_directory() . '/languages/en.mo';
-// }
-// add_filter( 'load_textdomain_mofile', 'load_textdomain_mofile_in_english', 10 ,2 );

@@ -43,10 +43,11 @@ function simplicity_scripts() {
     }
   }
 
-  ///////////////////////////////////////////
-  //Font Awesome
-  ///////////////////////////////////////////
-  wp_enqueue_style( 'font-awesome-style',  get_template_directory_uri() . '/webfonts/css/font-awesome.min.css', array('simplicity-style') );
+  // ///////////////////////////////////////////
+  // //Font Awesome
+  // ///////////////////////////////////////////
+  wp_enqueue_style( 'font-awesome-style', 'https://max'.'cdn.boots'.'trapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+  //wp_enqueue_style( 'font-awesome-style',  get_template_directory_uri() . '/webfonts/css/font-awesome.min.css', array('simplicity-style') );
 
   ///////////////////////////////////////////
   //IcoMoonアイコンフォント
