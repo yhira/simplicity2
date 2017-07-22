@@ -52,7 +52,17 @@ function simplicity_scripts() {
   ///////////////////////////////////////////
   //IcoMoonアイコンフォント
   ///////////////////////////////////////////
-  wp_enqueue_style( 'icomoon-style',  get_template_directory_uri() . '>/webfonts/icomoon/style.css', array('simplicity-style') );
+  wp_enqueue_style( 'icomoon-style',  get_template_directory_uri() . '/webfonts/icomoon/style.css', array('simplicity-style') );
+
+
+  ///////////////////////////////////////////
+  //Google Fonts
+  ///////////////////////////////////////////
+  if (!is_site_font_default()) {
+    wp_enqueue_style( 'google-fonts-'.get_site_font_source(), get_site_font_source_url() );
+  }
+
+
 
   ///////////////////////////////////////////
   //カレンダーウィジェットのスタイル

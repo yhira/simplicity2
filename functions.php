@@ -1358,5 +1358,3 @@ function get_archive_chapter_text(){
   return $chapter_text;
 }
 endif;
-
-//remove_filter('widget_text_content', 'wpautop');

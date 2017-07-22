@@ -435,10 +435,26 @@ function get_image_width_and_height($image_url){
 }
 
 //AMPページではCrayon Syntax Highlighterを表示しない
+if ( !function_exists( 'remove_crayon_syntax_highlighter' ) ):
 function remove_crayon_syntax_highlighter() {
   if (isset($_GET['amp']) && $_GET['amp'] === '1') {
     //Crayon Syntax HighlighterはAMPページで適用しない
     remove_filter('the_posts', 'CrayonWP::the_posts', 100);
   }
 }
+endif;
 add_action( 'wp_loaded','remove_crayon_syntax_highlighter' );
+
+// //AMPページでFont AwesomeやGoogle Fontsを利用する
+// if ( !function_exists( 'add_simplicity_amp_fonts' ) ):
+// function add_simplicity_amp_fonts($data) {
+//   $data['font_urls'] = array(
+//       'FontAwesome' => 'https://max'.'cdn.boot'.'strapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+//   );
+//   if (!is_site_font_default()) {
+//     $data['font_urls'] += array(get_site_font_source() => get_site_font_source_url());
+//   }
+//   return $data;
+// }
+// endif;
+// add_action( 'amp_post_template_data', 'add_simplicity_amp_fonts');

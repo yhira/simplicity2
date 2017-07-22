@@ -412,6 +412,34 @@ function theme_customize_register($wp_customize) {
     'priority'       => 89,
   ));
 
+  //サイトフォント
+  $wp_customize->add_setting('site_font', array(
+    'default' => 'default',
+    'sanitize_callback' => 'sanitize_text',
+  ));
+  $wp_customize->add_control( 'site_font', array(
+    'settings' => 'site_font',
+    'label' => __( 'サイトフォント', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'サイト全体（bodyタグ）に適用されるフォントを設定します。', 'simplicity2' ) : '',
+    'section' => 'layout_section',
+    'type' => 'select',
+    'choices'    => array(
+      'default' => 'デフォルト',
+      'Noto Sans JP' => 'Noto Sans JP（源ノ角ゴシック）',
+      'Noto Sans Japanese' => 'Noto Sans Japanese',
+      'Mplus 1p' => 'Mplus 1p',
+      'Rounded Mplus 1c' => 'Rounded Mplus 1c',
+      'Hannari' => 'Hannari（はんなり明朝）',
+      'Kokoro' => 'Kokoro（こころ明朝）',
+      'Sawarabi Gothic' => 'Sawarabi Gothic（さわらびゴシック）',
+      'Sawarabi Mincho' => 'Sawarabi Mincho（さわらび明朝）',
+      // 'Nikukyu' => 'Nikukyu（ニクキュウ）',
+      // 'Nico Moji' => 'Nico Moji（ニコモジ）',
+    ),
+    'priority' => 0.8,
+  ));
+
+
   //完全レスポンシブデザインにする
   $wp_customize->add_setting('responsive_enable', array(
     'sanitize_callback' => 'sanitize_check',
@@ -3786,6 +3814,33 @@ function get_header_height_mobile(){
 function get_mobile_header_background_image(){
   return get_theme_mod( 'mobile_header_background_image', null );
 }
+
+//サイトフォントの取得
+function get_site_font(){
+  return get_theme_mod( 'site_font', 'default' );
+}
+
+//サイトフォントソースコードの取得
+function get_site_font_source(){
+  $font_source = get_site_font();
+  //空白を取り除く
+  $font_source = str_replace(' ', '', $font_source);
+  //大文字を小文字に
+  $font_source = strtolower($font_source);
+  return $font_source;
+}
+
+//サイトフォントソースコードURLの取得
+function get_site_font_source_url(){
+  $font_source = get_site_font();
+  return 'https://fonts.googleapis.com/earlyaccess/'.get_site_font_source().'.css';
+}
+
+//サイトフォントはデフォルト化
+function is_site_font_default(){
+  return get_site_font() == 'default';
+}
+
 
 //完全レスポンシブかどうか
 function is_responsive_enable(){

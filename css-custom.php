@@ -996,3 +996,9 @@ if ( $header_image && !is_mobile() ): ?>
   background-image:url('<?php echo $header_image; ?>');
 }
 <?php endif; //$header_image ?>
+<?php //サイトフォントの設定
+if (!is_site_font_default()): ?>
+body{
+  font-family: '<?php echo get_site_font(); ?>';
+}
+<?php endif ?>
