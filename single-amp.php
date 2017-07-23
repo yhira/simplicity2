@@ -127,26 +127,36 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
 //var_dump(get_amp_tracking_id());
 if ( !is_user_logged_in() ) {
   //AMP用Analyticsトラッキングコードを設定している場合
-  if ( get_amp_tracking_id() ) { ?>
+  $tracking_id = null;
+  $after_title = null;
+  if (get_amp_tracking_id()) {
+    $tracking_id = get_amp_tracking_id();
+  } else {
+    $tracking_id = get_tracking_id();
+    $after_title = '[AMP]';
+  }
+
+  if ( $tracking_id ) { ?>
   <amp-analytics type="googleanalytics" id="analytics1">
   <script type="application/json">
   {
     "vars": {
-      "account": "<?php echo get_amp_tracking_id() ?>"
+      "account": "<?php echo $tracking_id ?>"
     },
     "triggers": {
-      "trackPageview": {
+      "trackPageviewWithAmpdocUrl": {
         "on": "visible",
-        "request": "pageview"
+        "request": "pageview",
+        "vars": {
+          "title": "<?php the_title() ?><?php echo $after_title; ?>",
+          "ampdocUrl": "<?php echo get_amp_permalink() ?>"
+        }
       }
     }
   }
   </script>
   </amp-analytics>
- <?php //AMP用Analyticsトラッキングコードを設定しておらず通常ステージ用の場合
- } elseif ( get_tracking_id() ) { ?>
-  <amp-pixel src="//ssl.google-analytics.com/collect?v=1&amp;tid=<?php echo get_tracking_id() ?>&amp;t=pageview&amp;cid=<?php echo mt_rand(0, 99999999); ?>&amp;dt=<?php the_title() ?>[AMP]&amp;dl=<?php echo get_amp_permalink() ?>&amp;z=<?php echo mt_rand(0, 99999999); ?>"></amp-pixel>
-  <?php
+  <?php //AMP用Analyticsトラッキングコードを設定しておらず通常ステージ用の場合
   }
 }//AMP Analytics終了 ?>
   <div id="container">
