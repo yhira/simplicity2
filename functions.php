@@ -83,6 +83,7 @@ add_filter('widget_text', 'do_shortcode');
 add_filter('widget_text_pc_text', 'do_shortcode');
 add_filter('widget_text_mobile_text', 'do_shortcode');
 add_filter('widget_mobile_ad_text', 'do_shortcode');
+add_filter('widget_classic_text', 'do_shortcode');
 add_filter('widget_pc_ad_text', 'do_shortcode');
 add_filter('widget_pc_double_ad1_text', 'do_shortcode');
 add_filter('widget_pc_double_ad2_text', 'do_shortcode');
@@ -940,6 +941,7 @@ endif;
 add_filter('the_content', 'simplicity_html5_fix');
 add_filter('widget_text', 'simplicity_html5_fix');
 add_filter('widget_text_pc_text', 'simplicity_html5_fix');
+add_filter('widget_classic_text', 'simplicity_html5_fix');
 add_filter('widget_text_mobile_text', 'simplicity_html5_fix');
 
 //現在のカテゴリをカンマ区切りテキストで取得する
@@ -1275,6 +1277,7 @@ if (is_easy_ssl_enable()) {
   add_filter('the_content', 'chagne_site_url_html_to_https', 1);
   add_filter('widget_text', 'chagne_site_url_html_to_https', 1);
   add_filter('widget_text_pc_text', 'chagne_site_url_html_to_https', 1);
+  add_filter('widget_classic_text', 'chagne_site_url_html_to_https', 1);
   add_filter('widget_text_mobile_text', 'chagne_site_url_html_to_https', 1);
   add_filter('comment_text', 'chagne_site_url_html_to_https', 1);
 }

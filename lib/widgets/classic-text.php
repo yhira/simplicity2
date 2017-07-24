@@ -15,7 +15,7 @@ class SimplicityClassicTextWidget extends WP_Widget {
 
 			$widget_text = ! empty( $instance['text'] ) ? $instance['text'] : '';
 
-			$text = apply_filters( 'classic_widget_text', $widget_text, $instance, $this );
+			$text = apply_filters( 'widget_classic_text', $widget_text, $instance, $this );
 
 			echo $args['before_widget'];
 			if ( ! empty( $title ) ) :
