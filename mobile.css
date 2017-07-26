@@ -74,7 +74,7 @@ div#sidebar{
 }
 
 #navi ul  li a{
-  border-bottom:solid 1px #ddd;
+  /*border-bottom:solid 1px #ddd;*/
 }
 
 #navi ul li a:hover {
