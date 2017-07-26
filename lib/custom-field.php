@@ -11,14 +11,17 @@ function add_custom_boxes(){
   add_meta_box( 'ad_setting_in_page',__( '広告の設定', 'simplicity2' ), 'view_ad_custom_box', 'post', 'side' );
   add_meta_box( 'ad_setting_in_page',__( '広告の設定', 'simplicity2' ), 'view_ad_custom_box', 'page', 'side' );
   add_meta_box( 'ad_setting_in_page',__( '広告の設定', 'simplicity2' ), 'view_ad_custom_box', 'topic', 'side' );
+  add_meta_box( 'ad_setting_in_page',__( '広告の設定', 'simplicity2' ), 'view_ad_custom_box', 'custom_post_type', 'side' );
   //SEOボックス
   add_meta_box( 'seo_setting_in_page',__( 'SEO設定', 'simplicity2' ), 'view_seo_custom_box', 'post', 'normal', 'high' );
   add_meta_box( 'seo_setting_in_page',__( 'SEO設定', 'simplicity2' ), 'view_seo_custom_box', 'page', 'normal', 'high' );
   add_meta_box( 'seo_setting_in_page',__( 'SEO設定', 'simplicity2' ), 'view_seo_custom_box', 'topic', 'normal', 'high' );
+  add_meta_box( 'seo_setting_in_page',__( 'SEO設定', 'simplicity2' ), 'view_seo_custom_box', 'custom_post_type', 'normal', 'high' );
   //ページ設定
   add_meta_box( 'page_setting_in_page',__( 'ページ設定', 'simplicity2' ), 'view_page_custom_box', 'post', 'side' );
   add_meta_box( 'page_setting_in_page',__( 'ページ設定', 'simplicity2' ), 'view_page_custom_box', 'page', 'side' );
   add_meta_box( 'page_setting_in_page',__( 'ページ設定', 'simplicity2' ), 'view_page_custom_box', 'topic', 'side' );
+  add_meta_box( 'page_setting_in_page',__( 'ページ設定', 'simplicity2' ), 'view_page_custom_box', 'custom_post_type', 'side' );
   if (is_amp_enable()) {
     //AMP設定
     add_meta_box( 'amp_setting_in_page',__( 'AMP設定', 'simplicity2' ), 'view_amp_custom_box', 'post', 'side' );
