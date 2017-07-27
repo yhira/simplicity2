@@ -3755,11 +3755,10 @@ function remove_protocol($url){
   return preg_replace('/https?:/i', '', $url);
 }
 
-//スキンファイルを取得
-//スキンファイルを設定している場合はスタイルシート名（パス/style.css）を返す
-//設定していない場合は偽（空文字）を返す
-if ( !function_exists( 'get_skin_file' ) ):
-function get_skin_file(){
+
+//選択されているスキンファイルを取得
+if ( !function_exists( 'get_selected_skin_file' ) ):
+function get_selected_skin_file(){
   $file_path = get_theme_mod( 'skin_file', null );
   if ( $file_path ) {
     $file_path = remove_protocol($file_path);
@@ -3773,6 +3772,15 @@ function get_skin_file(){
 
     return $file_path;
   }
+}
+endif;
+
+//スキンファイルを取得
+//スキンファイルを設定している場合はスタイルシート名（パス/style.css）を返す
+//設定していない場合は偽（空文字）を返す
+if ( !function_exists( 'get_skin_file' ) ):
+function get_skin_file(){
+  return get_selected_skin_file();
 }
 endif;
 

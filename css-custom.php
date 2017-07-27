@@ -572,7 +572,7 @@ if ( is_list_style_tile_thumb_cards() ): ?>
     font-size:14px;
   }
 }
-<?php endif; //is_list_style_tile_thumb_3columns_style?>
+<?php endif; //is_list_style_tile_thumb_2columns_style?>
 <?php if ( is_list_style_tile_thumb_2columns_style() ): ?>
 #main .entry{
   width:327px;
