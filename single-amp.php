@@ -45,7 +45,7 @@ foreach( $elements as $key => $val ) {
 if ( !is_user_logged_in() && (get_tracking_id() || get_amp_tracking_id()) )  {
   echo '<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>'.PHP_EOL;
 }
-echo '<link rel="stylesheet" href="'.get_template_directory_uri().'/webfonts/css/font-awesome.min.css'.'">'.PHP_EOL;
+echo '<link rel="stylesheet" href="https://max'.'cdn.boot'.'strapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">'.PHP_EOL;
 if (!is_site_font_default()) {
   echo '<link rel="stylesheet" href="'.get_site_font_source_url().'">'.PHP_EOL;
 }

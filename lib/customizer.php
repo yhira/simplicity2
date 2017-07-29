@@ -5413,11 +5413,12 @@ function is_tips_visible(){
 }
 
 //Simplicity新着・人気エントリーウイジェットにWordpress Popular Postsを使うかどうか
+if ( !function_exists( 'is_wpp_enable' ) ):
 function is_wpp_enable(){
-  // $o = get_option('other_options');
-  // return $o['wpp'] && function_exists('wpp_get_mostpopular');
   return function_exists('wpp_get_mostpopular');
 }
+endif;
+
 
 //Jetpackがインストールされているかどうか
 function is_jetpack_stats_module_active(){
