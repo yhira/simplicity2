@@ -5393,7 +5393,7 @@ function get_amp_test_tool_url($url){
   $encoded_url = str_replace('&amp;', '&', $url);
   $encoded_url = urlencode($encoded_url);
   if (get_amp_test_tool() == 'google_amp_test') {
-    $test_url = 'https://search.google.com/search-console/amp?url='.$encoded_url;
+    $test_url = 'https://search.google.com/test/amp?url='.$encoded_url;
   } elseif (get_amp_test_tool() == 'the_amp_validator') {
     $test_url = 'https://validator.ampproject.org/#url='.$encoded_url;
   } else {
