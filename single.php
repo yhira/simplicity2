@@ -4,5 +4,4 @@ if ( is_amp() ) {
 } else {
   get_template_part('single-page');
 }
-
- ?>
+?>

@@ -25,6 +25,7 @@ function add_custom_boxes(){
   if (is_amp_enable()) {
     //AMP設定
     add_meta_box( 'amp_setting_in_page',__( 'AMP設定', 'simplicity2' ), 'view_amp_custom_box', 'post', 'side' );
+    add_meta_box( 'amp_setting_in_page',__( 'AMP設定', 'simplicity2' ), 'view_amp_custom_box', 'page', 'side' );
   }
 
   //更新タイプ
@@ -385,7 +386,7 @@ function save_amp_custom_data(){
 
 
 //投稿のAMPページが生成に設定されているか
-function is_amp_single_page_enable(){
+function is_amp_page_enable(){
   return !get_post_meta(get_the_ID(), 'is_noamp', true);
 }
 

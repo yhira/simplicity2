@@ -18,7 +18,7 @@ function is_amp(){
   // ampのパラメーターが1かつ
   // かつsingleページのみ$is_ampをtrueにする
   if(is_amp_enable() && //AMPがカスタマイザーの有効化されているか
-     is_single() &&
+     is_singular() &&
      $_GET['amp'] === '1' &&//URLにamp=1パラメータがあるとき
      has_amp_page()//AMPページが存在しているとき
     ){
@@ -32,9 +32,9 @@ endif;
 if ( !function_exists( 'has_amp_page' ) ):
 function has_amp_page(){
   $category_ids =get_noamp_category_ids();
-  return is_single() &&
+  return is_singular() &&
     is_amp_enable() &&
-    is_amp_single_page_enable() &&
+    is_amp_page_enable() &&
     !in_category( $category_ids ) && //除外カテゴリではAMPページを生成しない
     (!function_exists('is_bbpress') || !is_bbpress());
 }

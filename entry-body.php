@@ -33,12 +33,12 @@
       <?php endif //is_comment_count_visible?>
 
       <?php //AMPページへ
-      if (is_user_logged_in() && is_amp_link_visible() && has_amp_page() ): ?>
+      if ( is_user_logged_in() && is_amp_link_visible() && has_amp_page() ): ?>
         <span class="amp-view"><span class="fa icon-amp-logo2 fa-fw"></span><a href="<?php echo get_amp_permalink().'#development=1'; ?>"><?php _e( 'AMP', 'simplicity2' ) ?></a></span>
       <?php endif ?>
 
       <?php //AMPテストへ
-      if (is_user_logged_in() && is_amp_test_link_visible() && has_amp_page() ): ?>
+      if ( is_user_logged_in() && is_amp_test_link_visible() && has_amp_page() ): ?>
         <span class="amp-test"><span class="fa icon-amp-logo2 fa-fw"></span><a href="<?php echo get_amp_test_tool_url(get_amp_permalink()); ?>" target="_blank"><?php _e( 'テスト', 'simplicity2' ) ?></a></span>
       <?php endif ?>
 
