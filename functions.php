@@ -1022,12 +1022,6 @@ function get_template_part_card($template_name){
   ob_start();//バッファリング
   get_template_part($template_name);//テンプレートの呼び出し
   $template = ob_get_clean();//テンプレート内容を変数に代入
-  /*
-  $template = preg_replace('/<a [^>]+?>/i', '', $template);
-  $template = str_replace('</a>', '', $template);
-
-  $template = '<a class="hover-card" href="'.get_the_permalink().'">'.$template.'</a>';
-  */
   //エントリーカードをカード化する場合はaタグを削除して全体をa.hover-cardで囲む
   $template = wrap_entry_card($template);
   echo $template;

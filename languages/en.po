@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-07-30 01:05+0900\n"
-"PO-Revision-Date: 2017-07-30 01:06+0900\n"
+"POT-Creation-Date: 2017-08-07 03:22+0900\n"
+"PO-Revision-Date: 2017-08-07 03:22+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -36,6 +36,14 @@ msgstr "Day"
 msgid "Jetpackの統計"
 msgstr "Jetpack statistics"
 
+#: amp-content.php:17
+msgid "通常ページ"
+msgstr "Normal page"
+
+#: amp-content.php:22 entry-body.php:42 page-page.php:21
+msgid "テスト"
+msgstr "Test"
+
 #: button-go-to-top.php:8
 msgid "トップへ戻る"
 msgstr "Back to top"
@@ -44,27 +52,23 @@ msgstr "Back to top"
 msgid "編集"
 msgstr "Edit"
 
-#: entry-body.php:37
+#: entry-body.php:37 page-page.php:16
 msgid "AMP"
 msgstr "AMP"
 
-#: entry-body.php:42 single-amp.php:212
-msgid "テスト"
-msgstr "Test"
-
-#: entry-body.php:47 entry-body.php:111 page.php:16 page.php:81
+#: entry-body.php:47 entry-body.php:111 page-page.php:26 page-page.php:91
 msgid "WLWで編集"
 msgstr "Edit by WLW"
 
-#: functions.php:1169
+#: functions.php:1163
 msgid "The REST API on this site has been disabled."
 msgstr "The REST API on this site has been disabled."
 
-#: functions.php:1355
+#: functions.php:1349
 msgid "「"
 msgstr "\""
 
-#: functions.php:1359
+#: functions.php:1353
 msgid "」"
 msgstr "\""
 
@@ -172,52 +176,56 @@ msgstr "SEO Settings"
 msgid "ページ設定"
 msgstr "Page Settings"
 
-#: lib/custom-field.php:27
+#: lib/custom-field.php:27 lib/custom-field.php:28
 msgid "AMP設定"
 msgstr "AMP"
 
-#: lib/custom-field.php:31 lib/custom-field.php:32
+#: lib/custom-field.php:32 lib/custom-field.php:33
 msgid "更新日の変更"
 msgstr "Change of Update Date"
 
-#: lib/custom-field.php:46
+#: lib/custom-field.php:47
 msgid "コメントの凍結"
 msgstr "Forbid comments"
 
-#: lib/custom-field.php:47
+#: lib/custom-field.php:48
 msgid "コメントフォームを非表示にし以降は書き込めないようにします。"
 msgstr ""
 "Hide the comment form of this page so that anybody can not write comments."
 
-#: lib/custom-field.php:49
+#: lib/custom-field.php:50
 msgid "凍結時のメッセージ"
 msgstr "Message when comments Forbiding"
 
-#: lib/custom-field.php:53
+#: lib/custom-field.php:54
 msgid ""
 "コメント凍結時に表示するメッセージです。未入力の場合はデフォルトのものが表示"
 "されます。"
 msgstr "This message is displayed when the comment is prohibited."
 
-#: lib/custom-field.php:94
+#: lib/custom-field.php:95
 msgid "広告の除外"
 msgstr "Ads exclusion"
 
-#: lib/custom-field.php:95
+#: lib/custom-field.php:96
 msgid ""
 "ページ上の広告（AdSenseなど）をページ上から取り除きます。テーマカスタマイザー"
 "の「広告」項目からカテゴリごとの設定も行えます。"
 msgstr "All ads on this page will be removed."
 
-#: lib/custom-field.php:130
+#: lib/custom-field.php:160
 msgid "SEOタイトル"
 msgstr "SEO Title"
 
-#: lib/custom-field.php:131
+#: lib/custom-field.php:160 lib/custom-field.php:166
+msgid "文字数"
+msgstr "Character count"
+
+#: lib/custom-field.php:161
 msgid "タイトルを入力してください。"
 msgstr "Enter SEO title here"
 
-#: lib/custom-field.php:132
+#: lib/custom-field.php:162
 msgid ""
 "検索エンジンに表示させたいタイトルを入力してください。記事のタイトルより、こ"
 "ちらに入力したテキストが優先的にタイトルタグ(&lt;title&gt;)に挿入されます。一"
@@ -227,15 +235,15 @@ msgstr ""
 "Enter the title you want to display on search engines.The title you enter "
 "here will be used for the title tag."
 
-#: lib/custom-field.php:136
+#: lib/custom-field.php:166
 msgid "メタディスクリプション"
 msgstr "Meta Description"
 
-#: lib/custom-field.php:137
+#: lib/custom-field.php:167
 msgid "記事の説明文を入力してください。"
 msgstr "Enter meta description here"
 
-#: lib/custom-field.php:138
+#: lib/custom-field.php:168
 msgid ""
 "記事の説明を入力してください。日本語では、およそ120文字前後の入力をおすすめし"
 "ます。スマホではそのうちの約50文字が表示されます。こちらに入力したメタディス"
@@ -247,15 +255,15 @@ msgstr ""
 "as a snippet for blog cards. If it is not filled in, \"Excerpt\" is used as "
 "the Meta Description."
 
-#: lib/custom-field.php:141
+#: lib/custom-field.php:171
 msgid "メタキーワード"
 msgstr "Meta Keywords"
 
-#: lib/custom-field.php:142
+#: lib/custom-field.php:172
 msgid "記事の関連キーワードを半角カンマ区切りで入力してください。"
 msgstr "Enter meta keywords here"
 
-#: lib/custom-field.php:143
+#: lib/custom-field.php:173
 msgid ""
 "記事に関連するキーワードを,（カンマ）区切りで入力してください。入力しない場合"
 "は、カテゴリ名などから自動で設定されます。"
@@ -263,67 +271,67 @@ msgstr ""
 "Enter keywords related to the content, separated by comma. If you do not "
 "enter it, it will be set automatically from the category name."
 
-#: lib/custom-field.php:148
+#: lib/custom-field.php:178
 msgid "インデックスしない（noindex）"
 msgstr "Noindex"
 
-#: lib/custom-field.php:149
+#: lib/custom-field.php:179
 msgid ""
 "このページが検索エンジンにインデックスされないようにメタタグを設定します。"
 msgstr "If noindex is enabled, it will not appear in search engines result."
 
-#: lib/custom-field.php:154
+#: lib/custom-field.php:184
 msgid "リンクをフォローしない（nofollow）"
 msgstr "Nofollow"
 
-#: lib/custom-field.php:155
+#: lib/custom-field.php:185
 msgid ""
 "検索エンジンがこのページ上のリンクをフォローしないようにメタタグを設定しま"
 "す。"
 msgstr ""
 "If nofollow is enabled, search engines will not crawl links on the page."
 
-#: lib/custom-field.php:158
+#: lib/custom-field.php:188
 msgid "SEO項目の設定方法"
 msgstr "How to set SEO items"
 
-#: lib/custom-field.php:255
+#: lib/custom-field.php:286
 msgid "ページタイプ"
 msgstr "Page Type"
 
-#: lib/custom-field.php:260 lib/customizer.php:427 lib/customizer.php:1128
+#: lib/custom-field.php:291 lib/customizer.php:427 lib/customizer.php:1128
 #: lib/customizer.php:2979 lib/widgets/new-entries.php:122
 #: lib/widgets/new-popular.php:184 lib/widgets/popular-ranking.php:175
 msgid "デフォルト"
 msgstr "Default"
 
-#: lib/custom-field.php:264
+#: lib/custom-field.php:295
 msgid "1カラム（狭い）"
 msgstr "1 column (narrow)"
 
-#: lib/custom-field.php:268
+#: lib/custom-field.php:299
 msgid "1カラム（広い）"
 msgstr "1 column (wide)"
 
-#: lib/custom-field.php:272
+#: lib/custom-field.php:303
 msgid "本文のみ（狭い）"
 msgstr "Body only (narrow)"
 
-#: lib/custom-field.php:276
+#: lib/custom-field.php:307
 msgid "本文のみ（広い）"
 msgstr "Body only (wide)"
 
-#: lib/custom-field.php:278
+#: lib/custom-field.php:309
 msgid ""
 "このページの表示状態を設定します。「本文のみ」表示はランディングページ（LP）"
 "などにどうぞ。"
 msgstr "You can only display a main column or only a entry contentt."
 
-#: lib/custom-field.php:367
+#: lib/custom-field.php:398
 msgid "AMPページを生成しない"
 msgstr "Do not generate AMP page"
 
-#: lib/custom-field.php:368
+#: lib/custom-field.php:399
 msgid ""
 "AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョン"
 "ページ、スクリプト動作が必要なページ等ではチェックすることをおすすめします。"
@@ -331,15 +339,15 @@ msgid ""
 "\">機能説明</a>"
 msgstr "Please check if you do not generate AMP page."
 
-#: lib/custom-field.php:409
+#: lib/custom-field.php:440
 msgid "変更する"
 msgstr "Change"
 
-#: lib/custom-field.php:411
+#: lib/custom-field.php:442
 msgid "変更しない"
 msgstr "Do Not Change"
 
-#: lib/custom-field.php:412
+#: lib/custom-field.php:443
 msgid ""
 "更新日時を変更するかどうかを設定します。誤字修正などで更新日を変更したくない"
 "場合は「変更しない」にチェックを入れてください。"
@@ -3990,10 +3998,6 @@ msgstr "SNS follow Buttons"
 #: lib/widgets/sns-follow-buttons.php:43
 msgid "SNSフォローボタンのタイトル"
 msgstr "SNS follow button title"
-
-#: single-amp.php:207
-msgid "通常ページ"
-msgstr "Normal page"
 
 #: sns-button-twitter.php:18
 msgid "ツイート"

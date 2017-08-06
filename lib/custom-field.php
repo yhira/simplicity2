@@ -117,6 +117,35 @@ function is_ads_removed_in_page(){
 ///////////////////////////////////////
 // SEO設定
 ///////////////////////////////////////
+
+//SEOの文字カウント
+function seo_settings_admin_script() {?>
+<script type="text/javascript">
+jQuery(function($) {
+  //SEOタイトルの文字数取得
+  $("#seo-title").bind("keydown keyup keypress change",function(){
+    var thisValueLength = $(this).val().length;
+    $(".seo-title-count").html(thisValueLength);
+  });
+
+  //SEOメタディスクリプションの文字数取得
+  $("#meta-description").bind("keydown keyup keypress change",function(){
+    var thisValueLength = $(this).val().length;
+    $(".meta-description-count").html(thisValueLength);
+  });
+});
+</script><?php
+}
+add_action( 'admin_head-post-new.php', 'seo_settings_admin_script' );
+add_action( 'admin_head-post.php', 'seo_settings_admin_script' );
+add_action( 'admin_head-page-new.php', 'seo_settings_admin_script' );
+add_action( 'admin_head-page.php', 'seo_settings_admin_script' );
+add_action( 'admin_head-topic-new.php', 'seo_settings_admin_script' );
+add_action( 'admin_head-topic.php', 'seo_settings_admin_script' );
+add_action( 'admin_head-custom-post-type-new.php', 'seo_settings_admin_script' );
+add_action( 'admin_head-custom-post-type.php', 'seo_settings_admin_script' );
+//add_action('admin_print_scripts', 'seo_settings_admin_script');
+
 function view_seo_custom_box(){
   $seo_title = get_post_meta(get_the_ID(),'seo_title', true);
   $seo_title = htmlspecialchars($seo_title);
@@ -128,14 +157,14 @@ function view_seo_custom_box(){
   $is_nofollow = get_post_meta(get_the_ID(),'is_nofollow', true);
 
   //タイトル
-  echo '<label style="font-weight:bold;margin-bottom:5px;">'.__( 'SEOタイトル', 'simplicity2' ).'</label>';
-  echo '<input type="text" style="width:100%" placeholder="'.__( 'タイトルを入力してください。', 'simplicity2' ).'" name="seo_title" value="'.$seo_title.'" />';
+  echo '<label style="font-weight:bold;margin-bottom:5px;">'.__( 'SEOタイトル', 'simplicity2' ).'<span style="margin-left:10px;background-color:#f7f7f7;padding:2px;border-radius:5px;border:1px solid #ccc;">'.__( '文字数', 'simplicity2' ).':<span class="seo-title-count" style="margin-left:5px;">0</span></span></label>';
+  echo '<input id="seo-title" type="text" style="width:100%" placeholder="'.__( 'タイトルを入力してください。', 'simplicity2' ).'" name="seo_title" value="'.$seo_title.'" />';
   echo '<p class="howto" style="margin-top:0;">'.__( '検索エンジンに表示させたいタイトルを入力してください。記事のタイトルより、こちらに入力したテキストが優先的にタイトルタグ(&lt;title&gt;)に挿入されます。一般的に日本語の場合は、32文字以内が最適とされています。（※ページやインデックスの見出し部分には「記事のタイトル」が利用されます）', 'simplicity2' ).'</p>';
 
 
   //メタディスクリプション
-  echo '<label style="font-weight:bold;margin-bottom:5px;">'.__( 'メタディスクリプション', 'simplicity2' ).'</label>';
-  echo '<textarea style="width:100%" placeholder="'.__( '記事の説明文を入力してください。', 'simplicity2' ).'" name="meta_description" rows="3">'.$meta_description.'</textarea>';
+  echo '<label style="font-weight:bold;margin-bottom:5px;">'.__( 'メタディスクリプション', 'simplicity2' ).'<span style="margin-left:10px;background-color:#f7f7f7;padding:2px;border-radius:5px;border:1px solid #ccc;">'.__( '文字数', 'simplicity2' ).':<span class="meta-description-count" style="margin-left:5px;">0</span></span></label>';
+  echo '<textarea id="meta-description" style="width:100%" placeholder="'.__( '記事の説明文を入力してください。', 'simplicity2' ).'" name="meta_description" rows="3">'.$meta_description.'</textarea>';
   echo '<p class="howto" style="margin-top:0;">'.__( '記事の説明を入力してください。日本語では、およそ120文字前後の入力をおすすめします。スマホではそのうちの約50文字が表示されます。こちらに入力したメタディスクリプションはブログカードのスニペット（抜粋文部分）にも利用されます。こちらに入力しない場合は、「抜粋」に入力したものがメタディスクリプションとして挿入されます。', 'simplicity2' ).'</p>';
 
   //メタキーワード
@@ -245,6 +274,7 @@ function get_meta_robots_tag(){
     return '<meta name="robots" content="nofollow">'.PHP_EOL;
   }
 }
+
 
 ///////////////////////////////////////
 // ページ設定
