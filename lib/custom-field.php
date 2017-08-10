@@ -122,23 +122,32 @@ if ( !function_exists( 'seo_settings_admin_script' ) ):
 function seo_settings_admin_script() {?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
+  //$inの文字数をカウントして$outに出力する
+  function count_charactors($in, $out) {
+    $($out).html($($in).val().length);
+  }
   //SEOタイトルの文字数取得
   $("#seo-title").bind("keydown keyup keypress change",function(){
-    var thisValueLength = $(this).val().length;
-    $(".seo-title-count").html(thisValueLength);
+    // var thisValueLength = $(this).val().length;
+    // $(".seo-title-count").html(thisValueLength);
+    count_charactors("#seo-title", ".seo-title-count");
   });
+  count_charactors("#seo-title", ".seo-title-count");
 
   //SEOメタディスクリプションの文字数取得
   $("#meta-description").bind("keydown keyup keypress change",function(){
-    var thisValueLength = $(this).val().length;
-    $(".meta-description-count").html(thisValueLength);
+    // var thisValueLength = $(this).val().length;
+    // $(".meta-description-count").html(thisValueLength);
+    count_charactors("#meta-description", ".meta-description-count");
   });
+  count_charactors("#meta-description", ".meta-description-count");
 
   //Wordpressタイトルの文字数
   $('#titlewrap').after('<div style="position:absolute;top:-23px;right:5px;color:#666;background-color:#f7f7f7;padding:1px 2px;border-radius:5px;border:1px solid #ccc;"><?php _e( '文字数', 'simplicity2' ); ?>:<span class="wp-title-count" style="margin-left:5px;">0</span></div>');
   $('#title').bind("keydown keyup keypress change",function(){
-    $('.wp-title-count').html($(this).val().length);
+    count_charactors('#title', '.wp-title-count');
   });
+  count_charactors('#title', '.wp-title-count');
 });
 </script><?php
 }
