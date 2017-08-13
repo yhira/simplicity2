@@ -59,10 +59,14 @@ function url_to_blog_card_tag($url){
   if ( is_blog_card_width_auto() ) {
     $wide_class = ' blog-card-wide';
   }
+  $hatena_wh = null;
+  if ( is_amp() ) {
+    $hatena_wh = ' width="48" height="13"';
+  }
 
   //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
   //はてブを表示する場合
-  $hatebu_tag = is_blog_card_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
+  $hatebu_tag = is_blog_card_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt=""'.$hatena_wh.' /></a></div>' : '';
 
   //ファビコン
   $favicon_tag = '';
@@ -478,12 +482,13 @@ function url_to_external_ogp_blog_card_tag($url){
   if ( is_blog_card_external_width_auto() ) {
     $wide_class = ' blog-card-wide';
   }
-// echo('<pre>');
-// var_dump(is_blog_card_external_width_auto());
-// echo('</pre>');
-  //$hatebu_url = preg_replace('/^https?:\/\//i', '', $url);
+  $hatena_wh = null;
+  if ( is_amp() ) {
+    $hatena_wh = ' width="48" height="13"';
+  }
+
   //はてブを表示する場合
-  $hatebu_tag = is_blog_card_external_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt="" /></a></div>' : '';
+  $hatebu_tag = is_blog_card_external_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt=""'.$hatena_wh.' /></a></div>' : '';
 
   //GoogleファビコンAPIを利用する
   ////www.google.com/s2/favicons?domain=nelog.jp
