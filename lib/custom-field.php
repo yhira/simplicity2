@@ -128,16 +128,12 @@ jQuery(document).ready(function($){
   }
   //SEOタイトルの文字数取得
   $("#seo-title").bind("keydown keyup keypress change",function(){
-    // var thisValueLength = $(this).val().length;
-    // $(".seo-title-count").html(thisValueLength);
     count_charactors("#seo-title", ".seo-title-count");
   });
   count_charactors("#seo-title", ".seo-title-count");
 
   //SEOメタディスクリプションの文字数取得
   $("#meta-description").bind("keydown keyup keypress change",function(){
-    // var thisValueLength = $(this).val().length;
-    // $(".meta-description-count").html(thisValueLength);
     count_charactors("#meta-description", ".meta-description-count");
   });
   count_charactors("#meta-description", ".meta-description-count");

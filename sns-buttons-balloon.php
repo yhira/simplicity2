@@ -183,7 +183,7 @@
     <li class="balloon-btn feedly-balloon-btn">
       <span class="balloon-btn-set">
         <span class="arrow-box">
-          <a href="//feedly.com/index.html#subscription%2Ffeed%2F<?php urlencode(bloginfo('rss2_url')); ?>" target="blank" class="arrow-box-link feedly-arrow-box-link" rel="nofollow">
+          <a href="//feedly.com/index.html#subscription/feed/<?php bloginfo('rss2_url'); ?>" target="blank" class="arrow-box-link feedly-arrow-box-link" rel="nofollow">
             <span class="social-count feedly-count"><?php
               if ( scc_feedly_exists() ) {//SNS Count Cache関数があるか
                 echo scc_get_follow_feedly();
@@ -194,7 +194,7 @@
              ?></span>
           </a>
         </span>
-        <a href="//feedly.com/index.html#subscription%2Ffeed%2F<?php urlencode(bloginfo('rss2_url')); ?>" target="blank" class="balloon-btn-link feedly-balloon-btn-link" rel="nofollow">
+        <a href="//feedly.com/index.html#subscription/feed/<?php bloginfo('rss2_url'); ?>" target="blank" class="balloon-btn-link feedly-balloon-btn-link" rel="nofollow">
           <span class="icon-feedly"></span>
         </a>
       </span>

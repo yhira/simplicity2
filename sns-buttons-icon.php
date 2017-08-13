@@ -86,7 +86,7 @@ $viral_class = is_share_button_type_mobile_viral() || is_amp() ? ' sns-group-vir
     endif; //is_push7_btn_visible ?>
     <?php if ( is_feedly_btn_visible() )://feedlyボタンを表示するか ?>
     <li class="feedly-btn-icon">
-    <a href="//feedly.com/index.html#subscription%2Ffeed%2F<?php urlencode(bloginfo('rss2_url')); ?>" class="btn-icon-link feedly-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-feedly"></span><span class="social-count feedly-count"><?php
+    <a href="//feedly.com/index.html#subscription/feed/<?php bloginfo('rss2_url'); ?>" class="btn-icon-link feedly-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-feedly"></span><span class="social-count feedly-count"><?php
               if ( scc_feedly_exists() ) {//SNS Count Cache関数があるか
                 echo scc_get_follow_feedly();
               } else {
