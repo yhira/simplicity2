@@ -3677,7 +3677,7 @@ function theme_customize_register($wp_customize) {
 
   //日本語のスラッグを有効にする
   $wp_customize->add_setting('japanese_slug_enable', array(
-    'default' => true,
+    'default' => false,
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'japanese_slug_enable', array(
@@ -5428,7 +5428,7 @@ function is_jetpack_stats_module_active(){
 
 //日本語のスラッグを有効にするかどうか
 function is_japanese_slug_enable(){
-  return get_theme_mod( 'japanese_slug_enable', true );
+  return get_theme_mod( 'japanese_slug_enable', false );
 }
 //最初の投稿の年を取得
 function get_first_post_year(){
