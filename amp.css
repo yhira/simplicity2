@@ -985,7 +985,6 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
   font-size: 12px;
   font-weight: 800;
   margin: 7px auto;
-  padding: 10px 1px;
   text-align: center;
   text-decoration: none;
   text-shadow: 1px 1px 1px #dcdcdc;
@@ -1000,6 +999,8 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 .kaerebalink-link1 div a,
 .booklink-link2 div a{
   text-decoration: none;
+  display: block;
+  padding: 10px 1px;
 }
 
 .booklink-footer {
