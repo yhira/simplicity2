@@ -118,6 +118,10 @@ function convert_content_for_amp($the_content){
   $the_content = preg_replace('/ *? marginheight=["][^"]*?["]/i', '', $the_content);
   $the_content = preg_replace('/ *? marginheight=[\'][^\']*?[\']/i', '', $the_content);
 
+  //YouTubeプレイヤーのtype属性を取り除く
+  $the_content = str_replace(" class='youtube-player' type='text/html'", " class='youtube-player'", $the_content);
+  $the_content = str_replace(' class="youtube-player" type="text/html"', ' class="youtube-player"', $the_content);
+
   //単純に耐える属性を取り除いたらAMPエラーが出た
   //typeが不要なタグと必要なタグもあるみたい
   // //type属性を取り除く
