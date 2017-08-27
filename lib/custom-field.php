@@ -124,7 +124,10 @@ function seo_settings_admin_script() {?>
 jQuery(document).ready(function($){
   //in_selの文字数をカウントしてout_selに出力する
   function count_characters(in_sel, out_sel) {
-    $(out_sel).html($(in_sel).val().length);
+    var val = $(in_sel).val();
+    if ( val ) {
+      $(out_sel).html(val.length);
+    }
   }
   //SEOタイトルの文字数取得
   $("#seo-title").bind("keydown keyup keypress change",function(){
