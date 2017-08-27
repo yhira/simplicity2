@@ -483,8 +483,8 @@ hr.sep {
 
 #navi ul.sub-menu,
 #navi ul.children{
-  position: absolute;
   display: none;
+  position: absolute;
   margin-left: 0;
   min-width:200px;
   border: 1px solid #ddd;
