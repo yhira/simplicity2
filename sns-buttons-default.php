@@ -47,15 +47,15 @@
     <?php if ( is_feedly_btn_visible() )://feedlyボタンを表示するか ?>
       <?php if ($g_is_small): //横型の小さいfeedlyボタン?>
       <li class="feedly-btn feedly-btn-horizontal">
-        <a href='//feedly.com/index.html#subscription%2Ffeed%2F<?php urlencode(bloginfo('rss2_url')); ?>' target='blank'><img id='feedly-follow' src='//s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png' alt=""></a>
-    <span class="arrow_box"><a href='//feedly.com/index.html#subscription%2Ffeed%2F<?php urlencode(bloginfo('rss2_url')); ?>' target='blank'><?php echo fetch_feedly_count(); ?></a></span>
+        <a href="//feedly.com/i/subscription/feed/<?php bloginfo('rss2_url'); ?>" target="blank"><img id="feedly-follow" src="//s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png" alt=""></a>
+    <span class="arrow_box"><a href="//feedly.com/i/subscription/feed/<?php bloginfo('rss2_url'); ?>" target="blank"><?php echo fetch_feedly_count(); ?></a></span>
       </li>
       <?php else: //縦型の大きなfeedlyボタン?>
       <li class="feedly-btn feedly-btn-vertical">
         <div id="feedly-followers">
-        <span id="feedly-count" class="feedly-count"><a href='//feedly.com/index.html#subscription/feed/<?php urlencode(bloginfo('rss2_url')); ?>' target='blank'><?php echo fetch_feedly_count(); ?></a></span>
-        <a href='//feedly.com/index.html#subscription/feed/<?php bloginfo('rss2_url'); ?>' target='blank'>
-          <img id='feedly-follow' src='//s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png' alt="">
+        <span id="feedly-count" class="feedly-count"><a href="//feedly.com/i/subscription/feed/<?php bloginfo('rss2_url'); ?>" target="blank"><?php echo fetch_feedly_count(); ?></a></span>
+        <a href="//feedly.com/i/subscription/feed/<?php bloginfo('rss2_url'); ?>" target="blank">
+          <img id="feedly-follow" src="//s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png" alt="">
         </a></div>
       </li>
       <?php endif; ?>
