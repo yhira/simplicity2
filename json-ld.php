@@ -6,7 +6,7 @@
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
-  "@type": "NewsArticle",
+  "@type": "Article",
   "mainEntityOfPage":{
     "@type":"WebPage",
     "@id":"<?php the_permalink(); ?>"<?php  // パーマリンクを取得 ?>
