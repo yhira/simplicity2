@@ -358,6 +358,9 @@ add_filter('the_content','add_widget_before_1st_h2');
 /////////////////////////////////////
 if ( !function_exists( 'add_widget_before_1st_h2_in_page' ) ):
 function add_widget_before_1st_h2_in_page($the_content) {
+  if ( is_amp() ) {
+    return $the_content;
+  }
   if ( is_page() && //投稿ページのとき、固定ページも表示する場合はis_singular()にする
        is_active_sidebar( 'widget-in-page-article' ) //ウィジェットが設定されているとき
   ) {
