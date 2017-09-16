@@ -3490,6 +3490,20 @@ function theme_customize_register($wp_customize) {
     'priority' => 400,
   ));
 
+  //管理エディタータイトル等の文字数表示
+  $wp_customize->add_setting('admin_editor_counter_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'admin_editor_counter_visible', array(
+    'settings' => 'admin_editor_counter_visible',
+    'label' => __( 'タイトル等の文字数カウンター表示', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿管理画面のタイトルや、SEO設定のタイトル・ディスクリプションの文字数表示を行います。', 'simplicity2' ) : '',
+    'section' => 'admin_section',
+    'type' => 'checkbox',
+    'priority' => 450,
+  ));
+
   //管理者用PV表
   $wp_customize->add_setting('admin_pv_type', array(
     'default'    => 'none',
@@ -5254,6 +5268,11 @@ function is_initial_media_disp_type_in_entry(){
 //記事を公開前に確認するか
 function is_confirmation_before_publish(){
   return get_theme_mod( 'confirmation_before_publish', false );
+}
+
+//管理画面のカウンター表示
+function is_admin_editor_counter_visible(){
+  return get_theme_mod( 'admin_editor_counter_visible', true );
 }
 
 //管理者用PV表示タイプの取得

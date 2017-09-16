@@ -151,15 +151,17 @@ jQuery(document).ready(function($){
 </script><?php
 }
 endif;
-add_action( 'admin_head-post-new.php', 'seo_settings_admin_script' );
-add_action( 'admin_head-post.php', 'seo_settings_admin_script' );
-add_action( 'admin_head-page-new.php', 'seo_settings_admin_script' );
-add_action( 'admin_head-page.php', 'seo_settings_admin_script' );
-add_action( 'admin_head-topic-new.php', 'seo_settings_admin_script' );
-add_action( 'admin_head-topic.php', 'seo_settings_admin_script' );
-add_action( 'admin_head-custom-post-type-new.php', 'seo_settings_admin_script' );
-add_action( 'admin_head-custom-post-type.php', 'seo_settings_admin_script' );
-//add_action('admin_print_scripts', 'seo_settings_admin_script');
+if (is_admin_editor_counter_visible()) {
+  add_action( 'admin_head-post-new.php', 'seo_settings_admin_script' );
+  add_action( 'admin_head-post.php', 'seo_settings_admin_script' );
+  add_action( 'admin_head-page-new.php', 'seo_settings_admin_script' );
+  add_action( 'admin_head-page.php', 'seo_settings_admin_script' );
+  add_action( 'admin_head-topic-new.php', 'seo_settings_admin_script' );
+  add_action( 'admin_head-topic.php', 'seo_settings_admin_script' );
+  add_action( 'admin_head-custom-post-type-new.php', 'seo_settings_admin_script' );
+  add_action( 'admin_head-custom-post-type.php', 'seo_settings_admin_script' );
+}
+
 
 function view_seo_custom_box(){
   $seo_title = get_post_meta(get_the_ID(),'seo_title', true);
