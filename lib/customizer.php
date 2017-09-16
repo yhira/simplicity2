@@ -2311,6 +2311,19 @@ function theme_customize_register($wp_customize) {
     'priority'=> 600,
   ));
 
+  //[ad]ショートコードの利用
+  $wp_customize->add_setting('ads_ad_shortcode_enable', array(
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'ads_ad_shortcode_enable', array(
+    'settings' => 'ads_ad_shortcode_enable',
+    'label' => __( '[ad]ショートコードの利用', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '本文中に[ad]と入力した箇所にウィジェットに設定した広告コードが出力されます。PC、モバイル、AMPと別々のものが表示されますので、利用の際は十分に動作確認することをおすすめします。', 'simplicity2' ) : '',
+    'section' => 'ads_section',
+    'type' => 'checkbox',
+    'priority'=> 610,
+  ));
+
   //PCトップをカスタムサイズ広告に
   $wp_customize->add_setting('custum_ad_space', array(
     'sanitize_callback' => 'sanitize_check',
@@ -4855,6 +4868,11 @@ function is_ads_vatical_rectangle(){
 //パフォーマンス追求広告を表示するかどうか
 function is_ads_performance_visible(){
   return get_theme_mod( 'ads_performance_visible', false );
+}
+
+//[ad]ショートコードの利用
+function is_ads_ad_shortcode_enable(){
+  return get_theme_mod( 'ads_ad_shortcode_enable', false );
 }
 
 //PCトップをカスタムサイズ広告にするか
