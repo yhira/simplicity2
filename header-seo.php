@@ -57,6 +57,10 @@ if ( is_tag() ): ?>
 if ( is_tag() ): ?>
 <meta name="keywords" content="<?php echo get_meta_keyword_from_tag(); ?>" />
 <?php endif; ?>
+<?php //はてブのコメント一覧非表示機能に対応
+if (get_hatebu_follow_id()): ?>
+<link rel="author" href="http://www.hatena.ne.jp/<?php echo get_hatebu_follow_id(); ?>/" />
+<?php endif ?>
 <?php
 ///////////////////////////////////////
 // canonicalタグの設定
