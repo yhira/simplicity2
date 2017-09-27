@@ -382,6 +382,26 @@ function simplicity_scripts() {
     wp_enqueue_script( 'lity-js', get_template_directory_uri() . '/js/lity.min.js', array( 'jquery' ), false, true  );
   }
 
+  ///////////////////////////////////
+  //baguetteboxの呼び出し
+  ///////////////////////////////////
+  if ( is_baguettebox_enable() && //Lightboxが有効のとき
+  //投稿・固定ページか、リストスタイルが本文表示の時だけ呼び出す
+  ( is_singular() || is_list_style_bodies() ) ) {
+    //baguettebox CSSの呼び出し
+    wp_enqueue_style( 'baguettebox-style', get_template_directory_uri() . '/css/baguetteBox.min.css' );
+    //baguetteboxスクリプトの呼び出し
+    wp_enqueue_script( 'baguettebox-js', get_template_directory_uri() . '/js/baguetteBox.min.js', array(), false, true  );
+    //実行コードの記入
+    $data = "
+          window.onload = function() {
+            baguetteBox.run('.entry-content');
+          };
+    ";
+    wp_add_inline_script( 'baguettebox-js', $data, 'after' );
+  }
+
+
   // ///////////////////////////////////
   // //Evernoteに関する記述
   // ///////////////////////////////////
