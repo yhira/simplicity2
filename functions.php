@@ -1248,6 +1248,11 @@ function chagne_site_url_html_to_https($the_content){
   $search  = 'http://hbb.afl.rakuten.co.jp';
   $replace = 'https://hbb.afl.rakuten.co.jp';
   $the_content = str_replace($search, $replace, $the_content);
+  
+  //リンクシェアのSSL対応
+  $search  = 'http://ad.linksynergy.com';
+  $replace = 'https://ad.linksynergy.com';
+  $the_content = str_replace($search, $replace, $the_content);
 
   //Google検索ボックスのSSL対応
   $search  = 'http://www.google.co.jp/cse';
