@@ -618,7 +618,7 @@ function theme_customize_register($wp_customize) {
   $wp_customize->add_control( 'wordpress_excerpt', array(
     'settings' => 'wordpress_excerpt',
     'label' => __( '抜粋に「メタディスクリプション」項目を利用', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( '記事一覧・ブログカードのスニペットに投稿管理画面の「SEO設定」項目にある「メタディスクリプション」テキストを使用します。「メタディスクリプション」が入力されていない場合は「抜粋」が使用されます。（※双方とも未入力の場合は記事本文冒頭の抜粋文）', 'simplicity2' ) : '',
+    'description' => is_tips_visible() ? __( '記事一覧・ブログカードのスニペットに投稿管理画面の「抜粋」テキストを使用します。「抜粋」が入力されていない場合は「SEO設定」項目にある「メタディスクリプション」が使用されます。（※双方とも未入力の場合は記事本文冒頭の抜粋文）', 'simplicity2' ) : '',
     'section' => 'layout_section',
     'type' => 'checkbox',
     'priority' => 100,
