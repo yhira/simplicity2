@@ -1356,25 +1356,6 @@ function theme_customize_register($wp_customize) {
     'priority' => 60,
   ));
 
-  // //画像リンク拡大効果
-  // $wp_customize->add_setting('lightbox_type', array(
-  //   'default' => 'none',
-  //   'sanitize_callback' => 'sanitize_text',
-  // ));
-  // $wp_customize->add_control( 'lightbox_type', array(
-  //   'settings' => 'lightbox_type',
-  //   'label' => __( '画像リンク拡大効果のタイプ', 'simplicity2' ),
-  //   'description' => is_tips_visible() ? __( 'ライトボックス（画像拡大効果）のタイプを指定します。それぞれは、jQueryライブラリ名です。詳細はリンク先を参照してください。<a href="http://nelog.jp/lightbox-jquery" target="_blank">Lightbox</a>、<a href="http://nelog.jp/lity-js" target="_blank">Lity</a>', 'simplicity2' ) : '',
-  //   'section' => 'image_section',
-  //   'type' => 'radio',
-  //   'choices'    => array(
-  //     'none'     => __( '拡大効果なし', 'simplicity2' ),
-  //     'lightbox' => __( 'Lightbox', 'simplicity2' ),
-  //     'lity'     => __( 'Lity（軽い）', 'simplicity2' ),
-  //   ),
-  //   'priority' => 50,
-  // ));
-
   //マウスホバーでAlt属性値をキャプション表示
   $wp_customize->add_setting('alt_caption_type', array(
     'default' => 'none',
@@ -4363,9 +4344,11 @@ function get_lazy_load_threshold(){
 }
 
 //画像リンク拡大効果タイプの取得
+if ( !function_exists( 'get_lightbox_type' ) ):
 function get_lightbox_type(){
   return get_theme_mod( 'lightbox_type', 'none' );
 }
+endif;
 
 //Alt属性キャプション表示タイプの取得
 function get_alt_caption_type(){
