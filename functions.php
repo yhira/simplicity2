@@ -303,6 +303,15 @@ function get_the_description(){
   if (get_meta_description_singular_page()) {
     $desc = get_meta_description_singular_page();
   }
+  //SEO設定のディスクリプションがない場合は「All in One SEO Packの値」を取得
+  if (!$desc) {
+    if (class_exists( 'All_in_One_SEO_Pack' )) {
+      $aioseop_description = get_post_meta($post->ID, '_aioseop_description', true);
+      if ($aioseop_description) {
+        $desc = $aioseop_description;
+      }
+    }
+  }
   if ( !$desc ) {//投稿で抜粋が設定されていない場合は、110文字の冒頭の抽出分
     $desc = strip_shortcodes(get_the_custom_excerpt( $post->post_content, 150 ));
     $desc = mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($desc)), 0, 120);
