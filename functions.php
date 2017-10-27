@@ -426,6 +426,7 @@ function skin_files_comp($a, $b) {
 }
 
 //フォルダ以下のファイルをすべて取得
+if ( !function_exists( 'get_file_list' ) ):
 function get_file_list($dir) {
   $list = array();
   $files = scandir($dir);
@@ -441,8 +442,10 @@ function get_file_list($dir) {
   }
   return $list;
 }
+endif;
 
 //スキンとなるファイルの取得
+if ( !function_exists( 'get_skin_files' ) ):
 function get_skin_files(){
   define( 'FS_METHOD', 'direct' );
 
@@ -519,6 +522,7 @@ function get_skin_files(){
 
   return $results;
 }
+endif;
 
 //WP_Queryの引数を取得
 if ( !function_exists( 'get_related_wp_query_args' ) ):
