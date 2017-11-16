@@ -34,6 +34,7 @@ $elements = array(
   'amp-ad' => 'amp-ad-0.1.js',
   'amp-iframe' => 'amp-iframe-0.1.js',
 );
+
 //var_dump($the_content);
 foreach( $elements as $key => $val ) {
   if( strpos($the_content, '<'.$key) !== false ) {
