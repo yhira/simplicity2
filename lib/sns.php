@@ -48,7 +48,7 @@ function fetch_feedly_count(){
   $feed_url = rawurlencode( get_bloginfo( 'rss2_url' ) );
   $res = 0;
   $args = array( 'sslverify' => is_ssl_verification_enable() );
-  $subscribers = wp_remote_get( "http://cloud.feedly.com/v3/feeds/feed%2F$feed_url", $args );
+  $subscribers = wp_remote_get( "https://cloud.feedly.com/v3/feeds/feed%2F$feed_url", $args );
   if (!is_wp_error( $subscribers ) && $subscribers["response"]["code"] === 200) {
     $subscribers = json_decode( $subscribers['body'] );
     if ( $subscribers ) {
@@ -164,7 +164,7 @@ function fetch_facebook_count($url) {
   //オプションの設定
   $args = array( 'sslverify' => is_ssl_verification_enable() );
   //Facebookにリクエストを送る
-  $response = wp_remote_get( 'http://graph.facebook.com/?id='.$encoded_url, $args );
+  $response = wp_remote_get( 'https://graph.facebook.com/?id='.$encoded_url, $args );
   $res = 0;
 
   //取得に成功した場合

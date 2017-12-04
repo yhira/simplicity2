@@ -233,5 +233,6 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
 }
 //Wordpress Popular Postsが有効になっていない場合は表示しない
 if ( is_wpp_enable() ):
-  add_action('widgets_init', create_function('', 'return register_widget("SimplicityPopularPostsCategoryWidgetItem");'));
+  //add_action('widgets_init', create_function('', 'return register_widget("SimplicityPopularPostsCategoryWidgetItem");'));
+  add_action('widgets_init', function(){register_widget('SimplicityPopularPostsCategoryWidgetItem');});
 endif;

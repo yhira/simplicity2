@@ -71,5 +71,6 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
   }
 }
 if ( get_facebook_follow_id() ) {//FacebookページのIDがカスタマイザーで設定されている時
-  add_action('widgets_init', create_function('', 'return register_widget("FacebookPageLikeWidgetItem");'));
+  //add_action('widgets_init', create_function('', 'return register_widget("FacebookPageLikeWidgetItem");'));
+  add_action('widgets_init', function(){register_widget('FacebookPageLikeWidgetItem');});
 }

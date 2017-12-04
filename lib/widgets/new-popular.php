@@ -240,4 +240,5 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
     <?php
   }
 }
-add_action('widgets_init', create_function('', 'return register_widget("SimplicityNewPopularWidgetItem");'));
+//add_action('widgets_init', create_function('', 'return register_widget("SimplicityNewPopularWidgetItem");'));
+add_action('widgets_init', function(){register_widget('SimplicityNewPopularWidgetItem');});
