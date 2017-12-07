@@ -89,8 +89,9 @@ function rel_next_prevlink_tags() {
   //1ページを複数に分けた分割ページ
   if(is_single() || is_page()) {
     global $wp_query;
-    $multipage = check_multi_page();
-    if($multipage[0] > 1) {
+    global $multipage;
+    //$multipage = check_multi_page();
+    if($multipage) {
       $prev = generate_multipage_url('prev');
       $next = generate_multipage_url('next');
       if($prev) {
@@ -103,6 +104,8 @@ function rel_next_prevlink_tags() {
   } else{
     //トップページやカテゴリページなどの分割ページの設定
     global $paged;
+    var_dump(get_pagenum_link( $paged - 1 ));
+    var_dump(get_pagenum_link( $paged + 1 ));
     if ( get_previous_posts_link() ){
       echo '<link rel="prev" href="'.get_pagenum_link( $paged - 1 ).'" />'.PHP_EOL;
     }
@@ -121,11 +124,14 @@ if ( is_rel_next_prev_link_enable() ) {
 //http://seophp.net/wordpress-fix-rel-prev-and-rel-next-without-plugin/
 function generate_multipage_url($rel='prev') {
   global $post;
+  global $multipage;
+  global $page;
+  global $numpages;
   $url = '';
-  $multipage = check_multi_page();
-  if($multipage[0] > 1) {
-    $numpages = $multipage[0];
-    $page = $multipage[1] == 0 ? 1 : $multipage[1];
+  //$multipage = check_multi_page();
+  if($multipage) {
+    //$numpages = $multipage[0];
+    //$page = $multipage[1] == 0 ? 1 : $multipage[1];
     $i = 'prev' == $rel? $page - 1: $page + 1;
     if($i && $i > 0 && $i <= $numpages) {
       if(1 == $i) {
