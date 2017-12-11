@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+<?php //Google Analytics（gtag.js）
+get_template_part('head-alalytics'); ?>
 <?php
 //////////////////////////////////
 //ウェブマスターツール用のID表示

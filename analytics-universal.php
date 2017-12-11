@@ -1,5 +1,5 @@
 <?php
-//ユニバーサルアナリティクス設定になっていると聞き
+//ユニバーサルアナリティクス設定になっているとき
 if( !is_user_logged_in() && get_tracking_id() && is_analytics_universal() ): ?>
 <!-- Google Analytics -->
 <script>

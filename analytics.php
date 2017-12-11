@@ -3,7 +3,8 @@
 if (!is_user_logged_in()) :
 ?>
 <?php if ( get_tracking_id() && //トラッキングIDが設定されているとき
-           !is_analytics_universal() )://ユニバーサルアナリティクス以外 ?>
+           !is_analytics_universal() && //ユニバーサルアナリティクス以外
+           !is_analytics_tracking_type_gtag() )://gtag以外 ?>
 <!-- Google Analytics -->
 <script type="text/javascript">
 <?php if ( is_analytics_interest() ): //インタレストカテゴリに対応しているとき?>

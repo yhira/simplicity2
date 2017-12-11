@@ -104,8 +104,6 @@ function rel_next_prevlink_tags() {
   } else{
     //トップページやカテゴリページなどの分割ページの設定
     global $paged;
-    var_dump(get_pagenum_link( $paged - 1 ));
-    var_dump(get_pagenum_link( $paged + 1 ));
     if ( get_previous_posts_link() ){
       echo '<link rel="prev" href="'.get_pagenum_link( $paged - 1 ).'" />'.PHP_EOL;
     }

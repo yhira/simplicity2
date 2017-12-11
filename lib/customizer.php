@@ -2385,6 +2385,7 @@ function theme_customize_register($wp_customize) {
       'dc' => __( 'dc.js（ユーザー属性、インタレスト対応）', 'simplicity2' ),
       'analytics' => __( 'analytics.js（ユニバーサルアナリティクス）', 'simplicity2' ),
       'analytics_displayfeatures' => __( 'analytics.js（ユニバーサルアナリティクス + ユーザー属性、インタレスト対応）', 'simplicity2' ),
+      'gtag' => __( 'gtag.js（最新バージョン）', 'simplicity2' ),
     ),
     'priority' => 20,
   ));
@@ -5330,6 +5331,11 @@ function is_analytics_tracking_type_analytics(){
 //Analyticsトラッキングタイプがanalytics.jsか
 function is_analytics_tracking_type_analytics_with_displayfeatures(){
   return get_analytics_tracking_type() == 'analytics_displayfeatures';
+}
+
+//Analyticsトラッキングタイプがgtag.jsか
+function is_analytics_tracking_type_gtag(){
+  return get_analytics_tracking_type() == 'gtag';
 }
 
 //ユーザー属性とインタレストカテゴリに関するレポートに対応しているか
