@@ -377,7 +377,8 @@
     margin-bottom: 1em;
     height: auto;
   }
-  #related-entry-thumbnail .related-entry-thumb{
+  #related-entry-thumbnail .related-entry-thumb,
+.related-entry-thumbnail img{
     margin: auto;
   }
 

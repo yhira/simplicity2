@@ -10,7 +10,7 @@
   endif;?>
   </div>
 
-  <?php if (is_active_sidebar('sidebar-scroll') && !is_mobile() ): ?>
+  <?php if (is_active_sidebar('sidebar-scroll') ): ?>
   <!--スクロール追従領域-->
   <div id="sidebar-scroll">
     <?php dynamic_sidebar('sidebar-scroll');?>
