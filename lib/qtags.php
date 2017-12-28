@@ -529,4 +529,4 @@ function add_styles_to_tinymce_buttons($buttons) {
   return $buttons;
 }
 endif;
-add_filter('mce_buttons_2','add_styles_to_tinymce_buttons');
+add_filter('mce_buttons','add_styles_to_tinymce_buttons');
