@@ -44,10 +44,10 @@ function initialize_tinymce_styles($init_array) {
   //追加するスタイルの配列を作成
   $style_formats = array(
     array(
-      'title' => __( 'インライン', THEME_NAME ),
+      'title' => __( 'インライン', 'simplicity2' ),
       'items' => array(
         array(
-          'title' => __( '太字', THEME_NAME ),
+          'title' => __( '太字', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'bold',
           'styles' => array(
@@ -55,7 +55,7 @@ function initialize_tinymce_styles($init_array) {
           ),
         ),
         array(
-          'title' => __( '赤字', THEME_NAME ),
+          'title' => __( '赤字', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'red',
           'styles' => array(
@@ -63,420 +63,420 @@ function initialize_tinymce_styles($init_array) {
           ),
         ),
         array(
-          'title' => __( '太い赤字', THEME_NAME ),
+          'title' => __( '太い赤字', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'bold-red'
         ),
         array(
-          'title' => __( '赤アンダーライン', THEME_NAME ),
+          'title' => __( '赤アンダーライン', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'red-under'
         ),
         array(
-          'title' => __( '黄色マーカー', THEME_NAME ),
+          'title' => __( '黄色マーカー', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'marker'
         ),
         array(
-          'title' => __( '黄色アンダーラインマーカー', THEME_NAME ),
+          'title' => __( '黄色アンダーラインマーカー', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'marker-under'
         ),
         array(
-          'title' => __( '打ち消し線', THEME_NAME ),
+          'title' => __( '打ち消し線', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'strike'
         ),
         array(
-          'title' => __( 'キーボードキー', THEME_NAME ),
+          'title' => __( 'キーボードキー', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'keyboard-key'
         ),
       ),
     ),
     array(
-      'title' => __( 'ボックス', THEME_NAME ),
+      'title' => __( 'ボックス', 'simplicity2' ),
       'items' => array(
         array(
-          'title' => __( '補足情報(i)', THEME_NAME ),
+          'title' => __( '補足情報(i)', 'simplicity2' ),
           'block' => 'div',
           'classes' => 'information'
         ),
         array(
-          'title' => __( '補足情報(?)', THEME_NAME ),
+          'title' => __( '補足情報(?)', 'simplicity2' ),
           'block' => 'div',
           'classes' => 'question'
         ),
         array(
-          'title' => __( '補足情報(!)', THEME_NAME ),
+          'title' => __( '補足情報(!)', 'simplicity2' ),
           'block' => 'div',
           'classes' => 'alert'
         ),
         array(
-          'title' => __( 'primaryボックス', THEME_NAME ),
+          'title' => __( 'primaryボックス', 'simplicity2' ),
           'block' => 'div',
           'classes' => 'sp-primary'
         ),
         array(
-          'title' => __( 'successボックス', THEME_NAME ),
+          'title' => __( 'successボックス', 'simplicity2' ),
           'block' => 'div',
           'classes' => 'sp-success'
         ),
         array(
-          'title' => __( 'infoボックス', THEME_NAME ),
+          'title' => __( 'infoボックス', 'simplicity2' ),
           'block' => 'div',
           'classes' => 'sp-info'
         ),
         array(
-          'title' => __( 'warningボックス', THEME_NAME ),
+          'title' => __( 'warningボックス', 'simplicity2' ),
           'block' => 'div',
           'classes' => 'sp-warning'
         ),
         array(
-          'title' => __( 'dangerボックス', THEME_NAME ),
+          'title' => __( 'dangerボックス', 'simplicity2' ),
           'block' => 'div',
           'classes' => 'sp-danger',
         ),
       ),
     ),
     array(
-      'title' => __( 'バッジ', THEME_NAME ),
+      'title' => __( 'バッジ', 'simplicity2' ),
       'items' => array(
         array(
-          'title' => __( 'バッジ（オレンジ）', THEME_NAME ),
+          'title' => __( 'バッジ（オレンジ）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'ref'
         ),
         array(
-          'title' => __( 'バッジ（レッド）', THEME_NAME ),
+          'title' => __( 'バッジ（レッド）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'ref ref-red'
         ),
         array(
-          'title' => __( 'バッジ（ピンク）', THEME_NAME ),
+          'title' => __( 'バッジ（ピンク）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'ref ref-pink'
         ),
         array(
-          'title' => __( 'バッジ（パープル）', THEME_NAME ),
+          'title' => __( 'バッジ（パープル）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'ref ref-purple'
         ),
         array(
-          'title' => __( 'バッジ（ブルー）', THEME_NAME ),
+          'title' => __( 'バッジ（ブルー）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'ref ref-blue'
         ),
         array(
-          'title' => __( 'バッジ（グリーン）', THEME_NAME ),
+          'title' => __( 'バッジ（グリーン）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'ref ref-green'
         ),
         array(
-          'title' => __( 'バッジ（イエロー）', THEME_NAME ),
+          'title' => __( 'バッジ（イエロー）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'ref ref-yellow'
         ),
         array(
-          'title' => __( 'バッジ（ブラウン）', THEME_NAME ),
+          'title' => __( 'バッジ（ブラウン）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'ref ref-brown'
         ),
         array(
-          'title' => __( 'バッジ（グレー）', THEME_NAME ),
+          'title' => __( 'バッジ（グレー）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'ref ref-grey'
         ),
       ),
     ),
     array(
-      'title' => __( 'ボタン', THEME_NAME ),
+      'title' => __( 'ボタン（β版）', 'simplicity2' ),
       'items' => array(
 
         array(
-          'title' => __( 'レッド（小）', THEME_NAME ),
+          'title' => __( 'レッド（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-red'
         ),
         array(
-          'title' => __( 'レッド（中）', THEME_NAME ),
+          'title' => __( 'レッド（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-red btn-m'
         ),
         array(
-          'title' => __( 'レッド（大）', THEME_NAME ),
+          'title' => __( 'レッド（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-red btn-l'
         ),
 
         array(
-          'title' => __( 'ピンク（小）', THEME_NAME ),
+          'title' => __( 'ピンク（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-pink'
         ),
         array(
-          'title' => __( 'ピンク（中）', THEME_NAME ),
+          'title' => __( 'ピンク（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-pink btn-m'
         ),
         array(
-          'title' => __( 'ピンク（大）', THEME_NAME ),
+          'title' => __( 'ピンク（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-pink btn-l'
         ),
 
         array(
-          'title' => __( 'パープル（小）', THEME_NAME ),
+          'title' => __( 'パープル（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-purple'
         ),
         array(
-          'title' => __( 'パープル（中）', THEME_NAME ),
+          'title' => __( 'パープル（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-purple btn-m'
         ),
         array(
-          'title' => __( 'パープル（大）', THEME_NAME ),
+          'title' => __( 'パープル（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-purple btn-l'
         ),
 
         array(
-          'title' => __( 'ディープパープル（小）', THEME_NAME ),
+          'title' => __( 'ディープパープル（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-deep'
         ),
         array(
-          'title' => __( 'ディープパープル（中）', THEME_NAME ),
+          'title' => __( 'ディープパープル（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-deep btn-m'
         ),
         array(
-          'title' => __( 'ディープパープル（大）', THEME_NAME ),
+          'title' => __( 'ディープパープル（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-deep btn-l'
         ),
 
         array(
-          'title' => __( 'インディゴ[紺色]（小）', THEME_NAME ),
+          'title' => __( 'インディゴ[紺色]（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-indigo'
         ),
         array(
-          'title' => __( 'インディゴ[紺色]（中）', THEME_NAME ),
+          'title' => __( 'インディゴ[紺色]（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-indigo btn-m'
         ),
         array(
-          'title' => __( 'インディゴ[紺色]（大）', THEME_NAME ),
+          'title' => __( 'インディゴ[紺色]（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-indigo btn-l'
         ),
 
         array(
-          'title' => __( 'ブルー（小）', THEME_NAME ),
+          'title' => __( 'ブルー（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-blue'
         ),
         array(
-          'title' => __( 'ブルー（中）', THEME_NAME ),
+          'title' => __( 'ブルー（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-blue btn-m'
         ),
         array(
-          'title' => __( 'ブルー（大）', THEME_NAME ),
+          'title' => __( 'ブルー（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-blue btn-l'
         ),
 
         array(
-          'title' => __( 'ライトブルー（小）', THEME_NAME ),
+          'title' => __( 'ライトブルー（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-light-blue'
         ),
         array(
-          'title' => __( 'ライトブルー（中）', THEME_NAME ),
+          'title' => __( 'ライトブルー（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-light-blue btn-m'
         ),
         array(
-          'title' => __( 'ライトブルー（大）', THEME_NAME ),
+          'title' => __( 'ライトブルー（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-light-blue btn-l'
         ),
 
         array(
-          'title' => __( 'シアン（小）', THEME_NAME ),
+          'title' => __( 'シアン（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-cyan'
         ),
         array(
-          'title' => __( 'シアン（中）', THEME_NAME ),
+          'title' => __( 'シアン（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-cyan btn-m'
         ),
         array(
-          'title' => __( 'シアン（大）', THEME_NAME ),
+          'title' => __( 'シアン（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-cyan btn-l'
         ),
 
         array(
-          'title' => __( 'ティール[緑色がかった青]（小）', THEME_NAME ),
+          'title' => __( 'ティール[緑色がかった青]（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-teal'
         ),
         array(
-          'title' => __( 'ティール[緑色がかった青]（中）', THEME_NAME ),
+          'title' => __( 'ティール[緑色がかった青]（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-teal btn-m'
         ),
         array(
-          'title' => __( 'ティール[緑色がかった青]（大）', THEME_NAME ),
+          'title' => __( 'ティール[緑色がかった青]（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-teal btn-l'
         ),
 
         array(
-          'title' => __( 'グリーン（小）', THEME_NAME ),
+          'title' => __( 'グリーン（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-green'
         ),
         array(
-          'title' => __( 'グリーン（中）', THEME_NAME ),
+          'title' => __( 'グリーン（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-green btn-m'
         ),
         array(
-          'title' => __( 'グリーン（大）', THEME_NAME ),
+          'title' => __( 'グリーン（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-green btn-l'
         ),
 
         array(
-          'title' => __( 'ライトグリーン（小）', THEME_NAME ),
+          'title' => __( 'ライトグリーン（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-light-green'
         ),
         array(
-          'title' => __( 'ライトグリーン（中）', THEME_NAME ),
+          'title' => __( 'ライトグリーン（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-light-green btn-m'
         ),
         array(
-          'title' => __( 'ライトグリーン（大）', THEME_NAME ),
+          'title' => __( 'ライトグリーン（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-light-green btn-l'
         ),
 
         array(
-          'title' => __( 'ライム（小）', THEME_NAME ),
+          'title' => __( 'ライム（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-lime'
         ),
         array(
-          'title' => __( 'ライム（中）', THEME_NAME ),
+          'title' => __( 'ライム（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-lime btn-m'
         ),
         array(
-          'title' => __( 'ライム（大）', THEME_NAME ),
+          'title' => __( 'ライム（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-lime btn-l'
         ),
 
         array(
-          'title' => __( 'イエロー（小）', THEME_NAME ),
+          'title' => __( 'イエロー（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-yellow'
         ),
         array(
-          'title' => __( 'イエロー（中）', THEME_NAME ),
+          'title' => __( 'イエロー（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-yellow btn-m'
         ),
         array(
-          'title' => __( 'イエロー（大）', THEME_NAME ),
+          'title' => __( 'イエロー（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-yellow btn-l'
         ),
 
         array(
-          'title' => __( 'アンバー[琥珀色]（小）', THEME_NAME ),
+          'title' => __( 'アンバー[琥珀色]（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-amber'
         ),
         array(
-          'title' => __( 'アンバー[琥珀色]（中）', THEME_NAME ),
+          'title' => __( 'アンバー[琥珀色]（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-amber btn-m'
         ),
         array(
-          'title' => __( 'アンバー[琥珀色]（大）', THEME_NAME ),
+          'title' => __( 'アンバー[琥珀色]（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-amber btn-l'
         ),
 
         array(
-          'title' => __( 'オレンジ（小）', THEME_NAME ),
+          'title' => __( 'オレンジ（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-orange'
         ),
         array(
-          'title' => __( 'オレンジ（中）', THEME_NAME ),
+          'title' => __( 'オレンジ（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-orange btn-m'
         ),
         array(
-          'title' => __( 'オレンジ（大）', THEME_NAME ),
+          'title' => __( 'オレンジ（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-orange btn-l'
         ),
 
         array(
-          'title' => __( 'ディープオレンジ（小）', THEME_NAME ),
+          'title' => __( 'ディープオレンジ（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-deep-orange'
         ),
         array(
-          'title' => __( 'ディープオレンジ（中）', THEME_NAME ),
+          'title' => __( 'ディープオレンジ（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-deep-orange btn-m'
         ),
         array(
-          'title' => __( 'ディープオレンジ（大）', THEME_NAME ),
+          'title' => __( 'ディープオレンジ（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-deep-orange btn-l'
         ),
 
         array(
-          'title' => __( 'ブラウン（小）', THEME_NAME ),
+          'title' => __( 'ブラウン（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-brown'
         ),
         array(
-          'title' => __( 'ブラウン（中）', THEME_NAME ),
+          'title' => __( 'ブラウン（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-brown btn-m'
         ),
         array(
-          'title' => __( 'ブラウン（大）', THEME_NAME ),
+          'title' => __( 'ブラウン（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-brown btn-l'
         ),
 
         array(
-          'title' => __( 'グレー小）', THEME_NAME ),
+          'title' => __( 'グレー小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-grey'
         ),
         array(
-          'title' => __( 'グレー中）', THEME_NAME ),
+          'title' => __( 'グレー中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-grey btn-m'
         ),
         array(
-          'title' => __( 'グレー大）', THEME_NAME ),
+          'title' => __( 'グレー大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-grey btn-l'
         ),
