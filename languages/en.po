@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-11-16 18:54+0900\n"
-"PO-Revision-Date: 2017-11-16 18:58+0900\n"
+"POT-Creation-Date: 2018-02-08 17:00+0900\n"
+"PO-Revision-Date: 2018-02-08 17:01+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
@@ -60,7 +60,7 @@ msgstr "AMP"
 msgid "WLWで編集"
 msgstr "Edit by WLW"
 
-#: footer-javascript.php:68
+#: footer-javascript.php:67
 msgid "ja_JP"
 msgstr "en_US"
 
@@ -136,8 +136,8 @@ msgstr "Are you sure to publish the page?"
 msgid "カテゴリー検索"
 msgstr "Category Search"
 
-#: lib/comment.php:9 lib/customizer.php:3231 lib/customizer.php:5173
-#: lib/customizer.php:5174
+#: lib/comment.php:9 lib/customizer.php:3232 lib/customizer.php:5174
+#: lib/customizer.php:5175
 msgid "匿名"
 msgstr "Anonymous"
 
@@ -304,7 +304,7 @@ msgid "ページタイプ"
 msgstr "Page Type"
 
 #: lib/custom-field.php:316 lib/customizer.php:427 lib/customizer.php:1128
-#: lib/customizer.php:2974 lib/widgets/new-entries.php:122
+#: lib/customizer.php:2975 lib/widgets/new-entries.php:122
 #: lib/widgets/new-popular.php:184 lib/widgets/popular-ranking.php:175
 msgid "デフォルト"
 msgstr "Default"
@@ -832,7 +832,7 @@ msgstr ""
 "It is the number of excerpt characters for entry cards, related posts, blog "
 "cards."
 
-#: lib/customizer.php:601 lib/customizer.php:3965
+#: lib/customizer.php:601 lib/customizer.php:3966
 msgid "..."
 msgstr "..."
 
@@ -1479,7 +1479,7 @@ msgstr "Lity (light)"
 
 #: lib/customizer.php:1335
 msgid "baguetteBox（スマホ対応）"
-msgstr ""
+msgstr "baguetteBox"
 
 #: lib/customizer.php:1347
 msgid "画像効果"
@@ -1765,7 +1765,7 @@ msgstr "Bottom share buttons display"
 msgid "投稿ページ本文下にあるシェアボタンを表示するか。"
 msgstr "Display share buttons under entry content."
 
-#: lib/customizer.php:1667 lib/customizer.php:4491
+#: lib/customizer.php:1667 lib/customizer.php:4492
 msgid "シェアする"
 msgstr "Share"
 
@@ -1879,7 +1879,7 @@ msgstr "Page bottom follow buttons display"
 msgid "投稿・固定ページ本文下のフォローボタンを表示するか。"
 msgstr "Switch follow buttons at entry content bottom."
 
-#: lib/customizer.php:1902 lib/customizer.php:4660
+#: lib/customizer.php:1902 lib/customizer.php:4661
 msgid "フォローする"
 msgstr "Follow Me"
 
@@ -2131,7 +2131,7 @@ msgid ""
 "ります）"
 msgstr "Ad placements setting."
 
-#: lib/customizer.php:2231 lib/customizer.php:4925
+#: lib/customizer.php:2231 lib/customizer.php:4926
 msgid "スポンサーリンク"
 msgstr "Sponsored Links"
 
@@ -2187,14 +2187,14 @@ msgstr ""
 
 #: lib/customizer.php:2302
 msgid "[ad]ショートコードの利用"
-msgstr ""
+msgstr "Use [ad] shortcode"
 
 #: lib/customizer.php:2303
 msgid ""
 "本文中に[ad]と入力した箇所にウィジェットに設定した広告コードが出力されます。"
 "PC、モバイル、AMPと別々のものが表示されますので、利用の際は十分に動作確認する"
 "ことをおすすめします。"
-msgstr ""
+msgstr "if write [ad] in content, it display ad code."
 
 #: lib/customizer.php:2315
 msgid "PCトップ広告をカスタムサイズ広告に"
@@ -2276,11 +2276,15 @@ msgid ""
 "analytics.js（ユニバーサルアナリティクス + ユーザー属性、インタレスト対応）"
 msgstr "analytics.js (Universal Analytics + Demographics, Interests supported)"
 
-#: lib/customizer.php:2399
+#: lib/customizer.php:2388
+msgid "gtag.js（最新バージョン）"
+msgstr "gtag.js"
+
+#: lib/customizer.php:2400
 msgid "PtengineのID"
 msgstr "Ptengine ID"
 
-#: lib/customizer.php:2400
+#: lib/customizer.php:2401
 msgid ""
 "Ptengineで解析を行います。PtengineからIDを取得して入力してください。（※プラグ"
 "インとの二重登録注意）<a href=\"https://wp-simplicity.com/ptengin/\" target="
@@ -2289,43 +2293,43 @@ msgstr ""
 "Enter your Ptengine ID.  <a href=\"https://wp-simplicity.com/ptengin/\" "
 "target=\"_blank\" class=\"example-setting\">Setting method</a>"
 
-#: lib/customizer.php:2413
+#: lib/customizer.php:2414
 msgid "Google Search ConsoleのID"
 msgstr "Google Search Console ID"
 
-#: lib/customizer.php:2414
+#: lib/customizer.php:2415
 msgid ""
 "Google Search Console（旧ウェブマスターツール）のサイト認証IDを入力してくださ"
 "い。<a href=\"https://wp-simplicity.com/webmaster-tool-setting/\" target="
 "\"_blank\" class=\"example-setting\">設定方法</a>\n"
 msgstr "Enter your site authentication ID of Google Search Console.\n"
 
-#: lib/customizer.php:2426
+#: lib/customizer.php:2427
 msgid "ブログカード（内部リンク）"
 msgstr "Blog Cards (Internal Links)"
 
-#: lib/customizer.php:2427
+#: lib/customizer.php:2428
 msgid ""
 "内部リンクブログカードに関する設定です。<br><a href=\"https://wp-simplicity."
 "com/how-to-use-blogcard/\" target=\"_blank\" class=\"example-setting\">ブログ"
 "カードの利用方法</a>"
 msgstr "It is settings related to internal link blog cards."
 
-#: lib/customizer.php:2438 lib/customizer.php:2576
+#: lib/customizer.php:2439 lib/customizer.php:2577
 msgid "ブログカード有効"
 msgstr "Blog card enable"
 
-#: lib/customizer.php:2439
+#: lib/customizer.php:2440
 msgid "サイト内のURL（内部リンク）を入力するとブログカードとして表示します。"
 msgstr ""
 "When you enter a internal URL in your entry, it will be displayed as a blog "
 "card."
 
-#: lib/customizer.php:2452 lib/customizer.php:2590
+#: lib/customizer.php:2453 lib/customizer.php:2591
 msgid "コメントでブログカードを有効"
 msgstr "Comment blog card enable"
 
-#: lib/customizer.php:2453
+#: lib/customizer.php:2454
 msgid ""
 "コメント欄で内部ブログカードを利用します。内部ブログカードなのでnofollowは付"
 "加されません。<br><a href=\"https://wp-simplicity.com/comment-internal-blog-"
@@ -2334,27 +2338,27 @@ msgstr ""
 "Use internal blog card in comments section. Because it is an internal blog "
 "card nofollow will not be added."
 
-#: lib/customizer.php:2465 lib/customizer.php:2622
+#: lib/customizer.php:2466 lib/customizer.php:2623
 msgid "サムネイルを右側にする"
 msgstr "Right side thumbnail"
 
-#: lib/customizer.php:2466 lib/customizer.php:2623
+#: lib/customizer.php:2467 lib/customizer.php:2624
 msgid "ブログカードのサムネイルを右側に表示するか。"
 msgstr "Display a thumbnail of a blog card on right side."
 
-#: lib/customizer.php:2479 lib/customizer.php:2636 lib/customizer.php:2650
+#: lib/customizer.php:2480 lib/customizer.php:2637 lib/customizer.php:2651
 msgid "新しいタブで開く"
 msgstr "Open in new tab"
 
-#: lib/customizer.php:2480 lib/customizer.php:2637 lib/customizer.php:2651
+#: lib/customizer.php:2481 lib/customizer.php:2638 lib/customizer.php:2652
 msgid "ブログカードのリンクをクリックした時に新しいタブで開くか。"
 msgstr "Open in a new tab when you click on a blog card link."
 
-#: lib/customizer.php:2493 lib/customizer.php:2664
+#: lib/customizer.php:2494 lib/customizer.php:2665
 msgid "サイトロゴを表示"
 msgstr "Site logo display"
 
-#: lib/customizer.php:2494
+#: lib/customizer.php:2495
 msgid ""
 "サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設"
 "定をしてないとロゴは表示されません。"
@@ -2362,55 +2366,55 @@ msgstr ""
 "Display favicon and site domain. (* The logo will not be displayed unless "
 "you have set up the favicon setting of \"Others\" setting.)"
 
-#: lib/customizer.php:2507 lib/customizer.php:2678
+#: lib/customizer.php:2508 lib/customizer.php:2679
 msgid "サイトロゴリンク有効"
 msgstr "Site logo link enable"
 
-#: lib/customizer.php:2508 lib/customizer.php:2679
+#: lib/customizer.php:2509 lib/customizer.php:2680
 msgid "サイトドメインにトップURLへのリンクを貼るかどうか。"
 msgstr "Link to domain site."
 
-#: lib/customizer.php:2521 lib/customizer.php:2692
+#: lib/customizer.php:2522 lib/customizer.php:2693
 msgid "はてブ数を表示"
 msgstr "Hatena bookmark count display"
 
-#: lib/customizer.php:2522 lib/customizer.php:2693
+#: lib/customizer.php:2523 lib/customizer.php:2694
 msgid "はてなブックマーク数を表示するか。"
 msgstr "Display Hatena bookmarks."
 
-#: lib/customizer.php:2535
+#: lib/customizer.php:2536
 msgid "日付表示"
 msgstr "Date display"
 
-#: lib/customizer.php:2536
+#: lib/customizer.php:2537
 msgid "内部ブログカードの日付表示設定です。"
 msgstr "Date setting of internal blog card."
 
-#: lib/customizer.php:2540 lib/customizer.php:3505
+#: lib/customizer.php:2541 lib/customizer.php:3506
 msgid "表示しない"
 msgstr "Nondisplay"
 
-#: lib/customizer.php:2541
+#: lib/customizer.php:2542
 msgid "投稿日を表示（デフォルト）"
 msgstr "Poste date (default)"
 
-#: lib/customizer.php:2542
+#: lib/customizer.php:2543
 msgid "更新日を表示"
 msgstr "Update date display"
 
-#: lib/customizer.php:2553 lib/customizer.php:2705
+#: lib/customizer.php:2554 lib/customizer.php:2706
 msgid "カード幅を広げる"
 msgstr "Wide card"
 
-#: lib/customizer.php:2554 lib/customizer.php:2706
+#: lib/customizer.php:2555 lib/customizer.php:2707
 msgid "カード幅はデフォルトで500pxですが、横幅をさらに広げます。"
 msgstr "A card width is 500px by default, but widen the width further."
 
-#: lib/customizer.php:2564
+#: lib/customizer.php:2565
 msgid "ブログカード（外部リンク）"
 msgstr "Blog Cards (External Links)"
 
-#: lib/customizer.php:2565
+#: lib/customizer.php:2566
 msgid ""
 "外部リンクブログカードに関する設定です。<br>ブログカード自体の使い方は<a "
 "href=\"https://wp-simplicity.com/how-to-use-blogcard/\" target=\"_blank\" "
@@ -2419,13 +2423,13 @@ msgid ""
 "\" target=\"_blank\">外部ブログカードの設定</a>を参照してください。"
 msgstr "It is settings related to external link blog cards."
 
-#: lib/customizer.php:2577
+#: lib/customizer.php:2578
 msgid "投稿時に外部リンクURLのみを記入するとブログカードを表示します。"
 msgstr ""
 "When you enter a external URL in your entry, it will be displayed as a blog "
 "card."
 
-#: lib/customizer.php:2591
+#: lib/customizer.php:2592
 msgid ""
 "コメント欄で外部ブログカードを利用します。外部ブログカードなのでリンクには"
 "nofollowが付加されます。※外部ブログカードタイプがEmbedlyの場合はnofollowはつ"
@@ -2438,11 +2442,11 @@ msgstr ""
 "Embedly nofollow will not be attached so be careful (Hatena Blog card is "
 "iframe)."
 
-#: lib/customizer.php:2604
+#: lib/customizer.php:2605
 msgid "外部ブログカードタイプ"
 msgstr "External blog card type"
 
-#: lib/customizer.php:2605
+#: lib/customizer.php:2606
 msgid ""
 "外部リンク用のブログカードのタイプ設定です。「はてなカード」と「Embedlyカー"
 "ド」は以降の細かな設定はできません。"
@@ -2450,19 +2454,19 @@ msgstr ""
 "Type setting of external link blog card. \"Hatena card\" and \"Embedly card"
 "\" can not be set after the detailed setting."
 
-#: lib/customizer.php:2609
+#: lib/customizer.php:2610
 msgid "ブログカード（独自キャッシュ）"
 msgstr "Blog card (proprietary cache)"
 
-#: lib/customizer.php:2610
+#: lib/customizer.php:2611
 msgid "はてなカード"
 msgstr "Hatena card"
 
-#: lib/customizer.php:2611
+#: lib/customizer.php:2612
 msgid "Embedlyカード"
 msgstr "Embedly card"
 
-#: lib/customizer.php:2665
+#: lib/customizer.php:2666
 msgid ""
 "サイトのファビコンとドメインを表示するか。（※「その他」設定項目のファビコン設"
 "定をしてないとロゴは表示されません。）"
@@ -2470,11 +2474,11 @@ msgstr ""
 "Display favicon and domain of the site. (* The logo will not be displayed "
 "unless you have set up the favicon setting of \"Other\" setting item.)"
 
-#: lib/customizer.php:2719
+#: lib/customizer.php:2720
 msgid "外部ブログカードキャッシュ保存日数"
 msgstr "External blog card cache retention days"
 
-#: lib/customizer.php:2720
+#: lib/customizer.php:2721
 msgid ""
 "外部リンクカードが「ブログカード」になっている時のOGP情報キャッシュを保存する"
 "期間を設定します。設定範囲は7～365日です。短くすると、キャッシュの更新は早い"
@@ -2485,11 +2489,11 @@ msgstr ""
 "but the display speed will be slow, or the load on the other server will be "
 "loaded."
 
-#: lib/customizer.php:2732
+#: lib/customizer.php:2733
 msgid "キャッシュ更新モード"
 msgstr "Cache update mode"
 
-#: lib/customizer.php:2733
+#: lib/customizer.php:2734
 msgid ""
 "「キャッシュ更新モード」を有効にして管理者（ログインユーザー）によって外部ブ"
 "ログカードが表示されているページを閲覧したときに、OGPキャッシュが更新されま"
@@ -2500,11 +2504,11 @@ msgstr ""
 "When the external blog card page is viewed with \"Cache update mode\" "
 "enabled, the OGP cache is updated. (* Only for viewing by administrators)"
 
-#: lib/customizer.php:2744
+#: lib/customizer.php:2745
 msgid "ソースコード"
 msgstr "Source Code"
 
-#: lib/customizer.php:2745
+#: lib/customizer.php:2746
 msgid ""
 "ソースコードのハイライト表示の設定です。ハイライト表示には、<a href="
 "\"https://highlightjs.org/\" target=\"_blank\">highlight.js</a>を利用していま"
@@ -2514,19 +2518,19 @@ msgstr ""
 "It is setting of highlight display of source code. Highlight.js is used for "
 "<a href=\"https://highlightjs.org/\" target=\"_blank\">highlight</a>. "
 
-#: lib/customizer.php:2755
+#: lib/customizer.php:2756
 msgid "ソースコードをハイライト表示"
 msgstr "Highlight source code"
 
-#: lib/customizer.php:2756
+#: lib/customizer.php:2757
 msgid "preタグで囲まれたソースコードをハイライト表示します。"
 msgstr "Highlight source code enclosed by pre tag."
 
-#: lib/customizer.php:2769
+#: lib/customizer.php:2770
 msgid "ハイライトスタイル"
 msgstr "Highlight style"
 
-#: lib/customizer.php:2770
+#: lib/customizer.php:2771
 msgid ""
 "ソースコードのハイライトテーマです。スタイルについては、<a href=\"https://"
 "highlightjs.org/static/demo/\" target=\"_blank\">highlight.js demo</a>を参照"
@@ -2535,11 +2539,11 @@ msgstr ""
 "Highlight theme of source codes. For styling , see <a href=\"https://"
 "highlightjs.org/static/demo/\" target=\"_blank\">highlight.js demo</a> ."
 
-#: lib/customizer.php:2931
+#: lib/customizer.php:2932
 msgid "ハイライトするCSSセレクタ"
 msgstr "Highlight CSS selector"
 
-#: lib/customizer.php:2932
+#: lib/customizer.php:2933
 msgid ""
 "ソースコードをハイライトするCSSセレクターを細かく設定できます。よくわからない"
 "場合は変更しないでください。"
@@ -2547,43 +2551,43 @@ msgstr ""
 "Set the CSS selector to be highlighted. Please do not change if you do not "
 "understand well."
 
-#: lib/customizer.php:2943 lib/customizer.php:3175 lib/customizer.php:5158
+#: lib/customizer.php:2944 lib/customizer.php:3176 lib/customizer.php:5159
 msgid "コメント"
 msgstr "Comments"
 
-#: lib/customizer.php:2944
+#: lib/customizer.php:2945
 msgid "コメント表示欄・入力欄に関する設定です。"
 msgstr "It is setting related to comments and input form."
 
-#: lib/customizer.php:2955
+#: lib/customizer.php:2956
 msgid "コメントの表示"
 msgstr "Commens display"
 
-#: lib/customizer.php:2956
+#: lib/customizer.php:2957
 msgid "コメントを表示するか。"
 msgstr "Display comment area."
 
-#: lib/customizer.php:2969
+#: lib/customizer.php:2970
 msgid "コメント表示タイプ"
 msgstr "Comment display type"
 
-#: lib/customizer.php:2970
+#: lib/customizer.php:2971
 msgid "コメントの表示スタイルを設定します。"
 msgstr "Setting of comment display style."
 
-#: lib/customizer.php:2975
+#: lib/customizer.php:2976
 msgid "シンプルスレッド表示"
 msgstr "Simple thread"
 
-#: lib/customizer.php:2976
+#: lib/customizer.php:2977
 msgid "某スレッド掲示板風"
 msgstr "Like 2ch"
 
-#: lib/customizer.php:2988
+#: lib/customizer.php:2989
 msgid "インデックスリストにコメント数を表示"
 msgstr "Comment count display in index"
 
-#: lib/customizer.php:2989
+#: lib/customizer.php:2990
 msgid ""
 "エントリーの一覧リストにコメント数を表示するか。（※コメントの設定でコメントを"
 "表示にしていないと表示されません。）"
@@ -2591,19 +2595,19 @@ msgstr ""
 "Display comment count on entry cards of index pages. (* It will not be "
 "displayed unless \"Comments display\" in \"Comments\" setting.)"
 
-#: lib/customizer.php:3002
+#: lib/customizer.php:3003
 msgid "コメント欄を文章量に応じて伸縮"
 msgstr "Stretch comment form"
 
-#: lib/customizer.php:3003
+#: lib/customizer.php:3004
 msgid "コメント入力フォームを文章量に応じて伸縮させるか。"
 msgstr "Stretch the comment input form according to the comment text amount."
 
-#: lib/customizer.php:3013
+#: lib/customizer.php:3014
 msgid "AMP（β機能）"
 msgstr "AMP (Beta)"
 
-#: lib/customizer.php:3014
+#: lib/customizer.php:3015
 msgid ""
 "AMP（Accelerated Mobile Pages）に関する設定です。投稿ページをモバイル上で高速"
 "表示させるための仕組みです。<a href=\"https://wp-simplicity.com/simplicity-"
@@ -2612,19 +2616,19 @@ msgstr ""
 "It is setting related to AMP (Accelerated Mobile Pages). It is a mechanism "
 "to display post pages at high speed on mobile."
 
-#: lib/customizer.php:3025
+#: lib/customizer.php:3026
 msgid "AMPの有効化"
 msgstr "AMP enable"
 
-#: lib/customizer.php:3026
+#: lib/customizer.php:3027
 msgid "AMP機能を有効化して投稿ページのモバイル表示高速化を行うかどうか。"
 msgstr "Activate the AMP function to speed up mobile display."
 
-#: lib/customizer.php:3041
+#: lib/customizer.php:3042
 msgid "AMP用AdSenseコード"
 msgstr "AdSense code for AMP"
 
-#: lib/customizer.php:3042
+#: lib/customizer.php:3043
 msgid ""
 "AMP用のAdSenseコードを入力します。ここに入力をしていない場合は、ウィジェット"
 "設定の「広告 300×250」のIDを利用してアドセンスが表示されます。双方とも入力さ"
@@ -2635,11 +2639,11 @@ msgstr ""
 "displayed using the ID of \"Ad 300 x 250\" widget setting. If both are "
 "entered, this code will take precedence."
 
-#: lib/customizer.php:3055
+#: lib/customizer.php:3056
 msgid "AMP用AnalyticsトラッキングID"
 msgstr "Analytics tracking ID for AMP"
 
-#: lib/customizer.php:3056
+#: lib/customizer.php:3057
 msgid ""
 "AMPページ用のGoogle AnalyticsトラッキングIDを新たに設定します。この項目に設定"
 "をするとAMPページの集計は別になります。この項目を設定しないで空欄の場合は、"
@@ -2652,11 +2656,11 @@ msgstr ""
 "field blank, aggregate it together with the regular page using the Analytics "
 "tracking ID in the \"Analysis\"."
 
-#: lib/customizer.php:3068
+#: lib/customizer.php:3069
 msgid "AMP用のロゴ画像"
 msgstr "Logo image for AMP"
 
-#: lib/customizer.php:3069
+#: lib/customizer.php:3070
 msgid ""
 "Google検索結果に表示されるAMP用のロゴ画像を設定します。ロゴのサイズは幅"
 "600px、高さ60px以下にしてください。設定していない場合は、デフォルトの画像が使"
@@ -2666,11 +2670,11 @@ msgstr ""
 "the logo should be less than 600px width and 60px height. If not set, the "
 "default image is used (images/no-amp-logo.png)."
 
-#: lib/customizer.php:3081
+#: lib/customizer.php:3082
 msgid "AMPと通常ページ間の移動リンクを表示"
 msgstr "Display movement link between AMP and normal page"
 
-#: lib/customizer.php:3082
+#: lib/customizer.php:3083
 msgid ""
 "ログインユーザーに「AMP」と「通常ページ」を手軽に移動できるリンクを表示しま"
 "す。 <a href=\"https://wp-simplicity.com/simplicity-amp-test/\" target="
@@ -2679,11 +2683,11 @@ msgstr ""
 "It displays a link that can easily move \"AMP\" and \"normal page\" for "
 "logged-in users."
 
-#: lib/customizer.php:3095
+#: lib/customizer.php:3096
 msgid "AMPテスト リンクを表示"
 msgstr "AMP Test Link display"
 
-#: lib/customizer.php:3096
+#: lib/customizer.php:3097
 msgid ""
 "ログインユーザーに「AMPテスト」リンクを表示します。リンクをクリックすると、"
 "AMPページをバリデーターでチェックを行います。 <a href=\"https://wp-"
@@ -2692,57 +2696,57 @@ msgstr ""
 "Display \"AMP test\" link for logged-in user. When you click the link, you "
 "check AMP errors with a validator."
 
-#: lib/customizer.php:3109
+#: lib/customizer.php:3110
 msgid "AMPバリデーター"
 msgstr "AMP Validator"
 
-#: lib/customizer.php:3110
+#: lib/customizer.php:3111
 msgid ""
 "「AMPテスト」を行うテストツール（バリデーター）を選択します。 <a href="
 "\"https://wp-simplicity.com/simplicity-amp-test/\" target=\"_blank\">機能説明"
 "</a>"
 msgstr "Select a validator tool for \"AMP test\"."
 
-#: lib/customizer.php:3114
+#: lib/customizer.php:3115
 msgid "Google AMPテスト（デフォルト）"
 msgstr "Google AMP test (default)"
 
-#: lib/customizer.php:3115
+#: lib/customizer.php:3116
 msgid "The AMP Validator"
 msgstr "The AMP Validator"
 
-#: lib/customizer.php:3116
+#: lib/customizer.php:3117
 msgid "AMPBench"
 msgstr "AMPBench"
 
-#: lib/customizer.php:3128
+#: lib/customizer.php:3129
 msgid "AMPページを生成しないカテゴリID"
 msgstr "Category ID not generating AMP page"
 
-#: lib/customizer.php:3129
+#: lib/customizer.php:3130
 msgid ""
 "AMPページを生成しないカテゴリのIDを,（カンマ）区切りで指定してください。例："
 "1,7,22<br><a href=\"https://wp-simplicity.com/no-amp-page-settings/\" target="
 "\"_blank\">設定方法</a>"
 msgstr "Enter category IDs that do not generate AMP pages, separated by comma."
 
-#: lib/customizer.php:3140
+#: lib/customizer.php:3141
 msgid "テーマ内テキスト"
 msgstr "Texts in Theme"
 
-#: lib/customizer.php:3141
+#: lib/customizer.php:3142
 msgid "テーマ内で使用されている定型文を変更することができます。"
 msgstr "You can change fixed phrases used in Simplicity theme."
 
-#: lib/customizer.php:3147 lib/customizer.php:5098
+#: lib/customizer.php:3148 lib/customizer.php:5099
 msgid "ホーム"
 msgstr "Home"
 
-#: lib/customizer.php:3152
+#: lib/customizer.php:3153
 msgid "パンくずリストのホームを変更"
 msgstr "Breadcrumb home"
 
-#: lib/customizer.php:3153
+#: lib/customizer.php:3154
 msgid ""
 "パンくずリストの「ホーム」のテキストを変更します。設定は、投稿と固定ページ両"
 "方のパンくずリストに反映されます。"
@@ -2750,193 +2754,193 @@ msgstr ""
 "Change the \"Home\" text in the breadcrumbs. This settings are reflected for "
 "both posts and pages."
 
-#: lib/customizer.php:3161 lib/customizer.php:5103
+#: lib/customizer.php:3162 lib/customizer.php:5104
 msgid "関連記事"
 msgstr "Related Posts"
 
-#: lib/customizer.php:3166
+#: lib/customizer.php:3167
 msgid "関連記事タイトルを変更"
 msgstr "Related posts title"
 
-#: lib/customizer.php:3167
+#: lib/customizer.php:3168
 msgid "関連記事のH2見出しを変更します。"
 msgstr "Change H2 heading above related posts."
 
-#: lib/customizer.php:3180
+#: lib/customizer.php:3181
 msgid "コメントタイトルを変更"
 msgstr "Comment title"
 
-#: lib/customizer.php:3181
+#: lib/customizer.php:3182
 msgid "コメント欄ののH2見出しを変更します。"
 msgstr "Change H2 heading above comments."
 
-#: lib/customizer.php:3189 lib/customizer.php:5163
+#: lib/customizer.php:3190 lib/customizer.php:5164
 msgid "コメントをどうぞ"
 msgstr "Leave a Reply"
 
-#: lib/customizer.php:3194
+#: lib/customizer.php:3195
 msgid "返信コメントタイトルを変更"
 msgstr "Reply comment title"
 
-#: lib/customizer.php:3195
+#: lib/customizer.php:3196
 msgid "コメントを促すテキスト変更します。"
 msgstr "Change the text prompting for comment."
 
-#: lib/customizer.php:3203 lib/customizer.php:5168
+#: lib/customizer.php:3204 lib/customizer.php:5169
 msgid "コメントを送信"
 msgstr "Post comment"
 
-#: lib/customizer.php:3208
+#: lib/customizer.php:3209
 msgid "コメントサブミットラベルを変更"
 msgstr "Comment submit label"
 
-#: lib/customizer.php:3209
+#: lib/customizer.php:3210
 msgid "コメント送信ボタンテキスト変更します。"
 msgstr "Change the comment submit button text."
 
-#: lib/customizer.php:3217 lib/customizer.php:5179
+#: lib/customizer.php:3218 lib/customizer.php:5180
 msgid "コメントの入力は終了しました。"
 msgstr "Comment input has ended."
 
-#: lib/customizer.php:3222
+#: lib/customizer.php:3223
 msgid "コメント入力凍結時のメッセージ"
 msgstr "Message when comment is disabled"
 
-#: lib/customizer.php:3223
+#: lib/customizer.php:3224
 msgid "コメント入力欄を非表示にした時のメッセージを変更します。"
 msgstr "Change the message when hiding the comment input form."
 
-#: lib/customizer.php:3236
+#: lib/customizer.php:3237
 msgid "匿名のユーザー名を変更"
 msgstr "Anonymous user name"
 
-#: lib/customizer.php:3237
+#: lib/customizer.php:3238
 msgid "匿名でコメント投稿するユーザーのデフォルト名を変更します。"
 msgstr "Change the default name of the user who posts comments anonymously."
 
-#: lib/customizer.php:3245 lib/customizer.php:5189
+#: lib/customizer.php:3246 lib/customizer.php:5190
 msgid "記事を読む"
 msgstr "More"
 
-#: lib/customizer.php:3250
+#: lib/customizer.php:3251
 msgid "「記事を読む」の変更"
 msgstr "More"
 
-#: lib/customizer.php:3251
+#: lib/customizer.php:3252
 msgid "一覧リストの「記事を読む」リンクのテキストを変更します。"
 msgstr "Change the text of \"More\" link in index entry cards."
 
-#: lib/customizer.php:3259 lib/customizer.php:5194
+#: lib/customizer.php:3260 lib/customizer.php:5195
 msgid "続きを読む"
 msgstr "Read More"
 
-#: lib/customizer.php:3264
+#: lib/customizer.php:3265
 msgid "「続きを読む」の変更"
 msgstr "Read More"
 
-#: lib/customizer.php:3265
+#: lib/customizer.php:3266
 msgid "moreタグ以降の「続きを読む」リンクのテキストを変更します。"
 msgstr "Change the text of \"Read More\" link after more tag."
 
-#: lib/customizer.php:3273 lib/customizer.php:5199
+#: lib/customizer.php:3274 lib/customizer.php:5200
 msgid "一覧"
 msgstr " "
 
-#: lib/customizer.php:3278
+#: lib/customizer.php:3279
 msgid "リストタイトルの「一覧」を変更"
 msgstr "Index heading"
 
-#: lib/customizer.php:3279
+#: lib/customizer.php:3280
 msgid "インデックスリストのタイトルに含まれる「一覧」部分を変更します。"
 msgstr "Change the \"list\" part included in the heading of index pages."
 
-#: lib/customizer.php:3287 lib/customizer.php:5204
+#: lib/customizer.php:3288 lib/customizer.php:5205
 msgid "Y/n/j"
 msgstr "F j, Y"
 
-#: lib/customizer.php:3292
+#: lib/customizer.php:3293
 msgid "日付表示のフォーマット"
 msgstr "Date display format"
 
-#: lib/customizer.php:3293
+#: lib/customizer.php:3294
 msgid "投稿日や更新日の日付表示フォーマットを変更します。"
 msgstr ""
 "When you change this format, posted date and update date display will be "
 "changed."
 
-#: lib/customizer.php:3301 lib/customizer.php:5209
+#: lib/customizer.php:3302 lib/customizer.php:5210
 msgid "Y年m月d日"
 msgstr "F j, Y"
 
-#: lib/customizer.php:3306
+#: lib/customizer.php:3307
 msgid "一覧：年月日のフォーマット"
 msgstr "Index: Year, month, day format"
 
-#: lib/customizer.php:3307
+#: lib/customizer.php:3308
 msgid "インデクスリストの年月日表示フォーマットを変更します。"
 msgstr "Change year month day format."
 
-#: lib/customizer.php:3315 lib/customizer.php:5214
+#: lib/customizer.php:3316 lib/customizer.php:5215
 msgid "Y年m月"
 msgstr "F Y"
 
-#: lib/customizer.php:3320
+#: lib/customizer.php:3321
 msgid "一覧：年月のフォーマット"
 msgstr "Index: Year, month format"
 
-#: lib/customizer.php:3321
+#: lib/customizer.php:3322
 msgid "インデクスリストの年月表示フォーマットを変更します。"
 msgstr "Change year month format."
 
-#: lib/customizer.php:3329 lib/customizer.php:5219
+#: lib/customizer.php:3330 lib/customizer.php:5220
 msgid "Y年"
 msgstr "Y"
 
-#: lib/customizer.php:3334
+#: lib/customizer.php:3335
 msgid "一覧：年のフォーマット"
 msgstr "Index: Year format"
 
-#: lib/customizer.php:3335
+#: lib/customizer.php:3336
 msgid "インデクスリストの年表示フォーマットを変更します。"
 msgstr "Change year format."
 
-#: lib/customizer.php:3343 lib/customizer.php:5224
+#: lib/customizer.php:3344 lib/customizer.php:5225
 msgid "ブログ内を検索"
 msgstr "Search in the blog"
 
-#: lib/customizer.php:3348
+#: lib/customizer.php:3349
 msgid "検索ボックスのプレースホルダー"
 msgstr "Search box placeholder"
 
-#: lib/customizer.php:3349
+#: lib/customizer.php:3350
 msgid "検索ボックスに表示されるテキスト変更します。"
 msgstr "Change the text displayed in the search box."
 
-#: lib/customizer.php:3385 lib/customizer.php:5234
+#: lib/customizer.php:3386 lib/customizer.php:5235
 msgid "記事は見つかりませんでした。"
 msgstr "No entrys found."
 
-#: lib/customizer.php:3390
+#: lib/customizer.php:3391
 msgid "見つからなかった時のメッセージ"
 msgstr "Message when not find"
 
-#: lib/customizer.php:3391
+#: lib/customizer.php:3392
 msgid "記事が見つからなかった時に表示されるテキスト変更します。"
 msgstr "Change the text displayed when posts was not found."
 
-#: lib/customizer.php:3402
+#: lib/customizer.php:3403
 msgid "管理者機能"
 msgstr "Admin Settings"
 
-#: lib/customizer.php:3403
+#: lib/customizer.php:3404
 msgid "管理画面やアドミンバー（管理バー）に独自機能を追加する設定です。"
 msgstr "It is settings of admin pages and admin bar (management bar) ."
 
-#: lib/customizer.php:3414
+#: lib/customizer.php:3415
 msgid "ビジュアルエディターにSimplicityスタイルを適用"
 msgstr "Apply Simplicity style to visual editor"
 
-#: lib/customizer.php:3415
+#: lib/customizer.php:3416
 msgid ""
 "投稿管理画面のビジュアルエディターの表示をSimplicityデフォルトのようにしま"
 "す。（※子テーマなどにカスタマイズしたスタイルは適用されません。）"
@@ -2944,52 +2948,52 @@ msgstr ""
 "Apply Simplicity default style to visual editor. (* Customized styles for "
 "child theme is not applicable.)"
 
-#: lib/customizer.php:3428
+#: lib/customizer.php:3429
 msgid "アドミンバーに独自管理メニューを表示"
 msgstr "Admin bar menu display"
 
-#: lib/customizer.php:3429
+#: lib/customizer.php:3430
 msgid "管理バーにSimplicity独自のメニューを表示するか。"
 msgstr "Display Simplicity original menu in admin bar."
 
-#: lib/customizer.php:3442
+#: lib/customizer.php:3443
 msgid "ログイン画面のロゴをカスタマイズで設定したロゴにする"
 msgstr "Set login page logo."
 
-#: lib/customizer.php:3443
+#: lib/customizer.php:3444
 msgid "テーマカスタマイザーで設定したロゴをログイン画面で表示するか。"
 msgstr "Display logo set with theme customizer on login screen."
 
-#: lib/customizer.php:3455
+#: lib/customizer.php:3456
 msgid "メディアを挿入の初期表示を「この投稿へのアップロード」にする"
 msgstr "Set initial display of media as \"Uploaded to this post\""
 
-#: lib/customizer.php:3456
+#: lib/customizer.php:3457
 msgid ""
 "投稿管理画面からメディアを表示したときに、その投稿に含まれている画像のみを表"
 "示します。"
 msgstr ""
 "When displaying media page, only images included in that post are displayed."
 
-#: lib/customizer.php:3468
+#: lib/customizer.php:3469
 msgid "ページ公開前に確認アラートを出す"
 msgstr "Confirm before page publication"
 
-#: lib/customizer.php:3469
+#: lib/customizer.php:3470
 msgid "投稿・固定ページを公開前に確認ダイアログを表示します。"
 msgstr "Display a confirmation dialog before publishing a page."
 
-#: lib/customizer.php:3482
+#: lib/customizer.php:3483
 msgid "タイトル等の文字数カウンター表示"
 msgstr "Title characters counter display"
 
-#: lib/customizer.php:3483
+#: lib/customizer.php:3484
 msgid ""
 "投稿管理画面のタイトルや、SEO設定のタイトル・ディスクリプションの文字数表示を"
 "行います。"
-msgstr ""
+msgstr "It is title, seo title, description characters count display setting."
 
-#: lib/customizer.php:3496
+#: lib/customizer.php:3497
 msgid ""
 "Wordpress Popular Posts、もしくはJetpackプラグインのインストールが必要です。"
 "インストールしたらカスタマイザー画面を再読み込みしてください。"
@@ -2997,7 +3001,7 @@ msgstr ""
 "You need to install Wordpress Popular Posts or Jetpack plugin. Please reload "
 "the customizer after installation."
 
-#: lib/customizer.php:3499
+#: lib/customizer.php:3500
 msgid ""
 "Jetpackの統計機能を利用してPV表示もできます。Jetpackを利用した場合、一覧に表"
 "示されず表示も遅いですが、ページ解析画面へのリンクが付加されます。"
@@ -3005,7 +3009,7 @@ msgstr ""
 "PV display can be done using Jetpack's statistical function. When Jetpack is "
 "used, a link to the page analysis screen is added."
 
-#: lib/customizer.php:3502
+#: lib/customizer.php:3503
 msgid ""
 "Wordpress Popular Postsを利用してPV表示もできます。WPPを利用した場合、表示は"
 "早く、一覧ページでも表示されます。ただし、ページ解析画面へのリンクは付加され"
@@ -3014,29 +3018,29 @@ msgstr ""
 "PV display can also be done using Wordpress Popular Posts. When WPP is used, "
 "a link to the page analysis screen is not added."
 
-#: lib/customizer.php:3506
+#: lib/customizer.php:3507
 msgid "Wordpress Popular Postsで表示（高速。一覧にも表示）"
 msgstr "Display by Wordpress Popular Posts (Fast. Also shown on index)"
 
-#: lib/customizer.php:3507
+#: lib/customizer.php:3508
 msgid "Jetpackで表示（遅い。ページアクセス管理画面へのリンク付き）"
 msgstr "Displayed by Jetpack (slow, with link to page analysis)"
 
-#: lib/customizer.php:3510
+#: lib/customizer.php:3511
 msgid "管理者用PV表示"
 msgstr "Admin PV display"
 
-#: lib/customizer.php:3511
+#: lib/customizer.php:3512
 msgid ""
 "ログインユーザーのみにPVを表示します。<a href=\"https://wp-simplicity.com/"
 "simplicity-admin-pv/\" target=\"_blank\">機能説明</a>"
 msgstr "Display PV only for logged-in users."
 
-#: lib/customizer.php:3524
+#: lib/customizer.php:3525
 msgid "「WLWで編集」リンクを表示"
 msgstr "\"Edit by WLW\" link display"
 
-#: lib/customizer.php:3525
+#: lib/customizer.php:3526
 msgid ""
 "ログインユーザーにWindows Live Writer用の編集リンクを表示します。（※Windows "
 "Live Writerユーザーで、「WLW Post Downloader Plugin」のインストールが必須）"
@@ -3044,51 +3048,51 @@ msgstr ""
 "Display login user an edit link for Windows Live Writer.(* Installation of "
 "Windows Live Writer and \"WLW Post Downloader Plugin\" is mandatory)"
 
-#: lib/customizer.php:3535
+#: lib/customizer.php:3536
 msgid "その他"
 msgstr "Others"
 
-#: lib/customizer.php:3536
+#: lib/customizer.php:3537
 msgid "ファビコンや、アップルタッチアイコン、その他の設定がまとめてあります。"
 msgstr "It is settings of Fabicon, Apple touch icon, and other."
 
-#: lib/customizer.php:3547
+#: lib/customizer.php:3548
 msgid "Tips（項目の説明）の表示"
 msgstr "Tips display"
 
-#: lib/customizer.php:3548
+#: lib/customizer.php:3549
 msgid "テーマカスタマイザーのそれぞれの項目に関する詳細な説明を表示するか。"
 msgstr "Display a detailed explanation about each item of theme customizer."
 
-#: lib/customizer.php:3561
+#: lib/customizer.php:3562
 msgid "ファビコンを有効"
 msgstr "Favicon enable"
 
-#: lib/customizer.php:3573
+#: lib/customizer.php:3574
 msgid "ファビコン"
 msgstr "Favicon"
 
-#: lib/customizer.php:3574
+#: lib/customizer.php:3575
 msgid "メディアからファビコンを設定できます。"
 msgstr "You can set the favicon from media."
 
-#: lib/customizer.php:3585
+#: lib/customizer.php:3586
 msgid "アップルタッチアイコンを有効"
 msgstr "Apple touch icon enable"
 
-#: lib/customizer.php:3597
+#: lib/customizer.php:3598
 msgid "アップルタッチアイコン"
 msgstr "Apple touch icon"
 
-#: lib/customizer.php:3598
+#: lib/customizer.php:3599
 msgid "メディアからアップルタッチアイコンを設定できます。（※.png推奨）"
 msgstr "You can set the Apple Touch icon from media. (* .png recommended)"
 
-#: lib/customizer.php:3610
+#: lib/customizer.php:3611
 msgid "REST APIを有効"
 msgstr "REST API enable"
 
-#: lib/customizer.php:3611
+#: lib/customizer.php:3612
 msgid ""
 "Wordpress4.7から追加されたREST APIを有効するか。（※無効にすると動かなくなるプ"
 "ラグインがあるのでWordpressに詳しくない場合は有効のまま利用してください）<a "
@@ -3098,11 +3102,11 @@ msgstr ""
 "Enable REST API added from Wordpress 4.7. (* There are plug-ins that will "
 "stop moving if disabled)"
 
-#: lib/customizer.php:3624
+#: lib/customizer.php:3625
 msgid "rel=\"noopener noreferrer\"を有効"
 msgstr "[rel=\"noopener noreferrer\"] enable"
 
-#: lib/customizer.php:3625
+#: lib/customizer.php:3626
 msgid ""
 "Wordpress4.7.4から「target=\"_blank\"」の付いた外部リンクに対して「rel="
 "\"noopener noreferrer\"」属性を自動付加するかどうか。<a href=\"https://wp-"
@@ -3111,11 +3115,11 @@ msgstr ""
 "Whether to automatically add [rel=\"noopener noreferrer\"] attribute to the "
 "external link with [target=\"_ blank\"]. (Wordpress 4.7.4 or later)"
 
-#: lib/customizer.php:3638
+#: lib/customizer.php:3639
 msgid "内部URLをSSL対応（簡易版）"
 msgstr "Internal URL compatible with SSL (simplified version)"
 
-#: lib/customizer.php:3639
+#: lib/customizer.php:3640
 msgid ""
 "サイトの内部リンクや、非SSLの画像・URLなど、HTTPS化する必要があるURLをSSL対応"
 "させて表示させます。（※全てのURLに対応しているわけではありません）<a href="
@@ -3125,20 +3129,20 @@ msgstr ""
 "and non-SSL images / URLs, are displayed in SSL compliant display. (It does "
 "not correspond to all URLs)"
 
-#: lib/customizer.php:3652
+#: lib/customizer.php:3653
 msgid "外部サイトデータ取得時にSSL検証を行う"
 msgstr "Validate SSL when acquiring external site data"
 
-#: lib/customizer.php:3653
+#: lib/customizer.php:3654
 msgid "wp_remote_getで外部サイトデータを取得時に、SSL検証を有効にします。"
 msgstr ""
 "When acquiring external site data with wp_remote_get, enable SSL validation."
 
-#: lib/customizer.php:3666
+#: lib/customizer.php:3667
 msgid "オートアップデートを有効"
 msgstr "Auto update enable"
 
-#: lib/customizer.php:3667
+#: lib/customizer.php:3668
 msgid ""
 "テーマのオートアップデート機能を有効にするか。親テーマをカスタマイズしている"
 "場合は、オフにしておいたほうがいいかも。（※オフにするとセキュリティー問題が"
@@ -3147,11 +3151,11 @@ msgstr ""
 "Enable auto update feature of theme. It may be better to turn it off if you "
 "customize your parent theme."
 
-#: lib/customizer.php:3680
+#: lib/customizer.php:3681
 msgid "カスタマイザーのスタイル変更を外部CSSに書き出す（非推奨）"
 msgstr "Write customizer style changes to external CSS (deprecated)"
 
-#: lib/customizer.php:3681
+#: lib/customizer.php:3682
 msgid ""
 "ヘッダーに埋め込まれるテーマカスタマイザーのスタイルシートを外部CSSファイルに"
 "書き出してから読み込みます。（※使用による不具合についてはサポートできません）"
@@ -3159,71 +3163,71 @@ msgstr ""
 "Write the CSS embedded in the header to an external CSS file and load it. (* "
 "It can not support about trouble due to)"
 
-#: lib/customizer.php:3694
+#: lib/customizer.php:3695
 msgid "日本語のスラッグを有効にする"
 msgstr "Japanese slug enable"
 
-#: lib/customizer.php:3695
+#: lib/customizer.php:3696
 msgid "投稿・固定ページのパーマリンクに日本語を使用するか。"
 msgstr "To be able to use Japanese for Permalink."
 
-#: lib/customizer.php:3708
+#: lib/customizer.php:3709
 msgid "ライセンス"
 msgstr "License"
 
-#: lib/customizer.php:3709
+#: lib/customizer.php:3710
 msgid "サイトのライセンスを設定します。"
 msgstr "Set this site license."
 
-#: lib/customizer.php:3713
+#: lib/customizer.php:3714
 msgid "©（デフォルト）"
 msgstr "© (default)"
 
-#: lib/customizer.php:3714
+#: lib/customizer.php:3715
 msgid "©（日付なし）"
 msgstr "© (no date)"
 
-#: lib/customizer.php:3715
+#: lib/customizer.php:3716
 msgid "Copyright©（表記を書く）"
 msgstr "Copyright ©"
 
-#: lib/customizer.php:3716
+#: lib/customizer.php:3717
 msgid "CC-表示"
 msgstr "CC BY"
 
-#: lib/customizer.php:3717
+#: lib/customizer.php:3718
 msgid "CC-表示-継承"
 msgstr "CC BY-SA"
 
-#: lib/customizer.php:3718
+#: lib/customizer.php:3719
 msgid "CC-表示-改変禁止"
 msgstr "CC BY-ND"
 
-#: lib/customizer.php:3719
+#: lib/customizer.php:3720
 msgid "CC-表示-非営利"
 msgstr "CC BY-NC"
 
-#: lib/customizer.php:3720
+#: lib/customizer.php:3721
 msgid "CC-表示-非営利-継承"
 msgstr "CC BY-NC-SA"
 
-#: lib/customizer.php:3721
+#: lib/customizer.php:3722
 msgid "CC-表示-非営利-改変禁止"
 msgstr "CC BY-NC-ND"
 
-#: lib/customizer.php:3722
+#: lib/customizer.php:3723
 msgid "CC0"
 msgstr "CC0"
 
-#: lib/customizer.php:3723
+#: lib/customizer.php:3724
 msgid "パブリックドメイン"
 msgstr "Public domain"
 
-#: lib/customizer.php:3735
+#: lib/customizer.php:3736
 msgid "ローカルでのレスポンシブテストを表示"
 msgstr "Local responsive test enable"
 
-#: lib/customizer.php:3736
+#: lib/customizer.php:3737
 msgid ""
 "ローカル環境でテスト時のみサイトフッター部分にレスポンシブテスト用のリンクを"
 "表示します。"
@@ -3231,11 +3235,11 @@ msgstr ""
 "Only when testing in the local environment, displays the link for responsive "
 "test in the site footer part."
 
-#: lib/customizer.php:3749
+#: lib/customizer.php:3750
 msgid "ページキャッシュモード"
 msgstr "Page cache mode"
 
-#: lib/customizer.php:3750
+#: lib/customizer.php:3751
 msgid ""
 "※通常は利用非推奨。ページキャシュプラグインと併わせて利用して高速化を図るため"
 "のモードです。尚、この機能をオンにすると不具合があるかもしれません。ですが基"
@@ -3247,48 +3251,48 @@ msgstr ""
 "However, it is basically no support. Please use this function only if you "
 "can do it by your own power."
 
-#: lib/customizer.php:5229
+#: lib/customizer.php:5230
 msgid "ページが見つかりませんでした"
 msgstr "Page not found"
 
-#: lib/customizer.php:5527
+#: lib/customizer.php:5533
 msgid "第0版"
 msgstr "0 edition"
 
-#: lib/customizer.php:5561 lib/customizer.php:5577
+#: lib/customizer.php:5567 lib/customizer.php:5583
 #, php-format
 msgid "「%s」の記事一覧です。"
 msgstr "Articles of \"%s\"."
 
-#: lib/qtags.php:12 lib/qtags.php:47
+#: lib/qtags.php:12 lib/qtags.php:50
 msgid "太字"
 msgstr "Bold"
 
-#: lib/qtags.php:13 lib/qtags.php:52
+#: lib/qtags.php:13 lib/qtags.php:58
 msgid "赤字"
 msgstr "Red"
 
-#: lib/qtags.php:14 lib/qtags.php:57
+#: lib/qtags.php:14 lib/qtags.php:66
 msgid "太い赤字"
 msgstr "Bold Red"
 
-#: lib/qtags.php:15 lib/qtags.php:62
+#: lib/qtags.php:15 lib/qtags.php:71
 msgid "赤アンダーライン"
 msgstr "Red Underline"
 
-#: lib/qtags.php:16 lib/qtags.php:67
+#: lib/qtags.php:16 lib/qtags.php:76
 msgid "黄色マーカー"
 msgstr "Yellow Marker"
 
-#: lib/qtags.php:17 lib/qtags.php:72
+#: lib/qtags.php:17 lib/qtags.php:81
 msgid "黄色アンダーラインマーカー"
 msgstr "Yellow Underline Marker"
 
-#: lib/qtags.php:18 lib/qtags.php:77
+#: lib/qtags.php:18 lib/qtags.php:86
 msgid "打ち消し線"
 msgstr "STRIKE"
 
-#: lib/qtags.php:19 lib/qtags.php:82
+#: lib/qtags.php:19 lib/qtags.php:143
 msgid "バッジ"
 msgstr "Badge"
 
@@ -3296,15 +3300,15 @@ msgstr "Badge"
 msgid "キーボード"
 msgstr "Keyboard key"
 
-#: lib/qtags.php:21 lib/qtags.php:92
+#: lib/qtags.php:21 lib/qtags.php:101
 msgid "補足情報(i)"
 msgstr "Info (i)"
 
-#: lib/qtags.php:22 lib/qtags.php:97
+#: lib/qtags.php:22 lib/qtags.php:106
 msgid "補足情報(?)"
 msgstr "Info (?)"
 
-#: lib/qtags.php:23 lib/qtags.php:102
+#: lib/qtags.php:23 lib/qtags.php:111
 msgid "補足情報(!)"
 msgstr "Infor (!)"
 
@@ -3324,29 +3328,293 @@ msgstr "warning"
 msgid "danger"
 msgstr "danger"
 
-#: lib/qtags.php:87
+#: lib/qtags.php:47
+msgid "インライン"
+msgstr "Inline"
+
+#: lib/qtags.php:91
 msgid "キーボードキー"
 msgstr "Keyboard key"
 
-#: lib/qtags.php:107
+#: lib/qtags.php:98
+msgid "ボックス"
+msgstr "Box"
+
+#: lib/qtags.php:116
 msgid "primaryボックス"
 msgstr "Primary box"
 
-#: lib/qtags.php:112
+#: lib/qtags.php:121
 msgid "successボックス"
 msgstr "Success box"
 
-#: lib/qtags.php:117
+#: lib/qtags.php:126
 msgid "infoボックス"
 msgstr "Info box"
 
-#: lib/qtags.php:122
+#: lib/qtags.php:131
 msgid "warningボックス"
 msgstr "Warning box"
 
-#: lib/qtags.php:127
+#: lib/qtags.php:136
 msgid "dangerボックス"
 msgstr "Danger box"
+
+#: lib/qtags.php:146
+msgid "バッジ（オレンジ）"
+msgstr "Badge (orange)"
+
+#: lib/qtags.php:151
+msgid "バッジ（レッド）"
+msgstr "Badge (red)"
+
+#: lib/qtags.php:156
+msgid "バッジ（ピンク）"
+msgstr "Badge (Pink)"
+
+#: lib/qtags.php:161
+msgid "バッジ（パープル）"
+msgstr "Badge (purple)"
+
+#: lib/qtags.php:166
+msgid "バッジ（ブルー）"
+msgstr "Badge (blue)"
+
+#: lib/qtags.php:171
+msgid "バッジ（グリーン）"
+msgstr "Badge (green)"
+
+#: lib/qtags.php:176
+msgid "バッジ（イエロー）"
+msgstr "Badge (yellow)"
+
+#: lib/qtags.php:181
+msgid "バッジ（ブラウン）"
+msgstr "Badge (Brown)"
+
+#: lib/qtags.php:186
+msgid "バッジ（グレー）"
+msgstr "Badge (gray)"
+
+#: lib/qtags.php:193
+msgid "ボタン（β版）"
+msgstr ""
+
+#: lib/qtags.php:197
+msgid "レッド（小）"
+msgstr "Red (small)"
+
+#: lib/qtags.php:202
+msgid "レッド（中）"
+msgstr "Red (medium)"
+
+#: lib/qtags.php:207
+msgid "レッド（大）"
+msgstr "Red (large)"
+
+#: lib/qtags.php:213
+msgid "ピンク（小）"
+msgstr "Pink (small)"
+
+#: lib/qtags.php:218
+msgid "ピンク（中）"
+msgstr "Pink (medium)"
+
+#: lib/qtags.php:223
+msgid "ピンク（大）"
+msgstr "Pink (large)"
+
+#: lib/qtags.php:229
+msgid "パープル（小）"
+msgstr "Purple (small)"
+
+#: lib/qtags.php:234
+msgid "パープル（中）"
+msgstr "Purple (medium)"
+
+#: lib/qtags.php:239
+msgid "パープル（大）"
+msgstr "Purple (large)"
+
+#: lib/qtags.php:245
+msgid "ディープパープル（小）"
+msgstr "Deep Purple (small)"
+
+#: lib/qtags.php:250
+msgid "ディープパープル（中）"
+msgstr "Deep Purple (medium)"
+
+#: lib/qtags.php:255
+msgid "ディープパープル（大）"
+msgstr "Deep Purple (large)"
+
+#: lib/qtags.php:261
+msgid "インディゴ[紺色]（小）"
+msgstr "Indigo [Navy Blue] (small)"
+
+#: lib/qtags.php:266
+msgid "インディゴ[紺色]（中）"
+msgstr "Indigo [Navy Blue] (medium)"
+
+#: lib/qtags.php:271
+msgid "インディゴ[紺色]（大）"
+msgstr "Indigo [Navy Blue] (large)"
+
+#: lib/qtags.php:277
+msgid "ブルー（小）"
+msgstr "Blue (small)"
+
+#: lib/qtags.php:282
+msgid "ブルー（中）"
+msgstr "Blue (medium)"
+
+#: lib/qtags.php:287
+msgid "ブルー（大）"
+msgstr "Blue (large)"
+
+#: lib/qtags.php:293
+msgid "ライトブルー（小）"
+msgstr "Light blue (small)"
+
+#: lib/qtags.php:298
+msgid "ライトブルー（中）"
+msgstr "Light blue (medium)"
+
+#: lib/qtags.php:303
+msgid "ライトブルー（大）"
+msgstr "Light blue (large)"
+
+#: lib/qtags.php:309
+msgid "シアン（小）"
+msgstr "Cyan (small)"
+
+#: lib/qtags.php:314
+msgid "シアン（中）"
+msgstr "Cyan (medium)"
+
+#: lib/qtags.php:319
+msgid "シアン（大）"
+msgstr "Cyan (large)"
+
+#: lib/qtags.php:325
+msgid "ティール[緑色がかった青]（小）"
+msgstr "Teal and green-tinged blue (small)"
+
+#: lib/qtags.php:330
+msgid "ティール[緑色がかった青]（中）"
+msgstr "Teal and green-tinged blue (medium)"
+
+#: lib/qtags.php:335
+msgid "ティール[緑色がかった青]（大）"
+msgstr "Teal and green-tinged blue (large)"
+
+#: lib/qtags.php:341
+msgid "グリーン（小）"
+msgstr "Green (small)"
+
+#: lib/qtags.php:346
+msgid "グリーン（中）"
+msgstr "Green (medium)"
+
+#: lib/qtags.php:351
+msgid "グリーン（大）"
+msgstr "Green (large)"
+
+#: lib/qtags.php:357
+msgid "ライトグリーン（小）"
+msgstr "Light green (small)"
+
+#: lib/qtags.php:362
+msgid "ライトグリーン（中）"
+msgstr "Light green (medium)"
+
+#: lib/qtags.php:367
+msgid "ライトグリーン（大）"
+msgstr "Light green (large)"
+
+#: lib/qtags.php:373
+msgid "ライム（小）"
+msgstr "Lime (small)"
+
+#: lib/qtags.php:378
+msgid "ライム（中）"
+msgstr "Lime (medium)"
+
+#: lib/qtags.php:383
+msgid "ライム（大）"
+msgstr "Lime (large)"
+
+#: lib/qtags.php:389
+msgid "イエロー（小）"
+msgstr "Yellow (small)"
+
+#: lib/qtags.php:394
+msgid "イエロー（中）"
+msgstr "Yellow (medium)"
+
+#: lib/qtags.php:399
+msgid "イエロー（大）"
+msgstr "Yellow (large)"
+
+#: lib/qtags.php:405
+msgid "アンバー[琥珀色]（小）"
+msgstr "Amber (small)"
+
+#: lib/qtags.php:410
+msgid "アンバー[琥珀色]（中）"
+msgstr "Amber (medium)"
+
+#: lib/qtags.php:415
+msgid "アンバー[琥珀色]（大）"
+msgstr "Amber (large)"
+
+#: lib/qtags.php:421
+msgid "オレンジ（小）"
+msgstr "Orange (small)"
+
+#: lib/qtags.php:426
+msgid "オレンジ（中）"
+msgstr "Orange (medium)"
+
+#: lib/qtags.php:431
+msgid "オレンジ（大）"
+msgstr "Orange (Large)"
+
+#: lib/qtags.php:437
+msgid "ディープオレンジ（小）"
+msgstr "Deep orange (small)"
+
+#: lib/qtags.php:442
+msgid "ディープオレンジ（中）"
+msgstr "Deep orange (medium)"
+
+#: lib/qtags.php:447
+msgid "ディープオレンジ（大）"
+msgstr "Deep orange (large)"
+
+#: lib/qtags.php:453
+msgid "ブラウン（小）"
+msgstr "Brown (small)"
+
+#: lib/qtags.php:458
+msgid "ブラウン（中）"
+msgstr "Brown (medium)"
+
+#: lib/qtags.php:463
+msgid "ブラウン（大）"
+msgstr "Brown (large)"
+
+#: lib/qtags.php:469
+msgid "グレー（小）"
+msgstr "Gray (small)"
+
+#: lib/qtags.php:474
+msgid "グレー（中）"
+msgstr "Gray (medium)"
+
+#: lib/qtags.php:479
+msgid "グレー（大）"
+msgstr "Gray (large)"
 
 #: lib/widget-areas.php:9
 msgid "サイドバーウイジェット"
@@ -4083,6 +4351,9 @@ msgstr "Subscribe to feedly"
 #: sns-pages.php:23
 msgid "RSSで更新情報をフォロー"
 msgstr "Subscribe to RSS"
+
+#~ msgid "グレー小）"
+#~ msgstr "Gray (small)"
 
 #~ msgid "REST APIへのアクセスは拒否されました。"
 #~ msgstr "The REST API on this site has been disabled."

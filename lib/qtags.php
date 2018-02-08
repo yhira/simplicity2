@@ -466,17 +466,17 @@ function initialize_tinymce_styles($init_array) {
         ),
 
         array(
-          'title' => __( 'グレー小）', 'simplicity2' ),
+          'title' => __( 'グレー（小）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-grey'
         ),
         array(
-          'title' => __( 'グレー中）', 'simplicity2' ),
+          'title' => __( 'グレー（中）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-grey btn-m'
         ),
         array(
-          'title' => __( 'グレー大）', 'simplicity2' ),
+          'title' => __( 'グレー（大）', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'btn btn-grey btn-l'
         ),
