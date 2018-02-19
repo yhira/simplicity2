@@ -1,8 +1,7 @@
 <?php //管理者のみにPV表示 ?>
 <?php if ( is_admin_pv_visible() &&
            is_user_logged_in() &&
-           (is_admin_pv_type_wpp() || (is_admin_pv_type_jetpack() && is_singular())) &&
-           !(is_front_page() && is_page()) ): ?>
+           (is_admin_pv_type_wpp() || (is_admin_pv_type_jetpack() && is_singular())) ): ?>
   <div class="admin-pv">
   <?php //全体、月別、週別、日別のPV表示
     $views_all = 0;

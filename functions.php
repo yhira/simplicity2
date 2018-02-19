@@ -199,13 +199,28 @@ function get_content_excerpt($content, $length = 70){
 endif;
 
 //外部ファイルのURLに付加されるver=を取り除く
-function vc_remove_wp_ver_css_js( $src ) {
-    if ( strpos( $src, 'ver=' ) )
-        $src = remove_query_arg( 'ver', $src );
-    return $src;
-}
-add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
-add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
+if ( !function_exists( 'add_file_ver_to_css_js' ) ):
+function add_file_ver_to_css_js( $src ) {
+  // _v($src);
+  // _v(site_url());
+  // _v(strpos( $src, site_url() ));
+  //サーバー内のファイルの場合
+  if (strpos( $src, site_url() ) !== false) {
+    //Wordpressのバージョンを除去する場合
+    // if ( strpos( $src, 'ver=' ) )
+    //   $src = remove_query_arg( 'ver', $src );
+    //クエリーを削除したファイルURLを取得
+    $removed_src = preg_replace('{\?.+$}i', '', $src);
+    //URLをパスに変換
+    $stylesheet_file = str_replace(site_url('/'), ABSPATH, $removed_src );
+    //ファイルの編集時間バージョンを追加
+    $src = add_query_arg( 'fver', date('Ymdhis', filemtime($stylesheet_file)), $src );
+  }
+  return $src;
+}  
+endif;
+add_filter( 'style_loader_src', 'add_file_ver_to_css_js', 9999 );
+add_filter( 'script_loader_src', 'add_file_ver_to_css_js', 9999 );
 
 //セルフピンバック禁止
 function sp_no_self_ping( &$links ) {
