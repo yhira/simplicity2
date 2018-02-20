@@ -601,7 +601,7 @@ if ( is_auto_update_enable() ) {//テーマのオートアップデート機能�
   require 'theme-update-checker.php'; //ライブラリのパス
   $example_update_checker = new ThemeUpdateChecker(
     'simplicity2', //テーマフォルダ名
-    'http://wp-simplicity.com/wp-content/themes/simplicity/update-info2.json' //JSONファイルのURL
+    'https://raw.githubusercontent.com/yhira/simplicity2/master/update-info2.json' //JSONファイルのURL
   );
 }
 
