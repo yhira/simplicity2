@@ -12,7 +12,7 @@ global $g_exclude_ids;//除外ID
 global $g_exclude_category_ids;//除外カテゴリID
 $exclude_category_ids = null;
 if (!empty($g_exclude_category_ids)) {
-  $exclude_category_ids = ','.minusize_number_in_array($g_exclude_category_ids);
+  $exclude_category_ids = minusize_number_in_array($g_exclude_category_ids);
 }
 //var_dump($exclude_category_ids);
 ?>
