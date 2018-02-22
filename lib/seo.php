@@ -160,6 +160,7 @@ function check_multi_page() {
 //remove_action('wp_head', 'rel_canonical');
 
 //canonical URLの生成
+if ( !function_exists( 'generate_canonical_url' ) ):
 function generate_canonical_url(){
   global $paged;
   global $page;
@@ -189,15 +190,18 @@ function generate_canonical_url(){
   return $canonical_url;
 
 }
+endif;
 
 //canonicalタグの取得
 //取得条件；http://bazubu.com/seo101/how-to-use-canonical
+if ( !function_exists( 'canonical_tag' ) ):
 function canonical_tag(){
   $canonical_url = generate_canonical_url();
   if ( $canonical_url ) {
     echo '<link rel="canonical" href="'.$canonical_url.'">'.PHP_EOL;
   }
 }
+endif;
 
 if ( !function_exists( 'is_noindex_page' ) ):
 function is_noindex_page(){
