@@ -15,7 +15,8 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
 
     //ウィジェットモード（全ての人気記事を表示するか、カテゴリ別に表示するか）
     $widget_mode = apply_filters( 'widget_mode', empty($instance['widget_mode']) ? "defailt" : $instance['widget_mode'], $instance );
-    $title_popular = apply_filters( 'widget_title_popular', empty($instance['title_popular']) ? __( '人気記事', 'simplicity2' ) : $instance['title_popular'] );
+    $title = empty($instance['title']) ? '' : $instance['title'];
+    $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
     //表示数を取得
     $entry_count = apply_filters( 'widget_entry_count', empty($instance['entry_count']) ? 5 : absint($instance['entry_count']) );
     //表示タイプを取得
@@ -76,17 +77,21 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
         $before_widget = str_replace('widget_popular_ranking', 'widget_popular_ranking ranking_list', $before_widget);
       }
       echo $before_widget;
-      echo $args['before_title'];
-      if ($title_popular) {
-        echo $title_popular;
-      } else {
-        if ( $widget_mode == 'all' ) {//全ての表示モードの時は
-          echo __( '人気記事', 'simplicity2' );
+
+      if ($title !== null) {
+        echo $args['before_title'];
+        if ($title) {
+          echo $title;
         } else {
-          echo __( 'カテゴリー別人気記事', 'simplicity2' );
+          if ( $widget_mode == 'all' ) {//全ての表示モードの時は
+            echo __( '人気記事', 'simplicity2' );
+          } else {
+            echo __( 'カテゴリー別人気記事', 'simplicity2' );
+          }
         }
+        echo $args['after_title'];        
       }
-      echo $args['after_title'];
+
       //PV順
       if ( $entry_type == 'default' ) {
         get_template_part('popular-posts-entries');
@@ -103,7 +108,7 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
     $instance['widget_mode'] = trim(strip_tags($new_instance['widget_mode']));
-    $instance['title_popular'] = trim(strip_tags($new_instance['title_popular']));
+    $instance['title'] = trim(strip_tags($new_instance['title']));
     $instance['entry_count'] = strip_tags($new_instance['entry_count']);
     $instance['entry_type'] = strip_tags($new_instance['entry_type']);
     $instance['is_pages_include'] = strip_tags($new_instance['is_pages_include']);
@@ -119,7 +124,7 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
     if(empty($instance)){
       $instance = array(
         'widget_mode' => null,
-        'title_popular' => null,
+        'title' => null,
         'entry_count' => null,
         'entry_type' => null,
         'is_pages_include' => null,
@@ -132,7 +137,7 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
       );
     }
     $widget_mode = esc_attr($instance['widget_mode']);
-    $title_popular = esc_attr($instance['title_popular']);
+    $title = esc_attr($instance['title']);
     $entry_count = esc_attr($instance['entry_count']);
     $entry_type = esc_attr($instance['entry_type']);
     $is_pages_include = esc_attr($instance['is_pages_include']);
@@ -155,10 +160,10 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
       <input class="widefat" id="<?php echo $this->get_field_id('widget_mode'); ?>" name="<?php echo $this->get_field_name('widget_mode'); ?>"  type="radio" value="category"<?php echo ($widget_mode == 'category' ? ' checked="checked"' : ""); ?> /><?php _e( 'カテゴリ別人気記事（投稿・カテゴリで表示）', 'simplicity2' ) ?><br />
     </p>
     <p>
-       <label for="<?php echo $this->get_field_id('title_popular'); ?>">
+       <label for="<?php echo $this->get_field_id('title'); ?>">
         <?php _e( '人気記事のタイトル', 'simplicity2' ) ?>
        </label>
-       <input class="widefat" id="<?php echo $this->get_field_id('title_popular'); ?>" name="<?php echo $this->get_field_name('title_popular'); ?>" type="text" value="<?php echo $title_popular; ?>" />
+       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
     <?php //表示数入力フォーム ?>
     <p>

@@ -12,37 +12,43 @@ class SimplicitySocialFollowWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
-    $title_popular = apply_filters( 'widget_title_social_follow', $instance['title_social_follow'] );
+    $title = !empty($instance['title']) ? $instance['title'] : '';
+    $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
     echo $args['before_widget'];
-    echo $args['before_title'];
-    if ($title_popular) {
-      echo $title_popular;
-    } else {
-      echo __( 'SNSフォローボタン', 'simplicity2' );
+
+    if ($title !== null) {
+      echo $args['before_title'];
+      if ($title) {
+        echo $title;
+      } else {
+        echo __( 'SNSフォローボタン', 'simplicity2' );
+      }
+      echo $args['after_title'];      
     }
-    echo $args['after_title'];
+
+
     get_template_part('sns-pages'); //SNSフォローボタン
     echo $args['after_widget']; ?>
   <?php
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title_social_follow'] = trim(strip_tags($new_instance['title_social_follow']));
+    $instance['title'] = trim(strip_tags($new_instance['title']));
       return $instance;
   }
   function form($instance) {
     if(empty($instance)){
       $instance = array(
-        'title_social_follow' => null,
+        'title' => null,
       );
     }
-    $title_social_follow = esc_attr($instance['title_social_follow']);
+    $title = esc_attr($instance['title']);
     ?>
     <p>
-       <label for="<?php echo $this->get_field_id('title_social_follow'); ?>">
+       <label for="<?php echo $this->get_field_id('title'); ?>">
         <?php _e( 'SNSフォローボタンのタイトル', 'simplicity2' ) ?>
        </label>
-       <input class="widefat" id="<?php echo $this->get_field_id('title_social_follow'); ?>" name="<?php echo $this->get_field_name('title_social_follow'); ?>" type="text" value="<?php echo $title_social_follow; ?>" />
+       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
     <?php
   }

@@ -14,6 +14,8 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
     extract( $args );
     //タイトル名を取得
     $title = apply_filters( 'widget_title_facebook_page_like', $instance['title_facebook_page_like'] );
+    $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+    
     $text = apply_filters( 'widget_text_facebook_page_like', $instance['text_facebook_page_like'] );
     global $g_facebook_page_like_text;
     $g_facebook_page_like_text = $text;

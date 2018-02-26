@@ -14,6 +14,8 @@ class FacebookSaveButtonWidgetItem extends WP_Widget {
     extract( $args );
     //タイトル名を取得
     $title = apply_filters( 'widget_facebook_save_button', $instance['facebook_save_button'] );
+    $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+    
     //Facebookスクリプトを利用するか
     global $g_facebook_sdk;
     $g_facebook_sdk = true;

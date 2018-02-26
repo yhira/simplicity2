@@ -85,3 +85,14 @@ function get_popular_posts_ranking_style($slelctor){
 </style>';
 }
 
+//！でウィジェットのタイトルを隠せるように
+add_filter('widget_title', 'widget_title_hidable');
+if ( !function_exists( 'widget_title_hidable' ) ):
+function widget_title_hidable($title){
+  //ウィジェットタイトルの最初の一文字が！のとき
+  if (strpos($title, '!') === 0) {
+    return null;
+  }
+  return $title;
+}
+endif;

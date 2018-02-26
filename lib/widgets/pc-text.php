@@ -15,7 +15,8 @@ class PcTextWidgetItem extends WP_Widget {
     // //タイトル名を取得
     // $title = apply_filters( 'widget_title_pc_text', $instance['title_pc_text'] );
     //タイトル名を取得
-    $title = apply_filters( 'widget_title_pc_text', empty($instance['title_pc_text']) ? "" : $instance['title_pc_text'] );
+    $title = apply_filters( 'widget_title_pc_text', empty($instance['title_pc_text']) ? '' : $instance['title_pc_text'] );
+    $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
     $widget_text = isset( $instance['text_pc_text'] ) ? $instance['text_pc_text'] : '';
     $text = apply_filters( 'widget_text_pc_text', $widget_text, $instance, $this );
 

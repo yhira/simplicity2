@@ -13,8 +13,10 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
   function widget($args, $instance) {
     extract( $args );
 
-    $title_new = apply_filters( 'widget_title_new', empty($instance['title_new']) ? __( '新着記事', 'simplicity2' ) : $instance['title_new'] );
-    $title_popular = apply_filters( 'widget_title_popular', empty($instance['title_popular']) ? __( '人気記事', 'simplicity2' ) : $instance['title_popular']);
+    $title_new = apply_filters( 'widget_title_new', empty($instance['title_new']) ? '' : $instance['title_new'] );
+    $title_new = apply_filters( 'widget_title', $title_new, $instance, $this->id_base );
+    $title_popular = apply_filters( 'widget_title_popular', empty($instance['title_popular']) ? '' : $instance['title_popular']);
+    $title_popular = apply_filters( 'widget_title', $title_popular, $instance, $this->id_base );
     $entry_count = empty($instance['entry_count']) ? 5 : absint( $instance['entry_count'] );
     $entry_type = apply_filters( 'widget_entry_type', empty($instance['entry_type']) ? "default" : $instance['entry_type'], $instance );
     $is_pages_include = apply_filters( 'widget_is_pages_include', empty($instance['is_pages_include']) ? "" : $instance['is_pages_include'], $instance );
@@ -64,14 +66,18 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
         $before_widget = str_replace('widget_new_popular', 'widget_new_popular ranking_list', $before_widget);
       }
       echo $before_widget; ?>
-          <?php echo $args['before_title']; ?>
-          <?php if ($title_popular) {
-            echo $title_popular;
-          } else {
-            echo __( '人気記事', 'simplicity2' );
+          <?php 
+          if ($title_popular !== null) {
+            echo $args['before_title'];
+            if ($title_popular) {
+              echo $title_popular;
+            } else {
+              echo __( '人気記事', 'simplicity2' );
+            }
+            echo $args['after_title'];
           }
-            ?>
-          <?php echo $args['after_title']; ?>
+
+           ?>
         <?php if ( is_wpp_enable() ) { //Wordpress Popular Postsを有効にしてあるか?>
           <?php //PV順
           if ( $entry_type == 'default' ) {
@@ -93,14 +99,18 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
         <?php echo $args['after_widget']; ?>
       <?php } else { //メインページ以外?>
         <?php echo $args['before_widget']; ?>
-          <?php echo $args['before_title']; ?>
-          <?php if ($title_new) {
-            echo $title_new;
-          } else {
-            echo __( '新着記事', 'simplicity2' );
-          }
-            ?>
-          <?php echo $args['after_title']; ?>
+          <?php 
+         if ($title_new !== null) {
+          echo $args['before_title'];
+          if ($title_new) {
+              echo $title_new;
+            } else {
+              echo __( '新着記事', 'simplicity2' );
+            }
+            echo $args['after_title'];           
+         } 
+
+           ?>
           <?php //新着記事
           if ( $entry_type == 'default' ) {
             get_template_part('new-entries');//デフォルト
