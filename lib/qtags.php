@@ -50,17 +50,11 @@ function initialize_tinymce_styles($init_array) {
           'title' => __( '太字', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'bold',
-          'styles' => array(
-            'fontWeight' => 'bold',
-          ),
         ),
         array(
           'title' => __( '赤字', 'simplicity2' ),
           'inline' => 'span',
           'classes' => 'red',
-          'styles' => array(
-            'color' => 'red',
-          ),
         ),
         array(
           'title' => __( '太い赤字', 'simplicity2' ),
