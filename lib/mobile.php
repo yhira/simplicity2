@@ -10,6 +10,9 @@ function is_mobile(){
   if ( is_tablet_mobile() ) {
     return wp_is_mobile();
   }
+  if (!isset($_SERVER['HTTP_USER_AGENT'])) {
+    return false;
+  }
   $useragents = array(
     'iPhone', // iPhone
     'iPod', // iPod touch
