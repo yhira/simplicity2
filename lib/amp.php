@@ -35,7 +35,7 @@ function has_amp_page(){
   return is_singular() &&
     is_amp_enable() &&
     is_amp_page_enable() &&
-    !in_category( $category_ids ) && //除外カテゴリではAMPページを生成しない
+    !in_category( explode(',', $category_ids) ) && //除外カテゴリではAMPページを生成しない
     (!function_exists('is_bbpress') || !is_bbpress());
 }
 endif;
