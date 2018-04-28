@@ -1238,3 +1238,9 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 .crayon-code{
   background-color: #eee;
 }*/
+
+@media screen and (max-width: 740px){
+  #header-in, #navi-in, #body-in, #footer-in{
+    width: auto;
+  }
+}
