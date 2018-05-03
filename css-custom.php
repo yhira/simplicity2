@@ -70,7 +70,7 @@ if ( $site_description_color != SITE_DESCRIPTION_COLOR && !is_mobile() ): ?>
 <?php endif; ?>
 <?php //モバイルヘッダー色
 if ( $mobile_background_color != MOBILE_BACKGROUND_COLOR && is_mobile() ): ?>
-#header #h-top {
+#header {
   background-color:<?php echo $mobile_background_color; ?>;
 }
 <?php endif; ?>
