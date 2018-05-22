@@ -182,12 +182,15 @@ class SimplicityPopularPostsCategoryWidgetItem extends WP_Widget {
       <input class="widefat" id="<?php echo $this->get_field_id('entry_type'); ?>" name="<?php echo $this->get_field_name('entry_type'); ?>"  type="radio" value="large_thumb_on"<?php echo ($entry_type == 'large_thumb_on' ? ' checked="checked"' : ""); ?> /><?php _e( 'タイトルを重ねた大きなサムネイル', 'simplicity2' ) ?><br />
     </p>
     <?php //固定ページの表示 ?>
+    <!--     
     <p>
       <label for="<?php echo $this->get_field_id('is_pages_include'); ?>">
         <?php _e( '固定ページの表示', 'simplicity2' ) ?>
       </label><br />
       <input class="widefat" id="<?php echo $this->get_field_id('is_pages_include'); ?>" name="<?php echo $this->get_field_name('is_pages_include'); ?>" type="checkbox" value="on"<?php echo ($is_pages_include ? ' checked="checked"' : ''); ?> /><?php _e( 'ランキングに固定ページを含める', 'simplicity2' ) ?>
-    </p>
+    </p> 
+    -->
+
     <?php //集計単位の指定 ?>
     <p>
       <label for="<?php echo $this->get_field_id('range'); ?>">
