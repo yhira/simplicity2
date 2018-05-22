@@ -1426,3 +1426,28 @@ function wp_embed_register_handler_for_gist( $matches, $attr, $url, $rawattr ) {
   return apply_filters( 'embed_gist', $embed, $matches, $attr, $url, $rawattr );
 }
 endif;
+
+//ウィジェット設定エリアの幅を広げる
+add_action('admin_head', 'wide_widget_setting_area');
+if ( !function_exists( 'wide_widget_setting_area' ) ):
+function wide_widget_setting_area(){
+  global $current_screen;
+  if ( $current_screen->id == 'widgets' )
+  {
+  ?>
+	<style type="text/css">
+	.widget.open{
+	  margin-left: -116px;
+	  z-index: 100;
+	}
+ 
+	#sub-accordion-section-sidebar-widgets-sidebar .widget.open,
+	#wp_inactive_widgets .widget.open{
+	  margin-left: 0;
+	}
+ 
+	</style>
+  <?php
+  }
+}
+endif;
