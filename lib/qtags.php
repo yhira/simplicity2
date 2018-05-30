@@ -9,6 +9,7 @@ function add_quicktags_to_text_editor() {
   if (wp_script_is('quicktags')){?>
     <script>
       QTags.addButton('qt-pre','pre','<pre>','</pre>');
+      QTags.addButton('qt-ruby','<?php _e( 'ふりがな', 'simplicity2' ) ?>','<ruby>','<rt><?php _e( 'ふりがな', 'simplicity2' ) ?></rt></ruby>');
       QTags.addButton('qt-bold','<?php _e( '太字', 'simplicity2' ) ?>','<span class="bold">','</span>');
       QTags.addButton('qt-red','<?php _e( '赤字', 'simplicity2' ); ?>','<span class="red">','</span>');
       QTags.addButton('qt-bold-red','<?php _e( '太い赤字', 'simplicity2' ); ?>','<span class="bold-red">','</span>');
