@@ -1240,7 +1240,7 @@ ul.snsbs a.comments-btn-icon-link{background-color:#555;}
 }*/
 
 @media screen and (max-width: 740px){
-  #header-in, #navi-in, #body-in, #footer-in{
+  div#header-in, div#navi-in, div#body-in, div#footer-in{
     width: auto;
   }
 }
