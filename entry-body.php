@@ -11,11 +11,11 @@
   <?php endif; ?>
 
   <header>
-    <h1 class="entry-title">
-      <?php if ( !is_single() ) echo '<a href="'.get_permalink().'">'; //投稿ページ以外ではタイトルにリンクを貼る?>
-      <?php the_title(); //投稿のタイトル?>
-      <?php if ( !is_single() ) echo '</a>'; //投稿ページ以外ではタイトルにリンクを貼る?>
-    </h1>
+    <h1 class="entry-title"><?php 
+      if ( !is_single() ) echo '<a href="'.get_permalink().'">'; //投稿ページ以外ではタイトルにリンクを貼る
+        the_title(); //投稿のタイトル
+      if ( !is_single() ) echo '</a>'; //投稿ページ以外ではタイトルにリンクを貼る
+    ?></h1>
     <p class="post-meta">
       <?php get_template_part('datetime') //投稿日と更新日?>
 
