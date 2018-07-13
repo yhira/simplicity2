@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+<nav itemscope itemtype="https://schema.org/SiteNavigationElement">
   <div id="navi">
     <?php get_template_part('button-slide-menu-close');//スライドメニュー用の閉じるボタン ?>
   	<div id="navi-in">

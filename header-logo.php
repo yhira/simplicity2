@@ -8,11 +8,11 @@
   endif;
 ?>
 <?php if ( is_home() ): ?>
-<h1 id="site-title" itemscope itemtype="http://schema.org/Organization">
+<h1 id="site-title" itemscope itemtype="https://schema.org/Organization">
   <?php echo $site_title ?>
 </h1>
 <?php else: ?>
-<p id="site-title" itemscope itemtype="http://schema.org/Organization">
+<p id="site-title" itemscope itemtype="https://schema.org/Organization">
   <?php echo $site_title ?>
 </p>
 <?php endif ?>

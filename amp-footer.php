@@ -1,5 +1,5 @@
 <!-- footer -->
-<footer itemscope itemtype="http://schema.org/WPFooter">
+<footer itemscope itemtype="https://schema.org/WPFooter">
   <div id="footer" class="main-footer">
     <div id="footer-in">
       <div id="copyright" class="wrapper">

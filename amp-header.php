@@ -124,7 +124,7 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
 }?>
 </style>
 </head>
-<body <?php body_class('amp'); ?> itemscope itemtype="http://schema.org/WebPage">
+<body <?php body_class('amp'); ?> itemscope itemtype="https://schema.org/WebPage">
 <?php //Google Analyticsコード（ログインユーザーはカウントしない）
 //var_dump(get_amp_tracking_id());
 if ( !is_user_logged_in() ) {
@@ -163,7 +163,7 @@ if ( !is_user_logged_in() ) {
 }//AMP Analytics終了 ?>
   <div id="container">
     <!-- header -->
-    <header itemscope itemtype="http://schema.org/WPHeader">
+    <header itemscope itemtype="https://schema.org/WPHeader">
       <div id="header" class="clearfix">
         <div id="header-in">
           <div id="h-top">
@@ -184,5 +184,5 @@ if ( !is_user_logged_in() ) {
       <div id="body-in">
        <!-- main -->
         <main itemscope itemprop="mainContentOfPage">
-          <div id="main" itemscope itemtype="http://schema.org/Blog">
+          <div id="main" itemscope itemtype="https://schema.org/Blog">
             <?php //get_template_part('breadcrumbs'); //カテゴリパンくずリスト?>
