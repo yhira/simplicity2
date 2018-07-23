@@ -74,7 +74,7 @@ function url_to_blog_card_tag($url){
 
     //GoogleファビコンAPIを利用する
     ////www.google.com/s2/favicons?domain=nelog.jp
-    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.get_this_site_domain().'" class="blog-card-favicon-img" alt="" width="16" height="16" /></span>';
+    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.punycode_decode(get_the_site_domain()).'" class="blog-card-favicon-img" alt="" width="16" height="16" /></span>';
   }
 
   //サイトロゴ
