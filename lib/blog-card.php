@@ -72,9 +72,10 @@ function url_to_blog_card_tag($url){
   $favicon_tag = '';
   if ( is_favicon_enable() && get_the_favicon_url() ) {//ファビコンが有効か確認
 
+    $domain = get_domain_name(punycode_decode($url));
     //GoogleファビコンAPIを利用する
     ////www.google.com/s2/favicons?domain=nelog.jp
-    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.punycode_decode(get_the_site_domain()).'" class="blog-card-favicon-img" alt="" width="16" height="16" /></span>';
+    $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.$domain.'" class="blog-card-favicon-img" alt="" width="16" height="16" /></span>';
   }
 
   //サイトロゴ
