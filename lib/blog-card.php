@@ -68,6 +68,7 @@ function url_to_blog_card_tag($url){
   //はてブを表示する場合
   $hatebu_tag = is_blog_card_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt=""'.$hatena_wh.' /></a></div>' : '';
 
+  //var_dump(get_domain_name(punycode_decode('https://xn--u9j3hd3f2a3267bih9a1hipz5cvxp.com/tokkun-english/')));
   //ファビコン
   $favicon_tag = '';
   if ( is_favicon_enable() && get_the_favicon_url() ) {//ファビコンが有効か確認
