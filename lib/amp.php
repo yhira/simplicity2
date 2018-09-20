@@ -283,9 +283,14 @@ function convert_content_for_amp($the_content){
   $append = '<p><amp-vine data-vineid="$1" width="592" height="592" layout="responsive"></amp-vine></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
-  // Instagramをamp-instagramに置換する
-  $pattern = '/<blockquote class="instagram-media".+?"https:\/\/www.instagram.com\/p\/(.+?)\/".+?<\/blockquote>/is';
-  $append = '<p><amp-instagram layout="responsive" data-shortcode="$1" width="592" height="592" ></amp-instagram></p>';
+  // // Instagramをamp-instagramに置換する（旧バージョン）
+  // $pattern = '/<blockquote class="instagram-media".+?"https:\/\/www.instagram.com\/p\/(.+?)\/".+?<\/blockquote>/is';
+  // $append = '<p><amp-instagram layout="responsive" data-shortcode="$1" width="592" height="592" ></amp-instagram></p>';
+  // $the_content = preg_replace($pattern, $append, $the_content);
+
+  // Instagramをamp-instagramに置換する（新バージョン）
+  $pattern = '/<blockquote class="instagram-media".+?"https:\/\/www.instagram.com\/p\/(.+?)\/.*?".+?<\/blockquote>/is';
+  $append  = '<p><amp-instagram layout="responsive" data-shortcode="$1" width="592" height="592"></amp-instagram></p>';
   $the_content = preg_replace($pattern, $append, $the_content);
 
   // audioをamp-amp-audioに置換する
