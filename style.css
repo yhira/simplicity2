@@ -6,7 +6,7 @@ Theme URI: https://wp-simplicity.com/
 Author: yhira
 Author URI: http://nelog.jp/
 Text Domain: simplicity2
-Version: 2.7.0
+Version: 2.7.2
 Tags: two-columns, left-sidebar, right-sidebar
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -3617,7 +3617,7 @@ dl.recent-comments dd .recent-comment-content{
   max-width:640px;
   position: relative;
 }
- 
+
 /*!動画の大きさを調整*/
 .video-container .video {
   position: relative;
@@ -3643,15 +3643,15 @@ dl.recent-comments dd .recent-comment-content{
   height: 100%;
 }
 
- 
+
 .video-click {
   cursor: pointer;
 }
- 
+
 .video-click:hover .video-play {
     background: url("images/youtube-play.png") no-repeat scroll -101px -13px rgba(0, 0, 0, 0);
 }
- 
+
 .video-play {
   background: url("images/youtube-play.png") no-repeat scroll 2px -13px rgba(0, 0, 0, 0);
   height: 62px;
@@ -3663,7 +3663,7 @@ dl.recent-comments dd .recent-comment-content{
   width: 100px;
   opacity: 0.8;
 }
- 
+
 .video-title-grad {
   position: absolute;
   top: 0;
@@ -3672,7 +3672,7 @@ dl.recent-comments dd .recent-comment-content{
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABiCAQAAAA7fHH2AAAAQUlEQVQYV22KQQoAIAzDyv7/Et/oVlGZVCfkkIYamsENXESyi8vc0u/PKZ6o8+7fZ0h8ShRYnD+BFKToRJkHFpkM2hZSxuyWpEYAAAAASUVORK5CYII=");
   background-position: center top;
 }
- 
+
 .video-title-text {
   color: #eeeeee;
   font-family: Roboto,Arial,Helvetica,sans-serif;
