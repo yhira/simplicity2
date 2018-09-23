@@ -7,7 +7,7 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
     parent::__construct(
       'new_popular',
       __( '[S] 新着・人気記事', 'simplicity2' ),
-      array('description' => __( 'トップページで「人気記事」リストを、それ以外のページで「新着記事」リストを表示するSimplicityウィジェットです。（※要Wordpress Popular Postsプラグイン）', 'simplicity2' ))
+      array('description' => __( 'インデックスで「人気記事」リストを、投稿・固定ページで「新着記事」リストを表示するSimplicityウィジェットです。（※要Wordpress Popular Postsプラグイン）', 'simplicity2' ))
     );
   }
   function widget($args, $instance) {
@@ -66,7 +66,7 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
         $before_widget = str_replace('widget_new_popular', 'widget_new_popular ranking_list', $before_widget);
       }
       echo $before_widget; ?>
-          <?php 
+          <?php
           if ($title_popular !== null) {
             echo $args['before_title'];
             if ($title_popular) {
@@ -99,7 +99,7 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
         <?php echo $args['after_widget']; ?>
       <?php } else { //メインページ以外?>
         <?php echo $args['before_widget']; ?>
-          <?php 
+          <?php
          if ($title_new !== null) {
           echo $args['before_title'];
           if ($title_new) {
@@ -107,8 +107,8 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
             } else {
               echo __( '新着記事', 'simplicity2' );
             }
-            echo $args['after_title'];           
-         } 
+            echo $args['after_title'];
+         }
 
            ?>
           <?php //新着記事
