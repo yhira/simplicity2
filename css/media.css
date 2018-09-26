@@ -70,3 +70,8 @@
 .instagram-media {
   position: static !important;
 }
+
+/* Gutenbergのブロック埋め込みの不具合対応 */
+#main .wp-block-embed__wrapper::before {
+  display: none;
+}
