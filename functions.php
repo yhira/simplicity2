@@ -1560,7 +1560,7 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
   $json   = json_decode(base64_decode($MATCH_CACHE), true);
 
   $youtube   = preg_replace("/data-youtube=\"(.+?)\"/", "", $cache);
-  $youtube   = htmlentities(str_replace( '=oembed','=oembed&autoplay=1', $youtube ));
+  $youtube   = htmlentities(str_replace( '=oembed','=oembed&autoplay=1&rel=0', $youtube ));
 
   $thumb_url  = "https://i.ytimg.com/vi/{$json['video_id']}/hqdefault.jpg";
 
