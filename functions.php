@@ -691,6 +691,12 @@ if ( is_alt_hover_effect_enable() ) {
 }
 */
 
+//ブロックエディターの有効化/無効化
+if (!is_admin_block_editor_enable()) {
+  add_filter('gutenberg_can_edit_post_type', '__return_false');
+  add_filter('use_block_editor_for_post', '__return_false');
+}
+
 //Simplicityのビジュアルエディタースタイル
 function simplicity_theme_add_editor_styles() {
   add_editor_style( 'css/admin-editor.css' );

@@ -3405,6 +3405,20 @@ function theme_customize_register($wp_customize) {
     'priority'       => 98.7,
   ));
 
+  //ブロックエディターを有効化
+  $wp_customize->add_setting('admin_block_editor_enable', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'admin_block_editor_enable', array(
+    'settings' => 'admin_block_editor_enable',
+    'label' => __( 'ブロックエディターを有効化', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( 'ブロックエディター（Gutenbergエディター）を利用するか選択します。', 'simplicity2' ) : '',
+    'section' => 'admin_section',
+    'type' => 'checkbox',
+    'priority' => 30,
+  ));
+
   //ビジュアルエディターにSimplicityスタイルを適用
   $wp_customize->add_setting('admin_editor_enable', array(
     'default' => true,
@@ -5233,6 +5247,11 @@ function get_theme_text_not_found_title(){
 //記事が見つからなかった時のメッセージテキストを取得
 function get_theme_text_not_found_message(){
   return get_theme_mod( 'theme_text_not_found_message', __( '記事は見つかりませんでした。', 'simplicity2' ) );
+}
+
+//ブロックエディターの有効化
+function is_admin_block_editor_enable(){
+  return get_theme_mod( 'admin_block_editor_enable', true );
 }
 
 //ビジュアルエディターにSimplicityスタイルを適用するか
