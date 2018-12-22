@@ -483,7 +483,7 @@ ul.snsp li a{
 	background-color: #9FD9F6;
 }
 
-.pagination li.current a{
+.pagination li.current span{
 	background-color: #EAF6FD;
 }
 

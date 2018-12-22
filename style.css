@@ -3193,7 +3193,8 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
   display: inline-block;
 }
 
-.pagination a {
+.pagination a,
+.pagination span {
   font-weight: 500;
   text-decoration:none;
 /*  border: 1px solid #ddd;
@@ -3244,7 +3245,7 @@ img,canvas,iframe,video,svg{max-width:100%}.overflow-container{overflow-y:scroll
 .pagination li.previous a::before { content: "\f104"; }
 .pagination li.next a::after { content: "\f105"; }
 
-.pagination li.current a {
+.pagination li.current span {
  background-color: #ddd;
  cursor: default;
  pointer-events: none;

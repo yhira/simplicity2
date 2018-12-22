@@ -123,7 +123,7 @@ ul.snsp li a span {
   padding: 0 5px !important;
 }
 
-.pagination li.current a {
+.pagination li.current span {
   background-color: #e0dacc;
 }
 

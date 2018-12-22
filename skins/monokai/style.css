@@ -24,7 +24,7 @@ body,
   color: #F8F8F2;
 }
 
-.pagination li.current a{
+.pagination li.current span{
   background-color: #555;
 }
 

@@ -919,7 +919,7 @@ function responsive_pagination($pages = '', $range = 4){
     //番号つきページ送りボタン
     for ($i=1; $i <= $pages; $i++)     {
       if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) ))       {
-        echo ($paged == $i)? '<li class="current"><a>'.$i.'</a></li>':'<li><a href="'.get_pagenum_link($i).'" class="inactive" >'.$i.'</a></li>';
+        echo ($paged == $i)? '<li class="current"><span>'.$i.'</span></li>':'<li><a href="'.get_pagenum_link($i).'" class="inactive" >'.$i.'</a></li>';
       }
     }
     //1つ進む
