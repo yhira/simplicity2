@@ -29,7 +29,7 @@ $viral_class = is_share_button_type_mobile_viral() || is_amp() ? ' sns-group-vir
               }
              ?></span></a></li>
     <?php endif; ?>
-    <?php if ( is_google_plus_btn_visible() )://Google＋ボタンを表示するか ?>
+    <?php if ( false && is_google_plus_btn_visible() )://Google＋ボタンを表示するか ?>
   	<li class="google-plus-btn-icon"><a href="//plus.google.com/share?url=<?php echo rawurlencode(get_permalink($post->ID)) ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn-icon-link google-plus-btn-icon-link" target="blank" rel="nofollow"><span class="social-icon icon-googleplus"></span><span class="social-count googleplus-count"><?php
               if ( scc_gplus_exists() ) {//SNS Count Cache関数があるか
                 echo scc_get_share_gplus();

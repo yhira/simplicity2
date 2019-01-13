@@ -13,7 +13,7 @@
     <?php endif; ?>
     <?php if ( is_facebook_btn_visible() )://Facebookボタンを表示するか ?><li class="facebook-btn"><div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="<?php echo ($g_is_small ? 'button_count' : 'box_count') ?>" data-action="like" data-show-faces="false" data-share="true"></div></li>
     <?php endif; //Facebook?>
-    <?php if ( is_google_plus_btn_visible() )://Google＋ボタンを表示するか ?>
+    <?php if ( false && is_google_plus_btn_visible() )://Google＋ボタンを表示するか ?>
     <li class="google-plus-btn"><script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
       <div class="g-plusone"<?php echo ($g_is_small ? '' : ' data-size="tall"') ?> data-href="<?php the_permalink(); ?>"></div>
     </li>

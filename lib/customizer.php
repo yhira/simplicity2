@@ -1702,18 +1702,18 @@ function theme_customize_register($wp_customize) {
     'priority' => 30,
   ));
 
-  //Google＋拡散ボタン表示
-  $wp_customize->add_setting('google_plus_btn_visible', array(
-    'default'  => true,
-    'sanitize_callback' => 'sanitize_check',
-  ));
-  $wp_customize->add_control( 'google_plus_btn_visible', array(
-    'settings' => 'google_plus_btn_visible',
-    'label' => __( 'Google＋「+1」ボタンの表示', 'simplicity2' ),
-    'section' => 'sns_section',
-    'type' => 'checkbox',
-    'priority' => 40,
-  ));
+  // //Google＋拡散ボタン表示
+  // $wp_customize->add_setting('google_plus_btn_visible', array(
+  //   'default'  => true,
+  //   'sanitize_callback' => 'sanitize_check',
+  // ));
+  // $wp_customize->add_control( 'google_plus_btn_visible', array(
+  //   'settings' => 'google_plus_btn_visible',
+  //   'label' => __( 'Google＋「+1」ボタンの表示', 'simplicity2' ),
+  //   'section' => 'sns_section',
+  //   'type' => 'checkbox',
+  //   'priority' => 40,
+  // ));
 
   //はてな拡散ボタン表示
   $wp_customize->add_setting('hatena_btn_visible', array(
@@ -1937,18 +1937,18 @@ function theme_customize_register($wp_customize) {
     'priority' => 100,
   ));
 
-  //Google＋フォローID
-  $wp_customize->add_setting('google_plus_follow_id', array(
-    'sanitize_callback' => 'sanitize_text',
-  ));
-  $wp_customize->add_control( 'google_plus_follow_id', array(
-    'settings' => 'google_plus_follow_id',
-    'label' => __( 'plus.google.com/XXXXXXX', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( 'Google+ページURLのXXXXXXX部分を入力してください。', 'simplicity2' ) : '',
-    'section' => 'sns_section',
-    'type' => 'text',
-    'priority' => 110,
-  ));
+  // //Google＋フォローID
+  // $wp_customize->add_setting('google_plus_follow_id', array(
+  //   'sanitize_callback' => 'sanitize_text',
+  // ));
+  // $wp_customize->add_control( 'google_plus_follow_id', array(
+  //   'settings' => 'google_plus_follow_id',
+  //   'label' => __( 'plus.google.com/XXXXXXX', 'simplicity2' ),
+  //   'description' => is_tips_visible() ? __( 'Google+ページURLのXXXXXXX部分を入力してください。', 'simplicity2' ) : '',
+  //   'section' => 'sns_section',
+  //   'type' => 'text',
+  //   'priority' => 110,
+  // ));
 
   //はてブフォローID
   $wp_customize->add_setting('hatebu_follow_id', array(
