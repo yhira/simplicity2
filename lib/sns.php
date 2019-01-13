@@ -124,6 +124,12 @@ if ( !function_exists( 'fetch_pocket_count' ) ):
 function fetch_pocket_count($url) {
   if ( WP_Filesystem() ) {//WP_Filesystemの初期化
     global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
+    $hash_url = md5($url);
+    $transient_id = 'simplicity_share_count_pocket_'.$hash_url;
+    $count = get_transient( $transient_id );
+    if ( is_numeric($count) ) {
+      return $count;
+    }
     //$query = 'http://widgets.getpocket.com/v1/button?v=1&count=horizontal&url=' . $url;
     $url = urlencode($url);
     $query = 'https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url='.$url.'&src=' . $url;
@@ -133,8 +139,10 @@ function fetch_pocket_count($url) {
     //var_dump($result["body"]);
     // 正規表現でカウント数のところだけを抽出
     preg_match( '/<em id="cnt">([0-9.]+)<\/em>/i', $result["body"], $count );
+    $res = isset($count[1]) ? intval($count[1]) : 0;
+    set_transient( $transient_id, $res, HOUR_IN_SECONDS * 3 );
     // 共有数を表示
-    return isset($count[1]) ? intval($count[1]) : 0;
+    return $res;
   }
   return 0;
 }
