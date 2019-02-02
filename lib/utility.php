@@ -98,3 +98,13 @@ function minusize_number_in_array($number_array){
   }
   return implode(',', $numbers);
 }
+
+//ブログカード用のURLデコード
+if ( !function_exists( 'ampersand_urldecode' ) ):
+function ampersand_urldecode($url){
+  //$url = urldecode($url);//urlエンコードされている場合に元に戻す（?が&amp;になっている時など）
+  $url = str_replace('&amp;', '&', $url);
+  $url = str_replace('#038;', '&', $url);
+  return $url;
+}
+endif;
