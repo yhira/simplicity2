@@ -4596,7 +4596,7 @@ function is_facebook_btn_visible(){
 
 //Google＋ボタンを表示するかどうか
 function is_google_plus_btn_visible(){
-  return get_theme_mod( 'google_plus_btn_visible', true );
+  return false;//get_theme_mod( 'google_plus_btn_visible', true );
 }
 
 //はてなボタンを表示するかどうか
