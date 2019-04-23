@@ -362,7 +362,7 @@ function simplicity_scripts() {
   //Facebookアクセストークン
   ///////////////////////////////////
   if ( get_fb_access_token() ) {
-    wp_localize_script( 'simplicity-js', 'fb_access_token', get_fb_access_token() );
+    wp_localize_script( 'simplicity-js', 'facebookCount', fetch_facebook_count(get_permalink()) );
     //Responsive Imagesを無効にする（HTML5のsrcset属性利用）
   }
   ///////////////////////////////////

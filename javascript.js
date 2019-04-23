@@ -259,25 +259,29 @@ function fetch_twitter_count_from_count_jsoon(url, selector) {
 
 //Facebookのシェア数を取得
 function fetch_facebook_count(url, selector) {
-  jQuery.ajax({
-    url:'https://graph.facebook.com/',
-    dataType:'jsonp',
-    timeout: 10000, //10sec
-    data:{
-      id: url,
-      access_token: fb_access_token
-    }
-  }).done(function(res){
-    console.log(fb_access_token);
-    console.log(res);
-    if ( res.engagement && res.engagement.reaction_count ) {
-      jQuery( selector ).text( res.engagement.reaction_count );
-    } else {
-      jQuery( selector ).text( 0 );
-    }
-  }).fail(function(){
-    jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
-  });
+  if ( facebookCount ) {
+    jQuery( selector ).text( facebookCount );
+  } else {
+    jQuery( selector ).text( 0 );
+  }
+  // jQuery.ajax({
+  //   url:'https://graph.facebook.com/',
+  //   dataType:'jsonp',
+  //   timeout: 10000, //10sec
+  //   data:{
+  //     id: url
+  //   }
+  // }).done(function(res){
+  //   console.log(fb_access_token);
+  //   console.log(res);
+  //   if ( facebookCount ) {
+  //     jQuery( selector ).text( facebookCount );
+  //   } else {
+  //     jQuery( selector ).text( 0 );
+  //   }
+  // }).fail(function(){
+  //   jQuery( selector ).html('<span class="fa fa-exclamation"></span>');
+  // });
 }
 
 //Google＋のシェア数を取得
