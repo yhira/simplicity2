@@ -167,7 +167,7 @@ endif;
 //Facebookシェア数を取得する
 if ( !function_exists( 'fetch_facebook_count' ) ):
 function fetch_facebook_count($url) {
-  if (!get_facebook_access_token()) {
+  if (!get_fb_access_token()) {
     return 0;
   }
   //URLをURLエンコード
