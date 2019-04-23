@@ -175,7 +175,7 @@ function fetch_facebook_count($url) {
   //オプションの設定
   $args = array( 'sslverify' => is_ssl_verification_enable() );
   //Facebookにリクエストを送る
-  $request_url = 'https://graph.facebook.com/?id='.$encoded_url.'&fields=engagement&access_token='.trim(get_facebook_access_token());
+  $request_url = 'https://graph.facebook.com/?id='.$encoded_url.'&fields=engagement&access_token='.trim(get_fb_access_token());
   $response = wp_remote_get( $request_url, $args );
   $res = 0;
 
