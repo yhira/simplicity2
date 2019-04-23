@@ -2129,6 +2129,19 @@ function theme_customize_register($wp_customize) {
     'priority' => 135,
   ));
 
+  //Facebookアクセストークン
+  $wp_customize->add_setting('fb_access_token', array(
+    'sanitize_callback' => 'sanitize_text',
+  ));
+  $wp_customize->add_control( 'fb_access_token', array(
+    'settings' => 'fb_access_token',
+    'label' => __( 'Facebookアクセストークン', 'simplicity2' ) ,
+    'description' => is_tips_visible() ? __( 'Facebookでシェア数を取得する際に必要なアクセストークンを入力してください。（※要Facebookユーザー登録）', 'simplicity2' ) : '',
+    'section' => 'sns_section',
+    'type' => 'text',
+    'priority' => 139,
+  ));
+
   //fb:admins
   $wp_customize->add_setting('fb_admins', array(
     'sanitize_callback' => 'sanitize_text',
@@ -4789,6 +4802,11 @@ function get_twitter_card_type(){
 //FacebookOGPタグを挿入するか
 function is_facebook_ogp_enable(){
   return get_theme_mod( 'facebook_ogp_enable', true );
+}
+
+//Facebookアクセストークンを取得
+function get_fb_access_token(){
+  return get_theme_mod( 'fb_access_token', null );
 }
 
 //fb:adminsを取得
