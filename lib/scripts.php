@@ -359,6 +359,13 @@ function simplicity_scripts() {
   }
 
   ///////////////////////////////////
+  //Facebookアクセストークン
+  ///////////////////////////////////
+  if ( get_fb_access_token() ) {
+    wp_localize_script( 'simplicity-js', 'fb_access_token', get_fb_access_token() );
+    //Responsive Imagesを無効にする（HTML5のsrcset属性利用）
+  }
+  ///////////////////////////////////
   //画像リンク拡大効果がLightboxのとき
   ///////////////////////////////////
   if ( is_lightbox_enable() && //Lightboxが有効のとき

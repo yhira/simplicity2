@@ -263,11 +263,15 @@ function fetch_facebook_count(url, selector) {
     url:'https://graph.facebook.com/',
     dataType:'jsonp',
     timeout: 10000, //10sec
-    data:{ id:url }
+    data:{
+      id: url,
+      access_token: fb_access_token
+    }
   }).done(function(res){
-    //console.log(res);
-    if ( res.share && res.share.share_count ) {
-      jQuery( selector ).text( res.share.share_count );
+    console.log(fb_access_token);
+    console.log(res);
+    if ( res.engagement && res.engagement.reaction_count ) {
+      jQuery( selector ).text( res.engagement.reaction_count );
     } else {
       jQuery( selector ).text( 0 );
     }
