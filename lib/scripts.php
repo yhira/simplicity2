@@ -323,6 +323,8 @@ function simplicity_scripts() {
         'feedly_btn_visible' => is_feedly_btn_visible(),
         'push7_btn_visible' => is_push7_btn_visible(),
         'push7_app_no' => get_push7_follow_app_no(),
+        'facebook_count_visible' => get_fb_access_token(),
+        'facebook_count' => fetch_facebook_count(get_permalink()),
       ));
     }
   }
@@ -358,13 +360,13 @@ function simplicity_scripts() {
     remove_filter( 'the_content', 'wp_make_content_images_responsive' );
   }
 
-  ///////////////////////////////////
-  //Facebookアクセストークン
-  ///////////////////////////////////
-  if ( get_fb_access_token() ) {
-    wp_localize_script( 'simplicity-js', 'facebookCount', fetch_facebook_count(get_permalink()) );
-    //Responsive Imagesを無効にする（HTML5のsrcset属性利用）
-  }
+  // ///////////////////////////////////
+  // //Facebookアクセストークン
+  // ///////////////////////////////////
+  // if ( get_fb_access_token() ) {
+  //   wp_localize_script( 'simplicity-js', 'facebookCount', fetch_facebook_count(get_permalink()) );
+  //   //Responsive Imagesを無効にする（HTML5のsrcset属性利用）
+  // }
   ///////////////////////////////////
   //画像リンク拡大効果がLightboxのとき
   ///////////////////////////////////

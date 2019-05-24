@@ -259,8 +259,8 @@ function fetch_twitter_count_from_count_jsoon(url, selector) {
 
 //Facebookのシェア数を取得
 function fetch_facebook_count(url, selector) {
-  if ( facebookCount ) {
-    jQuery( selector ).text( facebookCount );
+  if ( social_count_config.facebook_count_visible ) {
+    jQuery( selector ).text( social_count_config.facebook_count );
   } else {
     jQuery( selector ).text( 0 );
   }

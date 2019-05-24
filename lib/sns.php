@@ -183,7 +183,11 @@ function fetch_facebook_count($url) {
   if (!is_wp_error( $response ) && $response["response"]["code"] === 200) {
     $body = $response['body'];
     $json = json_decode( $body ); //ジェイソンオブジェクトに変換する
-    $res = (isset($json->{'engagement'}->{'reaction_count'}) ? $json->{'engagement'}->{'reaction_count'} : 0);
+    $reaction_count = isset($json->{'engagement'}->{'reaction_count'}) ? $json->{'engagement'}->{'reaction_count'} : 0;
+    $comment_count = isset($json->{'engagement'}->{'comment_count'}) ? $json->{'engagement'}->{'comment_count'} : 0;
+    $share_count = isset($json->{'engagement'}->{'share_count'}) ? $json->{'engagement'}->{'share_count'} : 0;
+    $comment_plugin_count = isset($json->{'engagement'}->{'comment_plugin_count'}) ? $json->{'engagement'}->{'comment_plugin_count'} : 0;
+    $res = intval($reaction_count) + intval($comment_count) + intval($share_count) + intval($comment_plugin_count);
   }
   return $res;
 }
