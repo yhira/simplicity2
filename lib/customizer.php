@@ -4892,7 +4892,8 @@ function is_ads_visible(){
     !$is_exclude_ids && //除外ページでない場合広告を表示（カスタマイザー設定）
     !is_ads_removed_in_page() && //ページで除外していない場合
     !is_attachment() && //添付ページではない場合
-    !is_search(); //検索結果ページで無い場合
+    !is_search() &&  //検索結果ページで無い場合
+    !is_customize_preview(); //カスタマイズプレビューでない場合
 }
 endif;
 
