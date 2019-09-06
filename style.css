@@ -3683,3 +3683,15 @@ dl.recent-comments dd .recent-comment-content{
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/*星のスタイル*/
+.rating-star{
+  color: #f5bc55;
+  font-size: 1.2em;
+}
+/*数字のスタイル*/
+.rating-number{
+  color: #333;
+  font-size: 0.9em;
+  margin-left: 0.4em;
+}

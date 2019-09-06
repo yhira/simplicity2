@@ -11,11 +11,21 @@
   <?php endif; ?>
 
   <header>
-    <h1 class="entry-title"><?php 
+    <h1 class="entry-title"><?php
       if ( !is_single() ) echo '<a href="'.get_permalink().'">'; //投稿ページ以外ではタイトルにリンクを貼る
         the_title(); //投稿のタイトル
       if ( !is_single() ) echo '</a>'; //投稿ページ以外ではタイトルにリンクを貼る
     ?></h1>
+
+
+    <?php //レビュー表示
+    if (is_the_page_review_enable()) {
+      echo '<div class="review-rating">';
+      echo get_rating_star_tag(get_the_review_rate(), 5, true);
+      echo '</div>';
+    }
+    ?>
+
     <p class="post-meta">
       <?php get_template_part('datetime') //投稿日と更新日?>
 

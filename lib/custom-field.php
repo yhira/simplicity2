@@ -498,3 +498,267 @@ function simplicity_insert_post_data( $data, $postarr ){
   return $data;
 }
 add_filter( 'wp_insert_post_data', 'simplicity_insert_post_data', 10, 2 );
+
+
+//チェックボックスのチェックを付けるか
+if ( !function_exists( 'the_checkbox_checked' ) ):
+function the_checkbox_checked($val1, $val2 = 1){
+  if ( $val1 == $val2 ) {
+    echo ' checked="checked"';
+  }
+}
+endif;
+
+
+//チェックボックスの生成
+if ( !function_exists( 'generate_checkbox_tag' ) ):
+function generate_checkbox_tag($name, $now_value, $label){
+  ob_start();?>
+  <input type="checkbox" name="<?php echo $name; ?>" value="1"<?php the_checkbox_checked($now_value); ?>><?php echo $label; ?>
+  <?php
+  $res = ob_get_clean();
+  echo $res;
+}
+endif;
+
+//ラベルの生成
+if ( !function_exists( 'generate_label_tag' ) ):
+function generate_label_tag($name, $caption){?>
+  <label for="<?php echo $name; ?>"><?php echo $caption; ?></label>
+  <?php
+}
+endif;
+
+//テキストボックスの生成
+if ( !function_exists( 'generate_textbox_tag' ) ):
+function generate_textbox_tag($name, $value, $placeholder){
+  ob_start();?>
+  <input type="text" name="<?php echo $name; ?>" style="width: 100%;" value="<?php echo esc_attr(strip_tags($value)); ?>" placeholder="<?php echo esc_attr($placeholder); ?>">
+  <?php
+  $res = ob_get_clean();
+  echo $res;
+}
+endif;
+
+//レンジボックスの生成
+if ( !function_exists( 'generate_range_tag' ) ):
+function generate_range_tag($name, $value, $min, $max, $step){
+  ob_start();?>
+  <div class="range-wrap" style="width: 100%;">
+    <div class="range-value" style="text-align: center;margin-right: 1%;">
+      <output id="<?php echo $name; ?>"><?php echo $value; ?></output>
+    </div>
+    <span class="range-min"><?php echo $min; ?></span><input type="range" name="<?php echo $name; ?>" value="<?php echo $value; ?>" min="<?php echo $min; ?>" max="<?php echo $max; ?>" step="<?php echo $step; ?>"
+    oninput="document.getElementById('<?php echo $name; ?>').value=this.value" style="width: calc(100% - 18px);"><span class="range-min"><?php echo $max; ?></span>
+  </div>
+  <?php
+  $res = ob_get_clean();
+  echo $res;
+}
+endif;
+
+//ハウツー説明文の生成
+if ( !function_exists( 'generate_howro_tag' ) ):
+function generate_howro_tag($caption){?>
+  <p style="font-style: italic;"><?php echo $caption; ?></p>
+  <?php
+}
+endif;
+
+///////////////////////////////////////
+// カスタムボックスの追加
+///////////////////////////////////////
+add_action('admin_menu', 'add_review_custom_box');
+if ( !function_exists( 'add_review_custom_box' ) ):
+function add_review_custom_box(){
+  //レビュー
+  add_meta_box( 'singular_review_settings', 'レビュー', 'review_custom_box_view', 'post', 'side' );
+  add_meta_box( 'singular_review_settings', 'レビュー', 'review_custom_box_view', 'page', 'side' );
+}
+endif;
+
+///////////////////////////////////////
+// レビュー
+///////////////////////////////////////
+if ( !function_exists( 'review_custom_box_view' ) ):
+function review_custom_box_view(){
+  //レビュー切り替え
+  $the_review_enable = is_the_review_enable();
+  generate_checkbox_tag('the_review_enable' , $the_review_enable,  __('評価を表示する', 'simplicity2'));
+  generate_howro_tag( __('レビュー構造化データを出力するか。', 'simplicity2'));
+
+  //対象
+  $the_review_name = get_the_review_name();
+  generate_label_tag('the_review_name', __('レビュー対象', 'simplicity2') );
+  generate_textbox_tag('the_review_name', $the_review_name, '');
+  generate_howro_tag( __('レビュー対象名を入力。※必須', 'simplicity2'));
+
+  //レート
+  $the_review_rate = get_the_review_rate();
+  if (!$the_review_rate) {
+    $the_review_rate = 5;
+  }
+  generate_label_tag('the_review_rate', __('レビュー評価', 'simplicity2') );
+  generate_range_tag('the_review_rate',$the_review_rate, 0, 5, 0.5);
+  generate_howro_tag( __('0から5の範囲で評価を入力。', 'simplicity2'));
+
+}
+endif;
+
+add_action('save_post', 'review_custom_box_save_data');
+if ( !function_exists( 'review_custom_box_save_data' ) ):
+function review_custom_box_save_data(){
+  $id = get_the_ID();
+  //有効/無効
+  $the_review_enable = !empty($_POST['the_review_enable']) ? 1 : 0;
+  $the_review_enable_key = 'the_review_enable';
+  add_post_meta($id, $the_review_enable_key, $the_review_enable, true);
+  update_post_meta($id, $the_review_enable_key, $the_review_enable);
+
+  //名前
+  if ( isset( $_POST['the_review_name'] ) ){
+    $the_review_name = $_POST['the_review_name'];
+    $the_review_name_key = 'the_review_name';
+    add_post_meta($id, $the_review_name_key, $the_review_name, true);
+    update_post_meta($id, $the_review_name_key, $the_review_name);
+  }
+
+  //レート
+  if ( isset( $_POST['the_review_rate'] ) ){
+    $the_review_rate = $_POST['the_review_rate'];
+    $the_review_rate_key = 'the_review_rate';
+    add_post_meta($id, $the_review_rate_key, $the_review_rate, true);
+    update_post_meta($id, $the_review_rate_key, $the_review_rate);
+  }
+}
+endif;
+
+//名前
+if ( !function_exists( 'get_the_review_name' ) ):
+function get_the_review_name(){
+  return trim(get_post_meta(get_the_ID(), 'the_review_name', true));
+}
+endif;
+
+//レート
+if ( !function_exists( 'get_the_review_rate' ) ):
+function get_the_review_rate(){
+  $res = get_post_meta(get_the_ID(), 'the_review_rate', true);
+  $res = $res ? $res : '2.5'; //デフォルト値の設定
+  return $res;
+}
+endif;
+
+//レビューが有効か
+if ( !function_exists( 'is_the_review_enable' ) ):
+function is_the_review_enable(){
+  return get_post_meta(get_the_ID(), 'the_review_enable', true);
+}
+endif;
+
+//ページのレビューが有効か
+if ( !function_exists( 'is_the_page_review_enable' ) ):
+function is_the_page_review_enable(){
+  return is_the_review_enable() && get_the_review_name();
+}
+endif;
+
+//headにJSON-LDタグを追加
+add_action( 'wp_head', 'add_review_json_ld_to_head' );
+if ( !function_exists( 'add_review_json_ld_to_head' ) ):
+function add_review_json_ld_to_head() {
+  if (is_the_page_review_enable()) {
+    //投稿者の取得（無い場合はサイト名）
+    $author = get_the_author_meta('display_name');
+    $author = $author ? $author : get_the_author_meta('nick_name');
+    $author = $author ? $author : get_bloginfo( 'name' );
+ ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "Thing",
+    "name": "<?php echo esc_attr(get_the_review_name()); ?>"
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "<?php echo esc_attr(get_the_review_rate()); ?>",
+    "bestRating": "5",
+    "worstRating": "0"
+  },
+  "datePublished": "<?php echo esc_attr(get_the_time('c')); ?>",
+  "author": {
+    "@type": "Person",
+    "name": "<?php echo esc_attr($author); ?>"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "<?php echo esc_attr(get_bloginfo( 'name' )); ?>"
+  }
+}
+</script>
+  <?php
+  }
+}
+endif;
+
+//レーティングスタータグの取得
+if ( !function_exists( 'get_rating_star_tag' ) ):
+function get_rating_star_tag($rate, $max = 5, $number = false){
+  $rate = floatval($rate);
+  $max = intval($max);
+  //数字じゃない場合
+  if (!is_numeric($rate) || !is_numeric($max)) {
+    return $rate;
+  }
+  //レーティングが100より多い場合は多すぎるので処理しない
+  if ($rate > 100 && $max > 100) {
+    return $rate;
+  }
+
+  $tag = '<div class="rating-star">';
+
+  //小数点で分割
+  $rates = explode('.', $rate);
+  if (!isset($rates[0])) {
+    return $rate;
+  }
+  //小数点以下が5かどうか
+  if (isset($rates[1])) {
+    $has_herf = intval($rates[1]) == 5;
+  } else {
+    $has_herf = false;
+  }
+  if ($has_herf) {
+    $before = intval($rates[0]);
+    $middle = 1;
+    $after = $max - 1 - $before;
+  } else {
+    $before = intval($rate);
+    $middle = 0;
+    $after = $max - $before;
+    //3.2とかの場合は小数点以下を切り捨てる
+    $rate = floor(floatval($rate));
+  }
+  //スターの出力
+  for ($j=1; $j <= $before; $j++) {
+    $tag .= '<span class="fa fa-star"></span>';
+  }
+  //半分スターの出力
+  for ($j=1; $j <= $middle; $j++) {
+    $tag .= '<span class="fa fa-star-half-o"></span>';
+  }
+  //空スターの出力
+  for ($j=1; $j <= $after; $j++) {
+    $tag .= '<span class="fa fa-star-o"></span>';
+  }
+
+  if ($number) {
+    $tag .= '<span class="rating-number">'.$rate.'</span>';
+  }
+
+  $tag .= '</div>';
+  return $tag;
+}
+endif;
