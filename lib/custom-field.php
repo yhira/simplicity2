@@ -591,7 +591,7 @@ function review_custom_box_view(){
   $the_review_name = get_the_review_name();
   generate_label_tag('the_review_name', __('レビュー対象', 'simplicity2') );
   generate_textbox_tag('the_review_name', $the_review_name, '');
-  generate_howro_tag( __('レビュー対象名を入力。※必須', 'simplicity2'));
+  generate_howro_tag( __('レビュー対象名を入力。Schema typeはProduct（製品・サービス）のみを対象としています。※必須', 'simplicity2'));
 
   //レート
   $the_review_rate = get_the_review_rate();
@@ -678,7 +678,7 @@ function add_review_json_ld_to_head() {
   "@context": "https://schema.org",
   "@type": "Review",
   "itemReviewed": {
-    "@type": "Thing",
+    "@type": "Product",
     "name": "<?php echo esc_attr(get_the_review_name()); ?>"
   },
   "reviewRating": {
