@@ -679,7 +679,12 @@ function add_review_json_ld_to_head() {
   "@type": "Review",
   "itemReviewed": {
     "@type": "Product",
-    "name": "<?php echo esc_attr(get_the_review_name()); ?>"
+    "name": "<?php echo esc_attr(get_the_review_name()); ?>",
+    "review":{
+      "author": {
+      "@type": "Person"
+      }
+    }
   },
   "reviewRating": {
     "@type": "Rating",
