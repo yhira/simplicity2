@@ -667,7 +667,7 @@ endif;
 add_action( 'wp_head', 'add_review_json_ld_to_head' );
 if ( !function_exists( 'add_review_json_ld_to_head' ) ):
 function add_review_json_ld_to_head() {
-  if (is_the_page_review_enable()) {
+  if (is_the_page_review_enable() && is_singular()) {
     //投稿者の取得（無い場合はサイト名）
     $author = get_the_author_meta('display_name');
     $author = $author ? $author : get_the_author_meta('nick_name');
