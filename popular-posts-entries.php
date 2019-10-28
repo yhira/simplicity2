@@ -49,6 +49,7 @@ if ($now_id) {
 
 //Wordpress Popular Postsがインストールされているとき
 if ( is_wpp_enable() ):
+  echo '<ul>';
   $args = '
   limit='.$g_entry_count.'&
   range='.$g_range.'&
@@ -65,6 +66,7 @@ if ( is_wpp_enable() ):
   'stats_comments=0&
   stats_views='.($g_is_views_visible ? 1 : 0).'';
   wpp_get_mostpopular($args);
+  echo '</ul>';
 endif;
 //グローバル変数のリセット
 $g_widget_mode = null;
