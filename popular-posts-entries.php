@@ -49,7 +49,6 @@ if ($now_id) {
 
 //Wordpress Popular Postsがインストールされているとき
 if ( is_wpp_enable() ):
-  echo '<ul>';
   $args = '
   limit='.$g_entry_count.'&
   range='.$g_range.'&
@@ -58,15 +57,12 @@ if ( is_wpp_enable() ):
   thumbnail_height=75&
   cat="'.$now_id.'"&
   pid="'.$g_exclude_ids.'"&
-  wpp_start=""&
-  wpp_end=""&
   post_start="<div class="popular-post"><ul>"&
   post_end="</ul></div>"&'.
   $post_type.
   'stats_comments=0&
   stats_views='.($g_is_views_visible ? 1 : 0).'';
   wpp_get_mostpopular($args);
-  echo '</ul>';
 endif;
 //グローバル変数のリセット
 $g_widget_mode = null;

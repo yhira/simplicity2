@@ -52,7 +52,6 @@ if ( is_sidebar_width_336() ) {
 
 //Wordpress Popular Postsがインストールされているとき
 if ( is_wpp_enable() ):
-  echo '<ul>';
   $args = '
   limit='.$g_entry_count.'&
   range='.$g_range.'&
@@ -64,12 +63,9 @@ if ( is_wpp_enable() ):
   wpp_start=""&
   wpp_end=""&'.
   $post_type.
-  'post_start=""&
-  post_end=""&
-  stats_comments=0&
+  'stats_comments=0&
   stats_views='.($g_is_views_visible ? 1 : 0).'';
   wpp_get_mostpopular($args);
-  echo '</ul>';
 endif;
 //グローバル変数のリセット
 $g_widget_mode = null;
