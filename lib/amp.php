@@ -410,7 +410,7 @@ function add_ads_before_1st_h2_in_amp($the_content) {
     $h2result = get_h2_included_in_body( $the_content );//本文にH2タグが含まれていれば取得
     if ( $h2result ) {//H2見出しが本文中にある場合のみ
       //最初のH2の手前に広告を挿入（最初のH2を置換）
-      $count = apply_filters('add_ads_before_1st_h2_in_amp_count', 1);
+      $count = apply_filters('add_ads_before_h2_in_amp_count', 1);
       $the_content = preg_replace(H2_REG, $ad_template.$h2result, $the_content, $count);
     }
   }
