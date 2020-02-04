@@ -60,8 +60,8 @@ if ( is_wpp_enable() ):
   thumbnail_height='.$thumbnail_height.'&
   cat="'.$now_id.$exclude_category_ids.'"&
   pid="'.$g_exclude_ids.'"&
-  wpp_start=""&
-  wpp_end=""&'.
+  wpp_start="<div class="popular-post"><ul>"&
+  wpp_end="</ul></div>"&'.
   $post_type.
   'stats_comments=0&
   stats_views='.($g_is_views_visible ? 1 : 0).'';
