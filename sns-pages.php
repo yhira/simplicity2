@@ -19,7 +19,7 @@
 <?php $push7 = fetch_push7_info();
 if ( get_push7_follow_app_no() && $push7 )://Push7フォローボタンを表示するか
  ?><li class="push7-page"><a href='https://<?php echo $push7->domain; ?>' target='blank' title="<?php _e( 'Push7で更新情報を購読', 'simplicity2' ) ?>" rel="nofollow"><span class="icon-push7-logo"></span></a></li><?php endif; ?>
-<?php if ( is_feedly_follow_btn_visible() )://feedlyフォローボタンを表示するか ?><li class="feedly-page"><a href="//feedly.com/i/subscription/feed/<?php bloginfo("rss2_url"); ?>" target="blank" title="<?php _e( 'feedlyで更新情報を購読', 'simplicity2' ) ?>" rel="nofollow"><span class="icon-feedly-logo"></span></a></li><?php endif; ?>
+<?php if ( is_feedly_follow_btn_visible() )://feedlyフォローボタンを表示するか ?><li class="feedly-page"><a href="//feedly.com/i/discover/sources/search/feed/<?php echo urlencode(get_site_url()); ?>" target="blank" title="<?php _e( 'feedlyで更新情報を購読', 'simplicity2' ) ?>" rel="nofollow"><span class="icon-feedly-logo"></span></a></li><?php endif; ?>
 <?php if ( is_rss_follow_btn_visible() )://RSSフォローボタンを表示するか ?><li class="rss-page"><a href="<?php bloginfo('rss2_url'); ?>" target="_blank" title="<?php _e( 'RSSで更新情報をフォロー', 'simplicity2' ) ?>" rel="nofollow"><span class="icon-rss-logo"></span></a></li><?php endif; ?>
   </ul>
 </div>
