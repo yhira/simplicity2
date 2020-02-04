@@ -1612,3 +1612,68 @@ function wp_targeted_link_rel_custom( $rel_value, $link_html ){
   return $rel_value;
 }
 endif;
+
+/**
+ * ボックスメニューのカスタマイズ
+ * @author: わいひら
+ * @link: https://nelog.jp/box-menu
+ * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ */
+
+//ボックスメニューショートコード
+add_shortcode('box_menu', 'get_box_menu_tag');
+if ( !function_exists( 'get_box_menu_tag' ) ):
+function get_box_menu_tag($atts){
+  extract(shortcode_atts(array(
+    'name' => '', // メニュー名
+    'class' => null,
+  ), $atts, 'box_menu'));
+
+  //デフォルトアイコンフォント（Font Awesome4）
+  $def_icon_classes = 'fa fa-star'; //Font Awesome5を利用する場合は変更する
+
+  if (is_admin()) {
+    return;
+  }
+
+  $tag = null;
+  $menu_items = wp_get_nav_menu_items($name); // name: カスタムメニューの名前
+  if (!$menu_items) {
+    return;
+  }
+
+  foreach ($menu_items as $menu):
+
+    $url = $menu->url;
+    $title = $menu->title;
+    $title_tag = '<div class="box-menu-label">'.$title.'</div>';
+    $description_tag = '<div class="box-menu-description">'.$menu->description.'</div>';
+    $attr_title = $menu->attr_title;
+    $classes = implode(' ', $menu->classes);
+    $icon_tag = '<div class="'.esc_attr($def_icon_classes).'" aria-hidden="true"></div>';
+    //画像URLの場合
+    if (preg_match('/(https?)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)\.(jpg|jpeg|gif|png)/', $attr_title)) {
+      $img_url = $attr_title;
+      $icon_tag = '<img src="'.esc_url($img_url).'" alt="'.esc_attr($title).'" />';
+    } //アイコンフォントの場合
+    elseif (preg_match('/fa.? fa-[a-z\-]+/', $classes)) {
+      $icon_tag = '<div class="'.esc_attr($classes).'" aria-hidden="true"></div>';
+    }
+    $icon_tag = '<div class="box-menu-icon">'.$icon_tag.'</div>';
+
+    $tag .= '<a class="box-menu" href="'.esc_url($url).'">'.
+      $icon_tag.
+      $title_tag.
+      $description_tag.
+    '</a>';
+  endforeach;
+  $add_class = null;
+  if ($class) {
+    $add_class = ' '.$class;
+  }
+  //ラッパーで囲む
+  $tag = '<div class="box-menus'.$add_class.'">'.$tag.'</div>';
+
+  return apply_filters('get_box_menu_tag', $tag);
+}
+endif;

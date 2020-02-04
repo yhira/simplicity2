@@ -15,7 +15,7 @@
               is_active_sidebar('footer-center') ||
               is_active_sidebar('footer-right') ) &&
               !is_mobile() ): ?>
-            <div id="footer-widget">
+            <div id="footer-widget" class="footer-widget nwa">
                <div class="footer-left">
                <?php if ( dynamic_sidebar('footer-left') ) : else : ?>
                <?php endif; ?>

@@ -1,5 +1,5 @@
 <!-- sidebar -->
-<div id="sidebar" role="complementary">
+<div id="sidebar" class="sidebar nwa" role="complementary">
   <?php get_template_part('button-slide-sidebar-close');//スライドサイドバー用の閉じるボタン ?>
   <?php get_template_part('ad-sidebar');//サイドバートップ広告の呼び出し ?>
 
