@@ -373,7 +373,7 @@ function get_the_keywores(){
     foreach($categories as $category):
       array_push( $category_names, $category -> cat_name);
     endforeach ;
-    $keywords = implode($category_names, ',');
+    $keywords = implode(',', $category_names);
   }
   return $keywords;
 }
