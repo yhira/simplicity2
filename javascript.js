@@ -497,13 +497,15 @@ jQuery(function(){
 
         //liのテキストから年がどこからあるかを調べる
         acvLi.each(function(i) {
-          var reg = /(\d+)年(\d+)月/;
+          var reg = /(\d+)年 ?(\d+)月/;
           //日付表示＋投稿数か
           if ( has_date_count ) {
-            reg = /(\d+)年(\d+)月\s\((\d+)\)/;
+            reg = /(\d+)年 ?(\d+)月\s\((\d+)\)/;
           }
           var dt = $(this).text().match(reg);
-          year.push(dt[1]);
+          if (dt) {
+            year.push(dt[1]);
+          }
 
         });
         $.unique(year); //重複削除
@@ -523,10 +525,10 @@ jQuery(function(){
         //オリジナルのクローンは順番に削除
         var j = 0;
         acvLi.each(function(i, el) {
-          var reg = /(\d+)年(\d+)月/;
+          var reg = /(\d+)年 ?(\d+)月/;
           //日付表示＋投稿数か
           if ( has_date_count ) {
-            reg = /(\d+)年(\d+)月\s\((\d+)\)/;
+            reg = /(\d+)年 ?(\d+)月\s\((\d+)\)/;
           }
           var
             dt = $(this).text().match(reg),
