@@ -2533,22 +2533,22 @@ function theme_customize_register($wp_customize) {
   ));
   $wp_customize->add_control( 'pr_label_exclude_post_ids', array(
     'settings' => 'pr_label_exclude_post_ids',
-    'label' => __( '「PR表記」除外記事のID', 'simplicity2' ),
+    'label' => __( '除外記事ID', 'simplicity2' ),
     'description' => is_tips_visible() ? __( '「PR表記」を非表示にする投稿・固定ページのIDを,（カンマ）区切りで指定してください。例：111,222,3333', 'simplicity2' ) : '',
     'section' => 'pr_labels_section',
     'type' => 'text',
     'priority'=> 800,
   ));
 
-  //除外するカテゴリのID
+  //除外カテゴリーID
   $wp_customize->add_setting('pr_label_exclude_category_ids', array(
     'default' => '',
     'sanitize_callback' => 'sanitize_id_comma_text',
   ));
   $wp_customize->add_control( 'pr_label_exclude_category_ids', array(
     'settings' => 'pr_label_exclude_category_ids',
-    'label' => __( '「PR表記」除外カテゴリのID', 'simplicity2' ),
-    'description' => is_tips_visible() ? __( '「PR表記」を非表示にするカテゴリのIDを,（カンマ）区切りで指定してください。例：1,7,22', 'simplicity2' ) : '',
+    'label' => __( '除外カテゴリーID', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '「PR表記」を非表示にするカテゴリーのIDを,（カンマ）区切りで指定してください。例：1,7,22', 'simplicity2' ) : '',
     'section' => 'pr_labels_section',
     'type' => 'text',
     'priority'=> 900,
