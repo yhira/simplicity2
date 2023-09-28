@@ -3781,3 +3781,22 @@ dl.recent-comments dd .recent-comment-content{
     width: calc(100%/2);
   }
 }
+
+.pr-label-s{
+  margin-right: 0.7em;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 1px 12px;
+  font-size: 0.8em;
+}
+
+.pr-label-l{
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 1em;
+  font-size: 0.8em;
+  text-align: center;
+}

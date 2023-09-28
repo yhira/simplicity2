@@ -9,6 +9,11 @@
           <header>
             <h1 class="entry-title"><?php echo get_the_title(); ?></h1>
             <p class="post-meta">
+              <?php //PRラベル（小）の表示
+              if (is_small_pr_labels_visible()) {
+                generate_small_pr_label_tag(); //PR表記出力
+              } ?>
+
               <?php get_template_part('datetime') //投稿日と更新日?>
 
               <?php //AMPページへ
@@ -41,6 +46,11 @@
         </header>
 
         <?php get_template_part('entry-eye-catch');//アイキャッチ挿入機能?>
+
+        <?php //PR表記（大）の出力
+        if (is_large_pr_labels_visible()) {
+          generate_large_pr_label_tag();
+        } ?>
 
         <div id="the-content" class="entry-content">
         <?php the_content(); //本文の呼び出し?>

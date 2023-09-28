@@ -13,3 +13,10 @@
   background-color: #ddd;
   padding: 12px;
 }
+
+.customizer-label{
+  margin-top: 20px;
+  margin-bottom: -10px;
+  font-size: 14px;
+  font-weight: bold;
+}

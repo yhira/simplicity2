@@ -2434,6 +2434,127 @@ function theme_customize_register($wp_customize) {
   ));
 
   /////////////////////////////
+  //ステマ規制設定項目の追加
+  /////////////////////////////
+  $wp_customize->add_section( 'pr_labels_section', array(
+    'title'          => __( 'ステマ規制対策', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '消費者庁の景品表示法の指定告示（通称：ステマ規制）に対応するための「PR表記」に関する設定です。', 'simplicity2')  : '',
+    'priority'       => 97.1,
+  ));
+
+  //全ての投稿ページで自動挿入
+  $wp_customize->add_setting('pr_label_single_visible', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'pr_label_single_visible', array(
+    'settings' => 'pr_label_single_visible',
+    'label' => __( '全ての投稿ページで自動挿入', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '全投稿ページで「PR表記」を移動挿入するかどうか。', 'simplicity2' ) : '',
+    'section' => 'pr_labels_section',
+    'type' => 'checkbox',
+    'priority'=> 10,
+  ));
+
+  //全ての固定ページで自動挿入
+  $wp_customize->add_setting('pr_label_page_visible', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'pr_label_page_visible', array(
+    'settings' => 'pr_label_page_visible',
+    'label' => __( '全ての固定ページで自動挿入', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '全固定ページで「PR表記」を移動挿入するかどうか。', 'simplicity2' ) : '',
+    'section' => 'pr_labels_section',
+    'type' => 'checkbox',
+    'priority'=> 10,
+  ));
+
+  //日付前に表示（小）
+  $wp_customize->add_setting('pr_label_small_visible', array(
+    'default' => true,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'pr_label_small_visible', array(
+    'settings' => 'pr_label_small_visible',
+    'label' => __( '日付前に表示（小）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '投稿の日付前に「PR表記」を表示します。', 'simplicity2' ) : '',
+    'section' => 'pr_labels_section',
+    'type' => 'checkbox',
+    'priority'=> 10,
+  ));
+
+  //本文上に表示（大）
+  $wp_customize->add_setting('pr_label_large_visible', array(
+    'default' => false,
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'pr_label_large_visible', array(
+    'settings' => 'pr_label_large_visible',
+    'label' => __( '本文上に表示（大）', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '記事本文の上部に「PR表記」を挿入します。', 'simplicity2' ) : '',
+    'section' => 'pr_labels_section',
+    'type' => 'checkbox',
+    'priority'=> 10,
+  ));
+
+  //PR表記（小）テキスト
+  $wp_customize->add_setting('pr_label_small_caption', array(
+    'default' => __( 'PR', 'simplicity2' ),
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'pr_label_small_caption', array(
+    'settings' => 'pr_label_small_caption',
+    'label' => __( 'PR表記（小）テキスト', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '記事の日付前に表示される「PR表記」の文言を入力してください。', 'simplicity2' ) : '',
+    'section' => 'pr_labels_section',
+    'type' => 'text',
+    'priority'=> 800,
+  ));
+
+  //PR表記（大）テキスト
+  $wp_customize->add_setting('pr_label_large_caption', array(
+    'default' => __( '記事内に広告が含まれています。', 'simplicity2' ),
+    'sanitize_callback' => 'sanitize_check',
+  ));
+  $wp_customize->add_control( 'pr_label_large_caption', array(
+    'settings' => 'pr_label_large_caption',
+    'label' => __( 'PR表記（大）テキスト', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '記事の本文前に表示される「PR表記」の文言を入力してください。', 'simplicity2' ) : '',
+    'section' => 'pr_labels_section',
+    'type' => 'text',
+    'priority'=> 800,
+  ));
+
+  //「PR表記」除外記事のID
+  $wp_customize->add_setting('pr_label_exclude_post_ids', array(
+    'default' => '',
+    'sanitize_callback' => 'sanitize_id_comma_text',
+  ));
+  $wp_customize->add_control( 'pr_label_exclude_post_ids', array(
+    'settings' => 'pr_label_exclude_post_ids',
+    'label' => __( '「PR表記」除外記事のID', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '「PR表記」を非表示にする投稿・固定ページのIDを,（カンマ）区切りで指定してください。例：111,222,3333', 'simplicity2' ) : '',
+    'section' => 'pr_labels_section',
+    'type' => 'text',
+    'priority'=> 800,
+  ));
+
+  //除外するカテゴリのID
+  $wp_customize->add_setting('pr_label_exclude_category_ids', array(
+    'default' => '',
+    'sanitize_callback' => 'sanitize_id_comma_text',
+  ));
+  $wp_customize->add_control( 'pr_label_exclude_category_ids', array(
+    'settings' => 'pr_label_exclude_category_ids',
+    'label' => __( '「PR表記」除外カテゴリのID', 'simplicity2' ),
+    'description' => is_tips_visible() ? __( '「PR表記」を非表示にするカテゴリのIDを,（カンマ）区切りで指定してください。例：1,7,22', 'simplicity2' ) : '',
+    'section' => 'pr_labels_section',
+    'type' => 'text',
+    'priority'=> 900,
+  ));
+
+  /////////////////////////////
   //ブログカード設定項目の追加
   /////////////////////////////
   $wp_customize->add_section( 'blog_card_section', array(
@@ -5628,10 +5749,120 @@ function get_meta_keyword_from_tag(){
 }
 
 
+//広告表示がオンかどうか
+if ( !function_exists( 'is_pr_labels_visible' ) ):
+function is_pr_labels_visible(){
+    //投稿・固定ページ除外
+    $post_ids = get_pr_label_exclude_post_ids();
+    $post_ids_empty = empty($post_ids);
+
+    //カテゴリーページ除外
+    $category_ids = get_pr_label_exclude_category_ids();
+    $category_ids_empty = empty($category_ids);
+
+    //PR表記の除外（いずれかがあてはまれば表示しない）
+    $is_exclude_ids = (
+      //記事の除外
+      (!$post_ids_empty && is_single( $post_ids ))//投稿ページの除外
+      || (!$post_ids_empty && is_page( $post_ids )) //個別ページの除外
+      //カテゴリーの除外
+      || (!$category_ids_empty && is_single() && in_category( $category_ids )) //投稿ページの除外
+      || (!$category_ids_empty && is_category( $category_ids )) //カテゴリーアーカイブページの除外
+    );
+
+    return !$is_exclude_ids //除外ページでない場合PR表記を表示
+      && (is_pr_label_single_visible() || is_pr_label_page_visible()) //投稿・固定・カテゴリー・タグページの場合
+      && (is_pr_label_small_visible() || is_pr_label_large_visible()) //PR表記小・大が有効の場合
+    ;
+}
+endif;
+
+//PR表記小が表示可能かどうか
+if ( !function_exists( 'is_small_pr_labels_visible' ) ):
+function is_small_pr_labels_visible(){
+  return is_pr_labels_visible() //除外ページでないかどうか
+    && is_pr_label_small_visible() //PR表記小が有効
+    &&
+    (
+      (is_pr_label_single_visible() && is_single()) //投稿ページ
+      || (is_pr_label_page_visible() && is_page()) //固定ページ
+    )
+  ;
+}
+endif;
+
+//PR表記大が表示可能かどうか
+if ( !function_exists( 'is_large_pr_labels_visible' ) ):
+function is_large_pr_labels_visible(){
+  return is_pr_labels_visible() //除外ページでないかどうか
+    && is_pr_label_large_visible() //PR表記小が有効
+    &&
+    (
+      (is_pr_label_single_visible() && is_single()) //投稿ページ
+      || (is_pr_label_page_visible() && is_page()) //固定ページ
+    )
+  ;
+
+}
+endif;
+
+//全ての投稿ページで自動挿入
+function is_pr_label_single_visible(){
+  return get_theme_mod( 'pr_label_single_visible', false );
+}
+
+//全ての固定ページで自動挿入
+function is_pr_label_page_visible(){
+  return get_theme_mod( 'pr_label_page_visible', false );
+}
+
+//日付前に表示（小）
+function is_pr_label_small_visible(){
+  return get_theme_mod( 'pr_label_small_visible', true );
+}
+
+//本文上に表示（大）
+function is_pr_label_large_visible(){
+  return get_theme_mod( 'pr_label_large_visible', false );
+}
+
+//PR表記（小）キャプション
+function get_pr_label_small_caption(){
+  return get_theme_mod( 'pr_label_small_caption', __( 'PR', 'simplicity2' ) );
+}
+
+//PR表記（大）キャプション
+function get_pr_label_large_caption(){
+  return get_theme_mod( 'pr_label_large_caption', __( '記事内に広告が含まれています。', 'simplicity2' ) );
+}
+
+//「PR表記」を表示しない記事ID配列の取得
+function get_pr_label_exclude_post_ids(){
+  $ids = get_theme_mod( 'pr_label_exclude_post_ids', null );
+  return explode(',', $ids);
+}
+
+//「PR表記」を表示しないカテゴリID配列の取得
+function get_pr_label_exclude_category_ids(){
+  $ids = get_theme_mod( 'pr_label_exclude_category_ids', null );
+  return explode(',', $ids);
+}
+
+//PR表記小の出力
+if ( !function_exists( 'generate_small_pr_label_tag' ) ):
+function generate_small_pr_label_tag(){
+  if (apply_filters( 'is_small_pr_label_visible', true )) {
+    echo '<span class="pr-label pr-label-s">'.get_pr_label_small_caption().'</span>'; //PR表記出力
+  }
+}
+endif;
 
 
-
-
-
-
-
+//PR表記大の出力
+if ( !function_exists( 'generate_large_pr_label_tag' ) ):
+function generate_large_pr_label_tag(){
+  if (apply_filters( 'is_large_pr_label_visible', true )) {
+    echo '<div class="pr-label pr-label-l">'.get_pr_label_large_caption().'</div>'; //PR表記出力
+  }
+}
+endif;
