@@ -3800,3 +3800,12 @@ dl.recent-comments dd .recent-comment-content{
   font-size: 0.8em;
   text-align: center;
 }
+
+body .wp-block-search__input{
+  width: initial;
+  height: 40px;
+}
+
+.wp-block-search__button{
+  height: 40px;
+}
