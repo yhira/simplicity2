@@ -1722,3 +1722,12 @@ function campaign_shortcode( $atts, $content = null ) {
   return $tag;
 }
 endif;
+
+
+//ウィジェットブロックエディターを無効化する
+add_action('after_setup_theme', 'widgets_block_stop');
+if ( !function_exists( 'widgets_block_stop' ) ):
+function widgets_block_stop() {
+  remove_theme_support('widgets-block-editor');
+}
+endif;
