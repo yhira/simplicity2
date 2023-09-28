@@ -2498,28 +2498,28 @@ function theme_customize_register($wp_customize) {
     'priority'=> 10,
   ));
 
-  //PR表記（小）テキスト
+  //テキスト（小）
   $wp_customize->add_setting('pr_label_small_caption', array(
     'default' => __( 'PR', 'simplicity2' ),
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'pr_label_small_caption', array(
     'settings' => 'pr_label_small_caption',
-    'label' => __( 'PR表記（小）テキスト', 'simplicity2' ),
+    'label' => __( 'テキスト（小）', 'simplicity2' ),
     'description' => is_tips_visible() ? __( '記事の日付前に表示される「PR表記」の文言を入力してください。', 'simplicity2' ) : '',
     'section' => 'pr_labels_section',
     'type' => 'text',
     'priority'=> 800,
   ));
 
-  //PR表記（大）テキスト
+  //テキスト（大）
   $wp_customize->add_setting('pr_label_large_caption', array(
     'default' => __( '記事内に広告が含まれています。', 'simplicity2' ),
     'sanitize_callback' => 'sanitize_check',
   ));
   $wp_customize->add_control( 'pr_label_large_caption', array(
     'settings' => 'pr_label_large_caption',
-    'label' => __( 'PR表記（大）テキスト', 'simplicity2' ),
+    'label' => __( 'テキスト（大）', 'simplicity2' ),
     'description' => is_tips_visible() ? __( '記事の本文前に表示される「PR表記」の文言を入力してください。', 'simplicity2' ) : '',
     'section' => 'pr_labels_section',
     'type' => 'text',
