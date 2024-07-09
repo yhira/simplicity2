@@ -251,7 +251,7 @@ function fetch_twitter_count_from_count_jsoon(url, selector) {
     jQuery( selector ).html( res.count || 0 );
   },
   error:function(){
-    jQuery( selector ).html('error');
+    jQuery( selector ).html('0');
   }
   });
 }
