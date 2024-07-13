@@ -31,7 +31,10 @@ endif;
 //AMPページがある投稿ページか
 if ( !function_exists( 'has_amp_page' ) ):
 function has_amp_page(){
-  $category_ids =get_noamp_category_ids();
+  $category_ids = get_noamp_category_ids();
+  if (!is_array(($category_ids))) {
+    $category_ids = array();
+  }
   return is_singular() &&
     is_amp_enable() &&
     is_amp_page_enable() &&
