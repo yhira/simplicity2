@@ -57,7 +57,7 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
           }
           //echo '新着記事';
         }
-        echo $args['after_title'];        
+        echo $args['after_title'];
       }
 
       //新着記事表示用の処理を書くところだけど
@@ -84,15 +84,18 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
   function form($instance) {
     if(empty($instance)){
       $instance = array(
-        'widget_mode' => null,
-        'title' => null,
-        'entry_count' => null,
-        'is_top_visible' => null,
-        'entry_type' => null,
+        'widget_mode' => 'all',
+        'title' => '',
+        'entry_count' => 5,
+        'is_top_visible' => 1,
+        'entry_type' => 'default',
       );
     }
     $widget_mode = esc_attr($instance['widget_mode']);
-    $title = esc_attr($instance['title']);
+    $title = '';
+    if (isset($instance['title'])) {
+      $title = esc_attr($instance['title']);
+    }
     $entry_count = esc_attr($instance['entry_count']);
     $is_top_visible = esc_attr($instance['is_top_visible']);
     $entry_type = esc_attr($instance['entry_type']);
