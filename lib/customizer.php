@@ -383,7 +383,7 @@ function theme_customize_register($wp_customize) {
 
   //スキンの種類
   $wp_customize->add_setting('skin_file', array(
-    'default' => null,//デフォルト値
+    'default' => '',//デフォルト値
     'sanitize_callback' => 'sanitize_text',
   ));
   $skins = get_skin_files();//スキンファイル情報の取得
@@ -1415,7 +1415,7 @@ function theme_customize_register($wp_customize) {
 
   //トップページのメタディスクリプション
   $wp_customize->add_setting('top_page_meta_description', array(
-    'default' => null,
+    'default' => '',
     'sanitize_callback' => 'sanitize_html_text',
   ));
   $wp_customize->add_control( 'top_page_meta_description', array(
@@ -1430,7 +1430,7 @@ function theme_customize_register($wp_customize) {
 
   //トップページのメタキーワード
   $wp_customize->add_setting('top_page_meta_keyword', array(
-    'default' => null,
+    'default' => '',
     'sanitize_callback' => 'sanitize_html_text',
   ));
   $wp_customize->add_control( 'top_page_meta_keyword', array(
@@ -2370,7 +2370,7 @@ function theme_customize_register($wp_customize) {
 
   //Google AnalyticsトラッキングID
   $wp_customize->add_setting('tracking_id', array(
-    'default' => null,
+    'default' => '',
     'sanitize_callback' => 'sanitize_text',
   ));
   $wp_customize->add_control( 'tracking_id', array(
@@ -2405,7 +2405,7 @@ function theme_customize_register($wp_customize) {
 
   //PtengineのID
   $wp_customize->add_setting('ptengin_tracking_id', array(
-    'default' => null,
+    'default' => '',
     'sanitize_callback' => 'sanitize_text',
   ));
   $wp_customize->add_control( 'ptengin_tracking_id', array(
@@ -2419,7 +2419,7 @@ function theme_customize_register($wp_customize) {
 
   //Google Search Console ID
   $wp_customize->add_setting('webmaster_tool_id', array(
-    'default' => null,
+    'default' => '',
     'sanitize_callback' => 'sanitize_text',
   ));
   $wp_customize->add_control( 'webmaster_tool_id', array(
@@ -3640,7 +3640,7 @@ function theme_customize_register($wp_customize) {
     'default'    => 'none',
     'sanitize_callback' => 'sanitize_text',
   ));
-  $caption_add = null;
+  $caption_add = '';
   if (is_admin_pv_type_none()) {
     $caption_add = __( 'Wordpress Popular Posts、もしくはJetpackプラグインのインストールが必要です。インストールしたらカスタマイザー画面を再読み込みしてください。', 'simplicity2' );
   }
@@ -3959,16 +3959,16 @@ function is_header_logo_enable(){
 
 //ヘッダーロゴ画像のURL
 function get_header_logo_url(){
-  $header_logo_url = null;
+  $header_logo_url = '';
   if ( is_header_logo_enable() ) {
-    $header_logo_url = get_theme_mod( 'header_logo_url', null );
+    $header_logo_url = get_theme_mod( 'header_logo_url', '' );
   }
   return $header_logo_url;
 }
 
 //ヘッダー外側の背景画像URLの取得
 function get_header_outer_background_image(){
-  return get_theme_mod( 'header_outer_background_image', null);
+  return get_theme_mod( 'header_outer_background_image', '');
 }
 
 //モバイルヘッダーの高さを取得
@@ -3978,7 +3978,7 @@ function get_header_height_mobile(){
 
 //モバイルヘッダーの背景画像URLの取得
 function get_mobile_header_background_image(){
-  return get_theme_mod( 'mobile_header_background_image', null );
+  return get_theme_mod( 'mobile_header_background_image', '' );
 }
 
 //サイトフォントの取得
@@ -4458,7 +4458,7 @@ function get_go_to_top_button_icon_font(){
 
 //TOPへ戻るボタン画像URLの取得
 function get_go_to_top_button_image(){
-  return get_theme_mod( 'go_to_top_button_image', null );
+  return get_theme_mod( 'go_to_top_button_image', '' );
 }
 
 //カレンダーウィジェットの枠線を表示するか
@@ -4468,7 +4468,7 @@ function is_calendar_border_visible(){
 
 //404イメージの取得
 function get_404_image(){
-  return get_theme_mod( '404_image', null );
+  return get_theme_mod( '404_image', '' );
 }
 
 //アイキャッチの自動設定をするか
@@ -4565,12 +4565,12 @@ function is_site_name_to_singular_title(){
 
 //トップページのメタディスクリプションの取得
 function get_top_page_meta_description(){
-  return get_theme_mod( 'top_page_meta_description', null );
+  return get_theme_mod( 'top_page_meta_description', '' );
 }
 
 //トップページのメタキーワードの取得
 function get_top_page_meta_keyword(){
-  return get_theme_mod( 'top_page_meta_keyword', null );
+  return get_theme_mod( 'top_page_meta_keyword', '' );
 }
 
 //分割ページにrel="next"/"prev"を追加するか
@@ -4810,47 +4810,47 @@ function get_follow_message_label(){
 
 //TwitterフォローボタンのIDを取得
 function get_twitter_follow_id(){
-  return get_theme_mod( 'twitter_follow_id', null );
+  return get_theme_mod( 'twitter_follow_id', '' );
 }
 
 //FacebookフォローボタンのIDを取得
 function get_facebook_follow_id(){
-  return get_theme_mod( 'facebook_follow_id', null );
+  return get_theme_mod( 'facebook_follow_id', '' );
 }
 
 //Google＋フォローボタンのIDを取得
 function get_google_plus_follow_id(){
-  return get_theme_mod( 'google_plus_follow_id', null );
+  return get_theme_mod( 'google_plus_follow_id', '' );
 }
 
 //はてブフォローボタンのIDを取得
 function get_hatebu_follow_id(){
-  return get_theme_mod( 'hatebu_follow_id', null );
+  return get_theme_mod( 'hatebu_follow_id', '' );
 }
 
 //InstagramフォローボタンのIDを取得
 function get_instagram_follow_id(){
-  return get_theme_mod( 'instagram_follow_id', null );
+  return get_theme_mod( 'instagram_follow_id', '' );
 }
 
 //PinterestフォローボタンのIDを取得
 function get_pinterest_follow_id(){
-  return get_theme_mod( 'pinterest_follow_id', null );
+  return get_theme_mod( 'pinterest_follow_id', '' );
 }
 
 //YouTubeフォローページのURLの一部を取得
 function get_youtube_follow_page_id(){
-  return get_theme_mod( 'youtube_follow_page_id', null );
+  return get_theme_mod( 'youtube_follow_page_id', '' );
 }
 
 //YouTubeフォローボタンのIDを取得
 function get_youtube_follow_id(){
-  return get_theme_mod( 'youtube_follow_id', null );
+  return get_theme_mod( 'youtube_follow_id', '' );
 }
 
 //YouTubeチャンネルフォローボタンのチャンネルIDを取得
 function get_youtube_channel_id(){
-  return get_theme_mod( 'youtube_channel_id', null );
+  return get_theme_mod( 'youtube_channel_id', '' );
 }
 
 //YouTubeのフォローURLを取得
@@ -4874,22 +4874,22 @@ function get_youtube_follow_url(){
 
 //FlickrフォローボタンのIDを取得
 function get_flickr_follow_id(){
-  return get_theme_mod( 'flickr_follow_id', null );
+  return get_theme_mod( 'flickr_follow_id', '' );
 }
 
 //LINE@フォローボタンのIDを取得
 function get_line_at_follow_id(){
-  return get_theme_mod( 'line_at_follow_id', null );
+  return get_theme_mod( 'line_at_follow_id', '' );
 }
 
 //GitHubフォローボタンのIDを取得
 function get_github_follow_id(){
-  return get_theme_mod( 'github_follow_id', null );
+  return get_theme_mod( 'github_follow_id', '' );
 }
 
 //Push7フォローボタンのIDを取得
 function get_push7_follow_app_no(){
-  return get_theme_mod( 'push7_follow_app_no', null );
+  return get_theme_mod( 'push7_follow_app_no', '' );
 }
 
 //feedlyフォローボタンを表示するかどうか
@@ -4926,22 +4926,22 @@ function is_facebook_ogp_enable(){
 
 //Facebookアクセストークンを取得
 function get_fb_access_token(){
-  return get_theme_mod( 'fb_access_token', null );
+  return get_theme_mod( 'fb_access_token', '' );
 }
 
 //fb:adminsを取得
 function get_fb_admins(){
-  return get_theme_mod( 'fb_admins', null );
+  return get_theme_mod( 'fb_admins', '' );
 }
 
 //fb:app_idを取得
 function get_fb_app_id(){
-  return get_theme_mod( 'fb_app_id', null );
+  return get_theme_mod( 'fb_app_id', '' );
 }
 
 //OGPやTwitterカードのホームイメージのURLを取得
 function get_ogp_home_image(){
-  return get_theme_mod( 'ogp_home_image', null );
+  return get_theme_mod( 'ogp_home_image', '' );
 }
 
 //フォローボタンに色をつけるかどうか
@@ -5233,18 +5233,18 @@ function is_amp_enable(){
 
 //AMP用のAdSenseAdSenseコードを取得
 function get_amp_adsense_code(){
-  return htmlspecialchars_decode(get_theme_mod( 'amp_adsense_code', null ));
+  return htmlspecialchars_decode(get_theme_mod( 'amp_adsense_code', '' ));
 }
 
 //AMP用Analytics虎菌がIDの取得
 function get_amp_tracking_id(){
-  return get_theme_mod( 'amp_tracking_id', null );
+  return get_theme_mod( 'amp_tracking_id', '' );
 }
 
 
 //AMP用ロゴのURLを取得取得
 function get_amp_logo_url(){
-  return get_theme_mod( 'amp_logo_url', null );
+  return get_theme_mod( 'amp_logo_url', '' );
 }
 
 //パンくずリストのホームを取得
@@ -5463,7 +5463,7 @@ function get_ana_options(){
 
 //トラッキングIDの取得
 function get_tracking_id(){
-  return get_theme_mod( 'tracking_id', null );
+  return get_theme_mod( 'tracking_id', '' );
 }
 
 //Google Analyticsトラッキングタイプの取得
@@ -5509,18 +5509,18 @@ function is_analytics_universal(){
 
 //PtengineトラッキングIDの取得
 function get_ptengin_tracking_id(){
-  return get_theme_mod( 'ptengin_tracking_id', null );
+  return get_theme_mod( 'ptengin_tracking_id', '' );
 }
 
 //トラッキングIDの取得
 function get_webmaster_tool_id(){
-  return get_theme_mod( 'webmaster_tool_id', null );
+  return get_theme_mod( 'webmaster_tool_id', '' );
 }
 
 //ファビコンのURLを取得
 function get_favicon_url(){
   $o = get_option('other_options');//旧バージョンのファビコン設定
-  $favicon_url = get_theme_mod( 'favicon_url', null );
+  $favicon_url = get_theme_mod( 'favicon_url', '' );
   return $favicon_url ? $favicon_url : $o['favicon_url'];
 }
 
@@ -5543,7 +5543,7 @@ function is_apple_touch_icon_enable(){
 //アップルタッチアイコンのURLを取得
 function get_apple_touch_icon_url(){
   $o = get_option('other_options');//旧バージョンのアップルタッチアイコン設定
-  $apple_touch_icon_url = get_theme_mod( 'apple_touch_icon_url', null );
+  $apple_touch_icon_url = get_theme_mod( 'apple_touch_icon_url', '' );
   return $apple_touch_icon_url ? $apple_touch_icon_url : $o['apple_touch_icon_url'];
 }
 
@@ -5579,7 +5579,7 @@ function get_amp_test_tool(){
 
 //AMPバリデーターの取得
 function get_amp_test_tool_url($url){
-  $test_url = null;
+  $test_url = '';
   $encoded_url = str_replace('&amp;', '&', $url);
   $encoded_url = urlencode($encoded_url);
   if (get_amp_test_tool() == 'google_amp_test') {
@@ -5594,7 +5594,7 @@ function get_amp_test_tool_url($url){
 
 //AMPページを生成しないカテゴリIDの取得
 function get_noamp_category_ids(){
-  return get_theme_mod( 'noamp_category_ids', null );
+  return get_theme_mod( 'noamp_category_ids', '' );
 }
 
 //テーマカスタマイザー項目の説明を表示するか
@@ -5622,7 +5622,7 @@ function is_japanese_slug_enable(){
 }
 //最初の投稿の年を取得
 function get_first_post_year(){
-  $year = null;
+  $year = '';
   //記事を古い順に1件だけ取得
   query_posts('posts_per_page=1&order=ASC');
   if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -5651,7 +5651,7 @@ function get_site_license(){
   $site_license = get_theme_mod( 'site_license', 'copyright' );
   $site_link = ' <a href="'.home_url().'">'.get_bloginfo('name').'</a>';
   $cc_desc = ' Some Rights Reserved.';
-  $crldit = null;
+  $crldit = '';
   switch ( $site_license ) {
     case "cc_by":
       $crldit = '<a href="http://creativecommons.org/licenses/by/2.1/jp/" rel="nofollow license">CC BY</a>'.$site_link.$cc_desc;
@@ -5837,13 +5837,13 @@ function get_pr_label_large_caption(){
 
 //「PR表記」を表示しない記事ID配列の取得
 function get_pr_label_exclude_post_ids(){
-  $ids = get_theme_mod( 'pr_label_exclude_post_ids', null );
+  $ids = get_theme_mod( 'pr_label_exclude_post_ids', '' );
   return explode(',', $ids);
 }
 
 //「PR表記」を表示しないカテゴリID配列の取得
 function get_pr_label_exclude_category_ids(){
-  $ids = get_theme_mod( 'pr_label_exclude_category_ids', null );
+  $ids = get_theme_mod( 'pr_label_exclude_category_ids', '' );
   return explode(',', $ids);
 }
 
