@@ -3917,7 +3917,7 @@ function remove_protocol($url){
 //選択されているスキンファイルを取得
 if ( !function_exists( 'get_selected_skin_file' ) ):
 function get_selected_skin_file(){
-  $file_path = get_theme_mod( 'skin_file', null );
+  $file_path = get_theme_mod( 'skin_file', '' );
   if ( $file_path ) {
     $file_path = remove_protocol($file_path);
     //CSS縮小化プラグインのためにプロトコルをつけるように変更v2.2.1
@@ -3927,9 +3927,8 @@ function get_selected_skin_file(){
     } else {
       $file_path = 'http:'.$file_path;
     }
-
-    return $file_path;
   }
+  return $file_path;
 }
 endif;
 
@@ -5040,13 +5039,13 @@ function is_ads_custum_ad_space(){
 
 //広告を表示しない記事ID配列の取得
 function get_exclude_article_ids(){
-  $ids = get_theme_mod( 'exclude_article_ids', null );
+  $ids = get_theme_mod( 'exclude_article_ids', '' );
   return explode(',', $ids);
 }
 
 //広告を表示しないカテゴリID配列の取得
 function get_exclude_category_ids(){
-  $ids = get_theme_mod( 'exclude_category_ids', null );
+  $ids = get_theme_mod( 'exclude_category_ids', '' );
   return explode(',', $ids);
 }
 
