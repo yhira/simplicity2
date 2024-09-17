@@ -20,6 +20,7 @@ if(!function_exists('http_build_url')){
   define('HTTP_URL_STRIP_FRAGMENT',256);
   define('HTTP_URL_STRIP_ALL',504);
   function http_build_url($url,$parts=array(),$flags=HTTP_URL_REPLACE,&$new_url=array())  {
+    if (empty($url)) return;
     //置き換えるキー
     $key=array('user','pass','port','path','query','fragment');
     //urlをパースする
@@ -72,6 +73,7 @@ include 'punycode-obj.php';
 //Punycode変換関数
 ///////////////////////////////////////
 function convert_punycode($url, $is_encode = true){
+  if (empty($url)) return;
   $url_parts = parse_url($url);
   $Punycode = new Punycode();
   if ( $is_encode ) {
