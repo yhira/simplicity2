@@ -21,6 +21,7 @@ if(!function_exists('http_build_url')){
   define('HTTP_URL_STRIP_ALL',504);
   function http_build_url($url,$parts=array(),$flags=HTTP_URL_REPLACE,&$new_url=array())  {
     if (empty($url)) return;
+    if (is_array($url)) return;
     //置き換えるキー
     $key=array('user','pass','port','path','query','fragment');
     //urlをパースする
