@@ -212,6 +212,9 @@ add_filter('comment_text', 'url_shortcode_to_blog_card', 99999999);//コメン�
 if ( !function_exists( 'url_to_external_blog_card_tag' ) ):
 function url_to_external_blog_card_tag($url){
   $url = strip_tags($url);//URL
+  if (strpos($url, '://x.com/') !== false) {
+    return;
+  }
   $url = ampersand_urldecode($url);
 
   //サイトの内部リンクは処理しない場合
