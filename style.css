@@ -3813,3 +3813,7 @@ body .wp-block-search__input{
 .hatena-btn iframe{
   height: 59px !important;
 }
+
+.video-container + .video-container {
+  margin-top: 2em;
+}
