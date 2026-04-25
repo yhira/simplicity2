@@ -39,6 +39,8 @@ function add_custom_boxes(){
 // コメント設定
 ///////////////////////////////////////
 function view_comment_custom_box(){
+  //CSRF対策用のnonceフィールドを出力
+  wp_nonce_field('simplicity_save_custom_fields', 'simplicity_custom_nonce');
   $is_comment_form_freeze = get_post_meta(get_the_ID(),'is_comment_form_freeze', true);
   $comment_form_freeze_message = get_post_meta(get_the_ID(),'comment_form_freeze_message', true);
 
@@ -49,25 +51,30 @@ function view_comment_custom_box(){
 
   echo '<label>'.__( '凍結時のメッセージ', 'simplicity2' ).'</label>';
   echo '<input type="text" name="comment_form_freeze_message"';
-  if( $comment_form_freeze_message ){echo ' value="'.$comment_form_freeze_message.'"';}
+  //Stored XSS防止のためエスケープ
+  if( $comment_form_freeze_message ){echo ' value="'.esc_attr($comment_form_freeze_message).'"';}
   echo ' style="width: 100%">';
   echo '<p class="howto">'.__( 'コメント凍結時に表示するメッセージです。未入力の場合はデフォルトのものが表示されます。', 'simplicity2' ).'</p>';
 }
 
 add_action('save_post', 'save_comment_custom_data');
 function save_comment_custom_data(){
+  //nonce検証（CSRF対策）
+  if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
+    return;
+  }
   $id = get_the_ID();
   //コメント凍結
   $is_comment_form_freeze = null;
   if ( isset( $_POST['is_comment_form_freeze'] ) ){
-    $is_comment_form_freeze = $_POST['is_comment_form_freeze'];
+    $is_comment_form_freeze = sanitize_text_field($_POST['is_comment_form_freeze']);
   }
   $is_comment_form_freeze_key = 'is_comment_form_freeze';
   add_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze, true);
   update_post_meta($id, $is_comment_form_freeze_key, $is_comment_form_freeze);
   //コメント凍結メッセージ
   if ( isset( $_POST['comment_form_freeze_message'] ) ){
-    $comment_form_freeze_message = $_POST['comment_form_freeze_message'];
+    $comment_form_freeze_message = sanitize_text_field($_POST['comment_form_freeze_message']);
     $comment_form_freeze_message_key = 'comment_form_freeze_message';
     add_post_meta($id, $comment_form_freeze_message_key, $comment_form_freeze_message, true);
     update_post_meta($id, $comment_form_freeze_message_key, $comment_form_freeze_message);
@@ -98,11 +105,15 @@ function view_ad_custom_box(){
 
 add_action('save_post', 'save_ad_custom_data');
 function save_ad_custom_data(){
+  //nonce検証（CSRF対策）
+  if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
+    return;
+  }
   $id = get_the_ID();
   //広告の除外
   $is_ads_removed_in_page = null;
   if ( isset( $_POST['is_ads_removed_in_page'] ) ){
-    $is_ads_removed_in_page = $_POST['is_ads_removed_in_page'];
+    $is_ads_removed_in_page = sanitize_text_field($_POST['is_ads_removed_in_page']);
   }
   $is_ads_removed_in_page_key = 'is_ads_removed_in_page';
   add_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page, true);
@@ -215,11 +226,15 @@ function view_seo_custom_box(){
 
 add_action('save_post', 'save_seo_custom_data');
 function save_seo_custom_data(){
+  //nonce検証（CSRF対策）
+  if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
+    return;
+  }
   $id = get_the_ID();
   //タイトル
   $seo_title = null;
   if ( isset( $_POST['seo_title'] ) ){
-    $seo_title = $_POST['seo_title'];
+    $seo_title = sanitize_text_field($_POST['seo_title']);
     $seo_title_key = 'seo_title';
     add_post_meta($id, $seo_title_key, $seo_title, true);
     update_post_meta($id, $seo_title_key, $seo_title);
@@ -227,7 +242,7 @@ function save_seo_custom_data(){
   //メタディスクリプション
   $meta_description = null;
   if ( isset( $_POST['meta_description'] ) ){
-    $meta_description = $_POST['meta_description'];
+    $meta_description = sanitize_textarea_field($_POST['meta_description']);
     $meta_description_key = 'meta_description';
     add_post_meta($id, $meta_description_key, $meta_description, true);
     update_post_meta($id, $meta_description_key, $meta_description);
@@ -235,7 +250,7 @@ function save_seo_custom_data(){
   //メタキーワード
   $meta_keywords = null;
   if ( isset( $_POST['meta_keywords'] ) ){
-    $meta_keywords = $_POST['meta_keywords'];
+    $meta_keywords = sanitize_text_field($_POST['meta_keywords']);
     $meta_keywords_key = 'meta_keywords';
     add_post_meta($id, $meta_keywords_key, $meta_keywords, true);
     update_post_meta($id, $meta_keywords_key, $meta_keywords);
@@ -243,7 +258,7 @@ function save_seo_custom_data(){
   //noindex
   $is_noindex = null;
   if ( isset( $_POST['is_noindex'] ) ){
-    $is_noindex = $_POST['is_noindex'];
+    $is_noindex = sanitize_text_field($_POST['is_noindex']);
   }
   $is_noindex_key = 'is_noindex';
   add_post_meta($id, $is_noindex_key, $is_noindex, true);
@@ -252,7 +267,7 @@ function save_seo_custom_data(){
   //nofollow
   $is_nofollow = null;
   if ( isset( $_POST['is_nofollow'] ) ){
-    $is_nofollow = $_POST['is_nofollow'];
+    $is_nofollow = sanitize_text_field($_POST['is_nofollow']);
   }
   $is_nofollow_key = 'is_nofollow';
   add_post_meta($id, $is_nofollow_key, $is_nofollow, true);
@@ -337,10 +352,19 @@ function view_page_custom_box(){
 
 add_action('save_post', 'save_page_custom_data');
 function save_page_custom_data(){
+  //nonce検証（CSRF対策）
+  if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
+    return;
+  }
   $id = get_the_ID();
   //ページタイプ
   if ( isset( $_POST['page_type'] ) ){
-    $page_type = $_POST['page_type'];
+    //許可された値のみ受け入れるホワイトリスト方式
+    $allowed = array('default', 'column1_narrow', 'column1_wide', 'content_only_narrow', 'content_only_wide');
+    $page_type = sanitize_text_field($_POST['page_type']);
+    if (!in_array($page_type, $allowed, true)) {
+      $page_type = 'default';
+    }
     $page_type_key = 'page_type';
     add_post_meta($id, $page_type_key, $page_type, true);
     update_post_meta($id, $page_type_key, $page_type);
@@ -427,12 +451,16 @@ function view_amp_custom_box(){
 
 add_action('save_post', 'save_amp_custom_data');
 function save_amp_custom_data(){
+  //nonce検証（CSRF対策）
+  if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
+    return;
+  }
   $id = get_the_ID();
 
   //AMPを有効化するか
   $is_noamp = null;
   if ( isset( $_POST['is_noamp'] ) ){
-    $is_noamp = $_POST['is_noamp'];
+    $is_noamp = sanitize_text_field($_POST['is_noamp']);
   }
   $is_noamp_key = 'is_noamp';
   add_post_meta($id, $is_noamp_key, $is_noamp, true);
@@ -456,7 +484,7 @@ function is_amp_page_enable(){
 
 /* 投稿画面に表示するフォームのHTMLソース */
 function view_update_type_custom_box() {
-    $the_post = isset($_GET['post']) ? $_GET['post'] : null;
+    $the_post = isset($_GET['post']) ? absint($_GET['post']) : null;
     $update_level = get_post_meta( $the_post, 'update_level' );
     $level = $update_level ? $update_level[0] : null;
     echo '<div style="padding-top: 3px; overflow: hidden;">';
@@ -474,7 +502,15 @@ function view_update_type_custom_box() {
 add_action( 'save_post', 'save_update_type_custom_data' );
 /* 設定したカスタムフィールドの値をDBに書き込む記述 */
 function save_update_type_custom_data( $post_id ) {
-    $mydata = isset($_POST['update_level']) ? $_POST['update_level'] : null;
+    //nonce検証（CSRF対策）
+    if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
+      return;
+    }
+    //許可された値のみ受け入れるホワイトリスト方式
+    $mydata = isset($_POST['update_level']) ? sanitize_text_field($_POST['update_level']) : null;
+    if (!in_array($mydata, array('high', 'low', null), true)) {
+      $mydata = 'high';
+    }
     if( "" == get_post_meta( $post_id, 'update_level' )) {
         /* update_levelというキーでデータが保存されていなかった場合、新しく保存 */
         add_post_meta( $post_id, 'update_level', $mydata, true ) ;
@@ -490,7 +526,7 @@ function save_update_type_custom_data( $post_id ) {
 /* 「更新」以外は更新日時を変更しない */
 function simplicity_insert_post_data( $data, $postarr ){
   //$update_level = $_POST ? $_POST['update_level'] : null;
-  $mydata = isset($_POST['update_level']) ? $_POST['update_level'] : null;
+  $mydata = isset($_POST['update_level']) ? sanitize_text_field($_POST['update_level']) : null;
   if( $mydata == "low" ){
     unset( $data["post_modified"] );
     unset( $data["post_modified_gmt"] );
@@ -608,6 +644,10 @@ endif;
 add_action('save_post', 'review_custom_box_save_data');
 if ( !function_exists( 'review_custom_box_save_data' ) ):
 function review_custom_box_save_data(){
+  //nonce検証（CSRF対策）
+  if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
+    return;
+  }
   $id = get_the_ID();
   //有効/無効
   $the_review_enable = !empty($_POST['the_review_enable']) ? 1 : 0;
@@ -617,7 +657,7 @@ function review_custom_box_save_data(){
 
   //名前
   if ( isset( $_POST['the_review_name'] ) ){
-    $the_review_name = $_POST['the_review_name'];
+    $the_review_name = sanitize_text_field($_POST['the_review_name']);
     $the_review_name_key = 'the_review_name';
     add_post_meta($id, $the_review_name_key, $the_review_name, true);
     update_post_meta($id, $the_review_name_key, $the_review_name);
@@ -625,7 +665,9 @@ function review_custom_box_save_data(){
 
   //レート
   if ( isset( $_POST['the_review_rate'] ) ){
-    $the_review_rate = $_POST['the_review_rate'];
+    //数値のバリデーション（0〜5の範囲）
+    $the_review_rate = floatval($_POST['the_review_rate']);
+    $the_review_rate = max(0, min(5, $the_review_rate));
     $the_review_rate_key = 'the_review_rate';
     add_post_meta($id, $the_review_rate_key, $the_review_rate, true);
     update_post_meta($id, $the_review_rate_key, $the_review_rate);
