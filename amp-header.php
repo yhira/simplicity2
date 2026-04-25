@@ -143,7 +143,7 @@ if ( !is_user_logged_in() ) {
   <script type="application/json">
   {
     "vars": {
-      "account": "<?php echo esc_js($tracking_id) ?>"
+      "account": "<?php echo $tracking_id ?>"
     },
     "triggers": {
       "trackPageviewWithAmpdocUrl": {
