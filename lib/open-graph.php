@@ -88,7 +88,9 @@ class OpenGraph implements Iterator
     //UTF-8ページの文字化け問題
     //対処法1：http://qiita.com/kobake@github/items/3c5d09f9584a8786339d
     //対処法2：http://nplll.com/archives/2011/06/_domdocumentloadhtml.php
-    $HTML = mb_convert_encoding($HTML,'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+    //PHP 8.2以降でのHTML-ENTITIES非推奨対応：まずUTF-8に変換し、その後数値文字参照に変換します
+    $HTML = mb_convert_encoding($HTML, 'UTF-8', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+    $HTML = mb_encode_numericentity($HTML, array(0x80, 0x10FFFF, 0, 0x1FFFFF), 'UTF-8');
 		$doc->loadHTML($HTML);
 
     //タイトルタグからタイトル情報を取得
