@@ -9,7 +9,7 @@ if (is_singular()){//単一記事ページの場合
   if ( is_front_page() ) {
     $title = get_bloginfo('name');
   }
-  echo '<meta property="og:title" content="'; echo $title; echo '">';echo "\n";//単一記事タイトルを表示
+  echo '<meta property="og:title" content="'; echo esc_attr($title); echo '">';echo "\n";//単一記事タイトルを表示
   echo '<meta property="og:url" content="'; the_permalink(); echo '">';echo "\n";//単一記事URLを表示
 } else {//単一記事ページページ以外の場合（アーカイブページやホームなど）
   $description = get_bloginfo('description');
@@ -27,9 +27,9 @@ if (is_singular()){//単一記事ページの場合
     $title = wp_title(null, false).' | '.get_bloginfo('name');
     $url = generate_canonical_url();
   }
-  echo '<meta property="og:description" content="'; echo $description; echo '">';echo "\n";//「一般設定」管理画面で指定したブログの説明文を表示
-  echo '<meta property="og:title" content="'; echo $title; echo '">';echo "\n";//「一般設定」管理画面で指定したブログのタイトルを表示
-  echo '<meta property="og:url" content="'; echo $url; echo '">';echo "\n";//「一般設定」管理画面で指定したブログのURLを表示取る
+  echo '<meta property="og:description" content="'; echo esc_attr($description); echo '">';echo "\n";
+  echo '<meta property="og:title" content="'; echo esc_attr($title); echo '">';echo "\n";
+  echo '<meta property="og:url" content="'; echo esc_url($url); echo '">';echo "\n";//「一般設定」管理画面で指定したブログのURLを表示取る
 }
 $content = '';
 if ( isset( $post->post_content ) ){

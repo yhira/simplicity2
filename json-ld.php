@@ -12,7 +12,7 @@
     "@id":"<?php the_permalink(); ?>"<?php  // パーマリンクを取得 ?>
 
   },
-  "headline": "<?php the_title();?>",<?php // ページタイトルを取得 ?>
+  "headline": <?php echo wp_json_encode(get_the_title()); ?>,<?php // ページタイトルを取得 ?>
 
   "image": {
     "@type": "ImageObject",
@@ -41,7 +41,7 @@ if ($image && file_exists($image_file)) {
   $width = 800;
   $height = 451;
 } ?>
-    "url": "<?php echo $image_url;?>",
+    "url": <?php echo wp_json_encode($image_url); ?>,
     "width": <?php echo $width; ?>,
     "height": <?php echo $height; ?>
 
@@ -52,12 +52,12 @@ if ($image && file_exists($image_file)) {
 
   "author": {
     "@type": "Person",
-    "name": "<?php echo (get_the_author_meta('nickname') ? get_the_author_meta('nickname') : get_bloginfo('name')); ?>"<?php // 投稿者ニックネーム ?>
+    "name": <?php echo wp_json_encode(get_the_author_meta('nickname') ? get_the_author_meta('nickname') : get_bloginfo('name')); ?><?php // 投稿者ニックネーム ?>
 
   },
   "publisher": {
     "@type": "Organization",
-    "name": "<?php bloginfo('name'); ?>",<?php // サイト名 ?>
+    "name": <?php echo wp_json_encode(get_bloginfo('name')); ?>,<?php // サイト名 ?>
 
 <?php
 $image_url = get_amp_logo_url();
@@ -83,14 +83,14 @@ if ($image_url && file_exists($image_file)) {//ロゴ画像がある場合
 }?>
     "logo": {
       "@type": "ImageObject",
-      "url": "<?php echo $image_url; ?>",<?php  // ロゴ画像 ?>
+      "url": <?php echo wp_json_encode($image_url); ?>,<?php  // ロゴ画像 ?>
 
       "width": <?php echo $width; ?>,
       "height": <?php echo $height; ?>
 
     }
   },
-  "description": "<?php echo get_the_description(); ?>…"<?php  // 抜粋 ?>
+  "description": <?php echo wp_json_encode(get_the_description() . '…'); ?><?php  // 抜粋 ?>
 
 }
 </script>

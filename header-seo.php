@@ -19,10 +19,10 @@ endif ?>
 <?php //トップページのみ（メタディスクリプションとMetaキーワードの設定）
 if (is_home() && !is_paged()) : ?>
 <?php if ( get_top_page_meta_description() )://メタディスクリプション ?>
-<meta name="description" content="<?php echo get_top_page_meta_description(); ?>">
+<meta name="description" content="<?php echo esc_attr(get_top_page_meta_description()); ?>">
 <?php endif ?>
 <?php if ( get_top_page_meta_keyword() )://メタキーワード ?>
-<meta name="keywords" content="<?php echo get_top_page_meta_keyword(); ?>">
+<meta name="keywords" content="<?php echo esc_attr(get_top_page_meta_keyword()); ?>">
 <?php endif ?>
 <?php endif; ?>
 <?php //投稿ページにMETAタグを挿入するとき
@@ -31,35 +31,35 @@ if ( is_singular() && is_meta_description_insert() ):
   if ( get_multi_page_number() > 1 ) {
     $page_str = ' - ページ '.get_multi_page_number();
   }?>
-<meta name="description" content="<?php echo get_the_description().$page_str; ?>" />
+<meta name="description" content="<?php echo esc_attr(get_the_description().$page_str); ?>" />
 <?php endif; ?>
 <?php //投稿ページにMETAキーワードを挿入するとき
 if ( is_single() && is_meta_keywords_insert() && get_the_keywores() ):?>
-<meta name="keywords" content="<?php echo get_the_keywores(); ?>" />
+<meta name="keywords" content="<?php echo esc_attr(get_the_keywores()); ?>" />
 <?php endif; ?>
 <?php //固定ページにMETAキーワードを挿入するとき
 if ( is_page() && is_meta_keywords_insert() && get_meta_keywords_singular_page() ):?>
-<meta name="keywords" content="<?php echo get_meta_keywords_singular_page(); ?>" />
+<meta name="keywords" content="<?php echo esc_attr(get_meta_keywords_singular_page()); ?>" />
 <?php endif; ?>
 <?php //カテゴリーページにMETAディスクリプションを挿入するとき
 if ( is_category() && is_meta_description_insert_to_category() ): ?>
-<meta name="description" content="<?php echo get_meta_description_from_category(); ?>" />
+<meta name="description" content="<?php echo esc_attr(get_meta_description_from_category()); ?>" />
 <?php endif; ?>
 <?php //カテゴリーページにMETAキーワードを挿入するとき
 if ( is_category() && is_meta_keywords_insert_to_category() ): ?>
-<meta name="keywords" content="<?php echo get_meta_keyword_from_category(); ?>" />
+<meta name="keywords" content="<?php echo esc_attr(get_meta_keyword_from_category()); ?>" />
 <?php endif; ?>
 <?php //タグページにMETAディスクリプションを挿入するとき
 if ( is_tag() ): ?>
-<meta name="description" content="<?php echo get_meta_description_from_tag(); ?>" />
+<meta name="description" content="<?php echo esc_attr(get_meta_description_from_tag()); ?>" />
 <?php endif; ?>
 <?php //タグページにMETAキーワードを挿入するとき
 if ( is_tag() ): ?>
-<meta name="keywords" content="<?php echo get_meta_keyword_from_tag(); ?>" />
+<meta name="keywords" content="<?php echo esc_attr(get_meta_keyword_from_tag()); ?>" />
 <?php endif; ?>
 <?php //はてブのコメント一覧非表示機能に対応
 if (get_hatebu_follow_id()): ?>
-<link rel="author" href="http://www.hatena.ne.jp/<?php echo get_hatebu_follow_id(); ?>/" />
+<link rel="author" href="http://www.hatena.ne.jp/<?php echo esc_attr(get_hatebu_follow_id()); ?>/" />
 <?php endif ?>
 <?php
 ///////////////////////////////////////

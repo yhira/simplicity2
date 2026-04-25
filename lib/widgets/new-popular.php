@@ -124,7 +124,7 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
     $instance['title_new'] = strip_tags($new_instance['title_new']);
-    $instance['title_popular'] = trim($new_instance['title_popular']);
+    $instance['title_popular'] = trim(strip_tags($new_instance['title_popular']));
     $instance['entry_count'] = strip_tags($new_instance['entry_count']);
     $instance['entry_type'] = strip_tags($new_instance['entry_type']);
     $instance['is_pages_include'] = strip_tags($new_instance['is_pages_include']);
