@@ -2,6 +2,7 @@
 
 
 //画像タグにLazyLoad用の属性などを追加
+if ( !function_exists( 'add_image_tag_placeholders' ) ) {
 function add_image_tag_placeholders( $content ) {
   if ( is_amp() ) {
     return $content;
@@ -22,6 +23,8 @@ function add_image_tag_placeholders( $content ) {
 
   return $content;
 }
+}
+
 if ( is_lazy_load_enable() ) {//Lazy Loadが有効の場合のみ
   add_filter( 'the_content', 'add_image_tag_placeholders', 99 );
   //add_filter( 'post_thumbnail_html', 'add_image_tag_placeholders', 99 );
@@ -29,6 +32,7 @@ if ( is_lazy_load_enable() ) {//Lazy Loadが有効の場合のみ
 }
 
 //Lightboxのようなギャラリー系のjQueryプラグインが動作しているか
+if ( !function_exists( 'is_lightbox_plugin_exist' ) ) {
 function is_lightbox_plugin_exist($content){
   //lity
   if ( false !== strpos( $content, 'data-lity="' ) )
@@ -39,9 +43,12 @@ function is_lightbox_plugin_exist($content){
 
   return false;
 }
+}
+
 
 
 //画像リンクのAタグをLightboxに対応するように付け替え
+if ( !function_exists( 'add_lightbox_property' ) ) {
 function add_lightbox_property( $content ) {
   //プレビューやフィードで表示しない
   if( is_feed() || is_mobile() )
@@ -60,12 +67,15 @@ function add_lightbox_property( $content ) {
 
   return $content;
 }
+}
+
 if ( is_lightbox_enable() ) {
   add_filter( 'the_content', 'add_lightbox_property', 9 );
 }
 
 //画像リンクのAタグをlityに対応するように付け替え
 //http://sorgalla.com/lity/
+if ( !function_exists( 'add_lity_property' ) ) {
 function add_lity_property( $content ) {
   //プレビューやフィードで表示しない
   if( is_feed() || is_mobile() )
@@ -90,16 +100,21 @@ function add_lity_property( $content ) {
     $content );//投稿本文（置換する文章）
   return $content;
 }
+}
+
 if ( is_lity_enable() ) {
   add_filter( 'the_content', 'add_lity_property', 11 );
 }
 
 
 //thickboxを呼び出さない
+if ( !function_exists( 'deregister_thickbox_files' ) ) {
 function deregister_thickbox_files() {
   wp_dequeue_style( 'thickbox' );
   wp_dequeue_script( 'thickbox' );
 }
+}
+
 add_action( 'wp_enqueue_scripts', 'deregister_thickbox_files' );
 
 //画像が出てきたらキャプション表示用のラッパーを装着

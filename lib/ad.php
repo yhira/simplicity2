@@ -1,7 +1,9 @@
 <?php //広告関係の関数
 
 //H2見出しを判別する正規表現を定数にする
-define('H2_REG', '/<h2.*?>/i');//H2見出しのパターン
+if ( !defined( 'H2_REG' ) ) {
+  define('H2_REG', '/<h2.*?>/i');//H2見出しのパターン
+}
 
 //本文中にH2見出しが最初に含まれている箇所を返す（含まれない場合はnullを返す）
 //H3-H6しか使っていない場合は、h2部分を変更してください
@@ -40,10 +42,13 @@ endif;
 add_filter('the_content', 'add_ads_before_1st_h2');
 
 
+if ( !function_exists( 'get_all_post_count_in_publish' ) ) {
 function get_all_post_count_in_publish(){
   global $wpdb;
   return intval($wpdb->get_var("SELECT count(*) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post'"));
 }
+}
+
 
 //広告をトップページのリスト表示中間に掲載するか
 if ( !function_exists( 'is_ads_list_in_middle_on_top_page_enable' ) ):

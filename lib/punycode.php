@@ -73,6 +73,7 @@ include 'punycode-obj.php';
 ///////////////////////////////////////
 //Punycode変換関数
 ///////////////////////////////////////
+if ( !function_exists( 'convert_punycode' ) ):
 function convert_punycode($url, $is_encode = true){
   if (empty($url)) return;
   $url_parts = parse_url($url);
@@ -85,17 +86,22 @@ function convert_punycode($url, $is_encode = true){
   $url_parts['host'] = $host;
   return http_build_url($url, $url_parts);
 }
+endif;
 
 ///////////////////////////////////////
 //Punycodeへの変換（エンコード）
 ///////////////////////////////////////
+if ( !function_exists( 'punycode_encode' ) ):
 function punycode_encode($url){
   return convert_punycode($url, true);
 }
+endif;
 
 ///////////////////////////////////////
 //通常のURLへ戻す（PreCode）
 ///////////////////////////////////////
+if ( !function_exists( 'punycode_decode' ) ):
 function punycode_decode($url){
   return convert_punycode($url, false);
 }
+endif;

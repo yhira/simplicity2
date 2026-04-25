@@ -16,13 +16,19 @@ $SS = '"(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\'';
 $CC = '\/\*[\s\S]*?\*\/';
 $CH = '<\!--[\s\S]*?-->';
 
+if ( !function_exists( '__minifyx' ) ) {
 function __minifyx($input) {
     return str_replace(array("\n", "\t", ' '), array(X . '\n', X . '\t', X . '\s'), $input);
 }
+}
 
+
+if ( !function_exists( '__minifyv' ) ) {
 function __minifyv($input) {
     return str_replace(array(X . '\n', X . '\t', X . '\s'), array("\n", "\t", ' '), $input);
 }
+}
+
 
 
 /**
@@ -30,10 +36,14 @@ function __minifyv($input) {
  *  HTML MINIFIER
  * =======================================================
  */
+if ( !function_exists( '__replace_html_style_for_minify' ) ) {
 function __replace_html_style_for_minify($m) {
   return $m[1] . $m[2] . minify_css($m[3]) . $m[2];
 }
+}
 
+
+if ( !function_exists( '__replace_html_for_minify' ) ) {
 function __replace_html_for_minify($m) {
     if(isset($m[2])) {
         // Minify inline CSS declaration(s)
@@ -61,11 +71,17 @@ function __replace_html_for_minify($m) {
     }
     return '<' . $m[1] . '>';
     }
+}
 
+
+if ( !function_exists( '_minify_html' ) ) {
 function _minify_html($input) {
     return preg_replace_callback('#<\s*([^\/\s]+)\s*(?:>|(\s[^<>]+?)\s*>)#', '__replace_html_for_minify', $input);
 }
+}
 
+
+if ( !function_exists( 'minify_html' ) ) {
 function minify_html($input) {
     if( ! $input = trim($input)) return $input;
     global $CH;
@@ -112,6 +128,8 @@ function minify_html($input) {
     // Remove white-space(s) after ignored tag-open and before ignored tag-close (except `<textarea>`)
     return preg_replace('#<(code|pre|script|style)(>|\s[^<>]*?>)\s*([\s\S]*?)\s*<\/\1>#i', '<$1$2$3</$1>', $output);
 }
+}
+
 
 
 /**
@@ -119,10 +137,14 @@ function minify_html($input) {
  *  CSS MINIFIER
  * =======================================================
  */
+if ( !function_exists( '__replace_css_for_minify' ) ) {
 function __replace_css_for_minify($m) {
     return $m[1] . preg_replace('#\s+#', X . '\s', $m[2]) . ')';
 }
+}
 
+
+if ( !function_exists( '_minify_css' ) ) {
 function _minify_css($input) {
     // Keep important white-space(s) in `calc()`
     if(stripos($input, 'calc(') !== false) {
@@ -184,7 +206,10 @@ function _minify_css($input) {
         ),
     $input);
 }
+}
 
+
+if ( !function_exists( 'minify_css' ) ) {
 function minify_css($input) {
     if( ! $input = trim($input)) return $input;
     global $SS, $CC;
@@ -220,6 +245,8 @@ function minify_css($input) {
     $output);
     return __minifyv($output);
 }
+}
+
 
 
 /**
@@ -228,6 +255,7 @@ function minify_css($input) {
  * =======================================================
  */
 
+if ( !function_exists( '_minify_js' ) ) {
 function _minify_js($input) {
     return preg_replace(
         array(
@@ -252,7 +280,10 @@ function _minify_js($input) {
         ),
     $input);
 }
+}
 
+
+if ( !function_exists( 'minify_js' ) ) {
 function minify_js($input) {
     if( ! $input = trim($input)) return $input;
     // Create chunk(s) of string(s), comment(s), regex(es) and text
@@ -287,4 +318,5 @@ function minify_js($input) {
             '$1.$3'
         ),
     $output);
+}
 }

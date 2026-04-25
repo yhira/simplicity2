@@ -38,6 +38,7 @@ endif;
 
 
 add_action( 'customize_register', 'theme_customize_register' );
+if ( !function_exists( 'theme_customize_register' ) ) {
 function theme_customize_register($wp_customize) {
 
   /////////////////////////////
@@ -3903,11 +3904,16 @@ function theme_customize_register($wp_customize) {
   ));
 
 }
+}
+
 
 //カスタムスキン設定の値を取得
+if ( !function_exists( 'get_skin_options' ) ) {
 function get_skin_options(){
   return get_option('skin_options');
 }
+}
+
 
 function remove_protocol($url){
   return preg_replace('/https?:/i', '', $url);
@@ -3943,21 +3949,31 @@ endif;
 
 
 //カスタムレイアウト設定の値を取得
+if ( !function_exists( 'get_layout_options' ) ) {
 function get_layout_options(){
   return get_option('layout_options');
 }
+}
+
 
 //ヘッダーの高さを取得
+if ( !function_exists( 'get_header_height' ) ) {
 function get_header_height(){
   return get_theme_mod( 'header_height', 100 );
 }
+}
+
 
 //ロゴを画像にするかどうか
+if ( !function_exists( 'is_header_logo_enable' ) ) {
 function is_header_logo_enable(){
   return get_theme_mod( 'header_logo_enable', false );
 }
+}
+
 
 //ヘッダーロゴ画像のURL
+if ( !function_exists( 'get_header_logo_url' ) ) {
 function get_header_logo_url(){
   $header_logo_url = '';
   if ( is_header_logo_enable() ) {
@@ -3965,28 +3981,43 @@ function get_header_logo_url(){
   }
   return $header_logo_url;
 }
+}
+
 
 //ヘッダー外側の背景画像URLの取得
+if ( !function_exists( 'get_header_outer_background_image' ) ) {
 function get_header_outer_background_image(){
   return get_theme_mod( 'header_outer_background_image', '');
 }
+}
+
 
 //モバイルヘッダーの高さを取得
+if ( !function_exists( 'get_header_height_mobile' ) ) {
 function get_header_height_mobile(){
   return get_theme_mod( 'header_height_mobile', 0 );
 }
+}
+
 
 //モバイルヘッダーの背景画像URLの取得
+if ( !function_exists( 'get_mobile_header_background_image' ) ) {
 function get_mobile_header_background_image(){
   return get_theme_mod( 'mobile_header_background_image', '' );
 }
+}
+
 
 //サイトフォントの取得
+if ( !function_exists( 'get_site_font' ) ) {
 function get_site_font(){
   return get_theme_mod( 'site_font', 'default' );
 }
+}
+
 
 //サイトフォントソースコードの取得
+if ( !function_exists( 'get_site_font_source' ) ):
 function get_site_font_source(){
   $font_source = get_site_font();
   //空白を取り除く
@@ -3995,288 +4026,453 @@ function get_site_font_source(){
   $font_source = strtolower($font_source);
   return $font_source;
 }
+endif;
 
 //サイトフォントソースコードURLの取得
+if ( !function_exists( 'get_site_font_source_url' ) ):
 function get_site_font_source_url(){
   $font_source = get_site_font();
   return 'https://fonts.googleapis.com/earlyaccess/'.get_site_font_source().'.css';
 }
+endif;
 
 //サイトフォントはデフォルト化
+if ( !function_exists( 'is_site_font_default' ) ) {
 function is_site_font_default(){
   return get_site_font() == 'default';
 }
+}
+
 
 
 //完全レスポンシブかどうか
+if ( !function_exists( 'is_responsive_enable' ) ) {
 function is_responsive_enable(){
   return get_theme_mod( 'responsive_enable', false ) || is_page_cache_enable();
 }
+}
+
 
 //PCでサイドバーをレスポンシブにするか（完全レスポンシブがオフの時のみ）
+if ( !function_exists( 'is_responsive_pc_sidebar_enable' ) ) {
 function is_responsive_pc_sidebar_enable(){
   return get_theme_mod( 'responsive_pc_sidebar_enable', true );
 }
+}
+
 
 //タブレットをモバイル表示するか
+if ( !function_exists( 'is_tablet_mobile' ) ) {
 function is_tablet_mobile(){
   return get_theme_mod( 'tablet_mobile', false );
 }
+}
+
 
 //タイトルを中央寄せにするか
+if ( !function_exists( 'is_title_center' ) ) {
 function is_title_center(){
   return get_theme_mod( 'title_center', false );
 }
+}
+
 
 //本文文字サイズ
+if ( !function_exists( 'get_article_font_size' ) ) {
 function get_article_font_size(){
   return get_theme_mod( 'article_font_size', ARTICLE_FONT_SIZE );
 }
+}
+
 
 //モバイル本文文字サイズ
+if ( !function_exists( 'get_article_mobile_font_size' ) ) {
 function get_article_mobile_font_size(){
   return get_theme_mod( 'article_mobile_font_size', ARTICLE_FONT_SIZE );
 }
+}
+
 
 //長い単語を強制改行するか
+if ( !function_exists( 'is_word_wrap_break_word' ) ) {
 function is_word_wrap_break_word(){
   return get_theme_mod( 'word_wrap_break_word', false );
 }
+}
+
 
 //モバイルでbr改行を表示するか
+if ( !function_exists( 'is_br_visible_with_mobile' ) ) {
 function is_br_visible_with_mobile(){
   return get_theme_mod( 'br_visible_with_mobile', true );
 }
+}
+
 
 //投稿日表示がオンかどうか
+if ( !function_exists( 'is_create_date_visible' ) ) {
 function is_create_date_visible(){
   return get_theme_mod( 'create_date_visible', true );
 }
+}
+
 
 //時間差表示がオンかどうか
+if ( !function_exists( 'is_human_time_diff_visible' ) ) {
 function is_human_time_diff_visible(){
   return get_theme_mod( 'human_time_diff_visible', false );
 }
+}
+
 
 //更新日表示がオンかどうか
+if ( !function_exists( 'is_update_date_visible' ) ) {
 function is_update_date_visible(){
   return get_theme_mod( 'update_date_visible', true );
 }
+}
+
 
 //カテゴリー情報表示がオンかどうか
+if ( !function_exists( 'is_category_visible' ) ) {
 function is_category_visible(){
   return get_theme_mod( 'category_visible', true );
 }
+}
+
 
 //タグ情報表示がオンかどうか
+if ( !function_exists( 'is_tag_visible' ) ) {
 function is_tag_visible(){
   return get_theme_mod( 'tag_visible', true );
 }
+}
+
 
 //コメント数表示がオンかどうか
+if ( !function_exists( 'is_comment_count_visible' ) ) {
 function is_comment_count_visible(){
   return get_theme_mod( 'comment_count_visible', false );
 }
+}
+
 
 //投稿者情報表示がオンかどうか
+if ( !function_exists( 'is_author_visible' ) ) {
 function is_author_visible(){
   return get_theme_mod( 'author_visible', true );
 }
+}
+
 
 //投稿者情報にTwitter IDを表示するか
+if ( !function_exists( 'is_twitter_follow_id_author_visible' ) ) {
 function is_twitter_follow_id_author_visible(){
   return get_theme_mod( 'twitter_follow_id_author_visible', false );
 }
+}
+
 
 //編集リンク表示がオンかどうか
+if ( !function_exists( 'is_edit_visible' ) ) {
 function is_edit_visible(){
   return get_theme_mod( 'edit_visible', true );
 }
+}
+
 
 //先頭のアイキャッチを表示するかどうか
+if ( !function_exists( 'is_eye_catch_visible' ) ) {
 function is_eye_catch_visible(){
   return get_theme_mod( 'eye_catch_visible', false );
 }
+}
+
 
 //先頭のアイキャッチキャプションを表示するかどうか
+if ( !function_exists( 'is_eye_catch_caption_visible' ) ) {
 function is_eye_catch_caption_visible(){
   return get_theme_mod( 'eye_catch_caption_visible', false );
 }
+}
+
 
 //抜粋文字数の取得
+if ( !function_exists( 'get_excerpt_length' ) ) {
 function get_excerpt_length(){
   return get_theme_mod( 'excerpt_length', 70 );
 }
+}
+
 
 //抜粋の末尾文字
+if ( !function_exists( 'get_excerpt_more' ) ) {
 function get_excerpt_more(){
   return get_theme_mod( 'excerpt_more', __( '...', 'simplicity2' ) );
 }
+}
+
 
 //Wordpress固有の抜粋文を使用するか
+if ( !function_exists( 'is_wordpress_excerpt' ) ) {
 function is_wordpress_excerpt(){
   return get_theme_mod( 'wordpress_excerpt', true );
 }
+}
+
 
 //大きな表は横スクロール表示するか
+if ( !function_exists( 'is_scrollable_table_enable' ) ) {
 function is_scrollable_table_enable(){
   return get_theme_mod( 'scrollable_table_enable', false );
 }
+}
+
 
 //関連記事を表示するか
+if ( !function_exists( 'is_related_entry_visible' ) ) {
 function is_related_entry_visible(){
   return get_theme_mod( 'related_entry_visible', true );
 }
+}
+
 
 //関連記事表示タイプの取得
+if ( !function_exists( 'get_related_entry_type' ) ) {
 function get_related_entry_type(){
   return get_theme_mod( 'related_entry_type', 'default' );
 }
+}
+
 
 //関連記事表示タイプはデフォルトか
+if ( !function_exists( 'is_related_entry_type_default' ) ) {
 function is_related_entry_type_default(){
   return get_related_entry_type() == 'default';
 }
+}
+
 
 //関連記事表示タイプはサムネイル3列表示が
+if ( !function_exists( 'is_related_entry_type_thumbnail3' ) ) {
 function is_related_entry_type_thumbnail3(){
   return get_related_entry_type() == 'thumbnail';
 }
+}
+
 
 //関連記事表示タイプはサムネイル4列表示が
+if ( !function_exists( 'is_related_entry_type_thumbnail4' ) ) {
 function is_related_entry_type_thumbnail4(){
   return get_related_entry_type() == 'thumbnail4';
 }
+}
+
 
 //関連記事の関連付けタイプの取得
+if ( !function_exists( 'get_related_entry_association' ) ) {
 function get_related_entry_association(){
   return get_theme_mod( 'related_entry_association', 'category' );
 }
+}
+
 
 //関連記事の関連付けはカテゴリか
+if ( !function_exists( 'is_related_entry_association_category' ) ) {
 function is_related_entry_association_category(){
   return get_related_entry_association() == 'category';
 }
+}
+
 
 //関連記事の関連付けはタグか
+if ( !function_exists( 'is_related_entry_association_tag' ) ) {
 function is_related_entry_association_tag(){
   return get_related_entry_association() == 'tag';
 }
+}
+
 
 //関連記事数の取得
+if ( !function_exists( 'get_related_entry_count' ) ) {
 function get_related_entry_count(){
   return get_theme_mod( 'related_entry_count', 10 );
 }
+}
+
 
 //グローバルナビを表示するかどうか
+if ( !function_exists( 'is_navi_visible' ) ) {
 function is_navi_visible(){
   return get_theme_mod( 'navi_visible', true ) ||
    ( is_mobile_menu_type_slide_in() && is_mobile() );
 }
+}
+
 
 //モバイルメニュータイプの取得
+if ( !function_exists( 'get_mobile_menu_type' ) ) {
 function get_mobile_menu_type(){
   return get_theme_mod( 'mobile_menu_type', 'accordion' );
 }
+}
+
 
 //グローバルナビをアコーディオンにするか
+if ( !function_exists( 'is_mobile_menu_type_accordion' ) ) {
 function is_mobile_menu_type_accordion(){
   return get_mobile_menu_type() == 'accordion';
 }
+}
+
 
 //グローバルナビをアコーディオンツリーにするか（SlickNav）
+if ( !function_exists( 'is_mobile_menu_type_accordion_tree' ) ) {
 function is_mobile_menu_type_accordion_tree(){
   return get_mobile_menu_type() == 'accordion_tree';
 }
+}
+
 
 //グローバルナビをモーダル表示するかどうか
+if ( !function_exists( 'is_mobile_menu_type_modal' ) ) {
 function is_mobile_menu_type_modal(){
   return get_mobile_menu_type() == 'modal';
 }
+}
+
 
 //グローバルナビをスライドインボタンで表示するかどうか
+if ( !function_exists( 'is_mobile_menu_type_slide_in' ) ) {
 function is_mobile_menu_type_slide_in(){
   return is_slide_in_light() ||
          is_slide_in_dark();
 }
+}
+
 //グローバルナビが「スライドインライト」か
+if ( !function_exists( 'is_slide_in_light' ) ) {
 function is_slide_in_light(){
   return is_slide_in_light_top() ||
          is_slide_in_light_bottom();
 }
+}
+
 
 //グローバルナビを「スライドインライト（ボタン上）」で表示するかどうか
+if ( !function_exists( 'is_slide_in_light_top' ) ) {
 function is_slide_in_light_top(){
   return get_mobile_menu_type() == 'slide_in_light_top' && is_mobile() && !is_responsive_enable();
 }
+}
+
 
 //グローバルナビを「スライドインライト（ボタン下）」で表示するかどうか
+if ( !function_exists( 'is_slide_in_light_bottom' ) ) {
 function is_slide_in_light_bottom(){
   return get_mobile_menu_type() == 'slide_in_light_bottom' && is_mobile() && !is_responsive_enable();
 }
+}
+
 
 //グローバルナビが「スライドインダーク」か
+if ( !function_exists( 'is_slide_in_dark' ) ) {
 function is_slide_in_dark(){
   return is_slide_in_dark_top() ||
          is_slide_in_dark_bottom();
 }
+}
+
 
 //グローバルナビを「スライドインダーク（ボタン上）」で表示するかどうか
+if ( !function_exists( 'is_slide_in_dark_top' ) ) {
 function is_slide_in_dark_top(){
   return get_mobile_menu_type() == 'slide_in_dark_top' && is_mobile() && !is_responsive_enable();
 }
+}
+
 
 //グローバルナビを「スライドインダーク（ボタン下）」で表示するかどうか
+if ( !function_exists( 'is_slide_in_dark_bottom' ) ) {
 function is_slide_in_dark_bottom(){
   return get_mobile_menu_type() == 'slide_in_dark_bottom' && is_mobile() && !is_responsive_enable();
 }
+}
+
 
 //グローバルナビが「スライドイン（ボタン上）」か
+if ( !function_exists( 'is_slide_in_top_buttons' ) ) {
 function is_slide_in_top_buttons(){
   return is_slide_in_light_top() ||
          is_slide_in_dark_top();
 }
+}
+
 
 //グローバルナビが「スライドイン（ボタン下）」か
+if ( !function_exists( 'is_slide_in_bottom_buttons' ) ) {
 function is_slide_in_bottom_buttons(){
   return is_slide_in_light_bottom() ||
          is_slide_in_dark_bottom();
 }
+}
+
 
 //スライドインメニューを日本語表示にするか
+if ( !function_exists( 'is_mobile_menu_japanese' ) ) {
 function is_mobile_menu_japanese(){
   return get_theme_mod( 'mobile_menu_japanese', true );
 }
+}
+
 
 //グローバルナビを横幅いっぱいにするかどうか
+if ( !function_exists( 'is_navi_wide' ) ) {
 function is_navi_wide(){
   return get_theme_mod( 'layout_option_navi_wide', false );
 }
+}
+
 
 //[前ページ] [次ページ] ナビを表示するか
+if ( !function_exists( 'is_post_navi_visible' ) ) {
 function is_post_navi_visible(){
   return get_theme_mod( 'post_navi_visible', true );
 }
+}
+
 
 //[前ページ] [次ページ] ナビタイプの取得
+if ( !function_exists( 'get_post_navi_type' ) ) {
 function get_post_navi_type(){
   return get_theme_mod( 'post_navi_type', 'default' );
 }
+}
+
 
 //[前ページ] [次ページ] ナビタイプはデフォルトか
+if ( !function_exists( 'is_post_navi_type_default' ) ) {
 function is_post_navi_type_default(){
   return get_post_navi_type() == 'default';
 }
+}
+
 
 //[前ページ] [次ページ] ナビタイプはサムネイルか
+if ( !function_exists( 'is_post_navi_type_thumbnail' ) ) {
 function is_post_navi_type_thumbnail(){
   return get_post_navi_type() == 'thumbnail';
 }
+}
+
 
 //固定ページにパンくずリストを表示するかどうか
+if ( !function_exists( 'is_page_breadcrumb_visible' ) ) {
 function is_page_breadcrumb_visible(){
   return get_theme_mod( 'page_breadcrumb_visible', true );
 }
+}
+
 
 //一覧リストのスタイル取得
 if ( !function_exists( 'get_list_style' ) ):
@@ -4286,210 +4482,330 @@ function get_list_style(){
 endif;
 
 //モバイルで1ページに表示する最大投稿数
+if ( !function_exists( 'get_posts_per_page_mobile' ) ) {
 function get_posts_per_page_mobile(){
   return get_theme_mod( 'posts_per_page_mobile', 10);
 }
+}
+
 
 //固定ページを一覧リストに含めるか
+if ( !function_exists( 'is_page_include_in_list' ) ) {
 function is_page_include_in_list(){
   return get_theme_mod( 'page_include_in_list', false );
 }
+}
+
 
 //エントリーカード全体をリンク化するか
+if ( !function_exists( 'is_wraped_entry_card' ) ) {
 function is_wraped_entry_card(){
   return get_theme_mod( 'wraped_entry_card', false );
 }
+}
+
 
 //サムネイルを表示するかどうか
+if ( !function_exists( 'is_thumbnail_visible' ) ) {
 function is_thumbnail_visible(){
   return get_theme_mod( 'thumbnail_visible', true );
 }
+}
+
 
 //サムネイルの角の状態を取得
+if ( !function_exists( 'get_thumbnail_radius' ) ) {
 function get_thumbnail_radius(){
   return get_theme_mod( 'thumbnail_radius', 'default' );
 }
+}
+
 
 //サムネイルの角を10pxで丸めるか
+if ( !function_exists( 'is_thumbnail_radius_10px' ) ) {
 function is_thumbnail_radius_10px(){
   return get_thumbnail_radius() == 'radius_10px';
 }
+}
+
 
 //サムネイルを円形にするか
+if ( !function_exists( 'is_thumbnail_circle' ) ) {
 function is_thumbnail_circle(){
   return get_thumbnail_radius() == 'circle';
 }
+}
+
 
 //一覧リストのスタイルがエントリーカードタイプかどうか（インデックスミドル広告を表示するか）
+if ( !function_exists( 'is_list_style_entry_type' ) ) {
 function is_list_style_entry_type(){
   return is_list_style_entry_cards() ||
          is_list_style_large_cards() ||
          is_list_style_large_card_just_for_first() ||
          is_list_style_body_just_for_first();
 }
+}
+
 
 //一覧リストのスタイルがエントリーカード表示かどうか
+if ( !function_exists( 'is_list_style_entry_cards' ) ) {
 function is_list_style_entry_cards(){
   return ( get_list_style() == 'cards' );
 }
+}
+
 
 //一覧リストのスタイルが大きなエントリーカード表示かどうか
+if ( !function_exists( 'is_list_style_large_cards' ) ) {
 function is_list_style_large_cards(){
   return ( get_list_style() == 'large_cards' );
 }
+}
+
 
 //一覧リストのスタイルが最初だけを大きなエントリーカード表示かどうか
+if ( !function_exists( 'is_list_style_large_card_just_for_first' ) ) {
 function is_list_style_large_card_just_for_first(){
   return ( get_list_style() == 'large_card_just_for_first' );
 }
+}
+
 
 //一覧リストのスタイルが本文表示かどうか
+if ( !function_exists( 'is_list_style_bodies' ) ) {
 function is_list_style_bodies(){
   return ( get_list_style() == 'bodies' );
 }
+}
+
 
 //一覧リストのスタイルが最初だけ本文表示かどうか
+if ( !function_exists( 'is_list_style_body_just_for_first' ) ) {
 function is_list_style_body_just_for_first(){
   return ( get_list_style() == 'body_just_for_first' );
 }
+}
+
 
 //一覧リストのスタイルが大きなサムネイル表示かどうか
+if ( !function_exists( 'is_list_style_large_thumb_cards' ) ) {
 function is_list_style_large_thumb_cards(){
   return ( get_list_style() == 'large_thumb' );
 }
+}
+
 
 //一覧リストのスタイルがタイル表示かどうか
+if ( !function_exists( 'is_list_style_tile_thumb_cards' ) ) {
 function is_list_style_tile_thumb_cards(){
   return ( is_list_style_tile_thumb_2columns() || is_list_style_tile_thumb_3columns() ||
            is_list_style_tile_thumb_2columns_raw() || is_list_style_tile_thumb_3columns_raw() );
 }
+}
+
 
 //一覧リストのスタイルがタイル2列表示かどうか
+if ( !function_exists( 'is_list_style_tile_thumb_2columns' ) ) {
 function is_list_style_tile_thumb_2columns(){
   return ( get_list_style() == 'tile_thumb_2columns' );
 }
+}
+
 
 //一覧リストのスタイルがタイル3列表示かどうか
+if ( !function_exists( 'is_list_style_tile_thumb_3columns' ) ) {
 function is_list_style_tile_thumb_3columns(){
   return ( get_list_style() == 'tile_thumb_3columns' );
 }
+}
+
 
 //一覧リストのスタイルがタイル（画像縦横比保存）表示かどうか
+if ( !function_exists( 'is_list_style_tile_thumb_cards_raw' ) ) {
 function is_list_style_tile_thumb_cards_raw(){
   return ( is_list_style_tile_thumb_2columns_raw() || is_list_style_tile_thumb_3columns_raw() );
 }
+}
+
 
 //一覧リストのスタイルがタイル2列（画像縦横比保存）表示かどうか
+if ( !function_exists( 'is_list_style_tile_thumb_2columns_raw' ) ) {
 function is_list_style_tile_thumb_2columns_raw(){
   return ( get_list_style() == 'tile_thumb_2columns_raw' );
 }
+}
+
 
 //一覧リストのスタイルがタイル3列（画像縦横比保存）表示かどうか
+if ( !function_exists( 'is_list_style_tile_thumb_3columns_raw' ) ) {
 function is_list_style_tile_thumb_3columns_raw(){
   return ( get_list_style() == 'tile_thumb_3columns_raw' );
 }
+}
+
 
 
 //一覧リストのスタイルがタイル2列表示かどうか
+if ( !function_exists( 'is_list_style_tile_thumb_2columns_style' ) ) {
 function is_list_style_tile_thumb_2columns_style(){
   return ( is_list_style_tile_thumb_2columns() || is_list_style_tile_thumb_2columns_raw() );
 }
+}
+
 
 //一覧リストのスタイルがタイル3列表示かどうか
+if ( !function_exists( 'is_list_style_tile_thumb_3columns_style' ) ) {
 function is_list_style_tile_thumb_3columns_style(){
   return ( is_list_style_tile_thumb_3columns() || is_list_style_tile_thumb_3columns_raw() );
 }
+}
+
 
 //検索ボックスのスタイル取得
+if ( !function_exists( 'get_search_box_style' ) ) {
 function get_search_box_style(){
   return get_theme_mod( 'search_box_style', 'default_circle' );
 }
+}
+
 
 //リストのページネーションスタイルはレスポンシブか
+if ( !function_exists( 'is_list_pager_type_responsive' ) ) {
 function is_list_pager_type_responsive(){
   return get_theme_mod( 'list_pager_type', 'responsive') == 'responsive';
 }
+}
+
 //リストのページネーションスタイルは旧タイプかどうか
+if ( !function_exists( 'is_list_pager_type_old_pager' ) ) {
 function is_list_pager_type_old_pager(){
   return get_theme_mod( 'list_pager_type', 'responsive') == 'old_pager';
 }
+}
+
 
 //引用部分が幅を広げる
+if ( !function_exists( 'is_blockquote_wide' ) ) {
 function is_blockquote_wide(){
   return get_theme_mod( 'blockquote_wide', false );
 }
+}
+
 
 //サイドバーの幅を336pxにするかどうか
+if ( !function_exists( 'is_sidebar_width_336' ) ) {
 function is_sidebar_width_336(){
   return get_theme_mod( 'sidebar_width_336', false );
 }
+}
+
 
 //サイドバーの背景を白色にするか
+if ( !function_exists( 'is_sidebar_background_white' ) ) {
 function is_sidebar_background_white(){
   return get_theme_mod( 'sidebar_background_white', false );
 }
+}
+
 
 //サイドバーは左側にするかどうか
+if ( !function_exists( 'is_sidebar_left' ) ) {
 function is_sidebar_left(){
   return get_theme_mod( 'sidebar_left', false );
 }
+}
+
 
 //フッター透過にするかどうか
+if ( !function_exists( 'is_footer_transparent' ) ) {
 function is_footer_transparent(){
   return get_theme_mod( 'footer_transparent', false );
 }
+}
+
 
 //メニューボタンアイコンフォントの取得
+if ( !function_exists( 'get_menu_button_icon_font' ) ) {
 function get_menu_button_icon_font(){
   $iconic_font = get_theme_mod( 'menu_button_icon_font', 'fa-bars' );
   return strip_tags( $iconic_font );
 }
+}
+
 
 //トップへ戻るボタンを表示するか
+if ( !function_exists( 'is_go_to_top_button_visible' ) ) {
 function is_go_to_top_button_visible(){
   return get_theme_mod( 'go_to_top_button_visible', true ) && !is_mobile_menu_type_slide_in();
 }
+}
+
 
 //TOPへ戻るボタンアイコンフォントの取得
+if ( !function_exists( 'get_go_to_top_button_icon_font' ) ) {
 function get_go_to_top_button_icon_font(){
   $iconic_font = get_theme_mod( 'go_to_top_button_icon_font', 'fa-angle-double-up' );
   return strip_tags( $iconic_font );
 }
+}
+
 
 //TOPへ戻るボタン画像URLの取得
+if ( !function_exists( 'get_go_to_top_button_image' ) ) {
 function get_go_to_top_button_image(){
   return get_theme_mod( 'go_to_top_button_image', '' );
 }
+}
+
 
 //カレンダーウィジェットの枠線を表示するか
+if ( !function_exists( 'is_calendar_border_visible' ) ) {
 function is_calendar_border_visible(){
   return get_theme_mod( 'calendar_border_visible', false );
 }
+}
+
 
 //404イメージの取得
+if ( !function_exists( 'get_404_image' ) ) {
 function get_404_image(){
   return get_theme_mod( '404_image', '' );
 }
+}
+
 
 //アイキャッチの自動設定をするか
+if ( !function_exists( 'is_auto_post_thumbnail_enable' ) ) {
 function is_auto_post_thumbnail_enable(){
   return get_theme_mod( 'auto_post_thumbnail_enable', false );
 }
+}
+
 
 //Lazy Loadを有効にするか
+if ( !function_exists( 'is_lazy_load_enable' ) ) {
 function is_lazy_load_enable(){
   return get_theme_mod( 'lazy_load_enable', false );
 }
+}
+
 
 //Lazy Loadのエフェクトを有効にするか
+if ( !function_exists( 'is_lazy_load_effect_enable' ) ) {
 function is_lazy_load_effect_enable(){
   return get_theme_mod( 'lazy_load_effect_enable', true );
 }
+}
+
 
 //Lazy Loadの読み込み開始位置の取得
+if ( !function_exists( 'get_lazy_load_threshold' ) ) {
 function get_lazy_load_threshold(){
   return get_theme_mod( 'lazy_load_threshold', 0 );
 }
+}
+
 
 //画像リンク拡大効果タイプの取得
 if ( !function_exists( 'get_lightbox_type' ) ):
@@ -4499,24 +4815,36 @@ function get_lightbox_type(){
 endif;
 
 //Alt属性キャプション表示タイプの取得
+if ( !function_exists( 'get_alt_caption_type' ) ) {
 function get_alt_caption_type(){
   return get_theme_mod( 'alt_caption_type', 'none' );
 }
+}
+
 
 //Alt属性キャプション表示タイプは「管理者のみ」か
+if ( !function_exists( 'is_alt_caption_type_ac_admin' ) ) {
 function is_alt_caption_type_ac_admin(){
   return get_alt_caption_type() == 'ac_admin';
 }
+}
+
 
 //Alt属性キャプション表示タイプは「全てのユーザー」か
+if ( !function_exists( 'is_alt_caption_type_ac_all' ) ) {
 function is_alt_caption_type_ac_all(){
   return get_alt_caption_type() == 'ac_all';
 }
+}
+
 
 //Lightboxが有効か
+if ( !function_exists( 'is_lightbox_enable' ) ) {
 function is_lightbox_enable(){
   return get_lightbox_type() == 'lightbox';
 }
+}
+
 
 //lityが有効か
 function is_lity_enable(){
@@ -4524,336 +4852,532 @@ function is_lity_enable(){
 }
 
 //baguetteBoxが有効か
+if ( !function_exists( 'is_baguettebox_enable' ) ) {
 function is_baguettebox_enable(){
   return get_lightbox_type() == 'baguettebox';
 }
+}
+
 
 //画像効果の取得
+if ( !function_exists( 'get_image_effect' ) ) {
 function get_image_effect(){
   return get_theme_mod( 'image_effect', 'none' );
 }
+}
+
 
 //画像効果はボーダーか
+if ( !function_exists( 'is_image_effect_border1px' ) ) {
 function is_image_effect_border1px(){
   return get_image_effect() == 'border1px';
 }
+}
+
 
 //画像効果はシャドウか
+if ( !function_exists( 'is_image_effect_shadow' ) ) {
 function is_image_effect_shadow(){
   return get_image_effect() == 'shadow';
 }
+}
+
 
 //マウスホバーでAlt属性値をキャプション表示するか
+if ( !function_exists( 'is_alt_hover_effect_enable' ) ) {
 function is_alt_hover_effect_enable(){
   return get_theme_mod( 'alt_hover_effect_enable', false );
 }
+}
+
 
 //カスタムSEO設定の値を取得
+if ( !function_exists( 'get_seo_options' ) ) {
 function get_seo_options(){
   return get_option('seo_options');
 }
+}
+
 
 //フロントページのタイトルのあとにキャッチフレーズを付加
+if ( !function_exists( 'is_catch_phrase_to_frontpage_title' ) ) {
 function is_catch_phrase_to_frontpage_title(){
   return get_theme_mod( 'add_catch_phrase_to_frontpage_title', true );
 }
+}
+
 
 //投稿・固定ページタイトルなどにサイト名を付加
+if ( !function_exists( 'is_site_name_to_singular_title' ) ) {
 function is_site_name_to_singular_title(){
   return get_theme_mod( 'add_site_name_to_singular_title', false );
 }
+}
+
 
 //トップページのメタディスクリプションの取得
+if ( !function_exists( 'get_top_page_meta_description' ) ) {
 function get_top_page_meta_description(){
   return get_theme_mod( 'top_page_meta_description', '' );
 }
+}
+
 
 //トップページのメタキーワードの取得
+if ( !function_exists( 'get_top_page_meta_keyword' ) ) {
 function get_top_page_meta_keyword(){
   return get_theme_mod( 'top_page_meta_keyword', '' );
 }
+}
+
 
 //分割ページにrel="next"/"prev"を追加するか
+if ( !function_exists( 'is_rel_next_prev_link_enable' ) ) {
 function is_rel_next_prev_link_enable(){
   return get_theme_mod( 'rel_next_prev_link_enable', true );
 }
+}
+
 
 //2ページ目以降のカテゴリページをnoindexとするか
+if ( !function_exists( 'is_paged_category_page_noindex' ) ) {
 function is_paged_category_page_noindex(){
   return get_theme_mod( 'paged_category_page_noindex', false );
 }
+}
+
 
 //canonicalタグをを追加するか
+if ( !function_exists( 'is_canonical_enable' ) ) {
 function is_canonical_enable(){
   return get_theme_mod( 'canonical_enable', true );
 }
+}
+
 
 //検索エンジンに伝える日を取得
+if ( !function_exists( 'get_seo_date_type' ) ) {
 function get_seo_date_type(){
   return get_theme_mod( 'seo_date_type', 'create' );
 }
+}
+
 
 
 //投稿日を検索エンジンに伝えるか
+if ( !function_exists( 'is_seo_date_type_create' ) ) {
 function is_seo_date_type_create(){
   return get_seo_date_type() == 'create';
 }
+}
+
 
 //更新日を検索エンジンに伝えるか
+if ( !function_exists( 'is_seo_date_type_update' ) ) {
 function is_seo_date_type_update(){
   return get_seo_date_type() == 'update';
 }
+}
+
 
 //更新日のみを検索エンジンに伝えるか
+if ( !function_exists( 'is_seo_date_type_update_only' ) ) {
 function is_seo_date_type_update_only(){
   return get_seo_date_type() == 'update_only';
 }
+}
+
 
 //抜粋を投稿ページのMeta Descriptionタグに挿入するか
+if ( !function_exists( 'is_meta_description_insert' ) ) {
 function is_meta_description_insert(){
   return get_theme_mod('meta_description_insert', true );
 }
+}
+
 
 //カテゴリを投稿ページのMetaキーワードタグに挿入するか
+if ( !function_exists( 'is_meta_keywords_insert' ) ) {
 function is_meta_keywords_insert(){
   return get_theme_mod('meta_keywords_insert', true );
 }
+}
+
 
 //カテゴリーをカテゴリページのMeta Descriptionタグに挿入するか
+if ( !function_exists( 'is_meta_description_insert_to_category' ) ) {
 function is_meta_description_insert_to_category(){
   return get_theme_mod('meta_description_insert_to_category', true);
 }
+}
+
 
 //カテゴリをカテゴリーページのMetaキーワードタグに挿入するか
+if ( !function_exists( 'is_meta_keywords_insert_to_category' ) ) {
 function is_meta_keywords_insert_to_category(){
   return get_theme_mod('meta_keywords_insert_to_category', true );
 }
+}
+
 
 //カスタムSNS設定の値を取得
+if ( !function_exists( 'get_sns_options' ) ) {
 function get_sns_options(){
   return get_option('sns_options');//外観→カスタム→SNSの設定の取得
 }
+}
+
 
 //シェアメッセージの取得
+if ( !function_exists( 'get_share_message_label' ) ) {
 function get_share_message_label(){
   return get_theme_mod('share_message_label', __( 'シェアする', 'simplicity2' ) );
 }
+}
+
 
 //全シェアボタン表示がオンかどうか
+if ( !function_exists( 'is_all_sns_share_btns_visible' ) ) {
 function is_all_sns_share_btns_visible(){
   return get_theme_mod( 'all_sns_share_btns_visible', true );
 }
+}
+
 
 //全シェアカウント表示がオンかどうか
+if ( !function_exists( 'is_all_share_count_visible' ) ) {
 function is_all_share_count_visible(){
   return get_theme_mod( 'all_share_count_visible', true );
 }
+}
+
 
 //シェアボタンタイプの取得
+if ( !function_exists( 'get_share_button_type' ) ) {
 function get_share_button_type(){
   return get_theme_mod( 'share_button_type', 'default');
 }
+}
+
 
 //デフォルトのシェアボタンタイプか
+if ( !function_exists( 'is_share_button_type_default' ) ) {
 function is_share_button_type_default(){
   return get_share_button_type() == 'default';
 }
+}
+
 
 //テーマカラータイプか
+if ( !function_exists( 'is_share_button_type_theme_color' ) ) {
 function is_share_button_type_theme_color(){
   return get_share_button_type() == 'theme_color_type';
 }
+}
+
 
 //Twitterタイプボタンか
+if ( !function_exists( 'is_share_button_type_twitter' ) ) {
 function is_share_button_type_twitter(){
   return get_share_button_type() == 'twitter_type';
 }
+}
+
 
 //バイラルタイプか
+if ( !function_exists( 'is_share_button_type_viral' ) ) {
 function is_share_button_type_viral(){
   return is_share_button_type_viral_theme_color() || is_share_button_type_viral_white();
 }
+}
+
 
 //バイラルタイプか
+if ( !function_exists( 'is_share_button_type_viral_theme_color' ) ) {
 function is_share_button_type_viral_theme_color(){
   return get_share_button_type() == 'viral_type';
 }
+}
+
 
 //バイラル白タイプか
+if ( !function_exists( 'is_share_button_type_viral_white' ) ) {
 function is_share_button_type_viral_white(){
   return get_share_button_type() == 'viral_white_type';
 }
+}
+
 
 //独自シェアボタンかどうか
+if ( !function_exists( 'is_simplicity_share_button' ) ) {
 function is_simplicity_share_button(){
   return is_share_button_type_theme_color() || is_share_button_type_twitter() || is_share_button_type_viral();
 }
+}
+
 
 //モバイルのシェアボタンタイプの取得
+if ( !function_exists( 'get_share_button_type_mobile' ) ) {
 function get_share_button_type_mobile(){
   return get_theme_mod( 'share_button_type_mobile', 'default');
 }
+}
+
 
 //モバイルのシェアボタンタイプはデフォルトアイコンか
+if ( !function_exists( 'is_share_button_type_mobile_default' ) ) {
 function is_share_button_type_mobile_default(){
   return get_share_button_type_mobile() == 'default';
 }
+}
+
 
 //モバイルのシェアボタンタイプはデフォルトバイラルタイプか
+if ( !function_exists( 'is_share_button_type_mobile_viral' ) ) {
 function is_share_button_type_mobile_viral(){
   return is_share_button_type_mobile_viral_theme_color() || is_share_button_type_mobile_viral_white();
 }
+}
+
 
 //モバイルのシェアボタンタイプはデフォルトバイラルタイプか
+if ( !function_exists( 'is_share_button_type_mobile_viral_theme_color' ) ) {
 function is_share_button_type_mobile_viral_theme_color(){
   return get_share_button_type_mobile() == 'viral_type';
 }
+}
+
 
 //モバイルのシェアボタンタイプはデフォルトバイラル白タイプか
+if ( !function_exists( 'is_share_button_type_mobile_viral_white' ) ) {
 function is_share_button_type_mobile_viral_white(){
   return get_share_button_type_mobile() == 'viral_white_type';
 }
+}
+
 
 //Twitterボタンを表示するかどうか
+if ( !function_exists( 'is_twitter_btn_visible' ) ) {
 function is_twitter_btn_visible(){
   return get_theme_mod( 'twitter_btn_visible', true );
 }
+}
+
 
 //Facebookボタンを表示するかどうか
+if ( !function_exists( 'is_facebook_btn_visible' ) ) {
 function is_facebook_btn_visible(){
   $facebook_btn_visible = get_theme_mod( 'facebook_btn_visible', true );
   global $g_facebook_sdk;
   $g_facebook_sdk = $g_facebook_sdk || ($facebook_btn_visible && is_share_button_type_default());
   return $facebook_btn_visible;
 }
+}
+
 
 //Google＋ボタンを表示するかどうか
+if ( !function_exists( 'is_google_plus_btn_visible' ) ) {
 function is_google_plus_btn_visible(){
   return false;//get_theme_mod( 'google_plus_btn_visible', true );
 }
+}
+
 
 //はてなボタンを表示するかどうか
+if ( !function_exists( 'is_hatena_btn_visible' ) ) {
 function is_hatena_btn_visible(){
   return get_theme_mod( 'hatena_btn_visible', true );
 }
+}
+
 
 //ポケットボタンを表示するかどうか
+if ( !function_exists( 'is_pocket_btn_visible' ) ) {
 function is_pocket_btn_visible(){
   return get_theme_mod( 'pocket_btn_visible', true );
 }
+}
+
 
 //LINEボタンを表示するかどうか
+if ( !function_exists( 'is_line_btn_visible' ) ) {
 function is_line_btn_visible(){
   return get_theme_mod( 'line_btn_visible', true );
 }
+}
+
 
 //Evernoteボタンを表示するかどうか
+if ( !function_exists( 'is_evernote_btn_visible' ) ) {
 function is_evernote_btn_visible(){
   return false;
   //return get_theme_mod( 'evernote_btn_visible', false );
 }
+}
+
 
 //feedlyボタンを表示するかどうか
+if ( !function_exists( 'is_feedly_btn_visible' ) ) {
 function is_feedly_btn_visible(){
   return get_theme_mod( 'feedly_btn_visible', false );
 }
+}
+
 
 //Push7ボタンを表示するかどうか
+if ( !function_exists( 'is_push7_btn_visible' ) ) {
 function is_push7_btn_visible(){
   return get_theme_mod( 'push7_btn_visible', false ) && get_push7_follow_app_no();
 }
+}
+
 
 //コメント数ボタンを表示するかどうか
+if ( !function_exists( 'is_comments_btn_visible' ) ) {
 function is_comments_btn_visible(){
   return get_theme_mod( 'comments_btn_visible', false );
 }
+}
+
 
 //画像にPinterestボタンを表示するかどうか
+if ( !function_exists( 'is_pinterest_btn_visible' ) ) {
 function is_pinterest_btn_visible(){
   return get_theme_mod( 'pinterest_btn_visible', false );
 }
+}
+
 
 //ツイート数を表示するか
+if ( !function_exists( 'is_twitter_count_visible' ) ) {
 function is_twitter_count_visible(){
   return get_theme_mod( 'twitter_count_visible', false );
 }
+}
+
 
 //ツイートにユーザーIDを含めるか
+if ( !function_exists( 'is_twitter_id_include' ) ) {
 function is_twitter_id_include(){
   return get_theme_mod( 'twitter_id_include', false );
 }
+}
+
 
 //ツイート後にフォローを促すか
+if ( !function_exists( 'is_twitter_related_follow_enable' ) ) {
 function is_twitter_related_follow_enable(){
   return get_theme_mod( 'twitter_related_follow_enable', false );
 }
+}
+
 
 //全フォローボタン表示がオンかどうか
+if ( !function_exists( 'is_all_sns_follow_btns_visible' ) ) {
 function is_all_sns_follow_btns_visible(){
   return get_theme_mod( 'all_sns_follow_btns_visible', true );
 }
+}
+
 
 //ページトップのフォローボタンを表示するか
+if ( !function_exists( 'is_top_follows_visible' ) ) {
 function is_top_follows_visible(){
   return get_theme_mod( 'top_follows_visible', true );
 }
+}
+
 
 //本文下フォローボタンを表示するか
+if ( !function_exists( 'is_body_bottom_follows_visible' ) ) {
 function is_body_bottom_follows_visible(){
   return get_theme_mod( 'body_bottom_follows_visible', true );
 }
+}
+
 
 //シェアメッセージの取得
+if ( !function_exists( 'get_follow_message_label' ) ) {
 function get_follow_message_label(){
   return get_theme_mod( 'follow_message_label', __( 'フォローする', 'simplicity2' ) );
 }
+}
+
 
 //TwitterフォローボタンのIDを取得
+if ( !function_exists( 'get_twitter_follow_id' ) ) {
 function get_twitter_follow_id(){
   return get_theme_mod( 'twitter_follow_id', '' );
 }
+}
+
 
 //FacebookフォローボタンのIDを取得
+if ( !function_exists( 'get_facebook_follow_id' ) ) {
 function get_facebook_follow_id(){
   return get_theme_mod( 'facebook_follow_id', '' );
 }
+}
+
 
 //Google＋フォローボタンのIDを取得
+if ( !function_exists( 'get_google_plus_follow_id' ) ) {
 function get_google_plus_follow_id(){
   return get_theme_mod( 'google_plus_follow_id', '' );
 }
+}
+
 
 //はてブフォローボタンのIDを取得
+if ( !function_exists( 'get_hatebu_follow_id' ) ) {
 function get_hatebu_follow_id(){
   return get_theme_mod( 'hatebu_follow_id', '' );
 }
+}
+
 
 //InstagramフォローボタンのIDを取得
+if ( !function_exists( 'get_instagram_follow_id' ) ) {
 function get_instagram_follow_id(){
   return get_theme_mod( 'instagram_follow_id', '' );
 }
+}
+
 
 //PinterestフォローボタンのIDを取得
+if ( !function_exists( 'get_pinterest_follow_id' ) ) {
 function get_pinterest_follow_id(){
   return get_theme_mod( 'pinterest_follow_id', '' );
 }
+}
+
 
 //YouTubeフォローページのURLの一部を取得
+if ( !function_exists( 'get_youtube_follow_page_id' ) ) {
 function get_youtube_follow_page_id(){
   return get_theme_mod( 'youtube_follow_page_id', '' );
 }
+}
+
 
 //YouTubeフォローボタンのIDを取得
+if ( !function_exists( 'get_youtube_follow_id' ) ) {
 function get_youtube_follow_id(){
   return get_theme_mod( 'youtube_follow_id', '' );
 }
+}
+
 
 //YouTubeチャンネルフォローボタンのチャンネルIDを取得
+if ( !function_exists( 'get_youtube_channel_id' ) ) {
 function get_youtube_channel_id(){
   return get_theme_mod( 'youtube_channel_id', '' );
 }
+}
+
 
 //YouTubeのフォローURLを取得
+if ( !function_exists( 'get_youtube_follow_url' ) ) {
 function get_youtube_follow_url(){
   $url = 'https://www.youtube.com/';
   if ( get_youtube_follow_page_id() ) {
@@ -4871,44 +5395,68 @@ function get_youtube_follow_url(){
 
   return $url;
 }
+}
+
 
 //FlickrフォローボタンのIDを取得
+if ( !function_exists( 'get_flickr_follow_id' ) ) {
 function get_flickr_follow_id(){
   return get_theme_mod( 'flickr_follow_id', '' );
 }
+}
+
 
 //LINE@フォローボタンのIDを取得
+if ( !function_exists( 'get_line_at_follow_id' ) ) {
 function get_line_at_follow_id(){
   return get_theme_mod( 'line_at_follow_id', '' );
 }
+}
+
 
 //GitHubフォローボタンのIDを取得
+if ( !function_exists( 'get_github_follow_id' ) ) {
 function get_github_follow_id(){
   return get_theme_mod( 'github_follow_id', '' );
 }
+}
+
 
 //Push7フォローボタンのIDを取得
+if ( !function_exists( 'get_push7_follow_app_no' ) ) {
 function get_push7_follow_app_no(){
   return get_theme_mod( 'push7_follow_app_no', '' );
 }
+}
+
 
 //feedlyフォローボタンを表示するかどうか
+if ( !function_exists( 'is_feedly_follow_btn_visible' ) ) {
 function is_feedly_follow_btn_visible(){
   return get_theme_mod( 'feedly_follow_btn_visible', true );
 }
+}
+
 
 //RSSフォローボタンを表示するかどうか
+if ( !function_exists( 'is_rss_follow_btn_visible' ) ) {
 function is_rss_follow_btn_visible(){
   return get_theme_mod( 'rss_follow_btn_visible', true );
 }
-
-//Twitterカードタグを挿入するか
-function is_twitter_cards_enable(){
-  return get_theme_mod( 'twitter_cards_enable', true );
 }
 
 
+//Twitterカードタグを挿入するか
+if ( !function_exists( 'is_twitter_cards_enable' ) ) {
+function is_twitter_cards_enable(){
+  return get_theme_mod( 'twitter_cards_enable', true );
+}
+}
+
+
+
 //Twitterカードタイプを取得
+if ( !function_exists( 'get_twitter_card_type' ) ) {
 function get_twitter_card_type(){
   $card_type = get_theme_mod( 'twitter_card_type', 'summary' );
   //photoが廃止されたため、photoが設定してある場合はsummaryにする
@@ -4918,21 +5466,32 @@ function get_twitter_card_type(){
   }
   return $card_type;
 }
+}
+
 
 //FacebookOGPタグを挿入するか
+if ( !function_exists( 'is_facebook_ogp_enable' ) ) {
 function is_facebook_ogp_enable(){
   return get_theme_mod( 'facebook_ogp_enable', true );
 }
+}
+
 
 //Facebookアクセストークンを取得
+if ( !function_exists( 'get_fb_access_token' ) ) {
 function get_fb_access_token(){
   return get_theme_mod( 'fb_access_token', '' );
 }
+}
+
 
 //fb:adminsを取得
+if ( !function_exists( 'get_fb_admins' ) ) {
 function get_fb_admins(){
   return get_theme_mod( 'fb_admins', '' );
 }
+}
+
 
 //fb:app_idを取得
 function get_fb_app_id(){
@@ -4940,49 +5499,76 @@ function get_fb_app_id(){
 }
 
 //OGPやTwitterカードのホームイメージのURLを取得
+if ( !function_exists( 'get_ogp_home_image' ) ) {
 function get_ogp_home_image(){
   return get_theme_mod( 'ogp_home_image', '' );
 }
+}
+
 
 //フォローボタンに色をつけるかどうか
+if ( !function_exists( 'is_colored_follow_btns' ) ) {
 function is_colored_follow_btns(){
   return get_theme_mod( 'colored_follow_btns', false );
 }
+}
+
 
 //REST APIは有効か
+if ( !function_exists( 'is_rest_api_enable' ) ) {
 function is_rest_api_enable(){
   return get_theme_mod( 'rest_api_enable', true );
 }
+}
+
 
 //rel="noopener noreferrer"属性の自動付加を有効にするか
+if ( !function_exists( 'is_rel_noopener_noreferrer_enable' ) ) {
 function is_rel_noopener_noreferrer_enable(){
   return get_theme_mod( 'rel_noopener_noreferrer_enable', true );
 }
+}
+
 
 //内部URLのSSL対応
+if ( !function_exists( 'is_easy_ssl_enable' ) ) {
 function is_easy_ssl_enable(){
   return get_theme_mod( 'easy_ssl_enable', false );
 }
+}
+
 
 //外部サイトデータを取得時にSSL検証を行うか
+if ( !function_exists( 'is_ssl_verification_enable' ) ) {
 function is_ssl_verification_enable(){
   return get_theme_mod( 'ssl_verification_enable', true );
 }
+}
+
 
 //タイトル下に小さなシェアボタンを表示するかどうか
+if ( !function_exists( 'is_top_share_btns_visible' ) ) {
 function is_top_share_btns_visible(){
   return get_theme_mod( 'top_share_btns_visible', false );
 }
+}
+
 
 //追従シェアボタンを表示するかどうか
+if ( !function_exists( 'is_obsequence_share_btns_visible' ) ) {
 function is_obsequence_share_btns_visible(){
   return get_theme_mod( 'obsequence_share_btns_visible', false );
 }
+}
+
 
 //本文下のシェアボタンを表示するかどうか
+if ( !function_exists( 'is_bottom_share_btns_visible' ) ) {
 function is_bottom_share_btns_visible(){
   return get_theme_mod( 'bottom_share_btns_visible', true );
 }
+}
+
 
 // //カスタム広告設定の値を取得
 // function get_ads_options(){
@@ -5018,317 +5604,501 @@ function is_ads_visible(){
 endif;
 
 //ダブルレクタングルが縦型か
+if ( !function_exists( 'is_ads_vatical_rectangle' ) ) {
 function is_ads_vatical_rectangle(){
   return get_theme_mod( 'ads_vatical_rectangle', false );
 }
+}
+
 
 //パフォーマンス追求広告を表示するかどうか
+if ( !function_exists( 'is_ads_performance_visible' ) ) {
 function is_ads_performance_visible(){
   return get_theme_mod( 'ads_performance_visible', false );
 }
+}
+
 
 //[ad]ショートコードの利用
+if ( !function_exists( 'is_ads_ad_shortcode_enable' ) ) {
 function is_ads_ad_shortcode_enable(){
   return get_theme_mod( 'ads_ad_shortcode_enable', false );
 }
+}
+
 
 //PCトップをカスタムサイズ広告にするか
+if ( !function_exists( 'is_ads_custum_ad_space' ) ) {
 function is_ads_custum_ad_space(){
   return get_theme_mod( 'custum_ad_space', false );
 }
+}
+
 
 //広告を表示しない記事ID配列の取得
+if ( !function_exists( 'get_exclude_article_ids' ) ) {
 function get_exclude_article_ids(){
   $ids = get_theme_mod( 'exclude_article_ids', '' );
   return explode(',', $ids);
 }
+}
+
 
 //広告を表示しないカテゴリID配列の取得
+if ( !function_exists( 'get_exclude_category_ids' ) ) {
 function get_exclude_category_ids(){
   $ids = get_theme_mod( 'exclude_category_ids', '' );
   return explode(',', $ids);
 }
+}
+
 
 //広告位置の取得
+if ( !function_exists( 'get_ads_position' ) ) {
 function get_ads_position(){
   return get_theme_mod( 'ads_position', 'under_relations' );
 }
+}
+
 
 //広告を本文中に掲載するか
+if ( !function_exists( 'is_ads_in_content' ) ) {
 function is_ads_in_content(){
   return get_ads_position() == 'in_content';
 }
+}
+
 
 //広告をコンテンツトップに掲載するか
+if ( !function_exists( 'is_ads_content_top' ) ) {
 function is_ads_content_top(){
   return get_ads_position() == 'content_top' && is_ads_performance_visible();
 }
+}
+
 
 //広告をサイドバートップに掲載するか
+if ( !function_exists( 'is_ads_sidebar_top' ) ) {
 function is_ads_sidebar_top(){
   return get_ads_position() == 'sidebar_top';
 }
+}
+
 
 //関連記事下に掲載するか
+if ( !function_exists( 'is_ads_under_relations' ) ) {
 function is_ads_under_relations(){
   return get_ads_position() == 'under_relations';
 }
+}
+
 
 //広告ラベルの取得（文字が入力されていない場合は偽を返す）
+if ( !function_exists( 'get_ads_label' ) ) {
 function get_ads_label(){
   return get_theme_mod( 'ads_label', __( 'スポンサーリンク', 'simplicity2' ) );
 }
+}
+
 
 //広告をサイドバートップに掲載するか
+if ( !function_exists( 'is_ads_top_page_visible' ) ) {
 function is_ads_top_page_visible(){
   return get_theme_mod( 'ads_top_page_visible', true );
 }
+}
+
 
 //広告を中央表示
+if ( !function_exists( 'is_ads_center' ) ) {
 function is_ads_center(){
   return get_theme_mod( 'ads_center', false );
 }
+}
+
 
 //内部ブログカードを有効にするか
+if ( !function_exists( 'is_blog_card_enable' ) ) {
 function is_blog_card_enable(){
   return get_theme_mod( 'blog_card_enable', true );
 }
+}
+
 
 //内部コメントブログカードを有効にするか
+if ( !function_exists( 'is_blog_card_comment_internal_enable' ) ) {
 function is_blog_card_comment_internal_enable(){
   return get_theme_mod( 'blog_card_comment_internal_enable', false );
 }
+}
+
 
 //内部ブログカードのブログカードのサムネイルを右側にするか
+if ( !function_exists( 'is_blog_card_thumbnail_right' ) ) {
 function is_blog_card_thumbnail_right(){
   return get_theme_mod( 'blog_card_thumbnail_right', false );
 }
+}
+
 
 //内部ブログカードのブログカードリンクを新しいタブで開くか
+if ( !function_exists( 'is_blog_card_target_blank' ) ) {
 function is_blog_card_target_blank(){
   return get_theme_mod( 'blog_card_target_blank', false );
 }
+}
+
 
 //内部ブログカードのサイトロゴを表示するか
+if ( !function_exists( 'is_blog_card_site_logo_visible' ) ) {
 function is_blog_card_site_logo_visible(){
   return get_theme_mod( 'blog_card_site_logo_visible', true );
 }
+}
+
 
 //内部ブログカードのサイトロゴリンクを有効にするか
+if ( !function_exists( 'is_blog_card_site_logo_link_enable' ) ) {
 function is_blog_card_site_logo_link_enable(){
   return get_theme_mod( 'blog_card_site_logo_link_enable', false );
 }
+}
+
 
 //内部ブログカードのはてブ数を表示するか
+if ( !function_exists( 'is_blog_card_hatena_visible' ) ) {
 function is_blog_card_hatena_visible(){
   return get_theme_mod( 'blog_card_hatena_visible', true );
 }
+}
+
 
 //内部ブログカードの日付を表示するか
+if ( !function_exists( 'is_blog_card_date_visible' ) ) {
 function is_blog_card_date_visible(){
   return get_theme_mod( 'blog_card_date_visible', false );
 }
+}
+
 
 //ブログカードの日付表示を取得
+if ( !function_exists( 'get_blog_card_date_type' ) ) {
 function get_blog_card_date_type(){
   return get_theme_mod( 'blog_card_date_type', 'post_date' );
 }
+}
+
 
 //内部ブログカードの日付を表示しないか
+if ( !function_exists( 'is_blog_card_date_type_none' ) ) {
 function is_blog_card_date_type_none(){
   return get_blog_card_date_type() == 'none';
 }
+}
+
 
 //内部ブログカードの日付に投稿日を表示するか
+if ( !function_exists( 'is_blog_card_date_type_post_date' ) ) {
 function is_blog_card_date_type_post_date(){
   return get_blog_card_date_type() == 'post_date';
 }
+}
+
 
 //内部ブログカードの日付に更新日を表示するか
+if ( !function_exists( 'is_blog_card_date_type_update_date' ) ) {
 function is_blog_card_date_type_update_date(){
   return get_blog_card_date_type() == 'update_date';
 }
+}
+
 
 
 //内部ブログカードのカラム幅いっぱいにするか
+if ( !function_exists( 'is_blog_card_width_auto' ) ) {
 function is_blog_card_width_auto(){
   return get_theme_mod( 'blog_card_width_auto', false );
 }
+}
+
 
 //外部リンクをブログカードにするか
+if ( !function_exists( 'is_blog_card_external_enable' ) ) {
 function is_blog_card_external_enable(){
   return get_theme_mod( 'blog_card_external_enable', false );
 }
+}
+
 
 //コメント外部リンクをブログカードにするか
+if ( !function_exists( 'is_blog_card_comment_external_enable' ) ) {
 function is_blog_card_comment_external_enable(){
   return get_theme_mod( 'blog_card_comment_external_enable', false );
 }
+}
+
 
 //外部リンクのブログカードタイプの取得
+if ( !function_exists( 'get_blog_card_external_type' ) ) {
 function get_blog_card_external_type(){
   return get_theme_mod( 'blog_card_external_type', 'default' );
 }
+}
+
 
 //外部リンクのブログカードタイプはSimplicity独自ブログカードか
+if ( !function_exists( 'is_blog_card_external_default' ) ) {
 function is_blog_card_external_default(){
   return get_blog_card_external_type() == 'default';
 }
+}
+
 
 //外部リンクのブログカードタイプははてなか
+if ( !function_exists( 'is_blog_card_external_hatena' ) ) {
 function is_blog_card_external_hatena(){
   return get_blog_card_external_type() == 'hatena';
 }
+}
+
 
 //外部リンクをブログカードタイプはEmbedlyか
+if ( !function_exists( 'is_blog_card_external_embedly' ) ) {
 function is_blog_card_external_embedly(){
   return get_blog_card_external_type() == 'embedly';
 }
+}
+
 
 //外部ブログカードのサムネイルを右側にするか
+if ( !function_exists( 'is_blog_card_external_thumbnail_right' ) ) {
 function is_blog_card_external_thumbnail_right(){
   return get_theme_mod( 'blog_card_external_thumbnail_right', false );
 }
+}
+
 
 //外部ブログカードのリンクを新しいタブで開くか
+if ( !function_exists( 'is_blog_card_external_target_blank' ) ) {
 function is_blog_card_external_target_blank(){
   return get_theme_mod( 'blog_card_external_target_blank', false );
 }
+}
+
 
 //外部ブログカードのサイトロゴを表示するか
+if ( !function_exists( 'is_blog_card_external_site_logo_visible' ) ) {
 function is_blog_card_external_site_logo_visible(){
   return get_theme_mod( 'blog_card_external_site_logo_visible', true );
 }
+}
+
 
 //内部ブログカードのサイトロゴリンクを有効にするか
+if ( !function_exists( 'is_blog_card_external_site_logo_link_enable' ) ) {
 function is_blog_card_external_site_logo_link_enable(){
   return get_theme_mod( 'blog_card_external_site_logo_link_enable', false );
 }
+}
+
 
 //外部ブログカードのはてブ数を表示するか
+if ( !function_exists( 'is_blog_card_external_hatena_visible' ) ) {
 function is_blog_card_external_hatena_visible(){
   return get_theme_mod( 'blog_card_external_hatena_visible', true );
 }
+}
+
 
 //外部ブログカードのカラム幅いっぱいにするか
+if ( !function_exists( 'is_blog_card_external_width_auto' ) ) {
 function is_blog_card_external_width_auto(){
   return get_theme_mod( 'blog_card_external_width_auto', false );
 }
+}
+
 
 
 //外部ブログカードのキャッシュ保存期間を取得
+if ( !function_exists( 'get_blog_card_external_cache_days' ) ) {
 function get_blog_card_external_cache_days(){
   return get_theme_mod( 'blog_card_external_cache_days', 90 );
 }
+}
+
 
 //外部ブログカードキャッシュ更新モードか
+if ( !function_exists( 'is_blog_card_external_cache_refresh_mode' ) ) {
 function is_blog_card_external_cache_refresh_mode(){
   return get_theme_mod( 'blog_card_external_cache_refresh_mode', false );
 }
+}
+
 
 //AMPを有効化するか
+if ( !function_exists( 'is_amp_enable' ) ) {
 function is_amp_enable(){
   return get_theme_mod( 'amp_enable', false );
 }
+}
+
 
 //AMP用のAdSenseAdSenseコードを取得
+if ( !function_exists( 'get_amp_adsense_code' ) ) {
 function get_amp_adsense_code(){
   return htmlspecialchars_decode(get_theme_mod( 'amp_adsense_code', '' ));
 }
+}
+
 
 //AMP用Analytics虎菌がIDの取得
+if ( !function_exists( 'get_amp_tracking_id' ) ) {
 function get_amp_tracking_id(){
   return get_theme_mod( 'amp_tracking_id', '' );
 }
+}
+
 
 
 //AMP用ロゴのURLを取得取得
+if ( !function_exists( 'get_amp_logo_url' ) ) {
 function get_amp_logo_url(){
   return get_theme_mod( 'amp_logo_url', '' );
 }
+}
+
 
 //パンくずリストのホームを取得
+if ( !function_exists( 'get_theme_text_breadcrumbs_home' ) ) {
 function get_theme_text_breadcrumbs_home(){
   return get_theme_mod( 'theme_text_breadcrumbs_home', __( 'ホーム', 'simplicity2' ) );
 }
+}
+
 
 //関連記事タイトルの取得
+if ( !function_exists( 'get_theme_text_related_entry' ) ) {
 function get_theme_text_related_entry(){
   return get_theme_mod( 'theme_text_related_entry', __( '関連記事', 'simplicity2' ) );
 }
+}
+
 
 //コードをハイライト表示するか
+if ( !function_exists( 'is_code_highlight_enable' ) ) {
 function is_code_highlight_enable(){
   return get_theme_mod( 'code_highlight_enable', false );
 }
+}
+
 
 //ソースコードハイライトのスタイル
+if ( !function_exists( 'get_code_highlight_style' ) ) {
 function get_code_highlight_style(){
   return get_theme_mod( 'code_highlight_style', 'default' );
 }
+}
+
 
 //ソースコードをハイライトするCSSセレクタの指定
+if ( !function_exists( 'get_code_highlight_css_selector' ) ) {
 function get_code_highlight_css_selector(){
   return get_theme_mod( 'code_highlight_css_selector', '.entry-content pre' );
 }
+}
+
 
 //コメントを表示するか
+if ( !function_exists( 'is_comments_visible' ) ) {
 function is_comments_visible(){
   return get_theme_mod( 'comments_visible', true );
 }
+}
+
 
 //コメント表示タイプの取得
+if ( !function_exists( 'get_comment_display_type' ) ) {
 function get_comment_display_type(){
   return get_theme_mod( 'comment_display_type', 'default' );
 }
+}
+
 
 //コメントタイプがデフォルトか
+if ( !function_exists( 'is_comment_type_default' ) ) {
 function is_comment_type_default(){
   return get_comment_display_type() == 'default';
 }
+}
+
 
 //コメントタイプが2chタイプか
+if ( !function_exists( 'is_comment_type_thread' ) ) {
 function is_comment_type_thread(){
   return get_comment_display_type() == 'thread';
 }
+}
+
 
 //コメントタイプがシンプルスレッド表示タイプか
+if ( !function_exists( 'is_comment_type_thread_simple' ) ) {
 function is_comment_type_thread_simple(){
   return get_comment_display_type() == 'thread_simple';
 }
+}
+
 
 //インデックスリストにコメント数を表示するか
+if ( !function_exists( 'is_list_comment_count_visible' ) ) {
 function is_list_comment_count_visible(){
   return get_theme_mod( 'list_comment_count_visible', false );
 }
+}
+
 
 //コメント欄を伸縮するか
+if ( !function_exists( 'is_comment_textarea_expand' ) ) {
 function is_comment_textarea_expand(){
   return get_theme_mod( 'comment_textarea_expand', false );
 }
+}
+
 
 //コメントタイトルの取得
+if ( !function_exists( 'get_theme_text_comments' ) ) {
 function get_theme_text_comments(){
   return get_theme_mod( 'theme_text_comments', __( 'コメント', 'simplicity2' ) );
 }
+}
+
 
 //返信コメントタイトルの取得
+if ( !function_exists( 'get_theme_text_comment_reply_title' ) ) {
 function get_theme_text_comment_reply_title(){
   return get_theme_mod( 'theme_text_comment_reply_title', __( 'コメントをどうぞ', 'simplicity2' ) );
 }
+}
+
 
 //コメントサブミットラベルの取得
+if ( !function_exists( 'get_theme_text_comment_submit_label' ) ) {
 function get_theme_text_comment_submit_label(){
   return get_theme_mod( 'theme_text_comment_submit_label', __( 'コメントを送信', 'simplicity2' ) );
 }
+}
+
 
 //匿名ユーザー名の取得
+if ( !function_exists( 'get_theme_text_comment_anonymous_name' ) ) {
 function get_theme_text_comment_anonymous_name(){
   $name = get_theme_mod( 'theme_text_comment_anonymous_name', __( '匿名', 'simplicity2' ) );
   return ( $name ? $name : __( '匿名', 'simplicity2' ) );
 }
+}
+
 
 //コメント凍結メッセージの取得
+if ( !function_exists( 'get_theme_text_comment_freeze_label' ) ) {
 function get_theme_text_comment_freeze_label(){
   $msg = get_theme_mod( 'theme_text_comment_freeze_label', __( 'コメントの入力は終了しました。', 'simplicity2' ) );
   $cmsg = get_comment_form_freeze_message();
@@ -5337,129 +6107,203 @@ function get_theme_text_comment_freeze_label(){
   }
   return $msg;
 }
+}
+
 
 //記事を読むテキストの取得
+if ( !function_exists( 'get_theme_text_read_entry' ) ) {
 function get_theme_text_read_entry(){
   return get_theme_mod( 'theme_text_read_entry', __( '記事を読む', 'simplicity2' ) );
 }
+}
+
 
 //続きを読むテキストの取得
+if ( !function_exists( 'get_theme_text_read_more' ) ) {
 function get_theme_text_read_more(){
   return get_theme_mod( 'theme_text_read_more', __( '続きを読む', 'simplicity2' ) );
 }
+}
+
 
 //リストタイトルの「一覧」部分のテキストを取得
+if ( !function_exists( 'get_theme_text_list' ) ) {
 function get_theme_text_list(){
   return get_theme_mod( 'theme_text_list', __( '一覧', 'simplicity2' ) );
 }
+}
+
 
 //日付表示のフォーマットを取得
+if ( !function_exists( 'get_theme_text_date_format' ) ) {
 function get_theme_text_date_format(){
   return get_theme_mod( 'theme_text_date_format', __( 'Y/n/j', 'simplicity2' ) );
 }
+}
+
 
 //年月日のフォーマットを取得
+if ( !function_exists( 'get_theme_text_ymd_format' ) ) {
 function get_theme_text_ymd_format(){
   return get_theme_mod( 'theme_text_ymd_format', __( 'Y年m月d日', 'simplicity2' ) );
 }
+}
+
 
 //年月のフォーマットを取得
+if ( !function_exists( 'get_theme_text_ym_format' ) ) {
 function get_theme_text_ym_format(){
   return get_theme_mod( 'theme_text_ym_format', __( 'Y年m月', 'simplicity2' ) );
 }
+}
+
 
 //年のフォーマットを取得
+if ( !function_exists( 'get_theme_text_y_format' ) ) {
 function get_theme_text_y_format(){
   return get_theme_mod( 'theme_text_y_format', __( 'Y年', 'simplicity2' ) );
 }
+}
+
 
 //検索ボックスのプレースホルダテキストを取得
+if ( !function_exists( 'get_theme_text_search_placeholder' ) ) {
 function get_theme_text_search_placeholder(){
   return get_theme_mod( 'theme_text_search_placeholder', __( 'ブログ内を検索', 'simplicity2' ) );
 }
+}
+
 
 //記事が見つからなかったページのタイトルテキストを取得
+if ( !function_exists( 'get_theme_text_not_found_title' ) ) {
 function get_theme_text_not_found_title(){
   return get_theme_mod( 'theme_text_not_found_title', __( 'ページが見つかりませんでした', 'simplicity2' ) );
 }
+}
+
 
 //記事が見つからなかった時のメッセージテキストを取得
+if ( !function_exists( 'get_theme_text_not_found_message' ) ) {
 function get_theme_text_not_found_message(){
   return get_theme_mod( 'theme_text_not_found_message', __( '記事は見つかりませんでした。', 'simplicity2' ) );
 }
+}
+
 
 //ブロックエディターの有効化
+if ( !function_exists( 'is_admin_block_editor_enable' ) ) {
 function is_admin_block_editor_enable(){
   return get_theme_mod( 'admin_block_editor_enable', true );
 }
+}
+
 
 //ビジュアルエディターにSimplicityスタイルを適用するか
+if ( !function_exists( 'is_admin_editor_enable' ) ) {
 function is_admin_editor_enable(){
   return get_theme_mod( 'admin_editor_enable', true );
 }
+}
+
 
 //アドミンバーに独自メニューを表示するか
+if ( !function_exists( 'is_admin_bar_menu_visible' ) ) {
 function is_admin_bar_menu_visible(){
   return get_theme_mod( 'admin_bar_menu_visible', true );
 }
+}
+
 
 //ログイン画面でカスタマイズで設定したロゴを表示するか
+if ( !function_exists( 'is_original_login_logo_enable' ) ) {
 function is_original_login_logo_enable(){
   return get_theme_mod( 'admin_original_login_logo_enable', true );
 }
+}
+
 
 //  メディアを挿入の初期表示を「この投稿へのアップロード」にするか
+if ( !function_exists( 'is_initial_media_disp_type_in_entry' ) ) {
 function is_initial_media_disp_type_in_entry(){
   return get_theme_mod( 'admin_initial_media_disp_type_in_entry', false );
 }
+}
+
 
 //記事を公開前に確認するか
+if ( !function_exists( 'is_confirmation_before_publish' ) ) {
 function is_confirmation_before_publish(){
   return get_theme_mod( 'confirmation_before_publish', false );
 }
+}
+
 
 //管理画面のカウンター表示
+if ( !function_exists( 'is_admin_editor_counter_visible' ) ) {
 function is_admin_editor_counter_visible(){
   return get_theme_mod( 'admin_editor_counter_visible', true );
 }
+}
+
 
 //管理者用PV表示タイプの取得
+if ( !function_exists( 'get_admin_pv_type' ) ) {
 function get_admin_pv_type(){
   return get_theme_mod( 'admin_pv_type', 'none' );
 }
+}
+
 
 //管理者用PV表示タイプは「表示しない」か
+if ( !function_exists( 'is_admin_pv_type_none' ) ) {
 function is_admin_pv_type_none(){
   return get_admin_pv_type() == 'none';
 }
+}
+
 
 //管理者用PV表示タイプは「Wordpress Popular Posts」か
+if ( !function_exists( 'is_admin_pv_type_wpp' ) ) {
 function is_admin_pv_type_wpp(){
   return is_wpp_enable() &&
     get_admin_pv_type() == 'wordpress_popular_posts';
 }
+}
+
 
 //管理者用PV表示タイプは「Jetpack」か
+if ( !function_exists( 'is_admin_pv_type_jetpack' ) ) {
 function is_admin_pv_type_jetpack(){
   return is_jetpack_stats_module_active() &&
     get_admin_pv_type() == 'jetpack';
 }
+}
+
 
 //管理者にPV表示
+if ( !function_exists( 'is_admin_pv_visible' ) ) {
 function is_admin_pv_visible(){
   return !is_admin_pv_type_none();
   //return get_theme_mod( 'admin_pv_visible', false );
 }
+}
+
 
 //テーマでファビコンを設定するかどうか
+if ( !function_exists( 'is_favicon_enable' ) ) {
 function is_favicon_enable(){
   return get_theme_mod( 'favicon_enable', false );
 }
+}
+
 
 //カスタムアクセス解析設定の値を取得
+if ( !function_exists( 'get_ana_options' ) ) {
 function get_ana_options(){
   return get_option('ana_options');
 }
+}
+
 
 //トラッキングIDの取得
 function get_tracking_id(){
@@ -5467,64 +6311,98 @@ function get_tracking_id(){
 }
 
 //Google Analyticsトラッキングタイプの取得
+if ( !function_exists( 'get_analytics_tracking_type' ) ) {
 function get_analytics_tracking_type(){
   return get_theme_mod( 'analytics_tracking_type', 'ga' );
 }
+}
+
 
 //Analyticsトラッキングタイプがga.jsか
+if ( !function_exists( 'is_analytics_tracking_type_ga' ) ) {
 function is_analytics_tracking_type_ga(){
   return get_analytics_tracking_type() == 'ga';
 }
+}
+
 
 //Analyticsトラッキングタイプがdc.jsか
+if ( !function_exists( 'is_analytics_tracking_type_dc' ) ) {
 function is_analytics_tracking_type_dc(){
   return get_analytics_tracking_type() == 'dc';
 }
+}
+
 
 //Analyticsトラッキングタイプがanalytics.jsか
+if ( !function_exists( 'is_analytics_tracking_type_analytics' ) ) {
 function is_analytics_tracking_type_analytics(){
   return get_analytics_tracking_type() == 'analytics';
 }
+}
+
 
 //Analyticsトラッキングタイプがanalytics.jsか
+if ( !function_exists( 'is_analytics_tracking_type_analytics_with_displayfeatures' ) ) {
 function is_analytics_tracking_type_analytics_with_displayfeatures(){
   return get_analytics_tracking_type() == 'analytics_displayfeatures';
 }
+}
+
 
 //Analyticsトラッキングタイプがgtag.jsか
+if ( !function_exists( 'is_analytics_tracking_type_gtag' ) ) {
 function is_analytics_tracking_type_gtag(){
   return get_analytics_tracking_type() == 'gtag';
 }
+}
+
 
 //ユーザー属性とインタレストカテゴリに関するレポートに対応しているか
+if ( !function_exists( 'is_analytics_interest' ) ) {
 function is_analytics_interest(){
   return is_analytics_tracking_type_dc();
   //return get_theme_mod( 'analytics_interest', true );
 }
+}
+
 
 //ユニバーサルアナリティクスか
+if ( !function_exists( 'is_analytics_universal' ) ) {
 function is_analytics_universal(){
   return is_analytics_tracking_type_analytics() || is_analytics_tracking_type_analytics_with_displayfeatures();
 }
+}
+
 
 //PtengineトラッキングIDの取得
+if ( !function_exists( 'get_ptengin_tracking_id' ) ) {
 function get_ptengin_tracking_id(){
   return get_theme_mod( 'ptengin_tracking_id', '' );
 }
+}
+
 
 //トラッキングIDの取得
+if ( !function_exists( 'get_webmaster_tool_id' ) ) {
 function get_webmaster_tool_id(){
   return get_theme_mod( 'webmaster_tool_id', '' );
 }
+}
+
 
 //ファビコンのURLを取得
+if ( !function_exists( 'get_favicon_url' ) ) {
 function get_favicon_url(){
   $o = get_option('other_options');//旧バージョンのファビコン設定
   $favicon_url = get_theme_mod( 'favicon_url', '' );
   return $favicon_url ? $favicon_url : $o['favicon_url'];
 }
+}
+
 
 //ファビコンのURLを取得
+if ( !function_exists( 'get_the_favicon_url' ) ) {
 function get_the_favicon_url(){
   if (is_favicon_enable()) {
     if ( get_favicon_url() ) {
@@ -5534,50 +6412,77 @@ function get_the_favicon_url(){
     }
   }
 }
+}
+
 
 //テーマでアップルタッチアイコンを設定するかどうか
+if ( !function_exists( 'is_apple_touch_icon_enable' ) ) {
 function is_apple_touch_icon_enable(){
   return get_theme_mod( 'apple_touch_icon_enable', false );
 }
+}
+
 
 //アップルタッチアイコンのURLを取得
+if ( !function_exists( 'get_apple_touch_icon_url' ) ) {
 function get_apple_touch_icon_url(){
   $o = get_option('other_options');//旧バージョンのアップルタッチアイコン設定
   $apple_touch_icon_url = get_theme_mod( 'apple_touch_icon_url', '' );
   return $apple_touch_icon_url ? $apple_touch_icon_url : $o['apple_touch_icon_url'];
 }
+}
+
 
 //自動アップデート機能を有効にするか
+if ( !function_exists( 'is_auto_update_enable' ) ) {
 function is_auto_update_enable(){
   return get_theme_mod( 'auto_update_enable', true );
 }
+}
+
 
 //カスタマイザーの外部CSS読み込みを有効にするか
+if ( !function_exists( 'is_external_custom_css_enable' ) ) {
 function is_external_custom_css_enable(){
   return get_theme_mod( 'external_custom_css_enable', false );
 }
+}
+
 
 //「WLWで編集」を出すかどうか
+if ( !function_exists( 'is_wlw_link_visible' ) ) {
 function is_wlw_link_visible(){
   return get_theme_mod( 'wlw_link_visible', false );
 }
+}
+
 
 //「AMPページ」と「通常ページ」の移動リンクを表示するか
+if ( !function_exists( 'is_amp_link_visible' ) ) {
 function is_amp_link_visible(){
   return get_theme_mod( 'amp_link_visible', true );
 }
+}
+
 
 //「AMPチェック」リンクを表示するか
+if ( !function_exists( 'is_amp_test_link_visible' ) ) {
 function is_amp_test_link_visible(){
   return get_theme_mod( 'amp_test_link_visible', true );
 }
+}
+
 
 //AMPバリデーターの取得
+if ( !function_exists( 'get_amp_test_tool' ) ) {
 function get_amp_test_tool(){
   return get_theme_mod( 'amp_test_tool', true );
 }
+}
+
 
 //AMPバリデーターの取得
+if ( !function_exists( 'get_amp_test_tool_url' ) ) {
 function get_amp_test_tool_url($url){
   $test_url = '';
   $encoded_url = str_replace('&amp;', '&', $url);
@@ -5591,16 +6496,24 @@ function get_amp_test_tool_url($url){
   }
   return $test_url;
 }
+}
+
 
 //AMPページを生成しないカテゴリIDの取得
+if ( !function_exists( 'get_noamp_category_ids' ) ) {
 function get_noamp_category_ids(){
   return get_theme_mod( 'noamp_category_ids', '' );
 }
+}
+
 
 //テーマカスタマイザー項目の説明を表示するか
+if ( !function_exists( 'is_tips_visible' ) ) {
 function is_tips_visible(){
   return get_theme_mod( 'tips_visible', true );
 }
+}
+
 
 //Simplicity新着・人気エントリーウイジェットにWordpress Popular Postsを使うかどうか
 if ( !function_exists( 'is_wpp_enable' ) ):
@@ -5617,10 +6530,14 @@ function is_jetpack_stats_module_active(){
 }
 
 //日本語のスラッグを有効にするかどうか
+if ( !function_exists( 'is_japanese_slug_enable' ) ) {
 function is_japanese_slug_enable(){
   return get_theme_mod( 'japanese_slug_enable', false );
 }
+}
+
 //最初の投稿の年を取得
+if ( !function_exists( 'get_first_post_year' ) ):
 function get_first_post_year(){
   $year = '';
   //記事を古い順に1件だけ取得
@@ -5631,8 +6548,10 @@ function get_first_post_year(){
   wp_reset_query();
   return $year;
 }
+endif;
 
 //Copyright表示
+if ( !function_exists( 'get_copylight_credit' ) ) {
 function get_copylight_credit($should_show_date = true){
   //サイト名のみ
   $site_tag = get_bloginfo('name');
@@ -5645,6 +6564,8 @@ function get_copylight_credit($should_show_date = true){
   $site_tag = ' <a href="'.home_url().'">'.get_bloginfo('name').'</a>';
   return '&copy; '.$year.' '.$site_tag.'.';
 }
+}
+
 //ライセンス表記の取得
 if ( !function_exists( 'get_site_license' ) ):
 function get_site_license(){
@@ -5695,16 +6616,23 @@ function get_site_license(){
 endif;
 
 //ローカルでレスポンシブテストのリンクを表示するか
+if ( !function_exists( 'is_responsive_test_visible' ) ) {
 function is_responsive_test_visible(){
   return get_theme_mod( 'responsive_test_visible', false);
 }
+}
+
 
 //ローカルでレスポンシブテストのリンクを表示するか
+if ( !function_exists( 'is_page_cache_enable' ) ) {
 function is_page_cache_enable(){
   return get_theme_mod( 'page_cache_enable', false);
 }
+}
+
 
 //Windows Live Writerで編集するためのリンクを作成する
+if ( !function_exists( 'wlw_edit_post_link' ) ):
 function wlw_edit_post_link($link, $before, $after){
   if (is_wlw_link_visible()) {
     if ( is_user_logged_in() ):
@@ -5715,8 +6643,10 @@ function wlw_edit_post_link($link, $before, $after){
     endif;
   }
 }
+endif;
 
 //カテゴリーメタディスクリプション用の説明文を取得
+if ( !function_exists( 'get_meta_description_from_category' ) ) {
 function get_meta_description_from_category(){
   $cate_desc = trim( strip_tags( category_description() ) );
   if ( $cate_desc ) {//カテゴリ設定に説明がある場合はそれを返す
@@ -5725,14 +6655,20 @@ function get_meta_description_from_category(){
   $cate_desc = sprintf( __( '「%s」の記事一覧です。', 'simplicity2' ), single_cat_title('', false) );
   return htmlspecialchars($cate_desc);
 }
-
-//カテゴリメタキーワード用のキーワードを取得
-function get_meta_keyword_from_category(){
-  return single_cat_title('', false);
 }
 
 
+//カテゴリメタキーワード用のキーワードを取得
+if ( !function_exists( 'get_meta_keyword_from_category' ) ) {
+function get_meta_keyword_from_category(){
+  return single_cat_title('', false);
+}
+}
+
+
+
 //タグメタディスクリプション用の説明文を取得
+if ( !function_exists( 'get_meta_description_from_tag' ) ) {
 function get_meta_description_from_tag(){
   $tag_desc = trim( strip_tags( tag_description() ) );
   if ( $tag_desc ) {//タグ設定に説明がある場合はそれを返す
@@ -5741,11 +6677,16 @@ function get_meta_description_from_tag(){
   $tag_desc = sprintf( __( '「%s」の記事一覧です。', 'simplicity2' ), single_cat_title('', false) );
   return htmlspecialchars($tag_desc);
 }
+}
+
 
 //タグメタキーワード用のキーワードを取得
+if ( !function_exists( 'get_meta_keyword_from_tag' ) ) {
 function get_meta_keyword_from_tag(){
   return single_tag_title('', false);
 }
+}
+
 
 
 //広告表示がオンかどうか
@@ -5806,46 +6747,70 @@ function is_large_pr_labels_visible(){
 endif;
 
 //全ての投稿ページで自動挿入
+if ( !function_exists( 'is_pr_label_single_visible' ) ) {
 function is_pr_label_single_visible(){
   return get_theme_mod( 'pr_label_single_visible', false );
 }
+}
+
 
 //全ての固定ページで自動挿入
+if ( !function_exists( 'is_pr_label_page_visible' ) ) {
 function is_pr_label_page_visible(){
   return get_theme_mod( 'pr_label_page_visible', false );
 }
+}
+
 
 //日付前に表示（小）
+if ( !function_exists( 'is_pr_label_small_visible' ) ) {
 function is_pr_label_small_visible(){
   return get_theme_mod( 'pr_label_small_visible', true );
 }
+}
+
 
 //本文上に表示（大）
+if ( !function_exists( 'is_pr_label_large_visible' ) ) {
 function is_pr_label_large_visible(){
   return get_theme_mod( 'pr_label_large_visible', false );
 }
+}
+
 
 //PR表記（小）キャプション
+if ( !function_exists( 'get_pr_label_small_caption' ) ) {
 function get_pr_label_small_caption(){
   return get_theme_mod( 'pr_label_small_caption', __( 'PR', 'simplicity2' ) );
 }
+}
+
 
 //PR表記（大）キャプション
+if ( !function_exists( 'get_pr_label_large_caption' ) ) {
 function get_pr_label_large_caption(){
   return get_theme_mod( 'pr_label_large_caption', __( '記事内に広告が含まれています。', 'simplicity2' ) );
 }
+}
+
 
 //「PR表記」を表示しない記事ID配列の取得
+if ( !function_exists( 'get_pr_label_exclude_post_ids' ) ) {
 function get_pr_label_exclude_post_ids(){
   $ids = get_theme_mod( 'pr_label_exclude_post_ids', '' );
   return explode(',', $ids);
 }
+}
+
 
 //「PR表記」を表示しないカテゴリID配列の取得
+if ( !function_exists( 'get_pr_label_exclude_category_ids' ) ) {
 function get_pr_label_exclude_category_ids(){
   $ids = get_theme_mod( 'pr_label_exclude_category_ids', '' );
   return explode(',', $ids);
 }
+}
+
 
 //PR表記小の出力
 if ( !function_exists( 'generate_small_pr_label_tag' ) ):

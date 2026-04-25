@@ -4,6 +4,7 @@
 // カスタムボックスの追加
 ///////////////////////////////////////
 add_action('admin_menu', 'add_custom_boxes');
+if ( !function_exists( 'add_custom_boxes' ) ) {
 function add_custom_boxes(){
   //コメントボックス
   add_meta_box( 'comment_setting_in_page',__( 'コメントの設定', 'simplicity2' ), 'view_comment_custom_box', 'post', 'side' );
@@ -34,10 +35,13 @@ function add_custom_boxes(){
   //add_meta_box( 'update_type_setting_in_page', __( '更新日の変更', 'simplicity2' ), 'view_update_type_custom_box', 'custom_post_type', 'side' );
 
 }
+}
+
 
 ///////////////////////////////////////
 // コメント設定
 ///////////////////////////////////////
+if ( !function_exists( 'view_comment_custom_box' ) ) {
 function view_comment_custom_box(){
   //CSRF対策用のnonceフィールドを出力
   wp_nonce_field('simplicity_save_custom_fields', 'simplicity_custom_nonce');
@@ -56,8 +60,11 @@ function view_comment_custom_box(){
   echo ' style="width: 100%">';
   echo '<p class="howto">'.__( 'コメント凍結時に表示するメッセージです。未入力の場合はデフォルトのものが表示されます。', 'simplicity2' ).'</p>';
 }
+}
+
 
 add_action('save_post', 'save_comment_custom_data');
+if ( !function_exists( 'save_comment_custom_data' ) ) {
 function save_comment_custom_data(){
   //nonce検証（CSRF対策）
   if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
@@ -80,20 +87,29 @@ function save_comment_custom_data(){
     update_post_meta($id, $comment_form_freeze_message_key, $comment_form_freeze_message);
   }
 }
+}
+
 
 //コメント欄を凍結するか
+if ( !function_exists( 'is_comment_form_freeze' ) ) {
 function is_comment_form_freeze(){
   return get_post_meta(get_the_ID(), 'is_comment_form_freeze', true);
 }
+}
+
 
 //コメント凍結時のメッセージ
+if ( !function_exists( 'get_comment_form_freeze_message' ) ) {
 function get_comment_form_freeze_message(){
   return get_post_meta(get_the_ID(), 'comment_form_freeze_message', true);
 }
+}
+
 
 ///////////////////////////////////////
 // AdSenseの設定
 ///////////////////////////////////////
+if ( !function_exists( 'view_ad_custom_box' ) ) {
 function view_ad_custom_box(){
   $is_ads_removed_in_page = get_post_meta(get_the_ID(),'is_ads_removed_in_page', true);
 
@@ -102,8 +118,11 @@ function view_ad_custom_box(){
   echo '>'.__( '広告の除外', 'simplicity2' ).'</label>';
   echo '<p class="howto">'.__( 'ページ上の広告（AdSenseなど）をページ上から取り除きます。テーマカスタマイザーの「広告」項目からカテゴリごとの設定も行えます。', 'simplicity2' ).'</p>';
 }
+}
+
 
 add_action('save_post', 'save_ad_custom_data');
+if ( !function_exists( 'save_ad_custom_data' ) ) {
 function save_ad_custom_data(){
   //nonce検証（CSRF対策）
   if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
@@ -119,11 +138,16 @@ function save_ad_custom_data(){
   add_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page, true);
   update_post_meta($id, $is_ads_removed_in_page_key, $is_ads_removed_in_page);
 }
+}
+
 
 //広告を除外しているか
+if ( !function_exists( 'is_ads_removed_in_page' ) ) {
 function is_ads_removed_in_page(){
   return get_post_meta(get_the_ID(), 'is_ads_removed_in_page', true);
 }
+}
+
 
 ///////////////////////////////////////
 // SEO設定
@@ -174,6 +198,7 @@ if (is_admin_editor_counter_visible()) {
 }
 
 
+if ( !function_exists( 'view_seo_custom_box' ) ) {
 function view_seo_custom_box(){
   $seo_title = get_post_meta(get_the_ID(),'seo_title', true);
   $seo_title = htmlspecialchars($seo_title);
@@ -223,8 +248,11 @@ function view_seo_custom_box(){
   //SEO設定ページへのリンク
   echo '<p><a href="https://wp-simplicity.com/singular-seo-settings/" target="_blank">'.__( 'SEO項目の設定方法', 'simplicity2' ).'</a></p>';
 }
+}
+
 
 add_action('save_post', 'save_seo_custom_data');
+if ( !function_exists( 'save_seo_custom_data' ) ) {
 function save_seo_custom_data(){
   //nonce検証（CSRF対策）
   if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
@@ -273,38 +301,59 @@ function save_seo_custom_data(){
   add_post_meta($id, $is_nofollow_key, $is_nofollow, true);
   update_post_meta($id, $is_nofollow_key, $is_nofollow);
 }
+}
+
 
 //SEO向けのタイトルを取得
+if ( !function_exists( 'get_seo_title_singular_page' ) ) {
 function get_seo_title_singular_page(){
   return trim(get_post_meta(get_the_ID(), 'seo_title', true));
 }
+}
+
 
 //メタディスクリプションを取得
+if ( !function_exists( 'get_meta_description_singular_page' ) ) {
 function get_meta_description_singular_page(){
   return trim(get_post_meta(get_the_ID(), 'meta_description', true));
 }
+}
+
 
 //メタディスクリプションを取得
+if ( !function_exists( 'get_meta_description_blogcard_snippet' ) ) {
 function get_meta_description_blogcard_snippet($id){
   return trim(get_post_meta($id, 'meta_description', true));
 }
+}
+
 
 //メタキーワードを取得
+if ( !function_exists( 'get_meta_keywords_singular_page' ) ) {
 function get_meta_keywords_singular_page(){
   return trim(strip_tags(get_post_meta(get_the_ID(), 'meta_keywords', true)));
 }
+}
+
 
 //noindexか
+if ( !function_exists( 'is_noindex_singular_page' ) ) {
 function is_noindex_singular_page(){
   return get_post_meta(get_the_ID(), 'is_noindex', true);
 }
+}
+
 
 //nofollowか
+if ( !function_exists( 'is_nofollow_singular_page' ) ) {
 function is_nofollow_singular_page(){
   return get_post_meta(get_the_ID(), 'is_nofollow', true);
 }
+}
+
 
 //noindex、nofollowメタタグの取得
+if ( !function_exists( 'get_meta_robots_tag' ) ) {
 function get_meta_robots_tag(){
   if ( is_noindex_singular_page() && is_nofollow_singular_page()) {
     return '<meta name="robots" content="noindex,nofollow">'.PHP_EOL;
@@ -314,11 +363,14 @@ function get_meta_robots_tag(){
     return '<meta name="robots" content="nofollow">'.PHP_EOL;
   }
 }
+}
+
 
 
 ///////////////////////////////////////
 // ページ設定
 ///////////////////////////////////////
+if ( !function_exists( 'view_page_custom_box' ) ) {
 function view_page_custom_box(){
   $page_type = get_post_meta(get_the_ID(),'page_type', true);
 
@@ -349,8 +401,11 @@ function view_page_custom_box(){
   echo '<p class="howto">'.__( 'このページの表示状態を設定します。「本文のみ」表示はランディングページ（LP）などにどうぞ。', 'simplicity2' ).'</p>';
 
 }
+}
+
 
 add_action('save_post', 'save_page_custom_data');
+if ( !function_exists( 'save_page_custom_data' ) ) {
 function save_page_custom_data(){
   //nonce検証（CSRF対策）
   if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
@@ -370,68 +425,104 @@ function save_page_custom_data(){
     update_post_meta($id, $page_type_key, $page_type);
   }
 }
+}
+
 
 //ページタイプの取得
+if ( !function_exists( 'get_page_type' ) ) {
 function get_page_type(){
   return get_post_meta(get_the_ID(), 'page_type', true);
 }
+}
+
 
 //ページタイプはデフォルトか
+if ( !function_exists( 'is_page_type_default' ) ) {
 function is_page_type_default(){
   return get_page_type() == 'default';
 }
+}
+
 
 //ページタイプは狭い1カラムか
+if ( !function_exists( 'is_page_type_column1_narrow' ) ) {
 function is_page_type_column1_narrow(){
   return get_page_type() == 'column1_narrow';
 }
+}
+
 
 //ページタイプは広い1カラムか
+if ( !function_exists( 'is_page_type_column1_wide' ) ) {
 function is_page_type_column1_wide(){
   return get_page_type() == 'column1_wide';
 }
+}
+
 
 //ページタイプは狭い本文のみか
+if ( !function_exists( 'is_page_type_content_only_narrow' ) ) {
 function is_page_type_content_only_narrow(){
   return get_page_type() == 'content_only_narrow';
 }
+}
+
 
 //ページタイプは広い本文のみか
+if ( !function_exists( 'is_page_type_content_only_wide' ) ) {
 function is_page_type_content_only_wide(){
   return get_page_type() == 'content_only_wide';
 }
+}
+
 
 //ページタイプの表示幅は狭いか
+if ( !function_exists( 'is_page_type_narrow' ) ) {
 function is_page_type_narrow(){
   return is_page_type_column1_narrow() || is_page_type_content_only_narrow();
 }
+}
+
 
 //ページタイプの表示幅は広いか
+if ( !function_exists( 'is_page_type_wide' ) ) {
 function is_page_type_wide(){
   return is_page_type_column1_wide() || is_page_type_content_only_wide();
 }
+}
+
 
 //ページタイプは1カラムか
+if ( !function_exists( 'is_page_type_column1' ) ) {
 function is_page_type_column1(){
   return is_page_type_column1_narrow() || is_page_type_column1_wide();
 }
+}
+
 
 //ページタイプは本文のみか
+if ( !function_exists( 'is_page_type_content_only' ) ) {
 function is_page_type_content_only(){
   return is_page_type_content_only_narrow() || is_page_type_content_only_wide();
 }
+}
 
+
+if ( !function_exists( 'get_main_column_width' ) ) {
 function get_main_column_width(){
   if ( is_sidebar_width_336() ) {
     return 1106;
   }
   return 1070;
 }
+}
+
 
 
 ///////////////////////////////////////
 // AMP設定
 ///////////////////////////////////////
+if ( !function_exists( 'view_amp_custom_box' ) ) {
 function view_amp_custom_box(){
   //$is_noamp = '';
   $is_noamp = get_post_meta(get_the_ID(),'is_noamp', true);
@@ -448,8 +539,11 @@ function view_amp_custom_box(){
   echo '<p class="howto" style="margin-top:0;">'.__( 'AMPページを生成せず、通常ページのみとします。アフィリエイトのコンバージョンページ、スクリプト動作が必要なページ等ではチェックすることをおすすめします。<a href="https://wp-simplicity.com/no-amp-page-settings/" target="_blank">機能説明</a>', 'simplicity2' ).'</p>';
 
 }
+}
+
 
 add_action('save_post', 'save_amp_custom_data');
+if ( !function_exists( 'save_amp_custom_data' ) ) {
 function save_amp_custom_data(){
   //nonce検証（CSRF対策）
   if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
@@ -466,12 +560,17 @@ function save_amp_custom_data(){
   add_post_meta($id, $is_noamp_key, $is_noamp, true);
   update_post_meta($id, $is_noamp_key, $is_noamp);
 }
+}
+
 
 
 //投稿のAMPページが生成に設定されているか
+if ( !function_exists( 'is_amp_page_enable' ) ) {
 function is_amp_page_enable(){
   return !get_post_meta(get_the_ID(), 'is_noamp', true);
 }
+}
+
 
 /*管理画面が開いたときに実行*/
 //add_action( 'admin_menu', 'add_update_level_custom_box' );
@@ -483,6 +582,7 @@ function is_amp_page_enable(){
 //}
 
 /* 投稿画面に表示するフォームのHTMLソース */
+if ( !function_exists( 'view_update_type_custom_box' ) ) {
 function view_update_type_custom_box() {
     $the_post = isset($_GET['post']) ? absint($_GET['post']) : null;
     $update_level = get_post_meta( $the_post, 'update_level' );
@@ -496,11 +596,14 @@ function view_update_type_custom_box() {
     echo '<p class="howto" style="margin-top:1em;">'.__( '更新日時を変更するかどうかを設定します。誤字修正などで更新日を変更したくない場合は「変更しない」にチェックを入れてください。', 'simplicity2' ).'</p>';
     echo '</div>';
 }
+}
+
 
 
 /*更新ボタンが押されたときに実行*/
 add_action( 'save_post', 'save_update_type_custom_data' );
 /* 設定したカスタムフィールドの値をDBに書き込む記述 */
+if ( !function_exists( 'save_update_type_custom_data' ) ) {
 function save_update_type_custom_data( $post_id ) {
     //nonce検証（CSRF対策）
     if (!isset($_POST['simplicity_custom_nonce']) || !wp_verify_nonce($_POST['simplicity_custom_nonce'], 'simplicity_save_custom_fields')) {
@@ -522,8 +625,11 @@ function save_update_type_custom_data( $post_id ) {
         delete_post_meta( $post_id, 'update_level' ) ;
     }
 }
+}
+
 
 /* 「更新」以外は更新日時を変更しない */
+if ( !function_exists( 'simplicity_insert_post_data' ) ) {
 function simplicity_insert_post_data( $data, $postarr ){
   //$update_level = $_POST ? $_POST['update_level'] : null;
   $mydata = isset($_POST['update_level']) ? sanitize_text_field($_POST['update_level']) : null;
@@ -533,6 +639,8 @@ function simplicity_insert_post_data( $data, $postarr ){
   }
   return $data;
 }
+}
+
 add_filter( 'wp_insert_post_data', 'simplicity_insert_post_data', 10, 2 );
 
 

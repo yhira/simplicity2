@@ -321,9 +321,12 @@ if ( is_blog_card_external_enable() ) {//外部リンクブログカードが有
 }
 
 //Simplicityキャッシュディレクトリ
+if ( !function_exists( 'get_simplicity_cache_dir' ) ) {
 function get_simplicity_cache_dir(){
   return WP_CONTENT_DIR.'/uploads/simplicity-cache';
 }
+}
+
 
 //外部サイトからブログカードサムネイルを取得する
 if ( !function_exists( 'fetch_card_image' ) ):
@@ -533,14 +536,20 @@ function url_to_external_ogp_blog_card_tag($url){
 endif;
 
 //transientキャッシュの削除
+if ( !function_exists( 'delete_blog_card_cache_transients' ) ) {
 function delete_blog_card_cache_transients(){
   global $wpdb;
   $wpdb->query("DELETE FROM $wpdb->options WHERE (`option_name` LIKE '%_transient_sp_bcc_%') OR (`option_name` LIKE '%_transient_timeout_sp_bcc_%')");
 }
+}
+
 
 //テーマを変更時にブログカードのキャッシュを削除
+if ( !function_exists( 'delete_blog_card_cache' ) ) {
 function delete_blog_card_cache() {
   delete_blog_card_cache_transients();
   remove_directory(get_simplicity_cache_dir());
 }
+}
+
 add_action('switch_theme', 'delete_blog_card_cache');

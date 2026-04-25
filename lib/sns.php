@@ -24,18 +24,24 @@ endif;
 
 
 //Twitter IDを含めるURLパラメータを取得
+if ( !function_exists( 'get_twitter_via_param' ) ) {
 function get_twitter_via_param(){
   if ( is_twitter_id_include() && get_twitter_follow_id() ) {
     return '&amp;via='.get_twitter_follow_id();
   }
 }
+}
+
 
 //ツイート後にフォローを促すパラメータを取得
+if ( !function_exists( 'get_twitter_related_param' ) ) {
 function get_twitter_related_param(){
   if ( is_twitter_related_follow_enable() && get_twitter_follow_id() ) {
     return '&amp;related='.get_twitter_follow_id();//.':フォロー用の説明文';
   }
 }
+}
+
 
 //feedlyの購読者数取得
 if ( !function_exists( 'fetch_feedly_count' ) ):
@@ -188,9 +194,12 @@ function fetch_facebook_count($url) {
 endif;
 
 //SNS Count Cacheプラグインはインストールされているか
+if ( !function_exists( 'scc_exists' ) ) {
 function scc_exists(){
   return function_exists('scc_get_share_twitter');
 }
+}
+
 
 //ツイート数取得関数が存在しているか
 function scc_twitter_exists(){

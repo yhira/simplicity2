@@ -437,6 +437,7 @@ function get_amp_permalink(){
 endif;
 
 //画像URLから幅と高さを取得する（同サーバー内ファイルURLのみ）
+if ( !function_exists( 'get_image_width_and_height' ) ):
 function get_image_width_and_height($image_url){
   //URLにサイトアドレスが含まれていない場合
   if (!includes_site_url($image_url)) {
@@ -454,6 +455,7 @@ function get_image_width_and_height($image_url){
     return $res;
   }
 }
+endif;
 
 //AMPページではCrayon Syntax Highlighterを表示しない
 if ( !function_exists( 'remove_crayon_syntax_highlighter' ) ):

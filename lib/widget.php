@@ -40,6 +40,7 @@ require_once('widgets/facebook-save-button.php');
 require_once('widgets/classic-text.php');
 
 //集計単位の文字列取得
+if ( !function_exists( 'get_range_tag' ) ) {
 function get_range_tag($range){
   switch ($range) {
     case 'daily':
@@ -55,7 +56,10 @@ function get_range_tag($range){
        return '<div class="wpp-range">'.__( '（集計単位：全期間）', 'simplicity2' ).'</div>';
   }
 }
+}
 
+
+if ( !function_exists( 'get_popular_posts_ranking_style' ) ) {
 function get_popular_posts_ranking_style($slelctor){
   return '<style scoped>
 '.$slelctor.' {
@@ -84,6 +88,8 @@ function get_popular_posts_ranking_style($slelctor){
 }
 </style>';
 }
+}
+
 
 //！でウィジェットのタイトルを隠せるように
 add_filter('widget_title', 'widget_title_hidable');

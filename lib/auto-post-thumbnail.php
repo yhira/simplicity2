@@ -9,6 +9,7 @@
 require_once(ABSPATH . '/wp-admin/includes/image.php');
 
 //イメージファイルがサーバー内にない場合は取得する
+if ( !function_exists( 'fetch_thumbnail_image' ) ) {
 function fetch_thumbnail_image($matches, $key, $post_content, $post_id){
   //サーバーのphp.iniのallow_url_fopenがOnでないとき外部サーバーから取得しない
   if ( !ini_get('allow_url_fopen') )
@@ -105,8 +106,11 @@ function fetch_thumbnail_image($matches, $key, $post_content, $post_id){
 
   return null;
 }
+}
+
 
 //投稿内の最初の画像をアイキャッチに設定する（Auto Post Thumnailプラグイン的な機能）
+if ( !function_exists( 'auto_post_thumbnail_image' ) ) {
 function auto_post_thumbnail_image($post_id) {
   global $wpdb;
   global $post;
@@ -216,6 +220,8 @@ function auto_post_thumbnail_image($post_id) {
   }
   //$post = $tmp_post;
 }
+}
+
 if ( is_auto_post_thumbnail_enable() ) {
   //新しい投稿で自動設定する場合
   //add_action( 'transition_post_status', 'auto_post_thumbnail_image');

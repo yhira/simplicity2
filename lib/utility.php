@@ -1,6 +1,7 @@
 <?php
 
 //ローカルのテスト環境かどうか
+if ( !function_exists( 'is_local_test' ) ) {
 function is_local_test(){
   //WP-CLIやCron環境ではSERVER_NAMEが未定義の場合がある
   $host = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '';
@@ -8,34 +9,48 @@ function is_local_test(){
     return true;
   }
 }
+}
+
 
 //ページのURLを取得（ページャーの2ページ目なども取得できる）
+if ( !function_exists( 'get_this_page_url' ) ) {
 function get_this_page_url(){
   //WP-CLIやCron環境ではHTTP_HOST等が未定義の場合がある
   $host = isset($_SERVER["HTTP_HOST"]) ? $_SERVER["HTTP_HOST"] : '';
   $uri = isset($_SERVER["REQUEST_URI"]) ? $_SERVER["REQUEST_URI"] : '';
   return (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $host . $uri;
 }
+}
+
 
 //サイトのドメインを取得
+if ( !function_exists( 'get_this_site_domain' ) ) {
 function get_this_site_domain(){
   // //ドメイン情報を$results[1]に取得する
   preg_match( '/https?:\/\/(.+?)\//i', admin_url(), $results );
   return $results[1];
 }
+}
+
 
 //ログインユーザー名と表示名が同じか
+if ( !function_exists( 'is_login_name_and_display_name_same' ) ) {
 function is_login_name_and_display_name_same(){
   return get_the_author_meta('user_login') == get_the_author_meta('display_name');
 }
+}
+
 
 //URLからドメインを取得
+if ( !function_exists( 'get_domain_name' ) ):
 function get_domain_name($url){
   if (empty($url)) return;
   return parse_url($url, PHP_URL_HOST);
 }
+endif;
 
 //フォルダごとファイルを全て削除
+if ( !function_exists( 'remove_directory' ) ) {
 function remove_directory($dir) {
   //ディレクトリが存在しないときは何もしない
   if ( !file_exists($dir) ) {
@@ -56,18 +71,25 @@ function remove_directory($dir) {
   rmdir($dir);
   }
 }
+}
+
 
 //拡張子のみを取得する
+if ( !function_exists( 'get_extention' ) ):
 function get_extention($filename){
   return preg_replace('/^.*\.([^.]+)$/D', '$1', $filename);
 }
+endif;
 
 //ファイル名のみを取得する
+if ( !function_exists( 'get_basename' ) ):
 function get_basename($filename){
   $p = pathinfo($filename);
   return basename ( $filename, ".{$p['extension']}" );
 }
+endif;
 
+if ( !function_exists( 'is_bbpress_page' ) ):
 function is_bbpress_page(){
   if (function_exists('bbp_is_topic')) {
     if (bbp_is_topic() ||
@@ -89,8 +111,10 @@ function is_bbpress_page(){
     }
   }
 }
+endif;
 
 //配列内の数値をマイナスにする
+if ( !function_exists( 'minusize_number_in_array' ) ) {
 function minusize_number_in_array($number_array){
   if (empty($number_array)) {
     return null;
@@ -102,6 +126,8 @@ function minusize_number_in_array($number_array){
   }
   return implode(',', $numbers);
 }
+}
+
 
 //ブログカード用のURLデコード
 if ( !function_exists( 'ampersand_urldecode' ) ):

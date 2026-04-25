@@ -5,6 +5,7 @@
  *
  * @link http://tools.ietf.org/html/rfc3492
  */
+if (!class_exists('Punycode')):
 class Punycode
 {
 
@@ -329,3 +330,4 @@ class Punycode
         }
     }
 }
+endif;

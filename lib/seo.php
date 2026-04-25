@@ -2,9 +2,12 @@
 
 
 //Wordpress4.1からのタイトル自動作成
+if ( !function_exists( 'theme_slug_setup' ) ) {
 function theme_slug_setup() {
    add_theme_support( 'title-tag' );
 }
+}
+
 add_action( 'after_setup_theme', 'theme_slug_setup' );
 
 //タイトル自動作成をフックして変更したい部分を変更する
@@ -85,6 +88,7 @@ add_filter( 'document_title_parts', 'simplicity_title_parts' );
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 
 ////ページネーションと分割ページ（マルチページ）タグを出力
+if ( !function_exists( 'rel_next_prevlink_tags' ) ) {
 function rel_next_prevlink_tags() {
   //1ページを複数に分けた分割ページ
   if(is_single() || is_page()) {
@@ -112,6 +116,8 @@ function rel_next_prevlink_tags() {
     }
   }
 }
+}
+
 if ( is_rel_next_prev_link_enable() ) {
   //分割ページのみnext/prevを表示
   add_action( 'wp_head', 'rel_next_prevlink_tags' );
@@ -120,6 +126,7 @@ if ( is_rel_next_prev_link_enable() ) {
 //分割ページ（マルチページ）URLの取得
 //参考ページ：
 //http://seophp.net/wordpress-fix-rel-prev-and-rel-next-without-plugin/
+if ( !function_exists( 'generate_multipage_url' ) ) {
 function generate_multipage_url($rel='prev') {
   global $post;
   global $multipage;
@@ -145,8 +152,11 @@ function generate_multipage_url($rel='prev') {
   }
   return $url;
 }
+}
+
 
 //分割ページ（マルチページ）かチェックする
+if ( !function_exists( 'check_multi_page' ) ) {
 function check_multi_page() {
   $num_pages    = substr_count(
       $GLOBALS['post']->post_content,
@@ -155,6 +165,8 @@ function check_multi_page() {
   $current_page = get_query_var( 'page' );
   return array ( $num_pages, $current_page );
 }
+}
+
 
 //デフォルトのcanonicalタグ削除
 //remove_action('wp_head', 'rel_canonical');

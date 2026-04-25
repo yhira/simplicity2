@@ -38,16 +38,20 @@ function is_mobile(){
 endif;
 
 //Android Chromeで&nbsp;が・に表示される不具合対策
+if ( !function_exists( 'replace_nbsp_to_ensp' ) ) {
 function replace_nbsp_to_ensp($the_content) {
   if ( is_singular() ) {
     $the_content = str_replace('&nbsp;', '&ensp;', $the_content);
   }
   return $the_content;
 }
+}
+
 add_filter('the_content','replace_nbsp_to_ensp');
 
 //iOSかどうかを判定する
 //https://net-viz.info/archives/409/
+if ( !function_exists( 'is_ios' ) ):
 function is_ios() {
   $is_ipad = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'iPad');
   global $is_iphone;
@@ -55,3 +59,4 @@ function is_ios() {
     return true;
   }
 }
+endif;

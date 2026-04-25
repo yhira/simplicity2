@@ -24,21 +24,28 @@ $g_external_link_table_name = 'sp_external_links';
 
 //Wordpressテーマが有効化したとき
 //参考：http://goo.gl/7yhwup
+if ( !function_exists( 'wordpress_theme_activate' ) ) {
 function wordpress_theme_activate() {
     global $pagenow;
     if(is_admin() && $pagenow == "themes.php" && isset($_GET["activated"]))
         do_action("wordpress_theme_activate");
 }
+}
+
 add_action("init", "wordpress_theme_activate");
 
 //テーマを有効化した時に実行される関数
+if ( !function_exists( 'wordpress_theme_activated' ) ) {
 function wordpress_theme_activated() {
   //以下にテーマが有効化された時のコード
   create_external_links_table();
 }
+}
+
 //add_action("wordpress_theme_activate", "wordpress_theme_activated");
 
 
+if ( !function_exists( 'create_external_links_table' ) ) {
 function create_external_links_table() {
   global $wpdb;
   global $g_external_link_table_version;
@@ -77,7 +84,10 @@ function create_external_links_table() {
 
   update_option( 'external_link_table_version', $g_external_link_table_version );
 }
+}
 
+
+if ( !function_exists( 'delete_external_links_table' ) ) {
 function delete_external_links_table() {
   global $wpdb;
   global $g_external_link_table_name;
@@ -88,4 +98,6 @@ function delete_external_links_table() {
 
   delete_option( "external_link_table_version" );
 }
+}
+
 //add_action("switch_theme", "delete_external_links_table");
