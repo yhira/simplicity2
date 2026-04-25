@@ -42,7 +42,7 @@ class SimplicitySocialFollowWidgetItem extends WP_Widget {
         'title' => null,
       );
     }
-    $title = esc_attr($instance['title']);
+    $title = isset($instance['title']) ? esc_attr($instance['title']) : '';
     ?>
     <p>
        <label for="<?php echo $this->get_field_id('title'); ?>">

@@ -91,14 +91,14 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
         'entry_type' => 'default',
       );
     }
-    $widget_mode = esc_attr($instance['widget_mode']);
+    $widget_mode = isset($instance['widget_mode']) ? esc_attr($instance['widget_mode']) : 'all';
     $title = '';
     if (isset($instance['title'])) {
       $title = esc_attr($instance['title']);
     }
-    $entry_count = esc_attr($instance['entry_count']);
-    $is_top_visible = esc_attr($instance['is_top_visible']);
-    $entry_type = esc_attr($instance['entry_type']);
+    $entry_count = isset($instance['entry_count']) ? esc_attr($instance['entry_count']) : 5;
+    $is_top_visible = isset($instance['is_top_visible']) ? esc_attr($instance['is_top_visible']) : 1;
+    $entry_type = isset($instance['entry_type']) ? esc_attr($instance['entry_type']) : 'default';
     ?>
     <?php //ウィジェットモード（全てか、カテゴリ別か） ?>
     <p>

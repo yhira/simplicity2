@@ -675,6 +675,7 @@ if (is_scrollable_table_enable()) {
 
 
 //カスタムフィールドのショートコードをロケーションURIに置換
+if ( !function_exists( 'replace_directory_uri' ) ):
 function replace_directory_uri($code){
   $code = str_replace('[template_directory_uri]', get_template_directory_uri(), $code);
   $code = str_replace('[stylesheet_directory_uri]', get_stylesheet_directory_uri(), $code);
@@ -682,6 +683,7 @@ function replace_directory_uri($code){
   $code = str_replace('<?php echo get_stylesheet_directory_uri(); ?>', get_stylesheet_directory_uri(), $code);
   return $code;
 }
+endif;
 
 /*
 //現在採用してない
