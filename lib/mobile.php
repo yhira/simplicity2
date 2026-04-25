@@ -53,6 +53,9 @@ add_filter('the_content','replace_nbsp_to_ensp');
 //https://net-viz.info/archives/409/
 if ( !function_exists( 'is_ios' ) ):
 function is_ios() {
+  if (!isset($_SERVER['HTTP_USER_AGENT'])) {
+    return false;
+  }
   $is_ipad = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'iPad');
   global $is_iphone;
   if ($is_iphone || $is_ipad) {
