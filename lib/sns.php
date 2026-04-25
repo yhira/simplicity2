@@ -108,14 +108,8 @@ endif;
 //Google＋カウントの取得
 if ( !function_exists( 'fetch_google_plus_count' ) ):
 function fetch_google_plus_count($url) {
-  $query = 'https://apis.google.com/_/+1/fastbutton?url=' . urlencode( $url );
-  //URL（クエリ）先の情報を取得
-  $args = array( 'sslverify' => is_ssl_verification_enable() );
-  $result = wp_remote_get($query, $args);
-  // 正規表現でカウント数のところだけを抽出
-  preg_match( '/\[2,([0-9.]+),\[/', $result["body"], $count );
-  // 共有数を表示
-  return isset($count[1]) ? intval($count[1]) : 0;
+  //Google+は2019年にサービス終了のため、常に0を返す
+  return 0;
 }
 endif;
 

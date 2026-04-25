@@ -2,7 +2,8 @@
 
 //ローカルのテスト環境かどうか
 function is_local_test(){
-  $host = $_SERVER['SERVER_NAME'];
+  //WP-CLIやCron環境ではSERVER_NAMEが未定義の場合がある
+  $host = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '';
   if ( $host == 'localhost' || $host == '127.0.0.1' ) {
     return true;
   }
@@ -10,7 +11,10 @@ function is_local_test(){
 
 //ページのURLを取得（ページャーの2ページ目なども取得できる）
 function get_this_page_url(){
-  return (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+  //WP-CLIやCron環境ではHTTP_HOST等が未定義の場合がある
+  $host = isset($_SERVER["HTTP_HOST"]) ? $_SERVER["HTTP_HOST"] : '';
+  $uri = isset($_SERVER["REQUEST_URI"]) ? $_SERVER["REQUEST_URI"] : '';
+  return (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $host . $uri;
 }
 
 //サイトのドメインを取得

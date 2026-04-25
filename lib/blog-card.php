@@ -80,6 +80,7 @@ function url_to_blog_card_tag($url){
   }
 
   //サイトロゴ
+  $site_logo_tag = '';
   if ( is_blog_card_site_logo_visible() ) {
     if ( is_blog_card_site_logo_link_enable() ) {
       $site_logo_tag = '<a href="'.home_url().'"'.$target.'>'.get_this_site_domain().'</a>';
@@ -348,13 +349,13 @@ function fetch_card_image($image){
     //$dir = ABSPATH.'wp-content/uploads/simplicity-temp-314159265';
     //ディレクトリがないときには作成する
     if ( !file_exists($dir) ) {
-      mkdir($dir, 0777);
+      mkdir($dir, 0755);
     }
     //ローカル画像ファイルパス
     $new_file = $dir.'/'.md5($image).'.'.$ext;
     //$new_file = $dir.$filename;
     //$wp_filesystemオブジェクトのメソッドとしてファイルを取得する
-    $file_data = @$wp_filesystem->get_contents($image);
+    $file_data = $wp_filesystem->get_contents($image);
 
     if ( $file_data ) {
       $wp_filesystem->put_contents($new_file, $file_data);
@@ -501,6 +502,7 @@ function url_to_external_ogp_blog_card_tag($url){
   $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.$domain.'" class="blog-card-favicon-img" alt="" width="16" height="16" /></span>';
 
   //サイトロゴ
+  $site_logo_tag = '';
   if ( is_blog_card_external_site_logo_visible() ) {
     if ( is_blog_card_external_site_logo_link_enable() ) {
       $site_logo_tag = '<a href="//'.$domain.'"'.$target.$nofollow.'>'.$domain.'</a>';
@@ -510,6 +512,7 @@ function url_to_external_ogp_blog_card_tag($url){
     $site_logo_tag = '<div class="blog-card-site">'.$favicon_tag.$site_logo_tag.'</div>';
   }
 
+  $thumbnail = '';
   //サムネイルを取得できた場合
   if ( $image ) {
     $thumbnail = '<img src="'.$image.'" alt="" class="blog-card-thumb-image" height="100" width="100" />';

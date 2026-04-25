@@ -14,27 +14,27 @@ add_action( 'after_setup_theme', function (){
 } );
 
 //-----------------------------------
-include 'lib/php-html-css-js-minifier.php'; //縮小化ライブラリ
-include 'lib/customizer.php';//テーマカスタマイザー関係の関数
-include 'lib/amp.php';       //AMP関係の関数
-include 'lib/ad.php';        //広告関係の関数
-include 'lib/sns.php';       //SNS関係の関数
-include 'lib/admin.php';     //管理画面用の関数
-include 'lib/utility.php';   //自作のユーティリティー関数
-include 'lib/punycode.php';  //Punycode関係の関数
-include 'lib/widget.php';    //ウイジェット関係の関数
-include 'lib/widget-areas.php';//ウイジェットエリア関係の関数
-include 'lib/custom-field.php';//カスタムフィールド関係の関数
-include 'lib/auto-post-thumbnail.php'; //アイキャッチ自動設定関数
+require_once 'lib/php-html-css-js-minifier.php'; //縮小化ライブラリ
+require_once 'lib/customizer.php';//テーマカスタマイザー関係の関数
+require_once 'lib/amp.php';       //AMP関係の関数
+require_once 'lib/ad.php';        //広告関係の関数
+require_once 'lib/sns.php';       //SNS関係の関数
+require_once 'lib/admin.php';     //管理画面用の関数
+require_once 'lib/utility.php';   //自作のユーティリティー関数
+require_once 'lib/punycode.php';  //Punycode関係の関数
+require_once 'lib/widget.php';    //ウイジェット関係の関数
+require_once 'lib/widget-areas.php';//ウイジェットエリア関係の関数
+require_once 'lib/custom-field.php';//カスタムフィールド関係の関数
+require_once 'lib/auto-post-thumbnail.php'; //アイキャッチ自動設定関数
 //include 'lib/external-link.php'; //外部リンク関係の関数
-include 'lib/blog-card.php'; //ブログカード関係の関数
-include 'lib/seo.php';       //SEO関係の関数
-include 'lib/mobile.php';    //モバイル関係の関数
-include 'lib/image.php';     //画像関係の関数
-include 'lib/comment.php';   //コメント関係の関数
-include 'lib/scripts.php';   //スクリプト関係の関数
-include 'lib/speed-up.php';   //高速化関係の関数
-include 'lib/qtags.php';     //クイックタグ関係の関数
+require_once 'lib/blog-card.php'; //ブログカード関係の関数
+require_once 'lib/seo.php';       //SEO関係の関数
+require_once 'lib/mobile.php';    //モバイル関係の関数
+require_once 'lib/image.php';     //画像関係の関数
+require_once 'lib/comment.php';   //コメント関係の関数
+require_once 'lib/scripts.php';   //スクリプト関係の関数
+require_once 'lib/speed-up.php';   //高速化関係の関数
+require_once 'lib/qtags.php';     //クイックタグ関係の関数
 //CFilteringプラグインとの連携
 if ( version_compare( phpversion(), '5.3', '>=' ) ) {
   require_once 'lib/cfiltering.php';
@@ -54,8 +54,12 @@ add_image_size('thumb320_raw', 320, 0, false);
 //コンテンツの幅の指定
 if ( ! isset( $content_width ) ) $content_width = 680;
 
-//カテゴリー説明文でHTMLタグを使う
-remove_filter( 'pre_term_description', 'wp_filter_kses' );
+//カテゴリー説明文でHTMLタグを使う（unfiltered_html権限を持つユーザーのみ許可）
+add_action('init', function() {
+  if (current_user_can('unfiltered_html')) {
+    remove_filter('pre_term_description', 'wp_filter_kses');
+  }
+});
 
 //ビジュアルエディターとテーマ表示のスタイルを合わせる
 add_editor_style();
@@ -79,6 +83,7 @@ register_nav_menus(
 add_post_type_support( 'page', 'excerpt' );
 
 //カスタムヘッダー
+$custom_header_defaults = array();
 add_theme_support( 'custom-header', $custom_header_defaults );
 
 //テキストウィジェットでショートコードを使用する
@@ -490,7 +495,7 @@ endif;
 //スキンとなるファイルの取得
 if ( !function_exists( 'get_skin_files' ) ):
 function get_skin_files(){
-  define( 'FS_METHOD', 'direct' );
+  if (!defined('FS_METHOD')) define( 'FS_METHOD', 'direct' );
 
   $parent = true;
   // 子テーマで 親skins の取得有無の設定
@@ -605,7 +610,10 @@ endif;
 
 //アップロード可能なファイルの設定
 function my_upload_mimes($mimes = array()) {
-  $mimes['svg'] = 'image/svg+xml';
+  //SVGはスクリプトを含むXMLのため、unfiltered_html権限を持つユーザーのみ許可
+  if (current_user_can('unfiltered_html')) {
+    $mimes['svg'] = 'image/svg+xml';
+  }
   return $mimes;
 }
 add_filter('upload_mimes', 'my_upload_mimes');
@@ -810,7 +818,7 @@ function get_theme_dir(){
 //統一パーツスキンとなるファイルの取得
 function get_parts_skin_file_uri(){
   //define( 'FS_METHOD', 'direct' );
-  define( 'MERGED_CSS', '_merged_.css' );
+  if (!defined('MERGED_CSS')) define( 'MERGED_CSS', '_merged_.css' );
 
   $skin_file = get_pearts_base_skin();
   if ( !$skin_file ) return;//パーツスキンじゃないときは
@@ -1225,18 +1233,18 @@ function simplicity_deny_restapi_except_plugins( $result, $wp_rest_server, $requ
     return new WP_Error( 'rest_disabled', __( 'The REST API on this site has been disabled.', 'simplicity2' ), array( 'status' => rest_authorization_required_code() ) );
 }
 endif;
-if (!is_rest_api_enable() && (get_wordpress_version() >= 4.7)) {
+if (!is_rest_api_enable() && version_compare(get_bloginfo('version'), '4.7', '>=')) {
   add_filter( 'rest_pre_dispatch', 'simplicity_deny_restapi_except_plugins', 10, 3 );
 }
 
-//Wordpressのバージョンを少数で取得する
+//Wordpressのバージョンを少数で取得する（後方互換のため残置）
 function get_wordpress_version(){
   return floatval(get_bloginfo('version'));
 }
 
 
 //投稿内容をSSL対応する
-if ( !function_exists( 'chagne_http_to_https' ) ):
+if ( !function_exists( 'chagne_site_url_html_to_https' ) ):
 function chagne_site_url_html_to_https($the_content){
   //httpとhttpsURLの取得
   if (strpos(site_url(), 'https://') !== false) {
@@ -1471,6 +1479,7 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
     return $cache;
   }
 
+  $MATCH_CACHE = null;
   // data-youtubeチェック
   if (strpos($cache, 'data-youtube')) {
     preg_match( '/(?<=data-youtube=")(.+?)(?=")/', $cache, $match_cache);
@@ -1497,7 +1506,9 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
       // プレイリストIDの抽出
       preg_match( '/(?<=list=)(.+?)(?=")/', $cache, $list );
       // ビデオIDの取得
-      $json = json_decode(file_get_contents('https://www.youtube.com/oembed?url=http://www.youtube.com/playlist?list='.$list[1]), true);
+      //file_get_contentsの代わりにwp_remote_getを使用（allow_url_fopen無効環境対応）
+      $oembed_res = wp_remote_get('https://www.youtube.com/oembed?url=http://www.youtube.com/playlist?list='.$list[1]);
+      $json = (!is_wp_error($oembed_res) && wp_remote_retrieve_response_code($oembed_res) === 200) ? json_decode(wp_remote_retrieve_body($oembed_res), true) : array();
       // ビデオIDの抽出
       preg_match( '/(?<=vi\/)(.+?)(?=\/)/', $json['thumbnail_url'], $video_id );
     } else {
@@ -1517,8 +1528,9 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    //SSL検証を有効化（中間者攻撃防止）
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     curl_setopt($ch, CURLOPT_URL, "https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=" . $video_id[0] . "&format=json");
 
     $data = curl_exec($ch);
@@ -1627,10 +1639,12 @@ endif;
 add_shortcode('box_menu', 'get_box_menu_tag');
 if ( !function_exists( 'get_box_menu_tag' ) ):
 function get_box_menu_tag($atts){
-  extract(shortcode_atts(array(
+  $a = shortcode_atts(array(
     'name' => '', // メニュー名
     'class' => null,
-  ), $atts, 'box_menu'));
+  ), $atts, 'box_menu');
+  $name = $a['name'];
+  $class = $a['class'];
 
   //デフォルトアイコンフォント（Font Awesome4）
   $def_icon_classes = 'fa fa-star'; //Font Awesome5を利用する場合は変更する
@@ -1685,11 +1699,14 @@ endif;
 add_shortcode('campaign', 'campaign_shortcode');
 if ( !function_exists( 'campaign_shortcode' ) ):
 function campaign_shortcode( $atts, $content = null ) {
-  extract( shortcode_atts( array(
+  $a = shortcode_atts( array(
     'from' => null, //いつから（開始日時）
     'to' => null, //いつまで（終了日時）
     'class' => null, //拡張クラス
-  ), $atts, 'campaign' ) );
+  ), $atts, 'campaign' );
+  $from = $a['from'];
+  $to = $a['to'];
+  $class = $a['class'];
 
   //内容がない場合は何も表示しない
   if (!$content) return null;

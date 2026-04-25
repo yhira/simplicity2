@@ -56,7 +56,7 @@ class OpenGraph implements Iterator
           'sslverify' => is_ssl_verification_enable(),
           //'redirection' => 10,
           'simplicity' => true,
-          'user-agent' => $_SERVER['HTTP_USER_AGENT'],
+          'user-agent' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '',
         );
         $res = wp_remote_get( $URI, $args );
         $response_code = wp_remote_retrieve_response_code( $res );
@@ -141,7 +141,7 @@ class OpenGraph implements Iterator
         }
 
         //Fallback to use image_src if ogp::image isn't set.
-        if (!isset($page->values['image'])) {
+        if (!isset($page->_values['image'])) {
             $domxpath = new DOMXPath($doc);
             $elements = $domxpath->query("//link[@rel='image_src']");
 
