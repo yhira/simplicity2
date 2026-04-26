@@ -51,8 +51,8 @@ add_filter('the_content','replace_nbsp_to_ensp');
 
 //iOSかどうかを判定する
 //https://net-viz.info/archives/409/
-if ( !function_exists( 'is_ios' ) ):
-function is_ios() {
+if ( !function_exists( 'simplicity_is_ios' ) ):
+function simplicity_is_ios() {
   if (!isset($_SERVER['HTTP_USER_AGENT'])) {
     return false;
   }

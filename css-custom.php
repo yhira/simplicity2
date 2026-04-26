@@ -949,7 +949,7 @@ div#container {
 }
 <?php endif;//is_page_type_content_only ?>
 <?php //iOSの時は:hoverのスタイルを変更する
-if ( is_ios() ): ?>
+if ( simplicity_is_ios() ): ?>
 a.balloon-btn-link:hover,
 .snsbs li a:hover,
 ul.snsp li a:hover,
