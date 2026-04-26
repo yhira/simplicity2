@@ -68,12 +68,12 @@ function url_to_blog_card_tag($url){
   //はてブを表示する場合
   $hatebu_tag = is_blog_card_hatena_visible() && !is_amp() ? '<div class="blog-card-hatebu"><a href="//b.hatena.ne.jp/entry/'.$url.'"'.$target.' rel="nofollow"><img src="//b.hatena.ne.jp/entry/image/'.$url.'" alt=""'.$hatena_wh.' /></a></div>' : '';
 
-  //var_dump(get_domain_name(punycode_decode('https://xn--u9j3hd3f2a3267bih9a1hipz5cvxp.com/tokkun-english/')));
+  //var_dump(get_domain_name(simplicity_punycode_decode('https://xn--u9j3hd3f2a3267bih9a1hipz5cvxp.com/tokkun-english/')));
   //ファビコン
   $favicon_tag = '';
   if ( is_favicon_enable() && get_the_favicon_url() ) {//ファビコンが有効か確認
 
-    $domain = get_domain_name(punycode_decode($url));
+    $domain = get_domain_name(simplicity_punycode_decode($url));
     //GoogleファビコンAPIを利用する
     ////www.google.com/s2/favicons?domain=nelog.jp
     $favicon_tag = '<span class="blog-card-favicon"><img src="//www.google.com/s2/favicons?domain='.$domain.'" class="blog-card-favicon-img" alt="" width="16" height="16" /></span>';
@@ -460,7 +460,7 @@ function url_to_external_ogp_blog_card_tag($url){
   //var_dump($image);
 
   //ドメイン名を取得
-  $domain = get_domain_name(isset($ogp->url) ? punycode_decode($ogp->url) : punycode_decode($url));
+  $domain = get_domain_name(isset($ogp->url) ? simplicity_punycode_decode($ogp->url) : simplicity_punycode_decode($url));
 
 
   //og:imageが相対パスのとき

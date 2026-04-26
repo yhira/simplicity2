@@ -53,7 +53,7 @@ function theme_customize_register($wp_customize) {
   //リンク色
   $wp_customize->add_setting( 'link_color', array(
     'default' => LINK_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
     'label' => __( 'リンク色', 'simplicity2' ),
@@ -66,7 +66,7 @@ function theme_customize_register($wp_customize) {
   //リンク色ホバー
   $wp_customize->add_setting( 'link_hover_color', array(
     'default' => LINK_HOVER_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
     'label' => __( 'リンクホバー色', 'simplicity2' ),
@@ -79,7 +79,7 @@ function theme_customize_register($wp_customize) {
   //ヘッダー外側色
   $wp_customize->add_setting( 'header_outer_background_color', array(
     'default' => HEADER_OUTER_BACKGROUND_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_outer_background_color', array(
     'label' => __( 'ヘッダー外側背景色', 'simplicity2' ),
@@ -92,7 +92,7 @@ function theme_customize_register($wp_customize) {
   //ヘッダー内側色
   $wp_customize->add_setting( 'header_inner_background_color', array(
     'default' => HEADER_INNER_BACKGROUND_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_inner_background_color', array(
     'label' => __( 'ヘッダー内側背景色', 'simplicity2' ),
@@ -105,7 +105,7 @@ function theme_customize_register($wp_customize) {
   //サイトタイトル色
   $wp_customize->add_setting( 'site_title_color', array(
     'default' => SITE_TITLE_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_title_color', array(
     'label' => __( 'サイトタイトル色', 'simplicity2' ),
@@ -118,7 +118,7 @@ function theme_customize_register($wp_customize) {
   //サイト概要色
   $wp_customize->add_setting( 'site_description_color', array(
     'default' => SITE_DESCRIPTION_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_description_color', array(
     'label' => __( 'サイト概要色', 'simplicity2' ),
@@ -131,7 +131,7 @@ function theme_customize_register($wp_customize) {
   //モバイル時ヘッダー色
   $wp_customize->add_setting( 'mobile_background_color', array(
     'default' => MOBILE_BACKGROUND_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'mobile_background_color', array(
     'label' => __( 'モバイル時ヘッダー背景色', 'simplicity2' ),
@@ -144,7 +144,7 @@ function theme_customize_register($wp_customize) {
   //モバイルサイトタイトル色
   $wp_customize->add_setting( 'mobile_site_title_color', array(
     'default' => SITE_TITLE_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'mobile_site_title_color', array(
     'label' => __( 'モバイルサイトタイトル色', 'simplicity2' ),
@@ -157,7 +157,7 @@ function theme_customize_register($wp_customize) {
   //サイト概要色
   $wp_customize->add_setting( 'mobile_site_description_color', array(
     'default' => SITE_DESCRIPTION_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'mobile_site_description_color', array(
     'label' => __( 'モバイルサイト概要色', 'simplicity2' ),
@@ -170,7 +170,7 @@ function theme_customize_register($wp_customize) {
   //グローバルナビ色
   $wp_customize->add_setting( 'navi_color', array(
     'default' => NAVI_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navi_color', array(
     'label' => __( 'グローバルナビ色', 'simplicity2' ),
@@ -183,7 +183,7 @@ function theme_customize_register($wp_customize) {
   //グローバルナビリンク色
   $wp_customize->add_setting( 'navi_link_color', array(
     'default' => NAVI_LINK_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navi_link_color', array(
     'label' => __( 'グローバルナビリンク色', 'simplicity2' ),
@@ -196,7 +196,7 @@ function theme_customize_register($wp_customize) {
   //グローバルナビリンク色ホバー
   $wp_customize->add_setting( 'navi_link_hover_color', array(
     'default' => NAVI_LINK_HOVER_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'navi_link_hover_color', array(
     'label' => __( 'グローバルナビリンクホバー色', 'simplicity2' ),
@@ -209,7 +209,7 @@ function theme_customize_register($wp_customize) {
   //メニューボタン色
   $wp_customize->add_setting( 'menu_button_color', array(
     'default' => MENU_BUTTON_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_button_color', array(
     'label' => __( 'メニューボタン色', 'simplicity2' ),
@@ -222,7 +222,7 @@ function theme_customize_register($wp_customize) {
   //メニューボタン背景色
   $wp_customize->add_setting( 'menu_button_background_color', array(
     'default' => MENU_BUTTON_BACKGROUND_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_button_background_color', array(
     'label' => __( 'メニューボタン背景色', 'simplicity2' ),
@@ -235,7 +235,7 @@ function theme_customize_register($wp_customize) {
   //トップへ戻るボタン色
   $wp_customize->add_setting( 'go_to_top_button_color', array(
     'default' => GO_TO_TOP_BUTTON_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'go_to_top_button_color', array(
     'label' => __( 'トップへ戻るボタン色', 'simplicity2' ),
@@ -248,7 +248,7 @@ function theme_customize_register($wp_customize) {
   //トップへ戻るボタン背景色
   $wp_customize->add_setting( 'go_to_top_button_background_color', array(
     'default' => GO_TO_TOP_BUTTON_BACKGROUND_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'go_to_top_button_background_color', array(
     'label' => __( 'トップへ戻るボタン背景色', 'simplicity2' ),
@@ -261,7 +261,7 @@ function theme_customize_register($wp_customize) {
   //フッター色
   $wp_customize->add_setting( 'footer_color', array(
     'default' => FOOTER_COLOR,
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
     ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
     'label' => __( 'フッター色', 'simplicity2' ),
@@ -385,7 +385,7 @@ function theme_customize_register($wp_customize) {
   //スキンの種類
   $wp_customize->add_setting('skin_file', array(
     'default' => '',//デフォルト値
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $skins = get_skin_files();//スキンファイル情報の取得
   $radio_items = array(
@@ -416,7 +416,7 @@ function theme_customize_register($wp_customize) {
   //サイトフォント
   $wp_customize->add_setting('site_font', array(
     'default' => 'default',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'site_font', array(
     'settings' => 'site_font',
@@ -500,7 +500,7 @@ function theme_customize_register($wp_customize) {
   //リストスタイル
   $wp_customize->add_setting('list_style', array(
     'default' => 'cards',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'list_style', array(
     'settings' => 'list_style',
@@ -567,7 +567,7 @@ function theme_customize_register($wp_customize) {
   //サムネイルの丸め
   $wp_customize->add_setting('thumbnail_radius', array(
     'default' => 'default',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'thumbnail_radius', array(
     'settings' => 'thumbnail_radius',
@@ -600,7 +600,7 @@ function theme_customize_register($wp_customize) {
   //抜粋の末尾文字
   $wp_customize->add_setting('excerpt_more', array(
     'default' => __( '...', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'excerpt_more', array(
     'settings' => 'excerpt_more',
@@ -667,7 +667,7 @@ function theme_customize_register($wp_customize) {
   //検索ボックスのスタイル
   $wp_customize->add_setting('search_box_style', array(
     'default' => 'white_rect',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'search_box_style', array(
     'settings' => 'search_box_style',
@@ -687,7 +687,7 @@ function theme_customize_register($wp_customize) {
   //ページネーションタイプ
   $wp_customize->add_setting('list_pager_type', array(
     'default' => 'responsive',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'list_pager_type', array(
     'settings' => 'list_pager_type',
@@ -718,7 +718,7 @@ function theme_customize_register($wp_customize) {
   //メニューボタンアイコン
   $wp_customize->add_setting('menu_button_icon_font', array(
     'default' => 'fa-bars',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'menu_button_icon_font', array(
     'settings' => 'menu_button_icon_font',
@@ -746,7 +746,7 @@ function theme_customize_register($wp_customize) {
   //トップへ戻るボタンアイコン
   $wp_customize->add_setting('go_to_top_button_icon_font]', array(
     'default' => 'fa-angle-double-up',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'go_to_top_button_icon_font', array(
     'settings' => 'go_to_top_button_icon_font',
@@ -1052,7 +1052,7 @@ function theme_customize_register($wp_customize) {
   //関連記事タイプ
   $wp_customize->add_setting('related_entry_type', array(
     'default' => 'default',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'related_entry_type', array(
     'settings' => 'related_entry_type',
@@ -1071,7 +1071,7 @@ function theme_customize_register($wp_customize) {
   //関連記事の関連付け
   $wp_customize->add_setting('related_entry_association', array(
     'default' => 'category',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'related_entry_association', array(
     'settings' => 'related_entry_association',
@@ -1117,7 +1117,7 @@ function theme_customize_register($wp_customize) {
   //[前ページ] [次ページ] ナビタイプ
   $wp_customize->add_setting('post_navi_type', array(
     'default' => 'default',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'post_navi_type', array(
     'settings' => 'post_navi_type',
@@ -1184,7 +1184,7 @@ function theme_customize_register($wp_customize) {
   );
   $wp_customize->add_setting('mobile_menu_type', array(
     'default' => 'accordion',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'mobile_menu_type', array(
     'settings' => 'mobile_menu_type',
@@ -1321,7 +1321,7 @@ function theme_customize_register($wp_customize) {
   //画像リンク拡大効果
   $wp_customize->add_setting('lightbox_type', array(
     'default' => 'none',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'lightbox_type', array(
     'settings' => 'lightbox_type',
@@ -1341,7 +1341,7 @@ function theme_customize_register($wp_customize) {
   //画像効果
   $wp_customize->add_setting('image_effect', array(
     'default' => 'none',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'image_effect', array(
     'settings' => 'image_effect',
@@ -1360,7 +1360,7 @@ function theme_customize_register($wp_customize) {
   //マウスホバーでAlt属性値をキャプション表示
   $wp_customize->add_setting('alt_caption_type', array(
     'default' => 'none',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'alt_caption_type', array(
     'settings' => 'alt_caption_type',
@@ -1474,7 +1474,7 @@ function theme_customize_register($wp_customize) {
   //検索エンジンに伝える日付
   $wp_customize->add_setting('seo_date_type', array(
     'default' => 'create',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'seo_date_type', array(
     'settings' => 'seo_date_type',
@@ -1586,7 +1586,7 @@ function theme_customize_register($wp_customize) {
   //シェアボタンのタイプ
   $wp_customize->add_setting('share_button_type', array(
     'default' => 'default',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'share_button_type', array(
     'settings' => 'share_button_type',
@@ -1607,7 +1607,7 @@ function theme_customize_register($wp_customize) {
   //シェアボタンのタイプ（モバイル）
   $wp_customize->add_setting('share_button_type_mobile', array(
     'default' => 'default',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'share_button_type_mobile', array(
     'settings' => 'share_button_type_mobile',
@@ -1666,7 +1666,7 @@ function theme_customize_register($wp_customize) {
   //シェアメッセージ
   $wp_customize->add_setting('share_message_label', array(
     'default' => __( 'シェアする', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'share_message_label', array(
     'settings' => 'share_message_label',
@@ -1901,7 +1901,7 @@ function theme_customize_register($wp_customize) {
   //フォローメッセージ
   $wp_customize->add_setting('follow_message_label', array(
     'default' => __( 'フォローする', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'follow_message_label', array(
     'settings' => 'follow_message_label',
@@ -1914,7 +1914,7 @@ function theme_customize_register($wp_customize) {
 
   //TwitterフォローID
   $wp_customize->add_setting('twitter_follow_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'twitter_follow_id', array(
     'settings' => 'twitter_follow_id',
@@ -1927,7 +1927,7 @@ function theme_customize_register($wp_customize) {
 
   //FacebookフォローID
   $wp_customize->add_setting('facebook_follow_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'facebook_follow_id', array(
     'settings' => 'facebook_follow_id',
@@ -1940,7 +1940,7 @@ function theme_customize_register($wp_customize) {
 
   // //Google＋フォローID
   // $wp_customize->add_setting('google_plus_follow_id', array(
-  //   'sanitize_callback' => 'sanitize_text',
+  //   'sanitize_callback' => 'simplicity_sanitize_text',
   // ));
   // $wp_customize->add_control( 'google_plus_follow_id', array(
   //   'settings' => 'google_plus_follow_id',
@@ -1953,7 +1953,7 @@ function theme_customize_register($wp_customize) {
 
   //はてブフォローID
   $wp_customize->add_setting('hatebu_follow_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'hatebu_follow_id', array(
     'settings' => 'hatebu_follow_id',
@@ -1966,7 +1966,7 @@ function theme_customize_register($wp_customize) {
 
   //InstagramフォローID
   $wp_customize->add_setting('instagram_follow_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'instagram_follow_id', array(
     'settings' => 'instagram_follow_id',
@@ -1979,7 +1979,7 @@ function theme_customize_register($wp_customize) {
 
   //PinterestフォローID
   $wp_customize->add_setting('pinterest_follow_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'pinterest_follow_id', array(
     'settings' => 'pinterest_follow_id',
@@ -1992,7 +1992,7 @@ function theme_customize_register($wp_customize) {
 
   //YouTubeフォローURLの一部
   $wp_customize->add_setting('youtube_follow_page_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'youtube_follow_page_id', array(
     'settings' => 'youtube_follow_page_id',
@@ -2005,7 +2005,7 @@ function theme_customize_register($wp_customize) {
 
   //Flickr
   $wp_customize->add_setting('flickr_follow_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'flickr_follow_id', array(
     'settings' => 'flickr_follow_id',
@@ -2018,7 +2018,7 @@ function theme_customize_register($wp_customize) {
 
   //LINE@ID
   $wp_customize->add_setting('line_at_follow_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'line_at_follow_id', array(
     'settings' => 'line_at_follow_id',
@@ -2031,7 +2031,7 @@ function theme_customize_register($wp_customize) {
 
   //GitHub
   $wp_customize->add_setting('github_follow_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'github_follow_id', array(
     'settings' => 'github_follow_id',
@@ -2044,7 +2044,7 @@ function theme_customize_register($wp_customize) {
 
   //Push7購読ボタン
   $wp_customize->add_setting('push7_follow_app_no', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'push7_follow_app_no', array(
     'settings' => 'push7_follow_app_no',
@@ -2100,7 +2100,7 @@ function theme_customize_register($wp_customize) {
   //Twitterカードタイプ
   $wp_customize->add_setting('twitter_card_type', array(
     'default' => 'summary',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'twitter_card_type', array(
     'settings' => 'twitter_card_type',
@@ -2132,7 +2132,7 @@ function theme_customize_register($wp_customize) {
 
   //Facebookアクセストークン
   $wp_customize->add_setting('fb_access_token', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'fb_access_token', array(
     'settings' => 'fb_access_token',
@@ -2145,7 +2145,7 @@ function theme_customize_register($wp_customize) {
 
   //fb:admins
   $wp_customize->add_setting('fb_admins', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'fb_admins', array(
     'settings' => 'fb_admins',
@@ -2158,7 +2158,7 @@ function theme_customize_register($wp_customize) {
 
   //fb:app_id
   $wp_customize->add_setting('fb_app_id', array(
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'fb_app_id', array(
     'settings' => 'fb_app_id',
@@ -2220,7 +2220,7 @@ function theme_customize_register($wp_customize) {
   //広告位置の設定
   $wp_customize->add_setting('ads_position', array(
     'default'    => 'under_relations',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $radio_items = array();
   if ( !is_responsive_enable() ) $radio_items += array('under_relations' => __( '関連記事下（デフォルト）', 'simplicity2' ));
@@ -2243,7 +2243,7 @@ function theme_customize_register($wp_customize) {
   //広告のラベル
   $wp_customize->add_setting('ads_label', array(
     'default' => __( 'スポンサーリンク', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'ads_label', array(
     'settings' => 'ads_label',
@@ -2372,7 +2372,7 @@ function theme_customize_register($wp_customize) {
   //Google AnalyticsトラッキングID
   $wp_customize->add_setting('tracking_id', array(
     'default' => '',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'tracking_id', array(
     'settings' => 'tracking_id',
@@ -2386,7 +2386,7 @@ function theme_customize_register($wp_customize) {
   //Twitterカードタイプ
   $wp_customize->add_setting('analytics_tracking_type', array(
     'default' => 'ga',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'analytics_tracking_type', array(
     'settings' => 'analytics_tracking_type',
@@ -2407,7 +2407,7 @@ function theme_customize_register($wp_customize) {
   //PtengineのID
   $wp_customize->add_setting('ptengin_tracking_id', array(
     'default' => '',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'ptengin_tracking_id', array(
     'settings' => 'ptengin_tracking_id',
@@ -2421,7 +2421,7 @@ function theme_customize_register($wp_customize) {
   //Google Search Console ID
   $wp_customize->add_setting('webmaster_tool_id', array(
     'default' => '',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'webmaster_tool_id', array(
     'settings' => 'webmaster_tool_id',
@@ -2664,7 +2664,7 @@ function theme_customize_register($wp_customize) {
   //日付表示
   $wp_customize->add_setting('blog_card_date_type', array(
     'default' => 'post_date',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'blog_card_date_type', array(
     'settings' => 'blog_card_date_type',
@@ -2733,7 +2733,7 @@ function theme_customize_register($wp_customize) {
   //外部ブログカードタイプ
   $wp_customize->add_setting('blog_card_external_type', array(
     'default' => 'default',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'blog_card_external_type', array(
     'settings' => 'blog_card_external_type',
@@ -2898,7 +2898,7 @@ function theme_customize_register($wp_customize) {
   //テーマスタイル
   $wp_customize->add_setting('code_highlight_style', array(
     'default' => 'default',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'code_highlight_style', array(
     'settings' => 'code_highlight_style',
@@ -3060,7 +3060,7 @@ function theme_customize_register($wp_customize) {
   //ソースコードのハイライトをするCSSセレクタの設定
   $wp_customize->add_setting('code_highlight_css_selector', array(
     'default' => '.entry-content pre',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'code_highlight_css_selector', array(
     'settings' => 'code_highlight_css_selector',
@@ -3098,7 +3098,7 @@ function theme_customize_register($wp_customize) {
   //コメントスタイル
   $wp_customize->add_setting('comment_display_type', array(
     'default' => 'default',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'comment_display_type', array(
     'settings' => 'comment_display_type',
@@ -3184,7 +3184,7 @@ function theme_customize_register($wp_customize) {
   //AMP用Analyticsコード
   $wp_customize->add_setting('amp_tracking_id', array(
     'default' => '',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'amp_tracking_id', array(
     'settings' => 'amp_tracking_id',
@@ -3238,7 +3238,7 @@ function theme_customize_register($wp_customize) {
   //AMPバリデーター
   $wp_customize->add_setting('amp_test_tool', array(
     'default' => 'google_amp_test',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'amp_test_tool', array(
     'settings' => 'amp_test_tool',
@@ -3281,7 +3281,7 @@ function theme_customize_register($wp_customize) {
   //パンくずリストの「ホーム」を変更
   $wp_customize->add_setting('theme_text_breadcrumbs_home', array(
     'default' => __( 'ホーム', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_breadcrumbs_home', array(
     'settings' => 'theme_text_breadcrumbs_home',
@@ -3295,7 +3295,7 @@ function theme_customize_register($wp_customize) {
   //関連記事のタイトルを変更
   $wp_customize->add_setting('theme_text_related_entry', array(
     'default' => __( '関連記事', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_related_entry', array(
     'settings' => 'theme_text_related_entry',
@@ -3309,7 +3309,7 @@ function theme_customize_register($wp_customize) {
   //コメントタイトルを変更
   $wp_customize->add_setting('theme_text_comments', array(
     'default' => __( 'コメント', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_comments', array(
     'settings' => 'theme_text_comments',
@@ -3323,7 +3323,7 @@ function theme_customize_register($wp_customize) {
   //返信コメントタイトルを変更
   $wp_customize->add_setting('theme_text_comment_reply_title', array(
     'default' => __( 'コメントをどうぞ', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_comment_reply_title', array(
     'settings' => 'theme_text_comment_reply_title',
@@ -3337,7 +3337,7 @@ function theme_customize_register($wp_customize) {
   //サブミットラベルを変更
   $wp_customize->add_setting('theme_text_comment_submit_label', array(
     'default' => __( 'コメントを送信', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_comment_submit_label', array(
     'settings' => 'theme_text_comment_submit_label',
@@ -3351,7 +3351,7 @@ function theme_customize_register($wp_customize) {
   //サブミットラベルを変更
   $wp_customize->add_setting('theme_text_comment_freeze_label', array(
     'default' => __( 'コメントの入力は終了しました。', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_comment_freeze_label', array(
     'settings' => 'theme_text_comment_freeze_label',
@@ -3365,7 +3365,7 @@ function theme_customize_register($wp_customize) {
   //匿名のユーザー名を変更
   $wp_customize->add_setting('theme_text_comment_anonymous_name', array(
     'default' => __( '匿名', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_comment_anonymous_name', array(
     'settings' => 'theme_text_comment_anonymous_name',
@@ -3379,7 +3379,7 @@ function theme_customize_register($wp_customize) {
   //「記事を読む」の変更
   $wp_customize->add_setting('theme_text_read_entry', array(
     'default' => __( '記事を読む', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_read_entry', array(
     'settings' => 'theme_text_read_entry',
@@ -3393,7 +3393,7 @@ function theme_customize_register($wp_customize) {
   //「続きを読む」の変更
   $wp_customize->add_setting('theme_text_read_more', array(
     'default' => __( '続きを読む', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_read_more', array(
     'settings' => 'theme_text_read_more',
@@ -3407,7 +3407,7 @@ function theme_customize_register($wp_customize) {
   //リストタイトルの「一覧」を変更
   $wp_customize->add_setting('theme_text_list', array(
     'default' => __( '一覧', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_list', array(
     'settings' => 'theme_text_list',
@@ -3421,7 +3421,7 @@ function theme_customize_register($wp_customize) {
   //日付のフォーマット
   $wp_customize->add_setting('theme_text_date_format', array(
     'default' => __( 'Y/n/j', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_date_format', array(
     'settings' => 'theme_text_date_format',
@@ -3435,7 +3435,7 @@ function theme_customize_register($wp_customize) {
   //年月日のフォーマット
   $wp_customize->add_setting('theme_text_ymd_format', array(
     'default' => __( 'Y年m月d日', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_ymd_format', array(
     'settings' => 'theme_text_ymd_format',
@@ -3449,7 +3449,7 @@ function theme_customize_register($wp_customize) {
   //年と月のフォーマット
   $wp_customize->add_setting('theme_text_ym_format', array(
     'default' => __( 'Y年m月', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_ym_format', array(
     'settings' => 'theme_text_ym_format',
@@ -3463,7 +3463,7 @@ function theme_customize_register($wp_customize) {
   //年のフォーマット
   $wp_customize->add_setting('theme_text_y_format', array(
     'default' => __( 'Y年', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_y_format', array(
     'settings' => 'theme_text_y_format',
@@ -3477,7 +3477,7 @@ function theme_customize_register($wp_customize) {
   //検索ボックスのプレースホルダ
   $wp_customize->add_setting('theme_text_search_placeholder', array(
     'default' => __( 'ブログ内を検索', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_search_placeholder', array(
     'settings' => 'theme_text_search_placeholder',
@@ -3491,7 +3491,7 @@ function theme_customize_register($wp_customize) {
   // //関連記事が見つからなかった時のメッセージ
   // $wp_customize->add_setting('theme_text_related_not_found_message', array(
   //   'default' => __( '関連記事は見つかりませんでした。', 'simplicity2' ),
-  //   'sanitize_callback' => 'sanitize_text',
+  //   'sanitize_callback' => 'simplicity_sanitize_text',
   // ));
   // $wp_customize->add_control( 'theme_text_related_not_found_message', array(
   //   'settings' => 'theme_text_related_not_found_message',
@@ -3505,7 +3505,7 @@ function theme_customize_register($wp_customize) {
   // //ページが見つからなかった時のタイトル
   // $wp_customize->add_setting('theme_text_not_found_title', array(
   //   'default' => __( 'ページが見つかりませんでした', 'simplicity2' ),
-  //   'sanitize_callback' => 'sanitize_text',
+  //   'sanitize_callback' => 'simplicity_sanitize_text',
   // ));
   // $wp_customize->add_control( 'theme_text_not_found_title', array(
   //   'settings' => 'theme_text_not_found_title',
@@ -3519,7 +3519,7 @@ function theme_customize_register($wp_customize) {
   //ページが見つからなかった時のメッセージ
   $wp_customize->add_setting('theme_text_not_found_message', array(
     'default' => __( '記事は見つかりませんでした。', 'simplicity2' ),
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'theme_text_not_found_message', array(
     'settings' => 'theme_text_not_found_message',
@@ -3639,7 +3639,7 @@ function theme_customize_register($wp_customize) {
   //管理者用PV表
   $wp_customize->add_setting('admin_pv_type', array(
     'default'    => 'none',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $caption_add = '';
   if (is_admin_pv_type_none()) {
@@ -3851,7 +3851,7 @@ function theme_customize_register($wp_customize) {
   //著作権表記
   $wp_customize->add_setting('site_license', array(
     'default' => 'copyright',
-    'sanitize_callback' => 'sanitize_text',
+    'sanitize_callback' => 'simplicity_sanitize_text',
   ));
   $wp_customize->add_control( 'site_license', array(
     'settings' => 'site_license',

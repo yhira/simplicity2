@@ -2,7 +2,7 @@
 <li class="balloon-btn twitter-balloon-btn<?php echo (is_share_button_type_default() ? ' twitter-balloon-btn-defalt' : ''); ?>">
   <div class="balloon-btn-set">
     <div class="arrow-box">
-      <a href="//twitter.com/search?q=<?php echo urlencode( punycode_encode( get_permalink() ) ); ?>" target="blank" class="arrow-box-link twitter-arrow-box-link" rel="nofollow">
+      <a href="//twitter.com/search?q=<?php echo urlencode( simplicity_punycode_encode( get_permalink() ) ); ?>" target="blank" class="arrow-box-link twitter-arrow-box-link" rel="nofollow">
         <span class="social-count twitter-count"><?php
         if ( is_twitter_count_visible() ) {//count.jsoonでシェア数を表示
           echo fetch_twitter_count( get_permalink() );//ツイート数の表示

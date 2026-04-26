@@ -1,8 +1,8 @@
 <?php //テーマカスタマイザーのサニタイズ関数
 
 
-if ( !function_exists( 'sanitize_text' ) ) {
-function sanitize_text( $str ) {
+if ( !function_exists( 'simplicity_sanitize_text' ) ) {
+function simplicity_sanitize_text( $str ) {
   $str = trim( $str );
   return sanitize_text_field( $str );
 }

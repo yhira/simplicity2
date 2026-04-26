@@ -73,8 +73,8 @@ include 'punycode-obj.php';
 ///////////////////////////////////////
 //Punycode変換関数
 ///////////////////////////////////////
-if ( !function_exists( 'convert_punycode' ) ):
-function convert_punycode($url, $is_encode = true){
+if ( !function_exists( 'simplicity_convert_punycode' ) ):
+function simplicity_convert_punycode($url, $is_encode = true){
   if (empty($url)) return;
   $url_parts = parse_url($url);
   $Punycode = new Punycode();
@@ -91,17 +91,17 @@ endif;
 ///////////////////////////////////////
 //Punycodeへの変換（エンコード）
 ///////////////////////////////////////
-if ( !function_exists( 'punycode_encode' ) ):
-function punycode_encode($url){
-  return convert_punycode($url, true);
+if ( !function_exists( 'simplicity_punycode_encode' ) ):
+function simplicity_punycode_encode($url){
+  return simplicity_convert_punycode($url, true);
 }
 endif;
 
 ///////////////////////////////////////
 //通常のURLへ戻す（PreCode）
 ///////////////////////////////////////
-if ( !function_exists( 'punycode_decode' ) ):
-function punycode_decode($url){
-  return convert_punycode($url, false);
+if ( !function_exists( 'simplicity_punycode_decode' ) ):
+function simplicity_punycode_decode($url){
+  return simplicity_convert_punycode($url, false);
 }
 endif;

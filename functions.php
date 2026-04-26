@@ -1848,3 +1848,44 @@ function widgets_block_stop() {
   remove_theme_support('widgets-block-editor');
 }
 endif;
+//======================================================================
+// 後方互換性のためのエイリアス関数群
+// cocoon-to-xwrite プラグインの有効化時における Fatal Error を回避するため、
+// プラグイン有効化プロセス中（activate_plugin）はエイリアスを定義しません。
+//======================================================================
+$is_activating_cocoon = ( isset($_GET['action']) && $_GET['action'] === 'activate' && isset($_GET['plugin']) && strpos($_GET['plugin'], 'cocoon-to-xwrite') !== false );
+$is_bulk_activating_cocoon = ( isset($_POST['action']) && $_POST['action'] === 'activate-selected' && isset($_POST['checked']) && is_array($_POST['checked']) && count(preg_grep('/cocoon-to-xwrite/', $_POST['checked'])) > 0 );
+
+if ( ! $is_activating_cocoon && ! $is_bulk_activating_cocoon ) {
+
+    if ( !function_exists('convert_punycode') ) {
+        function convert_punycode($url, $is_encode = true) {
+            return simplicity_convert_punycode($url, $is_encode);
+        }
+    }
+
+    if ( !function_exists('punycode_encode') ) {
+        function punycode_encode($url) {
+            return simplicity_punycode_encode($url);
+        }
+    }
+
+    if ( !function_exists('punycode_decode') ) {
+        function punycode_decode($url) {
+            return simplicity_punycode_decode($url);
+        }
+    }
+
+    if ( !function_exists('sanitize_text') ) {
+        function sanitize_text($str) {
+            return simplicity_sanitize_text($str);
+        }
+    }
+
+    if ( !function_exists('is_ios') ) {
+        function is_ios() {
+            return simplicity_is_ios();
+        }
+    }
+
+}
