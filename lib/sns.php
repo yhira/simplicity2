@@ -202,43 +202,59 @@ function scc_exists(){
 
 
 //ツイート数取得関数が存在しているか
+if ( !function_exists( 'scc_twitter_exists' ) ) {
 function scc_twitter_exists(){
   return function_exists('scc_get_share_twitter');
 }
+}
 
 //Facebookシェア数取得関数が存在しているか
+if ( !function_exists( 'scc_facebook_exists' ) ) {
 function scc_facebook_exists(){
   return function_exists('scc_get_share_facebook');
 }
+}
 
 //Google＋シェア数取得関数が存在しているか
+if ( !function_exists( 'scc_gplus_exists' ) ) {
 function scc_gplus_exists(){
   return function_exists('scc_get_share_gplus');
 }
+}
 
 //はてブ数取得関数が存在しているか
+if ( !function_exists( 'scc_hatebu_exists' ) ) {
 function scc_hatebu_exists(){
   return function_exists('scc_get_share_hatebu');
 }
+}
 
 //Pocketストック数取得関数が存在しているか
+if ( !function_exists( 'scc_pocket_exists' ) ) {
 function scc_pocket_exists(){
   return function_exists('scc_get_share_pocket');
 }
+}
 
 //トータルシェア数取得関数が存在しているか
+if ( !function_exists( 'scc_total_exists' ) ) {
 function scc_total_exists(){
   return function_exists('scc_get_share_total');
 }
+}
 
 //feedly購読者数取得関数が存在しているか
+if ( !function_exists( 'scc_feedly_exists' ) ) {
 function scc_feedly_exists(){
   return function_exists('scc_get_follow_feedly');
 }
+}
 
 //Push7購読者数取得関数が存在しているか
+if ( !function_exists( 'scc_push7_exists' ) ) {
 function scc_push7_exists(){
   return function_exists('scc_get_follow_push7');
+}
 }
 
 

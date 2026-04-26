@@ -44,6 +44,10 @@ if ( version_compare( phpversion(), '5.3', '>=' ) ) {
 if ( !defined( 'SIMPLICITY_URL_REG' ) ) {
   define('SIMPLICITY_URL_REG', '/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/');
 }
+//子テーマ等からの後方互換のため旧定数名もエイリアスとして定義
+if ( !defined( 'URL_REG' ) ) {
+  define('URL_REG', SIMPLICITY_URL_REG);
+}
 
 // アイキャッチ画像を有効化
 add_theme_support('post-thumbnails');
@@ -1596,6 +1600,7 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
       return $cache;
     }
 
+
     // 古いデータの除去
     $cache = preg_replace('/data-picprefix=\\"(.+?)\\"/s', "", $cache);
     // プレイリストIDがある場合
@@ -1853,11 +1858,48 @@ endif;
 // cocoon-to-xwrite プラグインの有効化時における Fatal Error を回避するため、
 // プラグイン有効化プロセス中（activate_plugin）はエイリアスを定義しません。
 //======================================================================
-$is_activating_cocoon = ( isset($_GET['action']) && $_GET['action'] === 'activate' && isset($_GET['plugin']) && strpos($_GET['plugin'], 'cocoon-to-xwrite') !== false );
-$is_bulk_activating_cocoon = ( isset($_POST['action']) && $_POST['action'] === 'activate-selected' && isset($_POST['checked']) && is_array($_POST['checked']) && count(preg_grep('/cocoon-to-xwrite/', $_POST['checked'])) > 0 );
+$is_activating_cocoon = false;
 
-if ( ! $is_activating_cocoon && ! $is_bulk_activating_cocoon ) {
+//ブラウザからの単体有効化
+if ( isset($_GET['action']) && sanitize_text_field($_GET['action']) === 'activate'
+     && isset($_GET['plugin']) && strpos(sanitize_text_field($_GET['plugin']), 'cocoon-to-xwrite') !== false ) {
+    $is_activating_cocoon = true;
+}
 
+//ブラウザからの一括有効化（上部・下部ドロップダウン両方に対応）
+$simplicity_bulk_action = '';
+if ( isset($_POST['action']) && $_POST['action'] !== '-1' ) {
+    $simplicity_bulk_action = sanitize_text_field($_POST['action']);
+} elseif ( isset($_POST['action2']) && $_POST['action2'] !== '-1' ) {
+    $simplicity_bulk_action = sanitize_text_field($_POST['action2']);
+}
+if ( $simplicity_bulk_action === 'activate-selected' && isset($_POST['checked']) && is_array($_POST['checked']) ) {
+    $simplicity_checked = array_map('sanitize_text_field', $_POST['checked']);
+    if ( count(preg_grep('/cocoon-to-xwrite/', $simplicity_checked)) > 0 ) {
+        $is_activating_cocoon = true;
+    }
+}
+unset($simplicity_bulk_action);
+
+//WP-CLIからの有効化（wp plugin activate cocoon-to-xwrite のみ検出）
+if ( defined('WP_CLI') && WP_CLI && class_exists('WP_CLI') ) {
+    try {
+        $simplicity_cli_args = WP_CLI::get_runner()->arguments;
+        if ( count($simplicity_cli_args) >= 3
+             && $simplicity_cli_args[0] === 'plugin'
+             && $simplicity_cli_args[1] === 'activate'
+             && strpos($simplicity_cli_args[2], 'cocoon-to-xwrite') !== false ) {
+            $is_activating_cocoon = true;
+        }
+        unset($simplicity_cli_args);
+    } catch ( Exception $e ) {
+        // WP-CLI初期化前の場合は安全側に倒してエイリアスを定義する
+    }
+}
+
+if ( ! $is_activating_cocoon ) {
+
+    //--- Punycode関数の後方互換エイリアス ---
     if ( !function_exists('convert_punycode') ) {
         function convert_punycode($url, $is_encode = true) {
             return simplicity_convert_punycode($url, $is_encode);
@@ -1876,16 +1918,66 @@ if ( ! $is_activating_cocoon && ! $is_bulk_activating_cocoon ) {
         }
     }
 
+    //--- サニタイズ関数の後方互換エイリアス ---
     if ( !function_exists('sanitize_text') ) {
         function sanitize_text($str) {
             return simplicity_sanitize_text($str);
         }
     }
 
+    if ( !function_exists('sanitize_cache_days') ) {
+        function sanitize_cache_days($int) {
+            return simplicity_sanitize_cache_days($int);
+        }
+    }
+
+    if ( !function_exists('sanitize_html_text') ) {
+        function sanitize_html_text($str) {
+            return simplicity_sanitize_html_text($str);
+        }
+    }
+
+    if ( !function_exists('sanitize_id_comma_text') ) {
+        function sanitize_id_comma_text($comma_text) {
+            return simplicity_sanitize_id_comma_text($comma_text);
+        }
+    }
+
+    if ( !function_exists('sanitize_textarea') ) {
+        function sanitize_textarea($text) {
+            return simplicity_sanitize_textarea($text);
+        }
+    }
+
+    if ( !function_exists('sanitize_adsense_code') ) {
+        function sanitize_adsense_code($text) {
+            return simplicity_sanitize_adsense_code($text);
+        }
+    }
+
+    if ( !function_exists('sanitize_number') ) {
+        function sanitize_number($int) {
+            return simplicity_sanitize_number($int);
+        }
+    }
+
+    if ( !function_exists('sanitize_check') ) {
+        function sanitize_check($value) {
+            return simplicity_sanitize_check($value);
+        }
+    }
+
+    if ( !function_exists('sanitize_file_url') ) {
+        function sanitize_file_url($url) {
+            return simplicity_sanitize_file_url($url);
+        }
+    }
+
+    //--- モバイル関数の後方互換エイリアス ---
     if ( !function_exists('is_ios') ) {
         function is_ios() {
             return simplicity_is_ios();
         }
     }
 
-}
+}

@@ -46,7 +46,7 @@
               </div>
 
               <?php if ( is_local_test() && is_responsive_test_visible() ): //ローカルかつ設定で表示になっている場合のみ?>
-                <br /><a href="<?php echo esc_url(get_template_directory_uri().'/responsive-test/?'.get_this_page_url()); ?>" target="_blank" rel="nofollow">レスポンシブテスト</a>
+                <br /><a href="<?php echo esc_url(get_template_directory_uri().'/responsive-test/?url='.urlencode(get_this_page_url())); ?>" target="_blank" rel="nofollow">レスポンシブテスト</a>
               <?php endif; ?>
             </div>
         </div><!-- /#footer-in -->

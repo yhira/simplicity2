@@ -56,10 +56,13 @@ function simplicity_is_ios() {
   if (!isset($_SERVER['HTTP_USER_AGENT'])) {
     return false;
   }
-  $is_ipad = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'iPad');
+  //strposは位置0でfalseにならないよう厳密比較を使用
+  $is_ipad = (strpos($_SERVER['HTTP_USER_AGENT'],'iPad') !== false);
   global $is_iphone;
   if ($is_iphone || $is_ipad) {
     return true;
   }
+  //iOSでない場合も明示的にfalseを返す
+  return false;
 }
 endif;

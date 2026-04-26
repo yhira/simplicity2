@@ -84,14 +84,14 @@ if ( WP_Filesystem() ) {//WP_Filesystemの初期化
         $parts_skin_css = $wp_filesystem->get_contents($parts_skin_file);//ファイルの読み込み
         $css_all .= $parts_skin_css;
       }
-    }
-  } else {
-    //通常のスキンスタイル
-    $skin_file = url_to_local(get_skin_file());
-    $amp_css_file = str_replace('style.css', 'amp.css', $skin_file);
-    if (file_exists($amp_css_file)) {
-      $amp_css = $wp_filesystem->get_contents($amp_css_file);//ファイルの読み込み
-      $css_all .= $amp_css;
+    } else {
+      //通常のスキンスタイル
+      $skin_file = url_to_local(get_skin_file());
+      $amp_css_file = str_replace('style.css', 'amp.css', $skin_file);
+      if (file_exists($amp_css_file)) {
+        $amp_css = $wp_filesystem->get_contents($amp_css_file);//ファイルの読み込み
+        $css_all .= $amp_css;
+      }
     }
   }
 
@@ -143,14 +143,14 @@ if ( !is_user_logged_in() ) {
   <script type="application/json">
   {
     "vars": {
-      "account": "<?php echo $tracking_id ?>"
+      "account": "<?php echo esc_attr($tracking_id) ?>"
     },
     "triggers": {
       "trackPageviewWithAmpdocUrl": {
         "on": "visible",
         "request": "pageview",
         "vars": {
-          "title": "<?php the_title() ?><?php echo $after_title; ?>",
+          "title": "<?php echo esc_js(get_the_title()); ?><?php echo esc_js($after_title); ?>",
           "ampdocUrl": "<?php echo get_amp_permalink() ?>"
         }
       }

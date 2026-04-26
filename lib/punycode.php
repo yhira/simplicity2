@@ -69,14 +69,17 @@ if(!function_exists('http_build_url')){
 }
 
 //Punycode変換ライブラリを読み込む
-include 'punycode-obj.php';
+require_once 'punycode-obj.php';
 ///////////////////////////////////////
 //Punycode変換関数
 ///////////////////////////////////////
 if ( !function_exists( 'simplicity_convert_punycode' ) ):
 function simplicity_convert_punycode($url, $is_encode = true){
-  if (empty($url)) return;
+  //空のURLは変換せずそのまま返す
+  if (empty($url)) return $url;
   $url_parts = parse_url($url);
+  //hostキーが存在しないURL（相対パス等）は変換不要
+  if (!isset($url_parts['host'])) return $url;
   $Punycode = new Punycode();
   if ( $is_encode ) {
     $host = $Punycode->encode($url_parts['host']);
