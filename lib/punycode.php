@@ -80,7 +80,7 @@ function simplicity_convert_punycode($url, $is_encode = true){
   $url_parts = parse_url($url);
   //hostキーが存在しないURL（相対パス等）は変換不要
   if (!isset($url_parts['host'])) return $url;
-  $Punycode = new Punycode();
+  $Punycode = new Simplicity_Punycode();
   if ( $is_encode ) {
     $host = $Punycode->encode($url_parts['host']);
   } else {

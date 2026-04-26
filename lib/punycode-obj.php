@@ -5,8 +5,8 @@
  *
  * @link http://tools.ietf.org/html/rfc3492
  */
-if (!class_exists('Punycode')):
-class Punycode
+if (!class_exists('Simplicity_Punycode')):
+class Simplicity_Punycode
 {
 
     /**

@@ -45,9 +45,7 @@ if ( !defined( 'SIMPLICITY_URL_REG' ) ) {
   define('SIMPLICITY_URL_REG', '/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/');
 }
 //子テーマ等からの後方互換のため旧定数名もエイリアスとして定義
-if ( !defined( 'URL_REG' ) ) {
-  define('URL_REG', SIMPLICITY_URL_REG);
-}
+
 
 // アイキャッチ画像を有効化
 add_theme_support('post-thumbnails');
