@@ -25,6 +25,10 @@ function fetch_thumbnail_image($matches, $key, $post_content, $post_id){
 
   //処理のためのURL取得
   $imageUrl = $matches[1][$key];
+  //srcが空の画像ではファイル読み込みがValueErrorになるため取得を試みない
+  if ($imageUrl === '') {
+    return null;
+  }
 
   //ファイル名の取得
   $filename = substr($imageUrl, (strrpos($imageUrl, '/'))+1);
@@ -39,6 +43,8 @@ function fetch_thumbnail_image($matches, $key, $post_content, $post_id){
     //ファイルをアップロードディレクトリに移動
     $new_file = $uploads['path'] . "/$filename";
 
+    //ファイルシステムの初期化に失敗しても取得結果は必ず定義する
+    $file_data = false;
     if (!ini_get('allow_url_fopen')) {
       return null;
       //$file_data = curl_get_file_contents($imageUrl);
@@ -57,7 +63,12 @@ function fetch_thumbnail_image($matches, $key, $post_content, $post_id){
     if ( WP_Filesystem() ) {//WP_Filesystemの初期化
       global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
       //$wp_filesystemオブジェクトのメソッドとしてファイルに書き込む
-      $wp_filesystem->put_contents($new_file, $file_data);
+      //保存に失敗した画像をchmodしたり添付ファイルとして登録したりしない
+      if (!$wp_filesystem->put_contents($new_file, $file_data)) {
+        return null;
+      }
+    } else {
+      return null;
     }
   //}
 
@@ -118,7 +129,11 @@ function auto_post_thumbnail_image($post_id) {
   //$tmp_post = $post;
 
   if (!$post_id) {
-    $post_id = $post->id;
+    //投稿が取得できない呼び出しではプロパティを参照せず終了する
+    if (!isset($post->ID)) {
+      return;
+    }
+    $post_id = $post->ID;
   }
 
   if (is_object($post_id) && isset($post_id->ID)) {
@@ -140,6 +155,10 @@ function auto_post_thumbnail_image($post_id) {
   // }
 
   $the_post = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$wpdb->posts} WHERE id = %d", $post_id));
+  //削除済みなどで投稿が見つからない場合はnullを正規表現へ渡さない
+  if (!isset($the_post[0]->post_content)) {
+    return;
+  }
 
   //正規表現にマッチしたイメージのリストを格納する変数の初期化
   $matches = array();
@@ -169,9 +188,9 @@ function auto_post_thumbnail_image($post_id) {
          //画像のパスにサイト名が含まれているとき
          ( strpos($image, site_url()) !== false ) ) {
         //$image = substr($image, strpos($image, '"')+1);
-        preg_match('/src *= *"([^"]+)/i', $image, $m);
-        $image = $m[1];
-        if ( isset($m[1]) ) {
+        //最初に抽出したURLを再利用し、一重引用符のsrcにも対応する
+        $image = $matches[1][$key];
+        if ( $image !== '' ) {
           // header('Content-Type: text/plain; charset=utf-8');//追加
           // var_dump($path_parts);//追加
           // var_dump($image);//追加
@@ -194,7 +213,9 @@ function auto_post_thumbnail_image($post_id) {
             //サムネイルの追加文字列(-680x400など)をファイル名から削除
             $new_filename = str_replace($m[0], '', $path_parts["filename"]);
             //新しいファイル名を利用してファイルパスを結語
-            $new_filepath = $path_parts["dirname"].'/'.$new_filename.'.'.$path_parts["extension"];
+            //拡張子を持たない画像URLでも存在しないキーを参照しない
+            $extension = isset($path_parts["extension"]) ? '.'.$path_parts["extension"] : '';
+            $new_filepath = $path_parts["dirname"].'/'.$new_filename.$extension;
             //wp_postsテーブルからguidがファイルパスのものを検索してIDを取得
             $result = $wpdb->get_results($wpdb->prepare("SELECT ID FROM {$wpdb->posts} WHERE guid = %s", $new_filepath));
             //IDをサムネイルをIDにセットする

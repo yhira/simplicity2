@@ -32,13 +32,14 @@ endif;
 if ( !function_exists( 'has_amp_page' ) ):
 function has_amp_page(){
   $category_ids = get_noamp_category_ids();
-  if (!is_array(($category_ids))) {
-    $category_ids = '';
+  //カンマ区切りの設定を配列にそろえ、配列をexplodeへ渡さない
+  if (!is_array($category_ids)) {
+    $category_ids = is_scalar($category_ids) ? explode(',', (string)$category_ids) : array();
   }
   return is_singular() &&
     is_amp_enable() &&
     is_amp_page_enable() &&
-    !in_category( explode(',', $category_ids) ) && //除外カテゴリではAMPページを生成しない
+    !in_category( $category_ids ) && //除外カテゴリではAMPページを生成しない
     (!function_exists('is_bbpress') || !is_bbpress());
 }
 endif;
@@ -393,6 +394,8 @@ function generate_amp_adsense_code(){
     $data_ad_client = $m[1];
     if (!$data_ad_client) return;
     preg_match('/data-ad-slot="([^"]+?)"/i', $ad300, $m);
+    //広告ユニットIDがないコードでは未定義の配列要素を参照しない
+    if (empty($m[1])) return;
     $data_ad_slot = $m[1];
     if (!$data_ad_slot) return;
     $adsense_code = '<amp-ad width="300" height="250" type="adsense" data-ad-client="'.$data_ad_client.'" data-ad-slot="'.$data_ad_slot.'"></amp-ad>';
@@ -447,13 +450,29 @@ function get_image_width_and_height($image_url){
   $uploads_dir = $wp_upload_dir['basedir'];
   $uploads_url = $wp_upload_dir['baseurl'];
   $image_file = str_replace($uploads_url, $uploads_dir, $image_url);
-  $imagesize = getimagesize($image_file);
-  if ($imagesize) {
+  //アップロード以外でも、テーマ内のロゴなどwp-content配下の画像をローカルで読み込む
+  if ($image_file === $image_url) {
+    $image_file = url_to_local($image_url);
+  }
+  //削除済み画像やローカルパスに変換できないURLは読み込まない
+  if (!is_string($image_file) || !is_file($image_file) || !is_readable($image_file)) {
+    return false;
+  }
+  //破損画像の読み取り警告はこの処理内だけで受け止め、元のエラー処理を必ず復元する
+  set_error_handler(function () { return true; }, E_WARNING | E_NOTICE);
+  try {
+    $imagesize = getimagesize($image_file);
+  } finally {
+    restore_error_handler();
+  }
+  //幅や高さが0の画像はJSON-LDの比率計算でゼロ除算になるため利用しない
+  if ($imagesize && $imagesize[0] > 0 && $imagesize[1] > 0) {
     $res = array();
     $res['width'] = $imagesize[0];
     $res['height'] = $imagesize[1];
     return $res;
   }
+  return false;
 }
 endif;
 

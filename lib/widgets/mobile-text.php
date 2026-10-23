@@ -35,17 +35,16 @@ class MobileTextWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title_mobile_text'] = strip_tags($new_instance['title_mobile_text']);
-    $instance['text_mobile_text'] = $new_instance['text_mobile_text'];
+    $instance['title_mobile_text'] = strip_tags(($new_instance['title_mobile_text'] ?? ''));
+    $instance['text_mobile_text'] = ($new_instance['text_mobile_text'] ?? '');
       return $instance;
   }
   function form($instance) {
-    if(empty($instance)){//notice回避
-      $instance = array(
+    //旧設定で欠けている項目にも既定値を補い、未定義キーの警告を防ぐ。
+    $instance = wp_parse_args((array) $instance, array(
         'title_mobile_text' => null,
         'text_mobile_text' => null,
-      );
-    }
+      ));
     $title = esc_attr($instance['title_mobile_text']);
     $text = esc_attr($instance['text_mobile_text']);
     ?>

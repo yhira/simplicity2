@@ -584,7 +584,8 @@ function is_amp_page_enable(){
 /* 投稿画面に表示するフォームのHTMLソース */
 if ( !function_exists( 'view_update_type_custom_box' ) ) {
 function view_update_type_custom_box() {
-    $the_post = isset($_GET['post']) ? absint($_GET['post']) : null;
+    // 巨大な指数表記が URL に渡されても、整数の範囲を確認してから変換します。
+    $the_post = isset($_GET['post']) ? simplicity_sanitize_number($_GET['post']) : null;
     $update_level = get_post_meta( $the_post, 'update_level' );
     $level = $update_level ? $update_level[0] : null;
     echo '<div style="padding-top: 3px; overflow: hidden;">';
@@ -861,12 +862,18 @@ endif;
 //レーティングスタータグの取得
 if ( !function_exists( 'get_rating_star_tag' ) ):
 function get_rating_star_tag($rate, $max = 5, $number = false){
-  $rate = floatval($rate);
-  $max = intval($max);
-  //数字じゃない場合
+  // 数値以外は、オブジェクトの数値変換による警告が出る前に除外します。
   if (!is_numeric($rate) || !is_numeric($max)) {
-    return $rate;
+    return '';
   }
+  $rate = floatval($rate);
+  $max_number = floatval($max);
+  // PHP 8.5 では範囲外の float の整数化が警告になるため、変換前に確認します。
+  if (!is_finite($rate) || !is_finite($max_number) ||
+      abs($rate) >= PHP_INT_MAX || abs($max_number) >= PHP_INT_MAX) {
+    return '';
+  }
+  $max = intval($max);
   //レーティングが100より多い場合は多すぎるので処理しない
   if ($rate > 100 && $max > 100) {
     return $rate;

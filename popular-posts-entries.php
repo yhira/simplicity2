@@ -28,9 +28,8 @@ if ($g_widget_item == 'SimplicityPopularPostsCategoryWidgetItem' &&
     endforeach ;
     $now_id = implode(",", $category_IDs);
   } elseif ( is_category() ) {//カテゴリページではトップカテゴリーのみ取得
-    $categories = get_the_category();
-    $cat_now = $categories[0];
-    $now_id = $cat_now->cat_ID;
+    // 投稿がないカテゴリでも、表示中のカテゴリ ID を直接取得します。
+    $now_id = get_queried_object_id();
   }
 endif;
 //var_dump($g_exclude_category_ids);

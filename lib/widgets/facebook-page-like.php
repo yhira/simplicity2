@@ -13,10 +13,10 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
   function widget($args, $instance) {
     extract( $args );
     //タイトル名を取得
-    $title = apply_filters( 'widget_title_facebook_page_like', $instance['title_facebook_page_like'] );
+    $title = apply_filters( 'widget_title_facebook_page_like', $instance['title_facebook_page_like'] ?? '' );
     $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
     
-    $text = apply_filters( 'widget_text_facebook_page_like', $instance['text_facebook_page_like'] );
+    $text = apply_filters( 'widget_text_facebook_page_like', $instance['text_facebook_page_like'] ?? '' );
     global $g_facebook_page_like_text;
     $g_facebook_page_like_text = $text;
     global $g_is_facebook_page_like_widget_exist;
@@ -37,17 +37,16 @@ class FacebookPageLikeWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title_facebook_page_like'] = strip_tags($new_instance['title_facebook_page_like']);
-    $instance['text_facebook_page_like'] = $new_instance['text_facebook_page_like'];
+    $instance['title_facebook_page_like'] = strip_tags(($new_instance['title_facebook_page_like'] ?? ''));
+    $instance['text_facebook_page_like'] = ($new_instance['text_facebook_page_like'] ?? '');
       return $instance;
   }
   function form($instance) {
-    if(empty($instance)){//notice回避
-      $instance = array(
+    //旧設定で欠けている項目にも既定値を補い、未定義キーの警告を防ぐ。
+    $instance = wp_parse_args((array) $instance, array(
         'title_facebook_page_like' => null,
         'text_facebook_page_like' => null,
-      );
-    }
+      ));
     $title = esc_attr($instance['title_facebook_page_like']);
     $text = esc_attr($instance['text_facebook_page_like']);
     ?>

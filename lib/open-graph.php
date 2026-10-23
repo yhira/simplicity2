@@ -172,9 +172,9 @@ class OpenGraph implements Iterator
 			return $this->_values[$key];
 		}
 
-		if ($key === 'schema') {
+		if ($key === 'schema' && isset($this->_values['type'])) {
 			foreach (self::$TYPES AS $schema => $types) {
-				if (array_search($this->_values['type'], $types)) {
+				if (array_search($this->_values['type'], $types, true) !== false) {
 					return $schema;
 				}
 			}
@@ -236,6 +236,10 @@ class OpenGraph implements Iterator
 //curlのバージョンチェック
 if ( !function_exists( 'is_nss_curl' ) ):
 function is_nss_curl() {
+  //WordPressはcURLなしでも通信できるため、拡張がなければNSS用の設定を行わない。
+  if (!function_exists('curl_version')) {
+    return false;
+  }
   $info = curl_version();
   return $info['version'] === '7.19.7';
 }

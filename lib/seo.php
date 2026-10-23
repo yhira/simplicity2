@@ -187,8 +187,8 @@ function generate_canonical_url(){
   } elseif (is_category()) {
     $canonical_url = get_category_link(get_query_var('cat'));
   } elseif (is_tag()) {
-    $postTag = get_the_tags();
-    $canonical_url = get_tag_link( $postTag[0]->term_id );
+    //投稿がないタグでも、現在表示しているタグのIDからURLを取得する
+    $canonical_url = get_tag_link( get_queried_object_id() );
   } elseif (is_page() || is_single()) {
     $canonical_url = get_permalink();
   // } elseif(is_404()) {

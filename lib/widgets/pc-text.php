@@ -35,17 +35,16 @@ class PcTextWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title_pc_text'] = strip_tags($new_instance['title_pc_text']);
-    $instance['text_pc_text'] = $new_instance['text_pc_text'];
+    $instance['title_pc_text'] = strip_tags(($new_instance['title_pc_text'] ?? ''));
+    $instance['text_pc_text'] = ($new_instance['text_pc_text'] ?? '');
       return $instance;
   }
   function form($instance) {
-    if(empty($instance)){//notice回避
-      $instance = array(
+    //旧設定で欠けている項目にも既定値を補い、未定義キーの警告を防ぐ。
+    $instance = wp_parse_args((array) $instance, array(
         'title_pc_text' => null,
         'text_pc_text' => null,
-      );
-    }
+      ));
     $title = esc_attr($instance['title_pc_text']);
     $text = esc_attr($instance['text_pc_text']);
     ?>

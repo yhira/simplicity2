@@ -331,6 +331,10 @@ function get_simplicity_cache_dir(){
 //外部サイトからブログカードサムネイルを取得する
 if ( !function_exists( 'fetch_card_image' ) ):
 function fetch_card_image($image){
+  //OGP画像が未設定のページではnullを文字列関数へ渡さず終了する
+  if (!is_string($image) || $image === '') {
+    return;
+  }
   if ( WP_Filesystem() ) {//WP_Filesystemの初期化
     global $wp_filesystem;//$wp_filesystemオブジェクトの呼び出し
     //URLの？以降のクエリを削除

@@ -10,7 +10,10 @@
 
 // Helper function(s) ...
 
-define('X', "\x1A"); // a placeholder character
+//他のプラグインの定数と区別し、再読込でも定数を重複定義しない。
+if (!defined('SIMPLICITY_MINIFY_PLACEHOLDER')) {
+    define('SIMPLICITY_MINIFY_PLACEHOLDER', "\x1A");
+}
 
 $SS = '"(?:[^"\\\]++|\\\.)*+"|\'(?:[^\'\\\\]++|\\\.)*+\'';
 $CC = '\/\*[\s\S]*?\*\/';
@@ -18,14 +21,14 @@ $CH = '<\!--[\s\S]*?-->';
 
 if ( !function_exists( '__minifyx' ) ) {
 function __minifyx($input) {
-    return str_replace(array("\n", "\t", ' '), array(X . '\n', X . '\t', X . '\s'), $input);
+    return str_replace(array("\n", "\t", ' '), array(SIMPLICITY_MINIFY_PLACEHOLDER . '\n', SIMPLICITY_MINIFY_PLACEHOLDER . '\t', SIMPLICITY_MINIFY_PLACEHOLDER . '\s'), $input);
 }
 }
 
 
 if ( !function_exists( '__minifyv' ) ) {
 function __minifyv($input) {
-    return str_replace(array(X . '\n', X . '\t', X . '\s'), array("\n", "\t", ' '), $input);
+    return str_replace(array(SIMPLICITY_MINIFY_PLACEHOLDER . '\n', SIMPLICITY_MINIFY_PLACEHOLDER . '\t', SIMPLICITY_MINIFY_PLACEHOLDER . '\s'), array("\n", "\t", ' '), $input);
 }
 }
 
@@ -48,9 +51,12 @@ function __replace_html_for_minify($m) {
     if(isset($m[2])) {
         // Minify inline CSS declaration(s)
         if(stripos($m[2], ' style=') !== false) {
-            $m[2] = preg_replace_callback('#( style=)([\'"]?)(.*?)\2#i', '__replace_html_style_for_minify', $m[2]);
+            $attributes = preg_replace_callback('#( style=)([\'"]?)(.*?)\2#i', '__replace_html_style_for_minify', $m[2]);
+            //属性の圧縮に失敗した場合は、nullを後続へ渡さず元のタグを保つ。
+            if ($attributes === null) return $m[0];
+            $m[2] = $attributes;
         }
-        return '<' . $m[1] . preg_replace(
+        $attributes = preg_replace(
             array(
                 // From `defer="defer"`, `defer='defer'`, `defer="true"`, `defer='true'`, `defer=""` and `defer=''` to `defer` [^1]
                 '#\s(checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped)(?:=([\'"]?)(?:true|\1)?\2)#i',
@@ -67,7 +73,9 @@ function __replace_html_for_minify($m) {
                 // [^3]
                 '/'
             ),
-        str_replace("\n", ' ', $m[2])) . '>';
+        str_replace("\n", ' ', $m[2]));
+        if ($attributes === null) return $m[0];
+        return '<' . $m[1] . $attributes . '>';
     }
     return '<' . $m[1] . '>';
     }
@@ -84,11 +92,15 @@ function _minify_html($input) {
 if ( !function_exists( 'minify_html' ) ) {
 function minify_html($input) {
     if( ! $input = trim($input)) return $input;
+    //正規表現の処理上限に達した場合は、HTMLを壊さず元の内容を返す。
+    $original_input = $input;
     global $CH;
     // Keep important white-space(s) after self-closing HTML tag(s)
-    $input = preg_replace('#(<(?:img|input)(?:\s[^<>]*?)?\s*\/?>)\s+#i', '$1' . X . '\s', $input);
+    $input = preg_replace('#(<(?:img|input)(?:\s[^<>]*?)?\s*\/?>)\s+#i', '$1' . SIMPLICITY_MINIFY_PLACEHOLDER . '\s', $input);
+    if ($input === null) return $original_input;
     // Create chunk(s) of HTML tag(s), ignored HTML group(s), HTML comment(s) and text
     $input = preg_split('#(' . $CH . '|<pre(?:>|\s[^<>]*?>)[\s\S]*?<\/pre>|<code(?:>|\s[^<>]*?>)[\s\S]*?<\/code>|<script(?:>|\s[^<>]*?>)[\s\S]*?<\/script>|<style(?:>|\s[^<>]*?>)[\s\S]*?<\/style>|<textarea(?:>|\s[^<>]*?>)[\s\S]*?<\/textarea>|<[^<>]+?>)#i', $input, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+    if ($input === false) return $original_input;
     $output = "";
     foreach($input as $v) {
         if($v !== ' ' && trim($v) === "") continue;
@@ -98,15 +110,19 @@ function minify_html($input) {
                 if(substr($v, -12) !== '<![endif]-->') continue;
                 $output .= $v;
             } else {
-                $output .= __minifyx(_minify_html($v));
+                $minified = _minify_html($v);
+                if ($minified === null) return $original_input;
+                $output .= __minifyx($minified);
             }
         } else {
             // Force line-break with `&#10;` or `&#xa;`
-            $v = str_replace(array('&#10;', '&#xA;', '&#xa;'), X . '\n', $v);
+            $v = str_replace(array('&#10;', '&#xA;', '&#xa;'), SIMPLICITY_MINIFY_PLACEHOLDER . '\n', $v);
             // Force white-space with `&#32;` or `&#x20;`
-            $v = str_replace(array('&#32;', '&#x20;'), X . '\s', $v);
+            $v = str_replace(array('&#32;', '&#x20;'), SIMPLICITY_MINIFY_PLACEHOLDER . '\s', $v);
             // Replace multiple white-space(s) with a space
-            $output .= preg_replace('#\s+#', ' ', $v);
+            $minified = preg_replace('#\s+#', ' ', $v);
+            if ($minified === null) return $original_input;
+            $output .= $minified;
         }
     }
     // Clean up ...
@@ -124,9 +140,11 @@ function minify_html($input) {
             '$1'
         ),
     $output);
+    if ($output === null) return $original_input;
     $output = __minifyv($output);
     // Remove white-space(s) after ignored tag-open and before ignored tag-close (except `<textarea>`)
-    return preg_replace('#<(code|pre|script|style)(>|\s[^<>]*?>)\s*([\s\S]*?)\s*<\/\1>#i', '<$1$2$3</$1>', $output);
+    $output = preg_replace('#<(code|pre|script|style)(>|\s[^<>]*?>)\s*([\s\S]*?)\s*<\/\1>#i', '<$1$2$3</$1>', $output);
+    return $output === null ? $original_input : $output;
 }
 }
 
@@ -139,7 +157,7 @@ function minify_html($input) {
  */
 if ( !function_exists( '__replace_css_for_minify' ) ) {
 function __replace_css_for_minify($m) {
-    return $m[1] . preg_replace('#\s+#', X . '\s', $m[2]) . ')';
+    return $m[1] . preg_replace('#\s+#', SIMPLICITY_MINIFY_PLACEHOLDER . '\s', $m[2]) . ')';
 }
 }
 
@@ -149,6 +167,8 @@ function _minify_css($input) {
     // Keep important white-space(s) in `calc()`
     if(stripos($input, 'calc(') !== false) {
         $input = preg_replace_callback('#\b(calc\()\s*(.*?)\s*\)#i', '__replace_css_for_minify', $input);
+        //失敗した正規表現のnullを次の処理へ渡さず、呼び出し元で元のCSSへ戻す。
+        if ($input === null) return null;
     }
     // Minify ...
     return preg_replace(
@@ -180,9 +200,9 @@ function _minify_css($input) {
         ),
         array(
             // [^1]
-            X . '\s$1',
+            SIMPLICITY_MINIFY_PLACEHOLDER . '\s$1',
             // [^2]
-            ']' . X . '\s', X . '\s(', ')' . X . '\s',
+            ']' . SIMPLICITY_MINIFY_PLACEHOLDER . '\s', SIMPLICITY_MINIFY_PLACEHOLDER . '\s(', ')' . SIMPLICITY_MINIFY_PLACEHOLDER . '\s',
             // [^3]
             '#$1$2$3',
             // [^4]
@@ -212,11 +232,15 @@ function _minify_css($input) {
 if ( !function_exists( 'minify_css' ) ) {
 function minify_css($input) {
     if( ! $input = trim($input)) return $input;
+    //正規表現の処理上限に達した場合は、CSSを壊さず元の内容を返す。
+    $original_input = $input;
     global $SS, $CC;
     // Keep important white-space(s) between comment(s)
-    $input = preg_replace('#(' . $CC . ')\s+(' . $CC . ')#', '$1' . X . '\s$2', $input);
+    $input = preg_replace('#(' . $CC . ')\s+(' . $CC . ')#', '$1' . SIMPLICITY_MINIFY_PLACEHOLDER . '\s$2', $input);
+    if ($input === null) return $original_input;
     // Create chunk(s) of string(s), comment(s) and text
     $input = preg_split('#(' . $SS . '|' . $CC . ')#', $input, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+    if ($input === false) return $original_input;
     $output = "";
     foreach($input as $v) {
         if(trim($v) === "") continue;
@@ -229,7 +253,9 @@ function minify_css($input) {
             if($v[0] === '/' && strpos($v, '/*!') !== 0) continue;
             $output .= $v; // String or comment ...
         } else {
-            $output .= _minify_css($v);
+            $minified = _minify_css($v);
+            if ($minified === null) return $original_input;
+            $output .= $minified;
         }
     }
     // Remove quote(s) where possible ...
@@ -243,6 +269,7 @@ function minify_css($input) {
             '$1$2$4$5'
         ),
     $output);
+    if ($output === null) return $original_input;
     return __minifyv($output);
 }
 }
@@ -286,9 +313,12 @@ function _minify_js($input) {
 if ( !function_exists( 'minify_js' ) ) {
 function minify_js($input) {
     if( ! $input = trim($input)) return $input;
+    //正規表現の処理上限に達した場合は、JavaScriptを壊さず元の内容を返す。
+    $original_input = $input;
     // Create chunk(s) of string(s), comment(s), regex(es) and text
     global $SS, $CC;
     $input = preg_split('#(' . $SS . '|' . $CC . '|\/[^\n]+?\/(?=[.,;]|[gimuy]|$))#', $input, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+    if ($input === false) return $original_input;
     $output = "";
     foreach($input as $v) {
         if(trim($v) === "") continue;
@@ -301,10 +331,12 @@ function minify_js($input) {
             if(strpos($v, '//') === 0 || (strpos($v, '/*') === 0 && strpos($v, '/*!') !== 0 && strpos($v, '/*@cc_on') !== 0)) continue;
             $output .= $v; // String, comment or regex ...
         } else {
-            $output .= _minify_js($v);
+            $minified = _minify_js($v);
+            if ($minified === null) return $original_input;
+            $output .= $minified;
         }
     }
-    return preg_replace(
+    $output = preg_replace(
         array(
             // Minify object attribute(s) except JSON attribute(s). From `{'foo':'bar'}` to `{foo:'bar'}` [^1]
             '#(' . $CC . ')|([\{,])([\'])(\d+|[a-z_]\w*)\3(?=:)#i',
@@ -318,5 +350,6 @@ function minify_js($input) {
             '$1.$3'
         ),
     $output);
+    return $output === null ? $original_input : $output;
 }
 }

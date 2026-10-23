@@ -38,9 +38,9 @@ if ( isset( $post->post_content ) ){
 }
 $searchPattern = '/<img.*?src=(["\'])(.+?)\1.*?>/i';//投稿にイメージがあるか調べる
 if (is_singular()){//単一記事ページの場合
-  if (has_post_thumbnail()){//投稿にサムネイルがある場合の処理
-    $image_id = get_post_thumbnail_id();
-    $image = wp_get_attachment_image_src( $image_id, 'full');
+  // 添付画像を取得できない場合は、本文画像や既定画像に切り替えます。
+  $image = has_post_thumbnail() ? wp_get_attachment_image_src(get_post_thumbnail_id(), 'full') : false;
+  if (!empty($image[0])){//投稿に有効なサムネイルがある場合の処理
     $img_url = $image[0];
     echo '<meta name="twitter:image" content="'.esc_url($image[0]).'">';echo "\n";
   } else if ( preg_match( $searchPattern, $content, $imgurl ) && !is_archive()) {//投稿にサムネイルは無いが画像がある場合の処理

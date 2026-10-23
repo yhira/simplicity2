@@ -74,23 +74,22 @@ class SimplicityNewEntryWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['widget_mode'] = strip_tags($new_instance['widget_mode']);
-    $instance['title'] = strip_tags($new_instance['title']);
-    $instance['entry_count'] = strip_tags($new_instance['entry_count']);
-    $instance['is_top_visible'] = strip_tags($new_instance['is_top_visible']);
-    $instance['entry_type'] = strip_tags($new_instance['entry_type']);
+    $instance['widget_mode'] = strip_tags(($new_instance['widget_mode'] ?? ''));
+    $instance['title'] = strip_tags(($new_instance['title'] ?? ''));
+    $instance['entry_count'] = strip_tags(($new_instance['entry_count'] ?? ''));
+    $instance['is_top_visible'] = strip_tags(($new_instance['is_top_visible'] ?? ''));
+    $instance['entry_type'] = strip_tags(($new_instance['entry_type'] ?? ''));
       return $instance;
   }
   function form($instance) {
-    if(empty($instance)){
-      $instance = array(
+    //旧設定で欠けている項目にも既定値を補い、未定義キーの警告を防ぐ。
+    $instance = wp_parse_args((array) $instance, array(
         'widget_mode' => 'all',
         'title' => '',
         'entry_count' => 5,
         'is_top_visible' => 1,
         'entry_type' => 'default',
-      );
-    }
+      ));
     $widget_mode = isset($instance['widget_mode']) ? esc_attr($instance['widget_mode']) : 'all';
     $title = '';
     if (isset($instance['title'])) {

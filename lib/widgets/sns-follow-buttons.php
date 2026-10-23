@@ -33,15 +33,14 @@ class SimplicitySocialFollowWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title'] = trim(strip_tags($new_instance['title']));
+    $instance['title'] = trim(strip_tags(($new_instance['title'] ?? '')));
       return $instance;
   }
   function form($instance) {
-    if(empty($instance)){
-      $instance = array(
+    //旧設定で欠けている項目にも既定値を補い、未定義キーの警告を防ぐ。
+    $instance = wp_parse_args((array) $instance, array(
         'title' => null,
-      );
-    }
+      ));
     $title = isset($instance['title']) ? esc_attr($instance['title']) : '';
     ?>
     <p>

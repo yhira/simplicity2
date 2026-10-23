@@ -85,7 +85,9 @@ endif;
 if ( !function_exists( 'get_basename' ) ):
 function get_basename($filename){
   $p = pathinfo($filename);
-  return basename ( $filename, ".{$p['extension']}" );
+  //拡張子がないファイルでは存在しないextensionキーを参照しない
+  $suffix = isset($p['extension']) ? '.'.$p['extension'] : '';
+  return basename ( $filename, $suffix );
 }
 endif;
 

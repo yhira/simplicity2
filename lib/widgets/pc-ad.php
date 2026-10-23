@@ -12,9 +12,9 @@ class PcAdWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
-    $ad = apply_filters( 'widget_pc_ad_text', $instance['ad_text'] );
-    $margin_left_px = apply_filters( 'widget_margin_left_px', $instance['margin_left_px'] );
-    $is_exclude_ads_enable = apply_filters( 'widget_is_exclude_ads_enable', $instance['is_exclude_ads_enable'] );
+    $ad = apply_filters( 'widget_pc_ad_text', $instance['ad_text'] ?? '' );
+    $margin_left_px = apply_filters( 'widget_margin_left_px', $instance['margin_left_px'] ?? 0 );
+    $is_exclude_ads_enable = apply_filters( 'widget_is_exclude_ads_enable', $instance['is_exclude_ads_enable'] ?? false );
     if ( empty($margin_left_px) ) {
       $margin_left_px = 0;
     }
@@ -38,19 +38,18 @@ class PcAdWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['ad_text'] = $new_instance['ad_text'];
-    $instance['margin_left_px']   = $new_instance['margin_left_px'];
-    $instance['is_exclude_ads_enable'] = $new_instance['is_exclude_ads_enable'];
+    $instance['ad_text'] = ($new_instance['ad_text'] ?? '');
+    $instance['margin_left_px']   = ($new_instance['margin_left_px'] ?? '');
+    $instance['is_exclude_ads_enable'] = ($new_instance['is_exclude_ads_enable'] ?? '');
     return $instance;
   }
   function form($instance) {
-    if(empty($instance)){//notice回避
-      $instance = array(
+    //旧設定で欠けている項目にも既定値を補い、未定義キーの警告を防ぐ。
+    $instance = wp_parse_args((array) $instance, array(
         'ad_text' => null,
         'margin_left_px' => 0,
         'is_exclude_ads_enable' => true,
-      );
-    }
+      ));
     $ad = esc_attr($instance['ad_text']);
     $margin_left_px = esc_attr($instance['margin_left_px']);
     $is_exclude_ads_enable = esc_attr($instance['is_exclude_ads_enable']);

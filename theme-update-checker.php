@@ -178,6 +178,10 @@ class ThemeUpdateChecker {
 
 		//Is there an update to insert?
 		if ( !empty($state) && isset($state->update) && !empty($state->update) ){
+			//期限切れのトランジェントはfalseになるため、更新情報を代入できるオブジェクトにする。
+			if ( !is_object($updates) ){
+				$updates = new StdClass;
+			}
 			$updates->response[$this->theme] = $state->update->toWpFormat();
 		}
 
@@ -250,6 +254,8 @@ if ( !class_exists('ThemeUpdate') ):
  * @version 1.0
  * @access public
  */
+//更新APIの拡張項目も保持するコンテナなので、動的プロパティを明示的に許可する。
+#[\AllowDynamicProperties]
 class ThemeUpdate {
 	public $version;      //Version number.
 	public $details_url;  //The URL where the user can learn more about this version.
@@ -268,7 +274,11 @@ class ThemeUpdate {
 		}
 
 		//Very, very basic validation.
-		$valid = isset($apiResponse->version) && !empty($apiResponse->version) && isset($apiResponse->details_url) && !empty($apiResponse->details_url);
+		//外部JSONの配列やオブジェクトをバージョン比較やURL処理へ渡さない。
+		$valid = isset($apiResponse->version) && !empty($apiResponse->version)
+			&& (is_string($apiResponse->version) || is_int($apiResponse->version) || is_float($apiResponse->version))
+			&& isset($apiResponse->details_url) && is_string($apiResponse->details_url) && !empty($apiResponse->details_url)
+			&& (!isset($apiResponse->download_url) || is_string($apiResponse->download_url));
 		if ( !$valid ){
 			return null;
 		}

@@ -29,15 +29,15 @@ class SimplicityClassicTextWidget extends WP_Widget {
     //アップデート処理
     public function update( $new_instance, $old_instance ) {
 			$instance = $old_instance;
-			$instance['title'] = sanitize_text_field( $new_instance['title'] );
+			$instance['title'] = sanitize_text_field( ($new_instance['title'] ?? '') );
 
 			if ( current_user_can( 'unfiltered_html' ) ){
-				$instance['text'] = $new_instance['text'];
+				$instance['text'] = ($new_instance['text'] ?? '');
 			} else {
-				$instance['text'] = wp_kses_post( $new_instance['text'] );
+				$instance['text'] = wp_kses_post( ($new_instance['text'] ?? '') );
 			}
 
-			$instance['filter'] = ! empty( $new_instance['filter'] );
+			$instance['filter'] = ! empty( ($new_instance['filter'] ?? '') );
 
 			return $instance;
     }

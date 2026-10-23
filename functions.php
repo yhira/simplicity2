@@ -1115,9 +1115,8 @@ function get_category_ids(){
     endforeach ;
     return $category_IDs;
   } elseif ( is_category() ) {//カテゴリページではトップカテゴリーのみ取得
-    $categories = get_the_category();
-    $cat_now = $categories[0];
-    return array( $cat_now->cat_ID );
+    //投稿がない場合も、表示しているカテゴリ自身のIDを取得する
+    return array( get_queried_object_id() );
   }
   return null;
 }
@@ -1274,6 +1273,10 @@ add_filter('wp_theme_editor_filetypes', 'add_js_to_wp_theme_editor_filetypes');
 //サイトアドレスが含まれているか
 if ( !function_exists( 'includes_site_url' ) ):
 function includes_site_url($url){
+  // アイキャッチ未設定時の null などを文字列関数へ渡さないようにします。
+  if (!is_string($url) || $url === '') {
+    return false;
+  }
   //URLにサイトアドレスが含まれていない場合
   if (strpos($url, site_url()) === false) {
     return false;
@@ -1574,14 +1577,14 @@ remove_action( 'init', 'wpcom_youtube_embed_crazy_url_init' );
 add_filter('embed_oembed_html', 'youtube_embed_oembed_html', 1, 3);
 if ( !function_exists( 'youtube_embed_oembed_html' ) ):
 function youtube_embed_oembed_html ($cache, $url, $attr) {
-  if (is_amp()) {
+  if (is_amp() || !is_string($cache) || $cache === '') {
     return $cache;
   }
 
   $MATCH_CACHE = null;
   // data-youtubeチェック
-  if (strpos($cache, 'data-youtube')) {
-    preg_match( '/(?<=data-youtube=")(.+?)(?=")/', $cache, $match_cache);
+  if (strpos($cache, 'data-youtube') !== false &&
+      preg_match( '/(?<=data-youtube=")(.+?)(?=")/', $cache, $match_cache) === 1) {
     $MATCH_CACHE = $match_cache[0];
   };
 
@@ -1589,7 +1592,7 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
   if (empty($MATCH_CACHE)) {
 
     // YouTubeキャッシュを無視する
-    if (!strpos($cache, 'youtube')) {
+    if (strpos($cache, 'youtube') === false) {
       return $cache;
     }
 
@@ -1604,11 +1607,17 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
     // プレイリストIDがある場合
     if( preg_match_all( '/videoseries|list=/i', $cache, $m )){
       // プレイリストIDの抽出
-      preg_match( '/(?<=list=)(.+?)(?=")/', $cache, $list );
+      if (preg_match( '/(?<=list=)(.+?)(?=")/', $cache, $list ) !== 1) {
+        return $cache;
+      }
       // ビデオIDの取得
       //file_get_contentsの代わりにwp_remote_getを使用（allow_url_fopen無効環境対応）
       $oembed_res = wp_remote_get('https://www.youtube.com/oembed?url=http://www.youtube.com/playlist?list='.$list[1]);
       $json = (!is_wp_error($oembed_res) && wp_remote_retrieve_response_code($oembed_res) === 200) ? json_decode(wp_remote_retrieve_body($oembed_res), true) : array();
+      // 通信失敗や不完全な JSON は元の iframe 表示に戻します。
+      if (!is_array($json) || !isset($json['thumbnail_url']) || !is_string($json['thumbnail_url'])) {
+        return $cache;
+      }
       // ビデオIDの抽出
       preg_match( '/(?<=vi\/)(.+?)(?=\/)/', $json['thumbnail_url'], $video_id );
     } else {
@@ -1616,11 +1625,18 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
     }
 
     // もしビデオIDないまだ空ならおそらくYouTubeがオフライン
-    if (!$video_id[0]) {
+    if (empty($video_id[0])) {
       return $cache;
     }
 
+    //cURL拡張がない環境では、元のiframeをそのまま表示する
+    if (!function_exists('curl_init')) {
+      return $cache;
+    }
     $ch = curl_init();
+    if ($ch === false) {
+      return $cache;
+    }
     $headers = array(
       'Accept-language: en',
       'User-Agent: Mozilla/5.0 (iPad; CPU OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari',
@@ -1636,7 +1652,8 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
     $data = curl_exec($ch);
 
     $info = curl_getinfo($ch);
-    curl_close($ch);
+    // PHP 8 以降は自動解放されるため、PHP 8.5 で非推奨の curl_close は呼びません。
+    unset($ch);
 
     if ($info['http_code'] != 200){
       return $cache;
@@ -1649,11 +1666,11 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
 
     // コード処理
     $data = str_replace("\\U",'\\u', $data);
-    $json =  json_decode($data,JSON_UNESCAPED_SLASHES);
+    $json = json_decode($data, true);
 
 
     // JSONが無効な場合
-    if (empty($json)) {
+    if (!is_array($json) || !isset($json['title']) || !is_string($json['title'])) {
       return $cache;
     }
 
@@ -1678,7 +1695,13 @@ function youtube_embed_oembed_html ($cache, $url, $attr) {
     $MATCH_CACHE = $youtube_cache;
   }
 
-  $json   = json_decode(base64_decode($MATCH_CACHE), true);
+  $decoded_cache = base64_decode($MATCH_CACHE, true);
+  $json = $decoded_cache === false ? null : json_decode($decoded_cache, true);
+  // 古いキャッシュが破損していても、未定義キーや型エラーを発生させません。
+  if (!is_array($json) || !isset($json['video_id'], $json['title']) ||
+      !is_string($json['video_id']) || $json['video_id'] === '' || !is_string($json['title'])) {
+    return $cache;
+  }
 
   $youtube   = preg_replace("/data-youtube=\"(.+?)\"/", "", $cache);
   $youtube   = htmlentities(str_replace( '=oembed','=oembed&autoplay=1&rel=0', $youtube ));
@@ -1814,13 +1837,15 @@ function campaign_shortcode( $atts, $content = null ) {
   $now = date_i18n('U');
 
   //いつから（開始日時）
-  $from_time = strtotime($from);
+  //開始日時を省略したときは、nullをstrtotimeへ渡さず既存の既定値を使う
+  $from_time = is_string($from) && $from !== '' ? strtotime($from) : false;
   if (!$from_time) {
     $from_time = strtotime('-1 day');
   };
 
   //いつまで（終了日時）
-  $to_time = strtotime($to);
+  //終了日時も同様に、省略された値を日付として解析しない
+  $to_time = is_string($to) && $to !== '' ? strtotime($to) : false;
   if (!$to_time) {
     $to_time = strtotime('+1 day');
   };

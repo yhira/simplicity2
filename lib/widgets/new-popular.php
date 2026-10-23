@@ -123,22 +123,22 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title_new'] = strip_tags($new_instance['title_new']);
-    $instance['title_popular'] = trim(strip_tags($new_instance['title_popular']));
-    $instance['entry_count'] = strip_tags($new_instance['entry_count']);
-    $instance['entry_type'] = strip_tags($new_instance['entry_type']);
-    $instance['is_pages_include'] = strip_tags($new_instance['is_pages_include']);
-    $instance['is_views_visible'] = strip_tags($new_instance['is_views_visible']);
-    $instance['range'] = strip_tags($new_instance['range']);
-    $instance['range_visible'] = $new_instance['range_visible'];
-    $instance['is_ranking_visible'] = strip_tags($new_instance['is_ranking_visible']);
-    $instance['exclude_ids'] = strip_tags($new_instance['exclude_ids']);
-    $instance['exclude_category_ids'] = strip_tags($new_instance['exclude_category_ids']);
+    $instance['title_new'] = strip_tags(($new_instance['title_new'] ?? ''));
+    $instance['title_popular'] = trim(strip_tags(($new_instance['title_popular'] ?? '')));
+    $instance['entry_count'] = strip_tags(($new_instance['entry_count'] ?? ''));
+    $instance['entry_type'] = strip_tags(($new_instance['entry_type'] ?? ''));
+    $instance['is_pages_include'] = strip_tags(($new_instance['is_pages_include'] ?? ''));
+    $instance['is_views_visible'] = strip_tags(($new_instance['is_views_visible'] ?? ''));
+    $instance['range'] = strip_tags(($new_instance['range'] ?? ''));
+    $instance['range_visible'] = ($new_instance['range_visible'] ?? '');
+    $instance['is_ranking_visible'] = strip_tags(($new_instance['is_ranking_visible'] ?? ''));
+    $instance['exclude_ids'] = strip_tags(($new_instance['exclude_ids'] ?? ''));
+    $instance['exclude_category_ids'] = strip_tags(($new_instance['exclude_category_ids'] ?? ''));
       return $instance;
   }
   function form($instance) {
-    if(empty($instance)){
-      $instance = array(
+    //旧設定で欠けている項目にも既定値を補い、未定義キーの警告を防ぐ。
+    $instance = wp_parse_args((array) $instance, array(
         'title_new' => null,
         'title_popular' => null,
         'entry_count' => null,
@@ -150,8 +150,7 @@ class SimplicityNewPopularWidgetItem extends WP_Widget {
         'is_ranking_visible' => null,
         'exclude_ids' => null,
         'exclude_category_ids' => null,
-      );
-    }
+      ));
     $title_new = esc_attr($instance['title_new']);
     $title_popular = esc_attr($instance['title_popular']);
     $entry_count = esc_attr($instance['entry_count']);

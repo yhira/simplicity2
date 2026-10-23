@@ -91,21 +91,20 @@ class RecentCommentsWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title'] = strip_tags($new_instance['title']);
-    $instance['count'] = $new_instance['count'];
-    $instance['str_count'] = $new_instance['str_count'];
-    $instance['author_not_in'] = $new_instance['author_not_in'];
+    $instance['title'] = strip_tags(($new_instance['title'] ?? ''));
+    $instance['count'] = ($new_instance['count'] ?? '');
+    $instance['str_count'] = ($new_instance['str_count'] ?? '');
+    $instance['author_not_in'] = ($new_instance['author_not_in'] ?? '');
     return $instance;
   }
   function form($instance) {
-    if(empty($instance)){//notice回避
-      $instance = array(
+    //旧設定で欠けている項目にも既定値を補い、未定義キーの警告を防ぐ。
+    $instance = wp_parse_args((array) $instance, array(
         'title' => null,
         'count' => 5,
         'str_count' => 100,
         'author_not_in' => false,
-      );
-    }
+      ));
     $title = esc_attr($instance['title']);
     $count = esc_attr($instance['count']);
     $str_count = esc_attr($instance['str_count']);

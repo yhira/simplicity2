@@ -12,9 +12,9 @@ class PcDoubleAdsWidgetItem extends WP_Widget {
   }
   function widget($args, $instance) {
     extract( $args );
-    $ad1 = apply_filters( 'widget_pc_double_ad1_text', $instance['ad1_text'] );
-    $ad2 = apply_filters( 'widget_pc_double_ad2_text', $instance['ad2_text'] );
-    $is_exclude_ads_enable = apply_filters( 'widget_is_exclude_ads_enable', $instance['is_exclude_ads_enable'] );
+    $ad1 = apply_filters( 'widget_pc_double_ad1_text', $instance['ad1_text'] ?? '' );
+    $ad2 = apply_filters( 'widget_pc_double_ad2_text', $instance['ad2_text'] ?? '' );
+    $is_exclude_ads_enable = apply_filters( 'widget_is_exclude_ads_enable', $instance['is_exclude_ads_enable'] ?? false );
     if ( empty($margin_left_px) ) {
       $margin_left_px = 0;
     }
@@ -35,19 +35,18 @@ class PcDoubleAdsWidgetItem extends WP_Widget {
   }
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['ad1_text'] = $new_instance['ad1_text'];
-    $instance['ad2_text'] = $new_instance['ad2_text'];
-    $instance['is_exclude_ads_enable'] = $new_instance['is_exclude_ads_enable'];
+    $instance['ad1_text'] = ($new_instance['ad1_text'] ?? '');
+    $instance['ad2_text'] = ($new_instance['ad2_text'] ?? '');
+    $instance['is_exclude_ads_enable'] = ($new_instance['is_exclude_ads_enable'] ?? '');
     return $instance;
   }
   function form($instance) {
-    if(empty($instance)){//notice回避
-      $instance = array(
+    //旧設定で欠けている項目にも既定値を補い、未定義キーの警告を防ぐ。
+    $instance = wp_parse_args((array) $instance, array(
         'ad1_text' => null,
         'ad2_text' => null,
         'is_exclude_ads_enable' => true,
-      );
-    }
+      ));
     $ad1 = esc_attr($instance['ad1_text']);
     $ad2 = esc_attr($instance['ad2_text']);
     $is_exclude_ads_enable = esc_attr($instance['is_exclude_ads_enable']);

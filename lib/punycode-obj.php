@@ -89,6 +89,10 @@ class Simplicity_Punycode
      */
     protected function _encodePart($input)
     {
+        //不正な文字列は変換せず返し、バイト位置の参照エラーを防ぐ。
+        if (!mb_check_encoding($input, $this->encoding)) {
+            return $input;
+        }
         $codePoints = $this->_codePoints($input);
 
         $n = self::INITIAL_N;
@@ -132,7 +136,8 @@ class Simplicity_Punycode
                         $code = $t + (($q - $t) % (self::BASE - $t));
                         $output .= self::$_encodeTable[$code];
 
-                        $q = ($q - $t) / (self::BASE - $t);
+                        // RFC 3492の整数除算に合わせ、小数を次の剰余計算や配列キーへ渡さない。
+                        $q = (int) (($q - $t) / (self::BASE - $t));
                     }
 
                     $output .= self::$_encodeTable[$q];
@@ -159,12 +164,15 @@ class Simplicity_Punycode
     {
         $parts = explode('.', $input);
         foreach ($parts as &$part) {
-            if (strpos($part, self::PREFIX) !== 0) {
+            if (stripos($part, self::PREFIX) !== 0) {
                 continue;
             }
 
-            $part = substr($part, strlen(self::PREFIX));
-            $part = $this->_decodePart($part);
+            $decoded = $this->_decodePart(substr($part, strlen(self::PREFIX)));
+            //不正なPunycodeラベルは元の表記を保ち、後続のURL処理を継続する。
+            if ($decoded !== false) {
+                $part = $decoded;
+            }
         }
 
         return implode('.', $parts);
@@ -178,6 +186,9 @@ class Simplicity_Punycode
      */
     protected function _decodePart($input)
     {
+        if ($input === '') {
+            return false;
+        }
         $n = self::INITIAL_N;
         $i = 0;
         $bias = self::INITIAL_BIAS;
@@ -186,6 +197,9 @@ class Simplicity_Punycode
         $pos = strrpos($input, self::DELIMITER);
         if ($pos !== false) {
             $output = substr($input, 0, $pos++);
+            if (preg_match('/[^\x00-\x7F]/', $output)) {
+                return false;
+            }
         } else {
             $pos = 0;
         }
@@ -197,7 +211,15 @@ class Simplicity_Punycode
             $w = 1;
 
             for ($k = self::BASE;; $k += self::BASE) {
-                $digit = self::$_decodeTable[$input[$pos++]];
+                //途中で切れた入力や数字表にない文字は復号できない。
+                if ($pos >= $inputLength || !isset(self::$_decodeTable[strtolower($input[$pos])])) {
+                    return false;
+                }
+                $digit = self::$_decodeTable[strtolower($input[$pos++])];
+                //整数の上限を超える入力を、浮動小数点数へ変わる前に除外する。
+                if ($digit > (PHP_INT_MAX - $i) / $w) {
+                    return false;
+                }
                 $i = $i + ($digit * $w);
                 $t = $this->_calculateThreshold($k, $bias);
 
@@ -205,11 +227,23 @@ class Simplicity_Punycode
                     break;
                 }
 
+                if ($w > PHP_INT_MAX / (self::BASE - $t)) {
+                    return false;
+                }
                 $w = $w * (self::BASE - $t);
             }
 
+            //整数へ変換する前にUnicodeの上限を確認し、巨大な入力での範囲外変換を防ぐ。
+            $codePointDelta = $i / ($outputLength + 1);
+            if ($codePointDelta >= 0x110000 - $n) {
+                return false;
+            }
             $bias = $this->_adapt($i - $oldi, ++$outputLength, ($oldi === 0));
-            $n = $n + (int) ($i / $outputLength);
+            $n = $n + (int) $codePointDelta;
+            //Unicodeの範囲外とサロゲートはUTF-8の文字に変換できない。
+            if ($n > 0x10FFFF || ($n >= 0xD800 && $n <= 0xDFFF)) {
+                return false;
+            }
             $i = $i % ($outputLength);
             $output = mb_substr($output, 0, $i, $this->encoding) . $this->_codePointToChar($n) . mb_substr($output, $i, $outputLength - 1, $this->encoding);
 

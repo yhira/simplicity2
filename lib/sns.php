@@ -48,7 +48,8 @@ if ( !function_exists( 'fetch_feedly_count' ) ):
 function fetch_feedly_count(){
   //DBキャッシュからカウントの取得
   $subscribers = get_transient( 'feedly_subscribers' );
-  if ( $subscribers ) {
+  //古いキャッシュの不正な型や非有限数を、そのまま画面へ出力しない
+  if ( is_numeric($subscribers) && is_finite((float)$subscribers) ) {
     return $subscribers;
   }
   $feed_url = rawurlencode( get_bloginfo( 'rss2_url' ) );
@@ -57,7 +58,7 @@ function fetch_feedly_count(){
   $subscribers = wp_remote_get( "https://cloud.feedly.com/v3/feeds/feed%2F$feed_url", $args );
   if (!is_wp_error( $subscribers ) && $subscribers["response"]["code"] === 200) {
     $subscribers = json_decode( $subscribers['body'] );
-    if ( $subscribers ) {
+    if ( isset($subscribers->subscribers) && is_numeric($subscribers->subscribers) && is_finite((float)$subscribers->subscribers) ) {
       $subscribers = $subscribers->subscribers;
       set_transient( 'feedly_subscribers', $subscribers, 60 * 60 * 12 );
       $res = ($subscribers ? $subscribers : 0);
@@ -79,7 +80,11 @@ if ( !function_exists( 'fetch_push7_info' ) ):
 function fetch_push7_info(){
   //DBキャッシュからカウントの取得
   $info = get_transient( 'push7_info' );
-  if ( $info ) {
+  //ドメインがない古いキャッシュは再取得し、購読者数の欠損は0で補う
+  if ( is_object($info) && isset($info->domain) && is_string($info->domain) && $info->domain !== '' ) {
+    if (!isset($info->subscribers) || !is_numeric($info->subscribers) || !is_finite((float)$info->subscribers)) {
+      $info->subscribers = 0;
+    }
     return $info;
   }
   $res = null;
@@ -91,7 +96,11 @@ function fetch_push7_info(){
     $info = wp_remote_get( $url, $args );
     if (!is_wp_error( $info ) && $info["response"]["code"] === 200) {
       $info = json_decode( $info['body'] );
-      if ( $info ) {
+      if ( is_object($info) && isset($info->domain) && is_string($info->domain) && $info->domain !== '' ) {
+        //不完全なAPI応答でも、テンプレートへ出力できる購読者数を保証する
+        if (!isset($info->subscribers) || !is_numeric($info->subscribers) || !is_finite((float)$info->subscribers)) {
+          $info->subscribers = 0;
+        }
         //Push7情報をキャッシュに保存
         set_transient( 'push7_info', $info, 60 * 60 * 12 );
 
@@ -136,10 +145,15 @@ function fetch_pocket_count($url) {
     //URL（クエリ）先の情報を取得
     $args = array( 'sslverify' => is_ssl_verification_enable() );
     $result = wp_remote_get($query, $args);
+    //通信失敗時のWP_Errorを配列として扱わず、次回の取得で再試行する
+    if (is_wp_error($result)) {
+      return 0;
+    }
     //var_dump($result["body"]);
     // 正規表現でカウント数のところだけを抽出
     preg_match( '/<em id="cnt">([0-9.]+)<\/em>/i', $result["body"], $count );
-    $res = isset($count[1]) ? intval($count[1]) : 0;
+    //小数点付きの巨大な件数を、整数の範囲内に整えてから変換する
+    $res = isset($count[1]) ? simplicity_sanitize_number($count[1]) : 0;
     set_transient( $transient_id, $res, HOUR_IN_SECONDS * 3 );
     // 共有数を表示
     return $res;
@@ -158,7 +172,8 @@ function fetch_twitter_count($url){
   if (!is_wp_error( $subscribers ) && $subscribers["response"]["code"] === 200) {
        $body = $subscribers['body'];
     $json = json_decode( $body );
-    $res = ($json->{"count"} ? $json->{"count"} : '0');
+    //件数が欠落・不正な型でも、出力できる数値または数値文字列だけを返す
+    $res = !empty($json->{"count"}) && is_numeric($json->{"count"}) ? $json->{"count"} : '0';
   }
   return $res;
 }
@@ -183,11 +198,11 @@ function fetch_facebook_count($url) {
   if (!is_wp_error( $response ) && $response["response"]["code"] === 200) {
     $body = $response['body'];
     $json = json_decode( $body ); //ジェイソンオブジェクトに変換する
-    $reaction_count = isset($json->{'engagement'}->{'reaction_count'}) ? $json->{'engagement'}->{'reaction_count'} : 0;
-    $comment_count = isset($json->{'engagement'}->{'comment_count'}) ? $json->{'engagement'}->{'comment_count'} : 0;
-    $share_count = isset($json->{'engagement'}->{'share_count'}) ? $json->{'engagement'}->{'share_count'} : 0;
-    $comment_plugin_count = isset($json->{'engagement'}->{'comment_plugin_count'}) ? $json->{'engagement'}->{'comment_plugin_count'} : 0;
-    $res = intval($reaction_count) + intval($comment_count) + intval($share_count) + intval($comment_plugin_count);
+    //各件数と合計の上限を先に確認し、PHP 8.5の範囲外整数変換を防ぐ
+    foreach (array('reaction_count', 'comment_count', 'share_count', 'comment_plugin_count') as $field) {
+      $count = isset($json->{'engagement'}->{$field}) ? simplicity_sanitize_number($json->{'engagement'}->{$field}) : 0;
+      $res += min($count, PHP_INT_MAX - $res);
+    }
   }
   return $res;
 }
